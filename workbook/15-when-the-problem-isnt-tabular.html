@@ -1,0 +1,32 @@
+<!doctype html><html lang="en" class="cmp-page cmp-home"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>When the Problem Isn&#x27;t Tabular</title><link rel="stylesheet" href="../companion.css"><style>main{max-width:1000px;margin:auto;padding:32px 20px}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{max-width:100%;height:auto}.table-scroll{overflow:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;border-bottom:1px solid #ddd;padding:8px;overflow-wrap:anywhere}details{margin:20px 0;padding:12px;border:1px solid #ddd}textarea{display:block;width:100%;min-height:100px;box-sizing:border-box;font:inherit}label{display:block;margin:20px 0}a,summary,button{cursor:pointer}button{font:inherit;padding:8px}section{margin:28px 0}</style></head><body><header class="cmp-header"><div class="cmp-topbar"><nav class="cmp-nav"><a href="../index.html">All chapters</a><a href="index.html">Workbook</a><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/15-when-the-problem-isnt-tabular.ipynb">Notebook on GitHub</a></nav></div></header><main class="cmp-wrap"><h1>Chapter 15: When the Problem Isn&#x27;t Tabular</h1><section><h2>Try the decision first</h2><p>Return a legal goal-reaching prefix-flip path.</p><p>Write your expectation before opening the worked results. Use the chapter activity to compare supported inputs. To change the calculation itself, run the notebook on GitHub.</p><label>Prediction and reason<textarea data-answer="0"></textarea></label><label>Assessment population and eligible information<textarea data-answer="1"></textarea></label><label>Comparison and evidence required<textarea data-answer="2"></textarea></label><label>Keep, reject or defer, with limits<textarea data-answer="3"></textarea></label><button id="export" type="button">Download my answers</button><p>Your answers stay on this page until you download them. They are not sent to a server.</p></section><p><a href="../15-when-the-problem-isnt-tabular/reader.html">Open the chapter activity</a></p><details><summary>Worked notebook and saved results</summary><h1>Chapter 15: When the Problem Isn't Tabular</h1>
+<p>Return a legal goal-reaching prefix-flip path.</p>
+<p>A search algorithm must return a legal completed solution, not only a promising estimate. In prefix-flip sorting, the state is the pancake order and an action reverses the first k items. The reported cost should count actions in a path that actually reaches sorted order.</p>
+<p>Change the depth limit for the three-item instance. The bounded breadth-first search reports whether it found the goal, its legal flips and visited nodes. Replay the flips mentally. At a small limit, failure means no goal was found within that budget; it does not mean sorting is impossible. When a path is found, the example replays it and asserts sorted order.</p>
+<p>Before scaling a search, separate an achievable greedy completion cost from an admissible lower bound. A greedy procedure normally supplies an upper bound because it constructs a feasible solution. A beam-search ranking heuristic may be useful without being admissible, but that limits what you can claim about optimality. Profile actual expansions on small instances and increase budgets gradually. The activity demonstrates goal checking and legal-path accounting, not a benchmark for beam search, NMCS or a competition-winning search strategy.</p>
+<p>This is a constructed teaching example. Its results describe these supplied inputs, not a measured competition gain.</p>
+<h2>Assumptions</h2>
+<p>Exact bounded BFS on three distinct pancake sizes; not NMCS benchmark.</p>
+<details><summary>Calculation code</summary><pre><code>parameter = 3
+# Change this input, then run the following calculation.</code></pre></details><details><summary>Calculation code</summary><pre><code>import json
+assert 0 &lt;= parameter &lt;= 5
+assert int(parameter) == parameter
+from collections import deque
+start=(3,1,2);goal=(1,2,3);queue=deque([(start,[])]);seen={start};found=None;visited=0
+while queue:
+ state,path=queue.popleft();visited+=1
+ if state==goal: found=path;break
+ if len(path)&gt;=int(parameter): continue
+ for k in range(2,len(state)+1):
+  nxt=state[:k][::-1]+state[k:]
+  if nxt not in seen: seen.add(nxt);queue.append((nxt,path+[k]))
+end=start
+if found is not None:
+ for k in found:end=end[:k][::-1]+end[k:]
+ assert end==goal
+result={&#x27;goal_found&#x27;:int(found is not None),&#x27;flip_count&#x27;:len(found) if found is not None else -1,&#x27;legal_path&#x27;:found or [],&#x27;nodes_visited&#x27;:visited,&#x27;depth_limit&#x27;:int(parameter)}
+print(json.dumps(result))
+</code></pre></details><div class="table-scroll"><table><thead><tr><th scope="col">Quantity or decision</th><th scope="col">Result</th></tr></thead><tbody><tr><td>goal found</td><td>1</td></tr><tr><td>flip count</td><td>2</td></tr><tr><td>legal path / 1</td><td>3</td></tr><tr><td>legal path / 2</td><td>2</td></tr><tr><td>nodes visited</td><td>5</td></tr><tr><td>depth limit</td><td>3</td></tr></tbody></table></div><h2>Interpretation</h2>
+<p>Goal/path verified; failure means not found within depth, not impossible.</p>
+<p>Book location: Chapter 15, Combinatorial Optimization: Santa 2024.</p>
+<p><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/docs/errata.md">Technical corrections</a>.</p>
+</details><script>document.getElementById("export").addEventListener("click",()=>{const answers=[...document.querySelectorAll("textarea[data-answer]")].map(x=>({prompt:x.parentElement.firstChild.textContent.trim(),answer:x.value}));const blob=new Blob([JSON.stringify({page:location.pathname,answers},null,2)],{type:"application/json"});const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="workbook-answers.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);});</script></main><footer class="cmp-footer"><div class="cmp-footer-inner"><p>Winning Kaggle the Reproducible Way</p><a href="https://karpeles.com/publishing/winning-kaggle-the-reproducible-way">About the book</a> · <a href="https://github.com/KarpelesPublishing/winning-kaggle-companion">GitHub</a></div></footer></body></html>
