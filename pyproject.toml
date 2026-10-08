@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "winning-kaggle-companion"
+version = "0.1.0"
+description = "Reproducible modeling tools for Winning Kaggle the Reproducible Way"
+requires-python = ">=3.13"
+dependencies = ["numpy>=1.26", "pandas>=2.2", "scikit-learn>=1.6", "joblib>=1.4"]
+
+[project.scripts]
+kaggle-companion = "kaggle_companion.modeling:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

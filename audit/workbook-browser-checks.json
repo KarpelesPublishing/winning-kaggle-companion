@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Actual Chrome file-page interactions, all 65 workbook pages and answer export; external targets separately verified.",
+  "checks": [
+    "65 chapter links and 561 lesson count",
+    "65 worked results, response fields and notebook links render",
+    "actual answer download preserves entered response",
+    "desktop and 390px layouts with no horizontal page overflow"
+  ],
+  "workbook_index_sha256": "9f0524614f938fec5e209f657c7600f67ecc029a1da8664479410c315d6465b8"
+}

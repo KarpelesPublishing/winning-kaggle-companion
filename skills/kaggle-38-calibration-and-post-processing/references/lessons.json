@@ -1,0 +1,1252 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-f52c1cd9a737a9deb2f8",
+      "canonical_key": "compare probability calibration for the test prior with class oversampling or weighted training. | training frequencies differ from a known balanced test set | predictive_quality",
+      "title": "Calibrate a classifier for a known test class prior",
+      "statement": "When training frequencies differ from a known balanced test set, proposed reuse: Proposed conditional application: Compare probability calibration for the test prior with class oversampling or weighted training. Proposed check: Compare prior calibration/oversampling/loss weighting on holdouts resampled to justified deployment priors. Limitation: Known balanced test prior is contest-specific; prior correction assumes appropriate conditional stability.",
+      "trigger_conditions": [
+        "training frequencies differ from a known balanced test set"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare probability calibration for the test prior with class oversampling or weighted training."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare prior calibration/oversampling/loss weighting on holdouts resampled to justified deployment priors."
+      ],
+      "limitations": [
+        "Known balanced test prior is contest-specific; prior correction assumes appropriate conditional stability."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Furniture team calibrates probabilities for a balanced test set and reports oversampling/loss weights helped less.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed prior adjustment when deployment frequencies are known.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-5ffa3edf45dacafb972a"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Straightforward probability correction with prior knowledge.",
+        "competitor": "Useful distribution-aware imbalance comparison.",
+        "practitioner": "Only valid when deployment priors can be credibly estimated."
+      },
+      "review": {
+        "candidate_id": "C-f52c1cd9a737a9deb2f8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full furniture source calibrates known balanced test prior; observation falsely called species modeling.",
+        "candidate_sha256": "546ed598db0a60e4022fa0432000d370095364375283b25b6525c12a9675d2f5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000162",
+      "slug": "lesson-000162",
+      "merged_candidate_ids": [
+        "C-f52c1cd9a737a9deb2f8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2cbd52d2d79ffa745ed5",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "source_id": "source:lesson-source-2df2fbd8a2e4e366",
+          "snapshot_path": "research/lesson-extraction/snapshots/373fb92c7a611b550ee9555e0392f7eb1509d426614a16b4e9d7d8e941af90fd.txt",
+          "snapshot_sha256": "373fb92c7a611b550ee9555e0392f7eb1509d426614a16b4e9d7d8e941af90fd",
+          "source_url": "https://www.kaggle.com/competitions/imaterialist-challenge-furniture-2018/writeups/lei-dowakin-1st-place-solution-pretrained-models-a",
+          "source_quality": "primary_text",
+          "observation_id": "O-5ffa3edf45dacafb972a",
+          "line_start": 62,
+          "line_end": 62,
+          "evidence_text": "oversampling and weights for loss didn't help as much as calibration.",
+          "kind": "reported_failure",
+          "statement": "Furniture team reports oversampling and loss weights helped less than calibration for its known balanced test prior.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Straightforward probability correction with prior knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful distribution-aware imbalance comparison.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Only valid when deployment priors can be credibly estimated.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-2df2fbd8a2e4e366",
+          "locator": "research/lesson-extraction/snapshots/373fb92c7a611b550ee9555e0392f7eb1509d426614a16b4e9d7d8e941af90fd.txt#L62-L62",
+          "quote": "oversampling and weights for loss didn't help as much as calibration.",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "url": "https://www.kaggle.com/competitions/imaterialist-challenge-furniture-2018/writeups/lei-dowakin-1st-place-solution-pretrained-models-a",
+          "snapshot_path": "research/lesson-extraction/snapshots/373fb92c7a611b550ee9555e0392f7eb1509d426614a16b4e9d7d8e941af90fd.txt",
+          "snapshot_sha256": "373fb92c7a611b550ee9555e0392f7eb1509d426614a16b4e9d7d8e941af90fd",
+          "line_start": 62,
+          "line_end": 62
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-f52c1cd9a737a9deb2f8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full furniture source calibrates known balanced test prior; observation falsely called species modeling.",
+          "candidate_sha256": "546ed598db0a60e4022fa0432000d370095364375283b25b6525c12a9675d2f5"
+        }
+      ],
+      "book_location": {
+        "chapter": 38,
+        "path": "manuscript/chapters/38-calibration-and-post-processing.md",
+        "sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
+        "line_start": 113,
+        "line_end": 117,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a65e430286629ca9d49e",
+      "canonical_key": "compare probability correction with uncorrected outputs using a documented target prior | training and asserted target class proportions differ | predictive_quality",
+      "title": "Compare class-prior correction using an explicit target-prior assumption",
+      "statement": "When training class proportions differ from an asserted test prior, compare probability recalibration using a documented test-prior assumption against uncalibrated outputs. Test prior correction on representative held-out data, inspect probability normalization and verify ordered output IDs. Uniform test priors are assumed in source, not proven. The formula operates one-vs-rest and differs from standard multiclass prior-ratio renormalization; no before/after score values are shown.",
+      "trigger_conditions": [
+        "training class proportions differ from an asserted test prior",
+        "image classifier training and evaluation priors differ and many models are ensembled"
+      ],
+      "action_steps": [
+        "Proposed: compare probability recalibration using a documented test-prior assumption against uncalibrated outputs.",
+        "Compare explicit training-to-target prior correction with uncorrected probabilities, documenting target-prior evidence."
+      ],
+      "verification_steps": [
+        "Proposed: test prior correction on representative held-out data, inspect probability normalization and verify ordered output IDs.",
+        "Check calibration and predictive metric on independently labeled target-like examples."
+      ],
+      "limitations": [
+        "Uniform test priors are assumed in source, not proven. The formula operates one-vs-rest and differs from standard multiclass prior-ratio renormalization; no before/after score values are shown.",
+        "Exact correction formula is linked elsewhere, not supplied here; target priors may be unknown in deployment.",
+        "Twelve-view TTA and ensemble runtime are separate implementation choices."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "furniture",
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "prior_shift_comparison",
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "prior_shift_assumption",
+          "probability_calibration",
+          "prediction_alignment"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for imaterialist-challenge-furniture-2018: calibrate_probs uses empirical training class frequency and a uniform 1/128 test positive probability to modify each class probability.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: test a documented target-prior correction against raw probabilities on representative held-out data, auditing normalization and ID mapping.",
+          "basis": "proposed"
+        },
+        {
+          "description": "The repository describes twelve-view TTA and probability correction from training prevalence to a balanced distribution, with per-model epoch runtimes on a 1070.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-3dcddbcf9e79bde53bce",
+        "O-a-bfcc6d30d71ba8f4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner needs prior-shift and calibration concepts before safely adopting this specialized formula.",
+        "competitor": "Competitor can compare an explicit test-prior assumption cheaply, but must validate normalization and ID order.",
+        "practitioner": "Practitioner gets a conditional recalibration experiment under label shift, requiring representative data and a justified target prior."
+      },
+      "review": {
+        "candidate_id": "C-a65e430286629ca9d49e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Reviewed current recalibration comparison and exact winner-pipeline code evidence. Title keeps correction conditional on an explicit prior assumption; the one-vs-rest formula distinction, assumed uniform prior and absent before/after results remain unchanged.",
+        "candidate_sha256": "0d172c851319368bf693d883de87a8ab9fd980b22901dfa758f593f59d3327c3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000163",
+      "slug": "lesson-000163",
+      "merged_candidate_ids": [
+        "C-a-bfcc6d30d71ba8f4",
+        "C-a65e430286629ca9d49e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-cd75d9a9ab0270ff9124",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "source_id": "source:lesson-source-a270797c1bac076c",
+          "snapshot_path": "research/lesson-extraction/snapshots/084e9b2975d27182e6ac31314120417cc1a8ae46a0b9c435170be6feb6410ddd.txt",
+          "snapshot_sha256": "084e9b2975d27182e6ac31314120417cc1a8ae46a0b9c435170be6feb6410ddd",
+          "source_url": "https://raw.githubusercontent.com/skrypka/imaterialist-furniture-2018/HEAD/Submit.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-3dcddbcf9e79bde53bce",
+          "line_start": 41,
+          "line_end": 54,
+          "evidence_text": "def calibrate_prob(positive_prob_train, positive_prob_test, prob):\n    return (positive_prob_test * prob) / (positive_prob_test * prob + positive_prob_train * (1 - prob))\n\ndef calibrate_probs(prob):\n    nb_train = train_df.shape[0]\n    for class_ in range(128):\n        nb_positive_train = ((train_df.label_id - 1) == class_).sum()\n\n        positive_prob_train = nb_positive_train / nb_train\n        positive_prob_test = 1 / 128 # balanced class distribution \n        for i in range(prob.shape[0]):\n            old_p = prob[i, class_]\n            new_p = calibrate_prob(positive_prob_train, positive_prob_test, old_p)\n            prob[i, class_] = new_p",
+          "kind": "used",
+          "statement": "calibrate_probs uses empirical training class frequency and a uniform 1/128 test positive probability to modify each class probability.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-a1f05edc00cb028bb879",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "source_id": "source:lesson-source-7e3b2c26bb839415",
+          "snapshot_path": "research/lesson-extraction/snapshots/9895191ca5de8492262f7286b0b5f00a3c172ec7bc43f8f45298e74c1adaa1fe.txt",
+          "snapshot_sha256": "9895191ca5de8492262f7286b0b5f00a3c172ec7bc43f8f45298e74c1adaa1fe",
+          "source_url": "https://raw.githubusercontent.com/skrypka/imaterialist-furniture-2018/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-bfcc6d30d71ba8f4",
+          "line_start": 20,
+          "line_end": 37,
+          "evidence_text": "# Overview:\n- ensemble inceptionv4, densenet161, densenet201, inceptionresnetv2, xception\n- 12TTA\n- probability calibration from train distribution to balanced distribution https://www.kaggle.com/dowakin/calibrate-probability-0-005-to-lb\n\n# Some results from my experiments (1070):\n\n- resnet34 - epoch 18 val 0.62678 0.172 (15min*18epoch)\n- resnet50 - epoch 4 val 0.63055 0.171 (30min*4)\n- resnet101 - epoch 6 val 0.59619 0.157 (43min*6)\n- inception3 - epoch 8 val 0.60509 0.154 (37min*8) = 0.16927 LB\n- densenet121 - epoch 17 val 0.60620 0.167 (28min*17)\n- densenet161 - epoch 7 val 0.57006 0.149 (60min*7) = 0.16406 LB\n- densenet201 - epoch 11 val 0.54275 0.145 (45min*11) = 0.15755 LB\n- densenet161 - epoch 13 val 0.53795 0.150 = 0.15130 LB\n- inceptionv4 - epoch 15 val 0.52382 0.137 (70min*15)\n- inceptionresnetv2 - epoch 11 val 0.49438 0.139 (65min*11)\n- xception - epoch 14 val 0.53719 0.149 (65min*15)",
+          "kind": "used",
+          "statement": "The repository describes twelve-view TTA and probability correction from training prevalence to a balanced distribution, with per-model epoch runtimes on a 1070.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Beginner needs prior-shift and calibration concepts before safely adopting this specialized formula.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Competitor can compare an explicit test-prior assumption cheaply, but must validate normalization and ID order.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner gets a conditional recalibration experiment under label shift, requiring representative data and a justified target prior.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 2,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a270797c1bac076c",
+          "locator": "research/lesson-extraction/snapshots/084e9b2975d27182e6ac31314120417cc1a8ae46a0b9c435170be6feb6410ddd.txt#L41-L54",
+          "quote": "def calibrate_prob(positive_prob_train, positive_prob_test, prob):\n    return (positive_prob_test * prob) / (positive_prob_test * prob + positive_prob_train * (1 - prob))\n\ndef calibrate_probs(prob):\n    nb_train = train_df.shape[0]\n    for class_ in range(128):\n        nb_positive_train = ((train_df.label_id - 1) == class_).sum()\n\n        positive_prob_train = nb_positive_train / nb_train\n        positive_prob_test = 1 / 128 # balanced class distribution \n        for i in range(prob.shape[0]):\n            old_p = prob[i, class_]\n            new_p = calibrate_prob(positive_prob_train, positive_prob_test, old_p)\n            prob[i, class_] = new_p",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "url": "https://raw.githubusercontent.com/skrypka/imaterialist-furniture-2018/HEAD/Submit.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/084e9b2975d27182e6ac31314120417cc1a8ae46a0b9c435170be6feb6410ddd.txt",
+          "snapshot_sha256": "084e9b2975d27182e6ac31314120417cc1a8ae46a0b9c435170be6feb6410ddd",
+          "line_start": 41,
+          "line_end": 54
+        },
+        {
+          "source_id": "source:lesson-source-7e3b2c26bb839415",
+          "locator": "research/lesson-extraction/snapshots/9895191ca5de8492262f7286b0b5f00a3c172ec7bc43f8f45298e74c1adaa1fe.txt#L20-L37",
+          "quote": "# Overview:\n- ensemble inceptionv4, densenet161, densenet201, inceptionresnetv2, xception\n- 12TTA\n- probability calibration from train distribution to balanced distribution https://www.kaggle.com/dowakin/calibrate-probability-0-005-to-lb\n\n# Some results from my experiments (1070):\n\n- resnet34 - epoch 18 val 0.62678 0.172 (15min*18epoch)\n- resnet50 - epoch 4 val 0.63055 0.171 (30min*4)\n- resnet101 - epoch 6 val 0.59619 0.157 (43min*6)\n- inception3 - epoch 8 val 0.60509 0.154 (37min*8) = 0.16927 LB\n- densenet121 - epoch 17 val 0.60620 0.167 (28min*17)\n- densenet161 - epoch 7 val 0.57006 0.149 (60min*7) = 0.16406 LB\n- densenet201 - epoch 11 val 0.54275 0.145 (45min*11) = 0.15755 LB\n- densenet161 - epoch 13 val 0.53795 0.150 = 0.15130 LB\n- inceptionv4 - epoch 15 val 0.52382 0.137 (70min*15)\n- inceptionresnetv2 - epoch 11 val 0.49438 0.139 (65min*11)\n- xception - epoch 14 val 0.53719 0.149 (65min*15)",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "url": "https://raw.githubusercontent.com/skrypka/imaterialist-furniture-2018/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/9895191ca5de8492262f7286b0b5f00a3c172ec7bc43f8f45298e74c1adaa1fe.txt",
+          "snapshot_sha256": "9895191ca5de8492262f7286b0b5f00a3c172ec7bc43f8f45298e74c1adaa1fe",
+          "line_start": 20,
+          "line_end": 37
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-bfcc6d30d71ba8f4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked train-to-balanced prior correction; formula external,12TTA separate.",
+          "candidate_sha256": "c2a5d094e6a10f0f2a719ad79a499be3518ca0c1d2defc8cb6f32bb99cfd2979"
+        },
+        {
+          "candidate_id": "C-a65e430286629ca9d49e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Reviewed current recalibration comparison and exact winner-pipeline code evidence. Title keeps correction conditional on an explicit prior assumption; the one-vs-rest formula distinction, assumed uniform prior and absent before/after results remain unchanged.",
+          "candidate_sha256": "0d172c851319368bf693d883de87a8ab9fd980b22901dfa758f593f59d3327c3"
+        },
+        {
+          "candidate_id": "C-a65e430286629ca9d49e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c_final",
+          "reason": "Independently re-read complete furniture Submit notebook and README, both observations and corresponding explicit merge decision. Neutral comparison title preserves an asserted target prior rather than treating balance as verified. Actual per-class one-vs-rest expression is not standard multiclass prior-ratio renormalization; unknown normalization, class/row alignment, absent before/after score outputs, missing formula in prose and separate twelve-view/ensemble costs remain qualified. No execution, isolated gain or independent recurrence inferred; cautious prior-shift utility grades remain appropriate.",
+          "candidate_sha256": "0d172c851319368bf693d883de87a8ab9fd980b22901dfa758f593f59d3327c3"
+        }
+      ],
+      "book_location": {
+        "chapter": 38,
+        "path": "manuscript/chapters/38-calibration-and-post-processing.md",
+        "sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
+        "line_start": 119,
+        "line_end": 123,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-db8fb5062605baf3",
+      "canonical_key": "discretize predictions using training-target distributions | targets are discrete or tied and metric is spearman correlation | predictive_quality",
+      "title": "Compare discrete output calibration against continuous predictions",
+      "statement": "When targets have discrete or tied distributions and base text models differ, Compare target-distribution discretization with continuous outputs, fitting mappings on training folds. Verify: Measure held-out Spearman and sensitivity to target prevalence changes. Limits: Precise discretization algorithm is absent; gains are author-reported local results.; BART diversity, linear blending and unsuccessful stacking/backtranslation are separate model experiments.",
+      "trigger_conditions": [
+        "targets have discrete or tied distributions and base text models differ"
+      ],
+      "action_steps": [
+        "Compare target-distribution discretization with continuous outputs, fitting mappings on training folds."
+      ],
+      "verification_steps": [
+        "Measure held-out Spearman and sensitivity to target prevalence changes."
+      ],
+      "limitations": [
+        "Precise discretization algorithm is absent; gains are author-reported local results.",
+        "BART diversity, linear blending and unsuccessful stacking/backtranslation are separate model experiments."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "distribution_shift",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "BART decorrelated with BERT despite three-day training; discretization using training-target distributions improved Spearman correlation, while stacking/backtranslation did not help and linear blends worked.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-db8fb5062605baf3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Mapping tied-target distributions needs careful metric understanding.",
+        "competitor": "Useful cheap rank-metric postprocessing before retraining.",
+        "practitioner": "Narrow target-distribution mapping with prevalence-shift risk."
+      },
+      "review": {
+        "candidate_id": "C-a-db8fb5062605baf3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked0.027\u20130.030Spearman gains; narrowed decision to output discretization.",
+        "candidate_sha256": "81a99b769ab6bec058a77b3e673b036e419dfe213eb46e3f6374586a1289c5d0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000231",
+      "slug": "lesson-000231",
+      "merged_candidate_ids": [
+        "C-a-db8fb5062605baf3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ebe46b39e87458da3b77",
+          "competition_id": "competition:google-quest-challenge",
+          "source_id": "source:lesson-source-8bd69e3b433688cf",
+          "snapshot_path": "research/lesson-extraction/snapshots/696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872.txt",
+          "snapshot_sha256": "696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872",
+          "source_url": "https://www.kaggle.com/competitions/google-quest-challenge/writeups/bibimorph-1st-place-solution-with-code",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-db8fb5062605baf3",
+          "line_start": 42,
+          "line_end": 59,
+          "evidence_text": "One week prior to the deadline, we noticed [@christofhenkel](https://www.kaggle.com/christofhenkel) \u2019s post in the external data thread - the one about [fairseq BART](https://github.com/pytorch/fairseq/tree/master/examples/bart) . Autoregressive sequence-to-sequence model for text classification? Looked strange to me but at the same time that was something new and daring, and we wouldn\u2019t ignore a hint by such a prominent kaggler. It took us three whole days to train BART on 1080ti with batch size 2. The model scored 0.427 locally and it\u2019s predictions decorrelated well with those of BERT.\n\nWe also trained a few other bert-base, bert-large, roberta-base, and roberta-large models. They all scored around 0.420 locally but didn\u2019t improve drastically our bert+bart baseline.\n\n**Post-processing**\n\nAnd finally, post-processing. Yes we did one. Based on [this discussion](https://www.kaggle.com/c/google-quest-challenge/discussion/118724) we found that discretization of predictions for some challenging targets led to better spearman corr. So we used no thresholds but discretized such columns based on their distribution in the training set. That simple heuristics boosted score by 0.027-0.030 for almost every single model (up to 0.448 bert-base, 0.454 bart).\n\n**Finish**\n\nOur local validation and public score stayed the same for the whole last week - 0.468. Yesterday, since early morning with all this berts, barts, robertas we were not able to reproduce public score :harold:, having only 0.462 submissions but they seem to work the best -> 0.430-0.433 private leaderboard (unfortunately we didn\u2019t select the best one). But that was good enough.\n\n**What didn\u2019t happen to work well**\n\n*   StackExchange meta-features used to boost our score in the very beginning but in the end they made no significant difference\n*   GPT, GPT2-medium, GPT2-large showed mediocre scores\n*   backtranslation\n*   stacking. Instead, linear blends worked unreasonably well",
+          "kind": "reported_gain",
+          "statement": "BART decorrelated with BERT despite three-day training; discretization using training-target distributions improved Spearman correlation, while stacking/backtranslation did not help and linear blends worked.",
+          "reported_result": {
+            "metric": "reported Spearman-correlation gain lower bound",
+            "value": 0.027,
+            "context": "Google QUEST: training-distribution discretization versus continuous outputs,0.027\u20130.030for nearly every single model; mapping details/evaluation uncertainty absent, no isolated blend gain.",
+            "evidence_text": "One week prior to the deadline, we noticed [@christofhenkel](https://www.kaggle.com/christofhenkel) \u2019s post in the external data thread - the one about [fairseq BART](https://github.com/pytorch/fairseq/tree/master/examples/bart) . Autoregressive sequence-to-sequence model for text classification? Looked strange to me but at the same time that was something new and daring, and we wouldn\u2019t ignore a hint by such a prominent kaggler. It took us three whole days to train BART on 1080ti with batch size 2. The model scored 0.427 locally and it\u2019s predictions decorrelated well with those of BERT.\n\nWe also trained a few other bert-base, bert-large, roberta-base, and roberta-large models. They all scored around 0.420 locally but didn\u2019t improve drastically our bert+bart baseline.\n\n**Post-processing**\n\nAnd finally, post-processing. Yes we did one. Based on [this discussion](https://www.kaggle.com/c/google-quest-challenge/discussion/118724) we found that discretization of predictions for some challenging targets led to better spearman corr. So we used no thresholds but discretized such columns based on their distribution in the training set. That simple heuristics boosted score by 0.027-0.030 for almost every single model (up to 0.448 bert-base, 0.454 bart).\n\n**Finish**\n\nOur local validation and public score stayed the same for the whole last week - 0.468. Yesterday, since early morning with all this berts, barts, robertas we were not able to reproduce public score :harold:, having only 0.462 submissions but they seem to work the best -> 0.430-0.433 private leaderboard (unfortunately we didn\u2019t select the best one). But that was good enough.\n\n**What didn\u2019t happen to work well**\n\n*   StackExchange meta-features used to boost our score in the very beginning but in the end they made no significant difference\n*   GPT, GPT2-medium, GPT2-large showed mediocre scores\n*   backtranslation\n*   stacking. Instead, linear blends worked unreasonably well"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Mapping tied-target distributions needs careful metric understanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful cheap rank-metric postprocessing before retraining.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Narrow target-distribution mapping with prevalence-shift risk.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8bd69e3b433688cf",
+          "locator": "research/lesson-extraction/snapshots/696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872.txt#L42-L59",
+          "quote": "One week prior to the deadline, we noticed [@christofhenkel](https://www.kaggle.com/christofhenkel) \u2019s post in the external data thread - the one about [fairseq BART](https://github.com/pytorch/fairseq/tree/master/examples/bart) . Autoregressive sequence-to-sequence model for text classification? Looked strange to me but at the same time that was something new and daring, and we wouldn\u2019t ignore a hint by such a prominent kaggler. It took us three whole days to train BART on 1080ti with batch size 2. The model scored 0.427 locally and it\u2019s predictions decorrelated well with those of BERT.\n\nWe also trained a few other bert-base, bert-large, roberta-base, and roberta-large models. They all scored around 0.420 locally but didn\u2019t improve drastically our bert+bart baseline.\n\n**Post-processing**\n\nAnd finally, post-processing. Yes we did one. Based on [this discussion](https://www.kaggle.com/c/google-quest-challenge/discussion/118724) we found that discretization of predictions for some challenging targets led to better spearman corr. So we used no thresholds but discretized such columns based on their distribution in the training set. That simple heuristics boosted score by 0.027-0.030 for almost every single model (up to 0.448 bert-base, 0.454 bart).\n\n**Finish**\n\nOur local validation and public score stayed the same for the whole last week - 0.468. Yesterday, since early morning with all this berts, barts, robertas we were not able to reproduce public score :harold:, having only 0.462 submissions but they seem to work the best -> 0.430-0.433 private leaderboard (unfortunately we didn\u2019t select the best one). But that was good enough.\n\n**What didn\u2019t happen to work well**\n\n*   StackExchange meta-features used to boost our score in the very beginning but in the end they made no significant difference\n*   GPT, GPT2-medium, GPT2-large showed mediocre scores\n*   backtranslation\n*   stacking. Instead, linear blends worked unreasonably well",
+          "competition_id": "competition:google-quest-challenge",
+          "url": "https://www.kaggle.com/competitions/google-quest-challenge/writeups/bibimorph-1st-place-solution-with-code",
+          "snapshot_path": "research/lesson-extraction/snapshots/696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872.txt",
+          "snapshot_sha256": "696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872",
+          "line_start": 42,
+          "line_end": 59
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-db8fb5062605baf3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked0.027\u20130.030Spearman gains; narrowed decision to output discretization.",
+          "candidate_sha256": "81a99b769ab6bec058a77b3e673b036e419dfe213eb46e3f6374586a1289c5d0"
+        }
+      ],
+      "book_location": {
+        "chapter": 38,
+        "path": "manuscript/chapters/38-calibration-and-post-processing.md",
+        "sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
+        "line_start": 125,
+        "line_end": 129,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-c72fb3439ec2e0adaf11",
+      "canonical_key": "fit blend weights and class priors on four folds and score the fifth, disabling postprocessing stages with negative held-out gain. | oof ensemble calibration can overfit the same predictions | validation_reliability",
+      "title": "Gate calibration stages using nested held-out gains",
+      "statement": "When OOF ensemble calibration can overfit the same predictions, proposed reuse: Proposed conditional application: Fit blend weights and class priors on four folds and score the fifth, disabling postprocessing stages with negative held-out gain. Proposed check: Repeat held-out gating across all folds and use a final untouched set after choosing stages. Limitation: Repeated stage choices can overfit meta-validation; language-mix agreement does not prove no shift.",
+      "trigger_conditions": [
+        "OOF ensemble calibration can overfit the same predictions"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Fit blend weights and class priors on four folds and score the fifth, disabling postprocessing stages with negative held-out gain."
+      ],
+      "verification_steps": [
+        "Proposed check: Repeat held-out gating across all folds and use a final untouched set after choosing stages."
+      ],
+      "limitations": [
+        "Repeated stage choices can overfit meta-validation; language-mix agreement does not prove no shift.",
+        "The +0.0044 to +0.0024 numbers describe apparent versus nested held-out calibration gain; metric units and uncertainty are unspecified in the comparison."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The bilingual toxicity source gates postprocessing using nested held-out evaluation and rejects methods that do not transfer.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-f23a610d281eb3c5c732",
+        "O-root-audit-241d63507f0c74cf"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Nested calibration needs moderate validation knowledge.",
+        "competitor": "Strong safeguard against OOF postprocessing overfit.",
+        "practitioner": "High operational value for calibrated ensemble selection."
+      },
+      "review": {
+        "candidate_id": "C-c72fb3439ec2e0adaf11",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "root-audit-repair-fresh",
+        "reason": "Read full HerWILL README. Nested four-fold fit/fifth-fold evaluation supported. Added exact gain comparison and preserved task-metric uncertainty and postprocessing-selection overfitting limits.",
+        "candidate_sha256": "2e43dc7d044616aff53696b9e54dff4044644099bbb56d22ce03bfbaae4913a9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000277",
+      "slug": "lesson-000277",
+      "merged_candidate_ids": [
+        "C-c72fb3439ec2e0adaf11"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9986076c5bee53a8f306",
+          "competition_id": "competition:herwill-safe-social-media-datathon-2026",
+          "source_id": "source:lesson-source-b8405ac5676e1644",
+          "snapshot_path": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt",
+          "snapshot_sha256": "98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f",
+          "source_url": "https://raw.githubusercontent.com/tousiftanzeeeem/Herwill-X-UAP-Safe-Social-media-Datathon-2026-Champion-Codes/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-f23a610d281eb3c5c732",
+          "line_start": 122,
+          "line_end": 123,
+          "evidence_text": "Blend weights and class priors are fitted on four folds and\n  scored on the fifth.",
+          "kind": "used",
+          "statement": "The bilingual toxicity source gates postprocessing using nested held-out evaluation and rejects methods that do not transfer.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-9986076c5bee53a8f306",
+          "competition_id": "competition:herwill-safe-social-media-datathon-2026",
+          "source_id": "source:lesson-source-b8405ac5676e1644",
+          "snapshot_path": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt",
+          "snapshot_sha256": "98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f",
+          "source_url": "https://raw.githubusercontent.com/tousiftanzeeeem/Herwill-X-UAP-Safe-Social-media-Datathon-2026-Champion-Codes/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-root-audit-241d63507f0c74cf",
+          "line_start": 121,
+          "line_end": 124,
+          "evidence_text": "  every backbone, so out-of-fold matrices stack without leakage.\n- **Nested cross-validation.** Blend weights and class priors are fitted on four folds and\n  scored on the fifth. A stage is kept only if its *held-out* gain is positive \u2014 global\n  calibration's apparent +0.0044 shrank to +0.0024 under this test.",
+          "kind": "reported_gain",
+          "statement": "The author reports apparent global-calibration gain +0.0044 shrinking to held-out +0.0024 when calibration fits four folds and scores the fifth. Gain metric/units are not explicitly named in this comparison.",
+          "reported_result": {
+            "metric": "author-reported calibration gain; metric and units unspecified in comparison",
+            "value": 0.0024,
+            "context": "Nested held-out gain +0.0024 versus apparent global gain +0.0044 in this macro-F1 classification project; no isolated causal or replicated gain claimed.",
+            "evidence_text": "  every backbone, so out-of-fold matrices stack without leakage.\n- **Nested cross-validation.** Blend weights and class priors are fitted on four folds and\n  scored on the fifth. A stage is kept only if its *held-out* gain is positive \u2014 global\n  calibration's apparent +0.0044 shrank to +0.0024 under this test."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Nested calibration needs moderate validation knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Strong safeguard against OOF postprocessing overfit.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "High operational value for calibrated ensemble selection.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b8405ac5676e1644",
+          "locator": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt#L122-L123",
+          "quote": "Blend weights and class priors are fitted on four folds and\n  scored on the fifth.",
+          "competition_id": "competition:herwill-safe-social-media-datathon-2026",
+          "url": "https://raw.githubusercontent.com/tousiftanzeeeem/Herwill-X-UAP-Safe-Social-media-Datathon-2026-Champion-Codes/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt",
+          "snapshot_sha256": "98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f",
+          "line_start": 122,
+          "line_end": 123
+        },
+        {
+          "source_id": "source:lesson-source-b8405ac5676e1644",
+          "locator": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt#L121-L124",
+          "quote": "  every backbone, so out-of-fold matrices stack without leakage.\n- **Nested cross-validation.** Blend weights and class priors are fitted on four folds and\n  scored on the fifth. A stage is kept only if its *held-out* gain is positive \u2014 global\n  calibration's apparent +0.0044 shrank to +0.0024 under this test.",
+          "competition_id": "competition:herwill-safe-social-media-datathon-2026",
+          "url": "https://raw.githubusercontent.com/tousiftanzeeeem/Herwill-X-UAP-Safe-Social-media-Datathon-2026-Champion-Codes/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt",
+          "snapshot_sha256": "98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f",
+          "line_start": 121,
+          "line_end": 124
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-c72fb3439ec2e0adaf11",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "root-audit-repair-fresh",
+          "reason": "Read full HerWILL README. Nested four-fold fit/fifth-fold evaluation supported. Added exact gain comparison and preserved task-metric uncertainty and postprocessing-selection overfitting limits.",
+          "candidate_sha256": "2e43dc7d044616aff53696b9e54dff4044644099bbb56d22ce03bfbaae4913a9"
+        },
+        {
+          "candidate_id": "C-c72fb3439ec2e0adaf11",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Rechecked final resolved HerWILL candidate and exact added observation O-root-audit-241d63507f0c74cf against previously read full packet. Apparent+0.0044 versus nested-held-out+0.0024 calibration gain now has precise comparator and explicitly unknown metric units/uncertainty. Meta-selection and language-shift caveats remain; twelve utility scores fit moderate nesting effort and broad validation value.",
+          "candidate_sha256": "2e43dc7d044616aff53696b9e54dff4044644099bbb56d22ce03bfbaae4913a9"
+        }
+      ],
+      "book_location": {
+        "chapter": 38,
+        "path": "manuscript/chapters/38-calibration-and-post-processing.md",
+        "sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
+        "line_start": 83,
+        "line_end": 93,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-84802414b83f3cef",
+      "canonical_key": "proposed adaptation: fit sensor-specific mean and uncertainty calibration on held-out predictions and investigate persistent structured residuals. | bayesian predictions are systematically miscalibrated for an evaluation metric | validation_reliability",
+      "title": "Calibrate predictive means and uncertainty while auditing model mismatch",
+      "statement": "When Bayesian predictions are systematically miscalibrated for an evaluation metric, consider this source-backed action: Proposed adaptation: fit sensor-specific mean and uncertainty calibration on held-out predictions and investigate persistent structured residuals. Proposed check: Compare calibration, coverage and competition metric with and without calibration on a separate split. Limit: The author fit on the full training set; held-out fitting is proposed. Improved score does not prove a correct generative prior.",
+      "trigger_conditions": [
+        "Bayesian predictions are systematically miscalibrated for an evaluation metric"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed adaptation: fit sensor-specific mean and uncertainty calibration on held-out predictions and investigate persistent structured residuals."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare calibration, coverage and competition metric with and without calibration on a separate split."
+      ],
+      "limitations": [
+        "The author fit on the full training set; held-out fitting is proposed. Improved score does not prove a correct generative prior."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "overfitting"
+        ],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author fit twelve metric-optimized calibration parameters for sensor means and uncertainties; the large score dependence on this calibration was viewed as evidence of prior/model mismatch.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-84802414b83f3cef"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Mean/variance calibration requires probabilistic modeling expertise.",
+        "competitor": "Calibration audit addresses metric/prior discrepancies without causal claim.",
+        "practitioner": "Useful uncertainty calibration; score alone cannot validate scientific prior."
+      },
+      "review": {
+        "candidate_id": "C-a-84802414b83f3cef",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked full-train12-parameter calibration; held-out adaptation proposed, mismatch unresolved.",
+        "candidate_sha256": "059685ece2047559aa8cb2f9da84137d01771bbbfb36638182ae2f13fbebfc17"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000393",
+      "slug": "lesson-000393",
+      "merged_candidate_ids": [
+        "C-a-84802414b83f3cef"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f6b0bf7e1dc180410c58",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "source_url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-84802414b83f3cef",
+          "line_start": 107,
+          "line_end": 129,
+          "evidence_text": "The prediction and uncertainty obtained above can still be improved further with some post-hoc calibration. Note that this is anathema to a proper Bayesian approach - more on that below.\n\nWe adapt the mean of the transit depth per sensor based on fitting:\n\n*   A constant offset\n*   A multiplicative factor\n*   Dependence on the first limb darkening parameter\n\nThe variation of the transit depth over wavelength is not fudged, i.e. not changed in this step.\n\nWe adapt the uncertainty of the transit depth per sensor based on fitting:\n\n*   A constant offset\n*   A multiplicative factor for the mean of the transit depth\n*   A multiplicative factor for the variation of the transit depth over wavelength\n*   Dependence on the magnitude of the variation of the transit depth over wavelength\n\nIn total, the fudging has 12 parameters to fit. These are determined on the full training set, based on whichever values optimize the competition metric.\n\n5. Final thoughts - we're missing something!\n--------------------------------------------\n\nThe fact that fudging helps the score is extremely worrying. And it's not subtle: last year, my solution without fudging could have gotten 1st place; my solution this year without fudging would have ended up around ~20th place. It means there's something missing in the prior, i.e. it does not describe reality (or rather the synthetic data generation process) accurately.",
+          "kind": "used",
+          "statement": "The author fit twelve metric-optimized calibration parameters for sensor means and uncertainties; the large score dependence on this calibration was viewed as evidence of prior/model mismatch.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Mean/variance calibration requires probabilistic modeling expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Calibration audit addresses metric/prior discrepancies without causal claim.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful uncertainty calibration; score alone cannot validate scientific prior.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "locator": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt#L107-L129",
+          "quote": "The prediction and uncertainty obtained above can still be improved further with some post-hoc calibration. Note that this is anathema to a proper Bayesian approach - more on that below.\n\nWe adapt the mean of the transit depth per sensor based on fitting:\n\n*   A constant offset\n*   A multiplicative factor\n*   Dependence on the first limb darkening parameter\n\nThe variation of the transit depth over wavelength is not fudged, i.e. not changed in this step.\n\nWe adapt the uncertainty of the transit depth per sensor based on fitting:\n\n*   A constant offset\n*   A multiplicative factor for the mean of the transit depth\n*   A multiplicative factor for the variation of the transit depth over wavelength\n*   Dependence on the magnitude of the variation of the transit depth over wavelength\n\nIn total, the fudging has 12 parameters to fit. These are determined on the full training set, based on whichever values optimize the competition metric.\n\n5. Final thoughts - we're missing something!\n--------------------------------------------\n\nThe fact that fudging helps the score is extremely worrying. And it's not subtle: last year, my solution without fudging could have gotten 1st place; my solution this year without fudging would have ended up around ~20th place. It means there's something missing in the prior, i.e. it does not describe reality (or rather the synthetic data generation process) accurately.",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "line_start": 107,
+          "line_end": 129
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-84802414b83f3cef",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked full-train12-parameter calibration; held-out adaptation proposed, mismatch unresolved.",
+          "candidate_sha256": "059685ece2047559aa8cb2f9da84137d01771bbbfb36638182ae2f13fbebfc17"
+        }
+      ],
+      "book_location": {
+        "chapter": 38,
+        "path": "manuscript/chapters/38-calibration-and-post-processing.md",
+        "sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
+        "line_start": 133,
+        "line_end": 137,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9859b3cb76c31a967b24",
+      "canonical_key": "use available spreads or predicted margins as inputs to logistic probability mapping, then blend with efficiency-based probabilities. | sports outcomes have published market spreads | predictive_quality",
+      "title": "Convert a strong external prediction into calibrated probabilities",
+      "statement": "When sports outcomes have published market spreads, proposed reuse: Proposed conditional application: Use available spreads or predicted margins as inputs to logistic probability mapping, then blend with efficiency-based probabilities. Proposed check: Fit the margin-to-probability map on past games, check reliability and log loss on later seasons, and enforce line availability timestamps. Limitation: Actual spreads existed for first-round games only; future games required predicted margins and the team acknowledges tournament luck.",
+      "trigger_conditions": [
+        "sports outcomes have published market spreads"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use available spreads or predicted margins as inputs to logistic probability mapping, then blend with efficiency-based probabilities."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit the margin-to-probability map on past games, check reliability and log loss on later seasons, and enforce line availability timestamps."
+      ],
+      "limitations": [
+        "Actual spreads existed for first-round games only; future games required predicted margins and the team acknowledges tournament luck."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "sports"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The sports team mapped market spreads or expected margins to probabilities using logistic regression.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a9b67e1ec44e43d13abc"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Logistic mapping of a strong signal is a tractable probability-modeling example.",
+        "competitor": "External market baselines can complement internal sports models when rules allow them.",
+        "practitioner": "External predictions can be calibrated and blended, subject to time availability and domain shift."
+      },
+      "review": {
+        "candidate_id": "C-9859b3cb76c31a967b24",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winning interview maps available first-round spreads and predicted future margins through logistic regression, then averages with efficiency probabilities.",
+        "candidate_sha256": "acc6f88c05b3daeab350a741074df93ac615d8b779c448c6a31794e55d6d8b5a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000536",
+      "slug": "lesson-000536",
+      "merged_candidate_ids": [
+        "C-9859b3cb76c31a967b24"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f9e636fb2653c2368be7",
+          "competition_id": "competition:march-machine-learning-mania",
+          "source_id": "source:lesson-source-90c5597c12247b2f",
+          "snapshot_path": "research/lesson-extraction/snapshots/31068302eb29b6e0139243a3711159b47f43331eb2b7b19b53918f31f1fef521.txt",
+          "snapshot_sha256": "31068302eb29b6e0139243a3711159b47f43331eb2b7b19b53918f31f1fef521",
+          "source_url": "http://blog.kaggle.com/2014/04/21/qa-with-gregory-and-michael-1st-place-in-march-ml-mania/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a9b67e1ec44e43d13abc",
+          "line_start": 17,
+          "line_end": 17,
+          "evidence_text": "the spread (or the expected margin) was converged into a probability using logistic regression.",
+          "kind": "used",
+          "statement": "The sports team mapped market spreads or expected margins to probabilities using logistic regression.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Logistic mapping of a strong signal is a tractable probability-modeling example.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "External market baselines can complement internal sports models when rules allow them.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "External predictions can be calibrated and blended, subject to time availability and domain shift.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-90c5597c12247b2f",
+          "locator": "research/lesson-extraction/snapshots/31068302eb29b6e0139243a3711159b47f43331eb2b7b19b53918f31f1fef521.txt#L17-L17",
+          "quote": "the spread (or the expected margin) was converged into a probability using logistic regression.",
+          "competition_id": "competition:march-machine-learning-mania",
+          "url": "http://blog.kaggle.com/2014/04/21/qa-with-gregory-and-michael-1st-place-in-march-ml-mania/",
+          "snapshot_path": "research/lesson-extraction/snapshots/31068302eb29b6e0139243a3711159b47f43331eb2b7b19b53918f31f1fef521.txt",
+          "snapshot_sha256": "31068302eb29b6e0139243a3711159b47f43331eb2b7b19b53918f31f1fef521",
+          "line_start": 17,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9859b3cb76c31a967b24",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winning interview maps available first-round spreads and predicted future margins through logistic regression, then averages with efficiency probabilities.",
+          "candidate_sha256": "acc6f88c05b3daeab350a741074df93ac615d8b779c448c6a31794e55d6d8b5a"
+        },
+        {
+          "candidate_id": "C-9859b3cb76c31a967b24",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "MarchMania winner uses actual Vegas lines for first-round games and inferred margins later, logistic probability map and weighted efficiency-model blend. Candidate checks past/later season calibration and timestamps; no published future lines or guaranteed sports advantage inferred. Moderate conditional value and explicit reproducible check fit ratings.",
+          "candidate_sha256": "acc6f88c05b3daeab350a741074df93ac615d8b779c448c6a31794e55d6d8b5a"
+        }
+      ],
+      "book_location": {
+        "chapter": 38,
+        "path": "manuscript/chapters/38-calibration-and-post-processing.md",
+        "sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
+        "line_start": 95,
+        "line_end": 105,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

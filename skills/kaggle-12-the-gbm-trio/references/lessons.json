@@ -1,0 +1,1826 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-277ec037847036e03187",
+      "canonical_key": "cluster training destinations with mean shift, predict probabilities over cluster centers, and output the probability-weighted center mean under distance loss. | taxi destinations concentrate in recurring geographic regions | predictive_quality",
+      "title": "Predict a continuous destination through cluster probabilities",
+      "statement": "When taxi destinations concentrate in recurring geographic regions, proposed reuse: Proposed conditional application: Cluster training destinations with mean shift, predict probabilities over cluster centers, and output the probability-weighted center mean under distance loss. Proposed check: Fit centers on training-only trips, compare direct regression, and inspect implausible weighted means and unseen destination regions. Limitation: A convex mean can fall off-road or between modes; centers may miss novel destinations.",
+      "trigger_conditions": [
+        "taxi destinations concentrate in recurring geographic regions"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Cluster training destinations with mean shift, predict probabilities over cluster centers, and output the probability-weighted center mean under distance loss."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit centers on training-only trips, compare direct regression, and inspect implausible weighted means and unseen destination regions."
+      ],
+      "limitations": [
+        "A convex mean can fall off-road or between modes; centers may miss novel destinations."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The taxi team clustered destinations into roughly 3,392 centers with mean shift before probability-weighted destination prediction.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-4619486528e7ead2012f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cluster-to-coordinate prediction is clear but requires custom output and distance loss.",
+        "competitor": "A learned destination prior is an actionable alternative to direct regression.",
+        "practitioner": "Distribution-supported coordinate prediction transfers when multimodal and novel destinations are tested."
+      },
+      "review": {
+        "candidate_id": "C-277ec037847036e03187",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner clusters training destinations and predicts a probability-weighted mean under distance loss, reporting qualitative superiority to direct coordinates.",
+        "candidate_sha256": "ddb43ae88be6b484b19e5dccedf66484583c66187c9f8ad8e1b3f4ba825e9b73"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000068",
+      "slug": "lesson-000068",
+      "merged_candidate_ids": [
+        "C-277ec037847036e03187"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-810832a0f775c7120d19",
+          "competition_id": "competition:pkdd-15-predict-taxi-service-trajectory-i",
+          "source_id": "source:lesson-source-565de3e33a4125cb",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecaee18e120b56205596709c6415bad8b92804050ab62e551d52fda1c92bd1cd.txt",
+          "snapshot_sha256": "ecaee18e120b56205596709c6415bad8b92804050ab62e551d52fda1c92bd1cd",
+          "source_url": "http://blog.kaggle.com/2015/07/27/taxi-trajectory-winners-interview-1st-place-team-%f0%9f%9a%95/",
+          "source_quality": "primary_text",
+          "observation_id": "O-4619486528e7ead2012f",
+          "line_start": 61,
+          "line_end": 61,
+          "evidence_text": "first used a mean-shift clustering algorithm on the destinations of all the training trajectories to obtain around 3,392 popular destination points.",
+          "kind": "used",
+          "statement": "The taxi team clustered destinations into roughly 3,392 centers with mean shift before probability-weighted destination prediction.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Cluster-to-coordinate prediction is clear but requires custom output and distance loss.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A learned destination prior is an actionable alternative to direct regression.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Distribution-supported coordinate prediction transfers when multimodal and novel destinations are tested.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-565de3e33a4125cb",
+          "locator": "research/lesson-extraction/snapshots/ecaee18e120b56205596709c6415bad8b92804050ab62e551d52fda1c92bd1cd.txt#L61-L61",
+          "quote": "first used a mean-shift clustering algorithm on the destinations of all the training trajectories to obtain around 3,392 popular destination points.",
+          "competition_id": "competition:pkdd-15-predict-taxi-service-trajectory-i",
+          "url": "http://blog.kaggle.com/2015/07/27/taxi-trajectory-winners-interview-1st-place-team-%f0%9f%9a%95/",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecaee18e120b56205596709c6415bad8b92804050ab62e551d52fda1c92bd1cd.txt",
+          "snapshot_sha256": "ecaee18e120b56205596709c6415bad8b92804050ab62e551d52fda1c92bd1cd",
+          "line_start": 61,
+          "line_end": 61
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-277ec037847036e03187",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner clusters training destinations and predicts a probability-weighted mean under distance loss, reporting qualitative superiority to direct coordinates.",
+          "candidate_sha256": "ddb43ae88be6b484b19e5dccedf66484583c66187c9f8ad8e1b3f4ba825e9b73"
+        },
+        {
+          "candidate_id": "C-277ec037847036e03187",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Taxi winner mean-shift clusters approximately 3392 training destinations, then softmax-weights centers into a coordinate prediction trained on distance error. Candidate requires training-only centers and direct-regression comparison, noting off-road averages and novel destinations. Twelve scores fit custom-output complexity.",
+          "candidate_sha256": "ddb43ae88be6b484b19e5dccedf66484583c66187c9f8ad8e1b3f4ba825e9b73"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 152,
+        "line_end": 156,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-cbcd9c00a187da09",
+      "canonical_key": "compare a simpler model and no-id version on target-like held-outs before retaining extra complexity. | a tabular stack gains little while identifiers encode accidental ordering | predictive_quality",
+      "title": "Keep a simple model when stacking adds negligible value and audit ID use",
+      "statement": "When a tabular stack gains little while identifiers encode accidental ordering, consider this source-backed action: Compare a simpler model and no-ID version on target-like held-outs before retaining extra complexity. Proposed check: Check chronological/new-data errors and final inference cost. Limit: Similar source scores do not prove statistical equivalence; ID risks depend on how it was generated.",
+      "trigger_conditions": [
+        "a tabular stack gains little while identifiers encode accidental ordering"
+      ],
+      "action_steps": [
+        "Proposed adaptation of author advice: Compare a simpler model and no-ID version on target-like held-outs before retaining extra complexity."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check chronological/new-data errors and final inference cost."
+      ],
+      "limitations": [
+        "Similar source scores do not prove statistical equivalence; ID risks depend on how it was generated.",
+        "The single no-ID test is not a confirmed matched ablation of Model A; leaderboard similarity cannot establish future-data robustness or statistical equivalence."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author concluded Model B added little at similar R-squared and cautioned that ID may perform poorly on new data; a no-ID comparison was reported.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-cbcd9c00a187da09",
+        "O-root-audit-09cb4df311d2c47e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple/noID control straightforward with shared validation.",
+        "competitor": "Avoids complexity/ordering artifacts for marginal score changes.",
+        "practitioner": "Useful identifier deployment audit with target-like testing."
+      },
+      "review": {
+        "candidate_id": "C-a-cbcd9c00a187da09",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Read complete Mercedes packet and both supporting observations: author advises discarding near-equal stack and warns about ID on new data; target-like holdouts and combined simpler/no-ID comparison are our proposed safeguards. Root numerical and source repairs are retained.",
+        "candidate_sha256": "421989b4c39343fef63758d91f721453b1ebb8e859f4147229b330b8a03887ff"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000080",
+      "slug": "lesson-000080",
+      "merged_candidate_ids": [
+        "C-a-cbcd9c00a187da09"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e33393a93b352cadc9b9",
+          "competition_id": "competition:mercedes-benz-greener-manufacturing",
+          "source_id": "source:lesson-source-e4d17b7f8aad9bfc",
+          "snapshot_path": "research/lesson-extraction/snapshots/8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a.txt",
+          "snapshot_sha256": "8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a",
+          "source_url": "https://www.kaggle.com/competitions/mercedes-benz-greener-manufacturing/writeups/gmobaz-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-cbcd9c00a187da09",
+          "line_start": 107,
+          "line_end": 117,
+          "evidence_text": "1.   Try including more two or three-way interactions\n\n2.   Model B does not really add value since both models are at the same **R2 level of 0.555xx**. Discard Model B; better ways can be found to improve results.\n\n3.   Try reducing features from the ones in Model A. Single test with 24 features: 0.5553\n\n4.   Some sensitivity checks on parameters for XGBoost might lead to slight gains.\n\n5.   The variables used are quite different from others in discussions, so there is a good chance to do some blending to capture synergies with one or both of the 2nd and 3rd places solutions.\n\n6.   Using feature ID in the model may result in poor results with new data. Time must be relevant, but needs special treatment. Single test without ID: Public LB, 0.55799, Private LB: 0.55421",
+          "kind": "author_advice",
+          "statement": "The author concluded Model B added little at similar R-squared and cautioned that ID may perform poorly on new data; a no-ID comparison was reported.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-e33393a93b352cadc9b9",
+          "competition_id": "competition:mercedes-benz-greener-manufacturing",
+          "source_id": "source:lesson-source-e4d17b7f8aad9bfc",
+          "snapshot_path": "research/lesson-extraction/snapshots/8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a.txt",
+          "snapshot_sha256": "8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a",
+          "source_url": "https://www.kaggle.com/competitions/mercedes-benz-greener-manufacturing/writeups/gmobaz-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-root-audit-09cb4df311d2c47e",
+          "line_start": 73,
+          "line_end": 117,
+          "evidence_text": "Fortunately, last three of the final five submissions would have won. First two are previous versions of Model A with private scores 0.55292 and 0.55351; the third submission comes from Model A (0.55530). Fourth is from Model B, (0.55536) and the last, a simple average of A and B (0.55551).\n\nIn the models proposed **Interactions played an important role**\n\n```\na)    By far, pair (X314, X315), jointly and pair levels\n\nb)    3-way interaction (X118, X314, X315)\n\nc)   X314\n\nd)   (X118,X314,X315), levels (1,1,0)\n\ne)   Individual features: X279, X232, X261, X29\n\nf)   Two levels of recoded X0 and recoded X0\n\ng)   Sum of X122  to  X128\n\nh)   X127\n```\n\n**Note: Fifteen features account for 85% of gain**\n\n**Tools and Process Time**\n\nTools: R Version 3.4.0, Windows version and required packages\n\nTime to train both models in a desktop I7-3770 [@3.40](https://www.kaggle.com/3.40) GHz, 8 cores, 16 MB RAM: ~8 minutes\n\nTime to process new data: Load packages and prepare model, ~6 seconds; predictions, for 4209 observations, ~2 seconds\n\n**Conclusions**\n\n1.   Try including more two or three-way interactions\n\n2.   Model B does not really add value since both models are at the same **R2 level of 0.555xx**. Discard Model B; better ways can be found to improve results.\n\n3.   Try reducing features from the ones in Model A. Single test with 24 features: 0.5553\n\n4.   Some sensitivity checks on parameters for XGBoost might lead to slight gains.\n\n5.   The variables used are quite different from others in discussions, so there is a good chance to do some blending to capture synergies with one or both of the 2nd and 3rd places solutions.\n\n6.   Using feature ID in the model may result in poor results with new data. Time must be relevant, but needs special treatment. Single test without ID: Public LB, 0.55799, Private LB: 0.55421",
+          "kind": "reported_gain",
+          "statement": "The author reports Model A private score 0.55530 and a single no-ID test public 0.55799/private 0.55421. Exact matching of every other model setting is not established; the comparison does not prove future-data robustness.",
+          "reported_result": {
+            "metric": "author-reported private competition R-squared",
+            "value": 0.55421,
+            "context": "Single no-ID test private 0.55421/public 0.55799; Model A elsewhere in the same quoted passage 0.55530 private. Other settings and replicated uncertainty are unestablished.",
+            "evidence_text": "Fortunately, last three of the final five submissions would have won. First two are previous versions of Model A with private scores 0.55292 and 0.55351; the third submission comes from Model A (0.55530). Fourth is from Model B, (0.55536) and the last, a simple average of A and B (0.55551).\n\nIn the models proposed **Interactions played an important role**\n\n```\na)    By far, pair (X314, X315), jointly and pair levels\n\nb)    3-way interaction (X118, X314, X315)\n\nc)   X314\n\nd)   (X118,X314,X315), levels (1,1,0)\n\ne)   Individual features: X279, X232, X261, X29\n\nf)   Two levels of recoded X0 and recoded X0\n\ng)   Sum of X122  to  X128\n\nh)   X127\n```\n\n**Note: Fifteen features account for 85% of gain**\n\n**Tools and Process Time**\n\nTools: R Version 3.4.0, Windows version and required packages\n\nTime to train both models in a desktop I7-3770 [@3.40](https://www.kaggle.com/3.40) GHz, 8 cores, 16 MB RAM: ~8 minutes\n\nTime to process new data: Load packages and prepare model, ~6 seconds; predictions, for 4209 observations, ~2 seconds\n\n**Conclusions**\n\n1.   Try including more two or three-way interactions\n\n2.   Model B does not really add value since both models are at the same **R2 level of 0.555xx**. Discard Model B; better ways can be found to improve results.\n\n3.   Try reducing features from the ones in Model A. Single test with 24 features: 0.5553\n\n4.   Some sensitivity checks on parameters for XGBoost might lead to slight gains.\n\n5.   The variables used are quite different from others in discussions, so there is a good chance to do some blending to capture synergies with one or both of the 2nd and 3rd places solutions.\n\n6.   Using feature ID in the model may result in poor results with new data. Time must be relevant, but needs special treatment. Single test without ID: Public LB, 0.55799, Private LB: 0.55421"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Simple/noID control straightforward with shared validation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Avoids complexity/ordering artifacts for marginal score changes.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful identifier deployment audit with target-like testing.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e4d17b7f8aad9bfc",
+          "locator": "research/lesson-extraction/snapshots/8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a.txt#L107-L117",
+          "quote": "1.   Try including more two or three-way interactions\n\n2.   Model B does not really add value since both models are at the same **R2 level of 0.555xx**. Discard Model B; better ways can be found to improve results.\n\n3.   Try reducing features from the ones in Model A. Single test with 24 features: 0.5553\n\n4.   Some sensitivity checks on parameters for XGBoost might lead to slight gains.\n\n5.   The variables used are quite different from others in discussions, so there is a good chance to do some blending to capture synergies with one or both of the 2nd and 3rd places solutions.\n\n6.   Using feature ID in the model may result in poor results with new data. Time must be relevant, but needs special treatment. Single test without ID: Public LB, 0.55799, Private LB: 0.55421",
+          "competition_id": "competition:mercedes-benz-greener-manufacturing",
+          "url": "https://www.kaggle.com/competitions/mercedes-benz-greener-manufacturing/writeups/gmobaz-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a.txt",
+          "snapshot_sha256": "8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a",
+          "line_start": 107,
+          "line_end": 117
+        },
+        {
+          "source_id": "source:lesson-source-e4d17b7f8aad9bfc",
+          "locator": "research/lesson-extraction/snapshots/8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a.txt#L73-L117",
+          "quote": "Fortunately, last three of the final five submissions would have won. First two are previous versions of Model A with private scores 0.55292 and 0.55351; the third submission comes from Model A (0.55530). Fourth is from Model B, (0.55536) and the last, a simple average of A and B (0.55551).\n\nIn the models proposed **Interactions played an important role**\n\n```\na)    By far, pair (X314, X315), jointly and pair levels\n\nb)    3-way interaction (X118, X314, X315)\n\nc)   X314\n\nd)   (X118,X314,X315), levels (1,1,0)\n\ne)   Individual features: X279, X232, X261, X29\n\nf)   Two levels of recoded X0 and recoded X0\n\ng)   Sum of X122  to  X128\n\nh)   X127\n```\n\n**Note: Fifteen features account for 85% of gain**\n\n**Tools and Process Time**\n\nTools: R Version 3.4.0, Windows version and required packages\n\nTime to train both models in a desktop I7-3770 [@3.40](https://www.kaggle.com/3.40) GHz, 8 cores, 16 MB RAM: ~8 minutes\n\nTime to process new data: Load packages and prepare model, ~6 seconds; predictions, for 4209 observations, ~2 seconds\n\n**Conclusions**\n\n1.   Try including more two or three-way interactions\n\n2.   Model B does not really add value since both models are at the same **R2 level of 0.555xx**. Discard Model B; better ways can be found to improve results.\n\n3.   Try reducing features from the ones in Model A. Single test with 24 features: 0.5553\n\n4.   Some sensitivity checks on parameters for XGBoost might lead to slight gains.\n\n5.   The variables used are quite different from others in discussions, so there is a good chance to do some blending to capture synergies with one or both of the 2nd and 3rd places solutions.\n\n6.   Using feature ID in the model may result in poor results with new data. Time must be relevant, but needs special treatment. Single test without ID: Public LB, 0.55799, Private LB: 0.55421",
+          "competition_id": "competition:mercedes-benz-greener-manufacturing",
+          "url": "https://www.kaggle.com/competitions/mercedes-benz-greener-manufacturing/writeups/gmobaz-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a.txt",
+          "snapshot_sha256": "8c7450787e1101fcba480288faa0bbf0143fc87b2a893f7ff73f6aa1e790506a",
+          "line_start": 73,
+          "line_end": 117
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-cbcd9c00a187da09",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Read complete Mercedes packet and both supporting observations: author advises discarding near-equal stack and warns about ID on new data; target-like holdouts and combined simpler/no-ID comparison are our proposed safeguards. Root numerical and source repairs are retained.",
+          "candidate_sha256": "421989b4c39343fef63758d91f721453b1ebb8e859f4147229b330b8a03887ff"
+        },
+        {
+          "candidate_id": "C-a-cbcd9c00a187da09",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full Mercedes packet and both revised observations read. ModelAprivate0.55530 versus single noIDpublic0.55799/private0.55421 literal, settingsunmatched and future robustness/equivalence unproven. Added exact numerical evidence and proposed-advice prefix correct; reasonable grades. Repair accepted.",
+          "candidate_sha256": "421989b4c39343fef63758d91f721453b1ebb8e859f4147229b330b8a03887ff"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 158,
+        "line_end": 162,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-4cd3b1bac16ca415",
+      "canonical_key": "compare boosting and factorization baselines using the same engineered features rather than copying a previous contest winner. | click prediction includes rich relational feature structure | predictive_quality",
+      "title": "Re-test domain-standard models when relational features change",
+      "statement": "When click prediction includes rich relational feature structure, consider this source-backed action: Compare boosting and factorization baselines using the same engineered features rather than copying a previous contest winner. Proposed check: Evaluate held-out log loss or the specified CTR metric and feature-group ablations. Limit: No numerical comparator or validation protocol is given.",
+      "trigger_conditions": [
+        "click prediction includes rich relational feature structure"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare boosting and factorization baselines using the same engineered features rather than copying a previous contest winner."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate held-out log loss or the specified CTR metric and feature-group ablations."
+      ],
+      "limitations": [
+        "No numerical comparator or validation protocol is given."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used manual transformations and entropy features; GBM beat FFM and VW here unlike prior CTR contests.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4cd3b1bac16ca415"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Alternative algorithms require domain and validation knowledge.",
+        "competitor": "Rich relational features warrant re-testing prior CTR assumptions.",
+        "practitioner": "Useful model-family reassessment when data representation changes."
+      },
+      "review": {
+        "candidate_id": "C-a-4cd3b1bac16ca415",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked GBM/FFM/VW qualitative reversal; same-feature comparison proposed.",
+        "candidate_sha256": "ec9936166743351805b6b3160b0f7b532ea60bdcfb5e3dc444a5e53753f2fb47"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000092",
+      "slug": "lesson-000092",
+      "merged_candidate_ids": [
+        "C-a-4cd3b1bac16ca415"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4e8b199ab952a18e4ee0",
+          "competition_id": "competition:avito-context-ad-clicks",
+          "source_id": "source:lesson-source-9003e30c73948b6b",
+          "snapshot_path": "research/lesson-extraction/snapshots/1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea.txt",
+          "snapshot_sha256": "1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea",
+          "source_url": "http://blog.kaggle.com/2015/08/26/avito-winners-interview-1st-place-owen-zhang/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4cd3b1bac16ca415",
+          "line_start": 33,
+          "line_end": 43,
+          "evidence_text": "I did quite a bit of manual feature engineering and my models are entirely based on xgboost. Feature engineering is a combination of \u201cbrutal force\u201d (trying different transformations, etc that I know) and \u201cheuristic\u201d (trying to think about drivers of the target in real world settings). One thing I learned recently was entropy based features, which were useful in my model.\n\nWhat was your most important insight into the data?\n\nThere was some \u201csoft leakage\u201d, such as how many other ads are displayed for a given query. Those features are always very powerful, but provides only limited impact in real world applications.\n\nUnlike Criteo and Avazu, where FFM and VW outperformed GBM, in this competition GBM (xgboost) easily outperformed FFM and VW.\n\nWere you surprised by any of your findings?\n\nYes, I thought FFM and VW were required for click through rate, but apparently this is not the case.",
+          "kind": "reported_gain",
+          "statement": "The author used manual transformations and entropy features; GBM beat FFM and VW here unlike prior CTR contests.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Alternative algorithms require domain and validation knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Rich relational features warrant re-testing prior CTR assumptions.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful model-family reassessment when data representation changes.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9003e30c73948b6b",
+          "locator": "research/lesson-extraction/snapshots/1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea.txt#L33-L43",
+          "quote": "I did quite a bit of manual feature engineering and my models are entirely based on xgboost. Feature engineering is a combination of \u201cbrutal force\u201d (trying different transformations, etc that I know) and \u201cheuristic\u201d (trying to think about drivers of the target in real world settings). One thing I learned recently was entropy based features, which were useful in my model.\n\nWhat was your most important insight into the data?\n\nThere was some \u201csoft leakage\u201d, such as how many other ads are displayed for a given query. Those features are always very powerful, but provides only limited impact in real world applications.\n\nUnlike Criteo and Avazu, where FFM and VW outperformed GBM, in this competition GBM (xgboost) easily outperformed FFM and VW.\n\nWere you surprised by any of your findings?\n\nYes, I thought FFM and VW were required for click through rate, but apparently this is not the case.",
+          "competition_id": "competition:avito-context-ad-clicks",
+          "url": "http://blog.kaggle.com/2015/08/26/avito-winners-interview-1st-place-owen-zhang/",
+          "snapshot_path": "research/lesson-extraction/snapshots/1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea.txt",
+          "snapshot_sha256": "1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea",
+          "line_start": 33,
+          "line_end": 43
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4cd3b1bac16ca415",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked GBM/FFM/VW qualitative reversal; same-feature comparison proposed.",
+          "candidate_sha256": "ec9936166743351805b6b3160b0f7b532ea60bdcfb5e3dc444a5e53753f2fb47"
+        },
+        {
+          "candidate_id": "C-a-4cd3b1bac16ca415",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Owen Zhang interview explicitly states engineered entropy/transformation features and GBM above FFM/VW unlike previous CTR tasks. No numeric result; common-feature comparison proposed. Dataset-specific/model reassessment ratings reasonable.",
+          "candidate_sha256": "ec9936166743351805b6b3160b0f7b532ea60bdcfb5e3dc444a5e53753f2fb47"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 164,
+        "line_end": 168,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-c1b2799796b7da25",
+      "canonical_key": "compare candidate classifiers with the same resampling/scaling recipe and roc auc; fit resampling within training folds as a proposed safeguard. | imbalanced numerical entity features need classifier comparison | validation_reliability",
+      "title": "Compare imbalanced classifiers inside a common pipeline",
+      "statement": "When imbalanced numerical entity features need classifier comparison, consider this source-backed action: Compare candidate classifiers with the same resampling/scaling recipe and ROC AUC; fit resampling within training folds as a proposed safeguard. Proposed check: Evaluate untouched validation data and inspect the effect of resampling separately from model choice. Limit: Source split details are missing; SMOTE before scaling was their order, and no isolated resampling gain is shown.",
+      "trigger_conditions": [
+        "imbalanced numerical entity features need classifier comparison"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare candidate classifiers with the same resampling/scaling recipe and ROC AUC; fit resampling within training folds as a proposed safeguard."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate untouched validation data and inspect the effect of resampling separately from model choice."
+      ],
+      "limitations": [
+        "Source split details are missing; SMOTE before scaling was their order, and no isolated resampling gain is shown."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors used a pipeline containing SMOTE, standard scaling and alternative tree classifiers, compared ROC AUC, and selected ExtraTrees.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-c1b2799796b7da25"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Comparable classifier pipeline is clear with fold-local safeguard.",
+        "competitor": "Common evaluation prevents confounding classifier choice with preprocessing.",
+        "practitioner": "Useful imbalanced comparison; synthetic samples require distribution checks."
+      },
+      "review": {
+        "candidate_id": "C-a-c1b2799796b7da25",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked ROC-AUC classifier table and pipeline order; split protocol absent.",
+        "candidate_sha256": "94385c37db6070a297f2cb8c9466a35c79a2f7852d1defe6d2ac68c5364519e2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000093",
+      "slug": "lesson-000093",
+      "merged_candidate_ids": [
+        "C-a-c1b2799796b7da25"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-50961750a81bc2a2f434",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "source_url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-c1b2799796b7da25",
+          "line_start": 101,
+          "line_end": 119,
+          "evidence_text": "Using sklearn's `.Pipeline()` function, I have managed to simplify the modelling process into a more efficient and digestible workflow. The steps within the Pipeline involves:\n\n1. `SMOTE` function to treat imbalanced data.\n2. Features are mainly numerical in nature. Therefore, `StandardScaler()` function to standardize features by removing the mean and scaling to unit variance. \n3. Adding `ExtraTreesClassifier`, `LGBMClassifier`, `XGBClassifier`, `CatBoostClassifier`, `GradientBoostingClassifier`, `HistGradientBoostingClassifier`, `RandomForestClassifier` separately for Model Training.\n\n## **Model Evaluation**\n\nSubmissions for this competition are judged on area under the ROC curve. Using roc_auc as the main metrics to evaluate the model after Model Training, it was found that ExtraTreesClassifier have performed the best. Below is a summary of the performance ranked by AUC:\n\n| Model | roc_auc |\n|-------|---------|\n| ExtraTreesClassifier | 0.925151 |\n| RandomForestClassifier | 0.912092 |\n| LGBMClassifier | 0.910364 |\n| XGBClassifier | 0.910189 |\n| HistGradientBoostingClassifier | 0.901195 |\n| CatBoostClassifier | 0.897957 |\n| GradientBoostingClassifier | 0.884073 |",
+          "kind": "reported_gain",
+          "statement": "The authors used a pipeline containing SMOTE, standard scaling and alternative tree classifiers, compared ROC AUC, and selected ExtraTrees.",
+          "reported_result": {
+            "metric": "ROC AUC",
+            "value": 0.925151,
+            "context": "Author classifier comparison: ExtraTrees0.925151 versus RF0.912092 and other trees in common SMOTE/scaling recipe. Exact split and uncertainty unknown; comparison not isolated SMOTE gain.",
+            "evidence_text": "Using sklearn's `.Pipeline()` function, I have managed to simplify the modelling process into a more efficient and digestible workflow. The steps within the Pipeline involves:\n\n1. `SMOTE` function to treat imbalanced data.\n2. Features are mainly numerical in nature. Therefore, `StandardScaler()` function to standardize features by removing the mean and scaling to unit variance. \n3. Adding `ExtraTreesClassifier`, `LGBMClassifier`, `XGBClassifier`, `CatBoostClassifier`, `GradientBoostingClassifier`, `HistGradientBoostingClassifier`, `RandomForestClassifier` separately for Model Training.\n\n## **Model Evaluation**\n\nSubmissions for this competition are judged on area under the ROC curve. Using roc_auc as the main metrics to evaluate the model after Model Training, it was found that ExtraTreesClassifier have performed the best. Below is a summary of the performance ranked by AUC:\n\n| Model | roc_auc |\n|-------|---------|\n| ExtraTreesClassifier | 0.925151 |\n| RandomForestClassifier | 0.912092 |\n| LGBMClassifier | 0.910364 |\n| XGBClassifier | 0.910189 |\n| HistGradientBoostingClassifier | 0.901195 |\n| CatBoostClassifier | 0.897957 |\n| GradientBoostingClassifier | 0.884073 |"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Comparable classifier pipeline is clear with fold-local safeguard.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Common evaluation prevents confounding classifier choice with preprocessing.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful imbalanced comparison; synthetic samples require distribution checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "locator": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt#L101-L119",
+          "quote": "Using sklearn's `.Pipeline()` function, I have managed to simplify the modelling process into a more efficient and digestible workflow. The steps within the Pipeline involves:\n\n1. `SMOTE` function to treat imbalanced data.\n2. Features are mainly numerical in nature. Therefore, `StandardScaler()` function to standardize features by removing the mean and scaling to unit variance. \n3. Adding `ExtraTreesClassifier`, `LGBMClassifier`, `XGBClassifier`, `CatBoostClassifier`, `GradientBoostingClassifier`, `HistGradientBoostingClassifier`, `RandomForestClassifier` separately for Model Training.\n\n## **Model Evaluation**\n\nSubmissions for this competition are judged on area under the ROC curve. Using roc_auc as the main metrics to evaluate the model after Model Training, it was found that ExtraTreesClassifier have performed the best. Below is a summary of the performance ranked by AUC:\n\n| Model | roc_auc |\n|-------|---------|\n| ExtraTreesClassifier | 0.925151 |\n| RandomForestClassifier | 0.912092 |\n| LGBMClassifier | 0.910364 |\n| XGBClassifier | 0.910189 |\n| HistGradientBoostingClassifier | 0.901195 |\n| CatBoostClassifier | 0.897957 |\n| GradientBoostingClassifier | 0.884073 |",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "line_start": 101,
+          "line_end": 119
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-c1b2799796b7da25",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked ROC-AUC classifier table and pipeline order; split protocol absent.",
+          "candidate_sha256": "94385c37db6070a297f2cb8c9466a35c79a2f7852d1defe6d2ac68c5364519e2"
+        },
+        {
+          "candidate_id": "C-a-c1b2799796b7da25",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Common SMOTE then scaling/tree pipeline and ExtraTrees0.925151 versus RF0.912092 ROC AUC table checked. Exact split unknown; fold-local fitting is proposed and no SMOTE gain is claimed. Audience grades fit common-pipeline evaluation.",
+          "candidate_sha256": "94385c37db6070a297f2cb8c9466a35c79a2f7852d1defe6d2ac68c5364519e2"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 86,
+        "line_end": 96,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-7da55495f147c1d4",
+      "canonical_key": "compare native missing-value handling with dropping or imputing columns and keep useful partial information. | useful tabular columns include nans and the learner handles them | predictive_quality",
+      "title": "Retain partially missing features when the learner supports missing values",
+      "statement": "When useful tabular columns include NaNs and the learner handles them, consider this source-backed action: Compare native missing-value handling with dropping or imputing columns and keep useful partial information. Proposed check: Evaluate missingness patterns across folds and compare predictions when missingness shifts. Limit: Support for NaNs does not prove unbiased behavior or universal superiority of native handling.",
+      "trigger_conditions": [
+        "useful tabular columns include NaNs and the learner handles them"
+      ],
+      "action_steps": [
+        "Proposed adaptation of author advice: Compare native missing-value handling with dropping or imputing columns and keep useful partial information."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate missingness patterns across folds and compare predictions when missingness shifts."
+      ],
+      "limitations": [
+        "Support for NaNs does not prove unbiased behavior or universal superiority of native handling."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author averaged five tuned XGBoost fold predictions and cautioned against dropping columns simply because they contain missing values.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-7da55495f147c1d4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Easy column-retention baseline with learner support checks.",
+        "competitor": "Useful safeguard against premature missing-feature deletion.",
+        "practitioner": "Broad data-quality principle with missingness-shift monitoring."
+      },
+      "review": {
+        "candidate_id": "C-a-7da55495f147c1d4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Read complete Give Me Some Credit packet: author cautions against dropping NaN-containing columns because XGBoost accepts NaNs; native-versus-imputation comparison is our proposed experiment.",
+        "candidate_sha256": "7636809c45f84f21cd66bf75ca8109aa93344c378ec733b524f61ef9e395886f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000153",
+      "slug": "lesson-000153",
+      "merged_candidate_ids": [
+        "C-a-7da55495f147c1d4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a726c752488ff7191cad",
+          "competition_id": "competition:gmsc-thebridge-dsft2109",
+          "source_id": "source:lesson-source-928d37a17f6f9747",
+          "snapshot_path": "research/lesson-extraction/snapshots/be2f1a10a9459f7c9b7393fc13cc9209435a3b4aba8d53945be40e69639e2181.txt",
+          "snapshot_sha256": "be2f1a10a9459f7c9b7393fc13cc9209435a3b4aba8d53945be40e69639e2181",
+          "source_url": "https://www.kaggle.com/competitions/gmsc-thebridge-dsft2109/writeups/alin-cijov-top-1-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-7da55495f147c1d4",
+          "line_start": 14,
+          "line_end": 16,
+          "evidence_text": "The solution: 5 folds XGBoost with tuned up parameters -> take the ensemble mean of all 5 predictions.\n\nI saw a lot of people dropping the features that were missing numbers, that is a wrong way to deal with it in this competition. XGBoost actually allows you to take in the NaN.",
+          "kind": "author_advice",
+          "statement": "The author averaged five tuned XGBoost fold predictions and cautioned against dropping columns simply because they contain missing values.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Easy column-retention baseline with learner support checks.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful safeguard against premature missing-feature deletion.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broad data-quality principle with missingness-shift monitoring.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-928d37a17f6f9747",
+          "locator": "research/lesson-extraction/snapshots/be2f1a10a9459f7c9b7393fc13cc9209435a3b4aba8d53945be40e69639e2181.txt#L14-L16",
+          "quote": "The solution: 5 folds XGBoost with tuned up parameters -> take the ensemble mean of all 5 predictions.\n\nI saw a lot of people dropping the features that were missing numbers, that is a wrong way to deal with it in this competition. XGBoost actually allows you to take in the NaN.",
+          "competition_id": "competition:gmsc-thebridge-dsft2109",
+          "url": "https://www.kaggle.com/competitions/gmsc-thebridge-dsft2109/writeups/alin-cijov-top-1-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/be2f1a10a9459f7c9b7393fc13cc9209435a3b4aba8d53945be40e69639e2181.txt",
+          "snapshot_sha256": "be2f1a10a9459f7c9b7393fc13cc9209435a3b4aba8d53945be40e69639e2181",
+          "line_start": 14,
+          "line_end": 16
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-7da55495f147c1d4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Read complete Give Me Some Credit packet: author cautions against dropping NaN-containing columns because XGBoost accepts NaNs; native-versus-imputation comparison is our proposed experiment.",
+          "candidate_sha256": "7636809c45f84f21cd66bf75ca8109aa93344c378ec733b524f61ef9e395886f"
+        },
+        {
+          "candidate_id": "C-a-7da55495f147c1d4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full packet previously read; final prefix reread. Author NaNretention warning supports proposed native/drop/impute comparison, not observed superiornativehandling. Missingnessshiftcheck proposed and grades reasonable; accepted.",
+          "candidate_sha256": "7636809c45f84f21cd66bf75ca8109aa93344c378ec733b524f61ef9e395886f"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 98,
+        "line_end": 108,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-073f32626c9450aa1da3",
+      "canonical_key": "compare random forest and gradient boosting on roc auc before choosing the model for an interactive demonstration. | tabular patient data supports tree-based risk prediction | predictive_quality",
+      "title": "Compare tree learners before packaging a clinical demo",
+      "statement": "When tabular patient data supports tree-based risk prediction, proposed reuse: Proposed conditional application: Compare Random Forest and Gradient Boosting on ROC AUC before choosing the model for an interactive demonstration. Proposed check: Compare tree baselines on patient-independent untouched data, measure calibration and subgroup errors, and separate demonstration behavior from clinical evaluation. Limitation: Interactive demo does not establish clinical utility; source omits split construction and RF comparison scores.",
+      "trigger_conditions": [
+        "tabular patient data supports tree-based risk prediction"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare Random Forest and Gradient Boosting on ROC AUC before choosing the model for an interactive demonstration."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare tree baselines on patient-independent untouched data, measure calibration and subgroup errors, and separate demonstration behavior from clinical evaluation."
+      ],
+      "limitations": [
+        "Interactive demo does not establish clinical utility; source omits split construction and RF comparison scores."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The clinical-demo README compares Random Forest and Gradient Boosting for heart-risk prediction.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-3e3c40900f0e8e18b2f3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Tree baselines and AUC are an accessible tabular starting point.",
+        "competitor": "Baseline comparison is useful, though source detail is insufficient to reproduce model selection.",
+        "practitioner": "Clinical demo packaging requires calibration and independent outcome assessment beyond leaderboard AUC."
+      },
+      "review": {
+        "candidate_id": "C-073f32626c9450aa1da3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner README compares Random Forest and Gradient Boosting and selects GBM on ROC AUC; reported train/test AUCs are final scores without comparator values.",
+        "candidate_sha256": "cdf2590f117e7eeea9746d8b530aaca722414c29d68f244352a34aeb10095fb6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000168",
+      "slug": "lesson-000168",
+      "merged_candidate_ids": [
+        "C-073f32626c9450aa1da3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1721e0d4489c702960a9",
+          "competition_id": "competition:yap15-heart-diseases-predictions",
+          "source_id": "source:lesson-source-730609052b68e81b",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fc68b61ba927573df27f394df09aff8ddf54f92c0df0da2185cdd0756e8e8ef.txt",
+          "snapshot_sha256": "8fc68b61ba927573df27f394df09aff8ddf54f92c0df0da2185cdd0756e8e8ef",
+          "source_url": "https://raw.githubusercontent.com/veradisss/heart_diseases_prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-3e3c40900f0e8e18b2f3",
+          "line_start": 6,
+          "line_end": 6,
+          "evidence_text": "**Compared ML algorithms**: *Random Forest*, *Gradient Boosting*.",
+          "kind": "used",
+          "statement": "The clinical-demo README compares Random Forest and Gradient Boosting for heart-risk prediction.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Tree baselines and AUC are an accessible tabular starting point.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Baseline comparison is useful, though source detail is insufficient to reproduce model selection.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Clinical demo packaging requires calibration and independent outcome assessment beyond leaderboard AUC.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-730609052b68e81b",
+          "locator": "research/lesson-extraction/snapshots/8fc68b61ba927573df27f394df09aff8ddf54f92c0df0da2185cdd0756e8e8ef.txt#L6-L6",
+          "quote": "**Compared ML algorithms**: *Random Forest*, *Gradient Boosting*.",
+          "competition_id": "competition:yap15-heart-diseases-predictions",
+          "url": "https://raw.githubusercontent.com/veradisss/heart_diseases_prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fc68b61ba927573df27f394df09aff8ddf54f92c0df0da2185cdd0756e8e8ef.txt",
+          "snapshot_sha256": "8fc68b61ba927573df27f394df09aff8ddf54f92c0df0da2185cdd0756e8e8ef",
+          "line_start": 6,
+          "line_end": 6
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-073f32626c9450aa1da3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner README compares Random Forest and Gradient Boosting and selects GBM on ROC AUC; reported train/test AUCs are final scores without comparator values.",
+          "candidate_sha256": "cdf2590f117e7eeea9746d8b530aaca722414c29d68f244352a34aeb10095fb6"
+        },
+        {
+          "candidate_id": "C-073f32626c9450aa1da3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Complete heart source reports RF/GBM comparison and GBM train/test ROC AUC, plus a Streamlit demo. Candidate does not invent an RF score or a clinical evaluation; patient isolation, calibration and subgroup checks are proposed. Twelve utility scores and audience rationales suit a cautious baseline comparison.",
+          "candidate_sha256": "cdf2590f117e7eeea9746d8b530aaca722414c29d68f244352a34aeb10095fb6"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 170,
+        "line_end": 174,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-05e0888a3a96e9fc",
+      "canonical_key": "compare transformed linear baselines with trees using the competition rmse on original price units. | vehicle prices have nonlinear structured predictors | predictive_quality",
+      "title": "Compare nonlinear baselines after explicit linear transformations",
+      "statement": "When vehicle prices have nonlinear structured predictors, consider this source-backed action: Compare transformed linear baselines with trees using the competition RMSE on original price units. Proposed check: Use identical folds and invert target transforms before evaluating original-unit RMSE. Limit: No isolated transformation gain is supplied.",
+      "trigger_conditions": [
+        "vehicle prices have nonlinear structured predictors"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare transformed linear baselines with trees using the competition RMSE on original price units."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use identical folds and invert target transforms before evaluating original-unit RMSE."
+      ],
+      "limitations": [
+        "No isolated transformation gain is supplied."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author compared scaled one-hot linear models with log targets, polynomial and spline features, then found tree models stronger.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-05e0888a3a96e9fc"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear structured regression progression with routine tools.",
+        "competitor": "Useful model-family control before heavier tuning.",
+        "practitioner": "Transfers to pricing models; transform inversion affects RMSE."
+      },
+      "review": {
+        "candidate_id": "C-a-05e0888a3a96e9fc",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked transformed linear and nonlinear comparisons; original-unit scoring is proposed safeguard.",
+        "candidate_sha256": "ab24252d6c7a87bde8ad85e666b0da851c0aa0b5a26978e1fd258ad83f44540c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000193",
+      "slug": "lesson-000193",
+      "merged_candidate_ids": [
+        "C-a-05e0888a3a96e9fc"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-37cf948e7d7f9191d69f",
+          "competition_id": "competition:assignment-3-dsba",
+          "source_id": "source:lesson-source-6cbdbaa3665ddabc",
+          "snapshot_path": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt",
+          "snapshot_sha256": "b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea",
+          "source_url": "https://raw.githubusercontent.com/EliValLoc/Used_Car_Prices_Kaggle/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-05e0888a3a96e9fc",
+          "line_start": 82,
+          "line_end": 102,
+          "evidence_text": "I started with linear regression models as a baseline. The categorical variables were one-hot encoded, while numerical variables were standardised.\n\nThe following linear approaches were tested:\n\n* Linear Regression\n* Ridge Regression\n* Lasso Regression\n* Log-transformed target variable\n* Polynomial features\n* Spline transformations\n\nThe linear models were useful as a benchmark. However, their performance suggested that the relationship between the vehicle characteristics and the price was not fully linear.\n\n### Tree-Based Models\n\nI then trained non-linear tree-based models:\n\n* Random Forest Regressor\n* XGBoost Regressor\n\nThese models performed substantially better than the linear approaches. The best-performing model was an **XGBoost Regressor** with extensive hyperparameter tuning.",
+          "kind": "used",
+          "statement": "The author compared scaled one-hot linear models with log targets, polynomial and spline features, then found tree models stronger.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear structured regression progression with routine tools.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful model-family control before heavier tuning.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to pricing models; transform inversion affects RMSE.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cbdbaa3665ddabc",
+          "locator": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt#L82-L102",
+          "quote": "I started with linear regression models as a baseline. The categorical variables were one-hot encoded, while numerical variables were standardised.\n\nThe following linear approaches were tested:\n\n* Linear Regression\n* Ridge Regression\n* Lasso Regression\n* Log-transformed target variable\n* Polynomial features\n* Spline transformations\n\nThe linear models were useful as a benchmark. However, their performance suggested that the relationship between the vehicle characteristics and the price was not fully linear.\n\n### Tree-Based Models\n\nI then trained non-linear tree-based models:\n\n* Random Forest Regressor\n* XGBoost Regressor\n\nThese models performed substantially better than the linear approaches. The best-performing model was an **XGBoost Regressor** with extensive hyperparameter tuning.",
+          "competition_id": "competition:assignment-3-dsba",
+          "url": "https://raw.githubusercontent.com/EliValLoc/Used_Car_Prices_Kaggle/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt",
+          "snapshot_sha256": "b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea",
+          "line_start": 82,
+          "line_end": 102
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-05e0888a3a96e9fc",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked transformed linear and nonlinear comparisons; original-unit scoring is proposed safeguard.",
+          "candidate_sha256": "ab24252d6c7a87bde8ad85e666b0da851c0aa0b5a26978e1fd258ad83f44540c"
+        },
+        {
+          "candidate_id": "C-a-05e0888a3a96e9fc",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Used-car full README supports onehot/scaled linear baseline,log target,polynomial/spline trials and stronger tree models. Original-unit inversion check proposed,no isolated transform gain. Clear routine regression grades reasonable.",
+          "candidate_sha256": "ab24252d6c7a87bde8ad85e666b0da851c0aa0b5a26978e1fd258ad83f44540c"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 110,
+        "line_end": 120,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-49e9f5e81e7a3c28e4c9",
+      "canonical_key": "optuna-catboost-ensemble | credit scoring tabular | model search",
+      "title": "Test tuned CatBoost models after exploratory features",
+      "statement": "When credit-scoring tabular data supports categorical tree models, proposed reuse: Proposed recipe: compare several CatBoost configurations tuned with Optuna. Proposed check: Build an untuned CatBoost benchmark, tune within inner folds under fixed trial budget, and assess credit/time-grouped outer holdouts. Limitation: Sparse source lacks reproducible features, split and trial budget; win does not isolate tuning benefit.",
+      "trigger_conditions": [
+        "credit-scoring tabular data supports categorical tree models"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare several CatBoost configurations tuned with Optuna."
+      ],
+      "verification_steps": [
+        "Proposed check: Build an untuned CatBoost benchmark, tune within inner folds under fixed trial budget, and assess credit/time-grouped outer holdouts."
+      ],
+      "limitations": [
+        "Sparse source lacks reproducible features, split and trial budget; win does not isolate tuning benefit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports several Optuna-tuned CatBoost models as the best solution.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Build an untuned CatBoost benchmark, tune within inner folds under fixed trial budget, and assess credit/time-grouped outer holdouts.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-fc69bda992d4c9176c0d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "CatBoost tuning is accessible through a standard tool, though details must be supplied.",
+        "competitor": "It suggests a reasonable categorical-tree baseline with limited source specificity.",
+        "practitioner": "Credit scoring needs population and time validation beyond reported leaderboard success."
+      },
+      "review": {
+        "candidate_id": "C-49e9f5e81e7a3c28e4c9",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner bank-scoring README reports several Optuna-tuned CatBoost models but no split, feature definitions or tuning ablation.",
+        "candidate_sha256": "2dbea42a8a6acd5998ae27c162501d7cc737160a779536e5d3524e1ed5c70695"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000363",
+      "slug": "lesson-000363",
+      "merged_candidate_ids": [
+        "C-49e9f5e81e7a3c28e4c9"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e34bf02489e255e75494",
+          "competition_id": "competition:2021-bank-scoring-case-2",
+          "source_id": "source:lesson-source-9769e100a73153ea",
+          "source_url": "https://raw.githubusercontent.com/YuriyBalandin/Bank_Scoring_CMF/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/f70970a1af4321dd05bff5a4af234962e3169fdaf510c6fe6865a09e1e6cc2d3.txt",
+          "snapshot_sha256": "f70970a1af4321dd05bff5a4af234962e3169fdaf510c6fe6865a09e1e6cc2d3",
+          "source_quality": "primary_text",
+          "observation_id": "O-fc69bda992d4c9176c0d",
+          "line_start": 6,
+          "line_end": 6,
+          "evidence_text": "The best solution was obtained using several catboost models with hyperparameters obtained using oputna.",
+          "kind": "used",
+          "statement": "Author reports several Optuna-tuned CatBoost models as the best solution.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "CatBoost tuning is accessible through a standard tool, though details must be supplied.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "It suggests a reasonable categorical-tree baseline with limited source specificity.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Credit scoring needs population and time validation beyond reported leaderboard success.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9769e100a73153ea",
+          "locator": "research/lesson-extraction/snapshots/f70970a1af4321dd05bff5a4af234962e3169fdaf510c6fe6865a09e1e6cc2d3.txt#L6-L6",
+          "quote": "The best solution was obtained using several catboost models with hyperparameters obtained using oputna.",
+          "competition_id": "competition:2021-bank-scoring-case-2",
+          "url": "https://raw.githubusercontent.com/YuriyBalandin/Bank_Scoring_CMF/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/f70970a1af4321dd05bff5a4af234962e3169fdaf510c6fe6865a09e1e6cc2d3.txt",
+          "snapshot_sha256": "f70970a1af4321dd05bff5a4af234962e3169fdaf510c6fe6865a09e1e6cc2d3",
+          "line_start": 6,
+          "line_end": 6
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-49e9f5e81e7a3c28e4c9",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner bank-scoring README reports several Optuna-tuned CatBoost models but no split, feature definitions or tuning ablation.",
+          "candidate_sha256": "2dbea42a8a6acd5998ae27c162501d7cc737160a779536e5d3524e1ed5c70695"
+        },
+        {
+          "candidate_id": "C-49e9f5e81e7a3c28e4c9",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Read complete six-line educational bank winner README. Several tuned CatBoost models are reported best, but source omits features/splits/trials; candidate explicitly preserves that and proposes untuned benchmark plus nested grouped assessment. All twelve moderate scores match sparse evidence and practical conditional tuning.",
+          "candidate_sha256": "2dbea42a8a6acd5998ae27c162501d7cc737160a779536e5d3524e1ed5c70695"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 122,
+        "line_end": 132,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-eb2c4ba3f04763bfc41d",
+      "canonical_key": "simple-model-after-spectral-processing | spectral regression | runtime",
+      "title": "Retest a simple model after domain preprocessing",
+      "statement": "When A strong preprocessing pipeline exists and training or inference efficiency matters., proposed reuse: Proposed conditional application: Apply the selected preprocessing to a simple HGB model.; Proposed conditional application: Compare that alternative with the available stronger models. Proposed check: Compare HGBand ensemble on the same untouched measurements and hardware, measuring preprocessing, training and submission generation separately. Limitation: 45secondrunhardware is unknown; outperforming second-best does not prove equality with the winning blend.",
+      "trigger_conditions": [
+        "A strong preprocessing pipeline exists and training or inference efficiency matters."
+      ],
+      "action_steps": [
+        "Proposed conditional application: Apply the selected preprocessing to a simple HGB model.",
+        "Proposed conditional application: Compare that alternative with the available stronger models."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare HGBand ensemble on the same untouched measurements and hardware, measuring preprocessing, training and submission generation separately."
+      ],
+      "limitations": [
+        "45secondrunhardware is unknown; outperforming second-best does not prove equality with the winning blend."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "spectrum"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "scientific_measurement"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Processing principle remains testable; implementation and validation require local checks.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reports a preprocessing-plus-HGB alternative beating the second-best solution, with45seconds for training and submission generation on unspecified hardware.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare HGBand ensemble on the same untouched measurements and hardware, measuring preprocessing, training and submission generation separately.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-4f6d1c4f170cbed742e7",
+        "O-a2dc4be97b47699055d4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Retesting a simple model after better preprocessing is accessible and practical.",
+        "competitor": "The reported HGBalternative supports a strong low-cost baseline experiment.",
+        "practitioner": "A compact model can simplify serving if total cost and quality are measured locally."
+      },
+      "review": {
+        "candidate_id": "C-eb2c4ba3f04763bfc41d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Author reports HGBwith selected preprocessing beats the second-best solution and takes45secondsfortrain+submission; no final-ensemble equivalence or hardware is given.",
+        "candidate_sha256": "f3cb093141e76597628ba8c34214a79aa61ce309eea81916986a76f624d2a016"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000461",
+      "slug": "lesson-000461",
+      "merged_candidate_ids": [
+        "C-eb2c4ba3f04763bfc41d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-04f191145f42ed82a71f",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "source_url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "source_quality": "primary_text",
+          "observation_id": "O-4f6d1c4f170cbed742e7",
+          "line_start": 37,
+          "line_end": 37,
+          "evidence_text": "A simple hgb model with the preprocessing steps outperforms the second best solution and I have shared that too [here](https://www.kaggle.com/code/paritoshtripathi5/final-solution-notebook/)",
+          "kind": "reported_gain",
+          "statement": "The author reports a simpler HGB model with the selected preprocessing outperforming the second-best solution.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-04f191145f42ed82a71f",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "source_url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "source_quality": "primary_text",
+          "observation_id": "O-a2dc4be97b47699055d4",
+          "line_start": 39,
+          "line_end": 39,
+          "evidence_text": "This notebook only takes 45 seconds to train and generate submission, and can be used for efficiency.",
+          "kind": "author_advice",
+          "statement": "The author reports45seconds for training and submission generation; no hardware is identified.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Retesting a simple model after better preprocessing is accessible and practical.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "The reported HGBalternative supports a strong low-cost baseline experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A compact model can simplify serving if total cost and quality are measured locally.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "locator": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt#L37-L37",
+          "quote": "A simple hgb model with the preprocessing steps outperforms the second best solution and I have shared that too [here](https://www.kaggle.com/code/paritoshtripathi5/final-solution-notebook/)",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "line_start": 37,
+          "line_end": 37
+        },
+        {
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "locator": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt#L39-L39",
+          "quote": "This notebook only takes 45 seconds to train and generate submission, and can be used for efficiency.",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "line_start": 39,
+          "line_end": 39
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-eb2c4ba3f04763bfc41d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Author reports HGBwith selected preprocessing beats the second-best solution and takes45secondsfortrain+submission; no final-ensemble equivalence or hardware is given.",
+          "candidate_sha256": "f3cb093141e76597628ba8c34214a79aa61ce309eea81916986a76f624d2a016"
+        },
+        {
+          "candidate_id": "C-eb2c4ba3f04763bfc41d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Dig4Bio author claims HGB with preprocessing outperforms second-best and takes45seconds for training/submission generation. Candidate keeps that comparator separate from winning blend and hardware unknown; local equal-data quality and total-cost checks are proposed. Twelve scores reasonably favor a simple alternative without asserting equivalence to the winner.",
+          "candidate_sha256": "f3cb093141e76597628ba8c34214a79aa61ce309eea81916986a76f624d2a016"
+        }
+      ],
+      "book_location": {
+        "chapter": 12,
+        "path": "manuscript/chapters/12-the-gbm-trio.md",
+        "sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
+        "line_start": 134,
+        "line_end": 144,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

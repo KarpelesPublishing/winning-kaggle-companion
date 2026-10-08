@@ -1,0 +1,573 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-8b9760b5e94b593c1fb4",
+      "canonical_key": "compare rank-gauss normalized swap-noise dae features with plain neural inputs, then assess the model's ensemble contribution separately from standalone auc. | boosted trees outperform raw tabular neural networks | predictive_quality",
+      "title": "Test overcomplete denoising features as a neural complement",
+      "statement": "When boosted trees outperform raw tabular neural networks, proposed reuse: Proposed conditional application: Compare rank-Gauss normalized swap-noise DAE features with plain neural inputs, then assess the model's ensemble contribution separately from standalone AUC. Proposed check: Compare fold-fitted DAE+NN/plain NN and incremental blend AUC at equal data splits; measure GPU time/memory. Limitation: Approximate recalled gain; huge overcomplete layers and transductive fitting risks require care.",
+      "trigger_conditions": [
+        "boosted trees outperform raw tabular neural networks"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare rank-Gauss normalized swap-noise DAE features with plain neural inputs, then assess the model's ensemble contribution separately from standalone AUC."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare fold-fitted DAE+NN/plain NN and incremental blend AUC at equal data splits; measure GPU time/memory."
+      ],
+      "limitations": [
+        "Approximate recalled gain; huge overcomplete layers and transductive fitting risks require care."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The credit team reports denoising-autoencoder representations consistently outperforming their plain neural baseline.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-03ef1cf25b5fc7ad0dd0"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Specialist expensive representation for modest return.",
+        "competitor": "Niche diversity option after strong trees.",
+        "practitioner": "Low feasibility versus simpler tabular learners."
+      },
+      "review": {
+        "candidate_id": "C-8b9760b5e94b593c1fb4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Home Credit packet reports maybe +0.005 AUC DAE+NN over plain NN; LightGBM still better and DAE dominates one-day GPU run.",
+        "candidate_sha256": "3e41f3468f319d0e14dfca3d18732bf0f7e31daf2c7b3698f5d84a16a726a33a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000169",
+      "slug": "lesson-000169",
+      "merged_candidate_ids": [
+        "C-8b9760b5e94b593c1fb4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ce2da7717bfb1ac5f878",
+          "competition_id": "competition:home-credit-default-risk",
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "source_url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-03ef1cf25b5fc7ad0dd0",
+          "line_start": 85,
+          "line_end": 85,
+          "evidence_text": "DAE+NN was consistently better than plain NN (maybe +0.005 in AUC)",
+          "kind": "reported_gain",
+          "statement": "The credit team reports denoising-autoencoder representations consistently outperforming their plain neural baseline.",
+          "reported_result": {
+            "metric": "AUC improvement",
+            "value": 0.005,
+            "context": "Home Credit author recalls DAE+NN versus plain NN gain as maybe +0.005 AUC across available feature sets; exact split, absolute baseline, uncertainty and replication unknown.",
+            "evidence_text": "DAE+NN was consistently better than plain NN (maybe +0.005 in AUC)"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Specialist expensive representation for modest return.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Niche diversity option after strong trees.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Low feasibility versus simpler tabular learners.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "locator": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt#L85-L85",
+          "quote": "DAE+NN was consistently better than plain NN (maybe +0.005 in AUC)",
+          "competition_id": "competition:home-credit-default-risk",
+          "url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "line_start": 85,
+          "line_end": 85
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-8b9760b5e94b593c1fb4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Home Credit packet reports maybe +0.005 AUC DAE+NN over plain NN; LightGBM still better and DAE dominates one-day GPU run.",
+          "candidate_sha256": "3e41f3468f319d0e14dfca3d18732bf0f7e31daf2c7b3698f5d84a16a726a33a"
+        }
+      ],
+      "book_location": {
+        "chapter": 32,
+        "path": "manuscript/chapters/32-denoising-autoencoders.md",
+        "sha256": "6acf54df381d6789be822f93079896e561af29e41ff3e14e7a9dc48dd9f577f6",
+        "line_start": 320,
+        "line_end": 324,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-551accc876c5d2b3",
+      "canonical_key": "evaluate a low-dimensional unsupervised embedding for visualization while retaining the original features for predictive comparisons. | high-dimensional patient features require exploratory visualization | interpretability",
+      "title": "Treat two-dimensional autoencoder embeddings as a diagnostic",
+      "statement": "When high-dimensional patient features require exploratory visualization, consider this source-backed action: Evaluate a low-dimensional unsupervised embedding for visualization while retaining the original features for predictive comparisons. Proposed check: Distinguish diagnostic plots from held-out predictive evidence and document whether fitting on unlabeled test data is permitted. Limit: The source demonstrates a visualization, not a predictive gain; combined train/test fitting is transductive and may be unsuitable elsewhere.",
+      "trigger_conditions": [
+        "high-dimensional patient features require exploratory visualization"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Evaluate a low-dimensional unsupervised embedding for visualization while retaining the original features for predictive comparisons."
+      ],
+      "verification_steps": [
+        "Proposed verification: Distinguish diagnostic plots from held-out predictive evidence and document whether fitting on unlabeled test data is permitted."
+      ],
+      "limitations": [
+        "The source demonstrates a visualization, not a predictive gain; combined train/test fitting is transductive and may be unsuitable elsewhere."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "high",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The figure caption describes an autoencoder trained on concatenated train/test features with a two-unit linear middle layer and overlaid training targets; training for 20 epochs took over a day.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-551accc876c5d2b3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Large autoencoder for visualization is resource-intensive.",
+        "competitor": "Diagnostic embedding can expose structure, not prove prediction quality.",
+        "practitioner": "Exploration useful only with transductive fitting and cost documented."
+      },
+      "review": {
+        "candidate_id": "C-a-551accc876c5d2b3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked2D autoencoder visualization;0.827738model score lacks matched predictive comparator.",
+        "candidate_sha256": "c9bb131b68c8902ac6747e884f6cb99222a3d7a24e66c380a049bbdea9bec653"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000244",
+      "slug": "lesson-000244",
+      "merged_candidate_ids": [
+        "C-a-551accc876c5d2b3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-96a5d1e2ea86f52a9e96",
+          "competition_id": "competition:cervical-cancer-screening",
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "source_url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-551accc876c5d2b3",
+          "line_start": 30,
+          "line_end": 30,
+          "evidence_text": "[caption id=\"attachment_5560\" align=\"aligncenter\" width=\"781\"] By using Giulio's dataset (0.96294 single model private score) train and test features are concatenated (2859630 rows) to train an autoencoder neural net. It is an unsupervised learner, that reconstructs itself. Architecture is 98259-4000-4000-4000-2-4000-4000-4000-98259. Middle and output layer is linear, others are ReLU. 20 epochs minibatch SGD on GPU, which took over a day to run. The scatterplot shows the middle layer activations of the train part with targets overlaid (blue=0, red=1). This means that every patient is a dot in this plot.[/caption]",
+          "kind": "used",
+          "statement": "The figure caption describes an autoencoder trained on concatenated train/test features with a two-unit linear middle layer and overlaid training targets; training for 20 epochs took over a day.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Large autoencoder for visualization is resource-intensive.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Diagnostic embedding can expose structure, not prove prediction quality.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Exploration useful only with transductive fitting and cost documented.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "locator": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt#L30-L30",
+          "quote": "[caption id=\"attachment_5560\" align=\"aligncenter\" width=\"781\"] By using Giulio's dataset (0.96294 single model private score) train and test features are concatenated (2859630 rows) to train an autoencoder neural net. It is an unsupervised learner, that reconstructs itself. Architecture is 98259-4000-4000-4000-2-4000-4000-4000-98259. Middle and output layer is linear, others are ReLU. 20 epochs minibatch SGD on GPU, which took over a day to run. The scatterplot shows the middle layer activations of the train part with targets overlaid (blue=0, red=1). This means that every patient is a dot in this plot.[/caption]",
+          "competition_id": "competition:cervical-cancer-screening",
+          "url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "line_start": 30,
+          "line_end": 30
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-551accc876c5d2b3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked2D autoencoder visualization;0.827738model score lacks matched predictive comparator.",
+          "candidate_sha256": "c9bb131b68c8902ac6747e884f6cb99222a3d7a24e66c380a049bbdea9bec653"
+        }
+      ],
+      "book_location": {
+        "chapter": 32,
+        "path": "manuscript/chapters/32-denoising-autoencoders.md",
+        "sha256": "6acf54df381d6789be822f93079896e561af29e41ff3e14e7a9dc48dd9f577f6",
+        "line_start": 328,
+        "line_end": 332,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-c127a06a5341e32e9e32",
+      "canonical_key": "train a three-hidden-layer swish denoising autoencoder and feed its denoised data into lightgbm. | tree models may benefit from a complementary learned feature view | predictive_quality",
+      "title": "Check a denoised feature view for ensemble diversity",
+      "statement": "When tree models may benefit from a complementary learned feature view, proposed reuse: Proposed conditional application: Train a three-hidden-layer swish denoising autoencoder and feed its denoised data into LightGBM. Proposed check: Compare raw and DAE-denoised LightGBM and their blend on fixed group-aware holdouts; record residual correlation. Limitation: Autoencoder details are partial; weak/significant CV wording conflicts and no causal benefit established.",
+      "trigger_conditions": [
+        "tree models may benefit from a complementary learned feature view"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Train a three-hidden-layer swish denoising autoencoder and feed its denoised data into LightGBM."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare raw and DAE-denoised LightGBM and their blend on fixed group-aware holdouts; record residual correlation."
+      ],
+      "limitations": [
+        "Autoencoder details are partial; weak/significant CV wording conflicts and no causal benefit established."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author built a three-hidden-layer Swish denoising autoencoder with linear output and used denoised data with LightGBM.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed denoised feature view for comparable tabular regression.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-2e091c1c228062dff9c2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Requires neural training for uncertain marginal return.",
+        "competitor": "Possible tabular diversity component worth a scoped test.",
+        "practitioner": "Moderate cost and uncertain advantage over simpler features."
+      },
+      "review": {
+        "candidate_id": "C-c127a06a5341e32e9e32",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete packet feeds denoised data to LightGBM, not supervised neural models; CV claims are internally inconsistent.",
+        "candidate_sha256": "279386d15275c2be13cfd98d24afc25f1c60c04521995f1d4ef41b309aad1883"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000499",
+      "slug": "lesson-000499",
+      "merged_candidate_ids": [
+        "C-c127a06a5341e32e9e32"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a2389db66bdab4ac3d6a",
+          "competition_id": "competition:beyond-analysis",
+          "source_id": "source:lesson-source-8485898aacf85ab8",
+          "snapshot_path": "research/lesson-extraction/snapshots/d3d8dff28255a8ac415c32a2cafc3d9fad18907787ec1f84f1c4b37332f970a8.txt",
+          "snapshot_sha256": "d3d8dff28255a8ac415c32a2cafc3d9fad18907787ec1f84f1c4b37332f970a8",
+          "source_url": "https://www.kaggle.com/competitions/beyond-analysis/writeups/priyanshu-chaudhary-1st-place-approach",
+          "source_quality": "primary_text",
+          "observation_id": "O-2e091c1c228062dff9c2",
+          "line_start": 74,
+          "line_end": 74,
+          "evidence_text": "I made a neural nets of 3 hidden layers with swish activation and used linear activation as output for denoising the data this strategy proved really good to provide diversity in the modelling.",
+          "kind": "used",
+          "statement": "Author describes a three-hidden-layer Swish denoising autoencoder with linear output; full packet says denoised data were fed to LightGBM.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Requires neural training for uncertain marginal return.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Possible tabular diversity component worth a scoped test.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Moderate cost and uncertain advantage over simpler features.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8485898aacf85ab8",
+          "locator": "research/lesson-extraction/snapshots/d3d8dff28255a8ac415c32a2cafc3d9fad18907787ec1f84f1c4b37332f970a8.txt#L74-L74",
+          "quote": "I made a neural nets of 3 hidden layers with swish activation and used linear activation as output for denoising the data this strategy proved really good to provide diversity in the modelling.",
+          "competition_id": "competition:beyond-analysis",
+          "url": "https://www.kaggle.com/competitions/beyond-analysis/writeups/priyanshu-chaudhary-1st-place-approach",
+          "snapshot_path": "research/lesson-extraction/snapshots/d3d8dff28255a8ac415c32a2cafc3d9fad18907787ec1f84f1c4b37332f970a8.txt",
+          "snapshot_sha256": "d3d8dff28255a8ac415c32a2cafc3d9fad18907787ec1f84f1c4b37332f970a8",
+          "line_start": 74,
+          "line_end": 74
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-c127a06a5341e32e9e32",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete packet feeds denoised data to LightGBM, not supervised neural models; CV claims are internally inconsistent.",
+          "candidate_sha256": "279386d15275c2be13cfd98d24afc25f1c60c04521995f1d4ef41b309aad1883"
+        }
+      ],
+      "book_location": {
+        "chapter": 32,
+        "path": "manuscript/chapters/32-denoising-autoencoders.md",
+        "sha256": "6acf54df381d6789be822f93079896e561af29e41ff3e14e7a9dc48dd9f577f6",
+        "line_start": 302,
+        "line_end": 312,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

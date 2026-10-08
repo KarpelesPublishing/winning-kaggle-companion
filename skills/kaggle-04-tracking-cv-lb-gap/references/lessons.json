@@ -1,0 +1,592 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-d3707710a4d106b7",
+      "canonical_key": "add rolling-origin and period-specific checks when the original holdout stops tracking expected evaluation behavior. | a single forecast holdout no longer ranks candidate changes consistently | validation_reliability",
+      "title": "Investigate a forecast holdout that stops predicting leaderboard changes",
+      "statement": "When a single forecast holdout no longer ranks candidate changes consistently, consider this source-backed action: Add rolling-origin and period-specific checks when the original holdout stops tracking expected evaluation behavior. Proposed check: Compare candidate rankings across multiple historical periods before retuning the blend. Limit: Recession effects are speculation, and repeated public submissions can themselves overfit; no causal shift diagnosis is established.",
+      "trigger_conditions": [
+        "a single forecast holdout no longer ranks candidate changes consistently"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Add rolling-origin and period-specific checks when the original holdout stops tracking expected evaluation behavior."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare candidate rankings across multiple historical periods before retuning the blend."
+      ],
+      "limitations": [
+        "Recession effects are speculation, and repeated public submissions can themselves overfit; no causal shift diagnosis is established."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "travel"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The last-four-years holdout became less reliable once leaderboard MASE was below about 2.05; the author then tested tweaks through submissions and speculated about recession-related shift.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-d3707710a4d106b7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Concrete reason to add more historical evaluation periods.",
+        "competitor": "Useful diagnosis when one local holdout loses selection reliability.",
+        "practitioner": "Important shift monitoring without inferring causes from rank discrepancies."
+      },
+      "review": {
+        "candidate_id": "C-a-d3707710a4d106b7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Four-year holdout stopped ranking changes reliably; recession interpretation is speculative and public tuning is qualified.",
+        "candidate_sha256": "97833feebceef14c638b160bf595d8afacaf8b5a90338038b70abab77d6e2b67"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000004",
+      "slug": "lesson-000004",
+      "merged_candidate_ids": [
+        "C-a-d3707710a4d106b7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-5ca713e322c9113bf75b",
+          "competition_id": "competition:tourism1",
+          "source_id": "source:lesson-source-041ebfcb575f5f14",
+          "snapshot_path": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt",
+          "snapshot_sha256": "82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee",
+          "source_url": "http://blog.kaggle.com/2010/09/27/how-i-did-it-lee-baker-on-winning-tourism-forecasting-part-one/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-d3707710a4d106b7",
+          "line_start": 24,
+          "line_end": 25,
+          "evidence_text": "Testing / developing algorithms:\nWhen testing algorithms, I used the last four years of the training dataset (after removing them from the data I was using for training) to test against. While this worked well in the initial stages, I found that once my leaderboard MASE got below about 2.05, this \u2018training MASE\u2019 became a much less reliable indicator of whether the leaderboard MASE would increase or decrease with a change. So, during the last few weeks of the contest, I primarily made small tweaks, and tested their value by submitting a new prediction to Kaggle rather than comparing my MASE results. I believe that this indicates a significant difference in nature of the last 4 years of the training set compared to the 4 years in the test set. If the test set includes data from 2008-2009, I\u2019m speculating that depressed tourism numbers as a result of the global economic recession could have caused a significant difference in the trends.",
+          "kind": "reported_failure",
+          "statement": "The last-four-years holdout became less reliable once leaderboard MASE was below about 2.05; the author then tested tweaks through submissions and speculated about recession-related shift.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Concrete reason to add more historical evaluation periods.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Useful diagnosis when one local holdout loses selection reliability.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Important shift monitoring without inferring causes from rank discrepancies.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-041ebfcb575f5f14",
+          "locator": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt#L24-L25",
+          "quote": "Testing / developing algorithms:\nWhen testing algorithms, I used the last four years of the training dataset (after removing them from the data I was using for training) to test against. While this worked well in the initial stages, I found that once my leaderboard MASE got below about 2.05, this \u2018training MASE\u2019 became a much less reliable indicator of whether the leaderboard MASE would increase or decrease with a change. So, during the last few weeks of the contest, I primarily made small tweaks, and tested their value by submitting a new prediction to Kaggle rather than comparing my MASE results. I believe that this indicates a significant difference in nature of the last 4 years of the training set compared to the 4 years in the test set. If the test set includes data from 2008-2009, I\u2019m speculating that depressed tourism numbers as a result of the global economic recession could have caused a significant difference in the trends.",
+          "competition_id": "competition:tourism1",
+          "url": "http://blog.kaggle.com/2010/09/27/how-i-did-it-lee-baker-on-winning-tourism-forecasting-part-one/",
+          "snapshot_path": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt",
+          "snapshot_sha256": "82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee",
+          "line_start": 24,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-d3707710a4d106b7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Four-year holdout stopped ranking changes reliably; recession interpretation is speculative and public tuning is qualified.",
+          "candidate_sha256": "97833feebceef14c638b160bf595d8afacaf8b5a90338038b70abab77d6e2b67"
+        },
+        {
+          "candidate_id": "C-a-d3707710a4d106b7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete tourism source read. Last4years ranking deterioration near leaderboardMASE2.05 literal, recession speculative, repeatpublic overfit caveated; rollingorigin tests proposed. Grades reflect validation work.",
+          "candidate_sha256": "97833feebceef14c638b160bf595d8afacaf8b5a90338038b70abab77d6e2b67"
+        }
+      ],
+      "book_location": {
+        "chapter": 4,
+        "path": "manuscript/chapters/04-tracking-cv-lb-gap.md",
+        "sha256": "4215c93b6788297bc5a5be972197d9d71019645fed5041eaf6bb9ca558dc1350",
+        "line_start": 47,
+        "line_end": 57,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-703fbe991fe36d01eb47",
+      "canonical_key": "assess performance over staggered historical cutoff periods before claiming one method generally better. | many forecast series may share the same test dates | validation_reliability",
+      "title": "Distinguish algorithm quality from shared test-era trends",
+      "statement": "When many forecast series may share the same test dates, proposed reuse: Proposed conditional application: Assess performance over staggered historical cutoff periods before claiming one method generally better. Proposed check: Evaluate rolling and staggered origins across several eras and compare method rankings, horizon error and sensitivity to shared shocks. Limitation: Source did not perform the suggested staggered evaluation; common test-era confounding is a hypothesis.",
+      "trigger_conditions": [
+        "many forecast series may share the same test dates"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Assess performance over staggered historical cutoff periods before claiming one method generally better."
+      ],
+      "verification_steps": [
+        "Proposed check: Evaluate rolling and staggered origins across several eras and compare method rankings, horizon error and sensitivity to shared shocks."
+      ],
+      "limitations": [
+        "Source did not perform the suggested staggered evaluation; common test-era confounding is a hypothesis."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The tourism author suggests staggered time cutoffs to reduce confounding by shared test-era trends.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-2cf4def62e42911dda9e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiple historical periods make a clear lesson about time-specific luck.",
+        "competitor": "Staggered evaluation reduces reliance on one favorable forecast era.",
+        "practitioner": "Forecasting systems need repeated historical regimes to assess trend dependence."
+      },
+      "review": {
+        "candidate_id": "C-703fbe991fe36d01eb47",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner suggests staggered historical dates; common test dates and global-shock explanation are explicitly hypotheses, not verified facts.",
+        "candidate_sha256": "da71b5789799610aa102b3fa875df995883ec6e2e1b8089547de8c0ac9cda541"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000019",
+      "slug": "lesson-000019",
+      "merged_candidate_ids": [
+        "C-703fbe991fe36d01eb47"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e93233b7611893deda5f",
+          "competition_id": "competition:tourism2",
+          "source_id": "source:lesson-source-9d7e57c492f3d34f",
+          "snapshot_path": "research/lesson-extraction/snapshots/5ff79a4cae9fa7ec19d863db1b75f918e05d592dd2c895e8d199d747f0a7526e.txt",
+          "snapshot_sha256": "5ff79a4cae9fa7ec19d863db1b75f918e05d592dd2c895e8d199d747f0a7526e",
+          "source_url": "http://blog.kaggle.com/2011/03/22/phil-brierley-on-winning-tourism-forecasting-part-two/",
+          "source_quality": "primary_text",
+          "observation_id": "O-2cf4def62e42911dda9e",
+          "line_start": 35,
+          "line_end": 35,
+          "evidence_text": "more generalizable results may have been obtained if the series were deliberately staggered in time.",
+          "kind": "author_advice",
+          "statement": "The tourism author suggests staggered time cutoffs to reduce confounding by shared test-era trends.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Multiple historical periods make a clear lesson about time-specific luck.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Staggered evaluation reduces reliance on one favorable forecast era.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Forecasting systems need repeated historical regimes to assess trend dependence.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9d7e57c492f3d34f",
+          "locator": "research/lesson-extraction/snapshots/5ff79a4cae9fa7ec19d863db1b75f918e05d592dd2c895e8d199d747f0a7526e.txt#L35-L35",
+          "quote": "more generalizable results may have been obtained if the series were deliberately staggered in time.",
+          "competition_id": "competition:tourism2",
+          "url": "http://blog.kaggle.com/2011/03/22/phil-brierley-on-winning-tourism-forecasting-part-two/",
+          "snapshot_path": "research/lesson-extraction/snapshots/5ff79a4cae9fa7ec19d863db1b75f918e05d592dd2c895e8d199d747f0a7526e.txt",
+          "snapshot_sha256": "5ff79a4cae9fa7ec19d863db1b75f918e05d592dd2c895e8d199d747f0a7526e",
+          "line_start": 35,
+          "line_end": 35
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-703fbe991fe36d01eb47",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner suggests staggered historical dates; common test dates and global-shock explanation are explicitly hypotheses, not verified facts.",
+          "candidate_sha256": "da71b5789799610aa102b3fa875df995883ec6e2e1b8089547de8c0ac9cda541"
+        },
+        {
+          "candidate_id": "C-703fbe991fe36d01eb47",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Tourism winner hypothesizes common forecast dates/shared shocks and recommends staggered dates; source did not run that protocol. Candidate explicitly labels suggested era evaluation and hypothesis, with rolling rankings/horizon sensitivity checks. Multiple-era validation is broad and feasible, without asserting verified generalization gain.",
+          "candidate_sha256": "da71b5789799610aa102b3fa875df995883ec6e2e1b8089547de8c0ac9cda541"
+        }
+      ],
+      "book_location": {
+        "chapter": 4,
+        "path": "manuscript/chapters/04-tracking-cv-lb-gap.md",
+        "sha256": "4215c93b6788297bc5a5be972197d9d71019645fed5041eaf6bb9ca558dc1350",
+        "line_start": 59,
+        "line_end": 69,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a3b4a49d0c45f0922967",
+      "canonical_key": "investigate extreme-target distribution shift before adding a special tail class or removing suspect rows. | rare high labels dominate error and may shift across years | predictive_quality",
+      "title": "Audit extreme labels when local and public scores conflict",
+      "statement": "When rare high labels dominate error and may shift across years, proposed reuse: Proposed conditional application: Investigate extreme-target distribution shift before adding a special tail class or removing suspect rows. Proposed check: Audit extremes by year/gauge and compare retaining/reweighting/removal on time-held-out tail loss. Limitation: Genuine extreme weather must not be deleted solely for leaderboard improvement; 2014 labels unavailable to author.",
+      "trigger_conditions": [
+        "rare high labels dominate error and may shift across years"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Investigate extreme-target distribution shift before adding a special tail class or removing suspect rows."
+      ],
+      "verification_steps": [
+        "Proposed check: Audit extremes by year/gauge and compare retaining/reweighting/removal on time-held-out tail loss."
+      ],
+      "limitations": [
+        "Genuine extreme weather must not be deleted solely for leaderboard improvement; 2014 labels unavailable to author."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The rainfall author reports unexpectedly large-label behavior and discusses a possible gauge-related distribution shift as speculation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6edd1eb17752bd4f6677"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful audit with straightforward plots.",
+        "competitor": "Addresses disproportionate metric errors under label shift.",
+        "practitioner": "Strong extreme-label review with domain confirmation."
+      },
+      "review": {
+        "candidate_id": "C-a3b4a49d0c45f0922967",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete rain source removes extreme labels after conflicting local/public evidence; gauge-malfunction cause explicitly speculative.",
+        "candidate_sha256": "99f03f47312a644eac493cf69c19cee07409089c0d3285e2d4db5ca295013447"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000323",
+      "slug": "lesson-000323",
+      "merged_candidate_ids": [
+        "C-a3b4a49d0c45f0922967"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-51b537d613e944712ad3",
+          "competition_id": "competition:how-much-did-it-rain",
+          "source_id": "source:lesson-source-730207cf1abfc006",
+          "snapshot_path": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt",
+          "snapshot_sha256": "f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978",
+          "source_url": "http://blog.kaggle.com/2015/07/01/how-much-did-it-rain-winners-interview-1st-place-devin-anzelmo/",
+          "source_quality": "primary_text",
+          "observation_id": "O-6edd1eb17752bd4f6677",
+          "line_start": 47,
+          "line_end": 47,
+          "evidence_text": "Removing the rows with large values from the training set turned out to be the best course of action.",
+          "kind": "used",
+          "statement": "The rainfall author reports unexpectedly large-label behavior and discusses a possible gauge-related distribution shift as speculation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful audit with straightforward plots.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Addresses disproportionate metric errors under label shift.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong extreme-label review with domain confirmation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-730207cf1abfc006",
+          "locator": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt#L47-L47",
+          "quote": "Removing the rows with large values from the training set turned out to be the best course of action.",
+          "competition_id": "competition:how-much-did-it-rain",
+          "url": "http://blog.kaggle.com/2015/07/01/how-much-did-it-rain-winners-interview-1st-place-devin-anzelmo/",
+          "snapshot_path": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt",
+          "snapshot_sha256": "f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978",
+          "line_start": 47,
+          "line_end": 47
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a3b4a49d0c45f0922967",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete rain source removes extreme labels after conflicting local/public evidence; gauge-malfunction cause explicitly speculative.",
+          "candidate_sha256": "99f03f47312a644eac493cf69c19cee07409089c0d3285e2d4db5ca295013447"
+        },
+        {
+          "candidate_id": "C-a3b4a49d0c45f0922967",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Rainfall interview explains extreme labels/local-versus-public conflict and explicitly labels gauge-malfunction explanation speculation without2014 labels. Candidate proposes year/gauge tail-loss audits and avoids deleting genuine extremes solely for LB. All3 profile reflects moderate, domain-dependent auditing value.",
+          "candidate_sha256": "99f03f47312a644eac493cf69c19cee07409089c0d3285e2d4db5ca295013447"
+        }
+      ],
+      "book_location": {
+        "chapter": 4,
+        "path": "manuscript/chapters/04-tracking-cv-lb-gap.md",
+        "sha256": "4215c93b6788297bc5a5be972197d9d71019645fed5041eaf6bb9ca558dc1350",
+        "line_start": 71,
+        "line_end": 81,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

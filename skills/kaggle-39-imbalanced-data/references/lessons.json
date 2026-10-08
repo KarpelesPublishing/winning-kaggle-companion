@@ -1,0 +1,1551 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-1fbca7ec7f9c17da4f59",
+      "canonical_key": "balanced-epoch-sampling | image class imbalance | rare-class exposure",
+      "title": "Balance class exposure through an epoch sampler",
+      "statement": "When image class counts are strongly imbalanced, proposed reuse: Proposed recipe: test oversampling so each epoch exposes comparable image counts per class. Proposed check: Compare natural and balanced sampling at equal optimization steps and report minority quality, calibration and repeated-example exposure. Limitation: Oversampling can memorize scarce examples and alter probability calibration; equal counts need not match the target metric.",
+      "trigger_conditions": [
+        "image class counts are strongly imbalanced"
+      ],
+      "action_steps": [
+        "Proposed recipe: test oversampling so each epoch exposes comparable image counts per class."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare natural and balanced sampling at equal optimization steps and report minority quality, calibration and repeated-example exposure."
+      ],
+      "limitations": [
+        "Oversampling can memorize scarce examples and alter probability calibration; equal counts need not match the target metric."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "overfitting",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author used oversampling to equalize per-epoch class image counts.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare natural and balanced sampling at equal optimization steps and report minority quality, calibration and repeated-example exposure.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-67f8aa5fe7c851eb5d2e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Balanced sampling is a concrete and accessible imbalance intervention.",
+        "competitor": "Class exposure is a useful independent ablation alongside class-weighted losses.",
+        "practitioner": "Imbalanced classification can use this recipe with calibration and prevalence checks."
+      },
+      "review": {
+        "candidate_id": "C-1fbca7ec7f9c17da4f59",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Source equalizes image counts per class through epoch oversampling; no isolated sampler gain is reported.",
+        "candidate_sha256": "a81414f29c0187b52ec54f126a059966e18a75dad6aa02d7de20e731c867202b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000030",
+      "slug": "lesson-000030",
+      "merged_candidate_ids": [
+        "C-1fbca7ec7f9c17da4f59"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c63c0d4154fc357b3cce",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "source_url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "source_quality": "primary_text",
+          "observation_id": "O-67f8aa5fe7c851eb5d2e",
+          "line_start": 19,
+          "line_end": 19,
+          "evidence_text": "Class\uc758 \uc774\ubbf8\uc9c0 \uc218\ub4e4\uc758 \ubd88\uade0\ud615\uc774 \uc874\uc7ac\ud588\uc2b5\ub2c8\ub2e4. \uade0\ud615\uc744 \ub9de\ucd94\uae30 \uc704\ud574\uc11c oversampling \ubc29\uc2dd\uc744 \ud1b5\ud558\uc5ec \ud55c epoch\uc744 \ub2f9 \uc8fc\uc5b4\uc9c0\ub294 class\uc758 image \uc218\ub97c \uac19\uac8c \ub9de\ucd94\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "kind": "used",
+          "statement": "Author used oversampling to equalize per-epoch class image counts.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Balanced sampling is a concrete and accessible imbalance intervention.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Class exposure is a useful independent ablation alongside class-weighted losses.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Imbalanced classification can use this recipe with calibration and prevalence checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "locator": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt#L19-L19",
+          "quote": "Class\uc758 \uc774\ubbf8\uc9c0 \uc218\ub4e4\uc758 \ubd88\uade0\ud615\uc774 \uc874\uc7ac\ud588\uc2b5\ub2c8\ub2e4. \uade0\ud615\uc744 \ub9de\ucd94\uae30 \uc704\ud574\uc11c oversampling \ubc29\uc2dd\uc744 \ud1b5\ud558\uc5ec \ud55c epoch\uc744 \ub2f9 \uc8fc\uc5b4\uc9c0\ub294 class\uc758 image \uc218\ub97c \uac19\uac8c \ub9de\ucd94\uc5c8\uc2b5\ub2c8\ub2e4.",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "line_start": 19,
+          "line_end": 19
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1fbca7ec7f9c17da4f59",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Source equalizes image counts per class through epoch oversampling; no isolated sampler gain is reported.",
+          "candidate_sha256": "a81414f29c0187b52ec54f126a059966e18a75dad6aa02d7de20e731c867202b"
+        },
+        {
+          "candidate_id": "C-1fbca7ec7f9c17da4f59",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Korean original equalizes per-epoch class image counts by oversampling. Candidate adds proposed equal-step comparison and explicitly notes memorization/calibration risks. This is distinct from ZooCAM's tempered sampling-strength action. All twelve scores are appropriate for an attainable imbalance experiment.",
+          "candidate_sha256": "a81414f29c0187b52ec54f126a059966e18a75dad6aa02d7de20e731c867202b"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 299,
+        "line_end": 303,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-b57e3d99c5da4012",
+      "canonical_key": "compare a subgroup prior or explicit routing with fitting one global classifier. | a large subgroup has exceptionally low positive prevalence | predictive_quality",
+      "title": "Audit near-all-negative subgroups before global modeling",
+      "statement": "When a large subgroup has exceptionally low positive prevalence, consider this source-backed action: Compare a subgroup prior or explicit routing with fitting one global classifier. Proposed check: Evaluate subgroup recall and overall metric on independent data. Limit: Ignoring a group can miss rare positives; the decision is competition-specific, not a safe moderation default.",
+      "trigger_conditions": [
+        "a large subgroup has exceptionally low positive prevalence"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare a subgroup prior or explicit routing with fitting one global classifier."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate subgroup recall and overall metric on independent data."
+      ],
+      "limitations": [
+        "Ignoring a group can miss rare positives; the decision is competition-specific, not a safe moderation default."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "problem_framing"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Competition Strategy"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team found real-estate posts with very few blocked examples hurt models and did not score that category.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-b57e3d99c5da4012"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Subgroup prevalence audit accessible, routing needs caution.",
+        "competitor": "Niche low-prevalence routing experiment with independent recall checks.",
+        "practitioner": "Useful subgroup diagnosis; exclusion risky for real moderation."
+      },
+      "review": {
+        "candidate_id": "C-a-b57e3d99c5da4012",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked real-estate exclusion; rare-positive misses remain material.",
+        "candidate_sha256": "e8d33605d2477f8deda627f314e5850572ffbc3388e4a63564a50401b8ce60f0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000085",
+      "slug": "lesson-000085",
+      "merged_candidate_ids": [
+        "C-a-b57e3d99c5da4012"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-aefbf5004365d668dae0",
+          "competition_id": "competition:avito-prohibited-content",
+          "source_id": "source:lesson-source-fa92b19c0f5ed71a",
+          "snapshot_path": "research/lesson-extraction/snapshots/e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155.txt",
+          "snapshot_sha256": "e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155",
+          "source_url": "http://blog.kaggle.com/2014/11/03/1st-place-the-hunt-for-prohibited-content/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-b57e3d99c5da4012",
+          "line_start": 23,
+          "line_end": 23,
+          "evidence_text": "The Real Estate category, a large portion of the data but with very few blocked posts, added no value to the models, it actually made them worse. All of our models do not even bother scoring this category.",
+          "kind": "reported_failure",
+          "statement": "The team found real-estate posts with very few blocked examples hurt models and did not score that category.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Subgroup prevalence audit accessible, routing needs caution.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Niche low-prevalence routing experiment with independent recall checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful subgroup diagnosis; exclusion risky for real moderation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-fa92b19c0f5ed71a",
+          "locator": "research/lesson-extraction/snapshots/e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155.txt#L23-L23",
+          "quote": "The Real Estate category, a large portion of the data but with very few blocked posts, added no value to the models, it actually made them worse. All of our models do not even bother scoring this category.",
+          "competition_id": "competition:avito-prohibited-content",
+          "url": "http://blog.kaggle.com/2014/11/03/1st-place-the-hunt-for-prohibited-content/",
+          "snapshot_path": "research/lesson-extraction/snapshots/e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155.txt",
+          "snapshot_sha256": "e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155",
+          "line_start": 23,
+          "line_end": 23
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-b57e3d99c5da4012",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked real-estate exclusion; rare-positive misses remain material.",
+          "candidate_sha256": "e8d33605d2477f8deda627f314e5850572ffbc3388e4a63564a50401b8ce60f0"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 221,
+        "line_end": 231,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-354701364e71442e",
+      "canonical_key": "compare class confusion matrices and prediction coverage before and after oversampling, then test blending checkpoints. | multiclass models ignore classes despite acceptable overall accuracy | validation_reliability",
+      "title": "Inspect class coverage alongside overall accuracy after resampling",
+      "statement": "When multiclass models ignore classes despite acceptable overall accuracy, Compare class confusion matrices and prediction coverage before and after oversampling and other bundled training changes. Verify: Evaluate per-class recall and macro metrics on untouched data alongside overall accuracy. Limits: The packet does not show isolated oversampling gain or modality; source public/private selection outcomes are retrospective.",
+      "trigger_conditions": [
+        "multiclass models ignore classes despite acceptable overall accuracy"
+      ],
+      "action_steps": [
+        "Compare class confusion matrices and prediction coverage before and after oversampling and other bundled training changes."
+      ],
+      "verification_steps": [
+        "Evaluate per-class recall and macro metrics on untouched data alongside overall accuracy."
+      ],
+      "limitations": [
+        "The packet does not show isolated oversampling gain or modality; source public/private selection outcomes are retrospective."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "unknown"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Augmentation, checkpointing and oversampling made every class the most likely prediction for some examples while individual accuracy stayed similar; final blend combined earlier/later experiments.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-354701364e71442e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Confusion matrices give accessible imbalance diagnostics.",
+        "competitor": "Useful class-coverage control beyond aggregate score.",
+        "practitioner": "Strong deployment diagnostic when rare classes disappear."
+      },
+      "review": {
+        "candidate_id": "C-a-354701364e71442e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked perclass prediction coverage despite similar accuracy; oversampling effect bundled.",
+        "candidate_sha256": "cd263c908dfe81ac9ade00d676b9609794ac6ce6c23dbdebd1e30f540eb350c6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000097",
+      "slug": "lesson-000097",
+      "merged_candidate_ids": [
+        "C-a-354701364e71442e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-102d6e98240311341cfa",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-9245aebd0efbb885",
+          "snapshot_path": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt",
+          "snapshot_sha256": "00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-354701364e71442e",
+          "line_start": 55,
+          "line_end": 62,
+          "evidence_text": "[Experiment 10](10_-_early_stopping_oversampling_ensemble.ipynb): Producing an ensemble, similar to Experiment 6, where the models have the augmentation methods (from Experiment 5), early stopping / model saving (from Experiment 8) and oversampling (from Experiment 9). Confusion matrices showed that each class was now being the most likely prediction of the system although overall accuracy measures remain about the same on individual models. The ensemble provided a public leaderboard accuracy of 80.172% and a private leaderboard accuracy of 81.422%.\n\n## Kaggle Competition Official Submissions\nTwo official submissions were made with Kaggle inference-only notebooks.\n\nThe winning submission combined the models from Experiment 6 and 10 in an averaged ensemble.  The inference-only notebook can be found [here](https://www.kaggle.com/code/andrewspeers/pogchamps3-experiment6plus10-kaggle-inference/notebook).\n\nThe second submission (which was higher on the public leaderboard) just included the models from Experiment 6.  This notebook can be found [here](https://www.kaggle.com/code/andrewspeers/pogchamps3-experiment6-kaggle-inference).",
+          "kind": "used",
+          "statement": "Augmentation, checkpointing and oversampling made every class the most likely prediction for some examples while individual accuracy stayed similar; final blend combined earlier/later experiments.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Confusion matrices give accessible imbalance diagnostics.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful class-coverage control beyond aggregate score.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong deployment diagnostic when rare classes disappear.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9245aebd0efbb885",
+          "locator": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt#L55-L62",
+          "quote": "[Experiment 10](10_-_early_stopping_oversampling_ensemble.ipynb): Producing an ensemble, similar to Experiment 6, where the models have the augmentation methods (from Experiment 5), early stopping / model saving (from Experiment 8) and oversampling (from Experiment 9). Confusion matrices showed that each class was now being the most likely prediction of the system although overall accuracy measures remain about the same on individual models. The ensemble provided a public leaderboard accuracy of 80.172% and a private leaderboard accuracy of 81.422%.\n\n## Kaggle Competition Official Submissions\nTwo official submissions were made with Kaggle inference-only notebooks.\n\nThe winning submission combined the models from Experiment 6 and 10 in an averaged ensemble.  The inference-only notebook can be found [here](https://www.kaggle.com/code/andrewspeers/pogchamps3-experiment6plus10-kaggle-inference/notebook).\n\nThe second submission (which was higher on the public leaderboard) just included the models from Experiment 6.  This notebook can be found [here](https://www.kaggle.com/code/andrewspeers/pogchamps3-experiment6-kaggle-inference).",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt",
+          "snapshot_sha256": "00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458",
+          "line_start": 55,
+          "line_end": 62
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-354701364e71442e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked perclass prediction coverage despite similar accuracy; oversampling effect bundled.",
+          "candidate_sha256": "cd263c908dfe81ac9ade00d676b9609794ac6ce6c23dbdebd1e30f540eb350c6"
+        },
+        {
+          "candidate_id": "C-a-354701364e71442e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PogAndreworiginalexperiment10bundlesaugment/checkpoint/oversample,eachclasspredictedwhileindividualaccuracyaboutsame;final6+10blend,otherpublicbetter. Perclass/macrochecksproposed;modalityunknown preserved,no isolatedoversamplegain. Utilitygradesreasonable.",
+          "candidate_sha256": "cd263c908dfe81ac9ade00d676b9609794ac6ce6c23dbdebd1e30f540eb350c6"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 233,
+        "line_end": 243,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-74e1d49618c7a6b31058",
+      "canonical_key": "compare class-balancing and ensemble alternatives on macro precision, including tf-idf with a bagged random forest. | bug severity classes have uneven frequencies | predictive_quality",
+      "title": "Select imbalanced classifiers using the competition macro metric",
+      "statement": "When bug severity classes have uneven frequencies, proposed reuse: Proposed conditional application: Compare class-balancing and ensemble alternatives on macro precision, including TF-IDF with a bagged Random Forest. Proposed check: Compare macro precision and per-class recall on report-group holdouts; fit vectorizer/resampling within folds. Limitation: Macro precision can hide low recall; SMOTE placement unspecified.",
+      "trigger_conditions": [
+        "bug severity classes have uneven frequencies"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare class-balancing and ensemble alternatives on macro precision, including TF-IDF with a bagged Random Forest."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare macro precision and per-class recall on report-group holdouts; fit vectorizer/resampling within folds."
+      ],
+      "limitations": [
+        "Macro precision can hide low recall; SMOTE placement unspecified."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The bug-severity README identifies a bagged Random Forest as its best macro-precision model.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6a851debf153ee6b90ec"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible metric-aligned model selection.",
+        "competitor": "Useful imbalance benchmark rather than rank-driven choice.",
+        "practitioner": "Transfers to severity classification with operational recall checks."
+      },
+      "review": {
+        "candidate_id": "C-74e1d49618c7a6b31058",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete bug README identifies bagged RF with TF-IDF and macro precision; robustness claims unverified.",
+        "candidate_sha256": "ec1c7c73907522d9af8172767a381d2b4b006a1ac100f4c5e157259c0578bc34"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000098",
+      "slug": "lesson-000098",
+      "merged_candidate_ids": [
+        "C-74e1d49618c7a6b31058"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c0d9159027c323d2bea0",
+          "competition_id": "competition:cs-412-in-class-kaggle-competition",
+          "source_id": "source:lesson-source-f96ce059b772cc6f",
+          "snapshot_path": "research/lesson-extraction/snapshots/3148b0d054e11f7e9fa3f2b1c000062f89ee664e52cb43ec8bfc6bcd1bf5fbd3.txt",
+          "snapshot_sha256": "3148b0d054e11f7e9fa3f2b1c000062f89ee664e52cb43ec8bfc6bcd1bf5fbd3",
+          "source_url": "https://raw.githubusercontent.com/bkurtulmus/Predicting-Bug-Severity-with-ML/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-6a851debf153ee6b90ec",
+          "line_start": 14,
+          "line_end": 14,
+          "evidence_text": "The final model was a Bagging Random Forest, which provided the best macro precision",
+          "kind": "used",
+          "statement": "The bug-severity README identifies a bagged Random Forest as its best macro-precision model.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Accessible metric-aligned model selection.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful imbalance benchmark rather than rank-driven choice.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to severity classification with operational recall checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f96ce059b772cc6f",
+          "locator": "research/lesson-extraction/snapshots/3148b0d054e11f7e9fa3f2b1c000062f89ee664e52cb43ec8bfc6bcd1bf5fbd3.txt#L14-L14",
+          "quote": "The final model was a Bagging Random Forest, which provided the best macro precision",
+          "competition_id": "competition:cs-412-in-class-kaggle-competition",
+          "url": "https://raw.githubusercontent.com/bkurtulmus/Predicting-Bug-Severity-with-ML/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/3148b0d054e11f7e9fa3f2b1c000062f89ee664e52cb43ec8bfc6bcd1bf5fbd3.txt",
+          "snapshot_sha256": "3148b0d054e11f7e9fa3f2b1c000062f89ee664e52cb43ec8bfc6bcd1bf5fbd3",
+          "line_start": 14,
+          "line_end": 14
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-74e1d49618c7a6b31058",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete bug README identifies bagged RF with TF-IDF and macro precision; robustness claims unverified.",
+          "candidate_sha256": "ec1c7c73907522d9af8172767a381d2b4b006a1ac100f4c5e157259c0578bc34"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 245,
+        "line_end": 255,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-0778f05cd089bbf08fb8",
+      "canonical_key": "compare confusion matrices and ensemble models trained with and without oversampling when errors differ. | oversampling changes class errors without changing overall accuracy | predictive_quality",
+      "title": "Use error distribution to assess sampling diversity",
+      "statement": "When oversampling changes class errors without changing overall accuracy, proposed reuse: Proposed conditional application: Compare confusion matrices and ensemble models trained with and without oversampling when errors differ. Proposed check: Compare per-class and per-example error overlap on identical saved validation rows; test blend against each run. Limitation: Confusion changes alone do not ensure blend improvement; stochastic TTA varies scores.",
+      "trigger_conditions": [
+        "oversampling changes class errors without changing overall accuracy"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare confusion matrices and ensemble models trained with and without oversampling when errors differ."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare per-class and per-example error overlap on identical saved validation rows; test blend against each run."
+      ],
+      "limitations": [
+        "Confusion changes alone do not ensure blend improvement; stochastic TTA varies scores."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The corn author reports different error distributions after oversampling despite similar total accuracy and averaged the runs.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-66ecfdac97a8dd5590f9"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful error analysis with extra training cost.",
+        "competitor": "Concrete diversity check beyond standalone accuracy.",
+        "practitioner": "Practical ensemble complementarity assessment."
+      },
+      "review": {
+        "candidate_id": "C-0778f05cd089bbf08fb8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Corn runs had similar accuracy but different errors; oversampling and checkpoint stopping changed together.",
+        "candidate_sha256": "d188912af09e1414a30ec1d4df3a35e1fc04ee3d1f235d1d813ff339554c3bb2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000105",
+      "slug": "lesson-000105",
+      "merged_candidate_ids": [
+        "C-0778f05cd089bbf08fb8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6c09df05bc2e70573a60",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-9245aebd0efbb885",
+          "snapshot_path": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt",
+          "snapshot_sha256": "00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-66ecfdac97a8dd5590f9",
+          "line_start": 28,
+          "line_end": 28,
+          "evidence_text": "error analysis showed that the errors were distributed differently than the tests in Experiment 6.",
+          "kind": "used",
+          "statement": "The corn author reports different error distributions after oversampling despite similar total accuracy and averaged the runs.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful error analysis with extra training cost.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete diversity check beyond standalone accuracy.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Practical ensemble complementarity assessment.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9245aebd0efbb885",
+          "locator": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt#L28-L28",
+          "quote": "error analysis showed that the errors were distributed differently than the tests in Experiment 6.",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt",
+          "snapshot_sha256": "00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458",
+          "line_start": 28,
+          "line_end": 28
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-0778f05cd089bbf08fb8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Corn runs had similar accuracy but different errors; oversampling and checkpoint stopping changed together.",
+          "candidate_sha256": "d188912af09e1414a30ec1d4df3a35e1fc04ee3d1f235d1d813ff339554c3bb2"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 307,
+        "line_end": 311,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-fcdee00b8cc0b3b7",
+      "canonical_key": "compare weighted class sampling with natural sampling for minority recognition performance. | recognition training is dominated by an others class | predictive_quality",
+      "title": "Use weighted sampling for an imbalanced recognition dataset",
+      "statement": "When recognition training is dominated by an others class, consider this source-backed action: Compare weighted class sampling with natural sampling for minority recognition performance. Proposed check: Evaluate per-class precision and recall on a validation set retaining deployment class frequencies. Limit: The source gives no sampler weights, ablation or evidence that weighted sampling caused the reported F1.",
+      "trigger_conditions": [
+        "recognition training is dominated by an others class"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare weighted class sampling with natural sampling for minority recognition performance."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate per-class precision and recall on a validation set retaining deployment class frequencies."
+      ],
+      "limitations": [
+        "The source gives no sampler weights, ablation or evidence that weighted sampling caused the reported F1."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The repository says class imbalance was handled with WeightedRandomSampler.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-fcdee00b8cc0b3b7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple class imbalance experiment with per-class checks.",
+        "competitor": "Useful sampler baseline without confusing reported F1 with an ablation.",
+        "practitioner": "Transfers readily if deployment priors and precision are checked."
+      },
+      "review": {
+        "candidate_id": "C-a-fcdee00b8cc0b3b7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Weighted sampling is explicitly used; weights and causal contribution to F1 are not given.",
+        "candidate_sha256": "8f50f6354e91049158d28ee6328f3e8ad272e8bef7d67d9d9480ac8f0c8a9c8d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000195",
+      "slug": "lesson-000195",
+      "merged_candidate_ids": [
+        "C-a-fcdee00b8cc0b3b7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7b993ed9ff4c15bae1c7",
+          "competition_id": "competition:s-2025-multi-class-pretraied-network-project",
+          "source_id": "source:lesson-source-5eb27d040b2a01fd",
+          "snapshot_path": "research/lesson-extraction/snapshots/65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba.txt",
+          "snapshot_sha256": "65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba",
+          "source_url": "https://raw.githubusercontent.com/SyedBurhanAhmed/CelebVision-Multi-Pipeline-Celebrity-Recognition-System/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-fcdee00b8cc0b3b7",
+          "line_start": 150,
+          "line_end": 153,
+          "evidence_text": "### Dataset Handling\n- **Class Imbalance**: Handled with WeightedRandomSampler\n- **Augmentations**: Mixup, cutout, color transformations\n- **Training Strategy**: Frozen backbone \u2192 fine-tuned last 5 blocks",
+          "kind": "used",
+          "statement": "The repository says class imbalance was handled with WeightedRandomSampler.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Simple class imbalance experiment with per-class checks.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful sampler baseline without confusing reported F1 with an ablation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Transfers readily if deployment priors and precision are checked.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5eb27d040b2a01fd",
+          "locator": "research/lesson-extraction/snapshots/65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba.txt#L150-L153",
+          "quote": "### Dataset Handling\n- **Class Imbalance**: Handled with WeightedRandomSampler\n- **Augmentations**: Mixup, cutout, color transformations\n- **Training Strategy**: Frozen backbone \u2192 fine-tuned last 5 blocks",
+          "competition_id": "competition:s-2025-multi-class-pretraied-network-project",
+          "url": "https://raw.githubusercontent.com/SyedBurhanAhmed/CelebVision-Multi-Pipeline-Celebrity-Recognition-System/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba.txt",
+          "snapshot_sha256": "65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba",
+          "line_start": 150,
+          "line_end": 153
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-fcdee00b8cc0b3b7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Weighted sampling is explicitly used; weights and causal contribution to F1 are not given.",
+          "candidate_sha256": "8f50f6354e91049158d28ee6328f3e8ad272e8bef7d67d9d9480ac8f0c8a9c8d"
+        },
+        {
+          "candidate_id": "C-a-fcdee00b8cc0b3b7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full CelebVision README read. WeightedRandomSampler and class imbalance literal; per-class natural-prevalence comparison proposed, no causality from final F1. Routine sampler grades appropriate.",
+          "candidate_sha256": "8f50f6354e91049158d28ee6328f3e8ad272e8bef7d67d9d9480ac8f0c8a9c8d"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 257,
+        "line_end": 267,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-9a43682b525966fa35a6",
+      "canonical_key": "crossentropy-versus-focal | imbalanced image classification | loss selection",
+      "title": "Retain cross-entropy as a benchmark for focal loss",
+      "statement": "When class imbalance suggests a specialized loss, proposed reuse: Proposed recipe: compare focal loss with ordinary cross-entropy before adopting it. Proposed check: Verify focal loss implementation on a known example and compare with cross-entropy at matched folds, budgets and gamma tuning. Limitation: Implementation doubt limits causal interpretation of the negative focal result.",
+      "trigger_conditions": [
+        "class imbalance suggests a specialized loss"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare focal loss with ordinary cross-entropy before adopting it."
+      ],
+      "verification_steps": [
+        "Proposed check: Verify focal loss implementation on a known example and compare with cross-entropy at matched folds, budgets and gamma tuning."
+      ],
+      "limitations": [
+        "Implementation doubt limits causal interpretation of the negative focal result."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author chose cross-entropy after reporting that it outperformed tested focal-loss variants.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Verify focal loss implementation on a known example and compare with cross-entropy at matched folds, budgets and gamma tuning.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-d4d39285655df1b0d2fa"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A standard-loss baseline is cheap and avoids unnecessary complexity.",
+        "competitor": "The specific failure encourages checking specialized losses before adoption.",
+        "practitioner": "Loss complexity should earn a validated benefit in any classification pipeline."
+      },
+      "review": {
+        "candidate_id": "C-9a43682b525966fa35a6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Author chose cross-entropy over focal variants and questioned focal implementation; this supports a benchmark, not a universal loss ranking.",
+        "candidate_sha256": "c156c218ddc775d4ad78705a8586596126434458cd1a8418b9d970187f802b9c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000223",
+      "slug": "lesson-000223",
+      "merged_candidate_ids": [
+        "C-9a43682b525966fa35a6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c63c0d4154fc357b3cce",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "source_url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "source_quality": "primary_text",
+          "observation_id": "O-d4d39285655df1b0d2fa",
+          "line_start": 23,
+          "line_end": 23,
+          "evidence_text": "\ucd5c\uc885\uc801\uc73c\ub85c \uc800\ub294 loss\ub85c cross entropy\ub97c \uc0ac\uc6a9\ud588\uc2b5\ub2c8\ub2e4.",
+          "kind": "used",
+          "statement": "Author chose cross-entropy after reporting that it outperformed tested focal-loss variants.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A standard-loss baseline is cheap and avoids unnecessary complexity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "The specific failure encourages checking specialized losses before adoption.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Loss complexity should earn a validated benefit in any classification pipeline.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "locator": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt#L23-L23",
+          "quote": "\ucd5c\uc885\uc801\uc73c\ub85c \uc800\ub294 loss\ub85c cross entropy\ub97c \uc0ac\uc6a9\ud588\uc2b5\ub2c8\ub2e4.",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "line_start": 23,
+          "line_end": 23
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9a43682b525966fa35a6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Author chose cross-entropy over focal variants and questioned focal implementation; this supports a benchmark, not a universal loss ranking.",
+          "candidate_sha256": "c156c218ddc775d4ad78705a8586596126434458cd1a8418b9d970187f802b9c"
+        },
+        {
+          "candidate_id": "C-9a43682b525966fa35a6",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "KAKR author tested focal gamma0.5/2/3 but chose cross-entropy and questioned implementation. Candidate preserves doubt and proposes a known-example implementation check and fair comparison. All twelve high scores fit retaining a cheap standard loss baseline, not a general focal-loss failure claim.",
+          "candidate_sha256": "c156c218ddc775d4ad78705a8586596126434458cd1a8418b9d970187f802b9c"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 269,
+        "line_end": 279,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-19eedb38b3653d453d18",
+      "canonical_key": "tempered-sampling | severe plankton image imbalance | rare-class coverage",
+      "title": "Tune sampling strength for severely imbalanced image classes",
+      "statement": "When plankton image classes have widely different counts, proposed reuse: Proposed recipe: test weighted sampling with adjustable sampling strength. Proposed check: Tune sampling strength on untouched macro-F1 folds with fixed optimization steps, measuring minority recall and calibration. Limitation: Rare classes may be repeatedly memorized; alpha0.25\u20130.5is a historical search range, not a universal default.",
+      "trigger_conditions": [
+        "plankton image classes have widely different counts"
+      ],
+      "action_steps": [
+        "Proposed recipe: test weighted sampling with adjustable sampling strength."
+      ],
+      "verification_steps": [
+        "Proposed check: Tune sampling strength on untouched macro-F1 folds with fixed optimization steps, measuring minority recall and calibration."
+      ],
+      "limitations": [
+        "Rare classes may be repeatedly memorized; alpha0.25\u20130.5is a historical search range, not a universal default."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "overfitting",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports controlling weighted sampling strength between0.25and0.5.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Tune sampling strength on untouched macro-F1 folds with fixed optimization steps, measuring minority recall and calibration.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-31c2d3466ba8507973d7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Adjustable sampling is a concrete imbalance technique.",
+        "competitor": "Sampling strength is a useful knob when macroF1weights rare classes equally.",
+        "practitioner": "Population imbalance handling transfers with prevalence and calibration checks."
+      },
+      "review": {
+        "candidate_id": "C-19eedb38b3653d453d18",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner plankton README reports WeightedRandomSampler strength alpha0.25\u20130.5and macroF1; no isolated numerical sampler gain.",
+        "candidate_sha256": "595005c4a454dd03ce9fa77764920aa0f77d505ad79c192cd26e24bb0bed53df"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000482",
+      "slug": "lesson-000482",
+      "merged_candidate_ids": [
+        "C-19eedb38b3653d453d18"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-18cf5e97cc9a15b89f61",
+          "competition_id": "competition:3-md-4040-2026-challenge",
+          "source_id": "source:lesson-source-756d4f0467e4df39",
+          "source_url": "https://raw.githubusercontent.com/giorgio-bono/ZooCAM_Challenge/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt",
+          "snapshot_sha256": "8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9",
+          "source_quality": "primary_text",
+          "observation_id": "O-31c2d3466ba8507973d7",
+          "line_start": 40,
+          "line_end": 40,
+          "evidence_text": "sampling weight controlled by **\u03b1 \u2208 [0.25, 0.5]**",
+          "kind": "used",
+          "statement": "Author reports controlling weighted sampling strength between0.25and0.5.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Adjustable sampling is a concrete imbalance technique.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Sampling strength is a useful knob when macroF1weights rare classes equally.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Population imbalance handling transfers with prevalence and calibration checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-756d4f0467e4df39",
+          "locator": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt#L40-L40",
+          "quote": "sampling weight controlled by **\u03b1 \u2208 [0.25, 0.5]**",
+          "competition_id": "competition:3-md-4040-2026-challenge",
+          "url": "https://raw.githubusercontent.com/giorgio-bono/ZooCAM_Challenge/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt",
+          "snapshot_sha256": "8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9",
+          "line_start": 40,
+          "line_end": 40
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-19eedb38b3653d453d18",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner plankton README reports WeightedRandomSampler strength alpha0.25\u20130.5and macroF1; no isolated numerical sampler gain.",
+          "candidate_sha256": "595005c4a454dd03ce9fa77764920aa0f77d505ad79c192cd26e24bb0bed53df"
+        },
+        {
+          "candidate_id": "C-19eedb38b3653d453d18",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Full ZooCAM winning course repository supports WeightedRandomSampler with adjustable alpha0.25\u20130.5 under extreme imbalance. Candidate proposes macro-F1/equal-step tuning and keeps range historical, with rare memorization risk. All twelve scores fit conditional tempered sampling, distinct from equal-count KAKR sampling.",
+          "candidate_sha256": "595005c4a454dd03ce9fa77764920aa0f77d505ad79c192cd26e24bb0bed53df"
+        }
+      ],
+      "book_location": {
+        "chapter": 39,
+        "path": "manuscript/chapters/39-imbalanced-data.md",
+        "sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
+        "line_start": 281,
+        "line_end": 291,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

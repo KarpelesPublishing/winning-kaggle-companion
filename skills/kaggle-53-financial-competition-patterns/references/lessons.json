@@ -1,0 +1,200 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-cad5da04efe2ab63",
+      "canonical_key": "as a proposed adaptation, compare fitted behavior and error across temporal training windows rather than trusting one sample. | training data mixes changing market conditions | validation_reliability",
+      "title": "Stress-test training-sample sensitivity in volatile markets",
+      "statement": "When training data mixes changing market conditions, consider this source-backed action: As a proposed adaptation, compare fitted behavior and error across temporal training windows rather than trusting one sample. Proposed check: Check predictions and errors on successive held-out regimes. Limit: The source reports instability without documenting a time-split protocol; no model superiority follows.",
+      "trigger_conditions": [
+        "training data mixes changing market conditions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: As a proposed adaptation, compare fitted behavior and error across temporal training windows rather than trusting one sample."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check predictions and errors on successive held-out regimes."
+      ],
+      "limitations": [
+        "The source reports instability without documenting a time-split protocol; no model superiority follows."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "unknown"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "distribution_shift"
+        ],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author observed that different training samples fitted very different models under volatile stock market conditions.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-cad5da04efe2ab63"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Window comparisons build useful distribution-shift intuition.",
+        "competitor": "Tests model sensitivity before selecting volatile-market fits.",
+        "practitioner": "Regime sensitivity directly affects model-monitoring reliability."
+      },
+      "review": {
+        "candidate_id": "C-a-cad5da04efe2ab63",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked sample instability; temporal stress test is proposed, not observed.",
+        "candidate_sha256": "b810643de8282cfb7c96c344fcd001b45f2145c83372dcf5fbb322868527262a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000016",
+      "slug": "lesson-000016",
+      "merged_candidate_ids": [
+        "C-a-cad5da04efe2ab63"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-0b0bfb9e623dc4d1bf55",
+          "competition_id": "competition:algorithmictradingchallenge",
+          "source_id": "source:lesson-source-62c5714c3874be5c",
+          "snapshot_path": "research/lesson-extraction/snapshots/5ad90e09bf853709bd7ddfabfb6420cd1ceec73a0830821b82a39076a3e941f4.txt",
+          "snapshot_sha256": "5ad90e09bf853709bd7ddfabfb6420cd1ceec73a0830821b82a39076a3e941f4",
+          "source_url": "http://blog.kaggle.com/2012/01/26/meet-the-winner-of-the-algo-trading-challenge-an-interview-with-ildefons-magrans/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-cad5da04efe2ab63",
+          "line_start": 17,
+          "line_end": 17,
+          "evidence_text": "The training set was a nice example of how stock market conditions are extremely volatile.\u00a0 Different samples of the training set could fit very different models. Lots of fun!",
+          "kind": "used",
+          "statement": "The author observed that different training samples fitted very different models under volatile stock market conditions.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Window comparisons build useful distribution-shift intuition.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Tests model sensitivity before selecting volatile-market fits.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Regime sensitivity directly affects model-monitoring reliability.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-62c5714c3874be5c",
+          "locator": "research/lesson-extraction/snapshots/5ad90e09bf853709bd7ddfabfb6420cd1ceec73a0830821b82a39076a3e941f4.txt#L17-L17",
+          "quote": "The training set was a nice example of how stock market conditions are extremely volatile.\u00a0 Different samples of the training set could fit very different models. Lots of fun!",
+          "competition_id": "competition:algorithmictradingchallenge",
+          "url": "http://blog.kaggle.com/2012/01/26/meet-the-winner-of-the-algo-trading-challenge-an-interview-with-ildefons-magrans/",
+          "snapshot_path": "research/lesson-extraction/snapshots/5ad90e09bf853709bd7ddfabfb6420cd1ceec73a0830821b82a39076a3e941f4.txt",
+          "snapshot_sha256": "5ad90e09bf853709bd7ddfabfb6420cd1ceec73a0830821b82a39076a3e941f4",
+          "line_start": 17,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-cad5da04efe2ab63",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked sample instability; temporal stress test is proposed, not observed.",
+          "candidate_sha256": "b810643de8282cfb7c96c344fcd001b45f2145c83372dcf5fbb322868527262a"
+        },
+        {
+          "candidate_id": "C-a-cad5da04efe2ab63",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Winner interview states different training samples fit different models in volatile markets. Temporal window stress test and forward-held-out checks clearly proposed; source supplies neither actual split nor superiority comparison. Grades reasonably prioritize practitioner reliability.",
+          "candidate_sha256": "b810643de8282cfb7c96c344fcd001b45f2145c83372dcf5fbb322868527262a"
+        }
+      ],
+      "book_location": {
+        "chapter": 53,
+        "path": "manuscript/chapters/53-financial-competition-patterns.md",
+        "sha256": "a8ee91b5666dedbad37b114de611b4aa650968d16b61f370b42370e30a5add8b",
+        "line_start": 164,
+        "line_end": 174,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1594 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-4cdf6c784f607145",
+      "canonical_key": "compare confidence-audited self-training with labeled-only training | permitted unlabeled target-domain classification examples are available | predictive_quality",
+      "title": "Audit pseudo-label confidence before self-training",
+      "statement": "When unlabeled churn examples are available for permitted self-training, consider this source-backed action: Proposed: select pseudo-labels by calibrated confidence and compare retraining with the labeled-only baseline. Proposed check: Test boundary-case accuracy and calibration on independent labels. Limit: No threshold, comparative metric or self-training implementation detail is supplied.",
+      "trigger_conditions": [
+        "unlabeled churn examples are available for permitted self-training",
+        "unlabeled target-domain text exists and pseudo-labeling is permitted"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed: select pseudo-labels by calibrated confidence and compare retraining with the labeled-only baseline.",
+        "Proposed adaptation of source observation: Compare self-training with the labeled-only baseline using separately audited pseudo-label confidence."
+      ],
+      "verification_steps": [
+        "Proposed verification: Test boundary-case accuracy and calibration on independent labels.",
+        "Proposed verification: Validate on untouched labeled target-domain examples and examine error amplification."
+      ],
+      "limitations": [
+        "No threshold, comparative metric or self-training implementation detail is supplied.",
+        "Training accuracy alone is not enough to trust labels; confidence filtering and independent checks are proposed safeguards."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular",
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance",
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The repository describes high-quality pseudo-label self-training to improve boundary examples.",
+          "basis": "observed"
+        },
+        {
+          "description": "The team pseudo-labeled test data and retrained using combined train/test data after high training accuracy; both authors reported benefit.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4cdf6c784f607145",
+        "O-a-abd55461801ca76b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Requires designing unspecified confidence and calibration rules.",
+        "competitor": "Conditional pseudo-label experiment, source provides little execution detail.",
+        "practitioner": "Useful cautious adaptation only with independent churn labels."
+      },
+      "review": {
+        "candidate_id": "C-a-4cdf6c784f607145",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Reviewed current proposed confidence-selected self-training comparison and original churn self-training evidence, together with the previously read prohibited-content application. Neutral title expresses the shared proposed confidence audit without restricting it to churn; missing threshold and implementation caveats remain.",
+        "candidate_sha256": "5655d64a9e166957c87d6572308ff01fb146e4bbae2c8a7f823b21f8c21e4498"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000103",
+      "slug": "lesson-000103",
+      "merged_candidate_ids": [
+        "C-a-4cdf6c784f607145",
+        "C-a-abd55461801ca76b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-16d4c95f726fe0b1667b",
+          "competition_id": "competition:binary-battle-ml-bank-customer-churn-challenge",
+          "source_id": "source:lesson-source-ea4e343130eb6290",
+          "snapshot_path": "research/lesson-extraction/snapshots/280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244.txt",
+          "snapshot_sha256": "280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244",
+          "source_url": "https://raw.githubusercontent.com/Mrli-dev0/Kaggle-Binary-Battle-Bank-Customer-Churn/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4cdf6c784f607145",
+          "line_start": 88,
+          "line_end": 92,
+          "evidence_text": "### 5\\. \u534a\u76d1\u7763\u5b66\u4e60\u4f18\u5316\n\n- \u9ad8\u8d28\u91cf\u4f2a\u6807\u7b7e\u81ea\u8bad\u7ec3\n\n- \u63d0\u5347\u8fb9\u754c\u6837\u672c\u9884\u6d4b\u80fd\u529b",
+          "kind": "used",
+          "statement": "The repository describes high-quality pseudo-label self-training to improve boundary examples.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-aefbf5004365d668dae0",
+          "competition_id": "competition:avito-prohibited-content",
+          "source_id": "source:lesson-source-fa92b19c0f5ed71a",
+          "snapshot_path": "research/lesson-extraction/snapshots/e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155.txt",
+          "snapshot_sha256": "e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155",
+          "source_url": "http://blog.kaggle.com/2014/11/03/1st-place-the-hunt-for-prohibited-content/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-abd55461801ca76b",
+          "line_start": 15,
+          "line_end": 17,
+          "evidence_text": "Giulio: One thing I found out soon was that Russian text did not really need any special preprocessing and I was able to easily improve the benchmark code using no preprocessing at all. For the text portion of the data I used a series of Stochastic Gradient Descent models on various parts of the text features (title,description, attributes) and fed those predictions into a Random Forest along with additional dense features (category and subcategory being the most important). Since plain accuracy was so high across the train dataset, I then used semi\u00ad-supervised learning to score the test set and retrain the algorithm on train and test combined.\n\nbarisumog: First of all, I worked on a category and subcategory basis, instead of working with the data as a whole. I concatenated the text fields (title, description, attributes), and created 3 different tf\u00adidf matrices for each category / subcategory. One tf\u00adidf used the raw text, one applied stemming, and one used stop\u00ad words. The main reason behind this was to introduce some diversity, which was a key element in this competition. I only used textual features, as I couldn't provide additional value from any non\u00adtext features I tried. I trained Support Vector Classifiers on each tf\u00adidf for every category / subcategory. I also exploited Giulio's semi-\u00adsupervised approach, which worked quite well.",
+          "kind": "used",
+          "statement": "The team pseudo-labeled test data and retrained using combined train/test data after high training accuracy; both authors reported benefit.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Requires designing unspecified confidence and calibration rules.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional pseudo-label experiment, source provides little execution detail.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful cautious adaptation only with independent churn labels.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 2,
+        "competitions": 2
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ea4e343130eb6290",
+          "locator": "research/lesson-extraction/snapshots/280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244.txt#L88-L92",
+          "quote": "### 5\\. \u534a\u76d1\u7763\u5b66\u4e60\u4f18\u5316\n\n- \u9ad8\u8d28\u91cf\u4f2a\u6807\u7b7e\u81ea\u8bad\u7ec3\n\n- \u63d0\u5347\u8fb9\u754c\u6837\u672c\u9884\u6d4b\u80fd\u529b",
+          "competition_id": "competition:binary-battle-ml-bank-customer-churn-challenge",
+          "url": "https://raw.githubusercontent.com/Mrli-dev0/Kaggle-Binary-Battle-Bank-Customer-Churn/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244.txt",
+          "snapshot_sha256": "280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244",
+          "line_start": 88,
+          "line_end": 92
+        },
+        {
+          "source_id": "source:lesson-source-fa92b19c0f5ed71a",
+          "locator": "research/lesson-extraction/snapshots/e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155.txt#L15-L17",
+          "quote": "Giulio: One thing I found out soon was that Russian text did not really need any special preprocessing and I was able to easily improve the benchmark code using no preprocessing at all. For the text portion of the data I used a series of Stochastic Gradient Descent models on various parts of the text features (title,description, attributes) and fed those predictions into a Random Forest along with additional dense features (category and subcategory being the most important). Since plain accuracy was so high across the train dataset, I then used semi\u00ad-supervised learning to score the test set and retrain the algorithm on train and test combined.\n\nbarisumog: First of all, I worked on a category and subcategory basis, instead of working with the data as a whole. I concatenated the text fields (title, description, attributes), and created 3 different tf\u00adidf matrices for each category / subcategory. One tf\u00adidf used the raw text, one applied stemming, and one used stop\u00ad words. The main reason behind this was to introduce some diversity, which was a key element in this competition. I only used textual features, as I couldn't provide additional value from any non\u00adtext features I tried. I trained Support Vector Classifiers on each tf\u00adidf for every category / subcategory. I also exploited Giulio's semi-\u00adsupervised approach, which worked quite well.",
+          "competition_id": "competition:avito-prohibited-content",
+          "url": "http://blog.kaggle.com/2014/11/03/1st-place-the-hunt-for-prohibited-content/",
+          "snapshot_path": "research/lesson-extraction/snapshots/e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155.txt",
+          "snapshot_sha256": "e625f256c2f7843f4298f843d1409fa76b2beb550d175d83ef1db7d11f306155",
+          "line_start": 15,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4cdf6c784f607145",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Reviewed current proposed confidence-selected self-training comparison and original churn self-training evidence, together with the previously read prohibited-content application. Neutral title expresses the shared proposed confidence audit without restricting it to churn; missing threshold and implementation caveats remain.",
+          "candidate_sha256": "5655d64a9e166957c87d6572308ff01fb146e4bbae2c8a7f823b21f8c21e4498"
+        },
+        {
+          "candidate_id": "C-a-4cdf6c784f607145",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c_final",
+          "reason": "Independently read complete churn README and prohibited-content first-place interview, both observations and corresponding merge decision. Neutral pseudo-label confidence title is explicitly proposed cautious reuse, supported by described self-training rather than invented calibrated source thresholds. Churn lacks implementation/threshold/comparative metric detail; high text training accuracy is not enough to trust pseudo-labels, and independent target labels, calibration, boundary cases, error amplification and permission conditions survive the merge. No independent gain or deployed churn benefit is inferred; conservative representative grades reflect unspecified execution detail.",
+          "candidate_sha256": "5655d64a9e166957c87d6572308ff01fb146e4bbae2c8a7f823b21f8c21e4498"
+        },
+        {
+          "candidate_id": "C-a-abd55461801ca76b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked self-training use; high training accuracy is insufficient pseudo-label validation.",
+          "candidate_sha256": "08bdb4e995ec3f33617ee2e4845bc550f3982553ce4d607d5b6c4f2499e0ac24"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 64,
+        "line_end": 74,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-cded5f81b9d9e359",
+      "canonical_key": "compare soft, hard and filtered pseudo-label variants while reserving untouched labeled target examples. | permitted target-domain unlabeled text exists for transductive learning | validation_reliability",
+      "title": "Compare soft target-domain pseudo-labels without surrendering validation",
+      "statement": "When permitted target-domain unlabeled text exists for transductive learning, consider this source-backed action: Compare soft, hard and filtered pseudo-label variants while reserving untouched labeled target examples. Proposed check: Track label errors, prevalence and held-out metric under pseudo-label sampling ratios. Limit: The source ultimately relied on public LB; a protected holdout is a proposed safeguard and soft labels can amplify teacher bias.",
+      "trigger_conditions": [
+        "permitted target-domain unlabeled text exists for transductive learning"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare soft, hard and filtered pseudo-label variants while reserving untouched labeled target examples."
+      ],
+      "verification_steps": [
+        "Proposed verification: Track label errors, prevalence and held-out metric under pseudo-label sampling ratios."
+      ],
+      "limitations": [
+        "The source ultimately relied on public LB; a protected holdout is a proposed safeguard and soft labels can amplify teacher bias."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team found all soft test labels better than hard/confidence-filtered variants and later upsampling helped; validation became noisy after using validation labels for training.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-cded5f81b9d9e359"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Teacher labels/many transformer fits demand compute.",
+        "competitor": "Useful pseudo-label variant comparison with protected validation.",
+        "practitioner": "Conditional transductive adaptation; teacher bias and privacy policies matter."
+      },
+      "review": {
+        "candidate_id": "C-a-cded5f81b9d9e359",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked soft/allPL superiority and validation consumption; untouched holdout explicitly proposed.",
+        "candidate_sha256": "56f2494879d09c463308678ba217552d2dff0ed05cea9ad2acdbd7238bf34374"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000180",
+      "slug": "lesson-000180",
+      "merged_candidate_ids": [
+        "C-a-cded5f81b9d9e359"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8e33f20091f7fa31083e",
+          "competition_id": "competition:jigsaw-multilingual-toxic-comment-classification",
+          "source_id": "source:lesson-source-c2eca846c69b9054",
+          "snapshot_path": "research/lesson-extraction/snapshots/1907efcdace6d803c5fcc1880142cee8f318859aead8d6a7bd1a0c58076faaa7.txt",
+          "snapshot_sha256": "1907efcdace6d803c5fcc1880142cee8f318859aead8d6a7bd1a0c58076faaa7",
+          "source_url": "https://www.kaggle.com/competitions/jigsaw-multilingual-toxic-comment-classification/writeups/lingua-franca-1st-place-solution-overview",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-cded5f81b9d9e359",
+          "line_start": 34,
+          "line_end": 45,
+          "evidence_text": "We initially used a mix of k-fold CV and validation set as hold-out but as we refined our test predictions and used pseudo-labels + validation set for training, the validation metric became noisy to the point where we relied primarily on the public LB score.\n\nInsights\n--------\n\n### Ensembling to mitigate Transformer training variability\n\nIt\u2019s been noted that the performance of Transformer models is impacted heavily by initialization and data order ([https://arxiv.org/pdf/2002.06305.pdf](https://arxiv.org/pdf/2002.06305.pdf), [https://www.aclweb.org/anthology/2020.trac-1.9.pdf)](https://www.aclweb.org/anthology/2020.trac-1.9.pdf)). To mitigate that, we emphasized the ensembling and bagging our models. This included temporal self-ensembling. Given the public test set, we went with an iterative blending approach, refining the test set predictions across submissions with a weighted average of the previous best submission and the current model\u2019s predictions. We began with a simple average, and gradually increased the weight of the previous best submission. For the training data, we largely used sub-samples of the translations of the 2018 toxic comments for each model run.\n\n### Pseudo-labels (PL)\n\nWe observed a performance improvement when we used test-set predictions as training data - the intuition being that it helps models learn the test set distribution. Using all test-set predictions as soft-labels worked better than any other version of pseudo-labelling (e.g., hard labels, confidence thresholded PLs etc.). Towards the end of the competition, we discovered a minor but material boost in LB when we upsampled the PLs.",
+          "kind": "used",
+          "statement": "The team found all soft test labels better than hard/confidence-filtered variants and later upsampling helped; validation became noisy after using validation labels for training.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Teacher labels/many transformer fits demand compute.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful pseudo-label variant comparison with protected validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional transductive adaptation; teacher bias and privacy policies matter.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c2eca846c69b9054",
+          "locator": "research/lesson-extraction/snapshots/1907efcdace6d803c5fcc1880142cee8f318859aead8d6a7bd1a0c58076faaa7.txt#L34-L45",
+          "quote": "We initially used a mix of k-fold CV and validation set as hold-out but as we refined our test predictions and used pseudo-labels + validation set for training, the validation metric became noisy to the point where we relied primarily on the public LB score.\n\nInsights\n--------\n\n### Ensembling to mitigate Transformer training variability\n\nIt\u2019s been noted that the performance of Transformer models is impacted heavily by initialization and data order ([https://arxiv.org/pdf/2002.06305.pdf](https://arxiv.org/pdf/2002.06305.pdf), [https://www.aclweb.org/anthology/2020.trac-1.9.pdf)](https://www.aclweb.org/anthology/2020.trac-1.9.pdf)). To mitigate that, we emphasized the ensembling and bagging our models. This included temporal self-ensembling. Given the public test set, we went with an iterative blending approach, refining the test set predictions across submissions with a weighted average of the previous best submission and the current model\u2019s predictions. We began with a simple average, and gradually increased the weight of the previous best submission. For the training data, we largely used sub-samples of the translations of the 2018 toxic comments for each model run.\n\n### Pseudo-labels (PL)\n\nWe observed a performance improvement when we used test-set predictions as training data - the intuition being that it helps models learn the test set distribution. Using all test-set predictions as soft-labels worked better than any other version of pseudo-labelling (e.g., hard labels, confidence thresholded PLs etc.). Towards the end of the competition, we discovered a minor but material boost in LB when we upsampled the PLs.",
+          "competition_id": "competition:jigsaw-multilingual-toxic-comment-classification",
+          "url": "https://www.kaggle.com/competitions/jigsaw-multilingual-toxic-comment-classification/writeups/lingua-franca-1st-place-solution-overview",
+          "snapshot_path": "research/lesson-extraction/snapshots/1907efcdace6d803c5fcc1880142cee8f318859aead8d6a7bd1a0c58076faaa7.txt",
+          "snapshot_sha256": "1907efcdace6d803c5fcc1880142cee8f318859aead8d6a7bd1a0c58076faaa7",
+          "line_start": 34,
+          "line_end": 45
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-cded5f81b9d9e359",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked soft/allPL superiority and validation consumption; untouched holdout explicitly proposed.",
+          "candidate_sha256": "56f2494879d09c463308678ba217552d2dff0ed05cea9ad2acdbd7238bf34374"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 106,
+        "line_end": 110,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-58cb15b547434592fff2",
+      "canonical_key": "filter high-confidence pseudo-labels and ensemble the resulting model with an otherwise similar supervised-only model. | extra unlabeled disease images are available | predictive_quality",
+      "title": "Compare high-confidence pseudo-label models with supervised ones",
+      "statement": "When extra unlabeled disease images are available, proposed reuse: Proposed conditional application: Filter high-confidence pseudo-labels and ensemble the resulting model with an otherwise similar supervised-only model. Proposed check: Use untouched image-group holdouts to compare supervised, pseudo-labeled and combined models; audit duplicates and confidence calibration. Limitation: Public and private rankings disagree; approximate CV and high-confidence errors limit certainty.",
+      "trigger_conditions": [
+        "extra unlabeled disease images are available"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Filter high-confidence pseudo-labels and ensemble the resulting model with an otherwise similar supervised-only model."
+      ],
+      "verification_steps": [
+        "Proposed check: Use untouched image-group holdouts to compare supervised, pseudo-labeled and combined models; audit duplicates and confidence calibration."
+      ],
+      "limitations": [
+        "Public and private rankings disagree; approximate CV and high-confidence errors limit certainty."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The cassava source ensembled supervised-only and extra-image pseudo-labeled models.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-dc204602ee1e7f481f47"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiple CNN fits and confidence filtering need resources.",
+        "competitor": "Concrete diversity test despite misleading public score.",
+        "practitioner": "Conditional extra-data value with costly image validation."
+      },
+      "review": {
+        "candidate_id": "C-58cb15b547434592fff2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full cassava source blends extra-image pseudo-labeled and supervised SE101 models; filtering >95 wording is ambiguous and CV recalled approximately.",
+        "candidate_sha256": "d6fe7b9c11b90abd7a5df90fb570b0d275a696ad952bc52d343a96f03c7d3987"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000264",
+      "slug": "lesson-000264",
+      "merged_candidate_ids": [
+        "C-58cb15b547434592fff2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-96e7a4864e3c19698779",
+          "competition_id": "competition:cassava-disease",
+          "source_id": "source:lesson-source-9f564029f1d15746",
+          "snapshot_path": "research/lesson-extraction/snapshots/bb41f48f545507adc1a468f3165f9c40eb97c8aa1e70519d7ef773d0914cadca.txt",
+          "snapshot_sha256": "bb41f48f545507adc1a468f3165f9c40eb97c8aa1e70519d7ef773d0914cadca",
+          "source_url": "https://www.kaggle.com/competitions/cassava-disease/writeups/gary-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-dc204602ee1e7f481f47",
+          "line_start": 24,
+          "line_end": 24,
+          "evidence_text": "ensemble se101 witn only trian images and se101 with extra images.",
+          "kind": "used",
+          "statement": "The cassava source ensembled supervised-only and extra-image pseudo-labeled models.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Multiple CNN fits and confidence filtering need resources.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete diversity test despite misleading public score.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional extra-data value with costly image validation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9f564029f1d15746",
+          "locator": "research/lesson-extraction/snapshots/bb41f48f545507adc1a468f3165f9c40eb97c8aa1e70519d7ef773d0914cadca.txt#L24-L24",
+          "quote": "ensemble se101 witn only trian images and se101 with extra images.",
+          "competition_id": "competition:cassava-disease",
+          "url": "https://www.kaggle.com/competitions/cassava-disease/writeups/gary-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/bb41f48f545507adc1a468f3165f9c40eb97c8aa1e70519d7ef773d0914cadca.txt",
+          "snapshot_sha256": "bb41f48f545507adc1a468f3165f9c40eb97c8aa1e70519d7ef773d0914cadca",
+          "line_start": 24,
+          "line_end": 24
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-58cb15b547434592fff2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full cassava source blends extra-image pseudo-labeled and supervised SE101 models; filtering >95 wording is ambiguous and CV recalled approximately.",
+          "candidate_sha256": "d6fe7b9c11b90abd7a5df90fb570b0d275a696ad952bc52d343a96f03c7d3987"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 76,
+        "line_end": 86,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-96be6fa4db6660ca22e7",
+      "canonical_key": "filter pseudo-labels at a configured confidence threshold and retrain for two epochs at half the initial learning rate. | clip image classification has optional unlabeled test pseudo-labels | predictive_quality",
+      "title": "Lower the learning rate for a confidence-filtered self-training phase",
+      "statement": "When CLIP image classification has optional unlabeled test pseudo-labels, proposed reuse: Proposed conditional application: Filter pseudo-labels at a configured confidence threshold and retrain for two epochs at half the initial learning rate. Proposed check: Ablate pseudo-label threshold and LR on untouched validation; reload comparable checkpoints and inspect false confident labels. Limitation: Default branch is optional; helpers outside packet and final-current-model prediction may differ from best checkpoint.",
+      "trigger_conditions": [
+        "CLIP image classification has optional unlabeled test pseudo-labels"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Filter pseudo-labels at a configured confidence threshold and retrain for two epochs at half the initial learning rate."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate pseudo-label threshold and LR on untouched validation; reload comparable checkpoints and inspect false confident labels."
+      ],
+      "limitations": [
+        "Default branch is optional; helpers outside packet and final-current-model prediction may differ from best checkpoint."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The CLIP code uses pseudo-labeled extra images and a reduced learning-rate training branch.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-916323e4ec1cc8bc4788"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Requires CLIP training resources and confidence awareness.",
+        "competitor": "Clear self-training branch worth controlled testing.",
+        "practitioner": "Conditional adaptation value, not published performance evidence."
+      },
+      "review": {
+        "candidate_id": "C-96be6fa4db6660ca22e7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full CLIP code conditionally filters pseudo-labels and resets optimizer at half LR for two epochs; no execution or gain proved.",
+        "candidate_sha256": "275bf4e5bd92b7326d5d6014fa4488908598d3150f7072d6b268d9f2dfd7e244"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000265",
+      "slug": "lesson-000265",
+      "merged_candidate_ids": [
+        "C-96be6fa4db6660ca22e7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-834ddfe39f57acbe98c9",
+          "competition_id": "competition:fit5215-objectdection-s2-2023",
+          "source_id": "source:lesson-source-1dca75bcc9303f28",
+          "snapshot_path": "research/lesson-extraction/snapshots/ae6084f6d985b419e2c93e4ce72777d69d66bebca9b673d4527f6bee2e278747.txt",
+          "snapshot_sha256": "ae6084f6d985b419e2c93e4ce72777d69d66bebca9b673d4527f6bee2e278747",
+          "source_url": "https://raw.githubusercontent.com/erickim204/objectdetectionkagglecomp/HEAD/train.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-916323e4ec1cc8bc4788",
+          "line_start": 222,
+          "line_end": 222,
+          "evidence_text": "optimizer = torch.optim.AdamW(trainer.model.parameters(), lr=args.lr * 0.5)",
+          "kind": "used",
+          "statement": "The CLIP code uses pseudo-labeled extra images and a reduced learning-rate training branch.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Requires CLIP training resources and confidence awareness.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Clear self-training branch worth controlled testing.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional adaptation value, not published performance evidence.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-1dca75bcc9303f28",
+          "locator": "research/lesson-extraction/snapshots/ae6084f6d985b419e2c93e4ce72777d69d66bebca9b673d4527f6bee2e278747.txt#L222-L222",
+          "quote": "optimizer = torch.optim.AdamW(trainer.model.parameters(), lr=args.lr * 0.5)",
+          "competition_id": "competition:fit5215-objectdection-s2-2023",
+          "url": "https://raw.githubusercontent.com/erickim204/objectdetectionkagglecomp/HEAD/train.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/ae6084f6d985b419e2c93e4ce72777d69d66bebca9b673d4527f6bee2e278747.txt",
+          "snapshot_sha256": "ae6084f6d985b419e2c93e4ce72777d69d66bebca9b673d4527f6bee2e278747",
+          "line_start": 222,
+          "line_end": 222
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-96be6fa4db6660ca22e7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full CLIP code conditionally filters pseudo-labels and resets optimizer at half LR for two epochs; no execution or gain proved.",
+          "candidate_sha256": "275bf4e5bd92b7326d5d6014fa4488908598d3150f7072d6b268d9f2dfd7e244"
+        },
+        {
+          "candidate_id": "C-96be6fa4db6660ca22e7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Entire CLIP source has optional flag-gated pseudo-label helper, half learning rate and two retraining epochs. Candidate correctly distinguishes optional code implementation, unavailable helper internals and final-current-model versus best checkpoint. Threshold/LR ablation is proposed; limited audience ratings claim no winning-run execution/gain.",
+          "candidate_sha256": "275bf4e5bd92b7326d5d6014fa4488908598d3150f7072d6b268d9f2dfd7e244"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 88,
+        "line_end": 98,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-7bc4ee0c6fd04826",
+      "canonical_key": "for each fold, create external pseudo-labels only with teachers trained on that fold\u2019s training subset. | external text resembles validation examples and teachers saw some validation labels | validation_reliability",
+      "title": "Generate pseudo-labels separately for each training fold",
+      "statement": "When external text resembles validation examples and teachers saw some validation labels, consider this source-backed action: For each fold, create external pseudo-labels only with teachers trained on that fold\u2019s training subset. Proposed check: Audit teacher training IDs and compare untouched holdout performance against all-fold pseudo-labeling. Limit: Fold isolation addresses this indirect leakage route but cannot eliminate every possible source of leakage.",
+      "trigger_conditions": [
+        "external text resembles validation examples and teachers saw some validation labels"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: For each fold, create external pseudo-labels only with teachers trained on that fold\u2019s training subset."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit teacher training IDs and compare untouched holdout performance against all-fold pseudo-labeling."
+      ],
+      "limitations": [
+        "Fold isolation addresses this indirect leakage route but cannot eliminate every possible source of leakage."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "All-fold teachers produced optimistic local improvement that did not match LB; the team regenerated each fold\u2019s pseudo-labels using only its training models, reducing apparent gain.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-7bc4ee0c6fd04826"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Fold-specific teacher generation multiplies model/data work.",
+        "competitor": "High validation value for indirect pseudo-label leakage.",
+        "practitioner": "Strong training isolation principle for similar external unlabeled examples."
+      },
+      "review": {
+        "candidate_id": "C-a-7bc4ee0c6fd04826",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked all-fold optimism and fold-specific teacher correction; other leakage possible.",
+        "candidate_sha256": "84f065200f1cc39d33848dc6dbae8406941fda9f570ae238fe91fdaec4a06788"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000291",
+      "slug": "lesson-000291",
+      "merged_candidate_ids": [
+        "C-a-7bc4ee0c6fd04826"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ebe46b39e87458da3b77",
+          "competition_id": "competition:google-quest-challenge",
+          "source_id": "source:lesson-source-8bd69e3b433688cf",
+          "snapshot_path": "research/lesson-extraction/snapshots/696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872.txt",
+          "snapshot_sha256": "696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872",
+          "source_url": "https://www.kaggle.com/competitions/google-quest-challenge/writeups/bibimorph-1st-place-solution-with-code",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-7bc4ee0c6fd04826",
+          "line_start": 30,
+          "line_end": 38,
+          "evidence_text": "Pseudo-labeling is a well known semi-supervised learning technique within the Kaggle community and sometimes I wonder how they reinvent stuff in academic papers like [this one](https://arxiv.org/pdf/1911.04252.pdf) (btw a great result). So we labeled additional 100k samples using our three basic bert models. First experiments with pseudo-labels showed huge improvement for SE pretrained bert (0.414 -> 0.445). That was huge. But the leaderboard did not agree.\n\nPreviously, my teammates and I used models from all folds to create pseudolabels. This strategy worked well in many cases including recent Recursion competition, where my team finished 6th. [@ddanevskyi](https://www.kaggle.com/ddanevskyi) used the same approach for his 3rd place on Freesound. This way of creating pseudolabels gives quite accurate predictions as you are using a fold ensemble, but has an unobvious pitfall. If the pseudolabeled set contains a lot of similar samples to the training set, you could expect that some actual training labels could leak through those samples, even if there is no \u201cdirect\u201d target leakage.\n\nImagine that you\u2019ve trained a 5-fold model on the training set then used those 5 folds to create pseudolabels on some external dataset. Then you add those pseudolabels to the training part of each of 5 folds. Very likely you will see an overoptimistic score on the validation part as 4 out of 5 models used to generate pseudolabels have \u201cseen\u201d the current validation set through their training process.\n\nWe could expect a lot of very similar questions/answers in SO&SE data, so we clearly couldn\u2019t rely on that sort of pseudolabels. In order to fix the problem, we generated 5 different sets of pseudolabels where for each train/val split we used only those models that were trained using only the current train set. This gave much less accurate pseudolabels, but eliminated any possible source of target leakage.\n\nAs expected, it didn\u2019t bring such an improvement compared to a \u201cleaked\u201d approach (0.414 -> 0.422) but that was a wise decision in terms of tackling overfitting.",
+          "kind": "reported_failure",
+          "statement": "All-fold teachers produced optimistic local improvement that did not match LB; the team regenerated each fold\u2019s pseudo-labels using only its training models, reducing apparent gain.",
+          "reported_result": {
+            "metric": "fold-isolated local model score",
+            "value": 0.422,
+            "context": "Google QUEST: fold-specific teachers0.422versus labeled-only0.414 and all-fold optimistic0.445; indirect leakage diagnosis with leaderboard mismatch, metric Spearman context, split uncertainties absent.",
+            "evidence_text": "Pseudo-labeling is a well known semi-supervised learning technique within the Kaggle community and sometimes I wonder how they reinvent stuff in academic papers like [this one](https://arxiv.org/pdf/1911.04252.pdf) (btw a great result). So we labeled additional 100k samples using our three basic bert models. First experiments with pseudo-labels showed huge improvement for SE pretrained bert (0.414 -> 0.445). That was huge. But the leaderboard did not agree.\n\nPreviously, my teammates and I used models from all folds to create pseudolabels. This strategy worked well in many cases including recent Recursion competition, where my team finished 6th. [@ddanevskyi](https://www.kaggle.com/ddanevskyi) used the same approach for his 3rd place on Freesound. This way of creating pseudolabels gives quite accurate predictions as you are using a fold ensemble, but has an unobvious pitfall. If the pseudolabeled set contains a lot of similar samples to the training set, you could expect that some actual training labels could leak through those samples, even if there is no \u201cdirect\u201d target leakage.\n\nImagine that you\u2019ve trained a 5-fold model on the training set then used those 5 folds to create pseudolabels on some external dataset. Then you add those pseudolabels to the training part of each of 5 folds. Very likely you will see an overoptimistic score on the validation part as 4 out of 5 models used to generate pseudolabels have \u201cseen\u201d the current validation set through their training process.\n\nWe could expect a lot of very similar questions/answers in SO&SE data, so we clearly couldn\u2019t rely on that sort of pseudolabels. In order to fix the problem, we generated 5 different sets of pseudolabels where for each train/val split we used only those models that were trained using only the current train set. This gave much less accurate pseudolabels, but eliminated any possible source of target leakage.\n\nAs expected, it didn\u2019t bring such an improvement compared to a \u201cleaked\u201d approach (0.414 -> 0.422) but that was a wise decision in terms of tackling overfitting."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Fold-specific teacher generation multiplies model/data work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 87.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "High validation value for indirect pseudo-label leakage.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Strong training isolation principle for similar external unlabeled examples.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8bd69e3b433688cf",
+          "locator": "research/lesson-extraction/snapshots/696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872.txt#L30-L38",
+          "quote": "Pseudo-labeling is a well known semi-supervised learning technique within the Kaggle community and sometimes I wonder how they reinvent stuff in academic papers like [this one](https://arxiv.org/pdf/1911.04252.pdf) (btw a great result). So we labeled additional 100k samples using our three basic bert models. First experiments with pseudo-labels showed huge improvement for SE pretrained bert (0.414 -> 0.445). That was huge. But the leaderboard did not agree.\n\nPreviously, my teammates and I used models from all folds to create pseudolabels. This strategy worked well in many cases including recent Recursion competition, where my team finished 6th. [@ddanevskyi](https://www.kaggle.com/ddanevskyi) used the same approach for his 3rd place on Freesound. This way of creating pseudolabels gives quite accurate predictions as you are using a fold ensemble, but has an unobvious pitfall. If the pseudolabeled set contains a lot of similar samples to the training set, you could expect that some actual training labels could leak through those samples, even if there is no \u201cdirect\u201d target leakage.\n\nImagine that you\u2019ve trained a 5-fold model on the training set then used those 5 folds to create pseudolabels on some external dataset. Then you add those pseudolabels to the training part of each of 5 folds. Very likely you will see an overoptimistic score on the validation part as 4 out of 5 models used to generate pseudolabels have \u201cseen\u201d the current validation set through their training process.\n\nWe could expect a lot of very similar questions/answers in SO&SE data, so we clearly couldn\u2019t rely on that sort of pseudolabels. In order to fix the problem, we generated 5 different sets of pseudolabels where for each train/val split we used only those models that were trained using only the current train set. This gave much less accurate pseudolabels, but eliminated any possible source of target leakage.\n\nAs expected, it didn\u2019t bring such an improvement compared to a \u201cleaked\u201d approach (0.414 -> 0.422) but that was a wise decision in terms of tackling overfitting.",
+          "competition_id": "competition:google-quest-challenge",
+          "url": "https://www.kaggle.com/competitions/google-quest-challenge/writeups/bibimorph-1st-place-solution-with-code",
+          "snapshot_path": "research/lesson-extraction/snapshots/696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872.txt",
+          "snapshot_sha256": "696d91d5f606fed521e80f7e19e6d1f8c3ff6d572c105da5d25fff04df73b872",
+          "line_start": 30,
+          "line_end": 38
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-7bc4ee0c6fd04826",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked all-fold optimism and fold-specific teacher correction; other leakage possible.",
+          "candidate_sha256": "84f065200f1cc39d33848dc6dbae8406941fda9f570ae238fe91fdaec4a06788"
+        },
+        {
+          "candidate_id": "C-a-7bc4ee0c6fd04826",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "QUEST winningteam explicitly allfoldpseudo optimistic0.414to0.445withoutLBagreement,fold-specifictrainteachers0.422. Foldisolation addresses indirectteacherleakage,not allsources. TeacherID/untouchedholdout check proposed;extra generation cost graded appropriately.",
+          "candidate_sha256": "84f065200f1cc39d33848dc6dbae8406941fda9f570ae238fe91fdaec4a06788"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 112,
+        "line_end": 116,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-a30594f5853c6b39",
+      "canonical_key": "generate each training example\u2019s auxiliary target from a model that did not train on it, then train the second stage. | a second-stage sequence model consumes targets from a first-stage model | predictive_quality",
+      "title": "Generate auxiliary labels out of fold before full-fit training",
+      "statement": "When a second-stage sequence model consumes targets from a first-stage model, consider this source-backed action: Generate each training example\u2019s auxiliary target from a model that did not train on it, then train the second stage. Proposed check: Audit fold membership and compare OOF against in-sample auxiliary target behavior. Limit: The source does not fully define the auxiliary confidence target in this packet; label semantics require the full implementation.",
+      "trigger_conditions": [
+        "a second-stage sequence model consumes targets from a first-stage model"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Generate each training example\u2019s auxiliary target from a model that did not train on it, then train the second stage."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit fold membership and compare OOF against in-sample auxiliary target behavior."
+      ],
+      "limitations": [
+        "The source does not fully define the auxiliary confidence target in this packet; label semantics require the full implementation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team trained a smaller model across four folds to produce auxiliary OOF targets, then trained two full-fit seeds in round two.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-a30594f5853c6b39"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Extra models and fold bookkeeping raise resource requirements.",
+        "competitor": "Prevents training-target contamination in staged sequence models.",
+        "practitioner": "OOF auxiliary predictions useful broadly; compute multiplication matters."
+      },
+      "review": {
+        "candidate_id": "C-a-a30594f5853c6b39",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked four-fold auxiliary targets before fullfit; target semantics not fully specified.",
+        "candidate_sha256": "b9e9078a16fbc2682f8035eb7987299a85b57e1bb38110f60518507ce761019b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000299",
+      "slug": "lesson-000299",
+      "merged_candidate_ids": [
+        "C-a-a30594f5853c6b39"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8b6faf9e174712d7bf1e",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-8a2e00edc35aa64c",
+          "snapshot_path": "research/lesson-extraction/snapshots/bed5f3c221529709307eadf391ae4e5dadcc66f67095173aa90ee08a954bec4b.txt",
+          "snapshot_sha256": "bed5f3c221529709307eadf391ae4e5dadcc66f67095173aa90ee08a954bec4b",
+          "source_url": "https://raw.githubusercontent.com/ChristofHenkel/kaggle-asl-fingerspelling-1st-place-solution/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-a30594f5853c6b39",
+          "line_start": 47,
+          "line_end": 68,
+          "evidence_text": "In order to reproduce the 1st place solution, two rounds of training are necesseary. In the first round we train a smaller model in order to generate out-of-fold (OOF) predictions which are used as auxiliary target for round two. Finally, model architecture of round two is translated to tensorflow and weights are transfered before we export to a tf-lite model. Note that, for users convinience, we provide the output of step 1 as `datamount/train_folded_oof_supp.csv` so only step 2& 3 would need to be performed to get the final model weights.\n\n### 1. Train round 1\n\nTrain 4 folds of cfg_1:\n\n```\npython train.py -C cfg_1\npython train.py -C cfg_1 --fold 1\npython train.py -C cfg_1 --fold 2\npython train.py -C cfg_1 --fold 3\n```\n\nAdd oof predictions from step 1. to train_folded.csv and concatenate with supplemental metadata:\n\n```\npython scripts/get_train_folded_oof_supp.py \n```\n\n### 2. Train round 2\n\nTrain 2x fullfit seeds of cfg_2:",
+          "kind": "used",
+          "statement": "The team trained a smaller model across four folds to produce auxiliary OOF targets, then trained two full-fit seeds in round two.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Extra models and fold bookkeeping raise resource requirements.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Prevents training-target contamination in staged sequence models.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "OOF auxiliary predictions useful broadly; compute multiplication matters.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8a2e00edc35aa64c",
+          "locator": "research/lesson-extraction/snapshots/bed5f3c221529709307eadf391ae4e5dadcc66f67095173aa90ee08a954bec4b.txt#L47-L68",
+          "quote": "In order to reproduce the 1st place solution, two rounds of training are necesseary. In the first round we train a smaller model in order to generate out-of-fold (OOF) predictions which are used as auxiliary target for round two. Finally, model architecture of round two is translated to tensorflow and weights are transfered before we export to a tf-lite model. Note that, for users convinience, we provide the output of step 1 as `datamount/train_folded_oof_supp.csv` so only step 2& 3 would need to be performed to get the final model weights.\n\n### 1. Train round 1\n\nTrain 4 folds of cfg_1:\n\n```\npython train.py -C cfg_1\npython train.py -C cfg_1 --fold 1\npython train.py -C cfg_1 --fold 2\npython train.py -C cfg_1 --fold 3\n```\n\nAdd oof predictions from step 1. to train_folded.csv and concatenate with supplemental metadata:\n\n```\npython scripts/get_train_folded_oof_supp.py \n```\n\n### 2. Train round 2\n\nTrain 2x fullfit seeds of cfg_2:",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/ChristofHenkel/kaggle-asl-fingerspelling-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/bed5f3c221529709307eadf391ae4e5dadcc66f67095173aa90ee08a954bec4b.txt",
+          "snapshot_sha256": "bed5f3c221529709307eadf391ae4e5dadcc66f67095173aa90ee08a954bec4b",
+          "line_start": 47,
+          "line_end": 68
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-a30594f5853c6b39",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked four-fold auxiliary targets before fullfit; target semantics not fully specified.",
+          "candidate_sha256": "b9e9078a16fbc2682f8035eb7987299a85b57e1bb38110f60518507ce761019b"
+        },
+        {
+          "candidate_id": "C-a-a30594f5853c6b39",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "ASL README prescribes four-fold smaller-model OOF auxiliary predictions then two fullfit seeds. Auxiliary confidence semantics not fully documented; fold audit is proposed. Extra-fit costs reflected in beginner/competitor feasibility, broad staged-target utility reasonable.",
+          "candidate_sha256": "b9e9078a16fbc2682f8035eb7987299a85b57e1bb38110f60518507ce761019b"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 120,
+        "line_end": 124,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-5a79a93a98791b27",
+      "canonical_key": "pretrain pairwise comparisons across properties and mask pairs whose predicted value gap is too small. | regression pseudo-labels are noisy but relative ordering may remain useful | predictive_quality",
+      "title": "Pretrain property ranking on pseudo-label pairs with an uncertainty gap",
+      "statement": "When regression pseudo-labels are noisy but relative ordering may remain useful, consider this source-backed action: Pretrain pairwise comparisons across properties and mask pairs whose predicted value gap is too small. Proposed check: Compare downstream weighted MAE against no pretraining and direct distillation using independent molecular splits. Limit: Gap thresholds and confidence are unspecified; claims of superior distillation are author interpretation.",
+      "trigger_conditions": [
+        "regression pseudo-labels are noisy but relative ordering may remain useful"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Pretrain pairwise comparisons across properties and mask pairs whose predicted value gap is too small."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare downstream weighted MAE against no pretraining and direct distillation using independent molecular splits."
+      ],
+      "limitations": [
+        "Gap thresholds and confidence are unspecified; claims of superior distillation are author interpretation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author pseudo-labeled fifty-thousand polymers and pretrained multitask pairwise property ranking, ignoring pairs with similar values; scores improved over hub checkpoints.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5a79a93a98791b27"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Teacher ensemble and custom pretraining exceed beginner resources.",
+        "competitor": "Reported gains justify a costly semi-supervised ranking trial.",
+        "practitioner": "Transfers to noisy continuous labels if pair confidence is controlled."
+      },
+      "review": {
+        "candidate_id": "C-a-5a79a93a98791b27",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Pairwise pseudo-ranking pretraining improved five foundations; superiority over standard distillation remains interpretation.",
+        "candidate_sha256": "88d595aa3ef6f9730b969f0f42767b72c19cbe1048cd91bcfea99393d1432dbb"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000388",
+      "slug": "lesson-000388",
+      "merged_candidate_ids": [
+        "C-a-5a79a93a98791b27"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-d709d0f0d7c098fc235b",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "source_url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5a79a93a98791b27",
+          "line_start": 84,
+          "line_end": 86,
+          "evidence_text": "My BERT models were trained in 2 stages, after whatever pretraining was done to compute the pretrained weights on the HuggingFace hub.\n\n1.   **Pretraining on PI1M:** I used an ensemble of BERT, Uni-Mol, AutoGluon, and D-MPNN models to predict the properties of 50,000 hypothetical polymers from PI1M, then pretrained other BERT models on a classification task to predict which pairs of polymers had higher or lower property values than one another. Loss values were ignored for pairs with similar property values, which reduced the degree to which the models were exposed to label noise related to inaccuracies in the raw ensemble predictions. For efficiency, this was a multi-task classification objective; models were pretrained to compute classification results for all 5 properties at once, so I didn't have to train separate foundation models for each property. This was inspired by the paper \"[RankUp: Boosting Semi-Supervised Regression with an Auxiliary Ranking Classifier](https://arxiv.org/html/2410.22124v1)\", but I found using it for pretraining with precomputed pseudolabels to work better than the online version described in the original paper. It improved the scores of my BERT models by ~0.004 LB, ~0.01 CV in comparison to just using pretrained model weights from HuggingFace (tried 5 different third-party foundation models, and adding this additional pretraining stage boosted all of their scores). Some of the models finetuned after this pretraining tuned out more accurate than the original teacher ensembles used to compute the pseudolables, so I believe it was more effective than standard knowledge distillation.",
+          "kind": "reported_gain",
+          "statement": "The author pseudo-labeled fifty-thousand polymers and pretrained multitask pairwise property ranking, ignoring pairs with similar values; scores improved over hub checkpoints.",
+          "reported_result": {
+            "metric": "Leaderboard score improvement",
+            "value": 0.004,
+            "context": "Pairwise pseudo-ranking pretraining versus hub weights only, five foundations; CV improvement also ~0.01. Metric details and uncertainty unknown.",
+            "evidence_text": "My BERT models were trained in 2 stages, after whatever pretraining was done to compute the pretrained weights on the HuggingFace hub.\n\n1.   **Pretraining on PI1M:** I used an ensemble of BERT, Uni-Mol, AutoGluon, and D-MPNN models to predict the properties of 50,000 hypothetical polymers from PI1M, then pretrained other BERT models on a classification task to predict which pairs of polymers had higher or lower property values than one another. Loss values were ignored for pairs with similar property values, which reduced the degree to which the models were exposed to label noise related to inaccuracies in the raw ensemble predictions. For efficiency, this was a multi-task classification objective; models were pretrained to compute classification results for all 5 properties at once, so I didn't have to train separate foundation models for each property. This was inspired by the paper \"[RankUp: Boosting Semi-Supervised Regression with an Auxiliary Ranking Classifier](https://arxiv.org/html/2410.22124v1)\", but I found using it for pretraining with precomputed pseudolabels to work better than the online version described in the original paper. It improved the scores of my BERT models by ~0.004 LB, ~0.01 CV in comparison to just using pretrained model weights from HuggingFace (tried 5 different third-party foundation models, and adding this additional pretraining stage boosted all of their scores). Some of the models finetuned after this pretraining tuned out more accurate than the original teacher ensembles used to compute the pseudolables, so I believe it was more effective than standard knowledge distillation."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Teacher ensemble and custom pretraining exceed beginner resources.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Reported gains justify a costly semi-supervised ranking trial.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to noisy continuous labels if pair confidence is controlled.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "locator": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt#L84-L86",
+          "quote": "My BERT models were trained in 2 stages, after whatever pretraining was done to compute the pretrained weights on the HuggingFace hub.\n\n1.   **Pretraining on PI1M:** I used an ensemble of BERT, Uni-Mol, AutoGluon, and D-MPNN models to predict the properties of 50,000 hypothetical polymers from PI1M, then pretrained other BERT models on a classification task to predict which pairs of polymers had higher or lower property values than one another. Loss values were ignored for pairs with similar property values, which reduced the degree to which the models were exposed to label noise related to inaccuracies in the raw ensemble predictions. For efficiency, this was a multi-task classification objective; models were pretrained to compute classification results for all 5 properties at once, so I didn't have to train separate foundation models for each property. This was inspired by the paper \"[RankUp: Boosting Semi-Supervised Regression with an Auxiliary Ranking Classifier](https://arxiv.org/html/2410.22124v1)\", but I found using it for pretraining with precomputed pseudolabels to work better than the online version described in the original paper. It improved the scores of my BERT models by ~0.004 LB, ~0.01 CV in comparison to just using pretrained model weights from HuggingFace (tried 5 different third-party foundation models, and adding this additional pretraining stage boosted all of their scores). Some of the models finetuned after this pretraining tuned out more accurate than the original teacher ensembles used to compute the pseudolables, so I believe it was more effective than standard knowledge distillation.",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "line_start": 84,
+          "line_end": 86
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5a79a93a98791b27",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Pairwise pseudo-ranking pretraining improved five foundations; superiority over standard distillation remains interpretation.",
+          "candidate_sha256": "88d595aa3ef6f9730b969f0f42767b72c19cbe1048cd91bcfea99393d1432dbb"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 126,
+        "line_end": 130,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-de4423d673d47bded617",
+      "canonical_key": "use soft pseudo-labels and compare random unlabeled sampling with high-confidence filtering. | clinical span extraction has unlabeled notes | predictive_quality",
+      "title": "Test pseudo-label softness and sampling separately",
+      "statement": "When clinical span extraction has unlabeled notes, proposed reuse: Proposed conditional application: Use soft pseudo-labels and compare random unlabeled sampling with high-confidence filtering. Proposed check: Compare soft/hard targets and random/confidence-filtered sampling under note-grouped validation, auditing teacher leakage and pseudo-label coverage. Limitation: The 90% pseudo/10% original mix and >0.95 filter are tested settings; other thresholds or unlabeled populations may differ.",
+      "trigger_conditions": [
+        "clinical span extraction has unlabeled notes"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use soft pseudo-labels and compare random unlabeled sampling with high-confidence filtering."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare soft/hard targets and random/confidence-filtered sampling under note-grouped validation, auditing teacher leakage and pseudo-label coverage."
+      ],
+      "limitations": [
+        "The 90% pseudo/10% original mix and >0.95 filter are tested settings; other thresholds or unlabeled populations may differ."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The clinical-span team reports soft pseudo-labels outperforming hard labels in their CV experiments.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-33d6c663726199543eb3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Soft pseudo-labels are understandable but teacher/student pipelines add complexity.",
+        "competitor": "The separate label softness and sampling comparisons give actionable semi-supervised experiments.",
+        "practitioner": "Clinical extraction may benefit, but coverage bias and note independence need validation."
+      },
+      "review": {
+        "candidate_id": "C-de4423d673d47bded617",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "root-audit-repair-fresh",
+        "reason": "Read complete NBME writeup. Soft versus hard target labels and random versus high-confidence sampling are separate author experiments. Corrected title to avoid inventing a combined soft/random versus hard/filtered treatment; existing proposed controls preserved.",
+        "candidate_sha256": "fde18f3b1f1b4640122961ee0c76825320acc6244aed7a78988e2d25ccab54b1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000546",
+      "slug": "lesson-000546",
+      "merged_candidate_ids": [
+        "C-de4423d673d47bded617"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-352157c33891d7034363",
+          "competition_id": "competition:nbme-score-clinical-patient-notes",
+          "source_id": "source:lesson-source-cb92aafad4bb5bd1",
+          "snapshot_path": "research/lesson-extraction/snapshots/ad73cca6c1edf2bdf75a15381f00b91f3637300951b778e12bf31540fccbad17.txt",
+          "snapshot_sha256": "ad73cca6c1edf2bdf75a15381f00b91f3637300951b778e12bf31540fccbad17",
+          "source_url": "https://www.kaggle.com/competitions/nbme-score-clinical-patient-notes/writeups/ryuichi-currypurin-1st-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-33d6c663726199543eb3",
+          "line_start": 40,
+          "line_end": 40,
+          "evidence_text": "soft labels improved cv score better than hard labels.",
+          "kind": "used",
+          "statement": "The clinical-span team reports soft pseudo-labels outperforming hard labels in their CV experiments.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Soft pseudo-labels are understandable but teacher/student pipelines add complexity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The separate label softness and sampling comparisons give actionable semi-supervised experiments.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clinical extraction may benefit, but coverage bias and note independence need validation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-cb92aafad4bb5bd1",
+          "locator": "research/lesson-extraction/snapshots/ad73cca6c1edf2bdf75a15381f00b91f3637300951b778e12bf31540fccbad17.txt#L40-L40",
+          "quote": "soft labels improved cv score better than hard labels.",
+          "competition_id": "competition:nbme-score-clinical-patient-notes",
+          "url": "https://www.kaggle.com/competitions/nbme-score-clinical-patient-notes/writeups/ryuichi-currypurin-1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/ad73cca6c1edf2bdf75a15381f00b91f3637300951b778e12bf31540fccbad17.txt",
+          "snapshot_sha256": "ad73cca6c1edf2bdf75a15381f00b91f3637300951b778e12bf31540fccbad17",
+          "line_start": 40,
+          "line_end": 40
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-de4423d673d47bded617",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "root-audit-repair-fresh",
+          "reason": "Read complete NBME writeup. Soft versus hard target labels and random versus high-confidence sampling are separate author experiments. Corrected title to avoid inventing a combined soft/random versus hard/filtered treatment; existing proposed controls preserved.",
+          "candidate_sha256": "fde18f3b1f1b4640122961ee0c76825320acc6244aed7a78988e2d25ccab54b1"
+        },
+        {
+          "candidate_id": "C-de4423d673d47bded617",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Rechecked revised NBME title and final resolved record against the full original: soft versus hard labels and random versus confidence-filtered sampling remain separate experiments. Proposed note-grouped teacher-leakage and coverage controls preserve the 90/10 mix and tested 0.95 threshold as settings. Individual scores reflect teacher/student complexity and experienced utility.",
+          "candidate_sha256": "fde18f3b1f1b4640122961ee0c76825320acc6244aed7a78988e2d25ccab54b1"
+        }
+      ],
+      "book_location": {
+        "chapter": 34,
+        "path": "manuscript/chapters/34-pseudo-labeling.md",
+        "sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
+        "line_start": 132,
+        "line_end": 136,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

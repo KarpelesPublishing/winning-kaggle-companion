@@ -1,0 +1,2729 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-70d15bab132234c6",
+      "canonical_key": "apply several option permutations and restore each probability vector to original answer identities before averaging. | multiple-choice vqa may be sensitive to answer position | predictive_quality",
+      "title": "Undo answer-option permutations before probability averaging",
+      "statement": "When multiple-choice VQA may be sensitive to answer position, consider this source-backed action: Apply several option permutations and restore each probability vector to original answer identities before averaging. Proposed check: Test permutation round-trips and compare original versus permuted accuracy under equal compute. Limit: The source does not isolate the gain from training permutations versus inference permutations.",
+      "trigger_conditions": [
+        "multiple-choice VQA may be sensitive to answer position"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Apply several option permutations and restore each probability vector to original answer identities before averaging."
+      ],
+      "verification_steps": [
+        "Proposed verification: Test permutation round-trips and compare original versus permuted accuracy under equal compute."
+      ],
+      "limitations": [
+        "The source does not isolate the gain from training permutations versus inference permutations."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The VQA source randomizes option order during training and at inference softmaxes the next-token a/b/c/d logits, restores original option order and averages probabilities.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-70d15bab132234c6"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Permutation round-trips are concrete, large VQA inference is costly.",
+        "competitor": "Important alignment contract for option-order ensembles.",
+        "practitioner": "Broadly useful categorical identity preservation during transformed inference."
+      },
+      "review": {
+        "candidate_id": "C-a-70d15bab132234c6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Permuted options are restored to original answer identities before averaging; training and TTA effects are not isolated.",
+        "candidate_sha256": "904a4851f33dbb52969762ee6961f26386c1b11903a4b83c14d6efb422a416d0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000011",
+      "slug": "lesson-000011",
+      "merged_candidate_ids": [
+        "C-a-70d15bab132234c6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3cc7ac34c97522994c04",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "source_url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-70d15bab132234c6",
+          "line_start": 43,
+          "line_end": 45,
+          "evidence_text": "## \ubb38\uc81c\uc640 \uc811\uadfc \ubc29\ubc95\n\n\uc774\ubbf8\uc9c0, \uc9c8\ubb38, \ub124 \uac1c\uc758 \uc120\ud0dd\uc9c0 `a/b/c/d`\ub97c \uc785\ub825\ubc1b\uc544 \uc815\ub2f5 \ud558\ub098\ub97c \uc608\uce21\ud569\ub2c8\ub2e4. \ud559\uc2b5 \uc2dc \uc120\ud0dd\uc9c0 \uc21c\uc11c\ub97c \ubb34\uc791\uc704\ub85c \uc11e\uace0 \uc815\ub2f5 \ubd80\ubd84\uc5d0 \ub300\ud55c \uc5b8\uc5b4 \ubaa8\ub378 \uc190\uc2e4\uc744 \uc0ac\uc6a9\ud569\ub2c8\ub2e4. \ucd94\ub860\uc5d0\uc11c\ub294 \ub2e4\uc74c \ud1a0\ud070\uc758 `a/b/c/d` logits\uc5d0 softmax\ub97c \uc801\uc6a9\ud558\uace0, \ubc14\ub010 \uc120\ud0dd\uc9c0 \uc21c\uc11c\ub97c \uc6d0\ub798 \uc21c\uc11c\ub85c \ub418\ub3cc\ub9b0 \ud6c4 \ud655\ub960\uc744 \ud3c9\uade0\ud569\ub2c8\ub2e4.",
+          "kind": "used",
+          "statement": "The VQA source randomizes option order during training and at inference softmaxes the next-token a/b/c/d logits, restores original option order and averages probabilities.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Permutation round-trips are concrete, large VQA inference is costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Important alignment contract for option-order ensembles.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broadly useful categorical identity preservation during transformed inference.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "locator": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt#L43-L45",
+          "quote": "## \ubb38\uc81c\uc640 \uc811\uadfc \ubc29\ubc95\n\n\uc774\ubbf8\uc9c0, \uc9c8\ubb38, \ub124 \uac1c\uc758 \uc120\ud0dd\uc9c0 `a/b/c/d`\ub97c \uc785\ub825\ubc1b\uc544 \uc815\ub2f5 \ud558\ub098\ub97c \uc608\uce21\ud569\ub2c8\ub2e4. \ud559\uc2b5 \uc2dc \uc120\ud0dd\uc9c0 \uc21c\uc11c\ub97c \ubb34\uc791\uc704\ub85c \uc11e\uace0 \uc815\ub2f5 \ubd80\ubd84\uc5d0 \ub300\ud55c \uc5b8\uc5b4 \ubaa8\ub378 \uc190\uc2e4\uc744 \uc0ac\uc6a9\ud569\ub2c8\ub2e4. \ucd94\ub860\uc5d0\uc11c\ub294 \ub2e4\uc74c \ud1a0\ud070\uc758 `a/b/c/d` logits\uc5d0 softmax\ub97c \uc801\uc6a9\ud558\uace0, \ubc14\ub010 \uc120\ud0dd\uc9c0 \uc21c\uc11c\ub97c \uc6d0\ub798 \uc21c\uc11c\ub85c \ub418\ub3cc\ub9b0 \ud6c4 \ud655\ub960\uc744 \ud3c9\uade0\ud569\ub2c8\ub2e4.",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "line_start": 43,
+          "line_end": 45
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-70d15bab132234c6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Permuted options are restored to original answer identities before averaging; training and TTA effects are not isolated.",
+          "candidate_sha256": "904a4851f33dbb52969762ee6961f26386c1b11903a4b83c14d6efb422a416d0"
+        },
+        {
+          "candidate_id": "C-a-70d15bab132234c6",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete Korean VQA README read. Training shuffle and restored option identities before averaged softmax literal; roundtrip and equalcompute checks proposed; training/inference permutation gains not isolated. Grades respect large-model cost.",
+          "candidate_sha256": "904a4851f33dbb52969762ee6961f26386c1b11903a4b83c14d6efb422a416d0"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 61,
+        "line_end": 71,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-47dfe31dab1fbca7",
+      "canonical_key": "audit annotations against target rules and generate missing types such as error bars and multiline labels. | chart training sources have incompatible conventions or missing visual forms | predictive_quality",
+      "title": "Align external annotations and synthesize missing chart forms",
+      "statement": "When chart training sources have incompatible conventions or missing visual forms, consider this source-backed action: Audit annotations against target rules and generate missing types such as error bars and multiline labels. Proposed check: Use real held-out charts to evaluate each source and inspect sampled synthetic labels. Limit: Manual correction is costly; synthetic diversity alone does not establish real-world transfer.",
+      "trigger_conditions": [
+        "chart training sources have incompatible conventions or missing visual forms"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Audit annotations against target rules and generate missing types such as error bars and multiline labels."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use real held-out charts to evaluate each source and inspect sampled synthetic labels."
+      ],
+      "limitations": [
+        "Manual correction is costly; synthetic diversity alone does not establish real-world transfer."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author removed noisy generated labels, corrected external annotation conventions and pseudo-labels manually, and generated chart variants absent from provided data.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-47dfe31dab1fbca7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Large manual chart-label audit exceeds modest beginner effort.",
+        "competitor": "Useful gap-driven data construction for chart extraction.",
+        "practitioner": "Annotation compatibility transfers; labor and real-chart testing matter."
+      },
+      "review": {
+        "candidate_id": "C-a-47dfe31dab1fbca7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked manual external correction and missing-form synthesis; synthetic transfer unproven.",
+        "candidate_sha256": "ece93258741ef547e7c4acc070c93f56c146f0270ce5bf32e8a77f22caba4dc9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000022",
+      "slug": "lesson-000022",
+      "merged_candidate_ids": [
+        "C-a-47dfe31dab1fbca7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-39403de2e6cd88ebebce",
+          "competition_id": "competition:benetech-making-graphs-accessible",
+          "source_id": "source:lesson-source-5255f5c34dab2687",
+          "snapshot_path": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt",
+          "snapshot_sha256": "977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad",
+          "source_url": "https://www.kaggle.com/competitions/benetech-making-graphs-accessible/writeups/yumeneko-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-47dfe31dab1fbca7",
+          "line_start": 32,
+          "line_end": 49,
+          "evidence_text": "*   Using both extracted dataset (comp_extracted_dataset) and generated dataset (comp_generated_dataset).\n*   For the generated data, data with noise in the annotations were removed by a simple check (about 100 images).\n\n2.   ICDAR data set\uff08ICDAR_dataset/ICDAR_manualannot_dataset\uff09\n\n*   I used 1406 pieces of data for which annotations were provided (ICDAR_dataset) and 1903 pieces of data for which no annotations were provided (ICDAR_manualannot_dataset).\n*   For data for which annotations were provided, I visually rechecked the annotation contents and manually corrected all data that did not follow the competition's annotation rules (e.g., % notation) or contained noise.\n*   For the data for which no annotations were provided, I first visually checked the appearance of all the data and selected the data that could be used in this competition. Next, I inferred and assigned pseudo-labels using the Deplot model, visually checked all the results again, and manually corrected all incorrect annotations.\n\n3.   Generated synthetic data set\uff08synthetic_dataset\uff09\n\n*   After reviewing the images in the competition dataset and determining that the comp_generated_dataset alone did not have a sufficient variation to achieve robustness, so I generated about 65k synthetic data myself.\n*   I mainly generated synthetic data with features that comp_generated_dataset does not have.\n*   histogram\n*   Label contains line breaks\n*   Bar chart with error bars\n*   Line chart containing x labels not included in the data series\n*   etc\u2026",
+          "kind": "used",
+          "statement": "The author removed noisy generated labels, corrected external annotation conventions and pseudo-labels manually, and generated chart variants absent from provided data.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Large manual chart-label audit exceeds modest beginner effort.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful gap-driven data construction for chart extraction.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Annotation compatibility transfers; labor and real-chart testing matter.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5255f5c34dab2687",
+          "locator": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt#L32-L49",
+          "quote": "*   Using both extracted dataset (comp_extracted_dataset) and generated dataset (comp_generated_dataset).\n*   For the generated data, data with noise in the annotations were removed by a simple check (about 100 images).\n\n2.   ICDAR data set\uff08ICDAR_dataset/ICDAR_manualannot_dataset\uff09\n\n*   I used 1406 pieces of data for which annotations were provided (ICDAR_dataset) and 1903 pieces of data for which no annotations were provided (ICDAR_manualannot_dataset).\n*   For data for which annotations were provided, I visually rechecked the annotation contents and manually corrected all data that did not follow the competition's annotation rules (e.g., % notation) or contained noise.\n*   For the data for which no annotations were provided, I first visually checked the appearance of all the data and selected the data that could be used in this competition. Next, I inferred and assigned pseudo-labels using the Deplot model, visually checked all the results again, and manually corrected all incorrect annotations.\n\n3.   Generated synthetic data set\uff08synthetic_dataset\uff09\n\n*   After reviewing the images in the competition dataset and determining that the comp_generated_dataset alone did not have a sufficient variation to achieve robustness, so I generated about 65k synthetic data myself.\n*   I mainly generated synthetic data with features that comp_generated_dataset does not have.\n*   histogram\n*   Label contains line breaks\n*   Bar chart with error bars\n*   Line chart containing x labels not included in the data series\n*   etc\u2026",
+          "competition_id": "competition:benetech-making-graphs-accessible",
+          "url": "https://www.kaggle.com/competitions/benetech-making-graphs-accessible/writeups/yumeneko-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt",
+          "snapshot_sha256": "977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad",
+          "line_start": 32,
+          "line_end": 49
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-47dfe31dab1fbca7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked manual external correction and missing-form synthesis; synthetic transfer unproven.",
+          "candidate_sha256": "ece93258741ef547e7c4acc070c93f56c146f0270ce5bf32e8a77f22caba4dc9"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 127,
+        "line_end": 131,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-0ddb2147d10e31274ef9",
+      "canonical_key": "combine pretrained image and text representations with a classification head and validate decision thresholds. | low-resolution meme images need captions to interpret hate | predictive_quality",
+      "title": "Fuse visual and textual meme features before classification",
+      "statement": "When low-resolution meme images need captions to interpret hate, proposed reuse: Proposed conditional application: Combine pretrained image and text representations with a classification head and validate decision thresholds. Proposed check: Compare image-only, text-only and fused models on untouched paired examples; separate threshold tuning from final assessment and inspect error subgroups. Limitation: The README's0.723 accuracy is a final result, not an isolated fusion comparison; split details are absent.",
+      "trigger_conditions": [
+        "low-resolution meme images need captions to interpret hate"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Combine pretrained image and text representations with a classification head and validate decision thresholds."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare image-only, text-only and fused models on untouched paired examples; separate threshold tuning from final assessment and inspect error subgroups."
+      ],
+      "limitations": [
+        "The README's0.723 accuracy is a final result, not an isolated fusion comparison; split details are absent."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "content_moderation"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The meme README describes visual/textual representation fusion with a linear classification head.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-fda6fe6df1f6168b0018"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Paired encoders are understandable but require neural training and careful threshold assessment.",
+        "competitor": "The architecture is a useful multimodal baseline with incomplete validation detail.",
+        "practitioner": "Content moderation may need both modalities, but source does not establish subgroup reliability."
+      },
+      "review": {
+        "candidate_id": "C-0ddb2147d10e31274ef9",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner-owned README reports EfficientNet/DistilBERT fusion and validation threshold search; no modality ablation or execution verification is supplied.",
+        "candidate_sha256": "4731f20c781feefc2ce5261cef9901bf3ca14651ce5fdf4a301db100bd0a64d3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000072",
+      "slug": "lesson-000072",
+      "merged_candidate_ids": [
+        "C-0ddb2147d10e31274ef9"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-b1c5a876505598788239",
+          "competition_id": "competition:osai-project",
+          "source_id": "source:lesson-source-bd343d15dc72dfaf",
+          "snapshot_path": "research/lesson-extraction/snapshots/2ff466862df397fda75dadceaa68d001a7146dd3b52f8f5a4882b5ac6db79512.txt",
+          "snapshot_sha256": "2ff466862df397fda75dadceaa68d001a7146dd3b52f8f5a4882b5ac6db79512",
+          "source_url": "https://raw.githubusercontent.com/andygit1022/Hateful-Meme-Proj/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-fda6fe6df1f6168b0018",
+          "line_start": 46,
+          "line_end": 46,
+          "evidence_text": "combining EfficientNet-B0 (for images) and DistilBERT (for text) with a linear head",
+          "kind": "used",
+          "statement": "The meme README describes visual/textual representation fusion with a linear classification head.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Paired encoders are understandable but require neural training and careful threshold assessment.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The architecture is a useful multimodal baseline with incomplete validation detail.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Content moderation may need both modalities, but source does not establish subgroup reliability.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-bd343d15dc72dfaf",
+          "locator": "research/lesson-extraction/snapshots/2ff466862df397fda75dadceaa68d001a7146dd3b52f8f5a4882b5ac6db79512.txt#L46-L46",
+          "quote": "combining EfficientNet-B0 (for images) and DistilBERT (for text) with a linear head",
+          "competition_id": "competition:osai-project",
+          "url": "https://raw.githubusercontent.com/andygit1022/Hateful-Meme-Proj/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/2ff466862df397fda75dadceaa68d001a7146dd3b52f8f5a4882b5ac6db79512.txt",
+          "snapshot_sha256": "2ff466862df397fda75dadceaa68d001a7146dd3b52f8f5a4882b5ac6db79512",
+          "line_start": 46,
+          "line_end": 46
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-0ddb2147d10e31274ef9",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner-owned README reports EfficientNet/DistilBERT fusion and validation threshold search; no modality ablation or execution verification is supplied.",
+          "candidate_sha256": "4731f20c781feefc2ce5261cef9901bf3ca14651ce5fdf4a301db100bd0a64d3"
+        },
+        {
+          "candidate_id": "C-0ddb2147d10e31274ef9",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "OSAI bilingual README describes EfficientNetB0 plus DistilBERT and threshold validation. Final accuracy 0.723 is not isolated fusion gain. Candidate proposes unimodal/fusion and independent threshold assessment, retaining missing split details. All twelve scores reflect moderate impact and novice infrastructure cost.",
+          "candidate_sha256": "4731f20c781feefc2ce5261cef9901bf3ca14651ce5fdf4a301db100bd0a64d3"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 135,
+        "line_end": 139,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-8cc7eeb1718fb7983cf0",
+      "canonical_key": "compare a stack of modality-specific models with a single network sharing text embeddings and combining image and tabular inputs. | house prediction has tabular features, photos and text descriptions | predictive_quality",
+      "title": "Compare late stacking with joint multimodal fusion",
+      "statement": "When house prediction has tabular features, photos and text descriptions, proposed reuse: Proposed conditional application: Compare a stack of modality-specific models with a single network sharing text embeddings and combining image and tabular inputs. Proposed check: Compare late and joint fusion on property-held-out RMSE with identical modality inputs and training budget. Limitation: Availability and correlated duplicate properties can leak; architecture/validation details partial.",
+      "trigger_conditions": [
+        "house prediction has tabular features, photos and text descriptions"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare a stack of modality-specific models with a single network sharing text embeddings and combining image and tabular inputs."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare late and joint fusion on property-held-out RMSE with identical modality inputs and training budget."
+      ],
+      "limitations": [
+        "Availability and correlated duplicate properties can leak; architecture/validation details partial."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The house-prediction README describes a joint network with shared text embeddings and image/tabular inputs alongside its stacking approach.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-7defefe09620c938598d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multimodal training is costly to learn.",
+        "competitor": "Concrete architecture comparison for rich inputs.",
+        "practitioner": "Useful fusion decision where images/text/tabular coexist."
+      },
+      "review": {
+        "candidate_id": "C-8cc7eeb1718fb7983cf0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Entire EEF README describes modality stack and joint shared-embedding alternative without head-to-head results.",
+        "candidate_sha256": "fd79709a39898f52d8093ba617d1ef5912b7eebf005aea1fedfffb62420e5aea"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000084",
+      "slug": "lesson-000084",
+      "merged_candidate_ids": [
+        "C-8cc7eeb1718fb7983cf0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e74c229f99747b9e2d55",
+          "competition_id": "competition:data-science-challenge-at-eef-2019",
+          "source_id": "source:lesson-source-23653874ac912967",
+          "snapshot_path": "research/lesson-extraction/snapshots/7eaa2ba5e2c3b10abfc39a84501615b9e94cccd69aed12de908ef3b61d2a9c42.txt",
+          "snapshot_sha256": "7eaa2ba5e2c3b10abfc39a84501615b9e94cccd69aed12de908ef3b61d2a9c42",
+          "source_url": "https://raw.githubusercontent.com/luckeciano/kaggle-eef-house-prediction/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-7defefe09620c938598d",
+          "line_start": 26,
+          "line_end": 26,
+          "evidence_text": "final_model_merged.py -- Another model that shares embedding layer between all text data, uses image features and tabular data in a single network.",
+          "kind": "used",
+          "statement": "The house-prediction README describes a joint network with shared text embeddings and image/tabular inputs alongside its stacking approach.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Multimodal training is costly to learn.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete architecture comparison for rich inputs.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful fusion decision where images/text/tabular coexist.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-23653874ac912967",
+          "locator": "research/lesson-extraction/snapshots/7eaa2ba5e2c3b10abfc39a84501615b9e94cccd69aed12de908ef3b61d2a9c42.txt#L26-L26",
+          "quote": "final_model_merged.py -- Another model that shares embedding layer between all text data, uses image features and tabular data in a single network.",
+          "competition_id": "competition:data-science-challenge-at-eef-2019",
+          "url": "https://raw.githubusercontent.com/luckeciano/kaggle-eef-house-prediction/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/7eaa2ba5e2c3b10abfc39a84501615b9e94cccd69aed12de908ef3b61d2a9c42.txt",
+          "snapshot_sha256": "7eaa2ba5e2c3b10abfc39a84501615b9e94cccd69aed12de908ef3b61d2a9c42",
+          "line_start": 26,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-8cc7eeb1718fb7983cf0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Entire EEF README describes modality stack and joint shared-embedding alternative without head-to-head results.",
+          "candidate_sha256": "fd79709a39898f52d8093ba617d1ef5912b7eebf005aea1fedfffb62420e5aea"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 141,
+        "line_end": 145,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-d3d3e14e8aecd812a6d6",
+      "canonical_key": "concatenate target-option logits with mean logits of all other options before the classifier head. | independent multiple-choice scoring misses relations among alternatives | predictive_quality",
+      "title": "Add permutation-invariant cross-option information to a binary head",
+      "statement": "When independent multiple-choice scoring misses relations among alternatives, proposed reuse: Proposed conditional application: Concatenate target-option logits with mean logits of all other options before the classifier head. Proposed check: Permute answer order and assert invariant scores; compare independent/augmented heads on unseen questions. Limitation: Mean loses option-specific relations; source qualitative gain does not isolate architecture changes.",
+      "trigger_conditions": [
+        "independent multiple-choice scoring misses relations among alternatives"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Concatenate target-option logits with mean logits of all other options before the classifier head."
+      ],
+      "verification_steps": [
+        "Proposed check: Permute answer order and assert invariant scores; compare independent/augmented heads on unseen questions."
+      ],
+      "limitations": [
+        "Mean loses option-specific relations; source qualitative gain does not isolate architecture changes."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The science-QA team appended mean logits of other alternatives to the target-option classification head.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-f74c9bdc197ca9721ad6"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Specialized vocabulary-logit head construction.",
+        "competitor": "Concrete symmetry-respecting multiple-choice signal.",
+        "practitioner": "Conditional value for candidate-set classification."
+      },
+      "review": {
+        "candidate_id": "C-d3d3e14e8aecd812a6d6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Science QA source adds other-options mean vocabulary logits to binary head without positional order information.",
+        "candidate_sha256": "c20b483fcfc507bb6480733801a1d6ee4d68c1120a3ba9274d922e5c9162353e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000205",
+      "slug": "lesson-000205",
+      "merged_candidate_ids": [
+        "C-d3d3e14e8aecd812a6d6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-eb9cb33b761b7e8c5875",
+          "competition_id": "competition:kaggle-llm-science-exam",
+          "source_id": "source:lesson-source-276541d30ec01d74",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt",
+          "snapshot_sha256": "dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca",
+          "source_url": "https://www.kaggle.com/competitions/kaggle-llm-science-exam/writeups/team-h2o-llm-studio-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-f74c9bdc197ca9721ad6",
+          "line_start": 64,
+          "line_end": 64,
+          "evidence_text": "add the average next token logits of all other options as an additional input to the final classification head.",
+          "kind": "used",
+          "statement": "The science-QA team appended mean logits of other alternatives to the target-option classification head.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Specialized vocabulary-logit head construction.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete symmetry-respecting multiple-choice signal.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional value for candidate-set classification.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-276541d30ec01d74",
+          "locator": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt#L64-L64",
+          "quote": "add the average next token logits of all other options as an additional input to the final classification head.",
+          "competition_id": "competition:kaggle-llm-science-exam",
+          "url": "https://www.kaggle.com/competitions/kaggle-llm-science-exam/writeups/team-h2o-llm-studio-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt",
+          "snapshot_sha256": "dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca",
+          "line_start": 64,
+          "line_end": 64
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-d3d3e14e8aecd812a6d6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Science QA source adds other-options mean vocabulary logits to binary head without positional order information.",
+          "candidate_sha256": "c20b483fcfc507bb6480733801a1d6ee4d68c1120a3ba9274d922e5c9162353e"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 147,
+        "line_end": 151,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-88b4b7c22aecabb0e6b2",
+      "canonical_key": "detector-snap-vlm-boxes | vlm accident localization | geometric refinement",
+      "title": "Validate detector-based coordinate refinement for VLM boxes",
+      "statement": "When VLM localization predictions can be refined against detector proposals, proposed reuse: Proposed recipe: compare the blend alone with a detector-based bounding-box snap step. Proposed check: Compare snap/no-snap on fixed held-out VLM predictions, inspecting object identity swaps, missed proposals, timing and coordinate error. Limitation: A detector proposal may snap to the wrong object; detailed matching rule is absent and extra inference cost is not isolated.",
+      "trigger_conditions": [
+        "VLM localization predictions can be refined against detector proposals"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare the blend alone with a detector-based bounding-box snap step."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare snap/no-snap on fixed held-out VLM predictions, inspecting object identity swaps, missed proposals, timing and coordinate error."
+      ],
+      "limitations": [
+        "A detector proposal may snap to the wrong object; detailed matching rule is absent and extra inference cost is not isolated."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "high",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Source reports a final bbox-snap variant. Repository identifies the refinement as RetinaNet-based.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare snap/no-snap on fixed held-out VLM predictions, inspecting object identity swaps, missed proposals, timing and coordinate error.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-76a5ad9fb115338506ff",
+        "O-br-4f7dbcd0fa9023c1bb",
+        "O-f04a9fbfde3d4c39cacc"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Refining coarse boxes is intuitive but multi-model alignment is advanced.",
+        "competitor": "The quantified refinement comparison motivates a concrete localization ablation.",
+        "practitioner": "Detector/VLM refinement can transfer when matching failures and serving cost are measured."
+      },
+      "review": {
+        "candidate_id": "C-88b4b7c22aecabb0e6b2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner README identifies RetinaNet coordinate snap and compares private0.56948blend to0.57080with snap; source report does not prove gains on new video distributions.",
+        "candidate_sha256": "02af0a01679de89d93ac2b3f5d6cb3426b6880ab7961754393c1e85d4e3f331a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000228",
+      "slug": "lesson-000228",
+      "merged_candidate_ids": [
+        "C-88b4b7c22aecabb0e6b2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbbf3359945f88ca4413",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-29395c646287a929",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "source_quality": "primary_text",
+          "observation_id": "O-76a5ad9fb115338506ff",
+          "line_start": 16,
+          "line_end": 16,
+          "evidence_text": "+ bbox snap (final)",
+          "kind": "reported_gain",
+          "statement": "Source reports a final bbox-snap variant.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-fbbf3359945f88ca4413",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-29395c646287a929",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "source_quality": "primary_text",
+          "observation_id": "O-br-4f7dbcd0fa9023c1bb",
+          "line_start": 16,
+          "line_end": 16,
+          "evidence_text": "| + bbox snap (final) | 0.55469 | 0.57080 |",
+          "kind": "reported_gain",
+          "statement": "Source reports a final bbox-snap variant.",
+          "reported_result": {
+            "metric": "private leaderboard composite score",
+            "value": 0.5708,
+            "context": "RetinaNetbboxsnap added to prior blend:0.57080versus0.56948private; public0.55469versus0.55415; source README table, metric formula unspecified.",
+            "evidence_text": "| + bbox snap (final) | 0.55469 | 0.57080 |"
+          }
+        },
+        {
+          "packet_id": "P-fbbf3359945f88ca4413",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-29395c646287a929",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "source_quality": "primary_text",
+          "observation_id": "O-f04a9fbfde3d4c39cacc",
+          "line_start": 65,
+          "line_end": 65,
+          "evidence_text": "RetinaNet-based coordinate snap post-processing",
+          "kind": "used",
+          "statement": "Repository identifies the refinement as RetinaNet-based.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Refining coarse boxes is intuitive but multi-model alignment is advanced.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "The quantified refinement comparison motivates a concrete localization ablation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Detector/VLM refinement can transfer when matching failures and serving cost are measured.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-29395c646287a929",
+          "locator": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt#L16-L16",
+          "quote": "+ bbox snap (final)",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "line_start": 16,
+          "line_end": 16
+        },
+        {
+          "source_id": "source:lesson-source-29395c646287a929",
+          "locator": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt#L16-L16",
+          "quote": "| + bbox snap (final) | 0.55469 | 0.57080 |",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "line_start": 16,
+          "line_end": 16
+        },
+        {
+          "source_id": "source:lesson-source-29395c646287a929",
+          "locator": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt#L65-L65",
+          "quote": "RetinaNet-based coordinate snap post-processing",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "line_start": 65,
+          "line_end": 65
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-88b4b7c22aecabb0e6b2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner README identifies RetinaNet coordinate snap and compares private0.56948blend to0.57080with snap; source report does not prove gains on new video distributions.",
+          "candidate_sha256": "02af0a01679de89d93ac2b3f5d6cb3426b6880ab7961754393c1e85d4e3f331a"
+        },
+        {
+          "candidate_id": "C-88b4b7c22aecabb0e6b2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Accident full source identifies final RetinaNet bbox snap and table private0.57080versus blend0.56948. Candidate preserves preceding pipeline comparator, absent matching detail and unisolated added cost; proposed fixed-box identity/missed-proposal checks are meaningful. Twelve scores match advanced alignment and low novice feasibility.",
+          "candidate_sha256": "02af0a01679de89d93ac2b3f5d6cb3426b6880ab7961754393c1e85d4e3f331a"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 73,
+        "line_end": 83,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-4b45501c87b192c6",
+      "canonical_key": "evaluate a gated base-model blend using the source\u2019s confidence and agreement conditions as candidate thresholds. | a fine-tuned vqa model and its base model disagree on low-margin cases | predictive_quality",
+      "title": "Condition base-model blending on confident disagreement",
+      "statement": "When a fine-tuned VQA model and its base model disagree on low-margin cases, consider this source-backed action: Evaluate a gated base-model blend using the source\u2019s confidence and agreement conditions as candidate thresholds. Proposed check: Measure changed answers and paired held-out accuracy before adjusting thresholds. Limit: The rules were selected for this competition and can overfit a public leaderboard; multicrop is explicitly unnecessary for this final candidate.",
+      "trigger_conditions": [
+        "a fine-tuned VQA model and its base model disagree on low-margin cases"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Evaluate a gated base-model blend using the source\u2019s confidence and agreement conditions as candidate thresholds."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure changed answers and paired held-out accuracy before adjusting thresholds."
+      ],
+      "limitations": [
+        "The rules were selected for this competition and can overfit a public leaderboard; multicrop is explicitly unnecessary for this final candidate."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "For 500 uncertain VQA questions the adapter is disabled; a 50/50 base/current probability blend is used only for differing predictions satisfying margin, base-confidence, TTA-agreement and fine-tuned probability conditions.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4b45501c87b192c6",
+        "O-a-review-vqa-pipeline-comparison"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Twenty-seven-billion-parameter inference and tuned gates limit accessibility.",
+        "competitor": "Concrete base/fine-tuned disagreement experiment requiring independent threshold checks.",
+        "practitioner": "Potential repair for fine-tuning regressions, with extra serving cost."
+      },
+      "review": {
+        "candidate_id": "C-a-4b45501c87b192c6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Source-specific confident-disagreement gate is explicit; full pipeline public improvement does not isolate this gate.",
+        "candidate_sha256": "98d8330cd4af633769dface86fd2e055a332c78b3f0e7548218ac9e1ee1a35e9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000243",
+      "slug": "lesson-000243",
+      "merged_candidate_ids": [
+        "C-a-4b45501c87b192c6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3cc7ac34c97522994c04",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "source_url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4b45501c87b192c6",
+          "line_start": 72,
+          "line_end": 85,
+          "evidence_text": "### 3. \ucd5c\uace0 \uc810\uc218: BASEOFF_BALANCED\n\n\ubd88\ud655\uc2e4\ud55c 500\ubb38\ud56d\uc5d0 \ub300\ud574 \ud559\uc2b5\ud55c LoRA adapter\ub97c \uc77c\uc2dc\uc801\uc73c\ub85c \ub044\uace0 \uc6d0\ubcf8 \ubaa8\ub378\ub85c TTA4\ub97c \uc2e4\ud589\ud569\ub2c8\ub2e4. \uc6d0\ubcf8 \ubaa8\ub378\uc758 \uc608\uce21\uc774 \uae30\uc874 \uc608\uce21\uacfc \ub2e4\ub974\uace0 \uc544\ub798 \uc870\uac74\uc744 \ubaa8\ub450 \ub9cc\uc871\ud560 \ub54c\ub9cc \ud655\ub960\uc744 \uacb0\ud569\ud569\ub2c8\ub2e4.\n\n| \uc870\uac74 | \uae30\uc900 |\n| --- | --- |\n| \uae30\uc874 \uc608\uce21\uc758 \uc0c1\uc704 \ub450 \ud655\ub960 \ucc28\uc774 | `< 0.15` |\n| \uc6d0\ubcf8 \ubaa8\ub378\uc774 \uc120\ud0dd\ud55c \ub2f5\uc758 \ud3c9\uade0 \ud655\ub960 | `>= 0.60` |\n| \uc6d0\ubcf8 \ubaa8\ub378 TTA \ub2f5\ubcc0 \uc77c\uce58\uc728 | `>= 0.75` |\n| FT TTA24\uc5d0\uc11c \uae30\uc874 \ub2f5 \ud655\ub960 \u2212 \uc6d0\ubcf8 \ubaa8\ub378 \ub2f5 \ud655\ub960 | `<= 0.12` |\n\n\ub300\uc0c1 \ubb38\ud56d\uc740 `0.50 \u00d7 \uae30\uc874 \ud655\ub960 + 0.50 \u00d7 \uc6d0\ubcf8 \ubaa8\ub378 \ud655\ub960`\ub85c \uacb0\ud569\ud558\uace0 argmax\ub85c \uc815\ub2f5\uc744 \uacb0\uc815\ud569\ub2c8\ub2e4. \uc870\uac74\uc744 \ub9cc\uc871\ud558\uc9c0 \uc54a\ub294 \ubb38\ud56d\uc740 \uae30\uc874 \ud655\ub960\uc744 \uc720\uc9c0\ud569\ub2c8\ub2e4. \uacb0\ud569 \ub300\uc0c1\uc73c\ub85c \uc120\ud0dd\ub418\uc5b4\ub3c4 \ucd5c\uc885 \ub2f5\uc774 \ubc18\ub4dc\uc2dc \ubc14\ub00c\ub294 \uac83\uc740 \uc544\ub2d9\ub2c8\ub2e4.\n\n**\ucd5c\uace0 \uc810\uc218 CSV\ub294 Last-mile \ub178\ud2b8\ubd81\uc758 `9. LoRA OFF \uae30\ubc18 \ubcf4\uc218\uc801 \ud6c4\ubcf4 \uc0dd\uc131` \ub2e8\uacc4\uc5d0\uc11c \uc0dd\uc131\ub429\ub2c8\ub2e4.** \ub4a4\uc758 Multi-crop \ubc0f 3-way consensus\ub294 \ubcc4\ub3c4 \ud6c4\ubcf4\ub97c \ub9cc\ub4dc\ub294 \ucd94\uac00 \uc2e4\ud5d8\uc73c\ub85c, BASEOFF_BALANCED \uc0dd\uc131\uc5d0 \ud544\uc694\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+          "kind": "used",
+          "statement": "For 500 uncertain VQA questions the adapter is disabled; a 50/50 base/current probability blend is used only for differing predictions satisfying margin, base-confidence, TTA-agreement and fine-tuned probability conditions.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-3cc7ac34c97522994c04",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "source_url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-review-vqa-pipeline-comparison",
+          "line_start": 11,
+          "line_end": 11,
+          "evidence_text": "Public \uc810\uc218\ub294 \uae30\ubcf8 TTA4\uc758 **0.95072 \u2192 BASEOFF_BALANCED\uc758 0.95270 (+0.00198)**\uc73c\ub85c \uac1c\uc120\ud588\uc2b5\ub2c8\ub2e4. \ub300\ud68c \uc885\ub8cc \ud6c4 Private \ub9ac\ub354\ubcf4\ub4dc\uc5d0\uc11c\ub3c4 **0.95703\uc73c\ub85c \ucd5c\uc885 1\uc704**\ub97c \uae30\ub85d\ud588\uc2b5\ub2c8\ub2e4.",
+          "kind": "reported_gain",
+          "statement": "BASEOFF_BALANCED full last-mile pipeline is compared with base TTA4 on the same public subset; adaptive inference and base-model gating effects are not separately isolated.",
+          "reported_result": {
+            "metric": "Public leaderboard score",
+            "value": 0.9527,
+            "context": "BASEOFF_BALANCED0.95270 versus baseTTA4 0.95072 (+0.00198) on public approximately50%test. Full adaptive/high-resolution/base-off pipeline comparison, not isolated gate gain; private0.95703 uses different samples and is not an improvement estimate. Uncertainty unknown.",
+            "evidence_text": "Public \uc810\uc218\ub294 \uae30\ubcf8 TTA4\uc758 **0.95072 \u2192 BASEOFF_BALANCED\uc758 0.95270 (+0.00198)**\uc73c\ub85c \uac1c\uc120\ud588\uc2b5\ub2c8\ub2e4. \ub300\ud68c \uc885\ub8cc \ud6c4 Private \ub9ac\ub354\ubcf4\ub4dc\uc5d0\uc11c\ub3c4 **0.95703\uc73c\ub85c \ucd5c\uc885 1\uc704**\ub97c \uae30\ub85d\ud588\uc2b5\ub2c8\ub2e4."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 1,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Twenty-seven-billion-parameter inference and tuned gates limit accessibility.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Concrete base/fine-tuned disagreement experiment requiring independent threshold checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Potential repair for fine-tuning regressions, with extra serving cost.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "locator": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt#L72-L85",
+          "quote": "### 3. \ucd5c\uace0 \uc810\uc218: BASEOFF_BALANCED\n\n\ubd88\ud655\uc2e4\ud55c 500\ubb38\ud56d\uc5d0 \ub300\ud574 \ud559\uc2b5\ud55c LoRA adapter\ub97c \uc77c\uc2dc\uc801\uc73c\ub85c \ub044\uace0 \uc6d0\ubcf8 \ubaa8\ub378\ub85c TTA4\ub97c \uc2e4\ud589\ud569\ub2c8\ub2e4. \uc6d0\ubcf8 \ubaa8\ub378\uc758 \uc608\uce21\uc774 \uae30\uc874 \uc608\uce21\uacfc \ub2e4\ub974\uace0 \uc544\ub798 \uc870\uac74\uc744 \ubaa8\ub450 \ub9cc\uc871\ud560 \ub54c\ub9cc \ud655\ub960\uc744 \uacb0\ud569\ud569\ub2c8\ub2e4.\n\n| \uc870\uac74 | \uae30\uc900 |\n| --- | --- |\n| \uae30\uc874 \uc608\uce21\uc758 \uc0c1\uc704 \ub450 \ud655\ub960 \ucc28\uc774 | `< 0.15` |\n| \uc6d0\ubcf8 \ubaa8\ub378\uc774 \uc120\ud0dd\ud55c \ub2f5\uc758 \ud3c9\uade0 \ud655\ub960 | `>= 0.60` |\n| \uc6d0\ubcf8 \ubaa8\ub378 TTA \ub2f5\ubcc0 \uc77c\uce58\uc728 | `>= 0.75` |\n| FT TTA24\uc5d0\uc11c \uae30\uc874 \ub2f5 \ud655\ub960 \u2212 \uc6d0\ubcf8 \ubaa8\ub378 \ub2f5 \ud655\ub960 | `<= 0.12` |\n\n\ub300\uc0c1 \ubb38\ud56d\uc740 `0.50 \u00d7 \uae30\uc874 \ud655\ub960 + 0.50 \u00d7 \uc6d0\ubcf8 \ubaa8\ub378 \ud655\ub960`\ub85c \uacb0\ud569\ud558\uace0 argmax\ub85c \uc815\ub2f5\uc744 \uacb0\uc815\ud569\ub2c8\ub2e4. \uc870\uac74\uc744 \ub9cc\uc871\ud558\uc9c0 \uc54a\ub294 \ubb38\ud56d\uc740 \uae30\uc874 \ud655\ub960\uc744 \uc720\uc9c0\ud569\ub2c8\ub2e4. \uacb0\ud569 \ub300\uc0c1\uc73c\ub85c \uc120\ud0dd\ub418\uc5b4\ub3c4 \ucd5c\uc885 \ub2f5\uc774 \ubc18\ub4dc\uc2dc \ubc14\ub00c\ub294 \uac83\uc740 \uc544\ub2d9\ub2c8\ub2e4.\n\n**\ucd5c\uace0 \uc810\uc218 CSV\ub294 Last-mile \ub178\ud2b8\ubd81\uc758 `9. LoRA OFF \uae30\ubc18 \ubcf4\uc218\uc801 \ud6c4\ubcf4 \uc0dd\uc131` \ub2e8\uacc4\uc5d0\uc11c \uc0dd\uc131\ub429\ub2c8\ub2e4.** \ub4a4\uc758 Multi-crop \ubc0f 3-way consensus\ub294 \ubcc4\ub3c4 \ud6c4\ubcf4\ub97c \ub9cc\ub4dc\ub294 \ucd94\uac00 \uc2e4\ud5d8\uc73c\ub85c, BASEOFF_BALANCED \uc0dd\uc131\uc5d0 \ud544\uc694\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "line_start": 72,
+          "line_end": 85
+        },
+        {
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "locator": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt#L11-L11",
+          "quote": "Public \uc810\uc218\ub294 \uae30\ubcf8 TTA4\uc758 **0.95072 \u2192 BASEOFF_BALANCED\uc758 0.95270 (+0.00198)**\uc73c\ub85c \uac1c\uc120\ud588\uc2b5\ub2c8\ub2e4. \ub300\ud68c \uc885\ub8cc \ud6c4 Private \ub9ac\ub354\ubcf4\ub4dc\uc5d0\uc11c\ub3c4 **0.95703\uc73c\ub85c \ucd5c\uc885 1\uc704**\ub97c \uae30\ub85d\ud588\uc2b5\ub2c8\ub2e4.",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "line_start": 11,
+          "line_end": 11
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4b45501c87b192c6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Source-specific confident-disagreement gate is explicit; full pipeline public improvement does not isolate this gate.",
+          "candidate_sha256": "98d8330cd4af633769dface86fd2e055a332c78b3f0e7548218ac9e1ee1a35e9"
+        },
+        {
+          "candidate_id": "C-a-4b45501c87b192c6",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete VQA README and both observations reread.500uncertain LoRAOFF,confidence/disagreement gate and50/50blend literal; public0.95072\u21920.95270 is full adaptive/highres/baseoffpipeline comparison, not isolatedgateeffect. Private0.95703 differentpartition, multicropnotneeded. Pairedheldoutchangedanswercheck proposed, lowbeginner/resourcegrades appropriate.",
+          "candidate_sha256": "98d8330cd4af633769dface86fd2e055a332c78b3f0e7548218ac9e1ee1a35e9"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 167,
+        "line_end": 171,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-d2294d8ab5de77879b06",
+      "canonical_key": "extract the event frame and retain coarse coordinates when frame extraction or grounding fails | single-frame visual grounding follows temporal localization | robust_inference",
+      "title": "Keep a fallback when grounding can fail",
+      "statement": "When single-frame visual grounding follows temporal localization, extract the event frame and retain coarse coordinates when frame extraction or grounding fails. Log extraction and grounding failure rates, then compare localization error with and without refinement. This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks.",
+      "trigger_conditions": [
+        "single-frame visual grounding follows temporal localization"
+      ],
+      "action_steps": [
+        "Proposed: extract the event frame and retain coarse coordinates when frame extraction or grounding fails."
+      ],
+      "verification_steps": [
+        "Proposed: log extraction and grounding failure rates, then compare localization error with and without refinement."
+      ],
+      "limitations": [
+        "This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "video"
+        ],
+        "task_types": [
+          "event_localization"
+        ],
+        "application_domains": [
+          "traffic"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "robust_inference"
+        ],
+        "risk_tags": [
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for accident: Stage3 extracts one frame at accident_time, returns a grounded point when available and otherwise keeps fallback_cx and fallback_cy.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: retain a validated coarse localization when an optional vision-refinement stage cannot return a point.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-4ad7264c43433b821865"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Fallback behavior is learnable but needs integration and failure-injection work around the VLM.",
+        "competitor": "Protects a multistage inference path while requiring separate quality checks for coarse and refined cases.",
+        "practitioner": "Useful reliability pattern for optional model stages; failed-call exceptions and silent bad coordinates still need handling."
+      },
+      "review": {
+        "candidate_id": "C-d2294d8ab5de77879b06",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read stage3 plus predict_video: failed extraction or absent grounding returns coarse coordinates; successful grounding feeds a configurable weighted replacement. Exceptions from the grounding call are not caught here, so fallback is not a complete failure handler.",
+        "candidate_sha256": "f4b13b11f9034bc8b28aa6b2f47dcfa62cbb1b550dcba15d7ebd8265ff308e68"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000262",
+      "slug": "lesson-000262",
+      "merged_candidate_ids": [
+        "C-d2294d8ab5de77879b06"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6175657d9ed5892cdbe2",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-bc0971ed0dbcdc41",
+          "snapshot_path": "research/lesson-extraction/snapshots/699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19.txt",
+          "snapshot_sha256": "699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/HEAD/src/exp160b/predict.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-4ad7264c43433b821865",
+          "line_start": 380,
+          "line_end": 395,
+          "evidence_text": "        with tempfile.TemporaryDirectory(prefix=\"exp160b_s3_\") as td:\n            frame_path = extract_single_frame(\n                video_path,\n                t=accident_time,\n                out_path=Path(td) / \"accident_frame.jpg\",\n                max_side=int(self.cfg[\"image_max_side\"]),\n                burn_timestamp=False,\n            )\n            if frame_path is None:\n                return fallback_cx, fallback_cy, \"frame_extraction_failed\"\n\n            point, raw = self.vlm.generate_grounding(GROUNDING_PROMPT, frame_path)\n\n        if point is not None:\n            return point[0], point[1], raw\n        return fallback_cx, fallback_cy, f\"grounding_failed: {raw}\"",
+          "kind": "used",
+          "statement": "Stage3 extracts one frame at accident_time, returns a grounded point when available and otherwise keeps fallback_cx and fallback_cy.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Fallback behavior is learnable but needs integration and failure-injection work around the VLM.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Protects a multistage inference path while requiring separate quality checks for coarse and refined cases.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful reliability pattern for optional model stages; failed-call exceptions and silent bad coordinates still need handling.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-bc0971ed0dbcdc41",
+          "locator": "research/lesson-extraction/snapshots/699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19.txt#L380-L395",
+          "quote": "        with tempfile.TemporaryDirectory(prefix=\"exp160b_s3_\") as td:\n            frame_path = extract_single_frame(\n                video_path,\n                t=accident_time,\n                out_path=Path(td) / \"accident_frame.jpg\",\n                max_side=int(self.cfg[\"image_max_side\"]),\n                burn_timestamp=False,\n            )\n            if frame_path is None:\n                return fallback_cx, fallback_cy, \"frame_extraction_failed\"\n\n            point, raw = self.vlm.generate_grounding(GROUNDING_PROMPT, frame_path)\n\n        if point is not None:\n            return point[0], point[1], raw\n        return fallback_cx, fallback_cy, f\"grounding_failed: {raw}\"",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/HEAD/src/exp160b/predict.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19.txt",
+          "snapshot_sha256": "699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19",
+          "line_start": 380,
+          "line_end": 395
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-d2294d8ab5de77879b06",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read stage3 plus predict_video: failed extraction or absent grounding returns coarse coordinates; successful grounding feeds a configurable weighted replacement. Exceptions from the grounding call are not caught here, so fallback is not a complete failure handler.",
+          "candidate_sha256": "f4b13b11f9034bc8b28aa6b2f47dcfa62cbb1b550dcba15d7ebd8265ff308e68"
+        },
+        {
+          "candidate_id": "C-d2294d8ab5de77879b06",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete remaining predictor packet confirms None-valued frame or grounding results retain coarse coordinates; grounding replaces or blends coordinates downstream. The observation states the implementation only. Proposed failure logging and refinement ablation are valid; grading rationale explicitly retains unhandled exceptions and silent bad-coordinate risks. Experienced reliability utility ratings are reasonable.",
+          "candidate_sha256": "f4b13b11f9034bc8b28aa6b2f47dcfa62cbb1b550dcba15d7ebd8265ff308e68"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 109,
+        "line_end": 119,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-bdf0a3df00163a8b",
+      "canonical_key": "rank uncertainty using margin, entropy, confidence and permutation disagreement, then reserve extra permutations and visual tokens for a limited subset. | additional vqa inference is expensive | compute_efficiency",
+      "title": "Allocate extra VQA inference to uncertain questions",
+      "statement": "When additional VQA inference is expensive, consider this source-backed action: Rank uncertainty using margin, entropy, confidence and permutation disagreement, then reserve extra permutations and visual tokens for a limited subset. Proposed check: Compare selective versus uniform compute at the same total inference budget. Limit: The adaptive notebook is missing from the published two-file package; counts and blend weights are source-specific.",
+      "trigger_conditions": [
+        "additional VQA inference is expensive"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Rank uncertainty using margin, entropy, confidence and permutation disagreement, then reserve extra permutations and visual tokens for a limited subset."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare selective versus uniform compute at the same total inference budget."
+      ],
+      "limitations": [
+        "The adaptive notebook is missing from the published two-file package; counts and blend weights are source-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The pipeline restores 20 extra option orders for 1000 uncertain questions, adds visual-token-1536 TTA4 for 400 questions, and combines adaptive and high-resolution probabilities 0.65/0.35.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-bdf0a3df00163a8b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Large-model caches and inference orchestration exceed beginner resources.",
+        "competitor": "Useful selective-compute strategy with unavailable intermediate generator acknowledged.",
+        "practitioner": "Practical latency allocation if uncertainty rankings and cache provenance hold."
+      },
+      "review": {
+        "candidate_id": "C-a-bdf0a3df00163a8b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Adaptive permutations and higher visual-token budget are documented, but missing generator prevents complete reproduction.",
+        "candidate_sha256": "306cae7e655c8ceefefe1afbbabfac14287bda34bc81d673122376ee7e038c9b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000401",
+      "slug": "lesson-000401",
+      "merged_candidate_ids": [
+        "C-a-bdf0a3df00163a8b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3cc7ac34c97522994c04",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "source_url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-bdf0a3df00163a8b",
+          "line_start": 64,
+          "line_end": 70,
+          "evidence_text": "### 2. Adaptive TTA\uc640 \uace0\ud574\uc0c1\ub3c4 \ucd94\ub860 \uacb0\uacfc \ud65c\uc6a9\n\nLast-mile \ub178\ud2b8\ubd81\uc740 \uae30\ubcf8 TTA4 \uacb0\uacfc\uc5d0\uc11c \ubd88\ud655\uc2e4\ud55c 1,000\ubb38\ud56d\uc744 \uc120\ud0dd\ud55c \ud6c4, \uc774\uc804\uc5d0 \uc800\uc7a5\ud55c 20\uac1c \ucd94\uac00 \uc120\ud0dd\uc9c0 \uc21c\uc11c \uacb0\uacfc\ub97c \ubd88\ub7ec\uc640 TTA24 \ud655\ub960\uc744 \ubcf5\uc6d0\ud569\ub2c8\ub2e4. \ub2e4\uc2dc \uc120\uc815\ud55c 400\ubb38\ud56d\uc5d0\ub294 \ucd5c\ub300 visual tokens 1,536\uc73c\ub85c \ucd94\ub860\ud55c TTA4 \uacb0\uacfc\ub97c \uacb0\ud569\ud569\ub2c8\ub2e4.\n\n\ubd88\ud655\uc2e4\ub3c4\uc5d0\ub294 \uc0c1\uc704 \ub450 \uc120\ud0dd\uc9c0\uc758 \ud655\ub960 \ucc28\uc774, entropy, \ucd5c\ub300 \ud655\ub960, TTA \ub2f5\ubcc0 \uc77c\uce58\uc728\uc744 \uc0ac\uc6a9\ud569\ub2c8\ub2e4. \uace0\ud574\uc0c1\ub3c4 \ub300\uc0c1\uc758 \uae30\uc874 \ud655\ub960\uc740 `0.65 \u00d7 Adaptive \ud655\ub960 + 0.35 \u00d7 HiRes \ud655\ub960`\uc785\ub2c8\ub2e4.\n\n**\uc774 \uc911\uac04 \ucd94\ub860\uc744 \uc0dd\uc131\ud558\ub294 Adaptive \ub178\ud2b8\ubd81\uc740 \uc774\ubc88 \ub450 \ud30c\uc77c \uad6c\uc131\uc5d0 \ud3ec\ud568\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.** Last-mile \uc2e4\ud589\uc5d0\ub294 \uc544\ub798 \uc124\uba85\uc758 \uae30\uc874 \uce90\uc2dc\uac00 \ud544\uc694\ud569\ub2c8\ub2e4.",
+          "kind": "used",
+          "statement": "The pipeline restores 20 extra option orders for 1000 uncertain questions, adds visual-token-1536 TTA4 for 400 questions, and combines adaptive and high-resolution probabilities 0.65/0.35.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 1,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Large-model caches and inference orchestration exceed beginner resources.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Useful selective-compute strategy with unavailable intermediate generator acknowledged.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Practical latency allocation if uncertainty rankings and cache provenance hold.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "locator": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt#L64-L70",
+          "quote": "### 2. Adaptive TTA\uc640 \uace0\ud574\uc0c1\ub3c4 \ucd94\ub860 \uacb0\uacfc \ud65c\uc6a9\n\nLast-mile \ub178\ud2b8\ubd81\uc740 \uae30\ubcf8 TTA4 \uacb0\uacfc\uc5d0\uc11c \ubd88\ud655\uc2e4\ud55c 1,000\ubb38\ud56d\uc744 \uc120\ud0dd\ud55c \ud6c4, \uc774\uc804\uc5d0 \uc800\uc7a5\ud55c 20\uac1c \ucd94\uac00 \uc120\ud0dd\uc9c0 \uc21c\uc11c \uacb0\uacfc\ub97c \ubd88\ub7ec\uc640 TTA24 \ud655\ub960\uc744 \ubcf5\uc6d0\ud569\ub2c8\ub2e4. \ub2e4\uc2dc \uc120\uc815\ud55c 400\ubb38\ud56d\uc5d0\ub294 \ucd5c\ub300 visual tokens 1,536\uc73c\ub85c \ucd94\ub860\ud55c TTA4 \uacb0\uacfc\ub97c \uacb0\ud569\ud569\ub2c8\ub2e4.\n\n\ubd88\ud655\uc2e4\ub3c4\uc5d0\ub294 \uc0c1\uc704 \ub450 \uc120\ud0dd\uc9c0\uc758 \ud655\ub960 \ucc28\uc774, entropy, \ucd5c\ub300 \ud655\ub960, TTA \ub2f5\ubcc0 \uc77c\uce58\uc728\uc744 \uc0ac\uc6a9\ud569\ub2c8\ub2e4. \uace0\ud574\uc0c1\ub3c4 \ub300\uc0c1\uc758 \uae30\uc874 \ud655\ub960\uc740 `0.65 \u00d7 Adaptive \ud655\ub960 + 0.35 \u00d7 HiRes \ud655\ub960`\uc785\ub2c8\ub2e4.\n\n**\uc774 \uc911\uac04 \ucd94\ub860\uc744 \uc0dd\uc131\ud558\ub294 Adaptive \ub178\ud2b8\ubd81\uc740 \uc774\ubc88 \ub450 \ud30c\uc77c \uad6c\uc131\uc5d0 \ud3ec\ud568\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.** Last-mile \uc2e4\ud589\uc5d0\ub294 \uc544\ub798 \uc124\uba85\uc758 \uae30\uc874 \uce90\uc2dc\uac00 \ud544\uc694\ud569\ub2c8\ub2e4.",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "line_start": 64,
+          "line_end": 70
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-bdf0a3df00163a8b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Adaptive permutations and higher visual-token budget are documented, but missing generator prevents complete reproduction.",
+          "candidate_sha256": "306cae7e655c8ceefefe1afbbabfac14287bda34bc81d673122376ee7e038c9b"
+        },
+        {
+          "candidate_id": "C-a-bdf0a3df00163a8b",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete VQA source read.1000extra20 orders,400highres1536tokens and0.65/0.35 blend literal; generator absent. Equalbudget selective/uniform comparison proposed, no measured efficiency gain. Low beginner feasibility and differentiated grades appropriate.",
+          "candidate_sha256": "306cae7e655c8ceefefe1afbbabfac14287bda34bc81d673122376ee7e038c9b"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 85,
+        "line_end": 95,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-ddae17b803987de9d404",
+      "canonical_key": "train separate subtype models and retain tracking-image inputs only for player-player contact. | player-player and player-ground contact cues differ | predictive_quality",
+      "title": "Choose modality inputs separately for contact subtypes",
+      "statement": "When player-player and player-ground contact cues differ, proposed reuse: Proposed conditional application: Train separate subtype models and retain tracking-image inputs only for player-player contact. Proposed check: Ablate each modality per contact subtype on shared folds and compare performance, missing-modality behavior and memory cost. Limitation: The tracking failure is specific to ground contacts in this setup; input length also changed because of GPU limits.",
+      "trigger_conditions": [
+        "player-player and player-ground contact cues differ"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Train separate subtype models and retain tracking-image inputs only for player-player contact."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate each modality per contact subtype on shared folds and compare performance, missing-modality behavior and memory cost."
+      ],
+      "limitations": [
+        "The tracking failure is specific to ground contacts in this setup; input length also changed because of GPU limits.",
+        "Tracking input is documented for player-player modeling, but the source provides no player-player ablation establishing a tracking benefit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "sports"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author uses tracking-image inputs for player-player modeling and reports no player-ground CV improvement from tracking images.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-5d7700c47c73e42c5af4",
+        "O-root-nfl-inputs-f482d0d0a992",
+        "O-root-nfl-modalities-636464efc976"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Subtype-specific inputs are understandable, though video pipelines are expensive.",
+        "competitor": "The negative tracking result encourages per-subtype ablations rather than automatic fusion.",
+        "practitioner": "Modality utility can differ by event subtype and should be measured individually."
+      },
+      "review": {
+        "candidate_id": "C-ddae17b803987de9d404",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "root-audit-repair-fresh",
+        "reason": "Read complete original NFL packet and exact snapshot lines. Corrected the off-by-one supporting span: old added observation now only states separate-subtype modeling; new line 24 observation carries PP/PG modality-use facts. No PP benefit ablation is inferred.",
+        "candidate_sha256": "d7cadf6c2bee681b1a7d8b761bd228f19802743cffab6502173d11dd1c6307a7"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000512",
+      "slug": "lesson-000512",
+      "merged_candidate_ids": [
+        "C-ddae17b803987de9d404"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ff2d9a47653ede341829",
+          "competition_id": "competition:nfl-player-contact-detection",
+          "source_id": "source:lesson-source-7e8b8c3df9dc7d69",
+          "snapshot_path": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt",
+          "snapshot_sha256": "7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b",
+          "source_url": "https://www.kaggle.com/competitions/nfl-player-contact-detection/writeups/nvnn-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-5d7700c47c73e42c5af4",
+          "line_start": 40,
+          "line_end": 40,
+          "evidence_text": "The PG model does not include simulated tracking images as they do not improve the PG CV score.",
+          "kind": "reported_failure",
+          "statement": "The author reports simulated tracking images do not improve player-ground CV in this setup.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-ff2d9a47653ede341829",
+          "competition_id": "competition:nfl-player-contact-detection",
+          "source_id": "source:lesson-source-7e8b8c3df9dc7d69",
+          "snapshot_path": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt",
+          "snapshot_sha256": "7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b",
+          "source_url": "https://www.kaggle.com/competitions/nfl-player-contact-detection/writeups/nvnn-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-root-nfl-inputs-f482d0d0a992",
+          "line_start": 24,
+          "line_end": 24,
+          "evidence_text": "The PP model is trained using input from three sources, namely endzone video, sideline video, and tracking data. On the other hand, the PG model is trained using input from only two sources, namely endzone video and sideline video. Notably, including tracking data does not result in improved performance for the PG model.",
+          "kind": "used",
+          "statement": "The author trains player-player models with endzone, sideline and tracking data, and player-ground models with endzone and sideline videos. No measured player-player tracking ablation is supplied.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-ff2d9a47653ede341829",
+          "competition_id": "competition:nfl-player-contact-detection",
+          "source_id": "source:lesson-source-7e8b8c3df9dc7d69",
+          "snapshot_path": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt",
+          "snapshot_sha256": "7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b",
+          "source_url": "https://www.kaggle.com/competitions/nfl-player-contact-detection/writeups/nvnn-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-root-nfl-modalities-636464efc976",
+          "line_start": 21,
+          "line_end": 23,
+          "evidence_text": "\nI separate the modeling and training of player-player (PP) and player-ground (PG) contacts.\n",
+          "kind": "used",
+          "statement": "The author separates modeling and training for player-player and player-ground contacts.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Subtype-specific inputs are understandable, though video pipelines are expensive.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The negative tracking result encourages per-subtype ablations rather than automatic fusion.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Modality utility can differ by event subtype and should be measured individually.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7e8b8c3df9dc7d69",
+          "locator": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt#L40-L40",
+          "quote": "The PG model does not include simulated tracking images as they do not improve the PG CV score.",
+          "competition_id": "competition:nfl-player-contact-detection",
+          "url": "https://www.kaggle.com/competitions/nfl-player-contact-detection/writeups/nvnn-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt",
+          "snapshot_sha256": "7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b",
+          "line_start": 40,
+          "line_end": 40
+        },
+        {
+          "source_id": "source:lesson-source-7e8b8c3df9dc7d69",
+          "locator": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt#L24-L24",
+          "quote": "The PP model is trained using input from three sources, namely endzone video, sideline video, and tracking data. On the other hand, the PG model is trained using input from only two sources, namely endzone video and sideline video. Notably, including tracking data does not result in improved performance for the PG model.",
+          "competition_id": "competition:nfl-player-contact-detection",
+          "url": "https://www.kaggle.com/competitions/nfl-player-contact-detection/writeups/nvnn-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt",
+          "snapshot_sha256": "7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b",
+          "line_start": 24,
+          "line_end": 24
+        },
+        {
+          "source_id": "source:lesson-source-7e8b8c3df9dc7d69",
+          "locator": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt#L21-L23",
+          "quote": "\nI separate the modeling and training of player-player (PP) and player-ground (PG) contacts.\n",
+          "competition_id": "competition:nfl-player-contact-detection",
+          "url": "https://www.kaggle.com/competitions/nfl-player-contact-detection/writeups/nvnn-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b.txt",
+          "snapshot_sha256": "7173b3f81ee7dab3106807d7cd9e67f2bd28c9cc0ccd093525fe8a45741d231b",
+          "line_start": 21,
+          "line_end": 23
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-ddae17b803987de9d404",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "root-audit-repair-fresh",
+          "reason": "Read complete original NFL packet and exact snapshot lines. Corrected the off-by-one supporting span: old added observation now only states separate-subtype modeling; new line 24 observation carries PP/PG modality-use facts. No PP benefit ablation is inferred.",
+          "candidate_sha256": "d7cadf6c2bee681b1a7d8b761bd228f19802743cffab6502173d11dd1c6307a7"
+        },
+        {
+          "candidate_id": "C-ddae17b803987de9d404",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Re-read complete NFL source and final repaired record. Original observation now claims only PG tracking failure; exact line24 addition documents three PP inputs versus two PG videos, while21\u201323 only documents separate subtype modeling. No PP tracking gain is claimed, missing ablation and GPU-limited sequence change remain explicit. Proposed per-subtype tests and all twelve utility scores are appropriate.",
+          "candidate_sha256": "d7cadf6c2bee681b1a7d8b761bd228f19802743cffab6502173d11dd1c6307a7"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 153,
+        "line_end": 157,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-6b10554b7575832f",
+      "canonical_key": "train using compatible serialization and translate axis conventions explicitly at output. | pretrained structured decoder conventions differ from evaluation annotation rules | predictive_quality",
+      "title": "Match target serialization to pretrained decoder conventions",
+      "statement": "When pretrained structured decoder conventions differ from evaluation annotation rules, consider this source-backed action: Train using compatible serialization and translate axis conventions explicitly at output. Proposed check: Round-trip known charts through serialization and output conversion. Limit: These changes are combined in the report; no independent format ablation is shown.",
+      "trigger_conditions": [
+        "pretrained structured decoder conventions differ from evaluation annotation rules"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Train using compatible serialization and translate axis conventions explicitly at output."
+      ],
+      "verification_steps": [
+        "Proposed verification: Round-trip known charts through serialization and output conversion."
+      ],
+      "limitations": [
+        "These changes are combined in the report; no independent format ablation is shown."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Simply replacing Donut with Deplot trained poorly; the author removed chart type from targets, adopted Deplot formatting and swapped horizontal-bar axes at inference.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-6b10554b7575832f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Roundtrip tests clear, decoder fine-tuning requires expertise.",
+        "competitor": "Target conventions are actionable controls in structured decoding.",
+        "practitioner": "Serialization compatibility useful across pretrained structured-output systems."
+      },
+      "review": {
+        "candidate_id": "C-a-6b10554b7575832f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Deplot format/axis swap after poor swap-only training; changes bundled.",
+        "candidate_sha256": "669ced6295fa63ac6af89b1d1bed2e337437ebff12702bf85ff8cc842687aee1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000517",
+      "slug": "lesson-000517",
+      "merged_candidate_ids": [
+        "C-a-6b10554b7575832f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-39403de2e6cd88ebebce",
+          "competition_id": "competition:benetech-making-graphs-accessible",
+          "source_id": "source:lesson-source-5255f5c34dab2687",
+          "snapshot_path": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt",
+          "snapshot_sha256": "977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad",
+          "source_url": "https://www.kaggle.com/competitions/benetech-making-graphs-accessible/writeups/yumeneko-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-6b10554b7575832f",
+          "line_start": 86,
+          "line_end": 95,
+          "evidence_text": "*   I experimented by switching the model to Deplot based on the Donut-based notebook that [@nbroad](https://www.kaggle.com/nbroad) had published. However, I could not train well just by changing the model, so I made some modifications.\n\n*   Ground Truth Format\n\nRemoved chart type from GroundTruth and adapted the format to that of the Deplot original.\n\n`<0x0A> x_value1 | y_value1 <0x0A> x_value2 | y_value2 <0x0A> x_value3 | y_value3 </s>`\n*   x-axis and y-axis swap of horizontal_bar\n\nSince the concept of x-axis and y-axis was reversed in the annotation rules of this competition and the original format of Deplot, I trained according to the original concept of Deplot and swapped the values during inference.",
+          "kind": "reported_failure",
+          "statement": "Simply replacing Donut with Deplot trained poorly; the author removed chart type from targets, adopted Deplot formatting and swapped horizontal-bar axes at inference.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Roundtrip tests clear, decoder fine-tuning requires expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Target conventions are actionable controls in structured decoding.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Serialization compatibility useful across pretrained structured-output systems.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5255f5c34dab2687",
+          "locator": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt#L86-L95",
+          "quote": "*   I experimented by switching the model to Deplot based on the Donut-based notebook that [@nbroad](https://www.kaggle.com/nbroad) had published. However, I could not train well just by changing the model, so I made some modifications.\n\n*   Ground Truth Format\n\nRemoved chart type from GroundTruth and adapted the format to that of the Deplot original.\n\n`<0x0A> x_value1 | y_value1 <0x0A> x_value2 | y_value2 <0x0A> x_value3 | y_value3 </s>`\n*   x-axis and y-axis swap of horizontal_bar\n\nSince the concept of x-axis and y-axis was reversed in the annotation rules of this competition and the original format of Deplot, I trained according to the original concept of Deplot and swapped the values during inference.",
+          "competition_id": "competition:benetech-making-graphs-accessible",
+          "url": "https://www.kaggle.com/competitions/benetech-making-graphs-accessible/writeups/yumeneko-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt",
+          "snapshot_sha256": "977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad",
+          "line_start": 86,
+          "line_end": 95
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-6b10554b7575832f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Deplot format/axis swap after poor swap-only training; changes bundled.",
+          "candidate_sha256": "669ced6295fa63ac6af89b1d1bed2e337437ebff12702bf85ff8cc842687aee1"
+        },
+        {
+          "candidate_id": "C-a-6b10554b7575832f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Benetech winner reports naive Deplot replacement failure,removing chart type,Deplot target format and horizontal-axis conversion. Roundtrip verification proposed; serialization changes not isolated numerically. Transfer grades fit structured decoding.",
+          "candidate_sha256": "669ced6295fa63ac6af89b1d1bed2e337437ebff12702bf85ff8cc842687aee1"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 175,
+        "line_end": 179,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-3884749c06824514",
+      "canonical_key": "use detected tick positions and values to map plot-point coordinates to data values, with a specialized scatter branch. | numeric scatter charts permit coordinate reconstruction | predictive_quality",
+      "title": "Route geometric chart types to detection plus coordinate conversion",
+      "statement": "When numeric scatter charts permit coordinate reconstruction, consider this source-backed action: Use detected tick positions and values to map plot-point coordinates to data values, with a specialized scatter branch. Proposed check: Check axis orientation, scale, label-to-box mapping and missing detections on held-out charts. Limit: The source used crude extreme-label matching and ignored rare count mismatches; robust mismatch handling is proposed.",
+      "trigger_conditions": [
+        "numeric scatter charts permit coordinate reconstruction"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use detected tick positions and values to map plot-point coordinates to data values, with a specialized scatter branch."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check axis orientation, scale, label-to-box mapping and missing detections on held-out charts."
+      ],
+      "limitations": [
+        "The source used crude extreme-label matching and ignored rare count mismatches; robust mismatch handling is proposed."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Scatter was weak with Deplot; the author detected ticks and points, read labels with Deplot and cropped the plot region, reporting stronger scatter scores.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3884749c06824514"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multi-stage detection/coordinate mapping requires substantial expertise.",
+        "competitor": "Concrete geometric fallback for failed chart sequence generation.",
+        "practitioner": "Applies to numeric charts; nonlinear axes need additional checks."
+      },
+      "review": {
+        "candidate_id": "C-a-3884749c06824514",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked detector/Deplot coordinate route and scatter comparison; extreme matching fragile.",
+        "candidate_sha256": "2e563f7dc11a8392ffd12fc0874a622ed1631ddba723af427440a2dd4b1c6427"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000537",
+      "slug": "lesson-000537",
+      "merged_candidate_ids": [
+        "C-a-3884749c06824514"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-39403de2e6cd88ebebce",
+          "competition_id": "competition:benetech-making-graphs-accessible",
+          "source_id": "source:lesson-source-5255f5c34dab2687",
+          "snapshot_path": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt",
+          "snapshot_sha256": "977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad",
+          "source_url": "https://www.kaggle.com/competitions/benetech-making-graphs-accessible/writeups/yumeneko-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3884749c06824514",
+          "line_start": 170,
+          "line_end": 192,
+          "evidence_text": "### 2-b. Scatter\n\n*   Only scatter was not accurate enough with Deplot no matter how I tried, so I adopted an object detection-based approach.\n*   Since scatter is guaranteed to have label values of numeric type, it is easy to calculate values from ratios if the \"label position,\" \"label text,\" and \"scatter point position\" are known. I used CACHED to detect \"label position,\" Deplot to read \"label text,\" and YOLOX to detect \"scatter point\".\n*   The mapping between label bboxes and label texts is a bit crude, but the smallest label text is mapped to the left-most (top in the case of y-labels) label bbox, and the largest label text is mapped to the right-most (bottom in the case of y-labels) label bbox. It is possible that the total number of detected label bboxes does not match the total number of read label texts, but we did not take any special measures because such a pattern was very rare when we checked the verification data.\n*   The above object detection approach resulted in a scatter score of **Pulic:0.10/Private:0.30**, much better than the Deplot-based score (Pulic:0.06/Private:0.13).\n\n**More Details**\n\nScatter point detection\n\n*   comp_extracted_dataset, ICDAR_dataset, synthetic_dataset were used for training data (about 12.5k images)\n*   Somewhat semi-automated using provided annotation data and image processing, but inevitably noisy, so corrected with manual annotation.\n*   To increase detection accuracy, only the plot area was cropped for training and inference.\n*   The model was YOLOX-l, input image size was 1280 for both training and inference, and 50 epochs were trained.\n\nLabel text reading\n\n*   comp_extracted_dataset, ICDAR_dataset, comp_generated_dataset were used for training data (about 62k images, all chart types were used, not just scatter)\n*   Use the same training configs as in (2-a) All_Chart-type_Train for the training parameters, and change the format of Ground Truth as follows\n\n`<0x0A> x_label1 | x_label2 | x_label3 <0x0A> y_label1 | y_label2 </s>`\n*   At first, I thought of using EasyOCR or similar to achieve this, but there were many issues to be addressed, such as support for character rotation, and it seemed that tuning would be very difficult to increase versatility, so I adopted a method of batch reading with Deplot.",
+          "kind": "reported_gain",
+          "statement": "Scatter was weak with Deplot; the author detected ticks and points, read labels with Deplot and cropped the plot region, reporting stronger scatter scores.",
+          "reported_result": {
+            "metric": "private scatter score",
+            "value": 0.3,
+            "context": "Benetech: object-detection coordinate pipeline0.30 versus Deplot0.13, public0.10 versus0.06; score is source-specific scatter contribution, not generic accuracy; full pipeline changes, uncertainty absent.",
+            "evidence_text": "### 2-b. Scatter\n\n*   Only scatter was not accurate enough with Deplot no matter how I tried, so I adopted an object detection-based approach.\n*   Since scatter is guaranteed to have label values of numeric type, it is easy to calculate values from ratios if the \"label position,\" \"label text,\" and \"scatter point position\" are known. I used CACHED to detect \"label position,\" Deplot to read \"label text,\" and YOLOX to detect \"scatter point\".\n*   The mapping between label bboxes and label texts is a bit crude, but the smallest label text is mapped to the left-most (top in the case of y-labels) label bbox, and the largest label text is mapped to the right-most (bottom in the case of y-labels) label bbox. It is possible that the total number of detected label bboxes does not match the total number of read label texts, but we did not take any special measures because such a pattern was very rare when we checked the verification data.\n*   The above object detection approach resulted in a scatter score of **Pulic:0.10/Private:0.30**, much better than the Deplot-based score (Pulic:0.06/Private:0.13).\n\n**More Details**\n\nScatter point detection\n\n*   comp_extracted_dataset, ICDAR_dataset, synthetic_dataset were used for training data (about 12.5k images)\n*   Somewhat semi-automated using provided annotation data and image processing, but inevitably noisy, so corrected with manual annotation.\n*   To increase detection accuracy, only the plot area was cropped for training and inference.\n*   The model was YOLOX-l, input image size was 1280 for both training and inference, and 50 epochs were trained.\n\nLabel text reading\n\n*   comp_extracted_dataset, ICDAR_dataset, comp_generated_dataset were used for training data (about 62k images, all chart types were used, not just scatter)\n*   Use the same training configs as in (2-a) All_Chart-type_Train for the training parameters, and change the format of Ground Truth as follows\n\n`<0x0A> x_label1 | x_label2 | x_label3 <0x0A> y_label1 | y_label2 </s>`\n*   At first, I thought of using EasyOCR or similar to achieve this, but there were many issues to be addressed, such as support for character rotation, and it seemed that tuning would be very difficult to increase versatility, so I adopted a method of batch reading with Deplot."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Multi-stage detection/coordinate mapping requires substantial expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete geometric fallback for failed chart sequence generation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Applies to numeric charts; nonlinear axes need additional checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5255f5c34dab2687",
+          "locator": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt#L170-L192",
+          "quote": "### 2-b. Scatter\n\n*   Only scatter was not accurate enough with Deplot no matter how I tried, so I adopted an object detection-based approach.\n*   Since scatter is guaranteed to have label values of numeric type, it is easy to calculate values from ratios if the \"label position,\" \"label text,\" and \"scatter point position\" are known. I used CACHED to detect \"label position,\" Deplot to read \"label text,\" and YOLOX to detect \"scatter point\".\n*   The mapping between label bboxes and label texts is a bit crude, but the smallest label text is mapped to the left-most (top in the case of y-labels) label bbox, and the largest label text is mapped to the right-most (bottom in the case of y-labels) label bbox. It is possible that the total number of detected label bboxes does not match the total number of read label texts, but we did not take any special measures because such a pattern was very rare when we checked the verification data.\n*   The above object detection approach resulted in a scatter score of **Pulic:0.10/Private:0.30**, much better than the Deplot-based score (Pulic:0.06/Private:0.13).\n\n**More Details**\n\nScatter point detection\n\n*   comp_extracted_dataset, ICDAR_dataset, synthetic_dataset were used for training data (about 12.5k images)\n*   Somewhat semi-automated using provided annotation data and image processing, but inevitably noisy, so corrected with manual annotation.\n*   To increase detection accuracy, only the plot area was cropped for training and inference.\n*   The model was YOLOX-l, input image size was 1280 for both training and inference, and 50 epochs were trained.\n\nLabel text reading\n\n*   comp_extracted_dataset, ICDAR_dataset, comp_generated_dataset were used for training data (about 62k images, all chart types were used, not just scatter)\n*   Use the same training configs as in (2-a) All_Chart-type_Train for the training parameters, and change the format of Ground Truth as follows\n\n`<0x0A> x_label1 | x_label2 | x_label3 <0x0A> y_label1 | y_label2 </s>`\n*   At first, I thought of using EasyOCR or similar to achieve this, but there were many issues to be addressed, such as support for character rotation, and it seemed that tuning would be very difficult to increase versatility, so I adopted a method of batch reading with Deplot.",
+          "competition_id": "competition:benetech-making-graphs-accessible",
+          "url": "https://www.kaggle.com/competitions/benetech-making-graphs-accessible/writeups/yumeneko-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad.txt",
+          "snapshot_sha256": "977c2103bc06c5c8d54fdc38f2b3351a2e07197e5b0cf2be5d4f520566508bad",
+          "line_start": 170,
+          "line_end": 192
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3884749c06824514",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked detector/Deplot coordinate route and scatter comparison; extreme matching fragile.",
+          "candidate_sha256": "2e563f7dc11a8392ffd12fc0874a622ed1631ddba723af427440a2dd4b1c6427"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 159,
+        "line_end": 163,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-bbbf68411b5e91ea09ce",
+      "canonical_key": "vlm-output-specific-blending | accident multimodal outputs | ensemble control",
+      "title": "Choose ensemble components separately for distinct output types",
+      "statement": "When a multimodal model predicts time, location and event class, proposed reuse: Proposed recipe: test output-specific blending instead of applying one rule to every output. Proposed check: Ablate output-specific versus uniform blends using held-out videos, evaluate each output and composite score, and audit label/coordinate alignment. Limitation: Two large VLMs have high compute requirements;9:1and single-model type choice are tuned source settings.",
+      "trigger_conditions": [
+        "a multimodal model predicts time, location and event class"
+      ],
+      "action_steps": [
+        "Proposed recipe: test output-specific blending instead of applying one rule to every output."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate output-specific versus uniform blends using held-out videos, evaluate each output and composite score, and audit label/coordinate alignment."
+      ],
+      "limitations": [
+        "Two large VLMs have high compute requirements;9:1and single-model type choice are tuned source settings."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "high",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports9:1time/spatial blending. Author keeps event type from one component.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Ablate output-specific versus uniform blends using held-out videos, evaluate each output and composite score, and audit label/coordinate alignment.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-59b92076ed72972dd646",
+        "O-7de79aba0777b9b5097d",
+        "O-br-e2e2c684e058d4f9f7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Output-specific fusion is understandable but very large models reduce feasibility.",
+        "competitor": "Separate output reliability offers a focused ensemble experiment.",
+        "practitioner": "Multi-output systems can use per-output fusion if utility, availability and cost justify it."
+      },
+      "review": {
+        "candidate_id": "C-bbbf68411b5e91ea09ce",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner accident README blends32Band235Btime/spatial outputs9:1while taking event type from32B; table compares private0.56740to0.56948for blending.",
+        "candidate_sha256": "ea6e3eaa28fed097be37b9cb6e64b7e4381ecaa00087322d1a0fa1494511aa02"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000556",
+      "slug": "lesson-000556",
+      "merged_candidate_ids": [
+        "C-bbbf68411b5e91ea09ce"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbbf3359945f88ca4413",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-29395c646287a929",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "source_quality": "primary_text",
+          "observation_id": "O-59b92076ed72972dd646",
+          "line_start": 9,
+          "line_end": 9,
+          "evidence_text": "type taken from exp160b",
+          "kind": "used",
+          "statement": "Author keeps event type from one component.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-fbbf3359945f88ca4413",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-29395c646287a929",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "source_quality": "primary_text",
+          "observation_id": "O-7de79aba0777b9b5097d",
+          "line_start": 8,
+          "line_end": 8,
+          "evidence_text": "blended 9:1 on time/spatial with",
+          "kind": "reported_gain",
+          "statement": "Author reports9:1time/spatial blending.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-fbbf3359945f88ca4413",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-29395c646287a929",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "source_quality": "primary_text",
+          "observation_id": "O-br-e2e2c684e058d4f9f7",
+          "line_start": 15,
+          "line_end": 15,
+          "evidence_text": "| 0.9\u00d7exp160b + 0.1\u00d7exp200 | 0.55415 | 0.56948 |",
+          "kind": "reported_gain",
+          "statement": "Author reports9:1time/spatial blending.",
+          "reported_result": {
+            "metric": "private leaderboard composite score",
+            "value": 0.56948,
+            "context": "9:1time/spatialblend with event type retained from32Bmodel versus32Bsingle:0.56948versus0.56740private; metric formula not supplied.",
+            "evidence_text": "| 0.9\u00d7exp160b + 0.1\u00d7exp200 | 0.55415 | 0.56948 |"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Output-specific fusion is understandable but very large models reduce feasibility.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Separate output reliability offers a focused ensemble experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Multi-output systems can use per-output fusion if utility, availability and cost justify it.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-29395c646287a929",
+          "locator": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt#L9-L9",
+          "quote": "type taken from exp160b",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "line_start": 9,
+          "line_end": 9
+        },
+        {
+          "source_id": "source:lesson-source-29395c646287a929",
+          "locator": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt#L8-L8",
+          "quote": "blended 9:1 on time/spatial with",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "line_start": 8,
+          "line_end": 8
+        },
+        {
+          "source_id": "source:lesson-source-29395c646287a929",
+          "locator": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt#L15-L15",
+          "quote": "| 0.9\u00d7exp160b + 0.1\u00d7exp200 | 0.55415 | 0.56948 |",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991.txt",
+          "snapshot_sha256": "45984430ce324c37e7da724de3225dff754e40d1b4a82cb735a36954d6d43991",
+          "line_start": 15,
+          "line_end": 15
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-bbbf68411b5e91ea09ce",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner accident README blends32Band235Btime/spatial outputs9:1while taking event type from32B; table compares private0.56740to0.56948for blending.",
+          "candidate_sha256": "ea6e3eaa28fed097be37b9cb6e64b7e4381ecaa00087322d1a0fa1494511aa02"
+        },
+        {
+          "candidate_id": "C-bbbf68411b5e91ea09ce",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Complete Accident winner repository identifies9:1 time/spatial blend while type remains32B output. Table supports composite private0.56948versus32B0.56740, with metric formula absent; candidate proposes per-output/uniform ablation instead of asserting isolated rule causality. All twelve scores preserve advanced implementation and large compute limits.",
+          "candidate_sha256": "ea6e3eaa28fed097be37b9cb6e64b7e4381ecaa00087322d1a0fa1494511aa02"
+        }
+      ],
+      "book_location": {
+        "chapter": 22,
+        "path": "manuscript/chapters/22-vision-and-multimodal.md",
+        "sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
+        "line_start": 97,
+        "line_end": 107,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

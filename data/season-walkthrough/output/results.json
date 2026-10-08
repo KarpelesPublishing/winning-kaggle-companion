@@ -1,0 +1,53 @@
+{
+  "example": "constructed synthetic season forecast; not a historical competition reproduction",
+  "seed": 42,
+  "fixture_rows": 528,
+  "features": [
+    "prior_win_rate_difference",
+    "prior_game_count_difference"
+  ],
+  "training_seasons": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "development_seasons": [
+    5,
+    6
+  ],
+  "assessment_seasons": [
+    7,
+    8
+  ],
+  "prediction_contract": "Each season is forecast at its start. Earlier-season labels are usable only after their declared reveal season. The selected model is frozen before season 7; history inputs update when labels legally arrive.",
+  "development_brier": {
+    "constant": 0.25,
+    "logistic": 0.21739418302362196,
+    "small_tree": 0.2487949549857298
+  },
+  "selected_model": "logistic",
+  "assessment_baseline_brier": 0.25,
+  "assessment_selected_brier": 0.23763268526127754,
+  "assessment_by_season": [
+    {
+      "season": 7,
+      "rows": 66,
+      "baseline_brier": 0.25,
+      "selected_brier": 0.2348673773111451
+    },
+    {
+      "season": 8,
+      "rows": 66,
+      "baseline_brier": 0.25,
+      "selected_brier": 0.24039799321140998
+    }
+  ],
+  "assessment_rows": 132,
+  "limitation": "One constructed fixture and two correlated later seasons do not establish significance, a medal, or a general model-family advantage.",
+  "artifact_sha256": {
+    "predictions.csv": "1d77467aa0e8f9cdae70e74f5e61b98c4eb51828f3fb91154fe1664867c25529",
+    "features.csv": "72506bfcbba4919f5806ce7af157495a7f982923c601c76d794313685c54fbd7",
+    "selected-model.pkl": "212ec1c5d3032613b15a78c56af5bfd83eee62671012fe029fe85ac6d9624d3a"
+  }
+}

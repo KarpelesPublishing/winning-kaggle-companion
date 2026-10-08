@@ -1,0 +1,3035 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-807bf2bd76ead283",
+      "canonical_key": "assign complementary feature/model responsibilities and budget preprocessing plus training and prediction. | large transactional processing dominates iteration time | collaboration",
+      "title": "Separate feature and model ownership with an end-to-end compute budget",
+      "statement": "When large transactional processing dominates iteration time, consider this source-backed action: Assign complementary feature/model responsibilities and budget preprocessing plus training and prediction. Proposed check: Measure handoff completeness and complete pipeline wall time before late experiments. Limit: Resource reports are estimates and not guarantees of speedup from extra cores.",
+      "trigger_conditions": [
+        "large transactional processing dominates iteration time"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Assign complementary feature/model responsibilities and budget preprocessing plus training and prediction."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure handoff completeness and complete pipeline wall time before late experiments."
+      ],
+      "limitations": [
+        "Resource reports are estimates and not guarantees of speedup from extra cores."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "collaboration"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "collaboration"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Collaboration"
+        ]
+      },
+      "applications": [
+        {
+          "description": "One teammate focused on features and the other modeling/ensembles; feature processing could take days and total compute weeks on one node.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-807bf2bd76ead283"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Team workflow less relevant to solo beginner projects.",
+        "competitor": "Useful handoff/budget practice for large collaborative competitions.",
+        "practitioner": "Complementary feature/model ownership useful across ML teams."
+      },
+      "review": {
+        "candidate_id": "C-a-807bf2bd76ead283",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked complementary ownership and estimated runtime; controlled teamwork comparison absent.",
+        "candidate_sha256": "b0347b1ee37f31f5b4fa988a5370b3d02c91587ba3d0c24be2021df976a503d1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000020",
+      "slug": "lesson-000020",
+      "merged_candidate_ids": [
+        "C-a-807bf2bd76ead283"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-96a5d1e2ea86f52a9e96",
+          "competition_id": "competition:cervical-cancer-screening",
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "source_url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-807bf2bd76ead283",
+          "line_start": 49,
+          "line_end": 55,
+          "evidence_text": "Giulio: I spent close to 90% of my time on feature engineering. I knew Michael was one of the best modellers on Kaggle and he was willing to undertake most of the modelling. That worked very well for the team. I didn\u2019t have to worry about tuning models and Michael didn\u2019t have to worry about generating features.\nMichael: I spend 30% to build the one-hot features, 10% to merge our features and 60% to build and tune the ensemble.\n\nWhat was the run time for both training and prediction of your winning solution?\n\nGiulio: I estimate that only the feature engineering process can take up to a couple of days. A simple model that, alone can place 4th, takes about 2 hours to train, but some of our best models can take much longer.\nMichael: Total computational time was a few weeks for a single node. It can be speedup if the machine has many cores since xgboost performance speed is nearly linear with number of cores.",
+          "kind": "used",
+          "statement": "One teammate focused on features and the other modeling/ensembles; feature processing could take days and total compute weeks on one node.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Team workflow less relevant to solo beginner projects.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful handoff/budget practice for large collaborative competitions.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Complementary feature/model ownership useful across ML teams.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "locator": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt#L49-L55",
+          "quote": "Giulio: I spent close to 90% of my time on feature engineering. I knew Michael was one of the best modellers on Kaggle and he was willing to undertake most of the modelling. That worked very well for the team. I didn\u2019t have to worry about tuning models and Michael didn\u2019t have to worry about generating features.\nMichael: I spend 30% to build the one-hot features, 10% to merge our features and 60% to build and tune the ensemble.\n\nWhat was the run time for both training and prediction of your winning solution?\n\nGiulio: I estimate that only the feature engineering process can take up to a couple of days. A simple model that, alone can place 4th, takes about 2 hours to train, but some of our best models can take much longer.\nMichael: Total computational time was a few weeks for a single node. It can be speedup if the machine has many cores since xgboost performance speed is nearly linear with number of cores.",
+          "competition_id": "competition:cervical-cancer-screening",
+          "url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "line_start": 49,
+          "line_end": 55
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-807bf2bd76ead283",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked complementary ownership and estimated runtime; controlled teamwork comparison absent.",
+          "candidate_sha256": "b0347b1ee37f31f5b4fa988a5370b3d02c91587ba3d0c24be2021df976a503d1"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 165,
+        "line_end": 169,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-2b5c5bc3fbb9d040",
+      "canonical_key": "benchmark the intended concurrent schedule and estimate total training time before expanding the model count. | an ensemble contains many independently trained models | compute_efficiency",
+      "title": "Estimate full ensemble runtime from concurrent model timings",
+      "statement": "When an ensemble contains many independently trained models, consider this source-backed action: Benchmark the intended concurrent schedule and estimate total training time before expanding the model count. Proposed check: Include memory contention and final inference time in a trial schedule. Limit: The 24-hour total is an author estimate, not a measured reproducible hardware benchmark.",
+      "trigger_conditions": [
+        "an ensemble contains many independently trained models"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Benchmark the intended concurrent schedule and estimate total training time before expanding the model count."
+      ],
+      "verification_steps": [
+        "Proposed verification: Include memory contention and final inference time in a trial schedule."
+      ],
+      "limitations": [
+        "The 24-hour total is an author estimate, not a measured reproducible hardware benchmark."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "retail"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The over-20-model ensemble used about two hours per model while training three models concurrently on the author\u2019s laptop; he estimated completion within 24 hours.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-2b5c5bc3fbb9d040"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible wall-time calculation using measured concurrent jobs.",
+        "competitor": "Useful scheduling before enlarging a many-model ensemble.",
+        "practitioner": "Broad resource planning with contention and serving costs included."
+      },
+      "review": {
+        "candidate_id": "C-a-2b5c5bc3fbb9d040",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Two-hour timings were measured under three-way concurrency; total twenty-four hours is an estimate.",
+        "candidate_sha256": "265ae9a64b9c344cd0c1d002d11fc2ef7b0f74ada5fca180f70ccd264d3f8d30"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000037",
+      "slug": "lesson-000037",
+      "merged_candidate_ids": [
+        "C-a-2b5c5bc3fbb9d040"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-800cd88f622f426d310a",
+          "competition_id": "competition:rossmann-store-sales",
+          "source_id": "source:lesson-source-5bc50e33cfc5af8f",
+          "snapshot_path": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt",
+          "snapshot_sha256": "7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d",
+          "source_url": "http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-2b5c5bc3fbb9d040",
+          "line_start": 55,
+          "line_end": 57,
+          "evidence_text": "What was the run time for both training and prediction of your winning solution?\n\nThe winning solution consists of over 20 xgboost models that each need about two hours to train when running three models in parallel on my laptop. So I think it could be done within 24 hours. Most of the models individually achieve a very competitive (top 3 leaderboard) score.",
+          "kind": "used",
+          "statement": "The over-20-model ensemble used about two hours per model while training three models concurrently on the author\u2019s laptop; he estimated completion within 24 hours.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Accessible wall-time calculation using measured concurrent jobs.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful scheduling before enlarging a many-model ensemble.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad resource planning with contention and serving costs included.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5bc50e33cfc5af8f",
+          "locator": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt#L55-L57",
+          "quote": "What was the run time for both training and prediction of your winning solution?\n\nThe winning solution consists of over 20 xgboost models that each need about two hours to train when running three models in parallel on my laptop. So I think it could be done within 24 hours. Most of the models individually achieve a very competitive (top 3 leaderboard) score.",
+          "competition_id": "competition:rossmann-store-sales",
+          "url": "http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/",
+          "snapshot_path": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt",
+          "snapshot_sha256": "7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d",
+          "line_start": 55,
+          "line_end": 57
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-2b5c5bc3fbb9d040",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Two-hour timings were measured under three-way concurrency; total twenty-four hours is an estimate.",
+          "candidate_sha256": "265ae9a64b9c344cd0c1d002d11fc2ef7b0f74ada5fca180f70ccd264d3f8d30"
+        },
+        {
+          "candidate_id": "C-a-2b5c5bc3fbb9d040",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full Rossmann interview read. More20 models at2h with3 concurrent and under24h is an author estimate, not measured end-to-end benchmark; proposed contention and final-inference measurements retain scope. Grades reasonable.",
+          "candidate_sha256": "265ae9a64b9c344cd0c1d002d11fc2ef7b0f74ada5fca180f70ccd264d3f8d30"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 173,
+        "line_end": 177,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-e592dd961c4c0bb8047e",
+      "canonical_key": "disable extra-feature generation and the corresponding training and prediction flags together for a reduced-cost run. | extra radar features dominate runtime | compute_efficiency",
+      "title": "Disable expensive feature families consistently in a fast pipeline",
+      "statement": "When extra radar features dominate runtime, proposed reuse: Proposed conditional application: Disable extra-feature generation and the corresponding training and prediction flags together for a reduced-cost run. Proposed check: Assert train/test feature schemas match after all flags change; benchmark total time and CRPS versus full pipeline. Limitation: Saving is README expectation; quality baseline and hardware unspecified.",
+      "trigger_conditions": [
+        "extra radar features dominate runtime"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Disable extra-feature generation and the corresponding training and prediction flags together for a reduced-cost run."
+      ],
+      "verification_steps": [
+        "Proposed check: Assert train/test feature schemas match after all flags change; benchmark total time and CRPS versus full pipeline."
+      ],
+      "limitations": [
+        "Saving is README expectation; quality baseline and hardware unspecified."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The rainfall archive supplies a faster run omitting selected features with about five hours less runtime.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-68dc1280db5e22a1f42e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear configuration recipe avoids partial feature removal.",
+        "competitor": "Useful coherent fast-reproduction option.",
+        "practitioner": "General schema-safe pipeline simplification."
+      },
+      "review": {
+        "candidate_id": "C-e592dd961c4c0bb8047e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Rain archive specifies coordinated flags and predicts ~5-hour saving; no measured full/fast score comparison.",
+        "candidate_sha256": "b3cf1cdd5d3f37e14cfb6ec9f605b5b896f5594c868542512a49e8e3b618422f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000229",
+      "slug": "lesson-000229",
+      "merged_candidate_ids": [
+        "C-e592dd961c4c0bb8047e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-38318143a90a521b448f",
+          "competition_id": "competition:how-much-did-it-rain",
+          "source_id": "source:lesson-source-88097c05fccd6074",
+          "snapshot_path": "research/lesson-extraction/snapshots/7213bfd8fc0bd143f11de61f318a39a128ecb1d06019a63c276fd403c0a55819.txt",
+          "snapshot_sha256": "7213bfd8fc0bd143f11de61f318a39a128ecb1d06019a63c276fd403c0a55819",
+          "source_url": "https://raw.githubusercontent.com/danzelmo/how-much-did-it-rain/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-68dc1280db5e22a1f42e",
+          "line_start": 29,
+          "line_end": 29,
+          "evidence_text": "Now run main.sh and it should shave off ~5 hours of run time. Final CRPS of about 0.00750.",
+          "kind": "author_advice",
+          "statement": "The rainfall archive supplies a faster run omitting selected features with about five hours less runtime.",
+          "reported_result": {
+            "metric": "expected runtime saving hours",
+            "value": 5,
+            "context": "Rain archive README expects approximately five hours saved by consistently disabling extra feature families versus full run; not an execution attestation. Full baseline runtime, hardware and comparable CRPS unknown; 0.00750 is fast-path absolute result.",
+            "evidence_text": "Now run main.sh and it should shave off ~5 hours of run time."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear configuration recipe avoids partial feature removal.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful coherent fast-reproduction option.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "General schema-safe pipeline simplification.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-88097c05fccd6074",
+          "locator": "research/lesson-extraction/snapshots/7213bfd8fc0bd143f11de61f318a39a128ecb1d06019a63c276fd403c0a55819.txt#L29-L29",
+          "quote": "Now run main.sh and it should shave off ~5 hours of run time. Final CRPS of about 0.00750.",
+          "competition_id": "competition:how-much-did-it-rain",
+          "url": "https://raw.githubusercontent.com/danzelmo/how-much-did-it-rain/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/7213bfd8fc0bd143f11de61f318a39a128ecb1d06019a63c276fd403c0a55819.txt",
+          "snapshot_sha256": "7213bfd8fc0bd143f11de61f318a39a128ecb1d06019a63c276fd403c0a55819",
+          "line_start": 29,
+          "line_end": 29
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-e592dd961c4c0bb8047e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Rain archive specifies coordinated flags and predicts ~5-hour saving; no measured full/fast score comparison.",
+          "candidate_sha256": "b3cf1cdd5d3f37e14cfb6ec9f605b5b896f5594c868542512a49e8e3b618422f"
+        },
+        {
+          "candidate_id": "C-e592dd961c4c0bb8047e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Rain archive gives coordinated feature-generation/train/predict flag disabling and says expected saving~5hours, fast absolute CRPS~0.00750. Checked result identifies expectation, unknown full quality baseline/hardware and no equal-quality inference. Concrete schema/time/CRPS check supports actionability4 and moderate feasibility3.",
+          "candidate_sha256": "b3cf1cdd5d3f37e14cfb6ec9f605b5b896f5594c868542512a49e8e3b618422f"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 87,
+        "line_end": 97,
+        "section": "Resource Checks Before a Full Run"
+      }
+    },
+    {
+      "candidate_id": "C-080f7cd652655c24643e",
+      "canonical_key": "disable training-phase dropout and normalization behavior while extracting embeddings | saved classifiers provide intermediate features for downstream pair scoring | embedding_consistency",
+      "title": "Extract reusable embeddings in inference mode",
+      "statement": "When saved classifiers provide intermediate features for downstream pair scoring, use inference-phase settings when extracting classifier features, and explicitly test stochasticity and batch sensitivity. Repeat extraction on identical inputs and compare batch sizes; verify chosen layer output semantics against model structure. The code supplies learning_phase zero, but legacy BatchNormalization(mode=2) means batch independence must be checked separately; hardcoded layer indices are brittle, and no embedding comparison is reported.",
+      "trigger_conditions": [
+        "saved classifiers provide intermediate features for downstream pair scoring"
+      ],
+      "action_steps": [
+        "Proposed: use inference-phase settings when extracting classifier features, and explicitly test stochasticity and batch sensitivity."
+      ],
+      "verification_steps": [
+        "Proposed: repeat extraction on identical inputs and compare batch sizes; verify chosen layer output semantics against model structure."
+      ],
+      "limitations": [
+        "The code supplies learning_phase zero, but legacy BatchNormalization(mode=2) means batch independence must be checked separately; hardcoded layer indices are brittle, and no embedding comparison is reported."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "pair_classification"
+        ],
+        "application_domains": [
+          "artwork"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "embedding_consistency"
+        ],
+        "risk_tags": [
+          "training_inference_mismatch",
+          "checkpoint_compatibility"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for painter-by-numbers: The feature loader creates a K.function including learning_phase and always calls it with phase zero.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: extract with inference-phase settings, verify named layer semantics, and compare repeated inputs and batch sizes before caching.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-694cb6e3fee390ff583b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner gets a clear train/eval distinction for features, but legacy layer-index APIs complicate use.",
+        "competitor": "Competitor can avoid stochastic dropout in reusable embedding artifacts and verify repeated outputs cheaply.",
+        "practitioner": "Practitioner gains stable representation extraction controls, with batch-sensitive normalization and artifact ordering to audit."
+      },
+      "review": {
+        "candidate_id": "C-080f7cd652655c24643e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete feature loader explicitly supplies Keras learning_phase zero; architecture uses Dropout and legacy BatchNormalization(mode=2), so phase zero should not be treated as proof of batch-independent normalization. Hardcoded layer numbers need semantic verification; stored pair-scoring pipeline is shown without output results.",
+        "candidate_sha256": "a0bd61934c75c3c1991af234e32c4aec5f0d9477962116edf33a575ca8074f3b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000230",
+      "slug": "lesson-000230",
+      "merged_candidate_ids": [
+        "C-080f7cd652655c24643e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-179115bf5156926516ff",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-4533e8cb4d75a3d8",
+          "snapshot_path": "research/lesson-extraction/snapshots/5db2792dd2defc32b64747c0cc0763f6257ab4d1b29a4e0add5eb9f8bdf13c7f.txt",
+          "snapshot_sha256": "5db2792dd2defc32b64747c0cc0763f6257ab4d1b29a4e0add5eb9f8bdf13c7f",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/HEAD/painters/train_cnn.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-694cb6e3fee390ff583b",
+          "line_start": 152,
+          "line_end": 158,
+          "evidence_text": "def _load_trained_cnn_layer(model_path, layer_index):\n    model = load_model(model_path)\n    dense_output = K.function(\n        [model.layers[0].input, K.learning_phase()],\n        [model.layers[layer_index].output])\n    # output in test mode = 0\n    return lambda X: dense_output([X, 0])[0]",
+          "kind": "used",
+          "statement": "The feature loader creates a K.function including learning_phase and always calls it with phase zero.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Beginner gets a clear train/eval distinction for features, but legacy layer-index APIs complicate use.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Competitor can avoid stochastic dropout in reusable embedding artifacts and verify repeated outputs cheaply.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner gains stable representation extraction controls, with batch-sensitive normalization and artifact ordering to audit.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-4533e8cb4d75a3d8",
+          "locator": "research/lesson-extraction/snapshots/5db2792dd2defc32b64747c0cc0763f6257ab4d1b29a4e0add5eb9f8bdf13c7f.txt#L152-L158",
+          "quote": "def _load_trained_cnn_layer(model_path, layer_index):\n    model = load_model(model_path)\n    dense_output = K.function(\n        [model.layers[0].input, K.learning_phase()],\n        [model.layers[layer_index].output])\n    # output in test mode = 0\n    return lambda X: dense_output([X, 0])[0]",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/HEAD/painters/train_cnn.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/5db2792dd2defc32b64747c0cc0763f6257ab4d1b29a4e0add5eb9f8bdf13c7f.txt",
+          "snapshot_sha256": "5db2792dd2defc32b64747c0cc0763f6257ab4d1b29a4e0add5eb9f8bdf13c7f",
+          "line_start": 152,
+          "line_end": 158
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-080f7cd652655c24643e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete feature loader explicitly supplies Keras learning_phase zero; architecture uses Dropout and legacy BatchNormalization(mode=2), so phase zero should not be treated as proof of batch-independent normalization. Hardcoded layer numbers need semantic verification; stored pair-scoring pipeline is shown without output results.",
+          "candidate_sha256": "a0bd61934c75c3c1991af234e32c4aec5f0d9477962116edf33a575ca8074f3b"
+        },
+        {
+          "candidate_id": "C-080f7cd652655c24643e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Full painters architecture contains dropout and legacy BatchNormalization mode2; extractor passes learning_phase zero through a hardcoded layer-index function. Revised lesson preserves batch sensitivity despite phase zero and proposes repeated/batch-size/layer-semantic checks, without claiming measured consistency. Legacy API effort and reusable embedding controls support grades.",
+          "candidate_sha256": "a0bd61934c75c3c1991af234e32c4aec5f0d9477962116edf33a575ca8074f3b"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 199,
+        "line_end": 203,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-ae02e616ca73217426b4",
+      "canonical_key": "divide loss by accumulation count and unscale optimizer gradients before clipping at update boundaries | mixed-precision training with gradient accumulation | training_correctness",
+      "title": "Unscale gradients before clipping accumulated mixed-precision steps",
+      "statement": "For mixed-precision training with gradient accumulation, divide loss by accumulation count and unscale optimizer gradients before clipping at update boundaries. Verify optimizer and scheduler step counts, including remainder microbatches; compare effective-batch updates with a non-accumulated reference. The source advances the scheduler every microbatch; a proposed adaptation must define schedule units and handle remainder accumulation explicitly.",
+      "trigger_conditions": [
+        "mixed-precision training with gradient accumulation"
+      ],
+      "action_steps": [
+        "Proposed: divide loss by accumulation count and unscale optimizer gradients before clipping at update boundaries."
+      ],
+      "verification_steps": [
+        "Proposed: verify optimizer and scheduler step counts, including remainder microbatches; compare effective-batch updates with a non-accumulated reference."
+      ],
+      "limitations": [
+        "The source advances the scheduler every microbatch; a proposed adaptation must define schedule units and handle remainder accumulation explicitly."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "sequence_transcription"
+        ],
+        "application_domains": [
+          "sign_language"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "training_correctness"
+        ],
+        "risk_tags": [
+          "compute_cost"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for asl-fingerspelling: The ASL loop divides loss for accumulation, scales backward, unscales before clipping, and updates optimizer at accumulation boundaries; scheduler.step is called every microbatch.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: verify accumulated mixed-precision updates against an effective-batch reference before large-model training.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-e9bb242afb817efccfcd"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Precise ordering is useful but AMP, optimizer state and accumulation need intermediate PyTorch knowledge.",
+        "competitor": "Avoids clipping scaled gradients and defines update/schedule units for memory-constrained training.",
+        "practitioner": "Transfers across large neural workloads; equivalence checks must account for unequal microbatch sizes and final remainders."
+      },
+      "review": {
+        "candidate_id": "C-ae02e616ca73217426b4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read full training loop: counter increments before each microbatch, loss is divided, gradients are unscaled before clipping and optimizer updates occur at accumulation boundaries. Scheduler advances every microbatch and final remainder has no explicit flush; those behaviors require an intentional adaptation.",
+        "candidate_sha256": "ee62a922368d0e469704a725ad38c052a8d2ea6a685f3ce7fc0f4017e30be083"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000232",
+      "slug": "lesson-000232",
+      "merged_candidate_ids": [
+        "C-ae02e616ca73217426b4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-40aeb6deaf123f06e6a6",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-58108e27e1b9e1fd",
+          "snapshot_path": "research/lesson-extraction/snapshots/319531485830e011af7aa0786dacd2e192a2f90694c5e3e096cac213ef2b99f6.txt",
+          "snapshot_sha256": "319531485830e011af7aa0786dacd2e192a2f90694c5e3e096cac213ef2b99f6",
+          "source_url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/train.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-e9bb242afb817efccfcd",
+          "line_start": 164,
+          "line_end": 188,
+          "evidence_text": "        if cfg.grad_accumulation >1:\n            loss /= cfg.grad_accumulation\n\n        if cfg.mixed_precision:\n            scaler.scale(loss).backward()\n\n            if i % cfg.grad_accumulation == 0:\n                if (cfg.track_grad_norm) or (cfg.clip_grad > 0):\n                    scaler.unscale_(optimizer)                          \n                if cfg.clip_grad > 0:\n                    torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.clip_grad)\n                scaler.step(optimizer)\n                scaler.update()\n                optimizer.zero_grad()\n        else:\n\n            loss.backward()\n            if i % cfg.grad_accumulation == 0:\n                if cfg.clip_grad > 0:\n                    torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.clip_grad)\n                optimizer.step()\n                optimizer.zero_grad()\n\n        if scheduler is not None:\n            scheduler.step()",
+          "kind": "used",
+          "statement": "The ASL loop divides loss for accumulation, scales backward, unscales before clipping, and updates optimizer at accumulation boundaries; scheduler.step is called every microbatch.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Precise ordering is useful but AMP, optimizer state and accumulation need intermediate PyTorch knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Avoids clipping scaled gradients and defines update/schedule units for memory-constrained training.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers across large neural workloads; equivalence checks must account for unequal microbatch sizes and final remainders.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-58108e27e1b9e1fd",
+          "locator": "research/lesson-extraction/snapshots/319531485830e011af7aa0786dacd2e192a2f90694c5e3e096cac213ef2b99f6.txt#L164-L188",
+          "quote": "        if cfg.grad_accumulation >1:\n            loss /= cfg.grad_accumulation\n\n        if cfg.mixed_precision:\n            scaler.scale(loss).backward()\n\n            if i % cfg.grad_accumulation == 0:\n                if (cfg.track_grad_norm) or (cfg.clip_grad > 0):\n                    scaler.unscale_(optimizer)                          \n                if cfg.clip_grad > 0:\n                    torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.clip_grad)\n                scaler.step(optimizer)\n                scaler.update()\n                optimizer.zero_grad()\n        else:\n\n            loss.backward()\n            if i % cfg.grad_accumulation == 0:\n                if cfg.clip_grad > 0:\n                    torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.clip_grad)\n                optimizer.step()\n                optimizer.zero_grad()\n\n        if scheduler is not None:\n            scheduler.step()",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/train.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/319531485830e011af7aa0786dacd2e192a2f90694c5e3e096cac213ef2b99f6.txt",
+          "snapshot_sha256": "319531485830e011af7aa0786dacd2e192a2f90694c5e3e096cac213ef2b99f6",
+          "line_start": 164,
+          "line_end": 188
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-ae02e616ca73217426b4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read full training loop: counter increments before each microbatch, loss is divided, gradients are unscaled before clipping and optimizer updates occur at accumulation boundaries. Scheduler advances every microbatch and final remainder has no explicit flush; those behaviors require an intentional adaptation.",
+          "candidate_sha256": "ee62a922368d0e469704a725ad38c052a8d2ea6a685f3ce7fc0f4017e30be083"
+        },
+        {
+          "candidate_id": "C-ae02e616ca73217426b4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete ASL training loop confirms divided loss, scaled backward, unscale-before-clipping, and optimizer updates when the globally incremented i reaches accumulation boundaries. Scheduler advances each microbatch and remainder handling is not explicit; both limitations are retained with step-count/reference checks proposed. Strong experienced utility and lower beginner feasibility are reasonable.",
+          "candidate_sha256": "ee62a922368d0e469704a725ad38c052a8d2ea6a685f3ce7fc0f4017e30be083"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 179,
+        "line_end": 183,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-c43f8dd3339605e9f55d",
+      "canonical_key": "group equal valid lengths and slice away padding before decoder generation | autoregressive decoding of variable-length encoder outputs | padding_efficiency",
+      "title": "Group decoder inputs by valid sequence length",
+      "statement": "For autoregressive decoding of variable-length encoder outputs, group equal valid lengths and slice away padding before decoder generation. Compare generated token sequences to masked padded decoding and benchmark time across the observed length distribution. This is a configured validation mode rather than a guaranteed default. Many distinct lengths can create small batches and reduce efficiency.",
+      "trigger_conditions": [
+        "autoregressive decoding of variable-length encoder outputs"
+      ],
+      "action_steps": [
+        "Proposed: group equal valid lengths and slice away padding before decoder generation."
+      ],
+      "verification_steps": [
+        "Proposed: compare generated token sequences to masked padded decoding and benchmark time across the observed length distribution."
+      ],
+      "limitations": [
+        "This is a configured validation mode rather than a guaranteed default. Many distinct lengths can create small batches and reduce efficiency."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "sequence_transcription"
+        ],
+        "application_domains": [
+          "sign_language"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "padding_efficiency"
+        ],
+        "risk_tags": [
+          "compute_cost",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for asl-fingerspelling: In cutted mode, Net groups sequences by mask_lens.unique, slices each group to lidx, generates predictions, and scatters predictions back.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: group same-length audio transcripts for decoder inference and restore request order.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-3e0517ddf99d651dba7c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Length grouping is understandable, but autoregressive generation integration requires considerable expertise.",
+        "competitor": "Specific inference-cost comparison with a row-preserving scatter and output-equivalence check.",
+        "practitioner": "Useful for variable-length serving batches with right-padding; many unique lengths can fragment batches."
+      },
+      "review": {
+        "candidate_id": "C-c43f8dd3339605e9f55d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read full mdl_1 Net inference: cutted mode groups by mask sum, slices each group to valid length and scatters generated tokens into original rows. Contiguous right-padding is required; cutted is configured, not established as every run default or faster.",
+        "candidate_sha256": "eab5b20429f4202367599b57882818fac541bf725b1ecf83cbb04ad9cc17a76f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000305",
+      "slug": "lesson-000305",
+      "merged_candidate_ids": [
+        "C-c43f8dd3339605e9f55d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8c37463db876a5aacad0",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-d06ef750667538cb",
+          "snapshot_path": "research/lesson-extraction/snapshots/e4724ac18c8681cc89658e4225221c090d1cd4cf1411c72bce6f908cc7656669.txt",
+          "snapshot_sha256": "e4724ac18c8681cc89658e4225221c090d1cd4cf1411c72bce6f908cc7656669",
+          "source_url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_1_pt.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-3e0517ddf99d651dba7c",
+          "line_start": 752,
+          "line_end": 758,
+          "evidence_text": "            elif self.val_mode == 'cutted':\n                generated_ids = torch.ones((x.shape[0],self.max_phrase+1), dtype=torch.long, device=x.device) * 59\n                mask_lens = mask.sum(1)\n                for lidx in mask_lens.unique():\n                    liddx = lidx == mask_lens\n                    preds = self.decoder.generate(x[liddx, :lidx],max_new_tokens=self.max_phrase + 1)\n                    generated_ids[liddx, :preds.shape[1]] = preds",
+          "kind": "used",
+          "statement": "In cutted mode, Net groups sequences by mask_lens.unique, slices each group to lidx, generates predictions, and scatters predictions back.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 1,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Length grouping is understandable, but autoregressive generation integration requires considerable expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Specific inference-cost comparison with a row-preserving scatter and output-equivalence check.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful for variable-length serving batches with right-padding; many unique lengths can fragment batches.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-d06ef750667538cb",
+          "locator": "research/lesson-extraction/snapshots/e4724ac18c8681cc89658e4225221c090d1cd4cf1411c72bce6f908cc7656669.txt#L752-L758",
+          "quote": "            elif self.val_mode == 'cutted':\n                generated_ids = torch.ones((x.shape[0],self.max_phrase+1), dtype=torch.long, device=x.device) * 59\n                mask_lens = mask.sum(1)\n                for lidx in mask_lens.unique():\n                    liddx = lidx == mask_lens\n                    preds = self.decoder.generate(x[liddx, :lidx],max_new_tokens=self.max_phrase + 1)\n                    generated_ids[liddx, :preds.shape[1]] = preds",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_1_pt.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/e4724ac18c8681cc89658e4225221c090d1cd4cf1411c72bce6f908cc7656669.txt",
+          "snapshot_sha256": "e4724ac18c8681cc89658e4225221c090d1cd4cf1411c72bce6f908cc7656669",
+          "line_start": 752,
+          "line_end": 758
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-c43f8dd3339605e9f55d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read full mdl_1 Net inference: cutted mode groups by mask sum, slices each group to valid length and scatters generated tokens into original rows. Contiguous right-padding is required; cutted is configured, not established as every run default or faster.",
+          "candidate_sha256": "eab5b20429f4202367599b57882818fac541bf725b1ecf83cbb04ad9cc17a76f"
+        },
+        {
+          "candidate_id": "C-c43f8dd3339605e9f55d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete mdl_1 decoder packet confirms optional cutted mode groups by summed mask length, slices each selected batch to that length, and scatters generated IDs to original positions. Right-padding scope appears in the practitioner rationale; fragmented tiny batches are explicit. Equality/runtime checks are proposed and advanced feasibility ratings are reasonable.",
+          "candidate_sha256": "eab5b20429f4202367599b57882818fac541bf725b1ecf83cbb04ad9cc17a76f"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 205,
+        "line_end": 209,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-5c0e0d58e1291aab79ca",
+      "canonical_key": "keep preprocessing, training and prediction separately callable; the author reports about two hours from scratch versus about three seconds using the existing model. | a trained artifact can avoid rebuilding a pipeline for each prediction | iteration_speed",
+      "title": "Separate reproduction time from artifact inference time",
+      "statement": "When a trained artifact can avoid rebuilding a pipeline for each prediction, proposed reuse: Proposed conditional application: Keep preprocessing, training and prediction separately callable; the author reports about two hours from scratch versus about three seconds using the existing model. Proposed check: Check frozen-artifact predictions match rebuilt ones; time preprocessing, training, loading and inference separately. Limitation: Saved artifacts need matching preprocessing and versioning; archived runtime is workload-specific.",
+      "trigger_conditions": [
+        "a trained artifact can avoid rebuilding a pipeline for each prediction"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Keep preprocessing, training and prediction separately callable; the author reports about two hours from scratch versus about three seconds using the existing model."
+      ],
+      "verification_steps": [
+        "Proposed check: Check frozen-artifact predictions match rebuilt ones; time preprocessing, training, loading and inference separately."
+      ],
+      "limitations": [
+        "Saved artifacts need matching preprocessing and versioning; archived runtime is workload-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "iteration_speed"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The README reports about three seconds for prediction using an existing model rather than rebuilding the full pipeline.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6da610ed82d9656339cb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear separation of fit and predict is accessible.",
+        "competitor": "Useful reproducibility and inference budgeting habit.",
+        "practitioner": "High operational value avoiding retraining per request."
+      },
+      "review": {
+        "candidate_id": "C-5c0e0d58e1291aab79ca",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full BrisT1D README separates two-hour rebuild and three-second saved-artifact inference on CPU; not equal workloads or a model algorithm speedup.",
+        "candidate_sha256": "8e4b13498987d3c15724cba91c16ed0364e4e8921fd607d1dce64b139f00251d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000332",
+      "slug": "lesson-000332",
+      "merged_candidate_ids": [
+        "C-5c0e0d58e1291aab79ca"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1591823bc465b3ef34d7",
+          "competition_id": "competition:brist1d",
+          "source_id": "source:lesson-source-26af04b102d41d21",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc5ce5d8f268b551830d277215e922689f2d64a061b9449eed83b797a9016b9b.txt",
+          "snapshot_sha256": "dc5ce5d8f268b551830d277215e922689f2d64a061b9449eed83b797a9016b9b",
+          "source_url": "https://raw.githubusercontent.com/scuya2050/brist1d_blood_glucose_prediction_competition/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-6da610ed82d9656339cb",
+          "line_start": 52,
+          "line_end": 55,
+          "evidence_text": "2. Fast prediction\n    - Produced by executing `predict.py`\n    - Runs in about 3 seconds\n    - Uses pre-existent trained model",
+          "kind": "used",
+          "statement": "The README reports about three seconds for prediction using an existing model rather than rebuilding the full pipeline.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Clear separation of fit and predict is accessible.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 83.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful reproducibility and inference budgeting habit.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 93.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High operational value avoiding retraining per request.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-26af04b102d41d21",
+          "locator": "research/lesson-extraction/snapshots/dc5ce5d8f268b551830d277215e922689f2d64a061b9449eed83b797a9016b9b.txt#L52-L55",
+          "quote": "2. Fast prediction\n    - Produced by executing `predict.py`\n    - Runs in about 3 seconds\n    - Uses pre-existent trained model",
+          "competition_id": "competition:brist1d",
+          "url": "https://raw.githubusercontent.com/scuya2050/brist1d_blood_glucose_prediction_competition/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc5ce5d8f268b551830d277215e922689f2d64a061b9449eed83b797a9016b9b.txt",
+          "snapshot_sha256": "dc5ce5d8f268b551830d277215e922689f2d64a061b9449eed83b797a9016b9b",
+          "line_start": 52,
+          "line_end": 55
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-5c0e0d58e1291aab79ca",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full BrisT1D README separates two-hour rebuild and three-second saved-artifact inference on CPU; not equal workloads or a model algorithm speedup.",
+          "candidate_sha256": "8e4b13498987d3c15724cba91c16ed0364e4e8921fd607d1dce64b139f00251d"
+        },
+        {
+          "candidate_id": "C-5c0e0d58e1291aab79ca",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "BrisT1D README separates two-hour preprocess/train/predict reproduction from three-second prediction using a preexisting model and states CPU-only use. Candidate never treats times as equal-scope model acceleration; artifact parity/version checks are proposed. Lower novice feasibility and high operational utility fit ratings.",
+          "candidate_sha256": "8e4b13498987d3c15724cba91c16ed0364e4e8921fd607d1dce64b139f00251d"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 99,
+        "line_end": 109,
+        "section": "Resource Checks Before a Full Run"
+      }
+    },
+    {
+      "candidate_id": "C-a-0163efd06e444e0d",
+      "canonical_key": "measure feature-generation time separately and prioritize reusable feature artifacts before ensemble expansion. | raw transactional health data require substantial aggregation | compute_efficiency",
+      "title": "Budget feature construction separately from model training",
+      "statement": "When raw transactional health data require substantial aggregation, consider this source-backed action: Measure feature-generation time separately and prioritize reusable feature artifacts before ensemble expansion. Proposed check: Benchmark an end-to-end slice including aggregation, training and prediction before scheduling the full run. Limit: The times are author estimates; node specifications and a comparable benchmark are absent.",
+      "trigger_conditions": [
+        "raw transactional health data require substantial aggregation"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Measure feature-generation time separately and prioritize reusable feature artifacts before ensemble expansion."
+      ],
+      "verification_steps": [
+        "Proposed verification: Benchmark an end-to-end slice including aggregation, training and prediction before scheduling the full run."
+      ],
+      "limitations": [
+        "The times are author estimates; node specifications and a comparable benchmark are absent."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author estimates feature engineering can take a couple of days, a simple model about two hours, and total computation a few weeks on a single node.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-0163efd06e444e0d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Pipeline timing clear; full transactional run expensive.",
+        "competitor": "Feature caching/budgets prevent late-run submission surprises.",
+        "practitioner": "High practical value for aggregation-dominated production training."
+      },
+      "review": {
+        "candidate_id": "C-a-0163efd06e444e0d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked days-versus-hours budgets; estimates not method comparisons.",
+        "candidate_sha256": "5d82aeb4fd17f7654247fdd24a3aa40a59eb09eb10b76e29c6562cd3b07f247c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000350",
+      "slug": "lesson-000350",
+      "merged_candidate_ids": [
+        "C-a-0163efd06e444e0d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-96a5d1e2ea86f52a9e96",
+          "competition_id": "competition:cervical-cancer-screening",
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "source_url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-0163efd06e444e0d",
+          "line_start": 52,
+          "line_end": 55,
+          "evidence_text": "What was the run time for both training and prediction of your winning solution?\n\nGiulio: I estimate that only the feature engineering process can take up to a couple of days. A simple model that, alone can place 4th, takes about 2 hours to train, but some of our best models can take much longer.\nMichael: Total computational time was a few weeks for a single node. It can be speedup if the machine has many cores since xgboost performance speed is nearly linear with number of cores.",
+          "kind": "used",
+          "statement": "The author estimates feature engineering can take a couple of days, a simple model about two hours, and total computation a few weeks on a single node.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Pipeline timing clear; full transactional run expensive.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Feature caching/budgets prevent late-run submission surprises.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High practical value for aggregation-dominated production training.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "locator": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt#L52-L55",
+          "quote": "What was the run time for both training and prediction of your winning solution?\n\nGiulio: I estimate that only the feature engineering process can take up to a couple of days. A simple model that, alone can place 4th, takes about 2 hours to train, but some of our best models can take much longer.\nMichael: Total computational time was a few weeks for a single node. It can be speedup if the machine has many cores since xgboost performance speed is nearly linear with number of cores.",
+          "competition_id": "competition:cervical-cancer-screening",
+          "url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "line_start": 52,
+          "line_end": 55
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-0163efd06e444e0d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked days-versus-hours budgets; estimates not method comparisons.",
+          "candidate_sha256": "5d82aeb4fd17f7654247fdd24a3aa40a59eb09eb10b76e29c6562cd3b07f247c"
+        },
+        {
+          "candidate_id": "C-a-0163efd06e444e0d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Cervical original estimates feature stage couple days,simple model2h,total weeks/single node. Proposed reusable artifacts/endtoend slice planning distinguishes stages and keeps hardware unspecified. Practitioner capacity value reasonable.",
+          "candidate_sha256": "5d82aeb4fd17f7654247fdd24a3aa40a59eb09eb10b76e29c6562cd3b07f247c"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 213,
+        "line_end": 217,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-1d37bab88c866db2526f",
+      "canonical_key": "persist model parameters and regular prediction outputs so training can resume and intermediate valid models can be evaluated. | pipeline preparation steps are costly and runs may be interrupted | reproducibility",
+      "title": "Checkpoint long training instead of rerunning preparation",
+      "statement": "When pipeline preparation steps are costly and runs may be interrupted, proposed reuse: Proposed conditional application: Persist model parameters and regular prediction outputs so training can resume and intermediate valid models can be evaluated. Proposed check: Interrupt a local test run, restore all required training state, and compare continuation with uninterrupted training; cache preparation stages by input version. Limitation: Published save/reload instructions are not successful recovery proof; parameter-only checkpoints may omit optimizer/random state.",
+      "trigger_conditions": [
+        "pipeline preparation steps are costly and runs may be interrupted"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Persist model parameters and regular prediction outputs so training can resume and intermediate valid models can be evaluated."
+      ],
+      "verification_steps": [
+        "Proposed check: Interrupt a local test run, restore all required training state, and compare continuation with uninterrupted training; cache preparation stages by input version."
+      ],
+      "limitations": [
+        "Published save/reload instructions are not successful recovery proof; parameter-only checkpoints may omit optimizer/random state."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "reproducibility"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The taxi archive saves and reloads model parameters so training can resume after interruption.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-17211a73ec6f13ebf3d4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Durable checkpoints protect work and are easy to adopt.",
+        "competitor": "Restartability makes repeated long training experiments more reliable.",
+        "practitioner": "Resumable pipelines and versioned preparation caches are broadly valuable operations practices."
+      },
+      "review": {
+        "candidate_id": "C-1d37bab88c866db2526f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner-owned archive describes save/reload extension and regularly saved models/submissions; no source code was executed to verify recovery.",
+        "candidate_sha256": "57b9ebe0a33759fd8f97271ec98c028d97049e2c33c1f14f6b09202e928f6c4f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000374",
+      "slug": "lesson-000374",
+      "merged_candidate_ids": [
+        "C-1d37bab88c866db2526f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-0cdb5d2436fc5ec32717",
+          "competition_id": "competition:pkdd-15-predict-taxi-service-trajectory-i",
+          "source_id": "source:lesson-source-5c9ee07f1dc30dc8",
+          "snapshot_path": "research/lesson-extraction/snapshots/2bb7e923c5f826f3ca8967061942a774906ff5cd8d1056d3f48fa9c7fd356de1.txt",
+          "snapshot_sha256": "2bb7e923c5f826f3ca8967061942a774906ff5cd8d1056d3f48fa9c7fd356de1",
+          "source_url": "https://raw.githubusercontent.com/adbrebs/taxi/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-17211a73ec6f13ebf3d4",
+          "line_start": 32,
+          "line_end": 32,
+          "evidence_text": "a Blocks extension for saving and reloading the model parameters so that training can be interrupted",
+          "kind": "used",
+          "statement": "The taxi archive saves and reloads model parameters so training can resume after interruption.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Durable checkpoints protect work and are easy to adopt.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Restartability makes repeated long training experiments more reliable.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Resumable pipelines and versioned preparation caches are broadly valuable operations practices.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5c9ee07f1dc30dc8",
+          "locator": "research/lesson-extraction/snapshots/2bb7e923c5f826f3ca8967061942a774906ff5cd8d1056d3f48fa9c7fd356de1.txt#L32-L32",
+          "quote": "a Blocks extension for saving and reloading the model parameters so that training can be interrupted",
+          "competition_id": "competition:pkdd-15-predict-taxi-service-trajectory-i",
+          "url": "https://raw.githubusercontent.com/adbrebs/taxi/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/2bb7e923c5f826f3ca8967061942a774906ff5cd8d1056d3f48fa9c7fd356de1.txt",
+          "snapshot_sha256": "2bb7e923c5f826f3ca8967061942a774906ff5cd8d1056d3f48fa9c7fd356de1",
+          "line_start": 32,
+          "line_end": 32
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1d37bab88c866db2526f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner-owned archive describes save/reload extension and regularly saved models/submissions; no source code was executed to verify recovery.",
+          "candidate_sha256": "57b9ebe0a33759fd8f97271ec98c028d97049e2c33c1f14f6b09202e928f6c4f"
+        },
+        {
+          "candidate_id": "C-1d37bab88c866db2526f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Taxi archive documents parameter saving/reloading, regular predictions and costly preparation restart. Candidate treats recovery as instruction rather than verified success and proposes optimizer/random-state restoration and input-versioned caching. Twelve high scores fit checkpoint discipline without faithful continuation claims.",
+          "candidate_sha256": "57b9ebe0a33759fd8f97271ec98c028d97049e2c33c1f14f6b09202e928f6c4f"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 111,
+        "line_end": 121,
+        "section": "Resource Checks Before a Full Run"
+      }
+    },
+    {
+      "candidate_id": "C-a-3c8f6c9feb6b6279",
+      "canonical_key": "profile processing, training and prediction separately and plan feature experiments within end-to-end runtime. | large relational datasets make each feature experiment costly | compute_efficiency",
+      "title": "Budget scalable processing as part of feature experiments",
+      "statement": "When large relational datasets make each feature experiment costly, consider this source-backed action: Profile processing, training and prediction separately and plan feature experiments within end-to-end runtime. Proposed check: Measure scaling on increasing data sizes before full runs. Limit: Twenty hours is local to the source implementation and hardware is not specified.",
+      "trigger_conditions": [
+        "large relational datasets make each feature experiment costly"
+      ],
+      "action_steps": [
+        "Proposed adaptation of author advice: Profile processing, training and prediction separately and plan feature experiments within end-to-end runtime."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure scaling on increasing data sizes before full runs."
+      ],
+      "limitations": [
+        "Twenty hours is local to the source implementation and hardware is not specified."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author spent two-thirds of time on features and reports about twenty hours training/prediction; he advises scalable processing code.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3c8f6c9feb6b6279"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Profiling large relational processing takes infrastructure experience.",
+        "competitor": "Budgets expensive feature experiments across the complete workflow.",
+        "practitioner": "Useful capacity planning across scalable ML data pipelines."
+      },
+      "review": {
+        "candidate_id": "C-a-3c8f6c9feb6b6279",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Read complete Avito packet: author advises scalable processing and reports total runtime; separate stage profiling and end-to-end experiment budgeting are our proposed adaptation.",
+        "candidate_sha256": "b5133c42961bbad03ba53efb420fc6707b4d5bc223afffabd182a0c2778cb929"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000391",
+      "slug": "lesson-000391",
+      "merged_candidate_ids": [
+        "C-a-3c8f6c9feb6b6279"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4e8b199ab952a18e4ee0",
+          "competition_id": "competition:avito-context-ad-clicks",
+          "source_id": "source:lesson-source-9003e30c73948b6b",
+          "snapshot_path": "research/lesson-extraction/snapshots/1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea.txt",
+          "snapshot_sha256": "1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea",
+          "source_url": "http://blog.kaggle.com/2015/08/26/avito-winners-interview-1st-place-owen-zhang/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3c8f6c9feb6b6279",
+          "line_start": 51,
+          "line_end": 62,
+          "evidence_text": "About \u2154 of time on feature engineering and \u2153 of time on model tuning.\n\nWhat was the run time for both training and prediction of your winning solution?\n\nIt takes about 20 hours.\n\nWords of Wisdom\n\nWhat have you taken away from this competition?\n\n- With a good computer, R can process \u201cbig data\u201d too\n- Always write data processing code with scalability in mind",
+          "kind": "author_advice",
+          "statement": "The author spent two-thirds of time on features and reports about twenty hours training/prediction; he advises scalable processing code.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Profiling large relational processing takes infrastructure experience.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Budgets expensive feature experiments across the complete workflow.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Useful capacity planning across scalable ML data pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9003e30c73948b6b",
+          "locator": "research/lesson-extraction/snapshots/1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea.txt#L51-L62",
+          "quote": "About \u2154 of time on feature engineering and \u2153 of time on model tuning.\n\nWhat was the run time for both training and prediction of your winning solution?\n\nIt takes about 20 hours.\n\nWords of Wisdom\n\nWhat have you taken away from this competition?\n\n- With a good computer, R can process \u201cbig data\u201d too\n- Always write data processing code with scalability in mind",
+          "competition_id": "competition:avito-context-ad-clicks",
+          "url": "http://blog.kaggle.com/2015/08/26/avito-winners-interview-1st-place-owen-zhang/",
+          "snapshot_path": "research/lesson-extraction/snapshots/1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea.txt",
+          "snapshot_sha256": "1b30b7e949e6fdea4927c016759a0483589cc0c4cc0b17cce64bb5b89c15b8ea",
+          "line_start": 51,
+          "line_end": 62
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3c8f6c9feb6b6279",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Read complete Avito packet: author advises scalable processing and reports total runtime; separate stage profiling and end-to-end experiment budgeting are our proposed adaptation.",
+          "candidate_sha256": "b5133c42961bbad03ba53efb420fc6707b4d5bc223afffabd182a0c2778cb929"
+        },
+        {
+          "candidate_id": "C-a-3c8f6c9feb6b6279",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full source packet previously read; final resolved advice-prefix revision reread. Scalableprocessing advice and local20h training/prediction support proposed stagedprofiling/budget audit; hardwareunknown. No expandedprocedure falsely credited, grades reasonable; accepted.",
+          "candidate_sha256": "b5133c42961bbad03ba53efb420fc6707b4d5bc223afffabd182a0c2778cb929"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 185,
+        "line_end": 189,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-451b877b6a1ccdc5",
+      "canonical_key": "profile vectorization memory and, as proposed, compare efficient sparse/batched implementations before custom replacement. | large field-specific sparse vocabularies exceed memory budget | compute_efficiency",
+      "title": "Profile sparse text vectorization memory before custom implementation",
+      "statement": "When large field-specific sparse vocabularies exceed memory budget, consider this source-backed action: Profile vectorization memory and, as proposed, compare efficient sparse/batched implementations before custom replacement. Proposed check: Check exact vocabulary/weight parity and peak memory with a standard reference. Limit: The source provides no implementation or numeric saving; bespoke vectorizers increase maintenance risk.",
+      "trigger_conditions": [
+        "large field-specific sparse vocabularies exceed memory budget"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Profile vectorization memory and, as proposed, compare efficient sparse/batched implementations before custom replacement."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check exact vocabulary/weight parity and peak memory with a standard reference."
+      ],
+      "limitations": [
+        "The source provides no implementation or numeric saving; bespoke vectorizers increase maintenance risk."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author implemented custom text vectorizers to improve memory efficiency.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-451b877b6a1ccdc5"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Profiling accessible, bespoke replacement needs more experience.",
+        "competitor": "Useful parity/memory audit before expensive feature pipelines.",
+        "practitioner": "Broad sparse text resource management with maintenance caveat."
+      },
+      "review": {
+        "candidate_id": "C-a-451b877b6a1ccdc5",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked customvectorizer memory rationale; no implementation/numeric saving.",
+        "candidate_sha256": "b50f8532bfeaaf97625610e6a9e5964b42c950530e15ab0dfcd3e88e9ccc69c5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000392",
+      "slug": "lesson-000392",
+      "merged_candidate_ids": [
+        "C-a-451b877b6a1ccdc5"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-222904ef9a1e6e7a2729",
+          "competition_id": "competition:job-salary-prediction",
+          "source_id": "source:lesson-source-d1027c93d3f59a8b",
+          "snapshot_path": "research/lesson-extraction/snapshots/06f53672f5625df01333f9648a464c68975ad993f41bf38b37f01d5b35ae9879.txt",
+          "snapshot_sha256": "06f53672f5625df01333f9648a464c68975ad993f41bf38b37f01d5b35ae9879",
+          "source_url": "http://blog.kaggle.com/2013/05/06/qa-with-job-salary-prediction-first-prize-winner-vlad-mnih/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-451b877b6a1ccdc5",
+          "line_start": 27,
+          "line_end": 29,
+          "evidence_text": "I used Python along with a number of open-source Python packages.\u00a0 I used pandas for loading and exploring the data and scikit-learn for its feature extraction pipeline, although I ended up implementing my own text vectorizers for improved memory efficiency.\u00a0 I also used NLTK for its implementation of the\n\nPorter stemmer.\u00a0 Finally, I used my own implementation of deep neural networks which relies on\u00a0Tijmen Tieleman's\u00a0gnumpy\u00a0library and my own\u00a0cudamat\u00a0library for GPU support.",
+          "kind": "used",
+          "statement": "The author implemented custom text vectorizers to improve memory efficiency.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Profiling accessible, bespoke replacement needs more experience.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful parity/memory audit before expensive feature pipelines.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Broad sparse text resource management with maintenance caveat.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-d1027c93d3f59a8b",
+          "locator": "research/lesson-extraction/snapshots/06f53672f5625df01333f9648a464c68975ad993f41bf38b37f01d5b35ae9879.txt#L27-L29",
+          "quote": "I used Python along with a number of open-source Python packages.\u00a0 I used pandas for loading and exploring the data and scikit-learn for its feature extraction pipeline, although I ended up implementing my own text vectorizers for improved memory efficiency.\u00a0 I also used NLTK for its implementation of the\n\nPorter stemmer.\u00a0 Finally, I used my own implementation of deep neural networks which relies on\u00a0Tijmen Tieleman's\u00a0gnumpy\u00a0library and my own\u00a0cudamat\u00a0library for GPU support.",
+          "competition_id": "competition:job-salary-prediction",
+          "url": "http://blog.kaggle.com/2013/05/06/qa-with-job-salary-prediction-first-prize-winner-vlad-mnih/",
+          "snapshot_path": "research/lesson-extraction/snapshots/06f53672f5625df01333f9648a464c68975ad993f41bf38b37f01d5b35ae9879.txt",
+          "snapshot_sha256": "06f53672f5625df01333f9648a464c68975ad993f41bf38b37f01d5b35ae9879",
+          "line_start": 27,
+          "line_end": 29
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-451b877b6a1ccdc5",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked customvectorizer memory rationale; no implementation/numeric saving.",
+          "candidate_sha256": "b50f8532bfeaaf97625610e6a9e5964b42c950530e15ab0dfcd3e88e9ccc69c5"
+        },
+        {
+          "candidate_id": "C-a-451b877b6a1ccdc5",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Vladexplicitcustomvectorizersformemoryefficiency; no implementation/comparatorsaving. Proposedstandardparity/peakmemory andmaintenancecaveat appropriatelyscoped. Moderateexpertisefeasibilitygradesreasonable.",
+          "candidate_sha256": "b50f8532bfeaaf97625610e6a9e5964b42c950530e15ab0dfcd3e88e9ccc69c5"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 123,
+        "line_end": 133,
+        "section": "Resource Checks Before a Full Run"
+      }
+    },
+    {
+      "candidate_id": "C-6e069f8a852fedb02dd7",
+      "canonical_key": "reduce preprocessing worker count below the cpu core count. | volumetric preprocessing runs out of memory | deployment_reliability",
+      "title": "Lower preprocessing parallelism when memory is exhausted",
+      "statement": "When volumetric preprocessing runs out of memory, proposed reuse: Proposed conditional application: Reduce preprocessing worker count below the CPU core count. Proposed check: Sweep worker count; record peak RSS, completion time and output parity. Limitation: Worker memory may include large volume copies; source gives no optimal count.",
+      "trigger_conditions": [
+        "volumetric preprocessing runs out of memory"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Reduce preprocessing worker count below the CPU core count."
+      ],
+      "verification_steps": [
+        "Proposed check: Sweep worker count; record peak RSS, completion time and output parity."
+      ],
+      "limitations": [
+        "Worker memory may include large volume copies; source gives no optimal count."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The volumetric README advises fewer preprocessing workers when memory is exhausted.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-9db818789b0852a5ee4c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple configuration remedy for memory failures.",
+        "competitor": "Useful reliable reproduction without new hardware.",
+        "practitioner": "General parallel preprocessing resource control."
+      },
+      "review": {
+        "candidate_id": "C-6e069f8a852fedb02dd7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full DSB2017 README advises fewer preprocessing workers on memory shortage; advice is not an executed benchmark.",
+        "candidate_sha256": "3da7872002898108a6106b3efca953cb04bfd7a88dec9381a8ad4388e96a8189"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000409",
+      "slug": "lesson-000409",
+      "merged_candidate_ids": [
+        "C-6e069f8a852fedb02dd7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7b0d08982d814c77eb65",
+          "competition_id": "competition:data-science-bowl-2017",
+          "source_id": "source:lesson-source-04df25a66f1ad8db",
+          "snapshot_path": "research/lesson-extraction/snapshots/bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e.txt",
+          "snapshot_sha256": "bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e",
+          "source_url": "https://raw.githubusercontent.com/lfz/DSB2017/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-9db818789b0852a5ee4c",
+          "line_start": 20,
+          "line_end": 20,
+          "evidence_text": "if you have bug about short of memory, set the 'n_worker_preprocessing' in config\\_submit.py to a int that is smaller than your core number.",
+          "kind": "author_advice",
+          "statement": "The volumetric README advises fewer preprocessing workers when memory is exhausted.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Simple configuration remedy for memory failures.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful reliable reproduction without new hardware.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "General parallel preprocessing resource control.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-04df25a66f1ad8db",
+          "locator": "research/lesson-extraction/snapshots/bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e.txt#L20-L20",
+          "quote": "if you have bug about short of memory, set the 'n_worker_preprocessing' in config\\_submit.py to a int that is smaller than your core number.",
+          "competition_id": "competition:data-science-bowl-2017",
+          "url": "https://raw.githubusercontent.com/lfz/DSB2017/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e.txt",
+          "snapshot_sha256": "bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e",
+          "line_start": 20,
+          "line_end": 20
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-6e069f8a852fedb02dd7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full DSB2017 README advises fewer preprocessing workers on memory shortage; advice is not an executed benchmark.",
+          "candidate_sha256": "3da7872002898108a6106b3efca953cb04bfd7a88dec9381a8ad4388e96a8189"
+        },
+        {
+          "candidate_id": "C-6e069f8a852fedb02dd7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "DSB2017 complete README explicitly recommends lowering preprocessing worker count on out-of-memory errors. Candidate adds worker sweep, peakRSS and output parity without inventing optimal count or medical efficacy. Concrete inexpensive remedy supports actionability4/feasibility4 and bounded impact3.",
+          "candidate_sha256": "3da7872002898108a6106b3efca953cb04bfd7a88dec9381a8ad4388e96a8189"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 221,
+        "line_end": 225,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-7d5b8d510a1e30e774d7",
+      "canonical_key": "run short representative training probes and reduce microbatch size with gradient accumulation before full experiments | large image models or larger inputs risk memory exhaustion | memory_feasibility",
+      "title": "Probe training memory with representative batches",
+      "statement": "When large image models or larger inputs risk memory exhaustion, run short representative training probes and reduce microbatch size with gradient accumulation before full experiments. Measure peak allocation including optimizer state at target resolution and compare accumulated versus larger-batch optimization, especially BatchNorm behavior. Winner-owned exploratory Experiment 4 is not the final winning ensemble. Source memory prose compares small ConvNeXt at128 and accum1/2/4, but GPU model, peak-measurement method and full-dataset maxima are unknown; microbatch-sensitive layers can invalidate identical-gradient claims.",
+      "trigger_conditions": [
+        "large image models or larger inputs risk memory exhaustion"
+      ],
+      "action_steps": [
+        "Proposed: run short representative training probes and reduce microbatch size with gradient accumulation before full experiments."
+      ],
+      "verification_steps": [
+        "Proposed: measure peak allocation including optimizer state at target resolution and compare accumulated versus larger-batch optimization, especially BatchNorm behavior."
+      ],
+      "limitations": [
+        "Winner-owned exploratory Experiment 4 is not the final winning ensemble. Source memory prose compares small ConvNeXt at128 and accum1/2/4, but GPU model, peak-measurement method and full-dataset maxima are unknown; microbatch-sensitive layers can invalidate identical-gradient claims."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "crop_quality"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "memory_feasibility"
+        ],
+        "risk_tags": [
+          "hardware_dependency",
+          "microbatch_semantics"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Winner-owned exploratory Experiment 4 implements short sampled memory probes, smaller microbatches and GradientAccumulation(64) with mixed precision; it is not the final winning ensemble.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: probe representative resolution and optimizer steps, measure peak memory, and validate accumulation behavior before long training.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1c30c447a8a8d9216079",
+        "O-45d69f31c662017847e8"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner can avoid full-run OOM with small probes, but mixed precision and accumulation require scheduler/loss knowledge.",
+        "competitor": "Competitor gains practical feasibility screening for resolution and architecture choices on limited VRAM.",
+        "practitioner": "Practitioner can estimate training capacity cheaply using representative optimizer steps, with microbatch-sensitive behavior still needing checks."
+      },
+      "review": {
+        "candidate_id": "C-7d5b8d510a1e30e774d7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete winner-owned exploratory Experiment 4 uses sampled short epochs, smaller microbatches and GradientAccumulation(64) with mixed precision. The separate exact observation at lines 65\u201389 preserves the old quote and supports the author-reported <5GB, below 3.5GB and under 3GB VRAM bounds at accum=1, 2 and 4 for ConvNeXt-small-in22k at input size 128. GPU model, peak-measurement procedure and replicates are unknown. README identifies this as exploration rather than final ensemble use; identical gradients and accuracy equivalence are not established.",
+        "candidate_sha256": "e469926b4c29987b018250d2e14089b889c5af8907415281dc388590652f5a4c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000439",
+      "slug": "lesson-000439",
+      "merged_candidate_ids": [
+        "C-7d5b8d510a1e30e774d7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3d4acc0c14ca58c73f54",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-1b9fccaa1e513d5f",
+          "snapshot_path": "research/lesson-extraction/snapshots/09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac.txt",
+          "snapshot_sha256": "09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/4_-_fastai_ensemble.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-1c30c447a8a8d9216079",
+          "line_start": 30,
+          "line_end": 54,
+          "evidence_text": "## Memory and gradient accumulation\n\nIn this analysis our goal is to train an ensemble of larger models with larger inputs.  In order to bypass the potential need for larger GPU memory (especially if running inference on Kaggle's machines) we will use gradient accumulation.\n\nFirst we will quickly try a few models and image sizes to find out what will run without having memory issues.  To make this quick, we will grab a small subset of the data for running short epochs -- the memory use will be the same, but it will run faster.\n\ndf = pd.read_csv(comp_path/'train.csv')\ndf.label.value_counts()\nprint(df)\n\ntraining_set = df.sample(200)\n\nNow we'll set up a `train` function.  The function will add a `finetune` argument to pick whether the model will be updated using the `fine_tune()` or `fit_one_cycle()` method -- the latter is faster since it doesn't do an initial fine-tuning of the head.  When we fine tune in this function we will also perform Test Time Augmentation (TTA) on the predictions on the test set (as the idea will be to ensemble the TTA results of a number of models by the end of this notebook).  There will be no hardcoded seed in the `ImageDataLoaders` line providing different training and validation sets every run of the notebook (not ideal) but providing different training and validation sets for each model we train in the ensemble (ideal).  An `accum` argument is added to implement gradient accumulation.  This parameter is used in two places:\n\n1. Divide the batch size by `accum` (controls the ammount of memory needed on the GPU)\n2. Add the `GradientAccumulation` callback, passing in `accum` (ensuring the gradients computed are identical to the original batch size).\n\ndef train(arch, size, item=Resize(256, method=ResizeMethod.Pad, pad_mode=PadMode.Border), accum=1, finetune=True, epochs=12, model_filename='model'):\n    dls = ImageDataLoaders.from_df(training_set, \n        path=comp_path, fn_col=2, label_col=3,\n        valid_pct=0.2, item_tfms=item,\n        batch_tfms=aug_transforms(size=size, min_scale=0.75),\n        bs=64//accum)\n    cbs = GradientAccumulation(64) if accum else []\n    learn = vision_learner(dls, arch, metrics=[accuracy,error_rate], cbs=cbs).to_fp16()",
+          "kind": "used",
+          "statement": "The notebook samples 200 rows for short memory probes, sets bs=64//accum and adds GradientAccumulation(64) in a mixed-precision learner.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-3d4acc0c14ca58c73f54",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-1b9fccaa1e513d5f",
+          "snapshot_path": "research/lesson-extraction/snapshots/09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac.txt",
+          "snapshot_sha256": "09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/4_-_fastai_ensemble.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-45d69f31c662017847e8",
+          "line_start": 65,
+          "line_end": 89,
+          "evidence_text": "train('convnext_small_in22k', 128, epochs=1, accum=1, finetune=False)\n\nLet's create a function to find out how much GPU memory is being used and also clear it out for the next run:\n\nimport gc\ndef report_gpu():\n    print(torch.cuda.list_gpu_processes())\n    gc.collect()\n    torch.cuda.empty_cache()\n\nreport_gpu()\n\nWith `accum=1` it uses < 5GB VRAM.  Let's try `accum=2`:\n\ntrain('convnext_small_in22k', 128, epochs=1, accum=2, finetune=False)\nreport_gpu()\n\nVRAM usage has now gone to below 3.5GB.  It's not halved as there's other overhead involved (including all the model parameters).\n\nLet's try `accum=4`:\n\ntrain('convnext_small_in22k', 128, epochs=1, accum=4, finetune=False)\nreport_gpu()\n\nNow under 3GB VRAM usage!",
+          "kind": "reported_gain",
+          "statement": "In winner-owned exploratory Experiment 4, the author reports VRAM usage below 5GB, below 3.5GB and under 3GB for ConvNeXt-small-in22k at input size 128 with accum=1, 2 and 4 respectively; these are reported upper bounds, not exact peak measurements.",
+          "reported_result": {
+            "metric": "author-reported GPU VRAM usage upper bound (GB)",
+            "value": 3.5,
+            "context": "It\u2019s Corn (PogChamps #3), winner-owned exploratory Experiment 4: ConvNeXt-small-in22k, input size 128, one epoch, finetune=False, mixed precision, sampled 200-row training set. The author reports below 3.5GB with accum=2 versus <5GB with accum=1, and under 3GB with accum=4. The existing train function uses microbatch sizes 32, 64 and 16 respectively and GradientAccumulation(64). These are author-reported memory bounds, not exact deltas or independently verified peak measurements. GPU model, peak sampling procedure and repeat measurements are unknown; no accuracy equivalence or final winning-ensemble use is established.",
+            "evidence_text": "With `accum=1` it uses < 5GB VRAM.  Let's try `accum=2`:\n\ntrain('convnext_small_in22k', 128, epochs=1, accum=2, finetune=False)\nreport_gpu()\n\nVRAM usage has now gone to below 3.5GB.  It's not halved as there's other overhead involved (including all the model parameters).\n\nLet's try `accum=4`:\n\ntrain('convnext_small_in22k', 128, epochs=1, accum=4, finetune=False)\nreport_gpu()\n\nNow under 3GB VRAM usage!"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Beginner can avoid full-run OOM with small probes, but mixed precision and accumulation require scheduler/loss knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Competitor gains practical feasibility screening for resolution and architecture choices on limited VRAM.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner can estimate training capacity cheaply using representative optimizer steps, with microbatch-sensitive behavior still needing checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-1b9fccaa1e513d5f",
+          "locator": "research/lesson-extraction/snapshots/09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac.txt#L30-L54",
+          "quote": "## Memory and gradient accumulation\n\nIn this analysis our goal is to train an ensemble of larger models with larger inputs.  In order to bypass the potential need for larger GPU memory (especially if running inference on Kaggle's machines) we will use gradient accumulation.\n\nFirst we will quickly try a few models and image sizes to find out what will run without having memory issues.  To make this quick, we will grab a small subset of the data for running short epochs -- the memory use will be the same, but it will run faster.\n\ndf = pd.read_csv(comp_path/'train.csv')\ndf.label.value_counts()\nprint(df)\n\ntraining_set = df.sample(200)\n\nNow we'll set up a `train` function.  The function will add a `finetune` argument to pick whether the model will be updated using the `fine_tune()` or `fit_one_cycle()` method -- the latter is faster since it doesn't do an initial fine-tuning of the head.  When we fine tune in this function we will also perform Test Time Augmentation (TTA) on the predictions on the test set (as the idea will be to ensemble the TTA results of a number of models by the end of this notebook).  There will be no hardcoded seed in the `ImageDataLoaders` line providing different training and validation sets every run of the notebook (not ideal) but providing different training and validation sets for each model we train in the ensemble (ideal).  An `accum` argument is added to implement gradient accumulation.  This parameter is used in two places:\n\n1. Divide the batch size by `accum` (controls the ammount of memory needed on the GPU)\n2. Add the `GradientAccumulation` callback, passing in `accum` (ensuring the gradients computed are identical to the original batch size).\n\ndef train(arch, size, item=Resize(256, method=ResizeMethod.Pad, pad_mode=PadMode.Border), accum=1, finetune=True, epochs=12, model_filename='model'):\n    dls = ImageDataLoaders.from_df(training_set, \n        path=comp_path, fn_col=2, label_col=3,\n        valid_pct=0.2, item_tfms=item,\n        batch_tfms=aug_transforms(size=size, min_scale=0.75),\n        bs=64//accum)\n    cbs = GradientAccumulation(64) if accum else []\n    learn = vision_learner(dls, arch, metrics=[accuracy,error_rate], cbs=cbs).to_fp16()",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/4_-_fastai_ensemble.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac.txt",
+          "snapshot_sha256": "09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac",
+          "line_start": 30,
+          "line_end": 54
+        },
+        {
+          "source_id": "source:lesson-source-1b9fccaa1e513d5f",
+          "locator": "research/lesson-extraction/snapshots/09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac.txt#L65-L89",
+          "quote": "train('convnext_small_in22k', 128, epochs=1, accum=1, finetune=False)\n\nLet's create a function to find out how much GPU memory is being used and also clear it out for the next run:\n\nimport gc\ndef report_gpu():\n    print(torch.cuda.list_gpu_processes())\n    gc.collect()\n    torch.cuda.empty_cache()\n\nreport_gpu()\n\nWith `accum=1` it uses < 5GB VRAM.  Let's try `accum=2`:\n\ntrain('convnext_small_in22k', 128, epochs=1, accum=2, finetune=False)\nreport_gpu()\n\nVRAM usage has now gone to below 3.5GB.  It's not halved as there's other overhead involved (including all the model parameters).\n\nLet's try `accum=4`:\n\ntrain('convnext_small_in22k', 128, epochs=1, accum=4, finetune=False)\nreport_gpu()\n\nNow under 3GB VRAM usage!",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/4_-_fastai_ensemble.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac.txt",
+          "snapshot_sha256": "09f5c2e49321ea04c6d744e615b0f9e8b400db8379c2a6ea397cfd2511f08cac",
+          "line_start": 65,
+          "line_end": 89
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-7d5b8d510a1e30e774d7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete winner-owned exploratory Experiment 4 uses sampled short epochs, smaller microbatches and GradientAccumulation(64) with mixed precision. The separate exact observation at lines 65\u201389 preserves the old quote and supports the author-reported <5GB, below 3.5GB and under 3GB VRAM bounds at accum=1, 2 and 4 for ConvNeXt-small-in22k at input size 128. GPU model, peak-measurement procedure and replicates are unknown. README identifies this as exploration rather than final ensemble use; identical gradients and accuracy equivalence are not established.",
+          "candidate_sha256": "e469926b4c29987b018250d2e14089b889c5af8907415281dc388590652f5a4c"
+        },
+        {
+          "candidate_id": "C-7d5b8d510a1e30e774d7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete corn Experiment 4 and both observations support sampled mixed-precision probes with bs=64/accum and GradientAccumulation(64). Additive <5/<3.5/<3GB figures are preserved as author-reported bounds for small ConvNeXt at128, without exact savings, peak measurement, hardware, replication, accuracy equivalence or final-winning use. Microbatch-sensitive semantics and proposed representative optimizer-step measurements constrain appropriately; grades are reasonable.",
+          "candidate_sha256": "e469926b4c29987b018250d2e14089b889c5af8907415281dc388590652f5a4c"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 135,
+        "line_end": 145,
+        "section": "Resource Checks Before a Full Run"
+      }
+    },
+    {
+      "candidate_id": "C-a-1ef879c71ee7ece2",
+      "canonical_key": "save each completed model and run bounded job batches while diagnosing memory/process accumulation. | long sequences of training jobs exhaust or destabilize a host | deployment_reliability",
+      "title": "Checkpoint and batch repeated training jobs when the host freezes",
+      "statement": "When long sequences of training jobs exhaust or destabilize a host, consider this source-backed action: Save each completed model and run bounded job batches while diagnosing memory/process accumulation. Proposed check: Verify saved artifacts and restart behavior and monitor resource usage per job. Limit: The cause was unresolved; batching is a workaround rather than a confirmed fix.",
+      "trigger_conditions": [
+        "long sequences of training jobs exhaust or destabilize a host",
+        "a VM freezes after several sequential model fits"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Save each completed model and run bounded job batches while diagnosing memory/process accumulation.",
+        "Proposed conditional application: Train in batches of five as a workaround while preserving distinct seeds and saved predictions."
+      ],
+      "verification_steps": [
+        "Proposed verification: Verify saved artifacts and restart behavior and monitor resource usage per job.",
+        "Proposed check: Save weights and predictions after each fit, monitor memory and process state, and compare restarted batch runs with uninterrupted runs."
+      ],
+      "limitations": [
+        "The cause was unresolved; batching is a workaround rather than a confirmed fix.",
+        "Five-model batches are a specific workaround; the root cause was unresolved and modern environments may differ."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training",
+          "reproducibility"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [
+          "hardware_dependency"
+        ],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training",
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The Azure VM froze after about five sequential models; the authors mitigated by training batches of five and provided saved bootstrap models.",
+          "basis": "observed"
+        },
+        {
+          "description": "The gaze author advises batches of five models as a workaround for an unresolved virtual-machine freeze.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-0f203361770354ae72df",
+        "O-a-1ef879c71ee7ece2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Saving completed runs and bounded job batches accessible.",
+        "competitor": "Useful recovery around repeated expensive training jobs.",
+        "practitioner": "Broad operational value with resource diagnostics, no rootcause claim."
+      },
+      "review": {
+        "candidate_id": "C-a-1ef879c71ee7ece2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked VMfreeze/batches5; cause uncertain and workaround explicit.",
+        "candidate_sha256": "998f89219f9061a3f998d66cb4d966b0e00cf7064a54be5675dbd4fbffe950e3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000445",
+      "slug": "lesson-000445",
+      "merged_candidate_ids": [
+        "C-736e2105e1180ba1fa75",
+        "C-a-1ef879c71ee7ece2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7bd3efeb38c376e094a4",
+          "competition_id": "competition:mp18-eye-gaze-estimation",
+          "source_id": "source:lesson-source-a0293087861126dd",
+          "snapshot_path": "research/lesson-extraction/snapshots/fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d.txt",
+          "snapshot_sha256": "fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d",
+          "source_url": "https://raw.githubusercontent.com/mcbuehler/iPercept/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-0f203361770354ae72df",
+          "line_start": 68,
+          "line_end": 68,
+          "evidence_text": "To mitigate this you can train models in batches of 5.",
+          "kind": "author_advice",
+          "statement": "The gaze author advises batches of five models as a workaround for an unresolved virtual-machine freeze.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-5562dc7a001286b7518f",
+          "competition_id": "competition:mp18-eye-gaze-estimation",
+          "source_id": "source:lesson-source-147a0a7d68e21d03",
+          "snapshot_path": "research/lesson-extraction/snapshots/fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d.txt",
+          "snapshot_sha256": "fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d",
+          "source_url": "https://raw.githubusercontent.com/mcbuehler/iPercept/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-1ef879c71ee7ece2",
+          "line_start": 66,
+          "line_end": 71,
+          "evidence_text": "### Possible Issues\n\nWe noted that when training several models using train_densebag.py the Azure Virtual Machine freezes after training 5 models in a row. We have not solved this problem (we suspect issues with the VM or a problem with tensorflow). To mitigate this you can train models in batches of 5. If you find out how to fix this issue, please let us know. Thank you.\n\n# Download Pre-Trained Base Models\nYou might not want to retrain the model. We provide you with a collection of 30 pre-trained base models by [here](http://mbuehler.ch/public_downloads/densebag/DenseBag_trained-models.zip). These models were each trained on a bootstrapped sample of a combined dataset of the MPII training and validation sets.",
+          "kind": "reported_failure",
+          "statement": "The Azure VM froze after about five sequential models; the authors mitigated by training batches of five and provided saved bootstrap models.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Saving completed runs and bounded job batches accessible.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful recovery around repeated expensive training jobs.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broad operational value with resource diagnostics, no rootcause claim.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 2,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a0293087861126dd",
+          "locator": "research/lesson-extraction/snapshots/fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d.txt#L68-L68",
+          "quote": "To mitigate this you can train models in batches of 5.",
+          "competition_id": "competition:mp18-eye-gaze-estimation",
+          "url": "https://raw.githubusercontent.com/mcbuehler/iPercept/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d.txt",
+          "snapshot_sha256": "fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d",
+          "line_start": 68,
+          "line_end": 68
+        },
+        {
+          "source_id": "source:lesson-source-147a0a7d68e21d03",
+          "locator": "research/lesson-extraction/snapshots/fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d.txt#L66-L71",
+          "quote": "### Possible Issues\n\nWe noted that when training several models using train_densebag.py the Azure Virtual Machine freezes after training 5 models in a row. We have not solved this problem (we suspect issues with the VM or a problem with tensorflow). To mitigate this you can train models in batches of 5. If you find out how to fix this issue, please let us know. Thank you.\n\n# Download Pre-Trained Base Models\nYou might not want to retrain the model. We provide you with a collection of 30 pre-trained base models by [here](http://mbuehler.ch/public_downloads/densebag/DenseBag_trained-models.zip). These models were each trained on a bootstrapped sample of a combined dataset of the MPII training and validation sets.",
+          "competition_id": "competition:mp18-eye-gaze-estimation",
+          "url": "https://raw.githubusercontent.com/mcbuehler/iPercept/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d.txt",
+          "snapshot_sha256": "fcb46a14b09642217721580aa48f342c2fb499b5a0135f34edefe34736dbd95d",
+          "line_start": 66,
+          "line_end": 71
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-736e2105e1180ba1fa75",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Source advises batches of five for an unresolved Azure VM freeze; it does not establish the suspected VM/TensorFlow cause.",
+          "candidate_sha256": "028fd7548ffb1d01f34a9576aa1c23877db9dfd7846b52e41b127e686e937613"
+        },
+        {
+          "candidate_id": "C-736e2105e1180ba1fa75",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "DenseBag source recommends five-model batches for an unresolved Azure VM freeze after five consecutive fits; cause is only suspected. Candidate preserves workaround scope and proposes durable artifacts plus process/memory diagnosis. Twelve scores appropriately reflect narrow novice transfer and practical restartability.",
+          "candidate_sha256": "028fd7548ffb1d01f34a9576aa1c23877db9dfd7846b52e41b127e686e937613"
+        },
+        {
+          "candidate_id": "C-a-1ef879c71ee7ece2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked VMfreeze/batches5; cause uncertain and workaround explicit.",
+          "candidate_sha256": "998f89219f9061a3f998d66cb4d966b0e00cf7064a54be5675dbd4fbffe950e3"
+        },
+        {
+          "candidate_id": "C-a-1ef879c71ee7ece2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "DenseBagwinnerREADME explicitlyAzurefreezesafter5sequentialfits,causeVM/TensorFlowunresolved,batches5workaround,savedmodels. Proposedperjobresource/restart/artifactchecks distinguishworkaroundfromfix. Broad operational gradesreasonable.",
+          "candidate_sha256": "998f89219f9061a3f998d66cb4d966b0e00cf7064a54be5675dbd4fbffe950e3"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 147,
+        "line_end": 157,
+        "section": "Resource Checks Before a Full Run"
+      }
+    },
+    {
+      "candidate_id": "C-a-4f1ec2a9f3a87c2e",
+      "canonical_key": "stream training validation and test images in batches | image datasets exceed memory | deployment_reliability",
+      "title": "Stream high-resolution images with order-safe batch generators",
+      "statement": "When High-resolution image datasets exceed memory., Load images in bounded batches while preserving sample IDs and deterministic validation/test ordering. Verify: Check sample/label parity, prediction row alignment and peak memory against eager loading. Limits: Batch loading establishes memory feasibility, not an isolated predictive gain.; Resolution/augmentation diversity and nineteen-run averaging are separate experiments.",
+      "trigger_conditions": [
+        "High-resolution image datasets exceed memory."
+      ],
+      "action_steps": [
+        "Load images in bounded batches while preserving sample IDs and deterministic validation/test ordering."
+      ],
+      "verification_steps": [
+        "Check sample/label parity, prediction row alignment and peak memory against eager loading."
+      ],
+      "limitations": [
+        "Batch loading establishes memory feasibility, not an isolated predictive gain.",
+        "Resolution/augmentation diversity and nineteen-run averaging are separate experiments."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used five folds across several image sizes with batch generators because data could not fit in memory; shifts/zoom/shear scored lower, and final predictions averaged nineteen runs.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4f1ec2a9f3a87c2e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Batch generators solve accessible out-of-memory problems.",
+        "competitor": "Useful order-safe image streaming for high-resolution fits.",
+        "practitioner": "Broad memory reliability value for repeated image inference/training."
+      },
+      "review": {
+        "candidate_id": "C-a-4f1ec2a9f3a87c2e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked batch loading memory constraint; narrowed to streaming, variants contextual.",
+        "candidate_sha256": "586c62c8971ba84764be490a8454a76bb1dd99ef26785da258e52ee83109fe50"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000477",
+      "slug": "lesson-000477",
+      "merged_candidate_ids": [
+        "C-a-4f1ec2a9f3a87c2e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-02550f89bc1648d86889",
+          "competition_id": "competition:invasive-species-monitoring",
+          "source_id": "source:lesson-source-afa11284f3a146a7",
+          "snapshot_path": "research/lesson-extraction/snapshots/7fd4667ad4b6b3b759acd6437f984bef13c8dad0e13cb1e936f9a30c2017c6fe.txt",
+          "snapshot_sha256": "7fd4667ad4b6b3b759acd6437f984bef13c8dad0e13cb1e936f9a30c2017c6fe",
+          "source_url": "https://www.kaggle.com/competitions/invasive-species-monitoring/writeups/james-requa-1st-place-solution-overview-lb-0-99770",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4f1ec2a9f3a87c2e",
+          "line_start": 24,
+          "line_end": 44,
+          "evidence_text": "The images in the dataset were size 1154px x 866px. I ended up using a wide range of image sizes 400x400, 500x500, 600x600, 700x700, and 800x800. I think the combination of all of them all helped to achieve the final score.\n\n**Cross Validation**:\n\n5-fold cross-validation. So each fold I ran predictions on the test set and then took the average of 5 folds.\n\n**Batch Generator**:\n\nDue to the larger image sizes and because I used 5-fold CV for training, there was no way to load all of the images into memory. The solution was that I created a batch generator for all my datasets including training, validation, and test set to load the images in batches.\n\n**Data Augmentation**:\n\nData augmentation is very important to avoid overfitting. I created some simple random augmentations like horizontal/vertical flips and rotations using numpy. I tried other augmentations like shift, zoom and shearing but all of these produced lower scores so I ended up not using them.\n\n**Semi-Supervised Learning**:\n\nThis was a very small training set (2295 images), so I felt that the model could improve a lot from semi-supervised learning so I used a technique called `pseudo labeling`.\n\n**Ensembling**:\n\nIt is very important to average predictions to help the models generalize and to avoid any bias because each trained model will potentially pick up on different information. My final submission included averages from 19 different predictions and most of those predictions were also 5-fold averages from CV.",
+          "kind": "used",
+          "statement": "The author used five folds across several image sizes with batch generators because data could not fit in memory; shifts/zoom/shear scored lower, and final predictions averaged nineteen runs.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Batch generators solve accessible out-of-memory problems.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful order-safe image streaming for high-resolution fits.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broad memory reliability value for repeated image inference/training.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-afa11284f3a146a7",
+          "locator": "research/lesson-extraction/snapshots/7fd4667ad4b6b3b759acd6437f984bef13c8dad0e13cb1e936f9a30c2017c6fe.txt#L24-L44",
+          "quote": "The images in the dataset were size 1154px x 866px. I ended up using a wide range of image sizes 400x400, 500x500, 600x600, 700x700, and 800x800. I think the combination of all of them all helped to achieve the final score.\n\n**Cross Validation**:\n\n5-fold cross-validation. So each fold I ran predictions on the test set and then took the average of 5 folds.\n\n**Batch Generator**:\n\nDue to the larger image sizes and because I used 5-fold CV for training, there was no way to load all of the images into memory. The solution was that I created a batch generator for all my datasets including training, validation, and test set to load the images in batches.\n\n**Data Augmentation**:\n\nData augmentation is very important to avoid overfitting. I created some simple random augmentations like horizontal/vertical flips and rotations using numpy. I tried other augmentations like shift, zoom and shearing but all of these produced lower scores so I ended up not using them.\n\n**Semi-Supervised Learning**:\n\nThis was a very small training set (2295 images), so I felt that the model could improve a lot from semi-supervised learning so I used a technique called `pseudo labeling`.\n\n**Ensembling**:\n\nIt is very important to average predictions to help the models generalize and to avoid any bias because each trained model will potentially pick up on different information. My final submission included averages from 19 different predictions and most of those predictions were also 5-fold averages from CV.",
+          "competition_id": "competition:invasive-species-monitoring",
+          "url": "https://www.kaggle.com/competitions/invasive-species-monitoring/writeups/james-requa-1st-place-solution-overview-lb-0-99770",
+          "snapshot_path": "research/lesson-extraction/snapshots/7fd4667ad4b6b3b759acd6437f984bef13c8dad0e13cb1e936f9a30c2017c6fe.txt",
+          "snapshot_sha256": "7fd4667ad4b6b3b759acd6437f984bef13c8dad0e13cb1e936f9a30c2017c6fe",
+          "line_start": 24,
+          "line_end": 44
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4f1ec2a9f3a87c2e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked batch loading memory constraint; narrowed to streaming, variants contextual.",
+          "candidate_sha256": "586c62c8971ba84764be490a8454a76bb1dd99ef26785da258e52ee83109fe50"
+        },
+        {
+          "candidate_id": "C-a-4f1ec2a9f3a87c2e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Invasivewinner explicitbatchgeneratorsforallsetsbecauseimagesmemoryexcess,5fold/multisizes/19averages andlocalaugmentationfailures. OrderID/memory/paritychecks proposed;streamingmemoryfeasibility separatedfrompredictiveexperiments. Broad practical grades reasonable.",
+          "candidate_sha256": "586c62c8971ba84764be490a8454a76bb1dd99ef26785da258e52ee83109fe50"
+        }
+      ],
+      "book_location": {
+        "chapter": 35,
+        "path": "manuscript/chapters/35-memory-optimization.md",
+        "sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
+        "line_start": 191,
+        "line_end": 195,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

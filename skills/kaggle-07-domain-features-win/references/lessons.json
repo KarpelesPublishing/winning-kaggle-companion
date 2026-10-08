@@ -1,0 +1,2960 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-c7fff3796f978726024b",
+      "canonical_key": "build recency, distinct-day/count frequencies, multi-window counts, growth rates and event intervals, including category purchase counts. | customer activity logs lack direct monetary detail | predictive_quality",
+      "title": "Expand recency-frequency features across windows and rhythms",
+      "statement": "When customer activity logs lack direct monetary detail, proposed reuse: Proposed conditional application: Build recency, distinct-day/count frequencies, multi-window counts, growth rates and event intervals, including category purchase counts. Proposed check: Ablate each family on next-month user holdouts, computing windows before forecast origin. Limitation: Category counts are not monetary values; seasonality and changing user behavior matter.",
+      "trigger_conditions": [
+        "customer activity logs lack direct monetary detail"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Build recency, distinct-day/count frequencies, multi-window counts, growth rates and event intervals, including category purchase counts."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate each family on next-month user holdouts, computing windows before forecast origin."
+      ],
+      "limitations": [
+        "Category counts are not monetary values; seasonality and changing user behavior matter."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The retail source constructs recency, frequency and monetary-style features across time windows.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-2ebec0f1666c3d3dd9d9"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Pandas rolling/group features are accessible.",
+        "competitor": "Concrete behavioral feature library for customer forecasts.",
+        "practitioner": "Useful customer activity modeling without causal purchase claims."
+      },
+      "review": {
+        "candidate_id": "C-c7fff3796f978726024b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full Shopee source defines recency, count/day frequencies, windows, growth and event intervals; category counts proxy missing spend.",
+        "candidate_sha256": "9c1ab42a5381591d7d981e13ca7fb59b8b85512f10ebdc102b32aef4537308a7"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000043",
+      "slug": "lesson-000043",
+      "merged_candidate_ids": [
+        "C-c7fff3796f978726024b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-444ae6bda266b533c71f",
+          "competition_id": "competition:iamthebestcoderopen2020",
+          "source_id": "source:lesson-source-c18d4cf5beec491a",
+          "snapshot_path": "research/lesson-extraction/snapshots/4f081e8de6595e846980a0228dfb4342179e75671f5a8c25c47d230c9183a654.txt",
+          "snapshot_sha256": "4f081e8de6595e846980a0228dfb4342179e75671f5a8c25c47d230c9183a654",
+          "source_url": "https://raw.githubusercontent.com/Tang-Li-Jen/High-Value-Customer-Forecast-Competition/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-2ebec0f1666c3d3dd9d9",
+          "line_start": 28,
+          "line_end": 28,
+          "evidence_text": "We combined these levels to produce multiple features",
+          "kind": "used",
+          "statement": "The retail source constructs recency, frequency and monetary-style features across time windows.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Pandas rolling/group features are accessible.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Concrete behavioral feature library for customer forecasts.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful customer activity modeling without causal purchase claims.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c18d4cf5beec491a",
+          "locator": "research/lesson-extraction/snapshots/4f081e8de6595e846980a0228dfb4342179e75671f5a8c25c47d230c9183a654.txt#L28-L28",
+          "quote": "We combined these levels to produce multiple features",
+          "competition_id": "competition:iamthebestcoderopen2020",
+          "url": "https://raw.githubusercontent.com/Tang-Li-Jen/High-Value-Customer-Forecast-Competition/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/4f081e8de6595e846980a0228dfb4342179e75671f5a8c25c47d230c9183a654.txt",
+          "snapshot_sha256": "4f081e8de6595e846980a0228dfb4342179e75671f5a8c25c47d230c9183a654",
+          "line_start": 28,
+          "line_end": 28
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-c7fff3796f978726024b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full Shopee source defines recency, count/day frequencies, windows, growth and event intervals; category counts proxy missing spend.",
+          "candidate_sha256": "9c1ab42a5381591d7d981e13ca7fb59b8b85512f10ebdc102b32aef4537308a7"
+        },
+        {
+          "candidate_id": "C-c7fff3796f978726024b",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Shopee winner README lists recency, distinct-day/count windows, growth/interval rhythms and category counts explicitly because monetary detail is absent. Candidate acknowledges counts are not values and proposes next-month forecast-origin ablations. Pandas feature construction supports actionability/feasibility4 and conditional impact/transfer3.",
+          "candidate_sha256": "9c1ab42a5381591d7d981e13ca7fb59b8b85512f10ebdc102b32aef4537308a7"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 61,
+        "line_end": 71,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-4dd3d95a37da3215",
+      "canonical_key": "compare fine-grained purchase modelling with aggregate-only modelling and reproduce the target\u2019s aggregation exactly. | an aggregate regression target has accessible finer-grained parent data | predictive_quality",
+      "title": "Model at purchase level then aggregate to the target unit",
+      "statement": "When an aggregate regression target has accessible finer-grained parent data, consider this source-backed action: Compare fine-grained purchase modelling with aggregate-only modelling and reproduce the target\u2019s aggregation exactly. Proposed check: Reconcile reconstructed training aggregates to target rows and validate on complete state-month groups. Limit: The claim of stronger fine-grained signal is the authors\u2019 interpretation; the packet does not give a matched split comparison.",
+      "trigger_conditions": [
+        "an aggregate regression target has accessible finer-grained parent data"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare fine-grained purchase modelling with aggregate-only modelling and reproduce the target\u2019s aggregation exactly."
+      ],
+      "verification_steps": [
+        "Proposed verification: Reconcile reconstructed training aggregates to target rows and validate on complete state-month groups."
+      ],
+      "limitations": [
+        "The claim of stronger fine-grained signal is the authors\u2019 interpretation; the packet does not give a matched split comparison."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "problem_framing"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "retail"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Competition Strategy"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors joined purchase and customer datasets, predicted at purchase level and aggregated predictions to the state-month granularity using the original aggregation procedure.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4dd3d95a37da3215"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Granularity and aggregate reconciliation require substantial data preparation.",
+        "competitor": "Strong reframing opportunity when parent-level records are available.",
+        "practitioner": "Practical aggregation design with join multiplicity and coverage checks."
+      },
+      "review": {
+        "candidate_id": "C-a-4dd3d95a37da3215",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Purchase-level join and exact state-month reconstruction are used; fine/coarse score tables do not share target or split.",
+        "candidate_sha256": "8e6ba5cf41f66cbcba37dd36ed7f6df5f0e3cd7a854a9788f1e651a74c6c4932"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000123",
+      "slug": "lesson-000123",
+      "merged_candidate_ids": [
+        "C-a-4dd3d95a37da3215"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-46e1bc34d6f3302e6b22",
+          "competition_id": "competition:ucla-stats-101-c-2024-su-regression",
+          "source_id": "source:lesson-source-47f2b4eb8b58047d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c132c063f33470a81b2aa0b279cdec1f2cd4c07a34cce7c344ea0e8dbb41156d.txt",
+          "snapshot_sha256": "c132c063f33470a81b2aa0b279cdec1f2cd4c07a34cce7c344ea0e8dbb41156d",
+          "source_url": "https://raw.githubusercontent.com/andywang0321/Amazon_Sales_Prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4dd3d95a37da3215",
+          "line_start": 69,
+          "line_end": 75,
+          "evidence_text": "Our breakthrough came when instead of modelling `train.csv`, we built models to fit on the inner join of its parent datasets: `amazon_order_details.csv` and `customer_info.csv`, illustrated in Figure \\ref{fine_pipeline}.\n\n![Fine-Grained Modelling Pipeline \\label{fine_pipeline}](report/img/fine_pipeline.png)\n\nNotice how in Figure \\ref{fine_pipeline}, our predictions were made on a much more fine-grained dataset, where each row corresponds to one purchase made by one customer. Intuitively, a model should be able to more accurately predict the price of a single purchase given the demographic data of that customer than to predict the sum of prices of all purchases made by all customers in a particular state in a particular month given the demographic makeup of that state during that month.\n\nTo format our predictions into the proper format, we must aggregate them the exact same way they were aggregated to produce `train.csv`. This proved to be a very difficult part of the pipeline, since reverse-engineering a data transformation pipeline is not easy. Thankfully, professor Chen posted a video where he goes over the steps he took to aggregate data in detail.",
+          "kind": "used",
+          "statement": "The authors joined purchase and customer datasets, predicted at purchase level and aggregated predictions to the state-month granularity using the original aggregation procedure.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "Granularity and aggregate reconciliation require substantial data preparation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Strong reframing opportunity when parent-level records are available.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practical aggregation design with join multiplicity and coverage checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-47f2b4eb8b58047d",
+          "locator": "research/lesson-extraction/snapshots/c132c063f33470a81b2aa0b279cdec1f2cd4c07a34cce7c344ea0e8dbb41156d.txt#L69-L75",
+          "quote": "Our breakthrough came when instead of modelling `train.csv`, we built models to fit on the inner join of its parent datasets: `amazon_order_details.csv` and `customer_info.csv`, illustrated in Figure \\ref{fine_pipeline}.\n\n![Fine-Grained Modelling Pipeline \\label{fine_pipeline}](report/img/fine_pipeline.png)\n\nNotice how in Figure \\ref{fine_pipeline}, our predictions were made on a much more fine-grained dataset, where each row corresponds to one purchase made by one customer. Intuitively, a model should be able to more accurately predict the price of a single purchase given the demographic data of that customer than to predict the sum of prices of all purchases made by all customers in a particular state in a particular month given the demographic makeup of that state during that month.\n\nTo format our predictions into the proper format, we must aggregate them the exact same way they were aggregated to produce `train.csv`. This proved to be a very difficult part of the pipeline, since reverse-engineering a data transformation pipeline is not easy. Thankfully, professor Chen posted a video where he goes over the steps he took to aggregate data in detail.",
+          "competition_id": "competition:ucla-stats-101-c-2024-su-regression",
+          "url": "https://raw.githubusercontent.com/andywang0321/Amazon_Sales_Prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c132c063f33470a81b2aa0b279cdec1f2cd4c07a34cce7c344ea0e8dbb41156d.txt",
+          "snapshot_sha256": "c132c063f33470a81b2aa0b279cdec1f2cd4c07a34cce7c344ea0e8dbb41156d",
+          "line_start": 69,
+          "line_end": 75
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4dd3d95a37da3215",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Purchase-level join and exact state-month reconstruction are used; fine/coarse score tables do not share target or split.",
+          "candidate_sha256": "8e6ba5cf41f66cbcba37dd36ed7f6df5f0e3cd7a854a9788f1e651a74c6c4932"
+        },
+        {
+          "candidate_id": "C-a-4dd3d95a37da3215",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete UCLA Amazonsales source read. Innerjoin purchase/customer predictions aggregate exactly to statemonth literal; coarseCV versusfine-test score tables are incomparable and not used as gain. Reconciliation/group validation proposed; grades reflect preparation cost.",
+          "candidate_sha256": "8e6ba5cf41f66cbcba37dd36ed7f6df5f0e3cd7a854a9788f1e651a74c6c4932"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 175,
+        "line_end": 179,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-3beed119fd8d1a7d",
+      "canonical_key": "compare first-person features with any-person indicators and per-application maxima over participants. | one prediction concerns an application containing several people | predictive_quality",
+      "title": "Aggregate multiple people at the application level",
+      "statement": "When one prediction concerns an application containing several people, Proposed adaptation of source observation: Compare first-person features with any-person indicators and per-application maxima over participants. Verify: Proposed verification: Check joins for duplicate applications and assess aggregation choices with group-disjoint validation. Limits: The source does not ablate aggregation rules or define availability of past-success features.; Source author Jeremy Howard explicitly disclaims prize eligibility; prize winner is Quan Sun. First-place model rank remains unverified source metadata, distinct from prize award.",
+      "trigger_conditions": [
+        "one prediction concerns an application containing several people"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare first-person features with any-person indicators and per-application maxima over participants."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check joins for duplicate applications and assess aggregation choices with group-disjoint validation."
+      ],
+      "limitations": [
+        "The source does not ablate aggregation rules or define availability of past-success features.",
+        "Source author Jeremy Howard explicitly disclaims prize eligibility; prize winner is Quan Sun. First-place model rank remains unverified source metadata, distinct from prize award."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "government"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author represented grants and persons separately and built any-person and maximum-person features alongside first-person features.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3beed119fd8d1a7d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear multi-person aggregation, join multiplicity requires care.",
+        "competitor": "Strong entity-level feature pattern beyond arbitrary first-person columns.",
+        "practitioner": "Broad relational modeling value when source timing is respected."
+      },
+      "review": {
+        "candidate_id": "C-a-3beed119fd8d1a7d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Any-person and maximum-person features are explicit; prize-ineligible author attribution and historical availability are qualified.",
+        "candidate_sha256": "9b53342eb305305a4c9158b7e9fc2ffd3663738334c4dacb37aa0561416b66e3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000124",
+      "slug": "lesson-000124",
+      "merged_candidate_ids": [
+        "C-a-3beed119fd8d1a7d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dcc7a3473160b4e031db",
+          "competition_id": "competition:unimelb",
+          "source_id": "source:lesson-source-3851e778f16afcd3",
+          "snapshot_path": "research/lesson-extraction/snapshots/e7c9c867d80b2b5b89de10278954e07805cd7f44c9ce4622ab4611a67a4d67e0.txt",
+          "snapshot_sha256": "e7c9c867d80b2b5b89de10278954e07805cd7f44c9ce4622ab4611a67a4d67e0",
+          "source_url": "http://blog.kaggle.com/2011/02/21/jeremy-howard-on-winning-the-predict-grant-applications-competition/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3beed119fd8d1a7d",
+          "line_start": 5,
+          "line_end": 7,
+          "evidence_text": "I then used C# to normalize the data into Grants and Persons objects, and constructed a dataset for modeling including these features: CatCode, NumPerPerson, PersonId, NumOnDate, AnyHasPhd, Country, Dept, DayOfWeek, HasPhd, IsNY, Month, NoClass, NoSpons, RFCD, Role, SEO, Sponsor, ValueBand, HasID, AnyHasID, AnyHasSucc, HasSucc, People.Count, AStarPapers, APapers, BPapers, CPapers, Papers, MaxAStarPapers, MaxCPapers, MaxPapers, NumSucc, NumUnsucc, MinNumSucc, MinNumUnsucc, PctRFCD, PctSEO, MaxYearBirth, MinYearUni, YearBirth, YearUni .\n\nMost of these are fairly obvious as to what they mean. Field names starting with 'Any' are true if any person attached to the grant has that feature (e.g. 'AnyHasPhd'). For most fields I had one predictor that just looks at person 1 (e.g. 'APapers' is number of A papers from person 1), and one for the maximum of all people in the application (e.g. 'MaxAPapers').",
+          "kind": "used",
+          "statement": "The author represented grants and persons separately and built any-person and maximum-person features alongside first-person features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Clear multi-person aggregation, join multiplicity requires care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Strong entity-level feature pattern beyond arbitrary first-person columns.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad relational modeling value when source timing is respected.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-3851e778f16afcd3",
+          "locator": "research/lesson-extraction/snapshots/e7c9c867d80b2b5b89de10278954e07805cd7f44c9ce4622ab4611a67a4d67e0.txt#L5-L7",
+          "quote": "I then used C# to normalize the data into Grants and Persons objects, and constructed a dataset for modeling including these features: CatCode, NumPerPerson, PersonId, NumOnDate, AnyHasPhd, Country, Dept, DayOfWeek, HasPhd, IsNY, Month, NoClass, NoSpons, RFCD, Role, SEO, Sponsor, ValueBand, HasID, AnyHasID, AnyHasSucc, HasSucc, People.Count, AStarPapers, APapers, BPapers, CPapers, Papers, MaxAStarPapers, MaxCPapers, MaxPapers, NumSucc, NumUnsucc, MinNumSucc, MinNumUnsucc, PctRFCD, PctSEO, MaxYearBirth, MinYearUni, YearBirth, YearUni .\n\nMost of these are fairly obvious as to what they mean. Field names starting with 'Any' are true if any person attached to the grant has that feature (e.g. 'AnyHasPhd'). For most fields I had one predictor that just looks at person 1 (e.g. 'APapers' is number of A papers from person 1), and one for the maximum of all people in the application (e.g. 'MaxAPapers').",
+          "competition_id": "competition:unimelb",
+          "url": "http://blog.kaggle.com/2011/02/21/jeremy-howard-on-winning-the-predict-grant-applications-competition/",
+          "snapshot_path": "research/lesson-extraction/snapshots/e7c9c867d80b2b5b89de10278954e07805cd7f44c9ce4622ab4611a67a4d67e0.txt",
+          "snapshot_sha256": "e7c9c867d80b2b5b89de10278954e07805cd7f44c9ce4622ab4611a67a4d67e0",
+          "line_start": 5,
+          "line_end": 7
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3beed119fd8d1a7d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Any-person and maximum-person features are explicit; prize-ineligible author attribution and historical availability are qualified.",
+          "candidate_sha256": "9b53342eb305305a4c9158b7e9fc2ffd3663738334c4dacb37aa0561416b66e3"
+        },
+        {
+          "candidate_id": "C-a-3beed119fd8d1a7d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete grant source read. Grant/person first/any/max aggregation literal, join/group/timing audits proposed; no individualgain. Howard prizeeligibility distinction explicit. Entityfeature grades reasonable.",
+          "candidate_sha256": "9b53342eb305305a4c9158b7e9fc2ffd3663738334c4dacb37aa0561416b66e3"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 183,
+        "line_end": 187,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-29479bf3814a79d3",
+      "canonical_key": "compute entity-level distinct counts and within-auction mean, spread and maxima of behavior. | individual entities have repeated events linked to auctions and network identifiers | predictive_quality",
+      "title": "Aggregate bidder behavior at multiple relational levels",
+      "statement": "When individual entities have repeated events linked to auctions and network identifiers, consider this source-backed action: Compute entity-level distinct counts and within-auction mean, spread and maxima of behavior. Proposed check: Use entity-disjoint validation and ablate groups of aggregates. Limit: Source explanations about bot behavior are hypotheses; aggregates may leak unavailable future events.",
+      "trigger_conditions": [
+        "individual entities have repeated events linked to auctions and network identifiers"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compute entity-level distinct counts and within-auction mean, spread and maxima of behavior."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use entity-disjoint validation and ablate groups of aggregates."
+      ],
+      "limitations": [
+        "Source explanations about bot behavior are hypotheses; aggregates may leak unavailable future events."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors created bidder counts, distinct categories, per-auction aggregates and maximum bids inside device/IP/URL/country groups.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-29479bf3814a79d3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Pandas groupings offer accessible behavioral feature practice.",
+        "competitor": "Detailed relational aggregates support targeted ablations across entity tasks.",
+        "practitioner": "Useful transaction features when event availability is controlled."
+      },
+      "review": {
+        "candidate_id": "C-a-29479bf3814a79d3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked bidder/auction/network aggregation list; no isolated feature lift.",
+        "candidate_sha256": "1320c01d1d1783dc13043e7daee172b28d248eba402b767591028c956bcb7a42"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000199",
+      "slug": "lesson-000199",
+      "merged_candidate_ids": [
+        "C-a-29479bf3814a79d3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-50961750a81bc2a2f434",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "source_url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-29479bf3814a79d3",
+          "line_start": 73,
+          "line_end": 88,
+          "evidence_text": "| Adding more feature columns with `.nunique()` | i. Number of bids made per bidder_id\nii. Number of auctions made per bidder_id\niii. Number of merchandise made per bidder_id\niv. Number of device made per bidder_id\nv. Number of countries originated per bidder_id\nvi. Number of ip addresses used per bidder_id\nvii. Number of url addresses used per bidder_id |\n| Analyze Auction Data | i. Mean/Max of devices per auction for each bidder_id\nii. Mean/Max of IP address per auction for each bidder_id\niii. Mean/Max of URL per auction for each bidder_id\niv. Mean/Max of time per auction for each bidder_id |\n| Mean, std and max bids per auction by each bidder_id | Since robots are designed to win the auction, there might be a lot of bids made the robots. Therefore, we can extract information such as average, standard deviation and max number of bids made by each bidder_id. |\n| Calculate maximum number of bids within devices in auction | Bots have high possibility to change devices when bidding. Therefore, it might be useful to investigate maximum number of bids within devices in auction for each bidder_id. |\n| Calculate maximum number of bids within ip addresses in auction | Bots have high possibility to change IP address faster than humans. Therefore, it might be useful to investigate maximum number of bids within ip addresses in auction for each bidder_id. |\n| Calculate maximum number of bids within url in auction | Bots have high possibility to change url faster than humans. Therefore, it might be useful to investigate maximum number of bids within url in auction for each bidder_id. |\n| Calculate maximum number of bids within country in auction | Bidders might hire multiple bots from different countries to win the auction. Therefore, it might be useful to investigate maximum number of bids within country in auction for each bidder_id. |",
+          "kind": "used",
+          "statement": "The authors created bidder counts, distinct categories, per-auction aggregates and maximum bids inside device/IP/URL/country groups.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Pandas groupings offer accessible behavioral feature practice.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Detailed relational aggregates support targeted ablations across entity tasks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful transaction features when event availability is controlled.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "locator": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt#L73-L88",
+          "quote": "| Adding more feature columns with `.nunique()` | i. Number of bids made per bidder_id\nii. Number of auctions made per bidder_id\niii. Number of merchandise made per bidder_id\niv. Number of device made per bidder_id\nv. Number of countries originated per bidder_id\nvi. Number of ip addresses used per bidder_id\nvii. Number of url addresses used per bidder_id |\n| Analyze Auction Data | i. Mean/Max of devices per auction for each bidder_id\nii. Mean/Max of IP address per auction for each bidder_id\niii. Mean/Max of URL per auction for each bidder_id\niv. Mean/Max of time per auction for each bidder_id |\n| Mean, std and max bids per auction by each bidder_id | Since robots are designed to win the auction, there might be a lot of bids made the robots. Therefore, we can extract information such as average, standard deviation and max number of bids made by each bidder_id. |\n| Calculate maximum number of bids within devices in auction | Bots have high possibility to change devices when bidding. Therefore, it might be useful to investigate maximum number of bids within devices in auction for each bidder_id. |\n| Calculate maximum number of bids within ip addresses in auction | Bots have high possibility to change IP address faster than humans. Therefore, it might be useful to investigate maximum number of bids within ip addresses in auction for each bidder_id. |\n| Calculate maximum number of bids within url in auction | Bots have high possibility to change url faster than humans. Therefore, it might be useful to investigate maximum number of bids within url in auction for each bidder_id. |\n| Calculate maximum number of bids within country in auction | Bidders might hire multiple bots from different countries to win the auction. Therefore, it might be useful to investigate maximum number of bids within country in auction for each bidder_id. |",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "line_start": 73,
+          "line_end": 88
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-29479bf3814a79d3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked bidder/auction/network aggregation list; no isolated feature lift.",
+          "candidate_sha256": "1320c01d1d1783dc13043e7daee172b28d248eba402b767591028c956bcb7a42"
+        },
+        {
+          "candidate_id": "C-a-29479bf3814a79d3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Read bidder README: distinct counts, auction aggregates and identifier subgroup maxima explicitly generated. InClass first/global60 distinction visible in original; temporal availability safeguards are proposed. Scores reflect routine entity-feature utility without isolated gain.",
+          "candidate_sha256": "1320c01d1d1783dc13043e7daee172b28d248eba402b767591028c956bcb7a42"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 73,
+        "line_end": 83,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-abd7287bcf98ddc3",
+      "canonical_key": "construct a workload-scaled feature and fit a simple regressor per sufficiently supported regime. | runtime regression has known parallel workload and algorithm regimes | predictive_quality",
+      "title": "Build a workload feature from computational scaling and fit by regime",
+      "statement": "When runtime regression has known parallel workload and algorithm regimes, consider this source-backed action: Construct a workload-scaled feature and fit a simple regressor per sufficiently supported regime. Proposed check: Compare against all-feature regression on held-out configurations and verify prediction-ID assembly. Limit: Linear scaling and n_jobs=-1-to-sixteen mapping are machine-specific; extrapolation and overhead need checks.",
+      "trigger_conditions": [
+        "runtime regression has known parallel workload and algorithm regimes"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Construct a workload-scaled feature and fit a simple regressor per sufficiently supported regime."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare against all-feature regression on held-out configurations and verify prediction-ID assembly."
+      ],
+      "limitations": [
+        "Linear scaling and n_jobs=-1-to-sixteen mapping are machine-specific; extrapolation and overhead need checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author modeled time with ceil(classes/jobs) times iterations/features/samples and separate linear fits for penalty/jobs partitions, then sorted merged predictions by ID.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-abd7287bcf98ddc3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Readable workload arithmetic; grouping and extrapolation need care.",
+        "competitor": "Concrete baseline for runtime targets with known parallel regimes.",
+        "practitioner": "Useful capacity model; machine calibration and overhead checks required."
+      },
+      "review": {
+        "candidate_id": "C-a-abd7287bcf98ddc3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Regime-specific runtime scaling is explicitly implemented; hardware constants cannot generalize unchanged.",
+        "candidate_sha256": "0b890e78d7408660759e37e5e17680de489ca4067b91700eb11e1960f28741a6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000207",
+      "slug": "lesson-000207",
+      "merged_candidate_ids": [
+        "C-a-abd7287bcf98ddc3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-698b7e231438b1910e57",
+          "competition_id": "competition:msbd5001-fall2018",
+          "source_id": "source:lesson-source-70b194afe67d3979",
+          "snapshot_path": "research/lesson-extraction/snapshots/10f7146d7b772fd5f0bbd57872aa5afb4500b7ea99e46dc98bb777fa0e202c1a.txt",
+          "snapshot_sha256": "10f7146d7b772fd5f0bbd57872aa5afb4500b7ea99e46dc98bb777fa0e202c1a",
+          "source_url": "https://raw.githubusercontent.com/tomutm124/2018-fall-msbd5001-individual-proj/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-abd7287bcf98ddc3",
+          "line_start": 32,
+          "line_end": 42,
+          "evidence_text": "1. Some simple data preprocessing (e.g. change n_classes=2 to n_classes=1 and change n_jobs=-1 to n_jobs=16)\n\n2. Feature enginnering to get a feature called \"e_factor\": (about the ceiling function, 3 jobs running on 2 cores take similar time as 4 jobs on 2 cores)\n\nall_data['e_factor'] = (np.ceil(all_data['n_classes'] / all_data['n_jobs'])) * all_data['max_iter'] * all_data['n_features'] * all_data['n_samples']\n\n3. Divide the training and test data into 20 parts, each part corresponds to a combination of the feature \"penalty\" and 'n_jobs\". There are 4 values for penalty and 5 values for n_jobs, so there are in total 4*5=20 parts\n\n4. Train a linear regression model with only the e_factor feature on each of the parts, and do prediction on each of the parts\n\n5. Merge the predictions in the parts. Note that the parts do not overlap, so merging is just simply concatenating the prediction results into one dataframe and then sort it by id.",
+          "kind": "used",
+          "statement": "The author modeled time with ceil(classes/jobs) times iterations/features/samples and separate linear fits for penalty/jobs partitions, then sorted merged predictions by ID.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Readable workload arithmetic; grouping and extrapolation need care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Concrete baseline for runtime targets with known parallel regimes.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful capacity model; machine calibration and overhead checks required.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-70b194afe67d3979",
+          "locator": "research/lesson-extraction/snapshots/10f7146d7b772fd5f0bbd57872aa5afb4500b7ea99e46dc98bb777fa0e202c1a.txt#L32-L42",
+          "quote": "1. Some simple data preprocessing (e.g. change n_classes=2 to n_classes=1 and change n_jobs=-1 to n_jobs=16)\n\n2. Feature enginnering to get a feature called \"e_factor\": (about the ceiling function, 3 jobs running on 2 cores take similar time as 4 jobs on 2 cores)\n\nall_data['e_factor'] = (np.ceil(all_data['n_classes'] / all_data['n_jobs'])) * all_data['max_iter'] * all_data['n_features'] * all_data['n_samples']\n\n3. Divide the training and test data into 20 parts, each part corresponds to a combination of the feature \"penalty\" and 'n_jobs\". There are 4 values for penalty and 5 values for n_jobs, so there are in total 4*5=20 parts\n\n4. Train a linear regression model with only the e_factor feature on each of the parts, and do prediction on each of the parts\n\n5. Merge the predictions in the parts. Note that the parts do not overlap, so merging is just simply concatenating the prediction results into one dataframe and then sort it by id.",
+          "competition_id": "competition:msbd5001-fall2018",
+          "url": "https://raw.githubusercontent.com/tomutm124/2018-fall-msbd5001-individual-proj/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/10f7146d7b772fd5f0bbd57872aa5afb4500b7ea99e46dc98bb777fa0e202c1a.txt",
+          "snapshot_sha256": "10f7146d7b772fd5f0bbd57872aa5afb4500b7ea99e46dc98bb777fa0e202c1a",
+          "line_start": 32,
+          "line_end": 42
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-abd7287bcf98ddc3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Regime-specific runtime scaling is explicitly implemented; hardware constants cannot generalize unchanged.",
+          "candidate_sha256": "0b890e78d7408660759e37e5e17680de489ca4067b91700eb11e1960f28741a6"
+        },
+        {
+          "candidate_id": "C-a-abd7287bcf98ddc3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "MSBDwinner originale_factorceil(classes/jobs)*iterations*features*samples,20penalty/jobslinearpartitions,-1jobs16machinechoice,mergedsortID. Proposedheldoutconfiguration/allfeaturebaseline/overhead/extrapolationchecks,not universalruntime law. Practicalgradesreasonable.",
+          "candidate_sha256": "0b890e78d7408660759e37e5e17680de489ca4067b91700eb11e1960f28741a6"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 85,
+        "line_end": 95,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-105564aff142207d",
+      "canonical_key": "construct late-day totals and income-minus-expense features from legitimately available inputs. | credit variables allow delinquency-duration and disposable-income summaries | predictive_quality",
+      "title": "Test domain-derived delinquency and cashflow aggregates",
+      "statement": "When credit variables allow delinquency-duration and disposable-income summaries, consider this source-backed action: Construct late-day totals and income-minus-expense features from legitimately available inputs. Proposed check: Ablate aggregates on borrower-disjoint validation and inspect missing-value behavior. Limit: Exact calculation from this competition\u2019s columns is not supplied; observed predictive association is not a causal risk explanation.",
+      "trigger_conditions": [
+        "credit variables allow delinquency-duration and disposable-income summaries"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Construct late-day totals and income-minus-expense features from legitimately available inputs."
+      ],
+      "verification_steps": [
+        "Proposed verification: Ablate aggregates on borrower-disjoint validation and inspect missing-value behavior."
+      ],
+      "limitations": [
+        "Exact calculation from this competition\u2019s columns is not supplied; observed predictive association is not a causal risk explanation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reported total late days and income-expense difference as predictive engineered features.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-105564aff142207d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Conceptually clear, exact feature construction needs assumptions.",
+        "competitor": "Useful financial hypotheses where required inputs exist.",
+        "practitioner": "Relevant credit aggregation; association not causal risk explanation."
+      },
+      "review": {
+        "candidate_id": "C-a-105564aff142207d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked late-days/income-expense associations; formulas unavailable.",
+        "candidate_sha256": "ddceab3cdb98179879ce60053c44822acc98c59150b0af1623cba19b7a50f6dd"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000209",
+      "slug": "lesson-000209",
+      "merged_candidate_ids": [
+        "C-a-105564aff142207d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e6497c4902e73e66a1f7",
+          "competition_id": "competition:givemesomecredit",
+          "source_id": "source:lesson-source-94eca66193fd766c",
+          "snapshot_path": "research/lesson-extraction/snapshots/3254d58eefd918a2b13fbf9794c15fc7359dee9fd2d1f454eb9f23361baec0a4.txt",
+          "snapshot_sha256": "3254d58eefd918a2b13fbf9794c15fc7359dee9fd2d1f454eb9f23361baec0a4",
+          "source_url": "http://blog.kaggle.com/2012/01/03/the-perfect-storm-meet-the-winners-of-give-me-some-credit/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-105564aff142207d",
+          "line_start": 25,
+          "line_end": 25,
+          "evidence_text": "EJ: I discovered 2 key features, the first being the total number of late days, and second the difference between income and expense. They turned out to be very predictive!",
+          "kind": "used",
+          "statement": "The author reported total late days and income-expense difference as predictive engineered features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conceptually clear, exact feature construction needs assumptions.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 4
+          },
+          "rationale": "Useful financial hypotheses where required inputs exist.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Relevant credit aggregation; association not causal risk explanation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-94eca66193fd766c",
+          "locator": "research/lesson-extraction/snapshots/3254d58eefd918a2b13fbf9794c15fc7359dee9fd2d1f454eb9f23361baec0a4.txt#L25-L25",
+          "quote": "EJ: I discovered 2 key features, the first being the total number of late days, and second the difference between income and expense. They turned out to be very predictive!",
+          "competition_id": "competition:givemesomecredit",
+          "url": "http://blog.kaggle.com/2012/01/03/the-perfect-storm-meet-the-winners-of-give-me-some-credit/",
+          "snapshot_path": "research/lesson-extraction/snapshots/3254d58eefd918a2b13fbf9794c15fc7359dee9fd2d1f454eb9f23361baec0a4.txt",
+          "snapshot_sha256": "3254d58eefd918a2b13fbf9794c15fc7359dee9fd2d1f454eb9f23361baec0a4",
+          "line_start": 25,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-105564aff142207d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked late-days/income-expense associations; formulas unavailable.",
+          "candidate_sha256": "ddceab3cdb98179879ce60053c44822acc98c59150b0af1623cba19b7a50f6dd"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 189,
+        "line_end": 193,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-fcf2639a964d67ca",
+      "canonical_key": "create applicant-level aggregates over meaningful recent and earliest slices and explicit payment lateness. | credit risk features span many-to-one historical tables | predictive_quality",
+      "title": "Aggregate relational credit history over ordered slices",
+      "statement": "When credit risk features span many-to-one historical tables, consider this source-backed action: Create applicant-level aggregates over meaningful recent and earliest slices and explicit payment lateness. Proposed check: Audit sorting, cutoff availability, zero denominators and feature-family ablations. Limit: Time-window choices were selected locally; target-time availability must be checked for transfer.",
+      "trigger_conditions": [
+        "credit risk features span many-to-one historical tables"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Create applicant-level aggregates over meaningful recent and earliest slices and explicit payment lateness."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit sorting, cutoff availability, zero denominators and feature-family ablations."
+      ],
+      "limitations": [
+        "Time-window choices were selected locally; target-time availability must be checked for transfer."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors used applicant ratios, first/last application slices, recent payment counts and windows, overdue flags and up to five application lags.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-fcf2639a964d67ca"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Relational joins/order/denominators require careful feature work.",
+        "competitor": "Rich concrete feature families guide credit-history ablations.",
+        "practitioner": "High value for borrower histories with prediction-time availability."
+      },
+      "review": {
+        "candidate_id": "C-a-fcf2639a964d67ca",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked exact ordered-history families; selected windows local.",
+        "candidate_sha256": "29de335de744fe337230b3b043564d9bf173480087c8e20ef39f5c54fcd41a37"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000218",
+      "slug": "lesson-000218",
+      "merged_candidate_ids": [
+        "C-a-fcf2639a964d67ca"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fddacf3cce399681b8cb",
+          "competition_id": "competition:home-credit-default-risk",
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "source_url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-fcf2639a964d67ca",
+          "line_start": 15,
+          "line_end": 25,
+          "evidence_text": "Like many people I started my base models with simple aggregates over SK_ID_PREV & SK_ID_BUREAU features for each SK_ID_CURR. I also created a lot of features based on division and subtraction from the application_train.csv. The most notable division was by EXT_SOURCE_3 which gave me small boosts to my CV and translated positively to the LB. I also found pretty decent boosts by using a label encoder for categorical variables. I did this for all the categorical variables on application_train.csv and all the categorical variables for the LAST application in the previous_application.csv.\n\nAside from aggregate features over SK_ID_PREV & SK_ID_BUREAU, I also used difference slices of data to compute aggregates.\n\nPrevious_application.csv - aggregates for last 3, 5 and first 2, 4 applications. Each of these choices were tested against my CV and gave the best boost.\n\nInstallment_payments.csv - aggregates for the last 2, 3, 5 payments. Aggregates over NUM_INSTALMENT_NUMBER at 1, 2, 3, 4 installments. Aggregates over last 60, 90, 180 & 365 days filtered on DAYS_INSTALMENT. I also did aggregates over all installments that were past due. Where past due was defined as a 1 if the difference between DAYS_ENTRY_PAYMENT and DAYS_INSTALMENT was positive and 0 if not.\n\nPOS_CASH_balance.csv, credit_card_balance.csv - similar methodology as installment_payments.csv\n\nI also used lag features from previous_application.csv. I used lag features up to the last 5 applications for each SK_ID_CURR.",
+          "kind": "used",
+          "statement": "The authors used applicant ratios, first/last application slices, recent payment counts and windows, overdue flags and up to five application lags.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Relational joins/order/denominators require careful feature work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Rich concrete feature families guide credit-history ablations.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High value for borrower histories with prediction-time availability.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "locator": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt#L15-L25",
+          "quote": "Like many people I started my base models with simple aggregates over SK_ID_PREV & SK_ID_BUREAU features for each SK_ID_CURR. I also created a lot of features based on division and subtraction from the application_train.csv. The most notable division was by EXT_SOURCE_3 which gave me small boosts to my CV and translated positively to the LB. I also found pretty decent boosts by using a label encoder for categorical variables. I did this for all the categorical variables on application_train.csv and all the categorical variables for the LAST application in the previous_application.csv.\n\nAside from aggregate features over SK_ID_PREV & SK_ID_BUREAU, I also used difference slices of data to compute aggregates.\n\nPrevious_application.csv - aggregates for last 3, 5 and first 2, 4 applications. Each of these choices were tested against my CV and gave the best boost.\n\nInstallment_payments.csv - aggregates for the last 2, 3, 5 payments. Aggregates over NUM_INSTALMENT_NUMBER at 1, 2, 3, 4 installments. Aggregates over last 60, 90, 180 & 365 days filtered on DAYS_INSTALMENT. I also did aggregates over all installments that were past due. Where past due was defined as a 1 if the difference between DAYS_ENTRY_PAYMENT and DAYS_INSTALMENT was positive and 0 if not.\n\nPOS_CASH_balance.csv, credit_card_balance.csv - similar methodology as installment_payments.csv\n\nI also used lag features from previous_application.csv. I used lag features up to the last 5 applications for each SK_ID_CURR.",
+          "competition_id": "competition:home-credit-default-risk",
+          "url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "line_start": 15,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-fcf2639a964d67ca",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked exact ordered-history families; selected windows local.",
+          "candidate_sha256": "29de335de744fe337230b3b043564d9bf173480087c8e20ef39f5c54fcd41a37"
+        },
+        {
+          "candidate_id": "C-a-fcf2639a964d67ca",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "HomeCredit winningRyan explicitlyfirst/lastapplications,lastpayments,60/90/180/365daywindows,overdueflag,lags/ratios. Proposed cutoff/sorting/denominator checks appropriate; locallychosenwindowsnotuniversal. Highcreditutilitygrades reasonable.",
+          "candidate_sha256": "29de335de744fe337230b3b043564d9bf173480087c8e20ef39f5c54fcd41a37"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 195,
+        "line_end": 199,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-3ad9ff0e61300b3d",
+      "canonical_key": "create auditable ingredient/route/indication groups and compare counts, doses and flags per group. | clinical medication names fragment equivalent therapies | predictive_quality",
+      "title": "Normalize medications to clinical groups before outcome modeling",
+      "statement": "When clinical medication names fragment equivalent therapies, consider this source-backed action: Create auditable ingredient/route/indication groups and compare counts, doses and flags per group. Proposed check: Validate clinical mappings with domain expertise and evaluate patient-held-out incremental value. Limit: Dose equivalence is drug-specific; source supplies no complete mapping or causal clinical claim.",
+      "trigger_conditions": [
+        "clinical medication names fragment equivalent therapies"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Create auditable ingredient/route/indication groups and compare counts, doses and flags per group."
+      ],
+      "verification_steps": [
+        "Proposed verification: Validate clinical mappings with domain expertise and evaluate patient-held-out incremental value."
+      ],
+      "limitations": [
+        "Dose equivalence is drug-specific; source supplies no complete mapping or causal clinical claim."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The winning author mapped medications to active principles/routes, grouped by chemical family/indication, adjusted some dose equivalence and used diagnosis groups before tree/GAM stacking.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3ad9ff0e61300b3d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clinical equivalence requires expertise beyond straightforward encoding.",
+        "competitor": "Concrete grouping choices for fragmented clinical prescription data.",
+        "practitioner": "High practical relevance with expert mapping and cohort validation required."
+      },
+      "review": {
+        "candidate_id": "C-a-3ad9ff0e61300b3d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Jose is explicitly first; ingredient, route, family and dose groupings are winner-grounded clinical features.",
+        "candidate_sha256": "11e9dc7285bb23e0754c5b48fbedaf79830efda6587e04125cc09c49fc0263c1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000219",
+      "slug": "lesson-000219",
+      "merged_candidate_ids": [
+        "C-a-3ad9ff0e61300b3d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3344cd6b8aac5adfa9dc",
+          "competition_id": "competition:pf2012-diabetes",
+          "source_id": "source:lesson-source-bb07f9e08e91efed",
+          "snapshot_path": "research/lesson-extraction/snapshots/33a1c6f12dbf87204a4c312bc3af63ff8181dff7fe8bc8084eefdf6e9d9dd435.txt",
+          "snapshot_sha256": "33a1c6f12dbf87204a4c312bc3af63ff8181dff7fe8bc8084eefdf6e9d9dd435",
+          "source_url": "http://blog.kaggle.com/2012/10/03/practice-fusion-diabetes-classification-interviews-with-winners/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3ad9ff0e61300b3d",
+          "line_start": 21,
+          "line_end": 31,
+          "evidence_text": "Jose:\u00a0Main work was data cleaning and feature creation. Grouping diagnostics and actives principles was crucial.\u00a0As an advance of my solution, I based it in a hard preprocessing and\u00a0feature creation work:\n\nTranslating each medication to its active principles, route of\u00a0administration.\n\nGrouping principles\u00a0active by chemical families / clinical indication. In some cases, as statins,\u00a0adjusting dose equivalences. Choosing for each group between number of\u00a0prescriptions, dose or binary flag for feature creation.\n\nGrouping the diagnoses in base CCS and my personal experience.\n\nAnd much\u00a0more...\n\nAfter, the methods used were the well known gbm and randomforest and later stacking in a generalized additive model.",
+          "kind": "used",
+          "statement": "The winning author mapped medications to active principles/routes, grouped by chemical family/indication, adjusted some dose equivalence and used diagnosis groups before tree/GAM stacking.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Clinical equivalence requires expertise beyond straightforward encoding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete grouping choices for fragmented clinical prescription data.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "High practical relevance with expert mapping and cohort validation required.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-bb07f9e08e91efed",
+          "locator": "research/lesson-extraction/snapshots/33a1c6f12dbf87204a4c312bc3af63ff8181dff7fe8bc8084eefdf6e9d9dd435.txt#L21-L31",
+          "quote": "Jose:\u00a0Main work was data cleaning and feature creation. Grouping diagnostics and actives principles was crucial.\u00a0As an advance of my solution, I based it in a hard preprocessing and\u00a0feature creation work:\n\nTranslating each medication to its active principles, route of\u00a0administration.\n\nGrouping principles\u00a0active by chemical families / clinical indication. In some cases, as statins,\u00a0adjusting dose equivalences. Choosing for each group between number of\u00a0prescriptions, dose or binary flag for feature creation.\n\nGrouping the diagnoses in base CCS and my personal experience.\n\nAnd much\u00a0more...\n\nAfter, the methods used were the well known gbm and randomforest and later stacking in a generalized additive model.",
+          "competition_id": "competition:pf2012-diabetes",
+          "url": "http://blog.kaggle.com/2012/10/03/practice-fusion-diabetes-classification-interviews-with-winners/",
+          "snapshot_path": "research/lesson-extraction/snapshots/33a1c6f12dbf87204a4c312bc3af63ff8181dff7fe8bc8084eefdf6e9d9dd435.txt",
+          "snapshot_sha256": "33a1c6f12dbf87204a4c312bc3af63ff8181dff7fe8bc8084eefdf6e9d9dd435",
+          "line_start": 21,
+          "line_end": 31
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3ad9ff0e61300b3d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Jose is explicitly first; ingredient, route, family and dose groupings are winner-grounded clinical features.",
+          "candidate_sha256": "11e9dc7285bb23e0754c5b48fbedaf79830efda6587e04125cc09c49fc0263c1"
+        },
+        {
+          "candidate_id": "C-a-3ad9ff0e61300b3d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "MixedPracticeFusioninterviewcheckedwinnerJoseonly:activeingredient/route/familyindication/doseequivalence/CCSdiagnosis,GBMRFGAMstack. Matt/Shashinonwinningclaimsnotused. Expertmapping/patientheldoutcheckproposed,notclinicalcausality. Drug-specificequivalencegradesreasonable.",
+          "candidate_sha256": "11e9dc7285bb23e0754c5b48fbedaf79830efda6587e04125cc09c49fc0263c1"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 97,
+        "line_end": 107,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-023c851b770fccb2",
+      "canonical_key": "parse floor numerals top-floor flags and floor ratios | housing floor fields mix text and numbers | predictive_quality",
+      "title": "Parse floor structure into checked housing features",
+      "statement": "When housing fields mix text floors and quantized sale prices, Parse floor numerals, top-floor status and floor/total-floor ratios with explicit missing and basement handling. Verify: Test basement, multifloor, top-floor and zero-total-floor cases, then ablate features on held-out transactions. Limits: Source parsing details are partial; floor semantics vary by market.; Rounding price outputs is a separate metric/granularity decision.",
+      "trigger_conditions": [
+        "housing fields mix text floors and quantized sale prices"
+      ],
+      "action_steps": [
+        "Parse floor numerals, top-floor status and floor/total-floor ratios with explicit missing and basement handling."
+      ],
+      "verification_steps": [
+        "Test basement, multifloor, top-floor and zero-total-floor cases, then ablate features on held-out transactions."
+      ],
+      "limitations": [
+        "Source parsing details are partial; floor semantics vary by market.",
+        "Rounding price outputs is a separate metric/granularity decision."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author converted Chinese floor numerals, top-floor flags and floor/total-floor ratios, then rounded prices to ten-thousand currency units.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-023c851b770fccb2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Parsing tests straightforward and useful for messy tabular fields.",
+        "competitor": "Specific semantic floor features support housing experiments.",
+        "practitioner": "Local language/housing parsing with denominator and basement checks."
+      },
+      "review": {
+        "candidate_id": "C-a-023c851b770fccb2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Chinese floor parsing; price rounding separate choice.",
+        "candidate_sha256": "ea38c05cc908177f32af117074f1242d27afc9b0a528af11a1232ea7550250f8"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000366",
+      "slug": "lesson-000366",
+      "merged_candidate_ids": [
+        "C-a-023c851b770fccb2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-15f33378db1a6fe30cae",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "source_url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-023c851b770fccb2",
+          "line_start": 84,
+          "line_end": 104,
+          "evidence_text": "### 5. \u5efa\u9020\u7279\u5fb5\uff1a\u6a13\u5c64\n#### **\u79fb\u8f49\u5c64\u6b21\u6578\u503c\u5316**\n\u5c07\u300c\u79fb\u8f49\u5c64\u6b21\u300d\u4e2d\u6587\u6578\u5b57\u8f49\u63db\u70ba\u6578\u503c\u5f8c\uff0c\u518d\u5224\u65b7\u662f\u5426\u70ba\u9802\u6a13 (`top_floor`)\u3002\n\n#### **\u6a13\u5c64\u6bd4\u4f8b (`floor_ratio`)**\n\u8a08\u7b97\u7269\u4ef6\u6240\u5728\u6a13\u5c64\u8207\u5efa\u7269\u7e3d\u6a13\u5c64\u6578\u4e4b\u6bd4\uff1a\n\\[\n\\text{floor_ratio} = \\frac{\\text{\u7269\u4ef6\u6240\u5728\u6a13\u5c64}}{\\text{\u5efa\u7269\u7e3d\u6a13\u5c64\u6578}}\n\\]\n\n---\n\n### 6. \u5efa\u9020\u7279\u5fb5\uff1a\u8def\u540d\n- **VBA \u8403\u53d6\u8def\u540d**\n- **\u5408\u4f75\u6b04\u4f4d**\uff1a\u300c\u7e23\u5e02\u9109\u93ae\u5e02\u5340 + \u8def\u540d\u300d\uff0c\u9032\u4e00\u6b65\u7d30\u5206\u5730\u6bb5\u8cc7\u8a0a\u3002\n\n---\n\n### 7. \u8f38\u51fa\u8655\u7406\uff1a\u50f9\u9322\u6578\u503c\u53d6\u6574\n#### **\u89c0\u5bdf\u6210\u4ea4\u50f9**\n\u623f\u50f9\u901a\u5e38\u4ee5 **\u842c** \u70ba\u55ae\u4f4d\uff0c\u56e0\u6b64\u6211\u5011\u5728\u8f38\u51fa\u6700\u7d42\u9810\u6e2c\u6642\uff0c\u5c07\u300c\u7e3d\u50f9\u5143\u300d\u56db\u6368\u4e94\u5165\u5230\u842c\u4f4d\u6578\u3002",
+          "kind": "used",
+          "statement": "The author converted Chinese floor numerals, top-floor flags and floor/total-floor ratios, then rounded prices to ten-thousand currency units.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Parsing tests straightforward and useful for messy tabular fields.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 4
+          },
+          "rationale": "Specific semantic floor features support housing experiments.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Local language/housing parsing with denominator and basement checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "locator": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt#L84-L104",
+          "quote": "### 5. \u5efa\u9020\u7279\u5fb5\uff1a\u6a13\u5c64\n#### **\u79fb\u8f49\u5c64\u6b21\u6578\u503c\u5316**\n\u5c07\u300c\u79fb\u8f49\u5c64\u6b21\u300d\u4e2d\u6587\u6578\u5b57\u8f49\u63db\u70ba\u6578\u503c\u5f8c\uff0c\u518d\u5224\u65b7\u662f\u5426\u70ba\u9802\u6a13 (`top_floor`)\u3002\n\n#### **\u6a13\u5c64\u6bd4\u4f8b (`floor_ratio`)**\n\u8a08\u7b97\u7269\u4ef6\u6240\u5728\u6a13\u5c64\u8207\u5efa\u7269\u7e3d\u6a13\u5c64\u6578\u4e4b\u6bd4\uff1a\n\\[\n\\text{floor_ratio} = \\frac{\\text{\u7269\u4ef6\u6240\u5728\u6a13\u5c64}}{\\text{\u5efa\u7269\u7e3d\u6a13\u5c64\u6578}}\n\\]\n\n---\n\n### 6. \u5efa\u9020\u7279\u5fb5\uff1a\u8def\u540d\n- **VBA \u8403\u53d6\u8def\u540d**\n- **\u5408\u4f75\u6b04\u4f4d**\uff1a\u300c\u7e23\u5e02\u9109\u93ae\u5e02\u5340 + \u8def\u540d\u300d\uff0c\u9032\u4e00\u6b65\u7d30\u5206\u5730\u6bb5\u8cc7\u8a0a\u3002\n\n---\n\n### 7. \u8f38\u51fa\u8655\u7406\uff1a\u50f9\u9322\u6578\u503c\u53d6\u6574\n#### **\u89c0\u5bdf\u6210\u4ea4\u50f9**\n\u623f\u50f9\u901a\u5e38\u4ee5 **\u842c** \u70ba\u55ae\u4f4d\uff0c\u56e0\u6b64\u6211\u5011\u5728\u8f38\u51fa\u6700\u7d42\u9810\u6e2c\u6642\uff0c\u5c07\u300c\u7e3d\u50f9\u5143\u300d\u56db\u6368\u4e94\u5165\u5230\u842c\u4f4d\u6578\u3002",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "line_start": 84,
+          "line_end": 104
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-023c851b770fccb2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Chinese floor parsing; price rounding separate choice.",
+          "candidate_sha256": "ea38c05cc908177f32af117074f1242d27afc9b0a528af11a1232ea7550250f8"
+        },
+        {
+          "candidate_id": "C-a-023c851b770fccb2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "TaiwanChinese source floor-numeral/topflag/floorratio,andseparateroundingto10000. Basement/multifloor/zerodenominatorcheckproposed;roundingseparatedfromfloorclaim. Localmarketparsinggradesreasonable.",
+          "candidate_sha256": "ea38c05cc908177f32af117074f1242d27afc9b0a528af11a1232ea7550250f8"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 201,
+        "line_end": 205,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-a94b96aff8018a11",
+      "canonical_key": "prototype feature families against a fixed baseline and budget repeated-validation time as part of iteration cost. | manual features are costly to validate | iteration_speed",
+      "title": "Treat intuitive handcrafted features as validation experiments",
+      "statement": "When manual features are costly to validate, consider this source-backed action: Prototype feature families against a fixed baseline and budget repeated-validation time as part of iteration cost. Proposed check: Record incremental effects and rejected feature families. Limit: A plausible feature need not help; no numerical feature ablations are provided.",
+      "trigger_conditions": [
+        "manual features are costly to validate"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Prototype feature families against a fixed baseline and budget repeated-validation time as part of iteration cost."
+      ],
+      "verification_steps": [
+        "Proposed verification: Record incremental effects and rejected feature families."
+      ],
+      "limitations": [
+        "A plausible feature need not help; no numerical feature ablations are provided."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "iteration_speed"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author alternated feature work with coarse tuning; many handcrafted features failed CV, whose runs took over an hour despite minute-scale final training.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-a94b96aff8018a11"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Feature-family experiments teach evidence-based iteration.",
+        "competitor": "Useful budget discipline when validation dominates runtime.",
+        "practitioner": "Transfers to costly manual-feature programs with fixed baselines."
+      },
+      "review": {
+        "candidate_id": "C-a-a94b96aff8018a11",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked local handcrafted failures and CV runtime; no universal negative.",
+        "candidate_sha256": "e273d444355dfff84db0990dd2500095810217f058ddec29a3473a64c9d44e49"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000400",
+      "slug": "lesson-000400",
+      "merged_candidate_ids": [
+        "C-a-a94b96aff8018a11"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-888398b65a29a821e5e8",
+          "competition_id": "competition:facebook-recruiting-iv-human-or-bot",
+          "source_id": "source:lesson-source-7dd389c6f0ad3ce3",
+          "snapshot_path": "research/lesson-extraction/snapshots/8537753385fb2a410c91ffe8558d616b02c1ca4e771800097dc35eea43c38ce1.txt",
+          "snapshot_sha256": "8537753385fb2a410c91ffe8558d616b02c1ca4e771800097dc35eea43c38ce1",
+          "source_url": "http://blog.kaggle.com/2015/06/23/facebook-iv-winners-interview-1st-place-peter-best-aka-fakeplastictrees/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-a94b96aff8018a11",
+          "line_start": 49,
+          "line_end": 53,
+          "evidence_text": "I tend to flit to and fro between the two [feature engineering & machine learning] as I\u2019m going along. I tend to start with some feature engineering, then perform some gross parameter tuning for the machine learning algorithm, then return to some more feature engineering and so on. In this competition the feature engineering took up a lot more time than the machine learning. I spent quite a lot of time lovingly hand-crafting features that didn\u2019t improve the model in cross-validation, but this is normal for this sort of competition. Just because you think a feature will be useful doesn\u2019t mean it will be.\n\nWhat was the run time for both training and prediction of your winning solution?\n\nJust a few minutes, though each cross-validation run took over an hour.",
+          "kind": "reported_failure",
+          "statement": "The author alternated feature work with coarse tuning; many handcrafted features failed CV, whose runs took over an hour despite minute-scale final training.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Feature-family experiments teach evidence-based iteration.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful budget discipline when validation dominates runtime.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to costly manual-feature programs with fixed baselines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7dd389c6f0ad3ce3",
+          "locator": "research/lesson-extraction/snapshots/8537753385fb2a410c91ffe8558d616b02c1ca4e771800097dc35eea43c38ce1.txt#L49-L53",
+          "quote": "I tend to flit to and fro between the two [feature engineering & machine learning] as I\u2019m going along. I tend to start with some feature engineering, then perform some gross parameter tuning for the machine learning algorithm, then return to some more feature engineering and so on. In this competition the feature engineering took up a lot more time than the machine learning. I spent quite a lot of time lovingly hand-crafting features that didn\u2019t improve the model in cross-validation, but this is normal for this sort of competition. Just because you think a feature will be useful doesn\u2019t mean it will be.\n\nWhat was the run time for both training and prediction of your winning solution?\n\nJust a few minutes, though each cross-validation run took over an hour.",
+          "competition_id": "competition:facebook-recruiting-iv-human-or-bot",
+          "url": "http://blog.kaggle.com/2015/06/23/facebook-iv-winners-interview-1st-place-peter-best-aka-fakeplastictrees/",
+          "snapshot_path": "research/lesson-extraction/snapshots/8537753385fb2a410c91ffe8558d616b02c1ca4e771800097dc35eea43c38ce1.txt",
+          "snapshot_sha256": "8537753385fb2a410c91ffe8558d616b02c1ca4e771800097dc35eea43c38ce1",
+          "line_start": 49,
+          "line_end": 53
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-a94b96aff8018a11",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked local handcrafted failures and CV runtime; no universal negative.",
+          "candidate_sha256": "e273d444355dfff84db0990dd2500095810217f058ddec29a3473a64c9d44e49"
+        },
+        {
+          "candidate_id": "C-a-a94b96aff8018a11",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Peter Best explicitly manyhandcraftedfeatures failedCV and validation>1hvsfinalminutes. Fixedbaseline/rejectedfamily logging proposed; no quantitative ablation invented. Iteration-budget grades reasonable.",
+          "candidate_sha256": "e273d444355dfff84db0990dd2500095810217f058ddec29a3473a64c9d44e49"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 109,
+        "line_end": 119,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-680f7b43f37033d2",
+      "canonical_key": "shrink sparse means toward an explicit prior and calibrate external features before blending them. | pairwise history is sparse and current external signals use different scales | predictive_quality",
+      "title": "Smooth sparse historical averages before blending current signals",
+      "statement": "When pairwise history is sparse and current external signals use different scales, consider this source-backed action: Shrink sparse means toward an explicit prior and calibrate external features before blending them. Proposed check: Hold out complete events and compare raw means, smoothed means and blended signals. Limit: The smoothing prior of one and reciprocal-log odds are local choices; odds near one create instability.",
+      "trigger_conditions": [
+        "pairwise history is sparse and current external signals use different scales"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Shrink sparse means toward an explicit prior and calibrate external features before blending them."
+      ],
+      "verification_steps": [
+        "Proposed verification: Hold out complete events and compare raw means, smoothed means and blended signals."
+      ],
+      "limitations": [
+        "The smoothing prior of one and reciprocal-log odds are local choices; odds near one create instability."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author replaced raw country voting means with (sum+1)/(count+1), improving CV, and calibrated reciprocal-log betting odds to comparable point units.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-680f7b43f37033d2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Count shrinkage arithmetic accessible; odds mapping needs caution.",
+        "competitor": "Useful sparse-history blending with comparable feature units.",
+        "practitioner": "Transfers to sparse group means; external signal calibration contextual."
+      },
+      "review": {
+        "candidate_id": "C-a-680f7b43f37033d2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked explicit prior1 smoothing and odds transform; gains qualitative.",
+        "candidate_sha256": "fd0729f1e81d0541ee48727f66cfd7e1610cda91aeb96d0cce64b9849d853eb5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000460",
+      "slug": "lesson-000460",
+      "merged_candidate_ids": [
+        "C-a-680f7b43f37033d2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-329cb85f052697cf08a1",
+          "competition_id": "competition:eurovision2010",
+          "source_id": "source:lesson-source-9ce493c74fa2c978",
+          "snapshot_path": "research/lesson-extraction/snapshots/fe279642036f07bd4bc1968858f8e2bc9b4bf510c915e195fe3023e82774710f.txt",
+          "snapshot_sha256": "fe279642036f07bd4bc1968858f8e2bc9b4bf510c915e195fe3023e82774710f",
+          "source_url": "http://blog.kaggle.com/2010/06/09/computer-scientist-jure-zbontars-method-for-winning-the-eurovision-challenge/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-680f7b43f37033d2",
+          "line_start": 25,
+          "line_end": 43,
+          "evidence_text": "The estimated average points awarded are not very stable, especially for newer countries. To remedy this, instead of using:\n\navg := sum(x) / |x|\n\nI used\n\navg' := (sum(x) + 1) / (|x| + 1)\n\nThe new estimate got better results on the cross-validation tests.\n\nBetting Odds\n\nUsing just the voting patterns of countries to predict this year's results was not enough. I had to, somehow, incorporate the approximate betting odds as well. Many approaches could have worked well here. In the end I opted for the one that gave the best cross-validation results.\n\nI had to convert the approximate betting odds into something comparable with the average points awarded. I used:\n\nodds'(ctr) := 1 / log(odds(ctr)) * a + b\n\nThe coefficients a and b were chosen experimentally, as the ones that gave the best cross-validation score.",
+          "kind": "reported_gain",
+          "statement": "The author replaced raw country voting means with (sum+1)/(count+1), improving CV, and calibrated reciprocal-log betting odds to comparable point units.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Count shrinkage arithmetic accessible; odds mapping needs caution.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful sparse-history blending with comparable feature units.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to sparse group means; external signal calibration contextual.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9ce493c74fa2c978",
+          "locator": "research/lesson-extraction/snapshots/fe279642036f07bd4bc1968858f8e2bc9b4bf510c915e195fe3023e82774710f.txt#L25-L43",
+          "quote": "The estimated average points awarded are not very stable, especially for newer countries. To remedy this, instead of using:\n\navg := sum(x) / |x|\n\nI used\n\navg' := (sum(x) + 1) / (|x| + 1)\n\nThe new estimate got better results on the cross-validation tests.\n\nBetting Odds\n\nUsing just the voting patterns of countries to predict this year's results was not enough. I had to, somehow, incorporate the approximate betting odds as well. Many approaches could have worked well here. In the end I opted for the one that gave the best cross-validation results.\n\nI had to convert the approximate betting odds into something comparable with the average points awarded. I used:\n\nodds'(ctr) := 1 / log(odds(ctr)) * a + b\n\nThe coefficients a and b were chosen experimentally, as the ones that gave the best cross-validation score.",
+          "competition_id": "competition:eurovision2010",
+          "url": "http://blog.kaggle.com/2010/06/09/computer-scientist-jure-zbontars-method-for-winning-the-eurovision-challenge/",
+          "snapshot_path": "research/lesson-extraction/snapshots/fe279642036f07bd4bc1968858f8e2bc9b4bf510c915e195fe3023e82774710f.txt",
+          "snapshot_sha256": "fe279642036f07bd4bc1968858f8e2bc9b4bf510c915e195fe3023e82774710f",
+          "line_start": 25,
+          "line_end": 43
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-680f7b43f37033d2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked explicit prior1 smoothing and odds transform; gains qualitative.",
+          "candidate_sha256": "fd0729f1e81d0541ee48727f66cfd7e1610cda91aeb96d0cce64b9849d853eb5"
+        },
+        {
+          "candidate_id": "C-a-680f7b43f37033d2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Eurovision author explicitly (sum+1)/(count+1)betterCV and reciprocal-logodds experimentally calibrated to points. No numeric method benefit,sample prediction table not comparator. Whole-event checks/near-oneodds instability scoped; utility grades reasonable.",
+          "candidate_sha256": "fd0729f1e81d0541ee48727f66cfd7e1610cda91aeb96d0cce64b9849d853eb5"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 121,
+        "line_end": 131,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-414bee3732c061fb",
+      "canonical_key": "sort each entity\u2019s events and compute gaps, rolling burst counts, simultaneous-event counts and time-period proportions. | automated behavior may create bursts in event streams | predictive_quality",
+      "title": "Summarize temporal bursts and simultaneous events",
+      "statement": "When automated behavior may create bursts in event streams, consider this source-backed action: Sort each entity\u2019s events and compute gaps, rolling burst counts, simultaneous-event counts and time-period proportions. Proposed check: Check boundary cases and validate whether time features add value on held-out entities. Limit: The first event lacks a gap; source dropped such rows and did not establish this is safe elsewhere.",
+      "trigger_conditions": [
+        "automated behavior may create bursts in event streams"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Sort each entity\u2019s events and compute gaps, rolling burst counts, simultaneous-event counts and time-period proportions."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check boundary cases and validate whether time features add value on held-out entities."
+      ],
+      "limitations": [
+        "The first event lacks a gap; source dropped such rows and did not establish this is safe elsewhere."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors engineered bid differences, maximum bids in 10/20/30-minute windows, simultaneous bids within three seconds and day-period proportions.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-414bee3732c061fb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Rolling windows need timestamp and boundary care.",
+        "competitor": "Concrete burst features useful for event-based classification.",
+        "practitioner": "Transfers to automation detection; future-event leakage needs control."
+      },
+      "review": {
+        "candidate_id": "C-a-414bee3732c061fb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked windows and simultaneous bids; bot explanations remain hypotheses.",
+        "candidate_sha256": "debab56ea1ff802d0463a367ba0895a05bb01544051d733d5b82b22ec1f445ac"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000464",
+      "slug": "lesson-000464",
+      "merged_candidate_ids": [
+        "C-a-414bee3732c061fb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-50961750a81bc2a2f434",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "source_url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-414bee3732c061fb",
+          "line_start": 89,
+          "line_end": 97,
+          "evidence_text": "| Calculate bidding time difference per user | Through calculation of time difference between every 2 bids made by each bidder, we can determine if each bidder is fast or slow making bids. However, there is no difference in the bidder's 1st bid, which will result in missing value in that row. Since these missing values is insignificant, we can drop them. |\n| Maximum number of auctions a bidder has participated in one hour | Using previous time difference data, we can investigate if any bidders have time_difference of 0 (i.e. bidding very immediately). |\n| Maximum number of bids in a 30 min span | Bots have the capability to bid faster than humans within a short time span - they might have more bids than humans. Therefore, it might be useful to investigate maximum number of bids made by a bidder_id within 30 minutes time span. |\n| Maximum number of bids in a 20 min span | Bots have the capability to bid faster than humans within a short time span - they might have more bids than humans. Therefore, it might be useful to investigate maximum number of bids made by a bidder_id within 20 minutes time span. |\n| Maximum number of bids in a 10 min span | Bots have the capability to bid faster than humans within a short time span - they might have more bids than humans. Therefore, it might be useful to investigate maximum number of bids made by a bidder_id within 10 minutes time span. |\n| Number of simultaneous bids | Bots might be employed to bid simultaneously in different auctions at the same time. Therefore, it might be useful to investigate max number of simultaneous bids made within 3 seconds. |\n| The mean time of day for the bids of each bidder | It might be useful to investigate at which period of the day bidders typically bid. |\n| Proportion of each bidder's bids in each day | It might be useful for the investigate the proportion of bids spent in the 3 days time period within the data. |\n| Proportion of bids made during different periods of the day | It might be useful to bin the bidders' bids into different time periods of the day (i.e. Morning, Afternoon, Night). |",
+          "kind": "used",
+          "statement": "The authors engineered bid differences, maximum bids in 10/20/30-minute windows, simultaneous bids within three seconds and day-period proportions.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Rolling windows need timestamp and boundary care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete burst features useful for event-based classification.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to automation detection; future-event leakage needs control.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "locator": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt#L89-L97",
+          "quote": "| Calculate bidding time difference per user | Through calculation of time difference between every 2 bids made by each bidder, we can determine if each bidder is fast or slow making bids. However, there is no difference in the bidder's 1st bid, which will result in missing value in that row. Since these missing values is insignificant, we can drop them. |\n| Maximum number of auctions a bidder has participated in one hour | Using previous time difference data, we can investigate if any bidders have time_difference of 0 (i.e. bidding very immediately). |\n| Maximum number of bids in a 30 min span | Bots have the capability to bid faster than humans within a short time span - they might have more bids than humans. Therefore, it might be useful to investigate maximum number of bids made by a bidder_id within 30 minutes time span. |\n| Maximum number of bids in a 20 min span | Bots have the capability to bid faster than humans within a short time span - they might have more bids than humans. Therefore, it might be useful to investigate maximum number of bids made by a bidder_id within 20 minutes time span. |\n| Maximum number of bids in a 10 min span | Bots have the capability to bid faster than humans within a short time span - they might have more bids than humans. Therefore, it might be useful to investigate maximum number of bids made by a bidder_id within 10 minutes time span. |\n| Number of simultaneous bids | Bots might be employed to bid simultaneously in different auctions at the same time. Therefore, it might be useful to investigate max number of simultaneous bids made within 3 seconds. |\n| The mean time of day for the bids of each bidder | It might be useful to investigate at which period of the day bidders typically bid. |\n| Proportion of each bidder's bids in each day | It might be useful for the investigate the proportion of bids spent in the 3 days time period within the data. |\n| Proportion of bids made during different periods of the day | It might be useful to bin the bidders' bids into different time periods of the day (i.e. Morning, Afternoon, Night). |",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "line_start": 89,
+          "line_end": 97
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-414bee3732c061fb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked windows and simultaneous bids; bot explanations remain hypotheses.",
+          "candidate_sha256": "debab56ea1ff802d0463a367ba0895a05bb01544051d733d5b82b22ec1f445ac"
+        },
+        {
+          "candidate_id": "C-a-414bee3732c061fb",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Bidder source explicitly lists gaps,10/20/30-minute windows,3-second simultaneous counts and daily proportions. Held-out-entity and boundary checks are proposed; missing-first-gap deletion remains qualified. Moderate beginner feasibility is reasonable.",
+          "candidate_sha256": "debab56ea1ff802d0463a367ba0895a05bb01544051d733d5b82b22ec1f445ac"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 133,
+        "line_end": 143,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-04b1edc3c10bb982fa1f",
+      "canonical_key": "sort events by entity and timestamp, reserve the final event as target, and compute features from the preceding history | event sequences where the final event is the training target | target_leakage_control",
+      "title": "Remove the prediction event before history features",
+      "statement": "For event sequences where the final event is the training target, sort events by entity and timestamp, reserve the final event as target, and compute features from the preceding history. Assert no target row contributes to counts or last-event features; handle histories with fewer than two prior events. The code indexes a second-last event without a short-history guard. Chronological ordering is performed before grouping; test histories are not stripped.",
+      "trigger_conditions": [
+        "event sequences where the final event is the training target"
+      ],
+      "action_steps": [
+        "Proposed: sort events by entity and timestamp, reserve the final event as target, and compute features from the preceding history."
+      ],
+      "verification_steps": [
+        "Proposed: assert no target row contributes to counts or last-event features; handle histories with fewer than two prior events."
+      ],
+      "limitations": [
+        "The code indexes a second-last event without a short-history guard. Chronological ordering is performed before grouping; test histories are not stripped."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "event_prediction"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "leakage"
+        ],
+        "current_relevance": "Transferable event-history cutoff principle; verify current tooling.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for allstate-event-prediction-challenge: construct_features removes each group\u2019s last event as target before counting events or extracting first, last and second-last event features.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: construct next-purchase features strictly from events preceding the purchase being predicted.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a198685cc2f4c6a0f433"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "An explicit remove-the-label-event rule teaches target leakage with familiar pandas operations.",
+        "competitor": "Critical for next-event tasks; verify feature cutoffs and minimum histories before trusting scores.",
+        "practitioner": "Applies to transaction or machine-event forecasting if all historical features were available at prediction time."
+      },
+      "review": {
+        "candidate_id": "C-04b1edc3c10bb982fa1f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read full event preparation: timestamp sorting precedes grouping; the final training event is removed before history features and target extraction. Test groups keep their supplied history. Second-last indexing lacks a short-history guard; no deployment timeline benefit is inferred.",
+        "candidate_sha256": "f7661e4198a42db5e9fa59d29d781dbbd768840489b03bbf3a6111078e158a2f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000465",
+      "slug": "lesson-000465",
+      "merged_candidate_ids": [
+        "C-04b1edc3c10bb982fa1f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-d276d3dff503c5f38c75",
+          "competition_id": "competition:allstate-event-prediction-challenge",
+          "source_id": "source:lesson-source-5526db75b6344a7a",
+          "snapshot_path": "research/lesson-extraction/snapshots/79a05e7a7addafaaa322db10e69780b83992a35b528a5c441830377333accdf4.txt",
+          "snapshot_sha256": "79a05e7a7addafaaa322db10e69780b83992a35b528a5c441830377333accdf4",
+          "source_url": "https://raw.githubusercontent.com/jackhannnnnn/allstate-university-hackathon-competition/HEAD/prepare_features.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-a198685cc2f4c6a0f433",
+          "line_start": 24,
+          "line_end": 54,
+          "evidence_text": "train_data = train_data.sort_values(['id', 'timestamp'])\ntest_data = test_data.sort_values(['id', 'timestamp'])\n\ndef construct_features(data, make_target=True):\n    grouped_data = []\n    \n    for key, group in data.groupby('id'):\n        if make_target == True:\n            target_event = group.iloc[-1]\n            group = group.iloc[:(group.shape[0]-1)]\n        \n        output_record = {'id': key, \n                         'num_events': group.shape[0], \n                         'num_unique_events': group['event'].unique().shape[0]}\n        \n        first_event = group.iloc[0]\n        last_event = group.iloc[group.shape[0]-1]\n        second_last_event = group.iloc[group.shape[0]-2]\n        output_record['first_event'] = first_event['event']\n        output_record['last_event'] = last_event['event']\n        output_record['second_last_event'] = second_last_event['event']\n      \n        event_count = {30018: 0, 30021: 0, 30024: 0, 30027: 0, 30039: 0, \n                       30042: 0, 30045: 0, 30048: 0, 36003: 0, 45003: 0}\n        for event in group['event']:\n            event_count[event] = event_count[event] + 1\n        for e_id, e_count in event_count.items():\n            output_record['num_'+str(e_id)] = e_count\n        \n        if make_target == True:\n            output_record['target_event'] = target_event['event']",
+          "kind": "used",
+          "statement": "construct_features removes each group\u2019s last event as target before counting events or extracting first, last and second-last event features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "An explicit remove-the-label-event rule teaches target leakage with familiar pandas operations.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 95.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Critical for next-event tasks; verify feature cutoffs and minimum histories before trusting scores.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Applies to transaction or machine-event forecasting if all historical features were available at prediction time.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5526db75b6344a7a",
+          "locator": "research/lesson-extraction/snapshots/79a05e7a7addafaaa322db10e69780b83992a35b528a5c441830377333accdf4.txt#L24-L54",
+          "quote": "train_data = train_data.sort_values(['id', 'timestamp'])\ntest_data = test_data.sort_values(['id', 'timestamp'])\n\ndef construct_features(data, make_target=True):\n    grouped_data = []\n    \n    for key, group in data.groupby('id'):\n        if make_target == True:\n            target_event = group.iloc[-1]\n            group = group.iloc[:(group.shape[0]-1)]\n        \n        output_record = {'id': key, \n                         'num_events': group.shape[0], \n                         'num_unique_events': group['event'].unique().shape[0]}\n        \n        first_event = group.iloc[0]\n        last_event = group.iloc[group.shape[0]-1]\n        second_last_event = group.iloc[group.shape[0]-2]\n        output_record['first_event'] = first_event['event']\n        output_record['last_event'] = last_event['event']\n        output_record['second_last_event'] = second_last_event['event']\n      \n        event_count = {30018: 0, 30021: 0, 30024: 0, 30027: 0, 30039: 0, \n                       30042: 0, 30045: 0, 30048: 0, 36003: 0, 45003: 0}\n        for event in group['event']:\n            event_count[event] = event_count[event] + 1\n        for e_id, e_count in event_count.items():\n            output_record['num_'+str(e_id)] = e_count\n        \n        if make_target == True:\n            output_record['target_event'] = target_event['event']",
+          "competition_id": "competition:allstate-event-prediction-challenge",
+          "url": "https://raw.githubusercontent.com/jackhannnnnn/allstate-university-hackathon-competition/HEAD/prepare_features.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/79a05e7a7addafaaa322db10e69780b83992a35b528a5c441830377333accdf4.txt",
+          "snapshot_sha256": "79a05e7a7addafaaa322db10e69780b83992a35b528a5c441830377333accdf4",
+          "line_start": 24,
+          "line_end": 54
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-04b1edc3c10bb982fa1f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read full event preparation: timestamp sorting precedes grouping; the final training event is removed before history features and target extraction. Test groups keep their supplied history. Second-last indexing lacks a short-history guard; no deployment timeline benefit is inferred.",
+          "candidate_sha256": "f7661e4198a42db5e9fa59d29d781dbbd768840489b03bbf3a6111078e158a2f"
+        },
+        {
+          "candidate_id": "C-04b1edc3c10bb982fa1f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete event feature script sorts entity/time, extracts the final training target, then computes features from prior events; test histories remain intact. The second-last event lacks short-history protection, explicitly retained in the lesson. Cutoff assertions and minimum-history checks are appropriate proposed safeguards, supporting high leakage-control utility.",
+          "candidate_sha256": "f7661e4198a42db5e9fa59d29d781dbbd768840489b03bbf3a6111078e158a2f"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 145,
+        "line_end": 155,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    },
+    {
+      "candidate_id": "C-a-e0170749a78b3858",
+      "canonical_key": "test a domain-motivated feature family for incremental held-out benefit | a plausible transactional feature family may be redundant with existing aggregates | feature_selection_reliability",
+      "title": "Test domain-inspired feature families for incremental lift",
+      "statement": "When domain reasoning suggests a new transactional feature family, consider this source-backed action: Compare its incremental benefit against existing aggregates before investing further. Proposed check: Ablate feature families on the same patient-disjoint split. Limit: Domain plausibility did not guarantee lift; no numeric isolated prescription comparison is given.",
+      "trigger_conditions": [
+        "domain reasoning suggests a new transactional feature family",
+        "domain knowledge suggests an additional feature family"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare its incremental benefit against existing aggregates before investing further.",
+        "Proposed adaptation of source observation: Add the candidate feature family to a fixed baseline and measure its incremental held-out value."
+      ],
+      "verification_steps": [
+        "Proposed verification: Ablate feature families on the same patient-disjoint split.",
+        "Proposed verification: Compare with and without that family using identical splits and training settings."
+      ],
+      "limitations": [
+        "Domain plausibility did not guarantee lift; no numeric isolated prescription comparison is given.",
+        "The source reports a qualitative result and does not establish why prescription features added little signal."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality",
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used SQL transactional features and found prescription data added little beyond diagnosis, procedures and providers despite a strong domain expectation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Despite expecting prescription data to predict screening, the author reports very little lift beyond diagnosis, procedure and provider features.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-49ec5cfdaafa77be",
+        "O-a-e0170749a78b3858"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Family ablation clear; large transactional processing costly.",
+        "competitor": "Useful defense against domain plausibility replacing incremental validation.",
+        "practitioner": "Feature redundancy audit useful; screening benefit not established."
+      },
+      "review": {
+        "candidate_id": "C-a-e0170749a78b3858",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked SQL feature practice/prescription incremental disappointment; no numeric lift.",
+        "candidate_sha256": "0c973e662256cccab2d54e607f2176abede64a92fa8ec9b1eaac20dfdba233eb"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000483",
+      "slug": "lesson-000483",
+      "merged_candidate_ids": [
+        "C-a-49ec5cfdaafa77be",
+        "C-a-e0170749a78b3858"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-96a5d1e2ea86f52a9e96",
+          "competition_id": "competition:cervical-cancer-screening",
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "source_url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-49ec5cfdaafa77be",
+          "line_start": 38,
+          "line_end": 40,
+          "evidence_text": "Were you surprised by any of your findings?\n\nGiulio: I was. Some findings were counterintuitive to my industry experience. For example, prescriptions should be a very powerful predictor of cervical cancer screening, as a large portion of the population will get a screening as a prerequisite for oral contraceptives prescriptions. In this case though, prescription data added very little lift on top of other features based on diagnosis, procedures and providers.",
+          "kind": "reported_failure",
+          "statement": "Despite expecting prescription data to predict screening, the author reports very little lift beyond diagnosis, procedure and provider features.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-96a5d1e2ea86f52a9e96",
+          "competition_id": "competition:cervical-cancer-screening",
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "source_url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-e0170749a78b3858",
+          "line_start": 36,
+          "line_end": 40,
+          "evidence_text": "Giulio & Michael: There wasn\u2019t really much processing, at least in the typical Kaggle fashion. But this was a feature engineering heavy competition and we used a lot of SQL to transform transactional data into features. As for models, we used a lot of XGBoost and Michael\u2019s custom coded neural networks.\n\nWere you surprised by any of your findings?\n\nGiulio: I was. Some findings were counterintuitive to my industry experience. For example, prescriptions should be a very powerful predictor of cervical cancer screening, as a large portion of the population will get a screening as a prerequisite for oral contraceptives prescriptions. In this case though, prescription data added very little lift on top of other features based on diagnosis, procedures and providers.",
+          "kind": "reported_failure",
+          "statement": "The team used SQL transactional features and found prescription data added little beyond diagnosis, procedures and providers despite a strong domain expectation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Family ablation clear; large transactional processing costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful defense against domain plausibility replacing incremental validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Feature redundancy audit useful; screening benefit not established.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "locator": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt#L38-L40",
+          "quote": "Were you surprised by any of your findings?\n\nGiulio: I was. Some findings were counterintuitive to my industry experience. For example, prescriptions should be a very powerful predictor of cervical cancer screening, as a large portion of the population will get a screening as a prerequisite for oral contraceptives prescriptions. In this case though, prescription data added very little lift on top of other features based on diagnosis, procedures and providers.",
+          "competition_id": "competition:cervical-cancer-screening",
+          "url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "line_start": 38,
+          "line_end": 40
+        },
+        {
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "locator": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt#L36-L40",
+          "quote": "Giulio & Michael: There wasn\u2019t really much processing, at least in the typical Kaggle fashion. But this was a feature engineering heavy competition and we used a lot of SQL to transform transactional data into features. As for models, we used a lot of XGBoost and Michael\u2019s custom coded neural networks.\n\nWere you surprised by any of your findings?\n\nGiulio: I was. Some findings were counterintuitive to my industry experience. For example, prescriptions should be a very powerful predictor of cervical cancer screening, as a large portion of the population will get a screening as a prerequisite for oral contraceptives prescriptions. In this case though, prescription data added very little lift on top of other features based on diagnosis, procedures and providers.",
+          "competition_id": "competition:cervical-cancer-screening",
+          "url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "line_start": 36,
+          "line_end": 40
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-49ec5cfdaafa77be",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked qualitative prescription redundancy against existing claims features.",
+          "candidate_sha256": "73a41b94e4a99d85344781531cdfb96c98a4103c123493fc559b03131e548f59"
+        },
+        {
+          "candidate_id": "C-a-49ec5cfdaafa77be",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Same cervical original says prescriptions very little lift atop diagnosis/procedure/provider. Fixed-baseline family ablation proposed and mechanism unknown. Per-audience grades reasonable; duplicate e017 flagged for explicit root decision.",
+          "candidate_sha256": "73a41b94e4a99d85344781531cdfb96c98a4103c123493fc559b03131e548f59"
+        },
+        {
+          "candidate_id": "C-a-e0170749a78b3858",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked SQL feature practice/prescription incremental disappointment; no numeric lift.",
+          "candidate_sha256": "0c973e662256cccab2d54e607f2176abede64a92fa8ec9b1eaac20dfdba233eb"
+        },
+        {
+          "candidate_id": "C-a-e0170749a78b3858",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Cervical winning Giulio/Michael interview supports SQLaggregates and prescriptions little incremental lift despite domain expectation. Patient-disjoint family ablations proposed; no numeric isolated gain or clinical benefit. Grades reasonable; semantic duplicate with49ec flagged separately.",
+          "candidate_sha256": "0c973e662256cccab2d54e607f2176abede64a92fa8ec9b1eaac20dfdba233eb"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 207,
+        "line_end": 211,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-4a96fc680804afb2",
+      "canonical_key": "verify field definitions and prediction-time availability before comparing a formula baseline with learned regression. | input fields may encode a near-deterministic version of the target | validation_reliability",
+      "title": "Audit near-deterministic price formulas for target availability",
+      "statement": "When input fields may encode a near-deterministic version of the target, consider this source-backed action: Verify field definitions and prediction-time availability before comparing a formula baseline with learned regression. Proposed check: Check formulas by parking condition and test whether unit price itself derives from the target. Limit: Very high explanatory power can reflect leakage; the conditional formula and factor five are dataset-specific and not verified physical laws.",
+      "trigger_conditions": [
+        "input fields may encode a near-deterministic version of the target"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Verify field definitions and prediction-time availability before comparing a formula baseline with learned regression."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check formulas by parking condition and test whether unit price itself derives from the target."
+      ],
+      "limitations": [
+        "Very high explanatory power can reflect leakage; the conditional formula and factor five are dataset-specific and not verified physical laws."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "leakage"
+        ],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reconstructed total price from unit price, building area and parking adjustments and reported about five-thousand MAE in some cases.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4a96fc680804afb2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Target-definition audit accessible and guards spectacular misleading gains.",
+        "competitor": "High value identifying algebraic target information before claiming prediction.",
+        "practitioner": "Broad leakage diagnosis; sourceformula cannot establish deployable forecasting."
+      },
+      "review": {
+        "candidate_id": "C-a-4a96fc680804afb2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked price\u00d7area/parking reconstruction; availability audit needed, no physical-law claim.",
+        "candidate_sha256": "30dc01589a4917b089c337c1cd1742ad6964d51b38e72a54a0d4d21fe86eece0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000554",
+      "slug": "lesson-000554",
+      "merged_candidate_ids": [
+        "C-a-4a96fc680804afb2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-15f33378db1a6fe30cae",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "source_url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4a96fc680804afb2",
+          "line_start": 125,
+          "line_end": 142,
+          "evidence_text": "### 9. **\u95dc\u9375\u6b65\u9a5f\uff1a\u9ad8\u5ea6\u89e3\u91cb\u529b\u7279\u5fb5**\n\u7d93\u904e\u6df1\u5165\u89c0\u5bdf\u8207\u5730\u653f\u53f8\u8cc7\u6599\u6bd4\u5c0d\uff0c\u6211\u5011\u767c\u73fe\uff1a\n- **\u300c\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a\u300d \u00d7 \u300c\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a\u300d \u5177\u6709\u9ad8\u5ea6\u89e3\u91cb\u529b\u3002**\n\n  ![\u9ad8\u89e3\u91cb\u529b\u7279\u5fb5](https://github.com/user-attachments/assets/a7c8e55b-617a-440e-b073-b237757814b9)\n\n  ![\u8cc7\u6599\u5c0d\u61c9](https://github.com/user-attachments/assets/f731d1a1-bb66-49df-b059-ca03b60049c1)\n\n#### **\u8abf\u6574\u8a08\u7b97\u516c\u5f0f**\n```math\n\\text{\u7e3d\u50f9\u5143} =\n\\begin{cases} \n(\\text{\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a}) \\times 5 \\times (\\text{\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a}), & \\text{\u82e5\u8eca\u4f4d\u9762\u7a4d=0 \u4e14 \u8eca\u4f4d\u7e3d\u50f9\u5143\u22600} \\\\\n(\\text{\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a}) \\times (\\text{\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a}) + \\text{\u8eca\u4f4d\u7e3d\u50f9\u5143}, & \\text{\u82e5\u8eca\u4f4d\u9762\u7a4d\u22600 \u4e14 \u8eca\u4f4d\u7e3d\u50f9\u5143=0} \\\\\n(\\text{\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a} - \\text{\u8eca\u4f4d\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a}) \\times (\\text{\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a}) + \\text{\u8eca\u4f4d\u7e3d\u50f9\u5143}, & \\text{\u5176\u4ed6}\n\\end{cases}\n```\n- \u4f7f\u7528\u8a72\u516c\u5f0f\u5f8c\uff0c\u90e8\u5206\u60c5\u5883\u4e0b\u7684 **MAE \u964d\u81f3\u7d04 5000**\uff0c\u986f\u793a\u8a72\u7279\u5fb5\u5177\u6709\u6975\u9ad8\u89e3\u91cb\u529b\u3002",
+          "kind": "reported_gain",
+          "statement": "The author reconstructed total price from unit price, building area and parking adjustments and reported about five-thousand MAE in some cases.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Target-definition audit accessible and guards spectacular misleading gains.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 95.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "High value identifying algebraic target information before claiming prediction.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Broad leakage diagnosis; sourceformula cannot establish deployable forecasting.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "locator": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt#L125-L142",
+          "quote": "### 9. **\u95dc\u9375\u6b65\u9a5f\uff1a\u9ad8\u5ea6\u89e3\u91cb\u529b\u7279\u5fb5**\n\u7d93\u904e\u6df1\u5165\u89c0\u5bdf\u8207\u5730\u653f\u53f8\u8cc7\u6599\u6bd4\u5c0d\uff0c\u6211\u5011\u767c\u73fe\uff1a\n- **\u300c\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a\u300d \u00d7 \u300c\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a\u300d \u5177\u6709\u9ad8\u5ea6\u89e3\u91cb\u529b\u3002**\n\n  ![\u9ad8\u89e3\u91cb\u529b\u7279\u5fb5](https://github.com/user-attachments/assets/a7c8e55b-617a-440e-b073-b237757814b9)\n\n  ![\u8cc7\u6599\u5c0d\u61c9](https://github.com/user-attachments/assets/f731d1a1-bb66-49df-b059-ca03b60049c1)\n\n#### **\u8abf\u6574\u8a08\u7b97\u516c\u5f0f**\n```math\n\\text{\u7e3d\u50f9\u5143} =\n\\begin{cases} \n(\\text{\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a}) \\times 5 \\times (\\text{\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a}), & \\text{\u82e5\u8eca\u4f4d\u9762\u7a4d=0 \u4e14 \u8eca\u4f4d\u7e3d\u50f9\u5143\u22600} \\\\\n(\\text{\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a}) \\times (\\text{\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a}) + \\text{\u8eca\u4f4d\u7e3d\u50f9\u5143}, & \\text{\u82e5\u8eca\u4f4d\u9762\u7a4d\u22600 \u4e14 \u8eca\u4f4d\u7e3d\u50f9\u5143=0} \\\\\n(\\text{\u5efa\u7269\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a} - \\text{\u8eca\u4f4d\u79fb\u8f49\u7e3d\u9762\u7a4d\u5e73\u65b9\u516c\u5c3a}) \\times (\\text{\u55ae\u50f9\u5143\u5e73\u65b9\u516c\u5c3a}) + \\text{\u8eca\u4f4d\u7e3d\u50f9\u5143}, & \\text{\u5176\u4ed6}\n\\end{cases}\n```\n- \u4f7f\u7528\u8a72\u516c\u5f0f\u5f8c\uff0c\u90e8\u5206\u60c5\u5883\u4e0b\u7684 **MAE \u964d\u81f3\u7d04 5000**\uff0c\u986f\u793a\u8a72\u7279\u5fb5\u5177\u6709\u6975\u9ad8\u89e3\u91cb\u529b\u3002",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "line_start": 125,
+          "line_end": 142
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4a96fc680804afb2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked price\u00d7area/parking reconstruction; availability audit needed, no physical-law claim.",
+          "candidate_sha256": "30dc01589a4917b089c337c1cd1742ad6964d51b38e72a54a0d4d21fe86eece0"
+        },
+        {
+          "candidate_id": "C-a-4a96fc680804afb2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Taiwansource explicitlyunitprice-area/parkingconditionalformulasincludingfactor5,~5000MAEin somecases;XGB~110000scopeelsewhereunmatched. No comparablefullpopulationformulaablationso structuredresultnotinferred. Predictiontimeunitpricetargetaudit/leakagecaveatcentral,gradesreasonablewithoutdeploymentgain.",
+          "candidate_sha256": "30dc01589a4917b089c337c1cd1742ad6964d51b38e72a54a0d4d21fe86eece0"
+        }
+      ],
+      "book_location": {
+        "chapter": 7,
+        "path": "manuscript/chapters/07-domain-features-win.md",
+        "sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
+        "line_start": 157,
+        "line_end": 167,
+        "section": "Domain Hypotheses from Additional Competitions"
+      }
+    }
+  ]
+}

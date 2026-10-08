@@ -1,0 +1,1037 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-988e093127c10529",
+      "canonical_key": "benchmark several decoders under repeated folds before changing the underlying model. | postprocessing strongly affects an ordinal metric | validation_reliability",
+      "title": "Compare ordinal decoding choices under repeated validation",
+      "statement": "When postprocessing strongly affects an ordinal metric, consider this source-backed action: Benchmark several decoders under repeated folds before changing the underlying model. Proposed check: Report fold dispersion and recalibrate using only each training fold. Limit: The large result is source-specific and does not establish prevalence robustness.",
+      "trigger_conditions": [
+        "postprocessing strongly affects an ordinal metric"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Benchmark several decoders under repeated folds before changing the underlying model."
+      ],
+      "verification_steps": [
+        "Proposed verification: Report fold dispersion and recalibrate using only each training fold."
+      ],
+      "limitations": [
+        "The large result is source-specific and does not establish prevalence robustness."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Reported mean kappa was 0.404277 rounding, 0.513138 ceiling and 0.681876 CDF over three runs/three folds.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-988e093127c10529"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cheap postprocessing comparisons are practical model diagnostics.",
+        "competitor": "Strong local gain supports decoder comparison before retraining.",
+        "practitioner": "Useful decision-rule validation with independent class calibration."
+      },
+      "review": {
+        "candidate_id": "C-a-988e093127c10529",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked repeated3run/3fold kappa comparison; no prevalence robustness claim.",
+        "candidate_sha256": "1e383104884be3c6128470e3c096f0f2e0e829aea2fa47b54cfbd05e586a7624"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000036",
+      "slug": "lesson-000036",
+      "merged_candidate_ids": [
+        "C-a-988e093127c10529"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6083823403e0961a9c64",
+          "competition_id": "competition:crowdflower-search-relevance",
+          "source_id": "source:lesson-source-c47befe04e0c7d60",
+          "snapshot_path": "research/lesson-extraction/snapshots/847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991.txt",
+          "snapshot_sha256": "847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991",
+          "source_url": "http://blog.kaggle.com/2015/07/27/crowdflower-winners-interview-1st-place-chenglong-chen/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-988e093127c10529",
+          "line_start": 55,
+          "line_end": 71,
+          "evidence_text": "Following are the kappa scores for each decoding method (using all 3 runs and 3 folds CV). The above cdf decoding method exhibits the best performance among the three methods we considered.\n\nMethod\nCV Mean\nCV Std\n\nRounding\n0.404277\n0.005069\n\nCeiling\n0.513138\n0.006485\n\nCDF\n0.681876\n0.005259",
+          "kind": "reported_gain",
+          "statement": "Reported mean kappa was 0.404277 rounding, 0.513138 ceiling and 0.681876 CDF over three runs/three folds.",
+          "reported_result": {
+            "metric": "repeated-CV mean quadratic weighted kappa",
+            "value": 0.681876,
+            "context": "Crowdflower relevance: CDF0.681876(std0.005259) versus ceiling0.513138 and rounding0.404277 over3runs/3folds; decoding comparison, prevalence robustness untested.",
+            "evidence_text": "Following are the kappa scores for each decoding method (using all 3 runs and 3 folds CV). The above cdf decoding method exhibits the best performance among the three methods we considered.\n\nMethod\nCV Mean\nCV Std\n\nRounding\n0.404277\n0.005069\n\nCeiling\n0.513138\n0.006485\n\nCDF\n0.681876\n0.005259"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Cheap postprocessing comparisons are practical model diagnostics.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Strong local gain supports decoder comparison before retraining.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful decision-rule validation with independent class calibration.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c47befe04e0c7d60",
+          "locator": "research/lesson-extraction/snapshots/847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991.txt#L55-L71",
+          "quote": "Following are the kappa scores for each decoding method (using all 3 runs and 3 folds CV). The above cdf decoding method exhibits the best performance among the three methods we considered.\n\nMethod\nCV Mean\nCV Std\n\nRounding\n0.404277\n0.005069\n\nCeiling\n0.513138\n0.006485\n\nCDF\n0.681876\n0.005259",
+          "competition_id": "competition:crowdflower-search-relevance",
+          "url": "http://blog.kaggle.com/2015/07/27/crowdflower-winners-interview-1st-place-chenglong-chen/",
+          "snapshot_path": "research/lesson-extraction/snapshots/847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991.txt",
+          "snapshot_sha256": "847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991",
+          "line_start": 55,
+          "line_end": 71
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-988e093127c10529",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked repeated3run/3fold kappa comparison; no prevalence robustness claim.",
+          "candidate_sha256": "1e383104884be3c6128470e3c096f0f2e0e829aea2fa47b54cfbd05e586a7624"
+        },
+        {
+          "candidate_id": "C-a-988e093127c10529",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Crowdflower exact repeated3run/3fold QWK means/std checked:CDF0.681876/0.005259,ceiling0.513138,round0.404277. Same-decoder comparison,not robustness proof. Fold-local calibration and dispersion checks proposed; cheap comparison grades reasonable.",
+          "candidate_sha256": "1e383104884be3c6128470e3c096f0f2e0e829aea2fa47b54cfbd05e586a7624"
+        }
+      ],
+      "book_location": {
+        "chapter": 59,
+        "path": "manuscript/chapters/59-threshold-optimization.md",
+        "sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
+        "line_start": 264,
+        "line_end": 268,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-88e1980816138084",
+      "canonical_key": "estimate class cdf on training folds and allocate sorted predictions by those cumulative proportions. | ordinal regression predicts classes with a skewed distribution | predictive_quality",
+      "title": "Decode ordinal regression by fold-local class frequencies",
+      "statement": "When ordinal regression predicts classes with a skewed distribution, consider this source-backed action: Estimate class CDF on training folds and allocate sorted predictions by those cumulative proportions. Proposed check: Compare QWK with rounding and ceiling on identical folds and stress-test prevalence shift. Limit: Uses a batch-distribution assumption; frequencies must not be read from validation labels.",
+      "trigger_conditions": [
+        "ordinal regression predicts classes with a skewed distribution"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Estimate class CDF on training folds and allocate sorted predictions by those cumulative proportions."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare QWK with rounding and ceiling on identical folds and stress-test prevalence shift."
+      ],
+      "limitations": [
+        "Uses a batch-distribution assumption; frequencies must not be read from validation labels."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author ranked continuous predictions and assigned relevance classes using cumulative training-fold frequencies.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-88e1980816138084"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Sorted allocation clear; frequency-shift interpretation requires care.",
+        "competitor": "Actionable ordinal decoder under stable batch prevalence.",
+        "practitioner": "Narrow batch decoder unsuitable under untested prevalence drift."
+      },
+      "review": {
+        "candidate_id": "C-a-88e1980816138084",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked fold-local CDF allocation; prevalence assumption is essential.",
+        "candidate_sha256": "4ad0f168a15258b7a3036fbf060c90aba2b908b7173e25d87edd2024437d4b52"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000241",
+      "slug": "lesson-000241",
+      "merged_candidate_ids": [
+        "C-a-88e1980816138084"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6083823403e0961a9c64",
+          "competition_id": "competition:crowdflower-search-relevance",
+          "source_id": "source:lesson-source-c47befe04e0c7d60",
+          "snapshot_path": "research/lesson-extraction/snapshots/847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991.txt",
+          "snapshot_sha256": "847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991",
+          "source_url": "http://blog.kaggle.com/2015/07/27/crowdflower-winners-interview-1st-place-chenglong-chen/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-88e1980816138084",
+          "line_start": 39,
+          "line_end": 49,
+          "evidence_text": "For preprocessing, I mainly performed HTML tags dropping, word replacement, and stemming. For a supervised learning method, I used ensemble selection to generate an ensemble from a model library. The model library was built with models trained using various algorithms, various parameter settings, and various feature sets. I have used Hyperopt (usually used in parameter tuning) to choose parameter setting from a pre-defined parameter space for training different models.\n\nI have tried various objectives, e.g., MSE, softmax, and pairwise ranking. MSE turned out to be the best with an appropriate decoding method. The following is the decoding method I used for MSE (i.e., regression):\n\nCalculate the pdf/cdf of each median relevance level, 1 is about 7.6%, 1 + 2 is about 22%, 1 + 2 + 3 is about 40%, and 1 + 2 + 3 + 4 is 100%.\n\nRank the raw prediction in an ascending order.\n\nSet the first 7.6% to 1, 7.6% - 22% to 2, 22% - 40% to 3, and the rest to 4.\n\nIn CV, the pdf/cdf is calculated using the training fold only, and in the final model training, it is computed using the whole training data.",
+          "kind": "used",
+          "statement": "The author ranked continuous predictions and assigned relevance classes using cumulative training-fold frequencies.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Sorted allocation clear; frequency-shift interpretation requires care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 4
+          },
+          "rationale": "Actionable ordinal decoder under stable batch prevalence.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Narrow batch decoder unsuitable under untested prevalence drift.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c47befe04e0c7d60",
+          "locator": "research/lesson-extraction/snapshots/847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991.txt#L39-L49",
+          "quote": "For preprocessing, I mainly performed HTML tags dropping, word replacement, and stemming. For a supervised learning method, I used ensemble selection to generate an ensemble from a model library. The model library was built with models trained using various algorithms, various parameter settings, and various feature sets. I have used Hyperopt (usually used in parameter tuning) to choose parameter setting from a pre-defined parameter space for training different models.\n\nI have tried various objectives, e.g., MSE, softmax, and pairwise ranking. MSE turned out to be the best with an appropriate decoding method. The following is the decoding method I used for MSE (i.e., regression):\n\nCalculate the pdf/cdf of each median relevance level, 1 is about 7.6%, 1 + 2 is about 22%, 1 + 2 + 3 is about 40%, and 1 + 2 + 3 + 4 is 100%.\n\nRank the raw prediction in an ascending order.\n\nSet the first 7.6% to 1, 7.6% - 22% to 2, 22% - 40% to 3, and the rest to 4.\n\nIn CV, the pdf/cdf is calculated using the training fold only, and in the final model training, it is computed using the whole training data.",
+          "competition_id": "competition:crowdflower-search-relevance",
+          "url": "http://blog.kaggle.com/2015/07/27/crowdflower-winners-interview-1st-place-chenglong-chen/",
+          "snapshot_path": "research/lesson-extraction/snapshots/847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991.txt",
+          "snapshot_sha256": "847b08a26510253d679415836668694c60d30dbd3a48f9554f2a8dd0f8de7991",
+          "line_start": 39,
+          "line_end": 49
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-88e1980816138084",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked fold-local CDF allocation; prevalence assumption is essential.",
+          "candidate_sha256": "4ad0f168a15258b7a3036fbf060c90aba2b908b7173e25d87edd2024437d4b52"
+        },
+        {
+          "candidate_id": "C-a-88e1980816138084",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Crowdflower source explicitly sorted prediction CDFallocation,class frequencies trainfold only and wholetrain final. Batch-prevalence assumption and shift test preserved; reported comparison sits separate988candidate. Narrow practitioner grades reasonable.",
+          "candidate_sha256": "4ad0f168a15258b7a3036fbf060c90aba2b908b7173e25d87edd2024437d4b52"
+        }
+      ],
+      "book_location": {
+        "chapter": 59,
+        "path": "manuscript/chapters/59-threshold-optimization.md",
+        "sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
+        "line_start": 272,
+        "line_end": 276,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-87653ee3d4df885a",
+      "canonical_key": "for the binary f2 task, select a probability threshold against f2 rather than assuming 0.5; compare with other metrics separately. | different classification tasks reward different decision tradeoffs | predictive_quality",
+      "title": "Align classifier thresholds with the requested metric",
+      "statement": "When different classification tasks reward different decision tradeoffs, consider this source-backed action: For the binary F2 task, select a probability threshold against F2 rather than assuming 0.5; compare with other metrics separately. Proposed check: Use OOF probabilities and an untouched set to evaluate selected thresholds. Limit: The packet is a repository overview with no threshold or quantitative comparison; steps are proposed from the stated approach.",
+      "trigger_conditions": [
+        "different classification tasks reward different decision tradeoffs"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: For the binary F2 task, select a probability threshold against F2 rather than assuming 0.5; compare with other metrics separately."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use OOF probabilities and an untouched set to evaluate selected thresholds."
+      ],
+      "limitations": [
+        "The packet is a repository overview with no threshold or quantitative comparison; steps are proposed from the stated approach."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The repository describes F2-focused stacking and threshold tuning, macro-F1 multiclass modeling and PCA anomaly scoring with median imputation/scaling.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-87653ee3d4df885a"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Threshold sweep accessible with known metric.",
+        "competitor": "Useful baseline for F2 tasks, details must be supplied.",
+        "practitioner": "Metric-aware threshold decisions transfer to asymmetric classification."
+      },
+      "review": {
+        "candidate_id": "C-a-87653ee3d4df885a",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked F2 threshold-tuning overview; OOF/untouched evaluation proposed.",
+        "candidate_sha256": "ad901ea43e01fb66173e3fe5d46aaf5baf10b278632a3fba7e9cf5cf1679da0d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000292",
+      "slug": "lesson-000292",
+      "merged_candidate_ids": [
+        "C-a-87653ee3d4df885a"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f21b1e0cbd0c6e451499",
+          "competition_id": "competition:cpe342-karena",
+          "source_id": "source:lesson-source-2736a1de64face13",
+          "snapshot_path": "research/lesson-extraction/snapshots/148d329235fd35b00de523976ee9133bc84c51453aca8a79ce89e45c236e2896.txt",
+          "snapshot_sha256": "148d329235fd35b00de523976ee9133bc84c51453aca8a79ce89e45c236e2896",
+          "source_url": "https://raw.githubusercontent.com/Saltywan/CPE342-KAGGLE/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-87653ee3d4df885a",
+          "line_start": 8,
+          "line_end": 12,
+          "evidence_text": "- `Task1/code.ipynb` \u2014 Anti-cheat binary classification with F2-focused stacking and threshold tuning.\n- `Task2/code.ipynb` \u2014 Player segment multiclass classification optimized for macro F1 (stacked models).\n- `Task3/code.ipynb` \u2014 Monthly spending regression optimized for MAE with ensemble stacking.\n- `Task4/code.ipynb` \u2014 Five-class image classifier using a combined CSV (id, file_name, label) and stratified train/validation split; trains on images in `combined/` and infers on `test/`.\n- `Task5/code.ipynb` \u2014 Unsupervised anomaly scoring on tabular test data using a PCA-based detector (median imputation, scaling, PyOD PCA with contamination/thresholding) producing per-id scores and flags.",
+          "kind": "used",
+          "statement": "The repository describes F2-focused stacking and threshold tuning, macro-F1 multiclass modeling and PCA anomaly scoring with median imputation/scaling.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Threshold sweep accessible with known metric.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful baseline for F2 tasks, details must be supplied.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Metric-aware threshold decisions transfer to asymmetric classification.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-2736a1de64face13",
+          "locator": "research/lesson-extraction/snapshots/148d329235fd35b00de523976ee9133bc84c51453aca8a79ce89e45c236e2896.txt#L8-L12",
+          "quote": "- `Task1/code.ipynb` \u2014 Anti-cheat binary classification with F2-focused stacking and threshold tuning.\n- `Task2/code.ipynb` \u2014 Player segment multiclass classification optimized for macro F1 (stacked models).\n- `Task3/code.ipynb` \u2014 Monthly spending regression optimized for MAE with ensemble stacking.\n- `Task4/code.ipynb` \u2014 Five-class image classifier using a combined CSV (id, file_name, label) and stratified train/validation split; trains on images in `combined/` and infers on `test/`.\n- `Task5/code.ipynb` \u2014 Unsupervised anomaly scoring on tabular test data using a PCA-based detector (median imputation, scaling, PyOD PCA with contamination/thresholding) producing per-id scores and flags.",
+          "competition_id": "competition:cpe342-karena",
+          "url": "https://raw.githubusercontent.com/Saltywan/CPE342-KAGGLE/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/148d329235fd35b00de523976ee9133bc84c51453aca8a79ce89e45c236e2896.txt",
+          "snapshot_sha256": "148d329235fd35b00de523976ee9133bc84c51453aca8a79ce89e45c236e2896",
+          "line_start": 8,
+          "line_end": 12
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-87653ee3d4df885a",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked F2 threshold-tuning overview; OOF/untouched evaluation proposed.",
+          "candidate_sha256": "ad901ea43e01fb66173e3fe5d46aaf5baf10b278632a3fba7e9cf5cf1679da0d"
+        },
+        {
+          "candidate_id": "C-a-87653ee3d4df885a",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Karena overview explicitly F2-focused binary stacking/threshold tuning;macroF1/PCAother tasks contextual only. OOF threshold sweep/untouched set proposed,no observed threshold value or gain. Moderate actionability/utility grades reasonable.",
+          "candidate_sha256": "ad901ea43e01fb66173e3fe5d46aaf5baf10b278632a3fba7e9cf5cf1679da0d"
+        }
+      ],
+      "book_location": {
+        "chapter": 59,
+        "path": "manuscript/chapters/59-threshold-optimization.md",
+        "sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
+        "line_start": 222,
+        "line_end": 232,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-d00c3e1b751875d52643",
+      "canonical_key": "minimize expected error cost from class probabilities | classification with an explicit asymmetric error-cost matrix and aligned class order | cost_sensitive_decisions",
+      "title": "Choose the class with lowest expected error cost",
+      "statement": "When classification uses an asymmetric misclassification cost matrix, multiply predicted class probabilities by the cost matrix and select the minimum expected-cost class. Verify class ordering and matrix orientation; evaluate mean realized cost against argmax predictions and inspect probability calibration. Expected-cost decisions depend on calibrated probabilities and the correct mapping between cost rows and class probabilities. The exploratory script has commented train/test assignments and no numeric result.",
+      "trigger_conditions": [
+        "classification uses an asymmetric misclassification cost matrix",
+        "classification errors have unequal explicit penalties"
+      ],
+      "action_steps": [
+        "Proposed: multiply predicted class probabilities by the cost matrix and select the minimum expected-cost class.",
+        "Proposed adaptation of source observation: Compute expected loss for every decision from predicted class probabilities and the cost matrix, then choose minimum loss."
+      ],
+      "verification_steps": [
+        "Proposed: verify class ordering and matrix orientation; evaluate mean realized cost against argmax predictions and inspect probability calibration.",
+        "Proposed verification: Compare mean realized cost with argmax classification and assess probability calibration."
+      ],
+      "limitations": [
+        "Expected-cost decisions depend on calibrated probabilities and the correct mapping between cost rows and class probabilities. The exploratory script has commented train/test assignments and no numeric result.",
+        "Outlier removal should be checked per fold; the source\u2019s claim that XGBoost handles imbalance internally is not a guarantee."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "forest_cover",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "unknown",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "cost_sensitive_decisions",
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "metric_mismatch",
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for clasif-cubiertas-forestales: The code computes weighted_costs = y_proba @ C and selects argmin over decision classes.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare expected-cost versus argmax decisions for a calibrated defect-classification system with explicit error costs.",
+          "basis": "proposed"
+        },
+        {
+          "description": "The author used Isolation Forest outlier removal, three-fold tuning and predicted classes by minimum expected cost after multiplying probabilities by a cost matrix.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-000b9aa13d9effebb6f5",
+        "O-a-edf688aa126fec69"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A concrete probability-times-cost calculation is a useful next step beyond accuracy with modest NumPy work.",
+        "competitor": "Strong value when the leaderboard metric penalizes classes asymmetrically; verify probability column order.",
+        "practitioner": "Broad decision value for explicit misclassification costs, but costs and calibrated probabilities must match the actual operating population."
+      },
+      "review": {
+        "candidate_id": "C-d00c3e1b751875d52643",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read complete XGBoost notebook including score_function: rows represent true classes and columns decision classes, so probability @ C followed by argmin implements expected-cost choice. The exploratory train/test assignments are commented out; class encoding and probability calibration must be checked, with no numeric gain reported.",
+        "candidate_sha256": "87d88d49be31aedd26dd2bfb624c84f742f6e889d12e39aca29f233b68d0f65a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000354",
+      "slug": "lesson-000354",
+      "merged_candidate_ids": [
+        "C-a-edf688aa126fec69",
+        "C-d00c3e1b751875d52643"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-739bc50e50d5dce11173",
+          "competition_id": "competition:clasif-cubiertas-forestales",
+          "source_id": "source:lesson-source-3bb33494db11bd7f",
+          "snapshot_path": "research/lesson-extraction/snapshots/063b12e573f8d26d4fb0aff041971d80b7dda04d462a9c3ef263b2fb9e8d474d.txt",
+          "snapshot_sha256": "063b12e573f8d26d4fb0aff041971d80b7dda04d462a9c3ef263b2fb9e8d474d",
+          "source_url": "https://raw.githubusercontent.com/edgomezg/forest-cover-classification/HEAD/solution_XGBoost.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-000b9aa13d9effebb6f5",
+          "line_start": 141,
+          "line_end": 144,
+          "evidence_text": "# Predicciones en el conjunto de prueba\ny_proba = clf.predict_proba(x_test)\nweighted_costs = np.matmul(y_proba, np.array(C))\ny_pred = np.argmin(weighted_costs, axis = 1)",
+          "kind": "used",
+          "statement": "The code computes weighted_costs = y_proba @ C and selects argmin over decision classes.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-d037dd8258933e55a3fa",
+          "competition_id": "competition:clasif-cubiertas-forestales",
+          "source_id": "source:lesson-source-70f694c2769f1a6c",
+          "snapshot_path": "research/lesson-extraction/snapshots/61234756a7c44704299f069a9ef39b3557dcf0d8f49387679d7e50f11c6d1f20.txt",
+          "snapshot_sha256": "61234756a7c44704299f069a9ef39b3557dcf0d8f49387679d7e50f11c6d1f20",
+          "source_url": "https://raw.githubusercontent.com/edgomezg/Forest-cover-classification/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-edf688aa126fec69",
+          "line_start": 13,
+          "line_end": 25,
+          "evidence_text": "The methodology used for data preprocessing involved removing samples considered as outliers to reduce noise when training the classifier. Isolation Forest algorithm from Scikit-learn library was employed to identify these outliers.\n\nRegarding the imbalance of samples across classes in the training dataset, no preprocessing was applied since the chosen algorithm, XGBoost, handles this internally.\n\n### 3.2 Algorithm Selection\nAn XGBoost classifier was trained using the training dataset to obtain the probability of each test sample belonging to each class. Weighted scores were then calculated by multiplying these probabilities by the cost matrix, allowing the final class of each sample to be determined based on the lowest weighted score. This approach optimizes costs of classification errors according to the penalties defined by the cost matrix.\n\n### 3.3 Hyperparameter Selection\nFor hyperparameter optimization, GridSearchCV algorithm from Scikit-learn library was used. This method performed a parametric sweep with different values for each hyperparameter to find the best estimation.\n\nA cross-validation value of 3 was used, which divides the training dataset into three equal parts and uses one as the test set in each iteration.\n\nIn our specific case, the classifier's optimized parameters were: `n_estimators`, `learning_rate`, `max_depth`, and `subsample`.",
+          "kind": "used",
+          "statement": "The author used Isolation Forest outlier removal, three-fold tuning and predicted classes by minimum expected cost after multiplying probabilities by a cost matrix.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "A concrete probability-times-cost calculation is a useful next step beyond accuracy with modest NumPy work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 95.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Strong value when the leaderboard metric penalizes classes asymmetrically; verify probability column order.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad decision value for explicit misclassification costs, but costs and calibrated probabilities must match the actual operating population.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 2,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-3bb33494db11bd7f",
+          "locator": "research/lesson-extraction/snapshots/063b12e573f8d26d4fb0aff041971d80b7dda04d462a9c3ef263b2fb9e8d474d.txt#L141-L144",
+          "quote": "# Predicciones en el conjunto de prueba\ny_proba = clf.predict_proba(x_test)\nweighted_costs = np.matmul(y_proba, np.array(C))\ny_pred = np.argmin(weighted_costs, axis = 1)",
+          "competition_id": "competition:clasif-cubiertas-forestales",
+          "url": "https://raw.githubusercontent.com/edgomezg/forest-cover-classification/HEAD/solution_XGBoost.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/063b12e573f8d26d4fb0aff041971d80b7dda04d462a9c3ef263b2fb9e8d474d.txt",
+          "snapshot_sha256": "063b12e573f8d26d4fb0aff041971d80b7dda04d462a9c3ef263b2fb9e8d474d",
+          "line_start": 141,
+          "line_end": 144
+        },
+        {
+          "source_id": "source:lesson-source-70f694c2769f1a6c",
+          "locator": "research/lesson-extraction/snapshots/61234756a7c44704299f069a9ef39b3557dcf0d8f49387679d7e50f11c6d1f20.txt#L13-L25",
+          "quote": "The methodology used for data preprocessing involved removing samples considered as outliers to reduce noise when training the classifier. Isolation Forest algorithm from Scikit-learn library was employed to identify these outliers.\n\nRegarding the imbalance of samples across classes in the training dataset, no preprocessing was applied since the chosen algorithm, XGBoost, handles this internally.\n\n### 3.2 Algorithm Selection\nAn XGBoost classifier was trained using the training dataset to obtain the probability of each test sample belonging to each class. Weighted scores were then calculated by multiplying these probabilities by the cost matrix, allowing the final class of each sample to be determined based on the lowest weighted score. This approach optimizes costs of classification errors according to the penalties defined by the cost matrix.\n\n### 3.3 Hyperparameter Selection\nFor hyperparameter optimization, GridSearchCV algorithm from Scikit-learn library was used. This method performed a parametric sweep with different values for each hyperparameter to find the best estimation.\n\nA cross-validation value of 3 was used, which divides the training dataset into three equal parts and uses one as the test set in each iteration.\n\nIn our specific case, the classifier's optimized parameters were: `n_estimators`, `learning_rate`, `max_depth`, and `subsample`.",
+          "competition_id": "competition:clasif-cubiertas-forestales",
+          "url": "https://raw.githubusercontent.com/edgomezg/Forest-cover-classification/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/61234756a7c44704299f069a9ef39b3557dcf0d8f49387679d7e50f11c6d1f20.txt",
+          "snapshot_sha256": "61234756a7c44704299f069a9ef39b3557dcf0d8f49387679d7e50f11c6d1f20",
+          "line_start": 13,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-edf688aa126fec69",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked minimum expected error cost; matrix orientation/calibration safeguard needed.",
+          "candidate_sha256": "bd288551df33ec74939b65fb3b354fc527dc39297693cb53df37dc9e813dd0b8"
+        },
+        {
+          "candidate_id": "C-a-edf688aa126fec69",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Forest original explicitly probability-cost-matrix product/minimum weighted decision,IsolationForest and3fold tuning. Expected realized cost/calibration and fold-outlier check proposed; XGBoost imbalance statement caveated. Grades fit meaningful trustworthy error matrix.",
+          "candidate_sha256": "bd288551df33ec74939b65fb3b354fc527dc39297693cb53df37dc9e813dd0b8"
+        },
+        {
+          "candidate_id": "C-d00c3e1b751875d52643",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read complete XGBoost notebook including score_function: rows represent true classes and columns decision classes, so probability @ C followed by argmin implements expected-cost choice. The exploratory train/test assignments are commented out; class encoding and probability calibration must be checked, with no numeric gain reported.",
+          "candidate_sha256": "87d88d49be31aedd26dd2bfb624c84f742f6e889d12e39aca29f233b68d0f65a"
+        },
+        {
+          "candidate_id": "C-d00c3e1b751875d52643",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete forest notebook confirms y_proba @ C followed by argmin and score_function indexes true-class rows and predicted-class columns. Class ordering, calibration and matrix orientation are proposed checks; commented train/test assignments and absent numeric results are explicit. High experienced decision utility is reasonable under genuine operating costs.",
+          "candidate_sha256": "87d88d49be31aedd26dd2bfb624c84f742f6e889d12e39aca29f233b68d0f65a"
+        }
+      ],
+      "book_location": {
+        "chapter": 59,
+        "path": "manuscript/chapters/59-threshold-optimization.md",
+        "sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
+        "line_start": 234,
+        "line_end": 244,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-575523cd6eccc399",
+      "canonical_key": "save identified class probabilities alongside hard labels. | downstream workflows need confidence-aware text decisions | deployment_reliability",
+      "title": "Expose class probabilities for downstream confidence decisions",
+      "statement": "When downstream workflows need confidence-aware text decisions, consider this source-backed action: Save identified class probabilities alongside hard labels. Proposed check: Check row/class alignment and calibration before routing by confidence. Limit: Softmax probabilities are not automatically calibrated and no calibration evaluation is supplied.",
+      "trigger_conditions": [
+        "downstream workflows need confidence-aware text decisions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Save identified class probabilities alongside hard labels."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check row/class alignment and calibration before routing by confidence."
+      ],
+      "limitations": [
+        "Softmax probabilities are not automatically calibrated and no calibration evaluation is supplied."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "deployment"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Deployment"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The inference interface returns both labels and softmax fake-text probabilities.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-575523cd6eccc399"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Saving aligned probabilities is routine and useful.",
+        "competitor": "Supports later threshold and calibration experiments cheaply.",
+        "practitioner": "High downstream utility with calibration before confidence routing."
+      },
+      "review": {
+        "candidate_id": "C-a-575523cd6eccc399",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked label+softmaxprob interface; calibration not established.",
+        "candidate_sha256": "c8eaf22fc03a592bbab9db89eebb3454d257ae3678c05a4ec906eb0132b9f256"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000446",
+      "slug": "lesson-000446",
+      "merged_candidate_ids": [
+        "C-a-575523cd6eccc399"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ee4c38e4f41d3b0eb104",
+          "competition_id": "competition:fake-text-detection-competition",
+          "source_id": "source:lesson-source-6702baa81c8aa10d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c9e2dddb20a2141a053d6b9ccad713b9eab59f340a732fdfd2f7ab6bb53a29cc.txt",
+          "snapshot_sha256": "c9e2dddb20a2141a053d6b9ccad713b9eab59f340a732fdfd2f7ab6bb53a29cc",
+          "source_url": "https://raw.githubusercontent.com/donghoenlee/AI_Contest/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-575523cd6eccc399",
+          "line_start": 60,
+          "line_end": 64,
+          "evidence_text": "\ucd5c\uc885 \ucd94\ub860\uc740 \ub2e8\uc21c label(0/1)\ubfd0 \uc544\ub2c8\ub77c **\ud074\ub798\uc2a4 \ud655\ub960(`prob_1`, softmax \uae30\ubc18 fake \ud655\ub960)**\ub3c4 \ud568\uaed8 \uc0b0\ucd9c\ud558\ub3c4\ub85d \uad6c\uc131\ud588\uc2b5\ub2c8\ub2e4. \ub2e4\uc6b4\uc2a4\ud2b8\ub9bc\uc5d0\uc11c \ubaa8\ub378\uc758 \ud655\uc2e0\ub3c4\uc5d0 \ub530\ub77c \ud6c4\uc18d \ucc98\ub9ac\ub97c \ub2e4\ub974\uac8c \uac00\uc838\uac08 \uc218 \uc788\ub3c4\ub85d \ub9cc\ub4e0 \uc778\ud130\ud398\uc774\uc2a4\uc785\ub2c8\ub2e4.\n\n```python\npred_labels, pred_probs_1 = predict(model, test_loader, accelerator)\n# sub_df columns: id, label, prob_1",
+          "kind": "used",
+          "statement": "The inference interface returns both labels and softmax fake-text probabilities.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Saving aligned probabilities is routine and useful.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Supports later threshold and calibration experiments cheaply.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High downstream utility with calibration before confidence routing.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6702baa81c8aa10d",
+          "locator": "research/lesson-extraction/snapshots/c9e2dddb20a2141a053d6b9ccad713b9eab59f340a732fdfd2f7ab6bb53a29cc.txt#L60-L64",
+          "quote": "\ucd5c\uc885 \ucd94\ub860\uc740 \ub2e8\uc21c label(0/1)\ubfd0 \uc544\ub2c8\ub77c **\ud074\ub798\uc2a4 \ud655\ub960(`prob_1`, softmax \uae30\ubc18 fake \ud655\ub960)**\ub3c4 \ud568\uaed8 \uc0b0\ucd9c\ud558\ub3c4\ub85d \uad6c\uc131\ud588\uc2b5\ub2c8\ub2e4. \ub2e4\uc6b4\uc2a4\ud2b8\ub9bc\uc5d0\uc11c \ubaa8\ub378\uc758 \ud655\uc2e0\ub3c4\uc5d0 \ub530\ub77c \ud6c4\uc18d \ucc98\ub9ac\ub97c \ub2e4\ub974\uac8c \uac00\uc838\uac08 \uc218 \uc788\ub3c4\ub85d \ub9cc\ub4e0 \uc778\ud130\ud398\uc774\uc2a4\uc785\ub2c8\ub2e4.\n\n```python\npred_labels, pred_probs_1 = predict(model, test_loader, accelerator)\n# sub_df columns: id, label, prob_1",
+          "competition_id": "competition:fake-text-detection-competition",
+          "url": "https://raw.githubusercontent.com/donghoenlee/AI_Contest/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c9e2dddb20a2141a053d6b9ccad713b9eab59f340a732fdfd2f7ab6bb53a29cc.txt",
+          "snapshot_sha256": "c9e2dddb20a2141a053d6b9ccad713b9eab59f340a732fdfd2f7ab6bb53a29cc",
+          "line_start": 60,
+          "line_end": 64
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-575523cd6eccc399",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked label+softmaxprob interface; calibration not established.",
+          "candidate_sha256": "c8eaf22fc03a592bbab9db89eebb3454d257ae3678c05a4ec906eb0132b9f256"
+        },
+        {
+          "candidate_id": "C-a-575523cd6eccc399",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Same fake-text README explicitlyreturnslabel+softmaxprob1 withID. Calibration/rowclass checks proposed,not observed calibratedconfidence. Routine probability-export feasibility and practitioner utility reasonable.",
+          "candidate_sha256": "c8eaf22fc03a592bbab9db89eebb3454d257ae3678c05a4ec906eb0132b9f256"
+        }
+      ],
+      "book_location": {
+        "chapter": 59,
+        "path": "manuscript/chapters/59-threshold-optimization.md",
+        "sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
+        "line_start": 246,
+        "line_end": 256,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,772 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-dbb0e1779e2bb103",
+      "canonical_key": "compare frequency/information-based feature removal with retained high-cardinality features, fitting selection within folds. | recommendation tabular features contain many rare identities | predictive_quality",
+      "title": "Filter sparse categorical identities by frequency and information",
+      "statement": "When recommendation tabular features contain many rare identities, consider this source-backed action: Compare frequency/information-based feature removal with retained high-cardinality features, fitting selection within folds. Proposed check: Measure held-out quality and category coverage and compare stable imputation with the reported random approach. Limit: No threshold or isolated effect is supplied; random imputation can increase run variance.",
+      "trigger_conditions": [
+        "recommendation tabular features contain many rare identities"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare frequency/information-based feature removal with retained high-cardinality features, fitting selection within folds."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure held-out quality and category coverage and compare stable imputation with the reported random approach."
+      ],
+      "limitations": [
+        "No threshold or isolated effect is supplied; random imputation can increase run variance."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author dropped cast/director/writer/composer categories with low frequency and mutual information and used random imputation and K-fold CV.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-dbb0e1779e2bb103"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Routine frequency/MI screening accessible with careful folds.",
+        "competitor": "Useful sparse-identity ablation before expensive category modeling.",
+        "practitioner": "Transfers to rare categorical features; thresholds remain data-dependent."
+      },
+      "review": {
+        "candidate_id": "C-a-dbb0e1779e2bb103",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked rare-category/MI removal; fold-local selection proposed.",
+        "candidate_sha256": "2d03c887bd1b3b362776efcf7d1897d8dd694f8bfe97ce131fe948dbc4bc4972"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000129",
+      "slug": "lesson-000129",
+      "merged_candidate_ids": [
+        "C-a-dbb0e1779e2bb103"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3aa27aec78bd144446be",
+          "competition_id": "competition:ctrl-shift-intelligence-2k22",
+          "source_id": "source:lesson-source-ee6c2cbcd13d4733",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b363922e7255af1e307bfdc9a6af742e82a929ac1b139cce106039211c9f9e.txt",
+          "snapshot_sha256": "06b363922e7255af1e307bfdc9a6af742e82a929ac1b139cce106039211c9f9e",
+          "source_url": "https://raw.githubusercontent.com/Dcoder422/Movie-Recommendation-System/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-dbb0e1779e2bb103",
+          "line_start": 21,
+          "line_end": 26,
+          "evidence_text": "- Data Exploration using Seaborn kde plot, Pearson Correlation\n- Handled Null Values using random imputation\n- Feature Engineering : transformed features such as genre and title\n- Used Mutual Information for selection of important categories, where features had large number of categories\n- Features such as cast, director, writter and composer were discarded as they had very large number of categories, with very less frequency and low mutual information, hence not very helpful in predictons\n- K fold Cross Validation was used",
+          "kind": "used",
+          "statement": "The author dropped cast/director/writer/composer categories with low frequency and mutual information and used random imputation and K-fold CV.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Routine frequency/MI screening accessible with careful folds.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful sparse-identity ablation before expensive category modeling.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to rare categorical features; thresholds remain data-dependent.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ee6c2cbcd13d4733",
+          "locator": "research/lesson-extraction/snapshots/06b363922e7255af1e307bfdc9a6af742e82a929ac1b139cce106039211c9f9e.txt#L21-L26",
+          "quote": "- Data Exploration using Seaborn kde plot, Pearson Correlation\n- Handled Null Values using random imputation\n- Feature Engineering : transformed features such as genre and title\n- Used Mutual Information for selection of important categories, where features had large number of categories\n- Features such as cast, director, writter and composer were discarded as they had very large number of categories, with very less frequency and low mutual information, hence not very helpful in predictons\n- K fold Cross Validation was used",
+          "competition_id": "competition:ctrl-shift-intelligence-2k22",
+          "url": "https://raw.githubusercontent.com/Dcoder422/Movie-Recommendation-System/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b363922e7255af1e307bfdc9a6af742e82a929ac1b139cce106039211c9f9e.txt",
+          "snapshot_sha256": "06b363922e7255af1e307bfdc9a6af742e82a929ac1b139cce106039211c9f9e",
+          "line_start": 21,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-dbb0e1779e2bb103",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked rare-category/MI removal; fold-local selection proposed.",
+          "candidate_sha256": "2d03c887bd1b3b362776efcf7d1897d8dd694f8bfe97ce131fe948dbc4bc4972"
+        }
+      ],
+      "book_location": {
+        "chapter": 36,
+        "path": "manuscript/chapters/36-categorical-embeddings.md",
+        "sha256": "308dc8b702e9d81e905ce6c626e4af2df999a70d8a034585d5580b603f2910ca",
+        "line_start": 188,
+        "line_end": 192,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-554e7eb42edf483d0db3",
+      "canonical_key": "compare label-encoded categorical inputs with explicit ordinal encodings using a reusable ctr-interaction framework. | high-cardinality categorical tables need neural interaction modeling | predictive_quality",
+      "title": "Keep categorical preprocessing simple for interaction networks",
+      "statement": "When high-cardinality categorical tables need neural interaction modeling, proposed reuse: Proposed conditional application: Compare label-encoded categorical inputs with explicit ordinal encodings using a reusable CTR-interaction framework. Proposed check: Compare simple and richer encodings with identical folds/architecture; test unseen-category handling. Limitation: Label codes need categorical/embedding semantics; overfitting claim is dataset-specific.",
+      "trigger_conditions": [
+        "high-cardinality categorical tables need neural interaction modeling"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare label-encoded categorical inputs with explicit ordinal encodings using a reusable CTR-interaction framework."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare simple and richer encodings with identical folds/architecture; test unseen-category handling."
+      ],
+      "limitations": [
+        "Label codes need categorical/embedding semantics; overfitting claim is dataset-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The categorical-interaction author reports that additional preprocessing methods overfit beyond the simple encodings.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-c0e9e341a17f75c8504f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple encodings accessible, interaction networks less so.",
+        "competitor": "Useful baseline before elaborate categorical transformations.",
+        "practitioner": "Conditional tabular neural use; no universal encoding superiority."
+      },
+      "review": {
+        "candidate_id": "C-554e7eb42edf483d0db3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete categorical source uses label encoding plus explicit ordinals and reports other processing overfit; CTR blocks are source practices, not isolated winners.",
+        "candidate_sha256": "4773c14ea701bb7e045b29e415b417ee1a0872c0c33513815cbb809509710c89"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000144",
+      "slug": "lesson-000144",
+      "merged_candidate_ids": [
+        "C-554e7eb42edf483d0db3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-18ef82d4cf00265bb181",
+          "competition_id": "competition:cat-in-the-dat-ii",
+          "source_id": "source:lesson-source-ca84586efb4ae51d",
+          "snapshot_path": "research/lesson-extraction/snapshots/54af7cc36e906e3af44ba799362cfbad1a4058cd92a785fa5a1ade79b99ab940.txt",
+          "snapshot_sha256": "54af7cc36e906e3af44ba799362cfbad1a4058cd92a785fa5a1ade79b99ab940",
+          "source_url": "https://www.kaggle.com/competitions/cat-in-the-dat-ii/writeups/zetyun-com-dt-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-c0e9e341a17f75c8504f",
+          "line_start": 18,
+          "line_end": 21,
+          "evidence_text": "1.   All features are converted into category type then Label Encoding\n2.   Ordinal Encoding: ord_1~ord_5 -> ord_1_en~ord_5_en\n\nThat\u2019s all. I have also tried using various other methods to process the features but they all lead to overfitting.",
+          "kind": "reported_failure",
+          "statement": "The categorical-interaction author reports that additional preprocessing methods overfit beyond the simple encodings.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Simple encodings accessible, interaction networks less so.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful baseline before elaborate categorical transformations.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional tabular neural use; no universal encoding superiority.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ca84586efb4ae51d",
+          "locator": "research/lesson-extraction/snapshots/54af7cc36e906e3af44ba799362cfbad1a4058cd92a785fa5a1ade79b99ab940.txt#L18-L21",
+          "quote": "1.   All features are converted into category type then Label Encoding\n2.   Ordinal Encoding: ord_1~ord_5 -> ord_1_en~ord_5_en\n\nThat\u2019s all. I have also tried using various other methods to process the features but they all lead to overfitting.",
+          "competition_id": "competition:cat-in-the-dat-ii",
+          "url": "https://www.kaggle.com/competitions/cat-in-the-dat-ii/writeups/zetyun-com-dt-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/54af7cc36e906e3af44ba799362cfbad1a4058cd92a785fa5a1ade79b99ab940.txt",
+          "snapshot_sha256": "54af7cc36e906e3af44ba799362cfbad1a4058cd92a785fa5a1ade79b99ab940",
+          "line_start": 18,
+          "line_end": 21
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-554e7eb42edf483d0db3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete categorical source uses label encoding plus explicit ordinals and reports other processing overfit; CTR blocks are source practices, not isolated winners.",
+          "candidate_sha256": "4773c14ea701bb7e045b29e415b417ee1a0872c0c33513815cbb809509710c89"
+        }
+      ],
+      "book_location": {
+        "chapter": 36,
+        "path": "manuscript/chapters/36-categorical-embeddings.md",
+        "sha256": "308dc8b702e9d81e905ce6c626e4af2df999a70d8a034585d5580b603f2910ca",
+        "line_start": 196,
+        "line_end": 200,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-553abe92dbf87244",
+      "canonical_key": "proposed safe adaptation: learn the category vocabulary on training data and align test columns to it. | categorical tabular prediction creates separate encoded matrices | deployment_reliability",
+      "title": "Align one-hot feature columns across train and inference",
+      "statement": "When categorical tabular prediction creates separate encoded matrices, consider this source-backed action: Proposed safe adaptation: learn the category vocabulary on training data and align test columns to it. Proposed check: Check column identity/order and unseen-category behavior before prediction. Limit: Source does not document alignment handling and its cleaning function description is incomplete.",
+      "trigger_conditions": [
+        "categorical tabular prediction creates separate encoded matrices"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed safe adaptation: learn the category vocabulary on training data and align test columns to it."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check column identity/order and unseen-category behavior before prediction."
+      ],
+      "limitations": [
+        "Source does not document alignment handling and its cleaning function description is incomplete."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author applied pandas dummy encoding to relevant train and test features.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-553abe92dbf87244"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Column identity checks routine for pandas users.",
+        "competitor": "Prevents silent train/inference schema mismatch cheaply.",
+        "practitioner": "Broad deployment correctness for categorical model matrices."
+      },
+      "review": {
+        "candidate_id": "C-a-553abe92dbf87244",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked separate dummy encoding; vocabulary alignment explicitly proposed.",
+        "candidate_sha256": "95542cafccf39bcada03ac3f51e8a940483c4d4d1cabc611f855c16d3bbf8440"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000397",
+      "slug": "lesson-000397",
+      "merged_candidate_ids": [
+        "C-a-553abe92dbf87244"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e019c521539813f80171",
+          "competition_id": "competition:ironhack-airbnb-datamad0322",
+          "source_id": "source:lesson-source-671a91031ecf406b",
+          "snapshot_path": "research/lesson-extraction/snapshots/7c601ab1ffa3759a6240ecf58010a8fbef4cb49580b6e6f9319a4e290cbde33e.txt",
+          "snapshot_sha256": "7c601ab1ffa3759a6240ecf58010a8fbef4cb49580b6e6f9319a4e290cbde33e",
+          "source_url": "https://raw.githubusercontent.com/trabalong/airbnb_kaggle_competition/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-553abe92dbf87244",
+          "line_start": 20,
+          "line_end": 23,
+          "evidence_text": "1. Import libraries and load the data.\n2. Check the correlation of features in `train.csv`.\n3. Apply function `pandas.get_dummies()` in `train.csv` and `test.csv` to relevant features.\n4. Define `trans()` function for `train.csv` and `test.csv` that clean and...",
+          "kind": "used",
+          "statement": "The author applied pandas dummy encoding to relevant train and test features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Column identity checks routine for pandas users.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Prevents silent train/inference schema mismatch cheaply.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad deployment correctness for categorical model matrices.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-671a91031ecf406b",
+          "locator": "research/lesson-extraction/snapshots/7c601ab1ffa3759a6240ecf58010a8fbef4cb49580b6e6f9319a4e290cbde33e.txt#L20-L23",
+          "quote": "1. Import libraries and load the data.\n2. Check the correlation of features in `train.csv`.\n3. Apply function `pandas.get_dummies()` in `train.csv` and `test.csv` to relevant features.\n4. Define `trans()` function for `train.csv` and `test.csv` that clean and...",
+          "competition_id": "competition:ironhack-airbnb-datamad0322",
+          "url": "https://raw.githubusercontent.com/trabalong/airbnb_kaggle_competition/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/7c601ab1ffa3759a6240ecf58010a8fbef4cb49580b6e6f9319a4e290cbde33e.txt",
+          "snapshot_sha256": "7c601ab1ffa3759a6240ecf58010a8fbef4cb49580b6e6f9319a4e290cbde33e",
+          "line_start": 20,
+          "line_end": 23
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-553abe92dbf87244",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked separate dummy encoding; vocabulary alignment explicitly proposed.",
+          "candidate_sha256": "95542cafccf39bcada03ac3f51e8a940483c4d4d1cabc611f855c16d3bbf8440"
+        },
+        {
+          "candidate_id": "C-a-553abe92dbf87244",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Airbnbwinner README explicitget_dummiestrain/test,butalignmentandtransdescriptionmissing. Trainingvocabulary/columnordering/unseencategorychecks are clearlyproposed,not observed robustimplementation. Cheap schema-correctness grades reasonable.",
+          "candidate_sha256": "95542cafccf39bcada03ac3f51e8a940483c4d4d1cabc611f855c16d3bbf8440"
+        }
+      ],
+      "book_location": {
+        "chapter": 36,
+        "path": "manuscript/chapters/36-categorical-embeddings.md",
+        "sha256": "308dc8b702e9d81e905ce6c626e4af2df999a70d8a034585d5580b603f2910ca",
+        "line_start": 158,
+        "line_end": 168,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-77d2a43019eaea5d0b50",
+      "canonical_key": "reuse a training-fitted category mapping for validation and inference | categorical integer codes are supplied to a trained tabular model | feature_semantics_consistency",
+      "title": "Persist categorical dictionaries across datasets",
+      "statement": "When categorical integer codes are supplied to a trained tabular model, reuse a training-fitted category mapping for validation and inference. Verify the same category has the same code across datasets and define unknown-category behavior. Persistent dictionaries are proposed correction. Separate title and description tokenizers also share an embedding table in this script, requiring vocabulary identity auditing.",
+      "trigger_conditions": [
+        "categorical integer codes are supplied to a trained tabular model"
+      ],
+      "action_steps": [
+        "Proposed: reuse a training-fitted category mapping for validation and inference."
+      ],
+      "verification_steps": [
+        "Proposed: verify the same category has the same code across datasets and define unknown-category behavior."
+      ],
+      "limitations": [
+        "Persistent dictionaries are proposed correction. Separate title and description tokenizers also share an embedding table in this script, requiring vocabulary identity auditing."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "real_estate"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "feature_semantics_consistency"
+        ],
+        "risk_tags": [
+          "distribution_shift",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for data-science-challenge-at-eef-2019: process_data assigns category codes from the current dataframe unique values, and later runs independently on test data.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: ship one category dictionary with a property-price model and reserve an unknown-category code.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-885fb35c12ae4d570d8f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A concrete same-category/same-code rule is easy to verify with small pandas examples.",
+        "competitor": "Prevents silent feature-semantic shifts across independently preprocessed files.",
+        "practitioner": "High deployment value with explicit unknown categories and schema versions; text vocabularies need independent parity checks."
+      },
+      "review": {
+        "candidate_id": "C-77d2a43019eaea5d0b50",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read full merged model: categories are independently recoded from current dataframe unique order during train and inference. A persistent mapping is the proposed fix. Separate text tokenizers also share one embedding, so dictionary consistency does not repair the entire multimodal pipeline.",
+        "candidate_sha256": "5e3b65e29ba72c635b9700b87995b736c015ef28d0e710fc5e3439975df62355"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000434",
+      "slug": "lesson-000434",
+      "merged_candidate_ids": [
+        "C-77d2a43019eaea5d0b50"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-73509fc685ea303bebc1",
+          "competition_id": "competition:data-science-challenge-at-eef-2019",
+          "source_id": "source:lesson-source-78caa60b66b55e38",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc9981bb669e860ffc2d8f42f179c1e903840507849df0dc0d35315f4f58b072.txt",
+          "snapshot_sha256": "dc9981bb669e860ffc2d8f42f179c1e903840507849df0dc0d35315f4f58b072",
+          "source_url": "https://raw.githubusercontent.com/luckeciano/kaggle-eef-house-prediction/HEAD/final_model_merged.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-885fb35c12ae4d570d8f",
+          "line_start": 24,
+          "line_end": 26,
+          "evidence_text": "\tcategories = ['property_id', 'currency', 'property_type', 'place_name', 'state_name', 'city_name']\n\tfor cat in categories:\n\t    train[cat] = pd.Categorical(train[cat], categories=train[cat].unique()).codes",
+          "kind": "used",
+          "statement": "process_data assigns category codes from the current dataframe unique values, and later runs independently on test data.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A concrete same-category/same-code rule is easy to verify with small pandas examples.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Prevents silent feature-semantic shifts across independently preprocessed files.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High deployment value with explicit unknown categories and schema versions; text vocabularies need independent parity checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-78caa60b66b55e38",
+          "locator": "research/lesson-extraction/snapshots/dc9981bb669e860ffc2d8f42f179c1e903840507849df0dc0d35315f4f58b072.txt#L24-L26",
+          "quote": "\tcategories = ['property_id', 'currency', 'property_type', 'place_name', 'state_name', 'city_name']\n\tfor cat in categories:\n\t    train[cat] = pd.Categorical(train[cat], categories=train[cat].unique()).codes",
+          "competition_id": "competition:data-science-challenge-at-eef-2019",
+          "url": "https://raw.githubusercontent.com/luckeciano/kaggle-eef-house-prediction/HEAD/final_model_merged.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc9981bb669e860ffc2d8f42f179c1e903840507849df0dc0d35315f4f58b072.txt",
+          "snapshot_sha256": "dc9981bb669e860ffc2d8f42f179c1e903840507849df0dc0d35315f4f58b072",
+          "line_start": 24,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-77d2a43019eaea5d0b50",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read full merged model: categories are independently recoded from current dataframe unique order during train and inference. A persistent mapping is the proposed fix. Separate text tokenizers also share one embedding, so dictionary consistency does not repair the entire multimodal pipeline.",
+          "candidate_sha256": "5e3b65e29ba72c635b9700b87995b736c015ef28d0e710fc5e3439975df62355"
+        },
+        {
+          "candidate_id": "C-77d2a43019eaea5d0b50",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete merged property model confirms category codes are assigned from each dataframe unique order separately. Persisted dictionaries and unknown-category handling are proposed repairs, not observed. Separate title/description tokenizers sharing one embedding table are explicitly retained as another identity risk. High broad feature-semantics utility ratings are reasonable.",
+          "candidate_sha256": "5e3b65e29ba72c635b9700b87995b736c015ef28d0e710fc5e3439975df62355"
+        }
+      ],
+      "book_location": {
+        "chapter": 36,
+        "path": "manuscript/chapters/36-categorical-embeddings.md",
+        "sha256": "308dc8b702e9d81e905ce6c626e4af2df999a70d8a034585d5580b603f2910ca",
+        "line_start": 170,
+        "line_end": 180,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2636 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-e6943ee1e97637bd0456",
+      "canonical_key": "audit augmentation-specific errors and reconsider intensity inversion after it causes test failures. | image augmentation may violate the target distribution | predictive_quality",
+      "title": "Reject augmentations that alter relevant image semantics",
+      "statement": "When image augmentation may violate the target distribution, proposed reuse: Proposed conditional application: Audit augmentation-specific errors and reconsider intensity inversion after it causes test failures. Proposed check: Remove inversion alone in matched runs; inspect polarity-specific failures and instance metric. Limitation: Inversion may be valid in other acquisition settings; no isolated numeric harm supplied.",
+      "trigger_conditions": [
+        "image augmentation may violate the target distribution"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Audit augmentation-specific errors and reconsider intensity inversion after it causes test failures."
+      ],
+      "verification_steps": [
+        "Proposed check: Remove inversion alone in matched runs; inspect polarity-specific failures and instance metric."
+      ],
+      "limitations": [
+        "Inversion may be valid in other acquisition settings; no isolated numeric harm supplied."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The nuclei team reports that intensity inversion contributed to failures on some stage-two images.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6067054019160193161e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible invariance check before copying image augmentations.",
+        "competitor": "High value preventing label-semantics violation.",
+        "practitioner": "Strong task-specific augmentation validation principle."
+      },
+      "review": {
+        "candidate_id": "C-e6943ee1e97637bd0456",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Nuclei full packet attributes some stage2 errors to inversion; causal attribution is qualitative.",
+        "candidate_sha256": "ed2d09c4b862f9b5cbb40e4ba4faf8e570f2dca399a5c686ebbceb2bfe739480"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000023",
+      "slug": "lesson-000023",
+      "merged_candidate_ids": [
+        "C-e6943ee1e97637bd0456"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f13830d56dfd95cafce6",
+          "competition_id": "competition:data-science-bowl-2018",
+          "source_id": "source:lesson-source-c8d928fac651f4d7",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt",
+          "snapshot_sha256": "ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d",
+          "source_url": "https://www.kaggle.com/competitions/data-science-bowl-2018/writeups/ods-ai-topcoders-ods-ai-topcoders-1st-place-soluti",
+          "source_quality": "primary_text",
+          "observation_id": "O-6067054019160193161e",
+          "line_start": 73,
+          "line_end": 73,
+          "evidence_text": "Inverting - we should not have used it, some images were not",
+          "kind": "reported_failure",
+          "statement": "The nuclei team reports that intensity inversion contributed to failures on some stage-two images.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Accessible invariance check before copying image augmentations.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High value preventing label-semantics violation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong task-specific augmentation validation principle.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c8d928fac651f4d7",
+          "locator": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt#L73-L73",
+          "quote": "Inverting - we should not have used it, some images were not",
+          "competition_id": "competition:data-science-bowl-2018",
+          "url": "https://www.kaggle.com/competitions/data-science-bowl-2018/writeups/ods-ai-topcoders-ods-ai-topcoders-1st-place-soluti",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt",
+          "snapshot_sha256": "ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d",
+          "line_start": 73,
+          "line_end": 73
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-e6943ee1e97637bd0456",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Nuclei full packet attributes some stage2 errors to inversion; causal attribution is qualitative.",
+          "candidate_sha256": "ed2d09c4b862f9b5cbb40e4ba4faf8e570f2dca399a5c686ebbceb2bfe739480"
+        },
+        {
+          "candidate_id": "C-e6943ee1e97637bd0456",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "DSB2018 winner explicitly regrets inversion due to some stage2 errors, while numerous other augmentations were used. Candidate proposes inversion-only matched ablation and polarity inspection without numeric isolated harm or general ban. Augmentation-semantic risk explains impact4 with moderate feasibility3.",
+          "candidate_sha256": "ed2d09c4b862f9b5cbb40e4ba4faf8e570f2dca399a5c686ebbceb2bfe739480"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 211,
+        "line_end": 215,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a062ca4d9559169b322f",
+      "canonical_key": "bind each model checkpoint to its own normalization and input size rather than imposing one common transform | a vision ensemble mixes backbones with different training normalization and input sizes | pretrained_input_contract",
+      "title": "Match preprocessing to each pretrained ensemble member",
+      "statement": "When a vision ensemble mixes backbones with different training normalization and input sizes, bind each model checkpoint to its own normalization and input size rather than imposing one common transform. Verify checkpoint training contracts and compare normalization against the intended model metadata; assert shared output class and row order. Twelve crop/flip views are built for each member; utils.predict_tta aggregation internals are outside this packet, so its averaging rule is not inferred.",
+      "trigger_conditions": [
+        "a vision ensemble mixes backbones with different training normalization and input sizes"
+      ],
+      "action_steps": [
+        "Proposed: bind each model checkpoint to its own normalization and input size rather than imposing one common transform."
+      ],
+      "verification_steps": [
+        "Proposed: verify checkpoint training contracts and compare normalization against the intended model metadata; assert shared output class and row order."
+      ],
+      "limitations": [
+        "Twelve crop/flip views are built for each member; utils.predict_tta aggregation internals are outside this packet, so its averaging rule is not inferred."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "furniture"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "pretrained_input_contract"
+        ],
+        "risk_tags": [
+          "preprocessing_mismatch",
+          "prediction_alignment"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for imaterialist-challenge-furniture-2018: predict_all explicitly uses normalization_05 and 299 inputs for Inception/Xception, but normalization_torch and 224 inputs for DenseNet.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: store normalization and resolution with each checkpoint and verify common output classes and IDs.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-e9b4dff9c520d0e49f86"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner can map backbone names to concrete input settings, but five models with twelve views increase full reproduction cost.",
+        "competitor": "Competitor can prevent ensemble input-contract mismatch with direct metadata and class-order assertions.",
+        "practitioner": "Practitioner gets a broadly useful checkpoint/preprocessor binding pattern; deployed multi-view cost must be measured."
+      },
+      "review": {
+        "candidate_id": "C-a062ca4d9559169b322f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete furniture prediction script binds Inception/Xception to normalization_05 and 299 inputs, DenseNet to normalization_torch and 224. Twelve views/member are constructed despite unused TTA=False variable; utils.predict_tta internals are not in this packet. No preprocessing ablation.",
+        "candidate_sha256": "ed5121d3c0f0c18747588f0fe76c06f64e4295586ff65d45918cb36315a0a4e5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000038",
+      "slug": "lesson-000038",
+      "merged_candidate_ids": [
+        "C-a062ca4d9559169b322f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-300fd74aa05d360c40a9",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "source_id": "source:lesson-source-d0d940c1312eebb7",
+          "snapshot_path": "research/lesson-extraction/snapshots/9e220c431e38d11b8b6410acc5756a2aa47597526cc1e9ea32006df8839a396f.txt",
+          "snapshot_sha256": "9e220c431e38d11b8b6410acc5756a2aa47597526cc1e9ea32006df8839a396f",
+          "source_url": "https://raw.githubusercontent.com/skrypka/imaterialist-furniture-2018/HEAD/predict_all.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-e9b4dff9c520d0e49f86",
+          "line_start": 70,
+          "line_end": 75,
+          "evidence_text": "def predict_all():\n    predict(\"inceptionv4\", models.inceptionv4_finetune, 'inception4_052382.pth', 299, normalize_05)\n    predict(\"densenet161\", models.densenet161_finetune, 'densenet161_15130.pth', 224, normalize_torch)\n    predict(\"densenet201\", models.densenet201_finetune, 'densenet201_15755.pth', 224, normalize_torch)\n    predict(\"inceptionresnetv2\", models.inceptionresnetv2_finetune, 'inceptionresnetv2_049438.pth', 299, normalize_05)\n    predict(\"xception\", models.xception_finetune, 'xception_053719.pth', 299, normalize_05)",
+          "kind": "used",
+          "statement": "predict_all explicitly uses normalization_05 and 299 inputs for Inception/Xception, but normalization_torch and 224 inputs for DenseNet.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Beginner can map backbone names to concrete input settings, but five models with twelve views increase full reproduction cost.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Competitor can prevent ensemble input-contract mismatch with direct metadata and class-order assertions.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner gets a broadly useful checkpoint/preprocessor binding pattern; deployed multi-view cost must be measured.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-d0d940c1312eebb7",
+          "locator": "research/lesson-extraction/snapshots/9e220c431e38d11b8b6410acc5756a2aa47597526cc1e9ea32006df8839a396f.txt#L70-L75",
+          "quote": "def predict_all():\n    predict(\"inceptionv4\", models.inceptionv4_finetune, 'inception4_052382.pth', 299, normalize_05)\n    predict(\"densenet161\", models.densenet161_finetune, 'densenet161_15130.pth', 224, normalize_torch)\n    predict(\"densenet201\", models.densenet201_finetune, 'densenet201_15755.pth', 224, normalize_torch)\n    predict(\"inceptionresnetv2\", models.inceptionresnetv2_finetune, 'inceptionresnetv2_049438.pth', 299, normalize_05)\n    predict(\"xception\", models.xception_finetune, 'xception_053719.pth', 299, normalize_05)",
+          "competition_id": "competition:imaterialist-challenge-furniture-2018",
+          "url": "https://raw.githubusercontent.com/skrypka/imaterialist-furniture-2018/HEAD/predict_all.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/9e220c431e38d11b8b6410acc5756a2aa47597526cc1e9ea32006df8839a396f.txt",
+          "snapshot_sha256": "9e220c431e38d11b8b6410acc5756a2aa47597526cc1e9ea32006df8839a396f",
+          "line_start": 70,
+          "line_end": 75
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a062ca4d9559169b322f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete furniture prediction script binds Inception/Xception to normalization_05 and 299 inputs, DenseNet to normalization_torch and 224. Twelve views/member are constructed despite unused TTA=False variable; utils.predict_tta internals are not in this packet. No preprocessing ablation.",
+          "candidate_sha256": "ed5121d3c0f0c18747588f0fe76c06f64e4295586ff65d45918cb36315a0a4e5"
+        },
+        {
+          "candidate_id": "C-a062ca4d9559169b322f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Full prediction script binds five backbones to different normalization and input sizes and builds twelve base/crop/flip views. Candidate avoids inferring external predict_tta aggregation and treats checkpoint/class/ID checks as proposed; no isolated gain or execution proof is invented. Metadata-contract value and multi-model costs support grades.",
+          "candidate_sha256": "ed5121d3c0f0c18747588f0fe76c06f64e4295586ff65d45918cb36315a0a4e5"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 249,
+        "line_end": 253,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-20cd8c8fca18221fcd8e",
+      "canonical_key": "build four-image mosaic augmentation that retains borders and transforms boxes consistently. | mosaic cropping can remove important object-border information | predictive_quality",
+      "title": "Preserve borders in composite detection augmentation",
+      "statement": "When mosaic cropping can remove important object-border information, proposed reuse: Proposed conditional application: Build four-image mosaic augmentation that retains borders and transforms boxes consistently. Proposed check: Visualize transformed boxes at all seams and compare border-object AP against ordinary mosaic on source holdouts. Limitation: Geometry missing from text; stitching can create unrealistic border context.",
+      "trigger_conditions": [
+        "mosaic cropping can remove important object-border information"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Build four-image mosaic augmentation that retains borders and transforms boxes consistently."
+      ],
+      "verification_steps": [
+        "Proposed check: Visualize transformed boxes at all seams and compare border-object AP against ordinary mosaic on source holdouts."
+      ],
+      "limitations": [
+        "Geometry missing from text; stitching can create unrealistic border context."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The wheat author used a custom four-image mosaic preserving image borders.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-d3ee0effb4f23b6c6ee5"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Requires detection augmentation implementation.",
+        "competitor": "Useful edge-object hypothesis needing geometric interpretation.",
+        "practitioner": "Conditional object-boundary robustness value."
+      },
+      "review": {
+        "candidate_id": "C-20cd8c8fca18221fcd8e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Wheat full packet says four-image mosaic preserves borders; exact geometry only in linked figure.",
+        "candidate_sha256": "829235e02e2d81baf638942b63ce8b4d6b11b5055f280342f430c94fbc5939ba"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000042",
+      "slug": "lesson-000042",
+      "merged_candidate_ids": [
+        "C-20cd8c8fca18221fcd8e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e06322f3205967eb0b7",
+          "competition_id": "competition:global-wheat-detection",
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "source_url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "source_quality": "primary_text",
+          "observation_id": "O-d3ee0effb4f23b6c6ee5",
+          "line_start": 25,
+          "line_end": 25,
+          "evidence_text": "I create custom mosaic augmentation as bellow to keep the border information:",
+          "kind": "used",
+          "statement": "The wheat author used a custom four-image mosaic preserving image borders.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Requires detection augmentation implementation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful edge-object hypothesis needing geometric interpretation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 53.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional object-boundary robustness value.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "locator": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt#L25-L25",
+          "quote": "I create custom mosaic augmentation as bellow to keep the border information:",
+          "competition_id": "competition:global-wheat-detection",
+          "url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "line_start": 25,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-20cd8c8fca18221fcd8e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Wheat full packet says four-image mosaic preserves borders; exact geometry only in linked figure.",
+          "candidate_sha256": "829235e02e2d81baf638942b63ce8b4d6b11b5055f280342f430c94fbc5939ba"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 217,
+        "line_end": 221,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-2dc7e2e3aaddd35a5ca5",
+      "canonical_key": "compare augmentation strength on a fixed split and inspect transformed examples for label preservation | cropping or lighting can remove or change the visual cues defining image classes | augmentation_semantics",
+      "title": "Balance augmentation against class evidence",
+      "statement": "When cropping or lighting can remove or change the visual cues defining image classes, compare augmentation strength on a fixed split and inspect transformed examples for label preservation. Inspect damaged regions under each transform and compare fixed-split validation across mild, standard and reduced augmentation. Winner-owned failed Experiment 3 was not submitted. Faster apparent overfit after strong augmentation reduction is qualitative; reduced augmentation is not shown to improve accuracy.",
+      "trigger_conditions": [
+        "cropping or lighting can remove or change the visual cues defining image classes"
+      ],
+      "action_steps": [
+        "Proposed: compare augmentation strength on a fixed split and inspect transformed examples for label preservation."
+      ],
+      "verification_steps": [
+        "Proposed: inspect damaged regions under each transform and compare fixed-split validation across mild, standard and reduced augmentation."
+      ],
+      "limitations": [
+        "Winner-owned failed Experiment 3 was not submitted. Faster apparent overfit after strong augmentation reduction is qualitative; reduced augmentation is not shown to improve accuracy."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "augmentation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "crop_quality"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "augmentation_semantics"
+        ],
+        "risk_tags": [
+          "augmentation_label_change",
+          "validation_overfitting"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Augmentation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Winner-owned failed Experiment 3 reports concern that crop/lighting transforms obscure kernel defects and qualitatively faster apparent overfit after strong reduction; these models were not submitted.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: inspect transformed defect regions and compare mild, standard and reduced augmentation on a fixed holdout.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-02513065318d4c95e6f3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner can inspect whether transformations preserve visible defects and learn why stronger reduction is not automatically better.",
+        "competitor": "Competitor gets a conditional experiment design for subtle class cues, requiring controlled retraining on fixed splits.",
+        "practitioner": "Practitioner can apply label-preservation inspection broadly to visual quality tasks; finding optimal strength remains task-specific."
+      },
+      "review": {
+        "candidate_id": "C-2dc7e2e3aaddd35a5ca5",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete winner-owned failed Experiment 3 suspects lighting/cropping hides kernel defects and qualitatively reports faster apparent overfit after strongly reducing transforms. README states these models were not submitted. Balanced augmentation comparison is proposed, without measured benefit or proof transformed examples changed labels.",
+        "candidate_sha256": "cf5e28453f17d23b937f5b9fd4eb2142a1ea9ae46d904663946386e1c4114565"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000089",
+      "slug": "lesson-000089",
+      "merged_candidate_ids": [
+        "C-2dc7e2e3aaddd35a5ca5"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8db4b412102e1ad0d2b4",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-8a8da8875ae8e823",
+          "snapshot_path": "research/lesson-extraction/snapshots/967ab3f794e56f4c3f9ec0e9075c4d951806d42daf64a5e47b1f5a4e674cd2b8.txt",
+          "snapshot_sha256": "967ab3f794e56f4c3f9ec0e9075c4d951806d42daf64a5e47b1f5a4e674cd2b8",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/3_-_its_corn_-_failed_experiment_large_model.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-02513065318d4c95e6f3",
+          "line_start": 118,
+          "line_end": 126,
+          "evidence_text": "Let's see what happens when we use less aggressive augmentations.  As some reasonable inter-class confusion could be happening due to lighting changes causing a kernel to appear healthy/defective, cropping removing the kernel damage, etc.\n\nlearn = train(arch, item=Resize((256,256),\n    method=ResizeMethod.Pad, pad_mode=PadMode.Zeros),\n    batch=aug_transforms(size=(256,256), min_scale=1,\n        max_zoom=0.0, max_lighting=0.0, p_lighting=0.0,\n        max_warp=0.0, p_affine=0.0))\n\nThese results seem to indicate that simply decreasing the augmentation transforms to this degree will encourage overfitting even faster.  Might need to find a balance between the degree/type of augmentations for the larger networks.",
+          "kind": "reported_failure",
+          "statement": "The author worries lighting/cropping can obscure healthy-defective kernel evidence, tests reduced transforms, and reports faster apparent overfitting with strong reduction.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Beginner can inspect whether transformations preserve visible defects and learn why stronger reduction is not automatically better.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Competitor gets a conditional experiment design for subtle class cues, requiring controlled retraining on fixed splits.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner can apply label-preservation inspection broadly to visual quality tasks; finding optimal strength remains task-specific.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8a8da8875ae8e823",
+          "locator": "research/lesson-extraction/snapshots/967ab3f794e56f4c3f9ec0e9075c4d951806d42daf64a5e47b1f5a4e674cd2b8.txt#L118-L126",
+          "quote": "Let's see what happens when we use less aggressive augmentations.  As some reasonable inter-class confusion could be happening due to lighting changes causing a kernel to appear healthy/defective, cropping removing the kernel damage, etc.\n\nlearn = train(arch, item=Resize((256,256),\n    method=ResizeMethod.Pad, pad_mode=PadMode.Zeros),\n    batch=aug_transforms(size=(256,256), min_scale=1,\n        max_zoom=0.0, max_lighting=0.0, p_lighting=0.0,\n        max_warp=0.0, p_affine=0.0))\n\nThese results seem to indicate that simply decreasing the augmentation transforms to this degree will encourage overfitting even faster.  Might need to find a balance between the degree/type of augmentations for the larger networks.",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/3_-_its_corn_-_failed_experiment_large_model.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/967ab3f794e56f4c3f9ec0e9075c4d951806d42daf64a5e47b1f5a4e674cd2b8.txt",
+          "snapshot_sha256": "967ab3f794e56f4c3f9ec0e9075c4d951806d42daf64a5e47b1f5a4e674cd2b8",
+          "line_start": 118,
+          "line_end": 126
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2dc7e2e3aaddd35a5ca5",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete winner-owned failed Experiment 3 suspects lighting/cropping hides kernel defects and qualitatively reports faster apparent overfit after strongly reducing transforms. README states these models were not submitted. Balanced augmentation comparison is proposed, without measured benefit or proof transformed examples changed labels.",
+          "candidate_sha256": "cf5e28453f17d23b937f5b9fd4eb2142a1ea9ae46d904663946386e1c4114565"
+        },
+        {
+          "candidate_id": "C-2dc7e2e3aaddd35a5ca5",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete failed Experiment 3 records concern that transforms obscure kernel defects and qualitative faster overfit after strong augmentation reduction. Candidate explicitly preserves failed/non-submitted timing, lack of accuracy gain and proposed controlled inspection/comparison. Moderate value and retraining effort grades fit narrow class-evidence conditions.",
+          "candidate_sha256": "cf5e28453f17d23b937f5b9fd4eb2142a1ea9ae46d904663946386e1c4114565"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 257,
+        "line_end": 261,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-b8f881fc84d8c834",
+      "canonical_key": "compare crop policies against correlated data expansion cost | fixed-size image models receive variable-aspect images | predictive_quality",
+      "title": "Budget image crop expansion against lost content",
+      "statement": "When fixed-size image networks see variable-aspect inputs, Proposed adaptation: Compare aspect-preserving center crops with a bounded multicrop trial, inspecting lost content and correlated expansion. Verify: Measure held-out accuracy, retained visual cues and training time per crop policy. Limits: Multicrop was not used in the final solution; center crop can discard style cues.",
+      "trigger_conditions": [
+        "fixed-size image networks see variable-aspect inputs"
+      ],
+      "action_steps": [
+        "Proposed adaptation: Compare aspect-preserving center crops with a bounded multicrop trial, inspecting lost content and correlated expansion."
+      ],
+      "verification_steps": [
+        "Measure held-out accuracy, retained visual cues and training time per crop policy."
+      ],
+      "limitations": [
+        "Multicrop was not used in the final solution; center crop can discard style cues."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used stratified image splits, aspect-preserving resize/center crop and training-only normalization; multicrop training was considered but excluded for much longer training.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-b8f881fc84d8c834",
+        "O-a-ec701ed317028c23",
+        "O-a-ef18144fd1a6fd14"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear crop inspection exercise with manageable trial cost.",
+        "competitor": "Avoids costly correlated expansion without assuming crops preserve all cues.",
+        "practitioner": "Useful content-versus-throughput decision for variable-aspect images."
+      },
+      "review": {
+        "candidate_id": "C-a-b8f881fc84d8c834",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Center crops were used while correlated multicrop expansion was rejected for training cost; no accuracy ablation is claimed.",
+        "candidate_sha256": "e5e6f00e1c79b1de9c2a9ab520d1c7e4e4614eeb5bb3fafb895a24364c6e5525"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000107",
+      "slug": "lesson-000107",
+      "merged_candidate_ids": [
+        "C-a-b8f881fc84d8c834",
+        "C-a-ec701ed317028c23",
+        "C-a-ef18144fd1a6fd14"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6fe47d3152400362cf28",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://github.com/inejc/painters",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-b8f881fc84d8c834",
+          "line_start": 16,
+          "line_end": 18,
+          "evidence_text": "Labeled images were split into training (0.9) and validation (0.1) sets in a stratified manner resulting in 71423 training examples and 8010 validation examples belonging to 1584 classes.\n\nThe model I've built assumes fixed-size inputs, so the first preprocessing step was to resize each image's smallest dimension to 256 pixels (retaining the aspect ratio) and then cropping it at the center of the larger dimension, obtaining 256x256 images. Some information gets lost during this process and an alternative approach where multiple crops are taken from the same image was considered, but not used for the final solution due to much longer training times (bigger, but more correlated training set). Furthermore, mean values were subtracted from each feature in the data and the obtained values were normalized by dividing each dimension by its standard deviation. Preprocessing data statistics were computed from the subset of training instances. During the training phase random transformations (rotations, zooms, shifts, shears and flips) were applied to data in order to reduce overfitting. The latter assures that our model only rarely sees exactly the same example more than once. For exact transformation parameters see [data_provider.py](painters/data_provider.py#L41).",
+          "kind": "used",
+          "statement": "The author used stratified image splits, aspect-preserving resize/center crop and training-only normalization; multicrop training was considered but excluded for much longer training.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-0ead66fde96512d42313",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-ec701ed317028c23",
+          "line_start": 16,
+          "line_end": 18,
+          "evidence_text": "Labeled images were split into training (0.9) and validation (0.1) sets in a stratified manner resulting in 71423 training examples and 8010 validation examples belonging to 1584 classes.\n\nThe model I've built assumes fixed-size inputs, so the first preprocessing step was to resize each image's smallest dimension to 256 pixels (retaining the aspect ratio) and then cropping it at the center of the larger dimension, obtaining 256x256 images. Some information gets lost during this process and an alternative approach where multiple crops are taken from the same image was considered, but not used for the final solution due to much longer training times (bigger, but more correlated training set). Furthermore, mean values were subtracted from each feature in the data and the obtained values were normalized by dividing each dimension by its standard deviation. Preprocessing data statistics were computed from the subset of training instances. During the training phase random transformations (rotations, zooms, shifts, shears and flips) were applied to data in order to reduce overfitting. The latter assures that our model only rarely sees exactly the same example more than once. For exact transformation parameters see [data_provider.py](painters/data_provider.py#L41).",
+          "kind": "used",
+          "statement": "The author used stratified image splits, aspect-preserving resize/center crop and training-only normalization; multicrop training was considered but excluded for much longer training.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-745d8d09b8671672436f",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-ef18144fd1a6fd14",
+          "line_start": 16,
+          "line_end": 18,
+          "evidence_text": "Labeled images were split into training (0.9) and validation (0.1) sets in a stratified manner resulting in 71423 training examples and 8010 validation examples belonging to 1584 classes.\n\nThe model I've built assumes fixed-size inputs, so the first preprocessing step was to resize each image's smallest dimension to 256 pixels (retaining the aspect ratio) and then cropping it at the center of the larger dimension, obtaining 256x256 images. Some information gets lost during this process and an alternative approach where multiple crops are taken from the same image was considered, but not used for the final solution due to much longer training times (bigger, but more correlated training set). Furthermore, mean values were subtracted from each feature in the data and the obtained values were normalized by dividing each dimension by its standard deviation. Preprocessing data statistics were computed from the subset of training instances. During the training phase random transformations (rotations, zooms, shifts, shears and flips) were applied to data in order to reduce overfitting. The latter assures that our model only rarely sees exactly the same example more than once. For exact transformation parameters see [data_provider.py](painters/data_provider.py#L41).",
+          "kind": "used",
+          "statement": "The author used stratified image splits, aspect-preserving resize/center crop and training-only normalization; multicrop training was considered but excluded for much longer training.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Clear crop inspection exercise with manageable trial cost.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Avoids costly correlated expansion without assuming crops preserve all cues.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful content-versus-throughput decision for variable-aspect images.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 3,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L16-L18",
+          "quote": "Labeled images were split into training (0.9) and validation (0.1) sets in a stratified manner resulting in 71423 training examples and 8010 validation examples belonging to 1584 classes.\n\nThe model I've built assumes fixed-size inputs, so the first preprocessing step was to resize each image's smallest dimension to 256 pixels (retaining the aspect ratio) and then cropping it at the center of the larger dimension, obtaining 256x256 images. Some information gets lost during this process and an alternative approach where multiple crops are taken from the same image was considered, but not used for the final solution due to much longer training times (bigger, but more correlated training set). Furthermore, mean values were subtracted from each feature in the data and the obtained values were normalized by dividing each dimension by its standard deviation. Preprocessing data statistics were computed from the subset of training instances. During the training phase random transformations (rotations, zooms, shifts, shears and flips) were applied to data in order to reduce overfitting. The latter assures that our model only rarely sees exactly the same example more than once. For exact transformation parameters see [data_provider.py](painters/data_provider.py#L41).",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://github.com/inejc/painters",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 16,
+          "line_end": 18
+        },
+        {
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L16-L18",
+          "quote": "Labeled images were split into training (0.9) and validation (0.1) sets in a stratified manner resulting in 71423 training examples and 8010 validation examples belonging to 1584 classes.\n\nThe model I've built assumes fixed-size inputs, so the first preprocessing step was to resize each image's smallest dimension to 256 pixels (retaining the aspect ratio) and then cropping it at the center of the larger dimension, obtaining 256x256 images. Some information gets lost during this process and an alternative approach where multiple crops are taken from the same image was considered, but not used for the final solution due to much longer training times (bigger, but more correlated training set). Furthermore, mean values were subtracted from each feature in the data and the obtained values were normalized by dividing each dimension by its standard deviation. Preprocessing data statistics were computed from the subset of training instances. During the training phase random transformations (rotations, zooms, shifts, shears and flips) were applied to data in order to reduce overfitting. The latter assures that our model only rarely sees exactly the same example more than once. For exact transformation parameters see [data_provider.py](painters/data_provider.py#L41).",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 16,
+          "line_end": 18
+        },
+        {
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L16-L18",
+          "quote": "Labeled images were split into training (0.9) and validation (0.1) sets in a stratified manner resulting in 71423 training examples and 8010 validation examples belonging to 1584 classes.\n\nThe model I've built assumes fixed-size inputs, so the first preprocessing step was to resize each image's smallest dimension to 256 pixels (retaining the aspect ratio) and then cropping it at the center of the larger dimension, obtaining 256x256 images. Some information gets lost during this process and an alternative approach where multiple crops are taken from the same image was considered, but not used for the final solution due to much longer training times (bigger, but more correlated training set). Furthermore, mean values were subtracted from each feature in the data and the obtained values were normalized by dividing each dimension by its standard deviation. Preprocessing data statistics were computed from the subset of training instances. During the training phase random transformations (rotations, zooms, shifts, shears and flips) were applied to data in order to reduce overfitting. The latter assures that our model only rarely sees exactly the same example more than once. For exact transformation parameters see [data_provider.py](painters/data_provider.py#L41).",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 16,
+          "line_end": 18
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-b8f881fc84d8c834",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Center crops were used while correlated multicrop expansion was rejected for training cost; no accuracy ablation is claimed.",
+          "candidate_sha256": "e5e6f00e1c79b1de9c2a9ab520d1c7e4e4614eeb5bb3fafb895a24364c6e5525"
+        },
+        {
+          "candidate_id": "C-a-b8f881fc84d8c834",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PainterGitHubfullsnapshottextidenticalHEAD/masterverifiedandresolvedcandidateindividuallyread. Croptrainpolicyuse/consideredmulticropstatusaccurate;proposedboundedcostqualitycheck,gradesreasonable. Sameef181/ec701decisionmustnotinflateevidence.",
+          "candidate_sha256": "e5e6f00e1c79b1de9c2a9ab520d1c7e4e4614eeb5bb3fafb895a24364c6e5525"
+        },
+        {
+          "candidate_id": "C-a-ec701ed317028c23",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Center crops were used while correlated multicrop expansion was rejected for training cost; no accuracy ablation is claimed.",
+          "candidate_sha256": "0bc8b8316e7c97237378918eb0176dbe6666a077b968fc82cb4c6ffc1875e73a"
+        },
+        {
+          "candidate_id": "C-a-ec701ed317028c23",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PaintermastersnapshotfulltextidenticalHEADreadverified. Resolvedcropcandidateindividuallyread:multicropnotfinal,trainingstats/stratificationliteral;boundedtrial/checksproposed,gradesreasonable. Exactequivalentef181/b8f881,onecompetitionrecurrence.",
+          "candidate_sha256": "0bc8b8316e7c97237378918eb0176dbe6666a077b968fc82cb4c6ffc1875e73a"
+        },
+        {
+          "candidate_id": "C-a-ef18144fd1a6fd14",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Center crops were used while correlated multicrop expansion was rejected for training cost; no accuracy ablation is claimed.",
+          "candidate_sha256": "f0fd845c7353ecd3ed1b4d35b25659094c532e7c5d381b1e90798f48c6935741"
+        },
+        {
+          "candidate_id": "C-a-ef18144fd1a6fd14",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PainterHEADfullpacketread:aspectpreserveresize256center,trainstatistics,stratified90/10;multicropconsiderednotfinalduetime/correlation. Proposedboundedcropquality/runtimecheck,nocropgain. Manageabletrialgradesreasonable; duplicateURLsnotindependentrecurrence.",
+          "candidate_sha256": "f0fd845c7353ecd3ed1b4d35b25659094c532e7c5d381b1e90798f48c6935741"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 169,
+        "line_end": 179,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-5ac867c3506cda2c",
+      "canonical_key": "compare patch averaging and center-crop resizing | source images exceed model resolution | predictive_quality",
+      "title": "Test crop-based inference against resizing",
+      "statement": "When source images exceed model resolution and inference runs without internet, Compare overlapping-patch probability averaging and center-crop resizing with plain resizing. Verify: Measure crop coverage, held-out accuracy, inference time and memory. Limits: Crop aggregation adds cost and can remove important context; no isolated crop gain is supplied.; Offline pretrained-asset caching is a separate reproducibility requirement.",
+      "trigger_conditions": [
+        "source images exceed model resolution and inference runs without internet"
+      ],
+      "action_steps": [
+        "Compare overlapping-patch probability averaging and center-crop resizing with plain resizing."
+      ],
+      "verification_steps": [
+        "Measure crop coverage, held-out accuracy, inference time and memory."
+      ],
+      "limitations": [
+        "Crop aggregation adds cost and can remove important context; no isolated crop gain is supplied.",
+        "Offline pretrained-asset caching is a separate reproducibility requirement."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "EfficientNet averaged overlapping patches and geometric TTA; unfine-tuned CropNet used center crops before resizing and was cached for offline submission.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5ac867c3506cda2c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Crop averaging needs image indexing and resource awareness.",
+        "competitor": "Concrete TTA comparison for over-resolution images.",
+        "practitioner": "Useful image inference tradeoff; context removal can hurt."
+      },
+      "review": {
+        "candidate_id": "C-a-5ac867c3506cda2c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked crop strategies; narrowed to crop comparison, offline cache contextual.",
+        "candidate_sha256": "910749d3933a271e7fc4232362b9d518deee67347ef369cebcd02ab66e092f8f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000157",
+      "slug": "lesson-000157",
+      "merged_candidate_ids": [
+        "C-a-5ac867c3506cda2c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-daa260069e6b88dd033b",
+          "competition_id": "competition:cassava-leaf-disease-classification",
+          "source_id": "source:lesson-source-23ff671baee5a9da",
+          "snapshot_path": "research/lesson-extraction/snapshots/42ea9c00e90a080e01179e17fd7055a2cad7016428ff620dad80bdb50987e7f9.txt",
+          "snapshot_sha256": "42ea9c00e90a080e01179e17fd7055a2cad7016428ff620dad80bdb50987e7f9",
+          "source_url": "https://www.kaggle.com/competitions/cassava-leaf-disease-classification/writeups/golddiggaz-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5ac867c3506cda2c",
+          "line_start": 62,
+          "line_end": 72,
+          "evidence_text": "*   Adapting the normalization layer with the global mean and deviation of the 2020 Cassava dataset\n*   5-fold-CV with 20 epochs with early stopping and callback for restoring weights of best epoch\n*   Final model was trained for 14 epochs on whole competition data set\n*   For inference we used simple test time augmentations (Flip, Rotate, Transpose). To do so, we cropped 4 overlapping patches of size 512x512px from the .jpg images (800x600px) and applied 2 augmentations to each patch. We retained two additional center-cropped patches of the image to which no augmentations were applied. To get an overall prediction, we took the average of all these image tiles.\n\nFinally, our ensemble included a pretrained **CropNet (MobileNetv3)** Model from Tensorflow Hub:\n\n*   We used a pretrained model from TensorFlow Hub called [CropNet](https://tfhub.dev/google/cropnet/classifier/cassava_disease_V1/2) which was specifically trained to detect Cassava leaf diseases\n*   The CropNet model is based on the MobileNetV3 architecture. We decided not to do any additional fine-tuning of that model.\n*   As stated in the description the images must be rescaled to 224x224 pixel which is pretty small. We achieved good results by not just resizing our 512x512 training images but to center crop them first.\n*   As the notebooks had to be submitted without internet access, it was necessary to cache the model before including it. You can find more information on this on the official [TF Hub website](https://www.tensorflow.org/hub/caching) or alternatively in this post on [Medium](https://xianbao-qian.medium.com/how-to-run-tf-hub-locally-without-internet-connection-4506b850a915).",
+          "kind": "used",
+          "statement": "EfficientNet averaged overlapping patches and geometric TTA; unfine-tuned CropNet used center crops before resizing and was cached for offline submission.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Crop averaging needs image indexing and resource awareness.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete TTA comparison for over-resolution images.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful image inference tradeoff; context removal can hurt.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-23ff671baee5a9da",
+          "locator": "research/lesson-extraction/snapshots/42ea9c00e90a080e01179e17fd7055a2cad7016428ff620dad80bdb50987e7f9.txt#L62-L72",
+          "quote": "*   Adapting the normalization layer with the global mean and deviation of the 2020 Cassava dataset\n*   5-fold-CV with 20 epochs with early stopping and callback for restoring weights of best epoch\n*   Final model was trained for 14 epochs on whole competition data set\n*   For inference we used simple test time augmentations (Flip, Rotate, Transpose). To do so, we cropped 4 overlapping patches of size 512x512px from the .jpg images (800x600px) and applied 2 augmentations to each patch. We retained two additional center-cropped patches of the image to which no augmentations were applied. To get an overall prediction, we took the average of all these image tiles.\n\nFinally, our ensemble included a pretrained **CropNet (MobileNetv3)** Model from Tensorflow Hub:\n\n*   We used a pretrained model from TensorFlow Hub called [CropNet](https://tfhub.dev/google/cropnet/classifier/cassava_disease_V1/2) which was specifically trained to detect Cassava leaf diseases\n*   The CropNet model is based on the MobileNetV3 architecture. We decided not to do any additional fine-tuning of that model.\n*   As stated in the description the images must be rescaled to 224x224 pixel which is pretty small. We achieved good results by not just resizing our 512x512 training images but to center crop them first.\n*   As the notebooks had to be submitted without internet access, it was necessary to cache the model before including it. You can find more information on this on the official [TF Hub website](https://www.tensorflow.org/hub/caching) or alternatively in this post on [Medium](https://xianbao-qian.medium.com/how-to-run-tf-hub-locally-without-internet-connection-4506b850a915).",
+          "competition_id": "competition:cassava-leaf-disease-classification",
+          "url": "https://www.kaggle.com/competitions/cassava-leaf-disease-classification/writeups/golddiggaz-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/42ea9c00e90a080e01179e17fd7055a2cad7016428ff620dad80bdb50987e7f9.txt",
+          "snapshot_sha256": "42ea9c00e90a080e01179e17fd7055a2cad7016428ff620dad80bdb50987e7f9",
+          "line_start": 62,
+          "line_end": 72
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5ac867c3506cda2c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked crop strategies; narrowed to crop comparison, offline cache contextual.",
+          "candidate_sha256": "910749d3933a271e7fc4232362b9d518deee67347ef369cebcd02ab66e092f8f"
+        },
+        {
+          "candidate_id": "C-a-5ac867c3506cda2c",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Cassava B4averaged4overlapping512patches+augmentations/center crops;CropNet center crop resize224,no finetuning,offline cache. Crop action separated from caching caveat; no isolated crop score. Proposed coverage/runtime checks sound,grades reasonable.",
+          "candidate_sha256": "910749d3933a271e7fc4232362b9d518deee67347ef369cebcd02ab66e092f8f"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 265,
+        "line_end": 269,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-db78c1243b386c9c8b8f",
+      "canonical_key": "compare safe flips/rotations with limited crops and lighting changes on small models before adopting them for larger ensembles. | fine-grained image classes depend on color and edge damage | predictive_quality",
+      "title": "Vet augmentation on small models before scaling training",
+      "statement": "When fine-grained image classes depend on color and edge damage, proposed reuse: Proposed conditional application: Compare safe flips/rotations with limited crops and lighting changes on small models before adopting them for larger ensembles. Proposed check: Compare candidate augmentations on fixed splits using classwise confusion; rerun shortlist on final backbone. Limitation: Small-model ranking may not transfer; clipping/lighting can erase target cues.",
+      "trigger_conditions": [
+        "fine-grained image classes depend on color and edge damage"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare safe flips/rotations with limited crops and lighting changes on small models before adopting them for larger ensembles."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare candidate augmentations on fixed splits using classwise confusion; rerun shortlist on final backbone."
+      ],
+      "limitations": [
+        "Small-model ranking may not transfer; clipping/lighting can erase target cues."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The corn author notes that subtle colors and edge damage distinguish classes and tested augmentation on smaller models.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-b440730707a21e0d972d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful low-cost screening despite image training setup.",
+        "competitor": "Efficient shortlist before large ensemble training.",
+        "practitioner": "Broad semantics-aware augmentation screening."
+      },
+      "review": {
+        "candidate_id": "C-db78c1243b386c9c8b8f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete corn README vets augmentations on small models because color/edge changes may alter classes; larger models still require recheck.",
+        "candidate_sha256": "32f5191bd4810dd0fc3ed47b3fce2c85e5655f5705512769217c64900e8cb188"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000175",
+      "slug": "lesson-000175",
+      "merged_candidate_ids": [
+        "C-db78c1243b386c9c8b8f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6c09df05bc2e70573a60",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-9245aebd0efbb885",
+          "snapshot_path": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt",
+          "snapshot_sha256": "00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-b440730707a21e0d972d",
+          "line_start": 40,
+          "line_end": 40,
+          "evidence_text": "many differences in some of the corn kernel classifications come down to subtle colour changes and/or damage at the edge of the kernel",
+          "kind": "used",
+          "statement": "The corn author notes that subtle colors and edge damage distinguish classes and tested augmentation on smaller models.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful low-cost screening despite image training setup.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Efficient shortlist before large ensemble training.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Broad semantics-aware augmentation screening.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9245aebd0efbb885",
+          "locator": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt#L40-L40",
+          "quote": "many differences in some of the corn kernel classifications come down to subtle colour changes and/or damage at the edge of the kernel",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458.txt",
+          "snapshot_sha256": "00700bedfb981c9ede92cc69f01b4e58ae61caa9d78098e8c2b442eba0e91458",
+          "line_start": 40,
+          "line_end": 40
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-db78c1243b386c9c8b8f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete corn README vets augmentations on small models because color/edge changes may alter classes; larger models still require recheck.",
+          "candidate_sha256": "32f5191bd4810dd0fc3ed47b3fce2c85e5655f5705512769217c64900e8cb188"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 223,
+        "line_end": 227,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-f7aa4a50516b2cd0",
+      "canonical_key": "generate chemically equivalent randomized smiles and compare training augmentation and median tta separately. | a molecular text model is sensitive to equivalent string serialization | predictive_quality",
+      "title": "Randomize valid molecular strings for training and median TTA",
+      "statement": "When a molecular text model is sensitive to equivalent string serialization, consider this source-backed action: Generate chemically equivalent randomized SMILES and compare training augmentation and median TTA separately. Proposed check: Verify molecular identity, including stereochemistry, and score/cost as view counts change. Limit: Training gain was not carefully ablated; altering stereochemistry can change molecule semantics and should not be copied blindly.",
+      "trigger_conditions": [
+        "a molecular text model is sensitive to equivalent string serialization"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Generate chemically equivalent randomized SMILES and compare training augmentation and median TTA separately."
+      ],
+      "verification_steps": [
+        "Proposed verification: Verify molecular identity, including stereochemistry, and score/cost as view counts change."
+      ],
+      "limitations": [
+        "Training gain was not carefully ablated; altering stereochemistry can change molecule semantics and should not be copied blindly."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author generated ten valid noncanonical SMILES per molecule and median-aggregated fifty test views; alternative stereochemistry/hydrogen changes did not help and TTA reportedly improved LB.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-f7aa4a50516b2cd0"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible augmentation idea, chemistry equivalence and inference cost constrain use.",
+        "competitor": "Explicit TTA comparison supports testing invariant molecular views.",
+        "practitioner": "Useful invariance test with sizable fifty-view serving cost."
+      },
+      "review": {
+        "candidate_id": "C-a-f7aa4a50516b2cd0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Chemically equivalent SMILES augmentation and median TTA are documented; training-only gain is unknown.",
+        "candidate_sha256": "12576a7d2b4d50641b313a158eb0082a70fe61e8be64457f907ac52b08df9493"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000297",
+      "slug": "lesson-000297",
+      "merged_candidate_ids": [
+        "C-a-f7aa4a50516b2cd0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-d709d0f0d7c098fc235b",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "source_url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-f7aa4a50516b2cd0",
+          "line_start": 87,
+          "line_end": 94,
+          "evidence_text": "2.   **Finetuning:** Most aspects of this were very standard for a BERT finetuning script - AdamW optimizer, no layers frozen, one cycle learning rate schedule with linear annealing, automatic mixed precision, learning rate + batch size + epoch count tuned using optuna, gradient norms clipped to 1, etc. The only things that felt a bit unusual or domain-specific were the data augmentation strategy and use of separate learning rate schedules (with different max_lr values) for the regression head and the backbone. Data augmentation is discussed more in its own section later. As for the dual max_lr trick (to set the head's learning rate to a value higher than the one used for the backbone), I heard of people doing that before, and had heard it is commonly beneficial for small datasets, but had never used it myself. For most foundation models and target properties in this competition, I found it slightly beneficial to set the head learning rates an order of magnitude higher than the backbone learning rates. The training datasets were relatively small, so that wasn't too surprising.\n\n**Data augmentation:**\n\n*   **Training-time augmentation:** During both pretraining and finetuning, I used `Chem.MolToSmiles(..., canonical=False, doRandom=True, isomericSmiles=True)` to create 10 non-canonical SMILES per input SMILES to increase the amount of training data ~10x. I also tried randomly using Kukulized SMILES, removing stereochemistry, and making the hydrogens & bonds more explicit, but those augmentations were not beneficial.\n*   **Test-time augmentation:** My inference code generates 50 predictions per SMILE using the same data augmentation strategy used during training, just with the amount of random variation increased 5x. The final predictions for each BERT model were the median of those 50 predictions.\n\nTest time augmentation alone provided a LB improvement of ~0.01 in one early experiment. My notes are too badly fragmented to say exactly how much the training data augmentation helped without additional ablation testing, but I'm under the impression it was very beneficial too, and a training data augmentation factor of 10x was optimal to within a margin of +/- 30% (unlike test time augmentation, more is not better).",
+          "kind": "reported_gain",
+          "statement": "The author generated ten valid noncanonical SMILES per molecule and median-aggregated fifty test views; alternative stereochemistry/hydrogen changes did not help and TTA reportedly improved LB.",
+          "reported_result": {
+            "metric": "Leaderboard score improvement",
+            "value": 0.01,
+            "context": "Fifty-view SMILES median TTA versus no TTA in one early experiment; model configuration and uncertainty unknown.",
+            "evidence_text": "2.   **Finetuning:** Most aspects of this were very standard for a BERT finetuning script - AdamW optimizer, no layers frozen, one cycle learning rate schedule with linear annealing, automatic mixed precision, learning rate + batch size + epoch count tuned using optuna, gradient norms clipped to 1, etc. The only things that felt a bit unusual or domain-specific were the data augmentation strategy and use of separate learning rate schedules (with different max_lr values) for the regression head and the backbone. Data augmentation is discussed more in its own section later. As for the dual max_lr trick (to set the head's learning rate to a value higher than the one used for the backbone), I heard of people doing that before, and had heard it is commonly beneficial for small datasets, but had never used it myself. For most foundation models and target properties in this competition, I found it slightly beneficial to set the head learning rates an order of magnitude higher than the backbone learning rates. The training datasets were relatively small, so that wasn't too surprising.\n\n**Data augmentation:**\n\n*   **Training-time augmentation:** During both pretraining and finetuning, I used `Chem.MolToSmiles(..., canonical=False, doRandom=True, isomericSmiles=True)` to create 10 non-canonical SMILES per input SMILES to increase the amount of training data ~10x. I also tried randomly using Kukulized SMILES, removing stereochemistry, and making the hydrogens & bonds more explicit, but those augmentations were not beneficial.\n*   **Test-time augmentation:** My inference code generates 50 predictions per SMILE using the same data augmentation strategy used during training, just with the amount of random variation increased 5x. The final predictions for each BERT model were the median of those 50 predictions.\n\nTest time augmentation alone provided a LB improvement of ~0.01 in one early experiment. My notes are too badly fragmented to say exactly how much the training data augmentation helped without additional ablation testing, but I'm under the impression it was very beneficial too, and a training data augmentation factor of 10x was optimal to within a margin of +/- 30% (unlike test time augmentation, more is not better)."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Accessible augmentation idea, chemistry equivalence and inference cost constrain use.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Explicit TTA comparison supports testing invariant molecular views.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful invariance test with sizable fifty-view serving cost.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "locator": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt#L87-L94",
+          "quote": "2.   **Finetuning:** Most aspects of this were very standard for a BERT finetuning script - AdamW optimizer, no layers frozen, one cycle learning rate schedule with linear annealing, automatic mixed precision, learning rate + batch size + epoch count tuned using optuna, gradient norms clipped to 1, etc. The only things that felt a bit unusual or domain-specific were the data augmentation strategy and use of separate learning rate schedules (with different max_lr values) for the regression head and the backbone. Data augmentation is discussed more in its own section later. As for the dual max_lr trick (to set the head's learning rate to a value higher than the one used for the backbone), I heard of people doing that before, and had heard it is commonly beneficial for small datasets, but had never used it myself. For most foundation models and target properties in this competition, I found it slightly beneficial to set the head learning rates an order of magnitude higher than the backbone learning rates. The training datasets were relatively small, so that wasn't too surprising.\n\n**Data augmentation:**\n\n*   **Training-time augmentation:** During both pretraining and finetuning, I used `Chem.MolToSmiles(..., canonical=False, doRandom=True, isomericSmiles=True)` to create 10 non-canonical SMILES per input SMILES to increase the amount of training data ~10x. I also tried randomly using Kukulized SMILES, removing stereochemistry, and making the hydrogens & bonds more explicit, but those augmentations were not beneficial.\n*   **Test-time augmentation:** My inference code generates 50 predictions per SMILE using the same data augmentation strategy used during training, just with the amount of random variation increased 5x. The final predictions for each BERT model were the median of those 50 predictions.\n\nTest time augmentation alone provided a LB improvement of ~0.01 in one early experiment. My notes are too badly fragmented to say exactly how much the training data augmentation helped without additional ablation testing, but I'm under the impression it was very beneficial too, and a training data augmentation factor of 10x was optimal to within a margin of +/- 30% (unlike test time augmentation, more is not better).",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "line_start": 87,
+          "line_end": 94
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-f7aa4a50516b2cd0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Chemically equivalent SMILES augmentation and median TTA are documented; training-only gain is unknown.",
+          "candidate_sha256": "12576a7d2b4d50641b313a158eb0082a70fe61e8be64457f907ac52b08df9493"
+        },
+        {
+          "candidate_id": "C-a-f7aa4a50516b2cd0",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Polymerwinner10noncanonicalisomericrandomSMILEStrain/50medianviews,oneearlyTTA~0.01LBbenefit,nounmeasuredtraingaininvented. Alternativesstereochemistry/Hchangesunsuccessful. Molecularidentity/viewcostchecksproposed;50viewpractitionerfeasibility2reasonable.",
+          "candidate_sha256": "12576a7d2b4d50641b313a158eb0082a70fe61e8be64457f907ac52b08df9493"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 229,
+        "line_end": 233,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-1354e10fad8c265fd45d",
+      "canonical_key": "measure ordinary and augmented prediction accuracy on the same validation loader before adopting tta | tta adds inference cost and may alter classification behavior | augmentation_validation",
+      "title": "Assess test-time augmentation on labeled holdout data",
+      "statement": "When TTA adds inference cost and may alter classification behavior, measure ordinary and augmented prediction accuracy on the same validation loader before adopting TTA. Compare per-class errors and inference runtime on a fixed independent holdout and ensure all ensemble outputs share row order. Different ensemble members use different split seeds, so their scores are not directly comparable across members. The reported 81.6% public accuracy cannot isolate TTA or augmentation gain.",
+      "trigger_conditions": [
+        "TTA adds inference cost and may alter classification behavior"
+      ],
+      "action_steps": [
+        "Proposed: measure ordinary and augmented prediction accuracy on the same validation loader before adopting TTA."
+      ],
+      "verification_steps": [
+        "Proposed: compare per-class errors and inference runtime on a fixed independent holdout and ensure all ensemble outputs share row order."
+      ],
+      "limitations": [
+        "Different ensemble members use different split seeds, so their scores are not directly comparable across members. The reported 81.6% public accuracy cannot isolate TTA or augmentation gain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "crop_quality"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "augmentation_validation"
+        ],
+        "risk_tags": [
+          "validation_overfitting",
+          "prediction_alignment"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for kaggle-pog-series-s01e03: The training loop computes accuracy for get_preds and learn.tta on the same learn.dls.valid and stores both results.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare normal and TTA predictions on the identical independent holdout, including per-class errors and runtime.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a34957fe635f04ccafd3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner can compare two inference modes but needs labeled holdout and augmentation familiarity.",
+        "competitor": "Competitor gains an actionable within-model TTA comparison that accounts for errors and inference budget.",
+        "practitioner": "Practitioner can decide whether added inference views merit cost on representative labels; split comparability and independent assessment remain necessary."
+      },
+      "review": {
+        "candidate_id": "C-1354e10fad8c265fd45d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete Experiment 6 explicitly computes ordinary and TTA accuracy on each same validation loader; source README links its models to winning ensemble. Snapshot lacks numerical paired results. Members have different seeds/splits, and public81.6% is whole ensemble output, not TTA benefit.",
+        "candidate_sha256": "1af7c3f05a9762465509bfbb66c47afa53040fc38852fec18e570718912f3bce"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000352",
+      "slug": "lesson-000352",
+      "merged_candidate_ids": [
+        "C-1354e10fad8c265fd45d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ee6512cb51d676ebeba3",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "source_id": "source:lesson-source-53bb876813a4e067",
+          "snapshot_path": "research/lesson-extraction/snapshots/9e1d41d78df5e868806acbaf17f7a9b049c02631717b54e38d2f861f60513d14.txt",
+          "snapshot_sha256": "9e1d41d78df5e868806acbaf17f7a9b049c02631717b54e38d2f861f60513d14",
+          "source_url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/6_-_large_model_ensemble_with_tested_augmentations.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-a34957fe635f04ccafd3",
+          "line_start": 181,
+          "line_end": 188,
+          "evidence_text": "        # Verify stats on validation set\n        valid = learn.dls.valid\n        preds,targs = learn.get_preds(dl=valid)\n        valid_res.append(accuracy(preds,targs))\n        \n        # Check TTA statistics on validation set\n        tta_preds,targs = learn.tta(dl=valid)\n        tta_valid_res.append(accuracy(tta_preds,targs))",
+          "kind": "used",
+          "statement": "The training loop computes accuracy for get_preds and learn.tta on the same learn.dls.valid and stores both results.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Beginner can compare two inference modes but needs labeled holdout and augmentation familiarity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Competitor gains an actionable within-model TTA comparison that accounts for errors and inference budget.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner can decide whether added inference views merit cost on representative labels; split comparability and independent assessment remain necessary.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-53bb876813a4e067",
+          "locator": "research/lesson-extraction/snapshots/9e1d41d78df5e868806acbaf17f7a9b049c02631717b54e38d2f861f60513d14.txt#L181-L188",
+          "quote": "        # Verify stats on validation set\n        valid = learn.dls.valid\n        preds,targs = learn.get_preds(dl=valid)\n        valid_res.append(accuracy(preds,targs))\n        \n        # Check TTA statistics on validation set\n        tta_preds,targs = learn.tta(dl=valid)\n        tta_valid_res.append(accuracy(tta_preds,targs))",
+          "competition_id": "competition:kaggle-pog-series-s01e03",
+          "url": "https://raw.githubusercontent.com/aspeers/pogchamps3/HEAD/6_-_large_model_ensemble_with_tested_augmentations.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/9e1d41d78df5e868806acbaf17f7a9b049c02631717b54e38d2f861f60513d14.txt",
+          "snapshot_sha256": "9e1d41d78df5e868806acbaf17f7a9b049c02631717b54e38d2f861f60513d14",
+          "line_start": 181,
+          "line_end": 188
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1354e10fad8c265fd45d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete Experiment 6 explicitly computes ordinary and TTA accuracy on each same validation loader; source README links its models to winning ensemble. Snapshot lacks numerical paired results. Members have different seeds/splits, and public81.6% is whole ensemble output, not TTA benefit.",
+          "candidate_sha256": "1af7c3f05a9762465509bfbb66c47afa53040fc38852fec18e570718912f3bce"
+        },
+        {
+          "candidate_id": "C-1354e10fad8c265fd45d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Full Experiment 6 evaluates get_preds and TTA on each identical member validation loader, while members use different split seeds. Candidate preserves that distinction and does not attribute ensemble public81.6 percent accuracy to TTA; independent holdout, per-class, runtime and output-order checks are proposed. Useful conditional inference comparison and costs support grades.",
+          "candidate_sha256": "1af7c3f05a9762465509bfbb66c47afa53040fc38852fec18e570718912f3bce"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 273,
+        "line_end": 277,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-b91f122a1673561cc3e0",
+      "canonical_key": "mixup-versus-cutmix | imbalanced image classification | augmentation comparison",
+      "title": "Compare Mixup and CutMix instead of assuming either wins",
+      "statement": "When both Mixup and CutMix are plausible image augmentations, proposed reuse: Proposed recipe: compare them rather than treating the more elaborate method as automatically better. Proposed check: Compare Mixup and CutMix on identical folds and training budgets, tuning each strength and inspecting class-wise errors. Limitation: Source tested one recipe family; CutMix strength and image semantics can change the outcome.",
+      "trigger_conditions": [
+        "both Mixup and CutMix are plausible image augmentations"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare them rather than treating the more elaborate method as automatically better."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare Mixup and CutMix on identical folds and training budgets, tuning each strength and inspecting class-wise errors."
+      ],
+      "limitations": [
+        "Source tested one recipe family; CutMix strength and image semantics can change the outcome."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports Mixup outperforming CutMix in these experiments.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare Mixup and CutMix on identical folds and training budgets, tuning each strength and inspecting class-wise errors.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-c4a8e5ccc056899846cb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A two-method comparison is accessible and teaches augmentation selection.",
+        "competitor": "Matched augmentation trials prevent assuming a more elaborate method wins.",
+        "practitioner": "Augmentation choice transfers across image tasks when label semantics are preserved."
+      },
+      "review": {
+        "candidate_id": "C-b91f122a1673561cc3e0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Read complete Korean source: Mixup outperformed tested CutMix; no numeric gain or universal augmentation ranking is asserted.",
+        "candidate_sha256": "6d9175ff3f45eec99b05de6c25b842184a665952e1d47c27eafed0608be9a860"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000355",
+      "slug": "lesson-000355",
+      "merged_candidate_ids": [
+        "C-b91f122a1673561cc3e0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c63c0d4154fc357b3cce",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "source_url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "source_quality": "primary_text",
+          "observation_id": "O-c4a8e5ccc056899846cb",
+          "line_start": 11,
+          "line_end": 11,
+          "evidence_text": "Cutmix\ub97c mixup\ub300\uc2e0 \uc801\uc6a9\uc2dc\ucf1c \ubcf4\uc558\uc9c0\ub9cc, \uc800\ub294 mixup\uc744 \uc0ac\uc6a9\ud588\uc744 \ub54c \uc131\ub2a5\uc774 \ub354 \uc88b\uac8c \ub098\ud0c0\ub0ac\uc2b5\ub2c8\ub2e4.",
+          "kind": "reported_gain",
+          "statement": "Author reports Mixup outperforming CutMix in these experiments.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A two-method comparison is accessible and teaches augmentation selection.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Matched augmentation trials prevent assuming a more elaborate method wins.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Augmentation choice transfers across image tasks when label semantics are preserved.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "locator": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt#L11-L11",
+          "quote": "Cutmix\ub97c mixup\ub300\uc2e0 \uc801\uc6a9\uc2dc\ucf1c \ubcf4\uc558\uc9c0\ub9cc, \uc800\ub294 mixup\uc744 \uc0ac\uc6a9\ud588\uc744 \ub54c \uc131\ub2a5\uc774 \ub354 \uc88b\uac8c \ub098\ud0c0\ub0ac\uc2b5\ub2c8\ub2e4.",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "line_start": 11,
+          "line_end": 11
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-b91f122a1673561cc3e0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Read complete Korean source: Mixup outperformed tested CutMix; no numeric gain or universal augmentation ranking is asserted.",
+          "candidate_sha256": "6d9175ff3f45eec99b05de6c25b842184a665952e1d47c27eafed0608be9a860"
+        },
+        {
+          "candidate_id": "C-b91f122a1673561cc3e0",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Read complete Korean winner account: Mixup performed better than replacement CutMix in these experiments. Candidate requires matched budgets and strengths and preserves image/recipe dependence, without magnitude. All twelve scores justify an accessible comparative augmentation trial.",
+          "candidate_sha256": "6d9175ff3f45eec99b05de6c25b842184a665952e1d47c27eafed0608be9a860"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 181,
+        "line_end": 191,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-4a222b4cc162caa92240",
+      "canonical_key": "replicate grayscale input to three channels, apply matched normalization, and reserve geometric and appearance augmentation for training. | grayscale ct images feed three-channel pretrained backbones | predictive_quality",
+      "title": "Use deterministic prediction transforms for a pretrained grayscale ensemble",
+      "statement": "When grayscale CT images feed three-channel pretrained backbones, proposed reuse: Proposed conditional application: Replicate grayscale input to three channels, apply matched normalization, and reserve geometric and appearance augmentation for training. Proposed check: Assert repeated validation transforms identical; inspect anatomy-preserving augmentation and compare pretrained input alternatives. Limitation: Code establishes implementation only; three-channel replication adds no image information and medical invariances need validation.",
+      "trigger_conditions": [
+        "grayscale CT images feed three-channel pretrained backbones"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Replicate grayscale input to three channels, apply matched normalization, and reserve geometric and appearance augmentation for training."
+      ],
+      "verification_steps": [
+        "Proposed check: Assert repeated validation transforms identical; inspect anatomy-preserving augmentation and compare pretrained input alternatives."
+      ],
+      "limitations": [
+        "Code establishes implementation only; three-channel replication adds no image information and medical invariances need validation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The image code expands grayscale data to three channels for its pretrained image path.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-90f3e05dac7cc8ed64b1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear transform recipe with vision setup cost.",
+        "competitor": "Useful train/inference transform consistency.",
+        "practitioner": "Conditional pretrained-grayscale use with anatomy checks."
+      },
+      "review": {
+        "candidate_id": "C-4a222b4cc162caa92240",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Read complete CT code: training augmentations differ from deterministic val_tfms; three-channel grayscale and ImageNet normalization implemented, no execution proof.",
+        "candidate_sha256": "5e124c2de8eff3acef7b0fdc0a310e0a751c80471d58908b9a1de96a10ebd6e4"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000418",
+      "slug": "lesson-000418",
+      "merged_candidate_ids": [
+        "C-4a222b4cc162caa92240"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6bc6dfb326cdfded8c32",
+          "competition_id": "competition:ecu-robust-med-ct-2025",
+          "source_id": "source:lesson-source-7b5e320880c4bffa",
+          "snapshot_path": "research/lesson-extraction/snapshots/e51f9672469fd5ef31ac26fd00d6af41d6a01565aaf87b8f85e11fa6b5cb2450.txt",
+          "snapshot_sha256": "e51f9672469fd5ef31ac26fd00d6af41d6a01565aaf87b8f85e11fa6b5cb2450",
+          "source_url": "https://raw.githubusercontent.com/markothaurelio/robustmedct-2025/HEAD/RobustMedCT_2025_Ensemble.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-90f3e05dac7cc8ed64b1",
+          "line_start": 384,
+          "line_end": 384,
+          "evidence_text": "T.Grayscale(num_output_channels=3),",
+          "kind": "used",
+          "statement": "The image code expands grayscale data to three channels for its pretrained image path.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Clear transform recipe with vision setup cost.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful train/inference transform consistency.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional pretrained-grayscale use with anatomy checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7b5e320880c4bffa",
+          "locator": "research/lesson-extraction/snapshots/e51f9672469fd5ef31ac26fd00d6af41d6a01565aaf87b8f85e11fa6b5cb2450.txt#L384-L384",
+          "quote": "T.Grayscale(num_output_channels=3),",
+          "competition_id": "competition:ecu-robust-med-ct-2025",
+          "url": "https://raw.githubusercontent.com/markothaurelio/robustmedct-2025/HEAD/RobustMedCT_2025_Ensemble.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/e51f9672469fd5ef31ac26fd00d6af41d6a01565aaf87b8f85e11fa6b5cb2450.txt",
+          "snapshot_sha256": "e51f9672469fd5ef31ac26fd00d6af41d6a01565aaf87b8f85e11fa6b5cb2450",
+          "line_start": 384,
+          "line_end": 384
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-4a222b4cc162caa92240",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Read complete CT code: training augmentations differ from deterministic val_tfms; three-channel grayscale and ImageNet normalization implemented, no execution proof.",
+          "candidate_sha256": "5e124c2de8eff3acef7b0fdc0a310e0a751c80471d58908b9a1de96a10ebd6e4"
+        },
+        {
+          "candidate_id": "C-4a222b4cc162caa92240",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Read entire CT ensemble source as data: grayscale conversion/replication and matching ImageNet normalization occur in both transform paths; random transforms only training. This establishes implementation, not execution, anatomy safety or gain. Mask/image invariance checks and restrained transfer2 scores preserve scope.",
+          "candidate_sha256": "5e124c2de8eff3acef7b0fdc0a310e0a751c80471d58908b9a1de96a10ebd6e4"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 235,
+        "line_end": 239,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-84203a13d27a31f4533d",
+      "canonical_key": "restrict augmentation to tested saturation changes and separately assess flips and rotations. | neural responses can change under flips or interpolation | predictive_quality",
+      "title": "Test biological augmentation invariances instead of copying image defaults",
+      "statement": "When neural responses can change under flips or interpolation, proposed reuse: Proposed conditional application: Restrict augmentation to tested saturation changes and separately assess flips and rotations. Proposed check: Test each transform separately on repeated held-out images and inspect whether the biological response target should remain unchanged. Limitation: Tiny evaluation does not establish biological invariance; rotation artifacts are the author's suggested explanation.",
+      "trigger_conditions": [
+        "neural responses can change under flips or interpolation"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Restrict augmentation to tested saturation changes and separately assess flips and rotations."
+      ],
+      "verification_steps": [
+        "Proposed check: Test each transform separately on repeated held-out images and inspect whether the biological response target should remain unchanged."
+      ],
+      "limitations": [
+        "Tiny evaluation does not establish biological invariance; rotation artifacts are the author's suggested explanation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The neural-response author reports flip sensitivity and doubts about rotation distortion with only twenty evaluation examples.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-9ff667137e1e2104e9ac"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Checking whether augmentation preserves the label is a clear general lesson.",
+        "competitor": "Task-specific invariance tests prevent harmful image-default augmentation.",
+        "practitioner": "Scientific targets often lack natural-image invariances and need target-aware transform checks."
+      },
+      "review": {
+        "candidate_id": "C-84203a13d27a31f4533d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner says flips affected neural responses and saturation/small rotations appeared safer, while explicitly admitting20examples cannot establish invariance; interpolation explanation is speculative.",
+        "candidate_sha256": "ab602ae06b1f1526dcaf8883800a65dac76197e94fea851adfb2dd1246f62982"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000425",
+      "slug": "lesson-000425",
+      "merged_candidate_ids": [
+        "C-84203a13d27a31f4533d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a18dd55a7623e1b94a55",
+          "competition_id": "competition:uwndc19",
+          "source_id": "source:lesson-source-66013cfaa8646590",
+          "snapshot_path": "research/lesson-extraction/snapshots/7a510d8beecd011e1e63af4c4334a41b40544de48e459a504b369735f1c1bce1.txt",
+          "snapshot_sha256": "7a510d8beecd011e1e63af4c4334a41b40544de48e459a504b369735f1c1bce1",
+          "source_url": "https://raw.githubusercontent.com/apls777/kaggle-uw-neural-data-challenge/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-9ff667137e1e2104e9ac",
+          "line_start": 41,
+          "line_end": 41,
+          "evidence_text": "sensitive to vertical and horizontal flips.",
+          "kind": "reported_failure",
+          "statement": "The neural-response author reports flip sensitivity and doubts about rotation distortion with only twenty evaluation examples.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Checking whether augmentation preserves the label is a clear general lesson.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Task-specific invariance tests prevent harmful image-default augmentation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Scientific targets often lack natural-image invariances and need target-aware transform checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-66013cfaa8646590",
+          "locator": "research/lesson-extraction/snapshots/7a510d8beecd011e1e63af4c4334a41b40544de48e459a504b369735f1c1bce1.txt#L41-L41",
+          "quote": "sensitive to vertical and horizontal flips.",
+          "competition_id": "competition:uwndc19",
+          "url": "https://raw.githubusercontent.com/apls777/kaggle-uw-neural-data-challenge/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/7a510d8beecd011e1e63af4c4334a41b40544de48e459a504b369735f1c1bce1.txt",
+          "snapshot_sha256": "7a510d8beecd011e1e63af4c4334a41b40544de48e459a504b369735f1c1bce1",
+          "line_start": 41,
+          "line_end": 41
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-84203a13d27a31f4533d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner says flips affected neural responses and saturation/small rotations appeared safer, while explicitly admitting20examples cannot establish invariance; interpolation explanation is speculative.",
+          "candidate_sha256": "ab602ae06b1f1526dcaf8883800a65dac76197e94fea851adfb2dd1246f62982"
+        },
+        {
+          "candidate_id": "C-84203a13d27a31f4533d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "UW source reports flip sensitivity, final saturation-only augmentation and speculative interpolation explanation for rotation weakness, based on twenty validation examples. Candidate proposes transform-specific repeated tests and explicitly denies established biological invariance. Broad target-preserving augmentation utility with moderate experiment feasibility fits audience scores.",
+          "candidate_sha256": "ab602ae06b1f1526dcaf8883800a65dac76197e94fea851adfb2dd1246f62982"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 193,
+        "line_end": 203,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-ce9a4a68296320df",
+      "canonical_key": "test anatomical landmark dropout and decoder-input masking as separate augmentations, then compare with the unchanged model. | landmark-to-text models need task-specific regularization | predictive_quality",
+      "title": "Evaluate landmark corruption and decoder-input augmentations separately",
+      "statement": "When landmark-to-text models need task-specific regularization, consider this source-backed action: Test anatomical landmark dropout and decoder-input masking as separate augmentations, then compare with the unchanged model. Proposed check: Run paired ablations under the same split and include sequence length and decoding budget. Limit: The listed ablations are explicitly rough and not necessarily independent; transformation validity must be checked.",
+      "trigger_conditions": [
+        "landmark-to-text models need task-specific regularization"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Test anatomical landmark dropout and decoder-input masking as separate augmentations, then compare with the unchanged model."
+      ],
+      "verification_steps": [
+        "Proposed verification: Run paired ablations under the same split and include sequence length and decoding budget."
+      ],
+      "limitations": [
+        "The listed ablations are explicitly rough and not necessarily independent; transformation validity must be checked."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors roughly reported gains from CutMix, finger/face/pose dropout, decoder-input masking, feature branches, mixed precision and caching/early stopping.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-ce9a4a68296320df"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Anatomical transformations require label-preservation judgment.",
+        "competitor": "Targeted landmark dropout/masking ablations are actionable.",
+        "practitioner": "Transfers to landmark sequences with semantic augmentation checks."
+      },
+      "review": {
+        "candidate_id": "C-a-ce9a4a68296320df",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked explicitly rough augmentation ablations; gains not independent.",
+        "candidate_sha256": "906dc50469c81b0740f742080610531e0c8e1723c3e8152701c0884a4634a629"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000484",
+      "slug": "lesson-000484",
+      "merged_candidate_ids": [
+        "C-a-ce9a4a68296320df"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-75cef509567c3dde3368",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "source_url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-ce9a4a68296320df",
+          "line_start": 116,
+          "line_end": 138,
+          "evidence_text": "*   Cutmix +0.005\n*   FingerDropout +0.005\n*   Face/PoseDropout +0.005\n*   masking decoder inputs +0.003\n\n#### Model improvements\n\n*   CNN Feature extraction +0.005\n*   2-branch Feature extraction with indiv norm +0.003\n*   Squeezeformer over 1stplace Net of 1 round +0.005\n*   Decoder over CTC +0.003\n*   Confidence over simple rules for post-processing +0.002\n\n#### Efficiency Improvements:\n\n*   Deeper model due to fp16 +0.003\n*   Deeper model due to llama attention +0.003\n*   Deeper model due to masking/ variable sequence len +0.005\n*   Deeper model due to caching/ early stopping in decoder +0.005\n\n#### Postprocessing\n\n*   Replace bad predictions with dummy phrase +0.006",
+          "kind": "reported_gain",
+          "statement": "The authors roughly reported gains from CutMix, finger/face/pose dropout, decoder-input masking, feature branches, mixed precision and caching/early stopping.",
+          "reported_result": {
+            "metric": "rough reported augmentation score gain",
+            "value": 0.005,
+            "context": "ASL: FingerDropout/Cutmix/FacePoseDropout each listed+0.005; unchanged baseline details, metric name/split and uncertainty absent; rough potentially interacting ablations.",
+            "evidence_text": "*   Cutmix +0.005\n*   FingerDropout +0.005\n*   Face/PoseDropout +0.005\n*   masking decoder inputs +0.003\n\n#### Model improvements\n\n*   CNN Feature extraction +0.005\n*   2-branch Feature extraction with indiv norm +0.003\n*   Squeezeformer over 1stplace Net of 1 round +0.005\n*   Decoder over CTC +0.003\n*   Confidence over simple rules for post-processing +0.002\n\n#### Efficiency Improvements:\n\n*   Deeper model due to fp16 +0.003\n*   Deeper model due to llama attention +0.003\n*   Deeper model due to masking/ variable sequence len +0.005\n*   Deeper model due to caching/ early stopping in decoder +0.005\n\n#### Postprocessing\n\n*   Replace bad predictions with dummy phrase +0.006"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Anatomical transformations require label-preservation judgment.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Targeted landmark dropout/masking ablations are actionable.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to landmark sequences with semantic augmentation checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "locator": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt#L116-L138",
+          "quote": "*   Cutmix +0.005\n*   FingerDropout +0.005\n*   Face/PoseDropout +0.005\n*   masking decoder inputs +0.003\n\n#### Model improvements\n\n*   CNN Feature extraction +0.005\n*   2-branch Feature extraction with indiv norm +0.003\n*   Squeezeformer over 1stplace Net of 1 round +0.005\n*   Decoder over CTC +0.003\n*   Confidence over simple rules for post-processing +0.002\n\n#### Efficiency Improvements:\n\n*   Deeper model due to fp16 +0.003\n*   Deeper model due to llama attention +0.003\n*   Deeper model due to masking/ variable sequence len +0.005\n*   Deeper model due to caching/ early stopping in decoder +0.005\n\n#### Postprocessing\n\n*   Replace bad predictions with dummy phrase +0.006",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "line_start": 116,
+          "line_end": 138
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-ce9a4a68296320df",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked explicitly rough augmentation ablations; gains not independent.",
+          "candidate_sha256": "906dc50469c81b0740f742080610531e0c8e1723c3e8152701c0884a4634a629"
+        }
+      ],
+      "book_location": {
+        "chapter": 42,
+        "path": "manuscript/chapters/42-image-augmentation.md",
+        "sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
+        "line_start": 241,
+        "line_end": 245,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

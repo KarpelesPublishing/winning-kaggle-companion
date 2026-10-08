@@ -1,0 +1,1200 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-4ac812630b48b684",
+      "canonical_key": "apply valid constraints first; profile enumeration; consider a compiled implementation once the remaining space is tractable. | an exact reconstruction has a huge but prunable candidate space | compute_efficiency",
+      "title": "Reduce search space before optimizing enumeration",
+      "statement": "When an exact reconstruction has a huge but prunable candidate space, consider this source-backed action: Apply valid constraints first; profile enumeration; consider a compiled implementation once the remaining space is tractable. Proposed check: Benchmark candidate throughput and verify optimized outputs against a small reference search. Limit: Extreme reported throughput depends on omitted implementation details; runtime is not a general hardware guarantee.",
+      "trigger_conditions": [
+        "an exact reconstruction has a huge but prunable candidate space",
+        "an exact search still has an enormous ambiguous space"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Apply valid constraints first; profile enumeration; consider a compiled implementation once the remaining space is tractable.",
+        "Proposed conditional application: Use manual ambiguity reduction before optimized compiled brute force; the author reports evaluating 5x10^14 solutions in 20\u201330 minutes on a 24-CPU VM."
+      ],
+      "verification_steps": [
+        "Proposed verification: Benchmark candidate throughput and verify optimized outputs against a small reference search.",
+        "Proposed check: Verify reduced and exhaustive searches return identical constraint-satisfying candidates on small solvable instances; benchmark elapsed time and CPUs."
+      ],
+      "limitations": [
+        "Extreme reported throughput depends on omitted implementation details; runtime is not a general hardware guarantee.",
+        "Leaderboard-derived scoring and ranking constraints drove this reconstruction; ordinary prediction rarely permits that search.",
+        "The reported runtime is specific to the reduced search and 24-CPU VM."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference",
+          "modeling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification",
+          "optimization"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "unknown",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference",
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors combined manual space reduction with brute force, optimized Python and then reimplemented in C++; they report evaluating 5x10^14 solutions in 20\u201330 minutes on a 24-CPU VM.",
+          "basis": "observed"
+        },
+        {
+          "description": "The author reimplemented a large brute-force search in C++ and reports 20\u201330 minutes for 5x10^14 solutions on a 24-CPU VM.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1dd59ede687d405a1ccf",
+        "O-a-4ac812630b48b684"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Search-space reasoning useful; compiled enumeration demands expertise.",
+        "competitor": "Constraint-first profiling can reduce expensive search workloads.",
+        "practitioner": "Transfers to exact search with substantial implementation work."
+      },
+      "review": {
+        "candidate_id": "C-a-4ac812630b48b684",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked pruning and Python/C++ optimization; throughput lacks equal-work baseline.",
+        "candidate_sha256": "602c6e28d003e332225385df70037ce5be4ed197d8c48142128785ca2a23b04e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000014",
+      "slug": "lesson-000014",
+      "merged_candidate_ids": [
+        "C-7257f773d8b7571123f8",
+        "C-a-4ac812630b48b684"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6324a3acea8ee5daa5b1",
+          "competition_id": "competition:20-newsgroups-ciphertext-challenge",
+          "source_id": "source:lesson-source-9066f6b3bbc8f546",
+          "snapshot_path": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt",
+          "snapshot_sha256": "8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93",
+          "source_url": "https://www.kaggle.com/competitions/20-newsgroups-ciphertext-challenge/writeups/c1ph3rh4ck-1st-place-solution-c1ph3rh4ck-team",
+          "source_quality": "primary_text",
+          "observation_id": "O-1dd59ede687d405a1ccf",
+          "line_start": 110,
+          "line_end": 110,
+          "evidence_text": "The space was still huge, so we started to look into code efficiency and speed-up tricks. Several orders of magnitude later, we were a few days away to fully bruteforce the space with our python implementation. Nevertheless, the competition was tough, so we re-implemented our strategy in C++. We gained further orders of magnitude. It took around 20-30 min to evaluate 5x10^{14} (50k billion) solutions on a 24-CPU VM.",
+          "kind": "used",
+          "statement": "The author reimplemented a large brute-force search in C++ and reports 20\u201330 minutes for 5x10^14 solutions on a 24-CPU VM.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-3b421eef811f9265f63b",
+          "competition_id": "competition:20-newsgroups-ciphertext-challenge",
+          "source_id": "source:lesson-source-9066f6b3bbc8f546",
+          "snapshot_path": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt",
+          "snapshot_sha256": "8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93",
+          "source_url": "https://www.kaggle.com/competitions/20-newsgroups-ciphertext-challenge/writeups/c1ph3rh4ck-1st-place-solution-c1ph3rh4ck-team",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4ac812630b48b684",
+          "line_start": 108,
+          "line_end": 110,
+          "evidence_text": "From here on, we had a plan to finish this: **manual space reduction followed by bruteforcing** (our secret weapon).\n\nThe space was still huge, so we started to look into code efficiency and speed-up tricks. Several orders of magnitude later, we were a few days away to fully bruteforce the space with our python implementation. Nevertheless, the competition was tough, so we re-implemented our strategy in C++. We gained further orders of magnitude. It took around 20-30 min to evaluate 5x10^{14} (50k billion) solutions on a 24-CPU VM.",
+          "kind": "used",
+          "statement": "The authors combined manual space reduction with brute force, optimized Python and then reimplemented in C++; they report evaluating 5x10^14 solutions in 20\u201330 minutes on a 24-CPU VM.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Search-space reasoning useful; compiled enumeration demands expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 71.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Constraint-first profiling can reduce expensive search workloads.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to exact search with substantial implementation work.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9066f6b3bbc8f546",
+          "locator": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt#L110-L110",
+          "quote": "The space was still huge, so we started to look into code efficiency and speed-up tricks. Several orders of magnitude later, we were a few days away to fully bruteforce the space with our python implementation. Nevertheless, the competition was tough, so we re-implemented our strategy in C++. We gained further orders of magnitude. It took around 20-30 min to evaluate 5x10^{14} (50k billion) solutions on a 24-CPU VM.",
+          "competition_id": "competition:20-newsgroups-ciphertext-challenge",
+          "url": "https://www.kaggle.com/competitions/20-newsgroups-ciphertext-challenge/writeups/c1ph3rh4ck-1st-place-solution-c1ph3rh4ck-team",
+          "snapshot_path": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt",
+          "snapshot_sha256": "8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93",
+          "line_start": 110,
+          "line_end": 110
+        },
+        {
+          "source_id": "source:lesson-source-9066f6b3bbc8f546",
+          "locator": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt#L108-L110",
+          "quote": "From here on, we had a plan to finish this: **manual space reduction followed by bruteforcing** (our secret weapon).\n\nThe space was still huge, so we started to look into code efficiency and speed-up tricks. Several orders of magnitude later, we were a few days away to fully bruteforce the space with our python implementation. Nevertheless, the competition was tough, so we re-implemented our strategy in C++. We gained further orders of magnitude. It took around 20-30 min to evaluate 5x10^{14} (50k billion) solutions on a 24-CPU VM.",
+          "competition_id": "competition:20-newsgroups-ciphertext-challenge",
+          "url": "https://www.kaggle.com/competitions/20-newsgroups-ciphertext-challenge/writeups/c1ph3rh4ck-1st-place-solution-c1ph3rh4ck-team",
+          "snapshot_path": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt",
+          "snapshot_sha256": "8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93",
+          "line_start": 108,
+          "line_end": 110
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-7257f773d8b7571123f8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Read the complete ciphertext packet: manual ambiguity reduction preceded compiled exhaustive search; runtime is author-reported on 24 CPUs, not proof of general prediction benefit.",
+          "candidate_sha256": "487d85d42e9cf215d5f0cfc026f2a08d3ce6998c92e012a7ea95b8ac26445b24"
+        },
+        {
+          "candidate_id": "C-a-4ac812630b48b684",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked pruning and Python/C++ optimization; throughput lacks equal-work baseline.",
+          "candidate_sha256": "602c6e28d003e332225385df70037ce5be4ed197d8c48142128785ca2a23b04e"
+        }
+      ],
+      "book_location": {
+        "chapter": 54,
+        "path": "manuscript/chapters/54-combinatorial-optimization.md",
+        "sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
+        "line_start": 186,
+        "line_end": 196,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-38db59834d333be6",
+      "canonical_key": "benchmark iteration and covariance-sample counts against score and total runtime. | probabilistic inference must fit a time-limited submission | compute_efficiency",
+      "title": "Trade solver iterations against submission time explicitly",
+      "statement": "When probabilistic inference must fit a time-limited submission, consider this source-backed action: Benchmark iteration and covariance-sample counts against score and total runtime. Proposed check: Measure convergence and uncertainty quality on identical inputs for each budget. Limit: The 0.001 cost is source-specific; convergence and approximation error depend on the problem.",
+      "trigger_conditions": [
+        "probabilistic inference must fit a time-limited submission"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Benchmark iteration and covariance-sample counts against score and total runtime."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure convergence and uncertainty quality on identical inputs for each budget."
+      ],
+      "limitations": [
+        "The 0.001 cost is source-specific; convergence and approximation error depend on the problem."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The winning solver used eight iterations; the shared code used four to fit a nine-hour limit, reportedly costing 0.001 score; covariance was approximated from 200 samples.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-38db59834d333be6"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Convergence experiments require costly scientific inference.",
+        "competitor": "Explicit iteration tradeoff useful under submission deadlines.",
+        "practitioner": "Useful runtime/convergence planning with uncertainty diagnostics."
+      },
+      "review": {
+        "candidate_id": "C-a-38db59834d333be6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked8-versus4 iterations with0.001score cost; covariance count not comparison.",
+        "candidate_sha256": "2022fa2be2ae2ad19b99ab03098e325d694c0392f89e4e3edb5f8b9cd663e0f4"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000034",
+      "slug": "lesson-000034",
+      "merged_candidate_ids": [
+        "C-a-38db59834d333be6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f6b0bf7e1dc180410c58",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "source_url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-38db59834d333be6",
+          "line_start": 95,
+          "line_end": 97,
+          "evidence_text": "*   **Bayesian Inference**: the full non-linear BI solver as described above. My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).\n\nThe prediction of the transit depth and the covariance matrix of its uncertainty can be read out directly in the posterior. The covariance matrix is approximated based on 200 samples; this is mainly a holdover from last year, when there were too many parameters to construct it explicitly.",
+          "kind": "reported_gain",
+          "statement": "The winning solver used eight iterations; the shared code used four to fit a nine-hour limit, reportedly costing 0.001 score; covariance was approximated from 200 samples.",
+          "reported_result": {
+            "metric": "reported competition-score loss",
+            "value": 0.001,
+            "context": "Ariel2025:4solver iterations versus8winning-submission iterations, shared code fits9-hour budget; metric name and evaluation subset not stated in quoted comparison.",
+            "evidence_text": "*   **Bayesian Inference**: the full non-linear BI solver as described above. My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).\n\nThe prediction of the transit depth and the covariance matrix of its uncertainty can be read out directly in the posterior. The covariance matrix is approximated based on 200 samples; this is mainly a holdover from last year, when there were too many parameters to construct it explicitly."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Convergence experiments require costly scientific inference.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Explicit iteration tradeoff useful under submission deadlines.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful runtime/convergence planning with uncertainty diagnostics.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "locator": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt#L95-L97",
+          "quote": "*   **Bayesian Inference**: the full non-linear BI solver as described above. My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).\n\nThe prediction of the transit depth and the covariance matrix of its uncertainty can be read out directly in the posterior. The covariance matrix is approximated based on 200 samples; this is mainly a holdover from last year, when there were too many parameters to construct it explicitly.",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "line_start": 95,
+          "line_end": 97
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-38db59834d333be6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked8-versus4 iterations with0.001score cost; covariance count not comparison.",
+          "candidate_sha256": "2022fa2be2ae2ad19b99ab03098e325d694c0392f89e4e3edb5f8b9cd663e0f4"
+        }
+      ],
+      "book_location": {
+        "chapter": 54,
+        "path": "manuscript/chapters/54-combinatorial-optimization.md",
+        "sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
+        "line_start": 228,
+        "line_end": 232,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-e3315a2a88a90f58",
+      "canonical_key": "build strong subsequences, use pairable items as connectors, then run score-increasing reversal moves. | combinatorial ordering includes pairable items and expensive transitions | predictive_quality",
+      "title": "Decompose slideshow construction before local reversal search",
+      "statement": "When combinatorial ordering includes pairable items and expensive transitions, consider this source-backed action: Build strong subsequences, use pairable items as connectors, then run score-increasing reversal moves. Proposed check: Check all item-use constraints and recompute objective deltas against full scoring. Limit: Matching and penalty details are omitted; source scores do not guarantee global optimality.",
+      "trigger_conditions": [
+        "combinatorial ordering includes pairable items and expensive transitions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Build strong subsequences, use pairable items as connectors, then run score-increasing reversal moves."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check all item-use constraints and recompute objective deltas against full scoring."
+      ],
+      "limitations": [
+        "Matching and penalty details are omitted; source scores do not guarantee global optimality."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "optimization"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author formed horizontal subsequences, used vertical pairs to stitch them, matched remaining vertical photos with size penalties and improved the assembled order by reversing subsequences.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-e3315a2a88a90f58"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Custom combinatorial search needs substantial programming.",
+        "competitor": "Useful ordering heuristic under item/pair constraints.",
+        "practitioner": "Transfers to constrained ordering with exact objective verification."
+      },
+      "review": {
+        "candidate_id": "C-a-e3315a2a88a90f58",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked staged subsequences/connectors/reversal; no global-optimality evidence.",
+        "candidate_sha256": "0caebcb0d0394508e4b5425007b08c5c67b9183e7434a2b127a19524b874a313"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000045",
+      "slug": "lesson-000045",
+      "merged_candidate_ids": [
+        "C-a-e3315a2a88a90f58"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-5ac7e835b9f7243d3768",
+          "competition_id": "competition:hashcode-photo-slideshow",
+          "source_id": "source:lesson-source-2fdadca05ad75081",
+          "snapshot_path": "research/lesson-extraction/snapshots/6bdb6cc7538d74b88844fc04ed11814036361c4417864369ccfb74524eeafeb4.txt",
+          "snapshot_sha256": "6bdb6cc7538d74b88844fc04ed11814036361c4417864369ccfb74524eeafeb4",
+          "source_url": "https://www.kaggle.com/competitions/hashcode-photo-slideshow/writeups/adg4b-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-e3315a2a88a90f58",
+          "line_start": 10,
+          "line_end": 24,
+          "evidence_text": "### stage 1: Arranging horizontal photos\n\nI made a lot of ideal subsequences from horizontal photos and with different tricks tried to reduce number of subsequences. The most powerful trick is using vertical photos to stitch two horizontal subsequences. As a result I got an ideal slideshow with 32116 slides (30000 horizontal + 4232 vertical).\n\n### stage 2: Matching the remaining vertical photos\n\nI used slightly modified method proposed by [@huikang](https://www.kaggle.com/huikang)[here](https://www.kaggle.com/huikang/441k-in-11-mins). I vectorize this code and set penalty for slide size (12, 13, 14, 15, 16, 17, 18, 19). This stuff got me additional 60 points.\n\n### stage 3: Arranging all photos\n\nI added the combined photos from stage 2 to the slideshow from stage 1, then again do exactly what I did in stage 1. As a result I got score 443293.\n\n### stage 4: Post processing\n\nSimple processing: reversing part of the slideshow trying to increase the score.",
+          "kind": "used",
+          "statement": "The author formed horizontal subsequences, used vertical pairs to stitch them, matched remaining vertical photos with size penalties and improved the assembled order by reversing subsequences.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Custom combinatorial search needs substantial programming.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful ordering heuristic under item/pair constraints.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to constrained ordering with exact objective verification.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-2fdadca05ad75081",
+          "locator": "research/lesson-extraction/snapshots/6bdb6cc7538d74b88844fc04ed11814036361c4417864369ccfb74524eeafeb4.txt#L10-L24",
+          "quote": "### stage 1: Arranging horizontal photos\n\nI made a lot of ideal subsequences from horizontal photos and with different tricks tried to reduce number of subsequences. The most powerful trick is using vertical photos to stitch two horizontal subsequences. As a result I got an ideal slideshow with 32116 slides (30000 horizontal + 4232 vertical).\n\n### stage 2: Matching the remaining vertical photos\n\nI used slightly modified method proposed by [@huikang](https://www.kaggle.com/huikang)[here](https://www.kaggle.com/huikang/441k-in-11-mins). I vectorize this code and set penalty for slide size (12, 13, 14, 15, 16, 17, 18, 19). This stuff got me additional 60 points.\n\n### stage 3: Arranging all photos\n\nI added the combined photos from stage 2 to the slideshow from stage 1, then again do exactly what I did in stage 1. As a result I got score 443293.\n\n### stage 4: Post processing\n\nSimple processing: reversing part of the slideshow trying to increase the score.",
+          "competition_id": "competition:hashcode-photo-slideshow",
+          "url": "https://www.kaggle.com/competitions/hashcode-photo-slideshow/writeups/adg4b-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6bdb6cc7538d74b88844fc04ed11814036361c4417864369ccfb74524eeafeb4.txt",
+          "snapshot_sha256": "6bdb6cc7538d74b88844fc04ed11814036361c4417864369ccfb74524eeafeb4",
+          "line_start": 10,
+          "line_end": 24
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-e3315a2a88a90f58",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked staged subsequences/connectors/reversal; no global-optimality evidence.",
+          "candidate_sha256": "0caebcb0d0394508e4b5425007b08c5c67b9183e7434a2b127a19524b874a313"
+        }
+      ],
+      "book_location": {
+        "chapter": 54,
+        "path": "manuscript/chapters/54-combinatorial-optimization.md",
+        "sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
+        "line_start": 198,
+        "line_end": 208,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-898c64f5fd6474580efb",
+      "canonical_key": "compare four and eight solver iterations; the author reduced eight to four for a nine-hour limit and reports a 0.001 score cost. | an iterative bayesian solver competes with a fixed notebook deadline | compute_efficiency",
+      "title": "Choose iterative solver depth against submission runtime",
+      "statement": "When an iterative Bayesian solver competes with a fixed notebook deadline, proposed reuse: Proposed conditional application: Compare four and eight solver iterations; the author reduced eight to four for a nine-hour limit and reports a 0.001 score cost. Proposed check: Sweep iteration counts on fixed planets; measure predictive score, posterior stability and total training-plus-inference time. Limitation: Four iterations are the released runtime compromise, not the winning submitted configuration.",
+      "trigger_conditions": [
+        "an iterative Bayesian solver competes with a fixed notebook deadline"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare four and eight solver iterations; the author reduced eight to four for a nine-hour limit and reports a 0.001 score cost."
+      ],
+      "verification_steps": [
+        "Proposed check: Sweep iteration counts on fixed planets; measure predictive score, posterior stability and total training-plus-inference time."
+      ],
+      "limitations": [
+        "Four iterations are the released runtime compromise, not the winning submitted configuration.",
+        "Metric name and evaluation split for 0.001 are unspecified."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "astronomy"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reduced the solver from eight iterations to four to fit nine hours and reports a 0.001 score cost.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-afaa63aa43c1159c5b5a"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Solver implementation is inaccessible without domain experience.",
+        "competitor": "Useful measured runtime compromise for constrained iterative inference.",
+        "practitioner": "Transfers to expensive iterative inverse solvers with convergence checks."
+      },
+      "review": {
+        "candidate_id": "C-898c64f5fd6474580efb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Ariel explicitly distinguishes submitted eight iterations from public four-iteration code and reports 0.001 score cost.",
+        "candidate_sha256": "62edfeb3960a5c65c4d37e6d020b987c081c3012272e0d5cecb200315f277d64"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000127",
+      "slug": "lesson-000127",
+      "merged_candidate_ids": [
+        "C-898c64f5fd6474580efb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-07fc525f520f13bfec45",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "source_url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "source_quality": "primary_text",
+          "observation_id": "O-afaa63aa43c1159c5b5a",
+          "line_start": 95,
+          "line_end": 95,
+          "evidence_text": "My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).",
+          "kind": "reported_gain",
+          "statement": "The author reduced the solver from eight iterations to four to fit nine hours and reports a 0.001 score cost.",
+          "reported_result": {
+            "metric": "score cost",
+            "value": 0.001,
+            "context": "Ariel 2025 author reports 0.001 score cost for four rather than eight solver iterations; four fits training and inference into nine hours, eight was submitted. Metric name, evaluation split and absolute scores unknown.",
+            "evidence_text": "My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score)."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 47.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Solver implementation is inaccessible without domain experience.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful measured runtime compromise for constrained iterative inference.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to expensive iterative inverse solvers with convergence checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "locator": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt#L95-L95",
+          "quote": "My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "line_start": 95,
+          "line_end": 95
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-898c64f5fd6474580efb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Ariel explicitly distinguishes submitted eight iterations from public four-iteration code and reports 0.001 score cost.",
+          "candidate_sha256": "62edfeb3960a5c65c4d37e6d020b987c081c3012272e0d5cecb200315f277d64"
+        }
+      ],
+      "book_location": {
+        "chapter": 54,
+        "path": "manuscript/chapters/54-combinatorial-optimization.md",
+        "sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
+        "line_start": 234,
+        "line_end": 238,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-4103cf017d1e5f56efa8",
+      "canonical_key": "multiply shipment scores by distance preference that fades toward one as elapsed time reaches fifty-five percent of total time. | greedy drone scheduling starts near a fixed origin | predictive_quality",
+      "title": "Relax distance bias as a delivery schedule progresses",
+      "statement": "When greedy drone scheduling starts near a fixed origin, proposed reuse: Proposed conditional application: Multiply shipment scores by distance preference that fades toward one as elapsed time reaches fifty-five percent of total time. Proposed check: Simulate fixed demand instances with fading versus fixed/no distance bias; compare completed orders and travel/time constraints. Limitation: 0.55 is heuristic; initial origin may not represent later route costs and contribution not isolated.",
+      "trigger_conditions": [
+        "greedy drone scheduling starts near a fixed origin"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Multiply shipment scores by distance preference that fades toward one as elapsed time reaches fifty-five percent of total time."
+      ],
+      "verification_steps": [
+        "Proposed check: Simulate fixed demand instances with fading versus fixed/no distance bias; compare completed orders and travel/time constraints."
+      ],
+      "limitations": [
+        "0.55 is heuristic; initial origin may not represent later route costs and contribution not isolated."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "optimization"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The drone author modified a greedy scheduler to restrict long-distance shipments early in scheduling.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-d83ed203dc95e688e1e7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Niche scheduler implementation needs domain understanding.",
+        "competitor": "Concrete contest scheduling heuristic.",
+        "practitioner": "Potential dispatch hypothesis with realistic route constraints."
+      },
+      "review": {
+        "candidate_id": "C-4103cf017d1e5f56efa8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Entire drone packet defines distance preference tending to one at 0.55T and tunes branching too.",
+        "candidate_sha256": "d3babb8ee95e2391b4aca053be9286deaf7b38d10518b4b87b58658f1a5dc0ad"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000357",
+      "slug": "lesson-000357",
+      "merged_candidate_ids": [
+        "C-4103cf017d1e5f56efa8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-cd9e3f72594ff98e7b6f",
+          "competition_id": "competition:hashcode-drone-delivery",
+          "source_id": "source:lesson-source-cad859872d398f20",
+          "snapshot_path": "research/lesson-extraction/snapshots/a5c8026d7d4025698ef56202a8e1b4068ebd514f2fe92fee8347baac71b39094.txt",
+          "snapshot_sha256": "a5c8026d7d4025698ef56202a8e1b4068ebd514f2fe92fee8347baac71b39094",
+          "source_url": "https://www.kaggle.com/competitions/hashcode-drone-delivery/writeups/marwaneb-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-d83ed203dc95e688e1e7",
+          "line_start": 18,
+          "line_end": 18,
+          "evidence_text": "pdist1 = y+min(1,x/(0.55*T))*(1-y)",
+          "kind": "used",
+          "statement": "The drone author modified a greedy scheduler to restrict long-distance shipments early in scheduling.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 47.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 2
+          },
+          "rationale": "Niche scheduler implementation needs domain understanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 55.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Concrete contest scheduling heuristic.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Potential dispatch hypothesis with realistic route constraints.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-cad859872d398f20",
+          "locator": "research/lesson-extraction/snapshots/a5c8026d7d4025698ef56202a8e1b4068ebd514f2fe92fee8347baac71b39094.txt#L18-L18",
+          "quote": "pdist1 = y+min(1,x/(0.55*T))*(1-y)",
+          "competition_id": "competition:hashcode-drone-delivery",
+          "url": "https://www.kaggle.com/competitions/hashcode-drone-delivery/writeups/marwaneb-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/a5c8026d7d4025698ef56202a8e1b4068ebd514f2fe92fee8347baac71b39094.txt",
+          "snapshot_sha256": "a5c8026d7d4025698ef56202a8e1b4068ebd514f2fe92fee8347baac71b39094",
+          "line_start": 18,
+          "line_end": 18
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-4103cf017d1e5f56efa8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Entire drone packet defines distance preference tending to one at 0.55T and tunes branching too.",
+          "candidate_sha256": "d3babb8ee95e2391b4aca053be9286deaf7b38d10518b4b87b58658f1a5dc0ad"
+        },
+        {
+          "candidate_id": "C-4103cf017d1e5f56efa8",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "HashCode winner explicitly credits borrowed greedy scheduler and reports their own distance-score modification. Printed formula approaches factor1 at0.55T, affecting two distances; candidate treats coefficient as heuristic, tests simulation and avoids isolated rank attribution. Niche transfer/impact ratings fit audience scope.",
+          "candidate_sha256": "d3babb8ee95e2391b4aca053be9286deaf7b38d10518b4b87b58658f1a5dc0ad"
+        }
+      ],
+      "book_location": {
+        "chapter": 54,
+        "path": "manuscript/chapters/54-combinatorial-optimization.md",
+        "sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
+        "line_start": 242,
+        "line_end": 246,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-1b15e8d950f8f7e01fe2",
+      "canonical_key": "recheck assumptions and implementation before discarding the search formulation. | candidate solutions match scores but violate ranking constraints | reproducibility",
+      "title": "Audit assumptions when a consistency search yields no solution",
+      "statement": "When candidate solutions match scores but violate ranking constraints, proposed reuse: Proposed conditional application: Recheck assumptions and implementation before discarding the search formulation. Proposed check: Construct small known-answer cases; check score and ranking constraints separately and rerun after each implementation correction. Limitation: The source does not identify the defective assumption or provide a reproducible bug fix.",
+      "trigger_conditions": [
+        "candidate solutions match scores but violate ranking constraints"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Recheck assumptions and implementation before discarding the search formulation."
+      ],
+      "verification_steps": [
+        "Proposed check: Construct small known-answer cases; check score and ranking constraints separately and rerun after each implementation correction."
+      ],
+      "limitations": [
+        "The source does not identify the defective assumption or provide a reproducible bug fix.",
+        "A no-solution outcome can also indicate inconsistent constraints, not necessarily software error."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "optimization"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "reproducibility"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team found a pipeline error only after checking assumptions and reviewing code for roughly two days.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-830327721d4986f78015"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Small known-answer tests make this debugging habit accessible.",
+        "competitor": "Separating scoring and ranking invariants helps diagnose exact-search failures.",
+        "practitioner": "Useful debugging principle for constrained solvers, though no particular fix is supplied."
+      },
+      "review": {
+        "candidate_id": "C-1b15e8d950f8f7e01fe2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Packet says 1280 score-consistent candidates failed ranking constraints; authors corrected their pipeline after two days. This supports auditing assumptions, without identifying the bug.",
+        "candidate_sha256": "5b24d78491e56889eb361e4d476ffaec34a34b2de98d29ff7e4e4d517d7144fb"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000402",
+      "slug": "lesson-000402",
+      "merged_candidate_ids": [
+        "C-1b15e8d950f8f7e01fe2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6324a3acea8ee5daa5b1",
+          "competition_id": "competition:20-newsgroups-ciphertext-challenge",
+          "source_id": "source:lesson-source-9066f6b3bbc8f546",
+          "snapshot_path": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt",
+          "snapshot_sha256": "8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93",
+          "source_url": "https://www.kaggle.com/competitions/20-newsgroups-ciphertext-challenge/writeups/c1ph3rh4ck-1st-place-solution-c1ph3rh4ck-team",
+          "source_quality": "primary_text",
+          "observation_id": "O-830327721d4986f78015",
+          "line_start": 114,
+          "line_end": 114,
+          "evidence_text": "After about two days of checking assumptions, reviewing code, checking everything, and lots of sweat, we finally fixed our pipeline, and found the perfect solution.",
+          "kind": "used",
+          "statement": "The team found a pipeline error only after checking assumptions and reviewing code for roughly two days.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Small known-answer tests make this debugging habit accessible.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Separating scoring and ranking invariants helps diagnose exact-search failures.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful debugging principle for constrained solvers, though no particular fix is supplied.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-9066f6b3bbc8f546",
+          "locator": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt#L114-L114",
+          "quote": "After about two days of checking assumptions, reviewing code, checking everything, and lots of sweat, we finally fixed our pipeline, and found the perfect solution.",
+          "competition_id": "competition:20-newsgroups-ciphertext-challenge",
+          "url": "https://www.kaggle.com/competitions/20-newsgroups-ciphertext-challenge/writeups/c1ph3rh4ck-1st-place-solution-c1ph3rh4ck-team",
+          "snapshot_path": "research/lesson-extraction/snapshots/8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93.txt",
+          "snapshot_sha256": "8ec5450b3027517d05e8049773c32397fd7f8e48fe5178f45050f1077838ad93",
+          "line_start": 114,
+          "line_end": 114
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1b15e8d950f8f7e01fe2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Packet says 1280 score-consistent candidates failed ranking constraints; authors corrected their pipeline after two days. This supports auditing assumptions, without identifying the bug.",
+          "candidate_sha256": "5b24d78491e56889eb361e4d476ffaec34a34b2de98d29ff7e4e4d517d7144fb"
+        }
+      ],
+      "book_location": {
+        "chapter": 54,
+        "path": "manuscript/chapters/54-combinatorial-optimization.md",
+        "sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
+        "line_start": 210,
+        "line_end": 220,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,585 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-232fea6b830f3c07d57c",
+      "canonical_key": "compare advanced wavelength preprocessing with simple summing and inspect interactions among preprocessing steps. | calibration, jitter and noisy pixels make advanced aggregation difficult | predictive_quality",
+      "title": "Keep a simple sensor aggregation baseline during complex preprocessing",
+      "statement": "When calibration, jitter and noisy pixels make advanced aggregation difficult, proposed reuse: Proposed conditional application: Compare advanced wavelength preprocessing with simple summing and inspect interactions among preprocessing steps. Proposed check: Compare simple summing with each correction and combination on held-out transits; inspect jitter sensitivity and uncertainty calibration. Limitation: Author says principled preprocessing remained unresolved; configuration interactions may invalidate isolated step claims.",
+      "trigger_conditions": [
+        "calibration, jitter and noisy pixels make advanced aggregation difficult"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare advanced wavelength preprocessing with simple summing and inspect interactions among preprocessing steps."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare simple summing with each correction and combination on held-out transits; inspect jitter sensitivity and uncertainty calibration."
+      ],
+      "limitations": [
+        "Author says principled preprocessing remained unresolved; configuration interactions may invalidate isolated step claims."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "astronomy"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reports about 0.01 improvement over simple summing but says preprocessing combinations remained incompletely understood.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-5640030d49c5f7053e66"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple summing is accessible; advanced calibration needs expertise.",
+        "competitor": "Retaining a cheap sensor baseline controls elaborate preprocessing effort.",
+        "practitioner": "Useful scientific-sensor baseline discipline, without an assured physical benefit."
+      },
+      "review": {
+        "candidate_id": "C-232fea6b830f3c07d57c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full Ariel packet reports ~0.01 improvement over simple summing despite unexplained preprocessing interactions.",
+        "candidate_sha256": "4d02d420a192d1505e700ef4319615365f7ec634e617de15ce4a03de8b8a4155"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000086",
+      "slug": "lesson-000086",
+      "merged_candidate_ids": [
+        "C-232fea6b830f3c07d57c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-07fc525f520f13bfec45",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "source_url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "source_quality": "primary_text",
+          "observation_id": "O-5640030d49c5f7053e66",
+          "line_start": 48,
+          "line_end": 48,
+          "evidence_text": "I spent more than half of my time on this competition trying to set up a principled preprocessing flow optimally handling all these effects. Unfortunately, I haven't managed this yet - you'll find in the code several disjointed steps attempting to deal with the above. They also tend to work only in certain configurations and combinations, which I don't yet fully understand. It still leads to an improvement of ~0.01 over simple summing - I'll crack this one next year\u2026",
+          "kind": "reported_failure",
+          "statement": "The author reports about 0.01 improvement over simple summing but says preprocessing combinations remained incompletely understood.",
+          "reported_result": {
+            "metric": "score improvement",
+            "value": 0.01,
+            "context": "Ariel 2025 advanced preprocessing compared with simple summing: author reports approximately 0.01 gain, with interactions incompletely understood; metric, split and baseline absolute score unknown.",
+            "evidence_text": "It still leads to an improvement of ~0.01 over simple summing"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Simple summing is accessible; advanced calibration needs expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Retaining a cheap sensor baseline controls elaborate preprocessing effort.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful scientific-sensor baseline discipline, without an assured physical benefit.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "locator": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt#L48-L48",
+          "quote": "I spent more than half of my time on this competition trying to set up a principled preprocessing flow optimally handling all these effects. Unfortunately, I haven't managed this yet - you'll find in the code several disjointed steps attempting to deal with the above. They also tend to work only in certain configurations and combinations, which I don't yet fully understand. It still leads to an improvement of ~0.01 over simple summing - I'll crack this one next year\u2026",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "line_start": 48,
+          "line_end": 48
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-232fea6b830f3c07d57c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full Ariel packet reports ~0.01 improvement over simple summing despite unexplained preprocessing interactions.",
+          "candidate_sha256": "4d02d420a192d1505e700ef4319615365f7ec634e617de15ce4a03de8b8a4155"
+        }
+      ],
+      "book_location": {
+        "chapter": 23,
+        "path": "manuscript/chapters/23-sensor-and-har.md",
+        "sha256": "dcd6023c93a1d2550d22ce07729b31f4c155df8c209245d367602f53e81c5134",
+        "line_start": 147,
+        "line_end": 151,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-2afd8c040b5c20ca93eb",
+      "canonical_key": "compare hand-designed depth-video features with a bayesian network recognizer as an alternative to learned generic pipelines. | depth-video gestures have interpretable cues and limited learning data | predictive_quality",
+      "title": "Consider a domain-designed recognition baseline",
+      "statement": "When depth-video gestures have interpretable cues and limited learning data, proposed reuse: Proposed conditional application: Compare hand-designed depth-video features with a Bayesian network recognizer as an alternative to learned generic pipelines. Proposed check: Compare engineered Bayesian baseline with learned recognizer on unseen actors/gestures and runtime. Limitation: Actual features/network unspecified; human-vision inspiration does not establish mechanism.",
+      "trigger_conditions": [
+        "depth-video gestures have interpretable cues and limited learning data"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare hand-designed depth-video features with a Bayesian network recognizer as an alternative to learned generic pipelines."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare engineered Bayesian baseline with learned recognizer on unseen actors/gestures and runtime."
+      ],
+      "limitations": [
+        "Actual features/network unspecified; human-vision inspiration does not establish mechanism."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The gesture author combined hand-designed depth-video features with Bayesian recognition rather than a learned representation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-49e698b8377cf86b7c26"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Domain-designed recipe incomplete for beginners.",
+        "competitor": "Alternative baseline when generic learning lacks data.",
+        "practitioner": "Conditional value in interpretable depth-motion tasks."
+      },
+      "review": {
+        "candidate_id": "C-2afd8c040b5c20ca93eb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full gesture interview uses ad hoc depth features and Bayesian recognition without learned strategy; formulas absent.",
+        "candidate_sha256": "248bbcc7e23689dee7cbf6ed6ba6284c86f4cefcad0dcf22e5b86191208a8140"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000136",
+      "slug": "lesson-000136",
+      "merged_candidate_ids": [
+        "C-2afd8c040b5c20ca93eb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dd433629b2b2b5e18c9f",
+          "competition_id": "competition:gesturechallenge",
+          "source_id": "source:lesson-source-f5d972573775b388",
+          "snapshot_path": "research/lesson-extraction/snapshots/727854deefa9d5e1567241e5e2dce253a6c2b14c622e99cb580d09a62105b93a.txt",
+          "snapshot_sha256": "727854deefa9d5e1567241e5e2dce253a6c2b14c622e99cb580d09a62105b93a",
+          "source_url": "http://blog.kaggle.com/2012/05/09/speaking-in-hands-winner-of-round-1-of-the-chalearn-kinect-gesture-challenge/",
+          "source_quality": "primary_text",
+          "observation_id": "O-49e698b8377cf86b7c26",
+          "line_start": 13,
+          "line_end": 13,
+          "evidence_text": "I did not implement any learning strategy but used instead a combination of ad hoc features from the depth videos",
+          "kind": "used",
+          "statement": "The gesture author combined hand-designed depth-video features with Bayesian recognition rather than a learned representation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Domain-designed recipe incomplete for beginners.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Alternative baseline when generic learning lacks data.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional value in interpretable depth-motion tasks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f5d972573775b388",
+          "locator": "research/lesson-extraction/snapshots/727854deefa9d5e1567241e5e2dce253a6c2b14c622e99cb580d09a62105b93a.txt#L13-L13",
+          "quote": "I did not implement any learning strategy but used instead a combination of ad hoc features from the depth videos",
+          "competition_id": "competition:gesturechallenge",
+          "url": "http://blog.kaggle.com/2012/05/09/speaking-in-hands-winner-of-round-1-of-the-chalearn-kinect-gesture-challenge/",
+          "snapshot_path": "research/lesson-extraction/snapshots/727854deefa9d5e1567241e5e2dce253a6c2b14c622e99cb580d09a62105b93a.txt",
+          "snapshot_sha256": "727854deefa9d5e1567241e5e2dce253a6c2b14c622e99cb580d09a62105b93a",
+          "line_start": 13,
+          "line_end": 13
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2afd8c040b5c20ca93eb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full gesture interview uses ad hoc depth features and Bayesian recognition without learned strategy; formulas absent.",
+          "candidate_sha256": "248bbcc7e23689dee7cbf6ed6ba6284c86f4cefcad0dcf22e5b86191208a8140"
+        }
+      ],
+      "book_location": {
+        "chapter": 23,
+        "path": "manuscript/chapters/23-sensor-and-har.md",
+        "sha256": "dcd6023c93a1d2550d22ce07729b31f4c155df8c209245d367602f53e81c5134",
+        "line_start": 155,
+        "line_end": 159,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-6c5c33ef065d9921cf18",
+      "canonical_key": "split validation folds by signer; the team usually tracked fold0 during iteration. | sign recognition must generalize across people | validation_reliability",
+      "title": "Group landmark-sequence validation by signer",
+      "statement": "When sign recognition must generalize across people, proposed reuse: Proposed conditional application: Split validation folds by signer; the team usually tracked fold0 during iteration. Proposed check: Assert signer sets are disjoint and report all signer-fold edit-distance scores for final selection. Limitation: Repeated fold0 tuning can overfit that fold; signer grouping does not cover every deployment shift.",
+      "trigger_conditions": [
+        "sign recognition must generalize across people"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Split validation folds by signer; the team usually tracked fold0 during iteration."
+      ],
+      "verification_steps": [
+        "Proposed check: Assert signer sets are disjoint and report all signer-fold edit-distance scores for final selection."
+      ],
+      "limitations": [
+        "Repeated fold0 tuning can overfit that fold; signer grouping does not cover every deployment shift."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The ASL author grouped validation by signer identity.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6258837c58767286ec5f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple group splitting gives meaningful protection against identity leakage.",
+        "competitor": "High value for unseen-signer assessment at routine splitting cost.",
+        "practitioner": "Transfers to subject-dependent sequences and other identity-correlated data."
+      },
+      "review": {
+        "candidate_id": "C-6c5c33ef065d9921cf18",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete ASL packet explicitly groups four folds by signer and mainly iterates on fold0; all-fold robustness is not established.",
+        "candidate_sha256": "659430dfcf6c12ee8f33554ed5b60864f9364ee2c0b45ed66ef6bf7bc12f00a9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000470",
+      "slug": "lesson-000470",
+      "merged_candidate_ids": [
+        "C-6c5c33ef065d9921cf18"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ac92df7e609bbabd870a",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "source_url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "source_quality": "primary_text",
+          "observation_id": "O-6258837c58767286ec5f",
+          "line_start": 18,
+          "line_end": 18,
+          "evidence_text": "We split the training data into 4 folds by signer.",
+          "kind": "used",
+          "statement": "The ASL author grouped validation by signer identity.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Simple group splitting gives meaningful protection against identity leakage.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "High value for unseen-signer assessment at routine splitting cost.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Transfers to subject-dependent sequences and other identity-correlated data.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "locator": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt#L18-L18",
+          "quote": "We split the training data into 4 folds by signer.",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "line_start": 18,
+          "line_end": 18
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-6c5c33ef065d9921cf18",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete ASL packet explicitly groups four folds by signer and mainly iterates on fold0; all-fold robustness is not established.",
+          "candidate_sha256": "659430dfcf6c12ee8f33554ed5b60864f9364ee2c0b45ed66ef6bf7bc12f00a9"
+        },
+        {
+          "candidate_id": "C-6c5c33ef065d9921cf18",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "ASL full source reports four signer-grouped folds but usually tuning fold0. Candidate preserves overfitting and deployment-shift caveats and proposes all-fold reporting. Identity leakage prevention explains impact4 without claiming measured gain; transferability3 and accessible splitting fit scores.",
+          "candidate_sha256": "659430dfcf6c12ee8f33554ed5b60864f9364ee2c0b45ed66ef6bf7bc12f00a9"
+        }
+      ],
+      "book_location": {
+        "chapter": 23,
+        "path": "manuscript/chapters/23-sensor-and-har.md",
+        "sha256": "dcd6023c93a1d2550d22ce07729b31f4c155df8c209245d367602f53e81c5134",
+        "line_start": 163,
+        "line_end": 167,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

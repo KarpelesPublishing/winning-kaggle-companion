@@ -1,0 +1,534 @@
+{
+  "chapters": 65,
+  "reader_pages": 135,
+  "skills": 66,
+  "local_link_failures": [],
+  "external_links": [
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/docs/errata.md",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/01-what-actually-wins.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/02-the-process-mindset.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/03-building-cv-that-matches.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/04-tracking-cv-lb-gap.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/05-adversarial-validation.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/06-march-mania-case-study.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/07-domain-features-win.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/08-five-stage-process.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/09-target-encoding-without-leakage.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/10-interactions-groups-text.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/11-when-fe-fails.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/12-the-gbm-trio.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/13-optuna-and-hyperparameter-tuning.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/14-what-doesnt-work.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/15-when-the-problem-isnt-tabular.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/16-fourth-root-blend.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/17-stacking-and-hill-climbing.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/18-final-submission-selection.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/19-march-mania-full-walkthrough.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/20-horse-health-small-data.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/21-financial-competitions.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/22-vision-and-multimodal.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/23-sensor-and-har.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/24-building-a-portfolio.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/25-continuous-learning-system.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/26-advanced-target-encoding.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/27-shap-for-feature-engineering.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/28-nearest-neighbor-features.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/29-advanced-feature-selection.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/30-external-data-and-leakage.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/31-deep-learning-for-tabular.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/32-denoising-autoencoders.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/33-tabular-augmentation.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/34-pseudo-labeling.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/35-memory-optimization.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/36-categorical-embeddings.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/37-stacking-deep.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/38-calibration-and-post-processing.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/39-imbalanced-data.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/40-knowledge-distillation.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/41-online-learning.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/42-image-augmentation.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/43-image-classification-tricks.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/44-loss-functions-for-cv.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/45-metric-learning-arcface.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/46-segmentation-architectures.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/47-medical-imaging-patterns.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/48-pseudo-labeling-for-cv.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/49-text-feature-engineering.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/50-llm-fine-tuning-for-kaggle.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/51-time-series-cv.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/52-time-series-features.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/53-financial-competition-patterns.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/54-combinatorial-optimization.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/55-santa-2024-deep-dive.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/56-reinforcement-learning-games.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/57-patchtst-for-time-series.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/58-sensor-embeddings-and-augmentation.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/59-threshold-optimization.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/60-multi-target-learning.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/61-playground-series-strategy.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/62-kaggle-landscape-2024-2026.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/63-patterns-from-226-solutions.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/64-audio-and-signal.ipynb",
+    "https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/65-recommendation-systems.ipynb",
+    "https://karpeles.com/publishing/winning-kaggle-the-reproducible-way"
+  ],
+  "notebook_execution": "PASS",
+  "notebooks": [
+    {
+      "path": "notebooks/01-what-actually-wins.ipynb",
+      "sha256": "b8fc46756169f37f035b5ccc043e653d55f14ff08b0cb2236de70b47100b548c",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/02-the-process-mindset.ipynb",
+      "sha256": "4e9a11a0e28ca7ccdecfefcb1ff5e14ed4aae7be5013bbb50760509463b020d4",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/03-building-cv-that-matches.ipynb",
+      "sha256": "1e232709f009abdf840a071c2c804b57783a9a1858612a2975d1ac3734126de5",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/04-tracking-cv-lb-gap.ipynb",
+      "sha256": "2ced596d34157591cecbdd7d8277103550b47503395e3800739d3f0b2dc2ecfd",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/05-adversarial-validation.ipynb",
+      "sha256": "e7a404d86a4ac50736c6d61ca3478e77ed17a15ade07cacff3230486bb06bea1",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/06-march-mania-case-study.ipynb",
+      "sha256": "0914325345765dded2d42e2ebe68b0341d5e3ec0b7f9d2c3dc2fc03bac94532b",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/07-domain-features-win.ipynb",
+      "sha256": "e9de22d7284a8a750ee20ce510fd0b1bfcbca3c27086ad3be326b20272a95294",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/08-five-stage-process.ipynb",
+      "sha256": "40e6bb859c19e55bc7c94e3e245f6a9ea6126ec64c670b94e1611de86ed6f036",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/09-target-encoding-without-leakage.ipynb",
+      "sha256": "74fc9a7ebe76a3f692365eb69b31d088c323d27d0e590b2b9f4dcd3212cdf30f",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/10-interactions-groups-text.ipynb",
+      "sha256": "c6834b3c9b17b6c8454f21ee39302ff209c8bbef0c9c0e6551742ca986727466",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/11-when-fe-fails.ipynb",
+      "sha256": "e966d696e5a60b827faa6e84dd6a50437aa49aa635f32fea8a853b18c8f26aa1",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/12-the-gbm-trio.ipynb",
+      "sha256": "8ff411d3b826cb3f41812834dec1f41e6b1d8261a06663e1fa2edf79e0682b24",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/13-optuna-and-hyperparameter-tuning.ipynb",
+      "sha256": "3b1b86b8e289ec0f8a1ec1b3a3f0521bd32fce4f2a24282a70b7ac64e9f4e55a",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/14-what-doesnt-work.ipynb",
+      "sha256": "0e75e6c63c717748493a651ff6abf05a51fb8f3bd8cc820cfa7e2271638b7807",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/15-when-the-problem-isnt-tabular.ipynb",
+      "sha256": "3205a644693ceb681dbe73e3528f1ab9e789cfc8044a58729e57db2e0a2f414e",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/16-fourth-root-blend.ipynb",
+      "sha256": "eca767aa43cadf1665d0ded8827770cfadd29b5d70c57d23bb136dffb80766a3",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/17-stacking-and-hill-climbing.ipynb",
+      "sha256": "5f50ef2ec2d355dee641d99e212c697f383e0f257a547932580450379eac7de6",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/18-final-submission-selection.ipynb",
+      "sha256": "56ab0583d57a124605d62611235beb814e39aa3b2e61a52cc200480b42b0b4cf",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/19-march-mania-full-walkthrough.ipynb",
+      "sha256": "add09dd42fe429741bf025e9e83c117aa9d3f16b6eab6bb19717d5ece627a529",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/20-horse-health-small-data.ipynb",
+      "sha256": "d168093a7a7b30c673176fa8e811a14426c23f3dbeb49121ee644e2502e04684",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/21-financial-competitions.ipynb",
+      "sha256": "bce559346d425db3d808b78483a721e36f8cf04ce2f8b1beac5fb3176ae95605",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/22-vision-and-multimodal.ipynb",
+      "sha256": "6ba0768a8a748a9f5bb283b973a5bf0b53a88b6a87462d2967f03d15c368a31b",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/23-sensor-and-har.ipynb",
+      "sha256": "83776659ebc6a4000d16294c646c683773cefc341227e9c538c13b7a2d4bf3e2",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/24-building-a-portfolio.ipynb",
+      "sha256": "248f8ea556d6876d67a217825ce16bd359a6a7a4a0a614c706ed0338dbeb2b53",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/25-continuous-learning-system.ipynb",
+      "sha256": "0202846e7fd90a723d3a2a7acfe49b53d3da1b669c837d0f0d3d5ff21e9575ca",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/26-advanced-target-encoding.ipynb",
+      "sha256": "77df7cb3ff3242c98c8dffa13aec9262f0f0e2e8c116c20b7985eb598490f7cd",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/27-shap-for-feature-engineering.ipynb",
+      "sha256": "3ae5820eed5604edcf3fa495857683a9fc12c31244d1c291bb379883187df814",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/28-nearest-neighbor-features.ipynb",
+      "sha256": "1407303b7158b6f01c5755d05f3ce66df07f572bd9043da2c4f26be57e47cc03",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/29-advanced-feature-selection.ipynb",
+      "sha256": "227505629c8a9d91dc7cc0960d0968d772bf8fe7971b292785f39bf6e3ea6574",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/30-external-data-and-leakage.ipynb",
+      "sha256": "9419c3dd7a595ab1846319c70af2e29fc22e79ce8989e99be32ef6b8f478082d",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/31-deep-learning-for-tabular.ipynb",
+      "sha256": "3379ccfea5921613547c0569bd023e963d87d813e0c52794f07fdf3ea7e55692",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/32-denoising-autoencoders.ipynb",
+      "sha256": "1c52b769228b7e12d24c5afda296671d450b6ac119258fa24de338f700e0e14d",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/33-tabular-augmentation.ipynb",
+      "sha256": "20ec44a31201fdc427d59d898beef369dae40becfde666e6c649f46454f2f0d8",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/34-pseudo-labeling.ipynb",
+      "sha256": "fddc3334ae7bfb5e06d36ea844e3fc7fa7fc00dbf3ef0db55165f2362e851d10",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/35-memory-optimization.ipynb",
+      "sha256": "56d4f62b5949bd1f26466a6844f987b515c07cf735718779437e764482b83458",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/36-categorical-embeddings.ipynb",
+      "sha256": "9413a0cd34f46cd5829bec0d43190743e1dd6d8dc23b121c77ecf9cecda3cdc5",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/37-stacking-deep.ipynb",
+      "sha256": "b269e01c12cf363fb388e4ef517ff7e14a9031de1b24e64d8895c2b4c7c84011",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/38-calibration-and-post-processing.ipynb",
+      "sha256": "63bcbd6b3ed30c0ccaf31dbe53e3cf65a533ae051671b1d6471416382c5d493a",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/39-imbalanced-data.ipynb",
+      "sha256": "ca1704bec1dd30bd5547be4d320f147995874549a35cd0c2cf8ad0f15426e69a",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/40-knowledge-distillation.ipynb",
+      "sha256": "c0ef74993370f71c47d771f6474a874b1409d5a67e3a394a7dc04ec5944f3d1f",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/41-online-learning.ipynb",
+      "sha256": "38b4406e8d6e8dcb05cfaeeba90c6197b67da6d420f8dc3d84b8d1a724f14782",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/42-image-augmentation.ipynb",
+      "sha256": "c729bfa9cf65c8b35da867524feb300c20af8dea823f5bb8f8984fe84ca4e942",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/43-image-classification-tricks.ipynb",
+      "sha256": "432dc5253578ce1754b5168a996c5b1db283500e0444a116e1686d940ff04158",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/44-loss-functions-for-cv.ipynb",
+      "sha256": "171721469bbb2c3a8d0ccc4bd8921c1a1b34568299f744fa0a1ee7350b023c9a",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/45-metric-learning-arcface.ipynb",
+      "sha256": "52ecf135566d7abb8a9b8c43818ea5212763795c9901074853d79584695ebfba",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/46-segmentation-architectures.ipynb",
+      "sha256": "1226dcda6cc4af1708ef877b7a6e1ec1758a2346d47ae575682b30a10af60275",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/47-medical-imaging-patterns.ipynb",
+      "sha256": "b94283da53be2c57b11e7c69ad52f9fc98973fdbc9229ee61beeeea7f2d9b20c",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/48-pseudo-labeling-for-cv.ipynb",
+      "sha256": "0a2d9f24f632e63869ae4d675cbe4481227832c4f7dcde5ac129954293c2596f",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/49-text-feature-engineering.ipynb",
+      "sha256": "cc581caabf742495e3b00c07708ba64b484fa5736ff9ec1962d755677d82de49",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/50-llm-fine-tuning-for-kaggle.ipynb",
+      "sha256": "ca6c2c9b02481052ffc616004ce6002baf7ea6ebea52176b4c7712a026466cfa",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/51-time-series-cv.ipynb",
+      "sha256": "8278de5fb2629e04373fc5c8fea30b3b890486a9a49f85f7f1cea6e4d3590b74",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/52-time-series-features.ipynb",
+      "sha256": "b78d49bad72ddef2ea4b71e774420d771962b9330dcf891053753553ec63bad8",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/53-financial-competition-patterns.ipynb",
+      "sha256": "fb6179e81f43115ed12cd3e4b98080d6da6195ecefdf8cf0fef6fed68c9eef38",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/54-combinatorial-optimization.ipynb",
+      "sha256": "6c9bb7a3c3742aa1a65eb411d688159f75cc545253389709812857202be3cd5e",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/55-santa-2024-deep-dive.ipynb",
+      "sha256": "191b9880f678f7dee202fa3b05676c03c47970da4a957258aa419af80090c9df",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/56-reinforcement-learning-games.ipynb",
+      "sha256": "f22e508193f8cf2d20a1319226c96d89f19cfc1cf8a1dca5ca02a36b75d97f25",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/57-patchtst-for-time-series.ipynb",
+      "sha256": "a9708cc21cab559e6d508a81f4c8754e28a9e9889af9b5b072a21d897906fdc5",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/58-sensor-embeddings-and-augmentation.ipynb",
+      "sha256": "4483c2f8443b86bc88efdfa27b12a47e520b5ffd070488b1e07fe1cfd8d3ac9f",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/59-threshold-optimization.ipynb",
+      "sha256": "c96bd3a9b5a4340265ca17a32fb7c39b8a1c677da6179c265f2495908ff3a0e0",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/60-multi-target-learning.ipynb",
+      "sha256": "608b74eaf48dde3e2c40bed9f29b4ceef78838486343a107977434799cc107f6",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/61-playground-series-strategy.ipynb",
+      "sha256": "9d1ae344c31b375396575df605d03315cbcabbff1046e0ac443f9a8845548919",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/62-kaggle-landscape-2024-2026.ipynb",
+      "sha256": "f6da8a1a9e3f99bb8d671bfc5251118a140589ef4bcfbbf0cee49cd328c723ad",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/63-patterns-from-226-solutions.ipynb",
+      "sha256": "3e18ad90220a325406b144b2eef51d81ea7cd69674d71cec535bf58f4b8aefd4",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/64-audio-and-signal.ipynb",
+      "sha256": "023a3840c34ac21188a7fde140994af4c57179889e94b12d2a6f83425e25dead",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    },
+    {
+      "path": "notebooks/65-recommendation-systems.ipynb",
+      "sha256": "4714ea507af00134ab3f21de4681dae9f92a7bd7aeb03e9fc8c125a7de4dbdfe",
+      "code_cells": 2,
+      "execution": "nbclient fresh Jupyter kernel",
+      "errors": 0
+    }
+  ]
+}

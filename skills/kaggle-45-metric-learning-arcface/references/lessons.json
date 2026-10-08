@@ -1,0 +1,2977 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-a34a8cf6dd834c84",
+      "canonical_key": "aggregate image matches, merge nearby points by confidence and reconstruct a coarse model before refining. | dense or cropped pairwise matchers produce inconsistent feature coordinates across views | predictive_quality",
+      "title": "Merge pair-dependent keypoints before coarse reconstruction",
+      "statement": "When dense or cropped pairwise matchers produce inconsistent feature coordinates across views, consider this source-backed action: Aggregate image matches, merge nearby points by confidence and reconstruct a coarse model before refining. Proposed check: Measure track lengths, point counts, runtime and camera accuracy before/after merging. Limit: Merging sacrifices initial matching precision; thresholds can collapse distinct nearby structures.",
+      "trigger_conditions": [
+        "dense or cropped pairwise matchers produce inconsistent feature coordinates across views"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Aggregate image matches, merge nearby points by confidence and reconstruct a coarse model before refining."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure track lengths, point counts, runtime and camera accuracy before/after merging."
+      ],
+      "limitations": [
+        "Merging sacrifices initial matching precision; thresholds can collapse distinct nearby structures."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team merged matches by confidence NMS with a five-pixel window and capped at ten-thousand points to address fragmented multi-view tracks.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-a34a8cf6dd834c84"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Track merging needs multi-view geometry knowledge.",
+        "competitor": "Concrete fragmentary-track repair before reconstruction.",
+        "practitioner": "Niche SfM consistency control, nearby structures may collapse."
+      },
+      "review": {
+        "candidate_id": "C-a-a34a8cf6dd834c84",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked confidenceNMS5pixel/10kcap; coarse precision deliberately sacrificed.",
+        "candidate_sha256": "9a94dd3c53f4f461a9b176e94095ba6fe68bb72338111f669419d5435a8f7e00"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000007",
+      "slug": "lesson-000007",
+      "merged_candidate_ids": [
+        "C-a-a34a8cf6dd834c84"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-191bb3447d95f393a7d8",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-a34a8cf6dd834c84",
+          "line_start": 51,
+          "line_end": 68,
+          "evidence_text": "As shown in Fig.2, the resulting feature locations of detector-free matchers (e.g., LoFTR) in an image depend on the other image. This pair-dependent nature leads to fragmentary feature tracks when running pair-wise matching over multiple views, which makes detector-free matchers not directly applicable to existing SfM systems (e.g., COLMAP).\n\nMoreover, as for the sparse detection and matching part, since the cropped image overlap regions are also relevant to the other image, re-detecting keypoints on the cropped images for matching also shares the same multi-view inconsistency issue.\n\nThis issue is solved by the following coarse-to-fine SfM framework.\n\n2.4 Coarse SfM\n--------------\n\nIn this phase, we first strive for consistency by merging to reconstruct an initial coarse SfM model, which will be further refined for higher pose accuracy in the refinement phase.\n\n### 2.4.1 Confidence-guided Merge\n\nAfter the matching, we merge matches on each image based on confidence to improve the consistency (repeatability) of matches for SfM. For each image, we first aggregate all its matches with other images and then perform NMS with a window size of 5 to merge matches into points with the local highest confidence, as depicted in Fig.1(2). After the NMS, the number of 2D points can be significantly reduced, and the top 10000 points are selected for each image by sorting the confidence if the total point is still larger than the threshold.\n\n### 2.4.2 Mapping\n\nBased on the merged matches, we perform the coarse SfM by COLMAP. Note that the geometry verification is skipped since RANSAC is performed in the matching phase. For the reconstruction of the scene with a large number of images (~250 in this competition), we enable the parallelized bundle adjustment (PBA) in COLMAP. Specifically, since PBA uses a PCG solver, which is an inexact solution to the BA problem and unlike the exact solution of Levenberg-Marquardt (LM) solver used by default in Ceres, we enable the PBA only after a large number of images are registered (i.e., >40). This is based on the intuition that the beginning of reconstruction is of critical importance, and the inexact solution of PBA may lead to a poor initialization of the scene.",
+          "kind": "used",
+          "statement": "The team merged matches by confidence NMS with a five-pixel window and capped at ten-thousand points to address fragmented multi-view tracks.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Track merging needs multi-view geometry knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete fragmentary-track repair before reconstruction.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Niche SfM consistency control, nearby structures may collapse.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "locator": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt#L51-L68",
+          "quote": "As shown in Fig.2, the resulting feature locations of detector-free matchers (e.g., LoFTR) in an image depend on the other image. This pair-dependent nature leads to fragmentary feature tracks when running pair-wise matching over multiple views, which makes detector-free matchers not directly applicable to existing SfM systems (e.g., COLMAP).\n\nMoreover, as for the sparse detection and matching part, since the cropped image overlap regions are also relevant to the other image, re-detecting keypoints on the cropped images for matching also shares the same multi-view inconsistency issue.\n\nThis issue is solved by the following coarse-to-fine SfM framework.\n\n2.4 Coarse SfM\n--------------\n\nIn this phase, we first strive for consistency by merging to reconstruct an initial coarse SfM model, which will be further refined for higher pose accuracy in the refinement phase.\n\n### 2.4.1 Confidence-guided Merge\n\nAfter the matching, we merge matches on each image based on confidence to improve the consistency (repeatability) of matches for SfM. For each image, we first aggregate all its matches with other images and then perform NMS with a window size of 5 to merge matches into points with the local highest confidence, as depicted in Fig.1(2). After the NMS, the number of 2D points can be significantly reduced, and the top 10000 points are selected for each image by sorting the confidence if the total point is still larger than the threshold.\n\n### 2.4.2 Mapping\n\nBased on the merged matches, we perform the coarse SfM by COLMAP. Note that the geometry verification is skipped since RANSAC is performed in the matching phase. For the reconstruction of the scene with a large number of images (~250 in this competition), we enable the parallelized bundle adjustment (PBA) in COLMAP. Specifically, since PBA uses a PCG solver, which is an inexact solution to the BA problem and unlike the exact solution of Levenberg-Marquardt (LM) solver used by default in Ceres, we enable the PBA only after a large number of images are registered (i.e., >40). This is based on the intuition that the beginning of reconstruction is of critical importance, and the inexact solution of PBA may lead to a poor initialization of the scene.",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "line_start": 51,
+          "line_end": 68
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-a34a8cf6dd834c84",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked confidenceNMS5pixel/10kcap; coarse precision deliberately sacrificed.",
+          "candidate_sha256": "9a94dd3c53f4f461a9b176e94095ba6fe68bb72338111f669419d5435a8f7e00"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 211,
+        "line_end": 215,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-0d70ce7382605b41",
+      "canonical_key": "compare detector-seeded matching with default semi-dense points and their union. | semi-dense sampling misses useful local geometric points | predictive_quality",
+      "title": "Add detector keypoints to a semi-dense geometric matcher",
+      "statement": "When semi-dense sampling misses useful local geometric points, consider this source-backed action: Compare detector-seeded matching with default semi-dense points and their union. Proposed check: Evaluate geometric precision, registration quality and compute on held-out scenes. Limit: Overlapping points may be redundant and the chosen detector pair was selected using LB.",
+      "trigger_conditions": [
+        "semi-dense sampling misses useful local geometric points"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare detector-seeded matching with default semi-dense points and their union."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate geometric precision, registration quality and compute on held-out scenes."
+      ],
+      "limitations": [
+        "Overlapping points may be redundant and the chosen detector pair was selected using LB."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author fed ALIKED and SuperPoint keypoints into MASt3R alongside semi-dense matches, outperforming MASt3R matches alone; other detectors were tried.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-0d70ce7382605b41"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiple local-feature models need geometry expertise.",
+        "competitor": "Actionable complement to semidense match coverage.",
+        "practitioner": "Applies to geometric matching, redundant points add cost."
+      },
+      "review": {
+        "candidate_id": "C-a-0d70ce7382605b41",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked ALIKED/SuperPoint seeded matcher gain; detector selection LB-based.",
+        "candidate_sha256": "8ec8e3d3a82ac9b781f945ee0938416010a02c29537bfdcdbf6b6ece900771ae"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000108",
+      "slug": "lesson-000108",
+      "merged_candidate_ids": [
+        "C-a-0d70ce7382605b41"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1d7daad4aadc92fe4add",
+          "competition_id": "competition:image-matching-challenge-2025",
+          "source_id": "source:lesson-source-6af6289dea4f38a4",
+          "snapshot_path": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt",
+          "snapshot_sha256": "00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2025/writeups/ns64-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-0d70ce7382605b41",
+          "line_start": 69,
+          "line_end": 81,
+          "evidence_text": "First, matches for an image pair are computed by MASt3R. This implementation is based on `fast_reciprocal_NNs()` from the code in the official repository. I used default parameters of subsample=8 and pixel_tol=5.\n\nIn addition to the semi-dense matches, keypoints extracted by other keypoint detectors are also fed to the MASt3R matcher (Inspired by MP-SfM [https://arxiv.org/abs/2504.20040)](https://arxiv.org/abs/2504.20040)). These additional keypoints might regionally overlap with points subsampled by MASt3R, but this approach improved the score compared to using only MASt3R matches.\n\nI used ALIKED and SuperPoint as the additional keypoint detectors. While I also tried SIFT, GIMSuperPoint, and DaD, I ultimately adopted the combination of ALIKED and SuperPoint because this combination yielded the best LB score.\n\nThe detailed configurations are as follows:\n\n| Model | Parameters |\n| --- | --- |\n| MASt3R | size=512, threshold=1.001 |\n| ALIKED detector | size=1280, max_keypoints=4096 |\n| SuperPoint detector | size=1600, max_keypoints=4096, threshold=0.0005 |",
+          "kind": "reported_gain",
+          "statement": "The author fed ALIKED and SuperPoint keypoints into MASt3R alongside semi-dense matches, outperforming MASt3R matches alone; other detectors were tried.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Multiple local-feature models need geometry expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Actionable complement to semidense match coverage.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Applies to geometric matching, redundant points add cost.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6af6289dea4f38a4",
+          "locator": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt#L69-L81",
+          "quote": "First, matches for an image pair are computed by MASt3R. This implementation is based on `fast_reciprocal_NNs()` from the code in the official repository. I used default parameters of subsample=8 and pixel_tol=5.\n\nIn addition to the semi-dense matches, keypoints extracted by other keypoint detectors are also fed to the MASt3R matcher (Inspired by MP-SfM [https://arxiv.org/abs/2504.20040)](https://arxiv.org/abs/2504.20040)). These additional keypoints might regionally overlap with points subsampled by MASt3R, but this approach improved the score compared to using only MASt3R matches.\n\nI used ALIKED and SuperPoint as the additional keypoint detectors. While I also tried SIFT, GIMSuperPoint, and DaD, I ultimately adopted the combination of ALIKED and SuperPoint because this combination yielded the best LB score.\n\nThe detailed configurations are as follows:\n\n| Model | Parameters |\n| --- | --- |\n| MASt3R | size=512, threshold=1.001 |\n| ALIKED detector | size=1280, max_keypoints=4096 |\n| SuperPoint detector | size=1600, max_keypoints=4096, threshold=0.0005 |",
+          "competition_id": "competition:image-matching-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2025/writeups/ns64-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt",
+          "snapshot_sha256": "00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e",
+          "line_start": 69,
+          "line_end": 81
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-0d70ce7382605b41",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked ALIKED/SuperPoint seeded matcher gain; detector selection LB-based.",
+          "candidate_sha256": "8ec8e3d3a82ac9b781f945ee0938416010a02c29537bfdcdbf6b6ece900771ae"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 217,
+        "line_end": 221,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-8a531fb68a44a0d6d054",
+      "canonical_key": "compare pooling or projection choices per backbone rather than transferring results from weak to strong embeddings. | a fixed-dimensional embedding submission needs compression | predictive_quality",
+      "title": "Benchmark dimensionality reduction on the actual pretrained embedding",
+      "statement": "When a fixed-dimensional embedding submission needs compression, proposed reuse: Proposed conditional application: Compare pooling or projection choices per backbone rather than transferring results from weak to strong embeddings. Proposed check: Compare compression methods at equal output dimension on the actual backbone and held-out retrieval pairs. Limitation: Projection distortion and pooling vary with learned geometry; t-SNE out-of-sample handling unspecified.",
+      "trigger_conditions": [
+        "a fixed-dimensional embedding submission needs compression"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare pooling or projection choices per backbone rather than transferring results from weak to strong embeddings."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare compression methods at equal output dimension on the actual backbone and held-out retrieval pairs."
+      ],
+      "limitations": [
+        "Projection distortion and pooling vary with learned geometry; t-SNE out-of-sample handling unspecified."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The image-embedding team reports random projection helping weak pretrained embeddings but harming their stronger CLIP embeddings.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-8f1da8077c6528ff4ae0"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cheap embedding benchmark after feature extraction.",
+        "competitor": "Avoids copying compression results across backbones.",
+        "practitioner": "Practical retrieval compression discipline."
+      },
+      "review": {
+        "candidate_id": "C-8a531fb68a44a0d6d054",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full embedding packet reports random projection benefit reverses between weak and strong pretrained weights.",
+        "candidate_sha256": "21018d67839f74763b8066c8fc00e2412ca02b27233645bbb6da0e70322792e5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000160",
+      "slug": "lesson-000160",
+      "merged_candidate_ids": [
+        "C-8a531fb68a44a0d6d054"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2c1030219334920af349",
+          "competition_id": "competition:google-universal-image-embedding",
+          "source_id": "source:lesson-source-03e5c75f6e888c0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt",
+          "snapshot_sha256": "52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004",
+          "source_url": "https://www.kaggle.com/competitions/google-universal-image-embedding/writeups/cuilab-ai-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-8f1da8077c6528ff4ae0",
+          "line_start": 13,
+          "line_end": 13,
+          "evidence_text": "random projection works better for weak weights like efficientnet-b0 trained on ImageNet-1K, but harm the performance of strong weights like VIT-L Laion-400M 31ep.",
+          "kind": "reported_failure",
+          "statement": "The image-embedding team reports random projection helping weak pretrained embeddings but harming their stronger CLIP embeddings.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Cheap embedding benchmark after feature extraction.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Avoids copying compression results across backbones.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Practical retrieval compression discipline.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-03e5c75f6e888c0c",
+          "locator": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt#L13-L13",
+          "quote": "random projection works better for weak weights like efficientnet-b0 trained on ImageNet-1K, but harm the performance of strong weights like VIT-L Laion-400M 31ep.",
+          "competition_id": "competition:google-universal-image-embedding",
+          "url": "https://www.kaggle.com/competitions/google-universal-image-embedding/writeups/cuilab-ai-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt",
+          "snapshot_sha256": "52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004",
+          "line_start": 13,
+          "line_end": 13
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-8a531fb68a44a0d6d054",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full embedding packet reports random projection benefit reverses between weak and strong pretrained weights.",
+          "candidate_sha256": "21018d67839f74763b8066c8fc00e2412ca02b27233645bbb6da0e70322792e5"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 231,
+        "line_end": 235,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-db663905a8c9820f",
+      "canonical_key": "compare quality and runtime before adopting substitutes; reserve a budget for unregistered-image recovery only if feasible. | registration recovery or model substitutions compete with a fixed inference budget | compute_efficiency",
+      "title": "Preserve failed matchers and runtime-excluded recovery methods",
+      "statement": "When registration recovery or model substitutions compete with a fixed inference budget, consider this source-backed action: Compare quality and runtime before adopting substitutes; reserve a budget for unregistered-image recovery only if feasible. Proposed check: Evaluate complete scenes and report whether recovery was actually used in submitted inference. Limit: Unselected localization is not evidence of a final gain; some failures were suspected tuning limitations.",
+      "trigger_conditions": [
+        "registration recovery or model substitutions compete with a fixed inference budget"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare quality and runtime before adopting substitutes; reserve a budget for unregistered-image recovery only if feasible."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate complete scenes and report whether recovery was actually used in submitted inference."
+      ],
+      "limitations": [
+        "Unselected localization is not evidence of a final gain; some failures were suspected tuning limitations."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Alternative retrieval and matchers did not improve locally; Matchformer matched LoFTR quality but was slower, and localization for unregistered images improved training score but was not evaluated in final submission due to runtime.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-db663905a8c9820f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Many heavy matcher alternatives require substantial expertise/compute.",
+        "competitor": "Useful runtime-gated selection and honest unselected-method ledger.",
+        "practitioner": "Niche reconstruction recovery; local train gain not deployment evidence."
+      },
+      "review": {
+        "candidate_id": "C-a-db663905a8c9820f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked unsuccessful substitutes/localization3%training gain; final evaluation absent.",
+        "candidate_sha256": "be025244514d0ddb13e70279fa7fd9a298f76fd19262f0a07bf56d4d1c419782"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000166",
+      "slug": "lesson-000166",
+      "merged_candidate_ids": [
+        "C-a-db663905a8c9820f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-191bb3447d95f393a7d8",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-db663905a8c9820f",
+          "line_start": 94,
+          "line_end": 109,
+          "evidence_text": "Other than NetVLad, we have also tried the Cosplace, as well as using SIFT+NN as a lightweight detector and matcher for retrieval. However, there is no noticeable improvement, even performs slightly worse than NetVLad in our framework. We think this may be because the pair construction is at the very beginning of the overall pipeline, and our framework is pretty robust to the image pair variance.\n\n3.2 Other sparse detectors and matchers\n---------------------------------------\n\nOther than Superpoint + Superglue, we have also tried Silk + NN, which performs worse than Superpoint + Superglue. I think it may be because we did not successfully tune it to work in our framework.\n\n3.3 Other detector-free matchers\n--------------------------------\n\nOther than LoFTR, we also tried Matchformer and AspanFormer in our framework. We find Matcherform performs on par with LoFTR but slower, which will lead to running out of time. AspanFormer performs worse than LoFTR when used in our framework in this challenge.\n\n3.4 Visual localization\n-----------------------\n\nWe observe that there may image not successfully registered during mapping. Our idea is to \"focus\" on these images and regard them as a visual localization problem by trying to register them into the existing SfM model. We use a specifically trained version of LoFTR for localization, which can bring ~3% improvement on the provided training dataset. However, we did not have a spare running time quota in submission and, therefore, did not successfully evaluate visual localization in the final submission.",
+          "kind": "not_used",
+          "statement": "Alternative retrieval and matchers did not improve locally; Matchformer matched LoFTR quality but was slower, and localization for unregistered images improved training score but was not evaluated in final submission due to runtime.",
+          "reported_result": {
+            "metric": "reported training-dataset score improvement approximate percent",
+            "value": 3,
+            "context": "IMC2023 localization of unregistered images versus existingSfM on provided trainingdataset; ~3%, metric definition/uncertainty unclear; not evaluated in finalsubmission due runtime.",
+            "evidence_text": "Other than NetVLad, we have also tried the Cosplace, as well as using SIFT+NN as a lightweight detector and matcher for retrieval. However, there is no noticeable improvement, even performs slightly worse than NetVLad in our framework. We think this may be because the pair construction is at the very beginning of the overall pipeline, and our framework is pretty robust to the image pair variance.\n\n3.2 Other sparse detectors and matchers\n---------------------------------------\n\nOther than Superpoint + Superglue, we have also tried Silk + NN, which performs worse than Superpoint + Superglue. I think it may be because we did not successfully tune it to work in our framework.\n\n3.3 Other detector-free matchers\n--------------------------------\n\nOther than LoFTR, we also tried Matchformer and AspanFormer in our framework. We find Matcherform performs on par with LoFTR but slower, which will lead to running out of time. AspanFormer performs worse than LoFTR when used in our framework in this challenge.\n\n3.4 Visual localization\n-----------------------\n\nWe observe that there may image not successfully registered during mapping. Our idea is to \"focus\" on these images and regard them as a visual localization problem by trying to register them into the existing SfM model. We use a specifically trained version of LoFTR for localization, which can bring ~3% improvement on the provided training dataset. However, we did not have a spare running time quota in submission and, therefore, did not successfully evaluate visual localization in the final submission."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Many heavy matcher alternatives require substantial expertise/compute.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful runtime-gated selection and honest unselected-method ledger.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Niche reconstruction recovery; local train gain not deployment evidence.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "locator": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt#L94-L109",
+          "quote": "Other than NetVLad, we have also tried the Cosplace, as well as using SIFT+NN as a lightweight detector and matcher for retrieval. However, there is no noticeable improvement, even performs slightly worse than NetVLad in our framework. We think this may be because the pair construction is at the very beginning of the overall pipeline, and our framework is pretty robust to the image pair variance.\n\n3.2 Other sparse detectors and matchers\n---------------------------------------\n\nOther than Superpoint + Superglue, we have also tried Silk + NN, which performs worse than Superpoint + Superglue. I think it may be because we did not successfully tune it to work in our framework.\n\n3.3 Other detector-free matchers\n--------------------------------\n\nOther than LoFTR, we also tried Matchformer and AspanFormer in our framework. We find Matcherform performs on par with LoFTR but slower, which will lead to running out of time. AspanFormer performs worse than LoFTR when used in our framework in this challenge.\n\n3.4 Visual localization\n-----------------------\n\nWe observe that there may image not successfully registered during mapping. Our idea is to \"focus\" on these images and regard them as a visual localization problem by trying to register them into the existing SfM model. We use a specifically trained version of LoFTR for localization, which can bring ~3% improvement on the provided training dataset. However, we did not have a spare running time quota in submission and, therefore, did not successfully evaluate visual localization in the final submission.",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "line_start": 94,
+          "line_end": 109
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-db663905a8c9820f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked unsuccessful substitutes/localization3%training gain; final evaluation absent.",
+          "candidate_sha256": "be025244514d0ddb13e70279fa7fd9a298f76fd19262f0a07bf56d4d1c419782"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 245,
+        "line_end": 249,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-83b8c7d5a06b9e92",
+      "canonical_key": "compare related fine-tuned checkpoints before combining embedding vectors; measure compatibility rather than assuming alignment. | retrieval embeddings from separate models may occupy incompatible coordinate systems | predictive_quality",
+      "title": "Preserve embedding-space compatibility in retrieval ensembles",
+      "statement": "When retrieval embeddings from separate models may occupy incompatible coordinate systems, consider this source-backed action: Compare related fine-tuned checkpoints before combining embedding vectors; measure compatibility rather than assuming alignment. Proposed check: Evaluate retrieval metric against individual embeddings and inspect cross-model similarity structure. Limit: A trained alignment matrix is only a proposed future method in this source; no use or gain is established.",
+      "trigger_conditions": [
+        "retrieval embeddings from separate models may occupy incompatible coordinate systems"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare related fine-tuned checkpoints before combining embedding vectors; measure compatibility rather than assuming alignment."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate retrieval metric against individual embeddings and inspect cross-model similarity structure."
+      ],
+      "limitations": [
+        "A trained alignment matrix is only a proposed future method in this source; no use or gain is established."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Fine-tuning the same model at resolutions 224/280 allowed a reported successful ensemble; learned linear space alignment was a future investigation rather than used method.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-83b8c7d5a06b9e92"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Embedding compatibility and expensive models need expertise.",
+        "competitor": "Useful retrieval ensemble condition before mixing vectors.",
+        "practitioner": "Applies to compatible embeddings; future alignment not proven."
+      },
+      "review": {
+        "candidate_id": "C-a-83b8c7d5a06b9e92",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked224/280ensemble boost; linear alignment futurework, not used.",
+        "candidate_sha256": "dd55b026e837dcad07d33dd84c0510305f2eb014629ccc2b3f69b553252b9477"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000173",
+      "slug": "lesson-000173",
+      "merged_candidate_ids": [
+        "C-a-83b8c7d5a06b9e92"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e3a337581da94c2ed038",
+          "competition_id": "competition:google-universal-image-embedding",
+          "source_id": "source:lesson-source-03e5c75f6e888c0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt",
+          "snapshot_sha256": "52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004",
+          "source_url": "https://www.kaggle.com/competitions/google-universal-image-embedding/writeups/cuilab-ai-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-83b8c7d5a06b9e92",
+          "line_start": 36,
+          "line_end": 63,
+          "evidence_text": "In the previous training, we found that products-10k is most likely give the most improvement, so we extracted products-10k to fine-tune individually followed the order of \u201cfirst fc, then backbone\u201d. It reached 0.671.\n\nIt seems that it is hard to continue improving, what should kagglers do now:)\n\nYes, ENSEMBLE!\n--------------\n\nBut ensemble seems not working in this competition, as mentioned in [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/337360](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/337360)] and [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/339554]](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/339554]). We need to find the reason if we want to solve an issue. Why did ensemble not work here? I fully agree with [@manwithaflower](https://www.kaggle.com/manwithaflower) \u2018s point of view indicated in [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/340546#1876558]](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/340546#1876558]). Recalling the stuffs we found about the F(C, X), if we got similar F(C, X) in different models, then the ensemble of those models should work.\n\nHow to achieve this? Basically we have two ways:\n\nFirst, if we fine-tune models in different hyper-parameters, like model soups [[https://arxiv.org/abs/2203.05482]](https://arxiv.org/abs/2203.05482]), but in the models ensemble style, it will likely work since the F(C, X) won\u2019t change a lot. That is what we tried, and we got boost to 0.680 with ensemble of the resolution 224 and 280.\n\nSecond, if we tried to keep F(C, X) the same with a maintaining in performance, we can also get models ensemble work, and even achieve better performance than the first way, because the variance of the models can be huge which help ensemble. The way to did it is based on an\n\nassumption that the different spaces represented by F(C, X) of different models can be aligned through a linear operation. Like below:\n\nIf we have,\n\ny^ = F1(C, X) * B1(W, x), and,\n\ny^ = F2(C, X) * B2(W, x),\n\nThen \u2203G(C1, C2), such that,\n\ny^ = F1(C, X) * G(C1,C2) * B2(W, x)\n\nSo all we need is to train a G(*) on the models to do the ensemble. This is what we want to further investigate after this competition.",
+          "kind": "reported_gain",
+          "statement": "Fine-tuning the same model at resolutions 224/280 allowed a reported successful ensemble; learned linear space alignment was a future investigation rather than used method.",
+          "reported_result": {
+            "metric": "reported retrieval ensemble score",
+            "value": 0.68,
+            "context": "GoogleUniversalEmbedding:224/280related-checkpoint ensemble0.680versus preceding product-finetuned0.671; metric/eval subset/uncertainty unspecified; aligned-space theory not verified.",
+            "evidence_text": "In the previous training, we found that products-10k is most likely give the most improvement, so we extracted products-10k to fine-tune individually followed the order of \u201cfirst fc, then backbone\u201d. It reached 0.671.\n\nIt seems that it is hard to continue improving, what should kagglers do now:)\n\nYes, ENSEMBLE!\n--------------\n\nBut ensemble seems not working in this competition, as mentioned in [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/337360](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/337360)] and [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/339554]](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/339554]). We need to find the reason if we want to solve an issue. Why did ensemble not work here? I fully agree with [@manwithaflower](https://www.kaggle.com/manwithaflower) \u2018s point of view indicated in [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/340546#1876558]](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/340546#1876558]). Recalling the stuffs we found about the F(C, X), if we got similar F(C, X) in different models, then the ensemble of those models should work.\n\nHow to achieve this? Basically we have two ways:\n\nFirst, if we fine-tune models in different hyper-parameters, like model soups [[https://arxiv.org/abs/2203.05482]](https://arxiv.org/abs/2203.05482]), but in the models ensemble style, it will likely work since the F(C, X) won\u2019t change a lot. That is what we tried, and we got boost to 0.680 with ensemble of the resolution 224 and 280.\n\nSecond, if we tried to keep F(C, X) the same with a maintaining in performance, we can also get models ensemble work, and even achieve better performance than the first way, because the variance of the models can be huge which help ensemble. The way to did it is based on an\n\nassumption that the different spaces represented by F(C, X) of different models can be aligned through a linear operation. Like below:\n\nIf we have,\n\ny^ = F1(C, X) * B1(W, x), and,\n\ny^ = F2(C, X) * B2(W, x),\n\nThen \u2203G(C1, C2), such that,\n\ny^ = F1(C, X) * G(C1,C2) * B2(W, x)\n\nSo all we need is to train a G(*) on the models to do the ensemble. This is what we want to further investigate after this competition."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Embedding compatibility and expensive models need expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful retrieval ensemble condition before mixing vectors.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Applies to compatible embeddings; future alignment not proven.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-03e5c75f6e888c0c",
+          "locator": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt#L36-L63",
+          "quote": "In the previous training, we found that products-10k is most likely give the most improvement, so we extracted products-10k to fine-tune individually followed the order of \u201cfirst fc, then backbone\u201d. It reached 0.671.\n\nIt seems that it is hard to continue improving, what should kagglers do now:)\n\nYes, ENSEMBLE!\n--------------\n\nBut ensemble seems not working in this competition, as mentioned in [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/337360](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/337360)] and [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/339554]](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/339554]). We need to find the reason if we want to solve an issue. Why did ensemble not work here? I fully agree with [@manwithaflower](https://www.kaggle.com/manwithaflower) \u2018s point of view indicated in [[https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/340546#1876558]](https://www.kaggle.com/competitions/google-universal-image-embedding/discussion/340546#1876558]). Recalling the stuffs we found about the F(C, X), if we got similar F(C, X) in different models, then the ensemble of those models should work.\n\nHow to achieve this? Basically we have two ways:\n\nFirst, if we fine-tune models in different hyper-parameters, like model soups [[https://arxiv.org/abs/2203.05482]](https://arxiv.org/abs/2203.05482]), but in the models ensemble style, it will likely work since the F(C, X) won\u2019t change a lot. That is what we tried, and we got boost to 0.680 with ensemble of the resolution 224 and 280.\n\nSecond, if we tried to keep F(C, X) the same with a maintaining in performance, we can also get models ensemble work, and even achieve better performance than the first way, because the variance of the models can be huge which help ensemble. The way to did it is based on an\n\nassumption that the different spaces represented by F(C, X) of different models can be aligned through a linear operation. Like below:\n\nIf we have,\n\ny^ = F1(C, X) * B1(W, x), and,\n\ny^ = F2(C, X) * B2(W, x),\n\nThen \u2203G(C1, C2), such that,\n\ny^ = F1(C, X) * G(C1,C2) * B2(W, x)\n\nSo all we need is to train a G(*) on the models to do the ensemble. This is what we want to further investigate after this competition.",
+          "competition_id": "competition:google-universal-image-embedding",
+          "url": "https://www.kaggle.com/competitions/google-universal-image-embedding/writeups/cuilab-ai-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt",
+          "snapshot_sha256": "52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004",
+          "line_start": 36,
+          "line_end": 63
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-83b8c7d5a06b9e92",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked224/280ensemble boost; linear alignment futurework, not used.",
+          "candidate_sha256": "dd55b026e837dcad07d33dd84c0510305f2eb014629ccc2b3f69b553252b9477"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 277,
+        "line_end": 281,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-670ee7440de31371",
+      "canonical_key": "compare the union of modest complementary shortlists with a deeper single-retrieval shortlist. | expensive geometric matching needs pair coverage under limited time | predictive_quality",
+      "title": "Union complementary retrieval shortlists before expensive matching",
+      "statement": "When expensive geometric matching needs pair coverage under limited time, consider this source-backed action: Compare the union of modest complementary shortlists with a deeper single-retrieval shortlist. Proposed check: Measure candidate overlap coverage, final reconstruction score and runtime, including any preclustering cost. Limit: No universal top-k follows; preclustering was an explicitly unselected alternative.",
+      "trigger_conditions": [
+        "expensive geometric matching needs pair coverage under limited time"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare the union of modest complementary shortlists with a deeper single-retrieval shortlist."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure candidate overlap coverage, final reconstruction score and runtime, including any preclustering cost."
+      ],
+      "limitations": [
+        "No universal top-k follows; preclustering was an explicitly unselected alternative."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "More image pairs helped score; unions from four retrieval descriptors performed similarly to a heavier single shortlist while faster, and preclustering was not used finally.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-670ee7440de31371"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multi-retriever matching costs and infrastructure demanding.",
+        "competitor": "Specific paircoverage/runtime alternative before expensive MASt3R.",
+        "practitioner": "Useful geometric retrieval with scene-specific candidate checks."
+      },
+      "review": {
+        "candidate_id": "C-a-670ee7440de31371",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked union/deeper shortlist qualitative tradeoff; preclustering unselected.",
+        "candidate_sha256": "d20d12aac424099119f40d76732e4e2edd77389e4047cf5e14d11bc9d92b7118"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000192",
+      "slug": "lesson-000192",
+      "merged_candidate_ids": [
+        "C-a-670ee7440de31371"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1d7daad4aadc92fe4add",
+          "competition_id": "competition:image-matching-challenge-2025",
+          "source_id": "source:lesson-source-6af6289dea4f38a4",
+          "snapshot_path": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt",
+          "snapshot_sha256": "00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2025/writeups/ns64-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-670ee7440de31371",
+          "line_start": 31,
+          "line_end": 65,
+          "evidence_text": "By simply using the MASt3R model as a semi-dense detector-free matcher and integrating it into a general COLMAP pipeline, I achieved a score of 42-45 on the PublicLB. Furthermore, I found that increasing the number of image pairs led to a higher score, reaching approximately 50. Therefore, I thought that how image pairs could be increased within limited computational time might be an important consideration.\n\n### 2.1. Clustering\n\nI developed a pre-clustering approach based on MASt3R matches, but this approach was not adopted in the final version. It turned out that, since image matching primarily uses MASt3R, there wasn't a significant difference whether I used pre-clustering or multiple reconstructions from COLMAP.\n\nThe pre-clustering (which was not used) approach is outlined below:\n\n1.   Initialize the cluster label for each image to -1\n2.   Extract N images from the scene using farthest point sampling, and assign each of them a unique cluster label (0, 1, \u2026, N-1).\n3.   For each of the N seed images (from step 2), run 1-vs-all matching with MASt3R against other unclustered images. If an image is matched, assign the seed image's cluster label to the matched image. Otherwise, assign a new cluster label to it.\n4.   Use the newly matched images as the next queries, and repeat 1-vs-k matching iteratively until all images are assigned a cluster label\n5.   Treat small clusters as \"outliers\"\n\n### 2.2. Shortlist\n\nSince the MASt3R matcher is computationally more intensive than detector-based methods, a shortlist of image pairs for matching is still important.\n\nI generated candidate pairs for matching within a scene by taking the union of neighbors from multiple image retrieval results. I used the following four global features for image retrieval.\n\n*   MASt3R-ASMK (From MASt3R-SfM [https://arxiv.org/abs/2409.19152](https://arxiv.org/abs/2409.19152))\n*   MASt3R-SPoC (From MASt3R-SfM [https://arxiv.org/abs/2409.19152](https://arxiv.org/abs/2409.19152))\n*   DINOv2\n*   ISC ([https://arxiv.org/abs/2112.04323](https://arxiv.org/abs/2112.04323))\n\nAlthough MASt3R-ASMK could extract pairs with sufficient coverage, adding the other models slightly improved the score.\n\n| Features | Parameters |\n| --- | --- |\n| MASt3R-ASMK | n=10, k=25 (See MASt3R-SfM paper) |\n| MASt3R-SPoC | topk=10 |\n| DINOv2 | topk=10 |\n| ISC | topk=10 |\n\nNote that using only MASt3R-ASMK with heavier settings (e.g., MASt3R-ASMK(n=10, k=60)) can also achieve a high score, but the proposed method is faster while achieving a similar score.",
+          "kind": "used",
+          "statement": "More image pairs helped score; unions from four retrieval descriptors performed similarly to a heavier single shortlist while faster, and preclustering was not used finally.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Multi-retriever matching costs and infrastructure demanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Specific paircoverage/runtime alternative before expensive MASt3R.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful geometric retrieval with scene-specific candidate checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6af6289dea4f38a4",
+          "locator": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt#L31-L65",
+          "quote": "By simply using the MASt3R model as a semi-dense detector-free matcher and integrating it into a general COLMAP pipeline, I achieved a score of 42-45 on the PublicLB. Furthermore, I found that increasing the number of image pairs led to a higher score, reaching approximately 50. Therefore, I thought that how image pairs could be increased within limited computational time might be an important consideration.\n\n### 2.1. Clustering\n\nI developed a pre-clustering approach based on MASt3R matches, but this approach was not adopted in the final version. It turned out that, since image matching primarily uses MASt3R, there wasn't a significant difference whether I used pre-clustering or multiple reconstructions from COLMAP.\n\nThe pre-clustering (which was not used) approach is outlined below:\n\n1.   Initialize the cluster label for each image to -1\n2.   Extract N images from the scene using farthest point sampling, and assign each of them a unique cluster label (0, 1, \u2026, N-1).\n3.   For each of the N seed images (from step 2), run 1-vs-all matching with MASt3R against other unclustered images. If an image is matched, assign the seed image's cluster label to the matched image. Otherwise, assign a new cluster label to it.\n4.   Use the newly matched images as the next queries, and repeat 1-vs-k matching iteratively until all images are assigned a cluster label\n5.   Treat small clusters as \"outliers\"\n\n### 2.2. Shortlist\n\nSince the MASt3R matcher is computationally more intensive than detector-based methods, a shortlist of image pairs for matching is still important.\n\nI generated candidate pairs for matching within a scene by taking the union of neighbors from multiple image retrieval results. I used the following four global features for image retrieval.\n\n*   MASt3R-ASMK (From MASt3R-SfM [https://arxiv.org/abs/2409.19152](https://arxiv.org/abs/2409.19152))\n*   MASt3R-SPoC (From MASt3R-SfM [https://arxiv.org/abs/2409.19152](https://arxiv.org/abs/2409.19152))\n*   DINOv2\n*   ISC ([https://arxiv.org/abs/2112.04323](https://arxiv.org/abs/2112.04323))\n\nAlthough MASt3R-ASMK could extract pairs with sufficient coverage, adding the other models slightly improved the score.\n\n| Features | Parameters |\n| --- | --- |\n| MASt3R-ASMK | n=10, k=25 (See MASt3R-SfM paper) |\n| MASt3R-SPoC | topk=10 |\n| DINOv2 | topk=10 |\n| ISC | topk=10 |\n\nNote that using only MASt3R-ASMK with heavier settings (e.g., MASt3R-ASMK(n=10, k=60)) can also achieve a high score, but the proposed method is faster while achieving a similar score.",
+          "competition_id": "competition:image-matching-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2025/writeups/ns64-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt",
+          "snapshot_sha256": "00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e",
+          "line_start": 31,
+          "line_end": 65
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-670ee7440de31371",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked union/deeper shortlist qualitative tradeoff; preclustering unselected.",
+          "candidate_sha256": "d20d12aac424099119f40d76732e4e2edd77389e4047cf5e14d11bc9d92b7118"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 251,
+        "line_end": 255,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-76151a3101617402d389",
+      "canonical_key": "compute multiscale rooted-normalized obif histograms, subtract training mean histograms and classify deviations with euclidean nearest neighbors. | writer identification needs deviations from typical character appearance | predictive_quality",
+      "title": "Center visual-style descriptors to remove common content",
+      "statement": "When writer identification needs deviations from typical character appearance, proposed reuse: Proposed conditional application: Compute multiscale rooted-normalized oBIF histograms, subtract training mean histograms and classify deviations with Euclidean nearest neighbors. Proposed check: Fit means and descriptor tuning only on training folds, compare centered versus raw histograms, and test unseen-writer rejection. Limitation: Specialist oBIF descriptor and four parameters require vision expertise; source232formatting is ambiguous.",
+      "trigger_conditions": [
+        "writer identification needs deviations from typical character appearance"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compute multiscale rooted-normalized oBIF histograms, subtract training mean histograms and classify deviations with Euclidean nearest neighbors."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit means and descriptor tuning only on training folds, compare centered versus raw histograms, and test unseen-writer rejection."
+      ],
+      "limitations": [
+        "Specialist oBIF descriptor and four parameters require vision expertise; source232formatting is ambiguous."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "arts"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The writer-identification team centers oBIF histograms by training means and classifies deviations using Euclidean nearest neighbors.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-58463b3271fcab90f134"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Centering is simple, but reproducing the specialist visual descriptor is difficult.",
+        "competitor": "Style deviations offer a niche but concrete feature experiment.",
+        "practitioner": "Removing shared content may help style identification if descriptor and open-set behavior are validated."
+      },
+      "review": {
+        "candidate_id": "C-76151a3101617402d389",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner's writer-identification article describes rooted-normalized multiscale oBIF histograms centered by training mean with Euclidean nearest neighbors; no isolated centering gain.",
+        "candidate_sha256": "b8b1ea074ec458c9512c1557c5e8d952724a22a77908bb29c5a81445dd51316f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000202",
+      "slug": "lesson-000202",
+      "merged_candidate_ids": [
+        "C-76151a3101617402d389"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e093203a36408e2e832f",
+          "competition_id": "competition:wic2011",
+          "source_id": "source:lesson-source-63c78d91fdc6f26c",
+          "snapshot_path": "research/lesson-extraction/snapshots/41996c00b4d07cad976e678ad0905ec032996d6c2a642452c9a0f2e7a478eba9.txt",
+          "snapshot_sha256": "41996c00b4d07cad976e678ad0905ec032996d6c2a642452c9a0f2e7a478eba9",
+          "source_url": "http://blog.kaggle.com/2011/05/04/andrew-newell-and-lewis-griffin-on-winning-the-icdar-2011-competition/",
+          "source_quality": "primary_text",
+          "observation_id": "O-58463b3271fcab90f134",
+          "line_start": 13,
+          "line_end": 13,
+          "evidence_text": "we calculated the deviations from the mean histograms for training.",
+          "kind": "used",
+          "statement": "The writer-identification team centers oBIF histograms by training means and classifies deviations using Euclidean nearest neighbors.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Centering is simple, but reproducing the specialist visual descriptor is difficult.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 61.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Style deviations offer a niche but concrete feature experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Removing shared content may help style identification if descriptor and open-set behavior are validated.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-63c78d91fdc6f26c",
+          "locator": "research/lesson-extraction/snapshots/41996c00b4d07cad976e678ad0905ec032996d6c2a642452c9a0f2e7a478eba9.txt#L13-L13",
+          "quote": "we calculated the deviations from the mean histograms for training.",
+          "competition_id": "competition:wic2011",
+          "url": "http://blog.kaggle.com/2011/05/04/andrew-newell-and-lewis-griffin-on-winning-the-icdar-2011-competition/",
+          "snapshot_path": "research/lesson-extraction/snapshots/41996c00b4d07cad976e678ad0905ec032996d6c2a642452c9a0f2e7a478eba9.txt",
+          "snapshot_sha256": "41996c00b4d07cad976e678ad0905ec032996d6c2a642452c9a0f2e7a478eba9",
+          "line_start": 13,
+          "line_end": 13
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-76151a3101617402d389",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner's writer-identification article describes rooted-normalized multiscale oBIF histograms centered by training mean with Euclidean nearest neighbors; no isolated centering gain.",
+          "candidate_sha256": "b8b1ea074ec458c9512c1557c5e8d952724a22a77908bb29c5a81445dd51316f"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 237,
+        "line_end": 241,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-bd2e17f68c80aa52",
+      "canonical_key": "evaluate auxiliary taxonomy heads and combined margin/ce outputs with separate controlled ablations. | fine-grained image labels include a meaningful taxonomy | predictive_quality",
+      "title": "Compare taxonomy auxiliary losses and metric heads in fine-grained recognition",
+      "statement": "When fine-grained image labels include a meaningful taxonomy, consider this source-backed action: Evaluate auxiliary taxonomy heads and combined margin/CE outputs with separate controlled ablations. Proposed check: Use the same data split and report top-level and leaf-level errors plus cost. Limit: The table is sequential, so rows are conditional changes rather than independent additive gains; metric name is not supplied here.",
+      "trigger_conditions": [
+        "fine-grained image labels include a meaningful taxonomy"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Evaluate auxiliary taxonomy heads and combined margin/CE outputs with separate controlled ablations."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use the same data split and report top-level and leaf-level errors plus cost."
+      ],
+      "limitations": [
+        "The table is sequential, so rows are conditional changes rather than independent additive gains; metric name is not supplied here."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The sequential experiment table lists gains from genus/species/family losses, dynamic-margin subcenter ArcFace, an extra CE head, crop inference and resolution changes.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-bd2e17f68c80aa52"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Custom taxonomy/margin heads need advanced vision training.",
+        "competitor": "Concrete fine-grained objective ablations under label taxonomy.",
+        "practitioner": "Transfers to hierarchical recognition when taxonomy valid."
+      },
+      "review": {
+        "candidate_id": "C-a-bd2e17f68c80aa52",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked sequential taxonomy/marginhead table; nonadditive gains and metric unspecified.",
+        "candidate_sha256": "d444f04e451b7e850bc63a75f0c317cc792ea3efabe993f71790d38c5f0637b1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000245",
+      "slug": "lesson-000245",
+      "merged_candidate_ids": [
+        "C-a-bd2e17f68c80aa52"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2c0c7b3c0038b707ce65",
+          "competition_id": "competition:herbarium-2022-fgvc9",
+          "source_id": "source:lesson-source-848ea756f5dc741c",
+          "snapshot_path": "research/lesson-extraction/snapshots/80241a655d48d428b06f3d6246230e2a877b0f4faf157e3778166e120159561b.txt",
+          "snapshot_sha256": "80241a655d48d428b06f3d6246230e2a877b0f4faf157e3778166e120159561b",
+          "source_url": "https://www.kaggle.com/competitions/herbarium-2022-fgvc9/writeups/mtcv-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-bd2e17f68c80aa52",
+          "line_start": 7,
+          "line_end": 18,
+          "evidence_text": "| swin-B 224 baseline | 0.77223 | 0.78442 |\n| add cross-entropy losses on genera,species,family | 0.7829 | 0.79544 |\n| learning rate from 2e-4 to 5e-4 | 0.79444 | 0.80501 |\n| +5crop(resize 256,288,320,384,448 and center crop 224) | 0.80088 | 0.80981 |\n| replacing cross-entropy by subcenter-arcface with[dynamic](https://www.kaggle.com/c/landmark-recognition-2020/discussion/187757)margins | 0.81532 | 0.82267 |\n| +extra fc by cross-entropy,add to subcenter-arcface output after softmax | 0.82201 | 0.82929 |\n| +data augmentation the same with Swin-Transformer | 0.8315 | 0.83554 |\n| from swin-B224 to SwinB384 | 0.8468 | 0.85245 |\n| +5crop(resize 400,416,448,480,512 and center crop 384) | 0.84895 | 0.85654 |\n| +Freeze layers(not update parameters)from 100 to 0 | 0.85499 | 0.86055 |\n| +square resize and test crop from 384 | 0.85563 | 0.86201 |\n| +from swin base to swin V2 | 0.85851 | 0.86282 |",
+          "kind": "reported_gain",
+          "statement": "The sequential experiment table lists gains from genus/species/family losses, dynamic-margin subcenter ArcFace, an extra CE head, crop inference and resolution changes.",
+          "reported_result": {
+            "metric": "private score after taxonomy losses",
+            "value": 0.79544,
+            "context": "Herbarium: genus/species/family auxiliary losses0.79544versus SwinB224baseline0.78442; sequential table, metric unnamed, uncertainty absent, later ArcFace gains separate.",
+            "evidence_text": "| swin-B 224 baseline | 0.77223 | 0.78442 |\n| add cross-entropy losses on genera,species,family | 0.7829 | 0.79544 |\n| learning rate from 2e-4 to 5e-4 | 0.79444 | 0.80501 |\n| +5crop(resize 256,288,320,384,448 and center crop 224) | 0.80088 | 0.80981 |\n| replacing cross-entropy by subcenter-arcface with[dynamic](https://www.kaggle.com/c/landmark-recognition-2020/discussion/187757)margins | 0.81532 | 0.82267 |\n| +extra fc by cross-entropy,add to subcenter-arcface output after softmax | 0.82201 | 0.82929 |\n| +data augmentation the same with Swin-Transformer | 0.8315 | 0.83554 |\n| from swin-B224 to SwinB384 | 0.8468 | 0.85245 |\n| +5crop(resize 400,416,448,480,512 and center crop 384) | 0.84895 | 0.85654 |\n| +Freeze layers(not update parameters)from 100 to 0 | 0.85499 | 0.86055 |\n| +square resize and test crop from 384 | 0.85563 | 0.86201 |\n| +from swin base to swin V2 | 0.85851 | 0.86282 |"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Custom taxonomy/margin heads need advanced vision training.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete fine-grained objective ablations under label taxonomy.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to hierarchical recognition when taxonomy valid.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-848ea756f5dc741c",
+          "locator": "research/lesson-extraction/snapshots/80241a655d48d428b06f3d6246230e2a877b0f4faf157e3778166e120159561b.txt#L7-L18",
+          "quote": "| swin-B 224 baseline | 0.77223 | 0.78442 |\n| add cross-entropy losses on genera,species,family | 0.7829 | 0.79544 |\n| learning rate from 2e-4 to 5e-4 | 0.79444 | 0.80501 |\n| +5crop(resize 256,288,320,384,448 and center crop 224) | 0.80088 | 0.80981 |\n| replacing cross-entropy by subcenter-arcface with[dynamic](https://www.kaggle.com/c/landmark-recognition-2020/discussion/187757)margins | 0.81532 | 0.82267 |\n| +extra fc by cross-entropy,add to subcenter-arcface output after softmax | 0.82201 | 0.82929 |\n| +data augmentation the same with Swin-Transformer | 0.8315 | 0.83554 |\n| from swin-B224 to SwinB384 | 0.8468 | 0.85245 |\n| +5crop(resize 400,416,448,480,512 and center crop 384) | 0.84895 | 0.85654 |\n| +Freeze layers(not update parameters)from 100 to 0 | 0.85499 | 0.86055 |\n| +square resize and test crop from 384 | 0.85563 | 0.86201 |\n| +from swin base to swin V2 | 0.85851 | 0.86282 |",
+          "competition_id": "competition:herbarium-2022-fgvc9",
+          "url": "https://www.kaggle.com/competitions/herbarium-2022-fgvc9/writeups/mtcv-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/80241a655d48d428b06f3d6246230e2a877b0f4faf157e3778166e120159561b.txt",
+          "snapshot_sha256": "80241a655d48d428b06f3d6246230e2a877b0f4faf157e3778166e120159561b",
+          "line_start": 7,
+          "line_end": 18
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-bd2e17f68c80aa52",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked sequential taxonomy/marginhead table; nonadditive gains and metric unspecified.",
+          "candidate_sha256": "d444f04e451b7e850bc63a75f0c317cc792ea3efabe993f71790d38c5f0637b1"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 223,
+        "line_end": 227,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-1b85bb4b2121f3d68fdc",
+      "canonical_key": "first train the dimensionality-reduction head, then unfreeze the backbone at a lower learning rate while freezing the final classifier and adding projection dropout. | a pretrained image embedding overfits during full fine-tuning | predictive_quality",
+      "title": "Stage embedding fine-tuning to protect class geometry",
+      "statement": "When a pretrained image embedding overfits during full fine-tuning, proposed reuse: Proposed conditional application: First train the dimensionality-reduction head, then unfreeze the backbone at a lower learning rate while freezing the final classifier and adding projection dropout. Proposed check: Ablate staged training, classifier freezing and dropout separately using unseen-category retrieval validation. Limitation: Multi-change gain is not isolated; frozen classifier may constrain adaptation.",
+      "trigger_conditions": [
+        "a pretrained image embedding overfits during full fine-tuning"
+      ],
+      "action_steps": [
+        "Proposed conditional application: First train the dimensionality-reduction head, then unfreeze the backbone at a lower learning rate while freezing the final classifier and adding projection dropout."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate staged training, classifier freezing and dropout separately using unseen-category retrieval validation."
+      ],
+      "limitations": [
+        "Multi-change gain is not isolated; frozen classifier may constrain adaptation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The image-embedding team first trained an embedding head and later froze the final classifier while updating the backbone to address overfitting.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-206651c396c21f09d66c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Specialized retrieval fine-tuning and datasets are costly.",
+        "competitor": "Concrete overfitting strategy for pretrained metric embeddings.",
+        "practitioner": "Conditional transfer when class anchors should remain stable."
+      },
+      "review": {
+        "candidate_id": "C-1b85bb4b2121f3d68fdc",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full embedding source trains projection first then lower-rate backbone with fixed classifier/dropout; class-geometry explanation is conjecture.",
+        "candidate_sha256": "dff8d5886a14da88d2aa536aae6f4006fc3ccf944e813ca298a9f19589a22765"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000273",
+      "slug": "lesson-000273",
+      "merged_candidate_ids": [
+        "C-1b85bb4b2121f3d68fdc"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2c1030219334920af349",
+          "competition_id": "competition:google-universal-image-embedding",
+          "source_id": "source:lesson-source-03e5c75f6e888c0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt",
+          "snapshot_sha256": "52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004",
+          "source_url": "https://www.kaggle.com/competitions/google-universal-image-embedding/writeups/cuilab-ai-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-206651c396c21f09d66c",
+          "line_start": 30,
+          "line_end": 30,
+          "evidence_text": "So we decided to freeze the final fc layer when train on backbone.",
+          "kind": "used",
+          "statement": "The image-embedding team first trained an embedding head and later froze the final classifier while updating the backbone to address overfitting.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Specialized retrieval fine-tuning and datasets are costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete overfitting strategy for pretrained metric embeddings.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional transfer when class anchors should remain stable.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-03e5c75f6e888c0c",
+          "locator": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt#L30-L30",
+          "quote": "So we decided to freeze the final fc layer when train on backbone.",
+          "competition_id": "competition:google-universal-image-embedding",
+          "url": "https://www.kaggle.com/competitions/google-universal-image-embedding/writeups/cuilab-ai-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004.txt",
+          "snapshot_sha256": "52f4116cf441e9ec209d3189c7b680819c73c1ace7583ca01a722d5ba50f9004",
+          "line_start": 30,
+          "line_end": 30
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1b85bb4b2121f3d68fdc",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full embedding source trains projection first then lower-rate backbone with fixed classifier/dropout; class-geometry explanation is conjecture.",
+          "candidate_sha256": "dff8d5886a14da88d2aa536aae6f4006fc3ccf944e813ca298a9f19589a22765"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 285,
+        "line_end": 289,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-69e54dc1771621bb",
+      "canonical_key": "profile attention/position modules, verify amp is actually enabled and distribute independent scenes where supported. | matching pipeline is near submission runtime limits | compute_efficiency",
+      "title": "Optimize matching implementation before adding heavier models",
+      "statement": "When matching pipeline is near submission runtime limits, consider this source-backed action: Profile attention/position modules, verify AMP is actually enabled and distribute independent scenes where supported. Proposed check: Check numerical output parity, complete scene results and wall time with runtime margin. Limit: Failed TensorRT/VGGT paths were not final methods; custom accelerations can change precision or platform requirements.",
+      "trigger_conditions": [
+        "matching pipeline is near submission runtime limits"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Profile attention/position modules, verify AMP is actually enabled and distribute independent scenes where supported."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check numerical output parity, complete scene results and wall time with runtime margin."
+      ],
+      "limitations": [
+        "Failed TensorRT/VGGT paths were not final methods; custom accelerations can change precision or platform requirements."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author built CUDA RoPE, enabled scaled-dot-product attention and correct AMP, split scenes across two T4s; TensorRT conversion failed and VGGT timed out despite good local results.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-69e54dc1771621bb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Kernel/precision optimization exceeds routine beginner work.",
+        "competitor": "Concrete end-to-end acceleration controls before larger models.",
+        "practitioner": "Useful serving optimization with numerical parity and hardware limits."
+      },
+      "review": {
+        "candidate_id": "C-a-69e54dc1771621bb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked CUDA/attention/AMP/twoT4 sceneparallel; failed conversions clearly excluded.",
+        "candidate_sha256": "57ebd70c0f9fc6757fbb5f71b6a66d9bced58c36d74a6492e2272f3dcced3f5f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000390",
+      "slug": "lesson-000390",
+      "merged_candidate_ids": [
+        "C-a-69e54dc1771621bb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1d7daad4aadc92fe4add",
+          "competition_id": "competition:image-matching-challenge-2025",
+          "source_id": "source:lesson-source-6af6289dea4f38a4",
+          "snapshot_path": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt",
+          "snapshot_sha256": "00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2025/writeups/ns64-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-69e54dc1771621bb",
+          "line_start": 85,
+          "line_end": 112,
+          "evidence_text": "In addition, I applied the following techniques to make the pipeline faster:\n\n*   Build the curope (RoPE2D) module with CUDA.\n*   Replace attention implementations used in mast3r/dust3r/croco with `torch.nn.functional.scaled_dot_product_attention`.\n\n(to enable flash attention)\n*   Fix `use_amp` args in the MASt3R inference function to be used correctly.\n*   Use the T4 x 2 environment in Kaggle, and run the submission pipeline in parallel over scene subsets, split by dataset in `submission.csv`.\n\nAccording to Speedy MASt3R ([https://arxiv.org/abs/2503.10017)](https://arxiv.org/abs/2503.10017)), TensorRT can further accelerate the MASt3R model. However, I wasn't able to convert the model.\n\n### 2.5. Local/Public/Private Score\n\n|  | amy_gardens | fbk_vineyard | ETs | stairs | Public | Private |\n| --- | --- | --- | --- | --- | --- | --- |\n| Best submission | 40.65 | 72.09 | 59.46 | 15.89 | 52.64 | 56.00 |\n| w/ Pre-clustering | 37.02 | 47.25 | 59.46 | 20.35 | 50.22 | 50.93 |\n\n*   The scores of `amy_gardens` and `fbk_vineyard` seemed to be unstable.\n*   `stairs` was difficult (As a side note, VGGT achieved the highest score of `25.07` in my local experiments)\n\n3. What did not work\n--------------------\n\n*   GLOMAP: I tried GLOMAP instead of COLMAP with the pre-clustering approach, but it didn't improve the score.\n*   Coarse-to-Fine matching: Probably, there was a bug in my implementation.\n*   Using monocular depth estimation: I tried to filter mismatched pairs using depth information.\n*   VGGT: The tracking head of VGGT with pre-extracted keypoints worked well on local tests, but it resulted in a `TimeoutError` in submission.",
+          "kind": "reported_failure",
+          "statement": "The author built CUDA RoPE, enabled scaled-dot-product attention and correct AMP, split scenes across two T4s; TensorRT conversion failed and VGGT timed out despite good local results.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Kernel/precision optimization exceeds routine beginner work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Concrete end-to-end acceleration controls before larger models.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful serving optimization with numerical parity and hardware limits.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6af6289dea4f38a4",
+          "locator": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt#L85-L112",
+          "quote": "In addition, I applied the following techniques to make the pipeline faster:\n\n*   Build the curope (RoPE2D) module with CUDA.\n*   Replace attention implementations used in mast3r/dust3r/croco with `torch.nn.functional.scaled_dot_product_attention`.\n\n(to enable flash attention)\n*   Fix `use_amp` args in the MASt3R inference function to be used correctly.\n*   Use the T4 x 2 environment in Kaggle, and run the submission pipeline in parallel over scene subsets, split by dataset in `submission.csv`.\n\nAccording to Speedy MASt3R ([https://arxiv.org/abs/2503.10017)](https://arxiv.org/abs/2503.10017)), TensorRT can further accelerate the MASt3R model. However, I wasn't able to convert the model.\n\n### 2.5. Local/Public/Private Score\n\n|  | amy_gardens | fbk_vineyard | ETs | stairs | Public | Private |\n| --- | --- | --- | --- | --- | --- | --- |\n| Best submission | 40.65 | 72.09 | 59.46 | 15.89 | 52.64 | 56.00 |\n| w/ Pre-clustering | 37.02 | 47.25 | 59.46 | 20.35 | 50.22 | 50.93 |\n\n*   The scores of `amy_gardens` and `fbk_vineyard` seemed to be unstable.\n*   `stairs` was difficult (As a side note, VGGT achieved the highest score of `25.07` in my local experiments)\n\n3. What did not work\n--------------------\n\n*   GLOMAP: I tried GLOMAP instead of COLMAP with the pre-clustering approach, but it didn't improve the score.\n*   Coarse-to-Fine matching: Probably, there was a bug in my implementation.\n*   Using monocular depth estimation: I tried to filter mismatched pairs using depth information.\n*   VGGT: The tracking head of VGGT with pre-extracted keypoints worked well on local tests, but it resulted in a `TimeoutError` in submission.",
+          "competition_id": "competition:image-matching-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2025/writeups/ns64-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e.txt",
+          "snapshot_sha256": "00444811f9e2bb3452bacbfb91b3782f977c81aa9d4b1ccd6f031332ba18838e",
+          "line_start": 85,
+          "line_end": 112
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-69e54dc1771621bb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked CUDA/attention/AMP/twoT4 sceneparallel; failed conversions clearly excluded.",
+          "candidate_sha256": "57ebd70c0f9fc6757fbb5f71b6a66d9bced58c36d74a6492e2272f3dcced3f5f"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 257,
+        "line_end": 261,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-2943df0b16250806e88b",
+      "canonical_key": "report seen-artist and unseen-artist auc separately before trusting open-set generalization. | a verifier derives similarities from known-class probability vectors | validation_reliability",
+      "title": "Separate known-identity and unseen-identity verification performance",
+      "statement": "When a verifier derives similarities from known-class probability vectors, proposed reuse: Proposed conditional application: Report seen-artist and unseen-artist AUC separately before trusting open-set generalization. Proposed check: Hold out identities when fitting a verifier and report seen/unseen performance separately; compare proposed metric learning only as a new experiment. Limitation: Siamese metric learning is future work in this source; cohort AUC disparity is not an isolated method gain.",
+      "trigger_conditions": [
+        "a verifier derives similarities from known-class probability vectors"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Report seen-artist and unseen-artist AUC separately before trusting open-set generalization."
+      ],
+      "verification_steps": [
+        "Proposed check: Hold out identities when fitting a verifier and report seen/unseen performance separately; compare proposed metric learning only as a new experiment."
+      ],
+      "limitations": [
+        "Siamese metric learning is future work in this source; cohort AUC disparity is not an isolated method gain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "arts"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The painter verifier reports AUC 0.94218 for known artists versus 0.82509 for unseen artists.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-189e5a0f87082292208e",
+        "O-69bb48eb5c94dfdd1507",
+        "O-e2c84b0c92ee03241fd1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Identity holdout exposes an intuitive generalization trap without complex implementation.",
+        "competitor": "The explicit seen/unseen gap makes open-set validation a strong model-selection lesson.",
+        "practitioner": "Identity verification systems need new-identity evaluation beyond random image splits."
+      },
+      "review": {
+        "candidate_id": "C-2943df0b16250806e88b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Read all three complete duplicate support packets plus original introduction confirming first-place repository; seen0.94218 versus unseen0.82509 AUC compares populations, not methods.",
+        "candidate_sha256": "67db6a6f59f66e67d380cefaf3d9445cb9e80a3e3e479d965965f57568c1c90e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000419",
+      "slug": "lesson-000419",
+      "merged_candidate_ids": [
+        "C-2943df0b16250806e88b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-0a079c7b24b64bad3200",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-189e5a0f87082292208e",
+          "line_start": 90,
+          "line_end": 90,
+          "evidence_text": "pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`.",
+          "kind": "reported_failure",
+          "statement": "The painter verifier reports AUC 0.94218 for known artists versus 0.82509 for unseen artists.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-0487ed2955040daf3091",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-69bb48eb5c94dfdd1507",
+          "line_start": 90,
+          "line_end": 90,
+          "evidence_text": "pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`.",
+          "kind": "reported_failure",
+          "statement": "The painter verifier reports AUC 0.94218 for known artists versus 0.82509 for unseen artists.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-eac6ea196586a8f46c87",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://github.com/inejc/painters",
+          "source_quality": "primary_text",
+          "observation_id": "O-e2c84b0c92ee03241fd1",
+          "line_start": 90,
+          "line_end": 90,
+          "evidence_text": "pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`.",
+          "kind": "reported_failure",
+          "statement": "The painter verifier reports AUC 0.94218 for known artists versus 0.82509 for unseen artists.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Identity holdout exposes an intuitive generalization trap without complex implementation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "The explicit seen/unseen gap makes open-set validation a strong model-selection lesson.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Identity verification systems need new-identity evaluation beyond random image splits.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 3,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L90-L90",
+          "quote": "pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 90,
+          "line_end": 90
+        },
+        {
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L90-L90",
+          "quote": "pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 90,
+          "line_end": 90
+        },
+        {
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L90-L90",
+          "quote": "pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://github.com/inejc/painters",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 90,
+          "line_end": 90
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2943df0b16250806e88b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Read all three complete duplicate support packets plus original introduction confirming first-place repository; seen0.94218 versus unseen0.82509 AUC compares populations, not methods.",
+          "candidate_sha256": "67db6a6f59f66e67d380cefaf3d9445cb9e80a3e3e479d965965f57568c1c90e"
+        },
+        {
+          "candidate_id": "C-2943df0b16250806e88b",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Read three complete Painter packets sharing the same snapshot. Known-artist AUC 0.94218 versus unseen 0.82509 is a cohort gap in the same final model, not method gain. Siamese learning remains future work. Proposed identity holdouts support twelve validation utility scores without E1 promotion.",
+          "candidate_sha256": "67db6a6f59f66e67d380cefaf3d9445cb9e80a3e3e479d965965f57568c1c90e"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 181,
+        "line_end": 191,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-5c25421bfe92234f",
+      "canonical_key": "train class recognition and compute pair scores from cached probability-vector inner products before expensive pairwise training. | pairwise identity tasks have labeled training classes | predictive_quality",
+      "title": "Reuse class-distribution predictions as a pair-similarity baseline",
+      "statement": "When pairwise identity tasks have labeled training classes, consider this source-backed action: Train class recognition and compute pair scores from cached probability-vector inner products before expensive pairwise training. Proposed check: Compare pair AUC and memory/runtime with a dedicated metric-learning model. Limit: The source calls this unsupervised verification, but the descriptor classifier is supervised; unseen identities may generalize poorly.",
+      "trigger_conditions": [
+        "pairwise identity tasks have labeled training classes"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Train class recognition and compute pair scores from cached probability-vector inner products before expensive pairwise training."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare pair AUC and memory/runtime with a dedicated metric-learning model."
+      ],
+      "limitations": [
+        "The source calls this unsupervised verification, but the descriptor classifier is supervised; unseen identities may generalize poorly."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author considered siamese metric learning but invested mostly in class recognition; same-artist score used the inner product of class probabilities.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5c25421bfe92234f",
+        "O-a-d36878978ec34ee4",
+        "O-a-ecd2a4bbaa633937"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple pair score after classifier training; identity transfer needs care.",
+        "competitor": "Strong reusable baseline before building pairwise training machinery.",
+        "practitioner": "Efficient cached similarity at scale, limited for new identities."
+      },
+      "review": {
+        "candidate_id": "C-a-5c25421bfe92234f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Supervised painter classifier supplies pairwise probability inner products; source label unsupervised does not describe training.",
+        "candidate_sha256": "f7fdf9ec98d5a75488604285284ef82935fdb0439172ece89154566e046c1ebd"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000500",
+      "slug": "lesson-000500",
+      "merged_candidate_ids": [
+        "C-a-5c25421bfe92234f",
+        "C-a-d36878978ec34ee4",
+        "C-a-ecd2a4bbaa633937"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-0ead66fde96512d42313",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5c25421bfe92234f",
+          "line_start": 20,
+          "line_end": 21,
+          "evidence_text": "### 2. Building a predictive model\nThere were two main approaches considered for verifying whether two instances belong to the same class. The unsupervised method involves training a model that can predict one of the 1584 classes and then taking a dot product of the two class distribution vectors (softmax outputs). The supervised method is an end-to-end metric learning approach called siamese network. The main idea is to replicate the model once for each input image and merge their outputs into a single vector, that can then be used to directly predict whether the two images were painted by the same artist. An important aspect of this architecture is that the weights of both models are shared and during backpropagation the total gradient is the sum of the gradients contributed by the two models. Since the model trained for the unsupervised technique can also be used in the siamese architecture, most of the effort went into the multi-class painter recognition task.",
+          "kind": "used",
+          "statement": "The author considered siamese metric learning but invested mostly in class recognition; same-artist score used the inner product of class probabilities.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-6fe47d3152400362cf28",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://github.com/inejc/painters",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-d36878978ec34ee4",
+          "line_start": 20,
+          "line_end": 21,
+          "evidence_text": "### 2. Building a predictive model\nThere were two main approaches considered for verifying whether two instances belong to the same class. The unsupervised method involves training a model that can predict one of the 1584 classes and then taking a dot product of the two class distribution vectors (softmax outputs). The supervised method is an end-to-end metric learning approach called siamese network. The main idea is to replicate the model once for each input image and merge their outputs into a single vector, that can then be used to directly predict whether the two images were painted by the same artist. An important aspect of this architecture is that the weights of both models are shared and during backpropagation the total gradient is the sum of the gradients contributed by the two models. Since the model trained for the unsupervised technique can also be used in the siamese architecture, most of the effort went into the multi-class painter recognition task.",
+          "kind": "used",
+          "statement": "The author considered siamese metric learning but invested mostly in class recognition; same-artist score used the inner product of class probabilities.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-745d8d09b8671672436f",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-ecd2a4bbaa633937",
+          "line_start": 20,
+          "line_end": 21,
+          "evidence_text": "### 2. Building a predictive model\nThere were two main approaches considered for verifying whether two instances belong to the same class. The unsupervised method involves training a model that can predict one of the 1584 classes and then taking a dot product of the two class distribution vectors (softmax outputs). The supervised method is an end-to-end metric learning approach called siamese network. The main idea is to replicate the model once for each input image and merge their outputs into a single vector, that can then be used to directly predict whether the two images were painted by the same artist. An important aspect of this architecture is that the weights of both models are shared and during backpropagation the total gradient is the sum of the gradients contributed by the two models. Since the model trained for the unsupervised technique can also be used in the siamese architecture, most of the effort went into the multi-class painter recognition task.",
+          "kind": "used",
+          "statement": "The author considered siamese metric learning but invested mostly in class recognition; same-artist score used the inner product of class probabilities.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Simple pair score after classifier training; identity transfer needs care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong reusable baseline before building pairwise training machinery.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Efficient cached similarity at scale, limited for new identities.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 3,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L20-L21",
+          "quote": "### 2. Building a predictive model\nThere were two main approaches considered for verifying whether two instances belong to the same class. The unsupervised method involves training a model that can predict one of the 1584 classes and then taking a dot product of the two class distribution vectors (softmax outputs). The supervised method is an end-to-end metric learning approach called siamese network. The main idea is to replicate the model once for each input image and merge their outputs into a single vector, that can then be used to directly predict whether the two images were painted by the same artist. An important aspect of this architecture is that the weights of both models are shared and during backpropagation the total gradient is the sum of the gradients contributed by the two models. Since the model trained for the unsupervised technique can also be used in the siamese architecture, most of the effort went into the multi-class painter recognition task.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 20,
+          "line_end": 21
+        },
+        {
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L20-L21",
+          "quote": "### 2. Building a predictive model\nThere were two main approaches considered for verifying whether two instances belong to the same class. The unsupervised method involves training a model that can predict one of the 1584 classes and then taking a dot product of the two class distribution vectors (softmax outputs). The supervised method is an end-to-end metric learning approach called siamese network. The main idea is to replicate the model once for each input image and merge their outputs into a single vector, that can then be used to directly predict whether the two images were painted by the same artist. An important aspect of this architecture is that the weights of both models are shared and during backpropagation the total gradient is the sum of the gradients contributed by the two models. Since the model trained for the unsupervised technique can also be used in the siamese architecture, most of the effort went into the multi-class painter recognition task.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://github.com/inejc/painters",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 20,
+          "line_end": 21
+        },
+        {
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L20-L21",
+          "quote": "### 2. Building a predictive model\nThere were two main approaches considered for verifying whether two instances belong to the same class. The unsupervised method involves training a model that can predict one of the 1584 classes and then taking a dot product of the two class distribution vectors (softmax outputs). The supervised method is an end-to-end metric learning approach called siamese network. The main idea is to replicate the model once for each input image and merge their outputs into a single vector, that can then be used to directly predict whether the two images were painted by the same artist. An important aspect of this architecture is that the weights of both models are shared and during backpropagation the total gradient is the sum of the gradients contributed by the two models. Since the model trained for the unsupervised technique can also be used in the siamese architecture, most of the effort went into the multi-class painter recognition task.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 20,
+          "line_end": 21
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5c25421bfe92234f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Supervised painter classifier supplies pairwise probability inner products; source label unsupervised does not describe training.",
+          "candidate_sha256": "f7fdf9ec98d5a75488604285284ef82935fdb0439172ece89154566e046c1ebd"
+        },
+        {
+          "candidate_id": "C-a-5c25421bfe92234f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Paintermasterresolvedcandidateandsupportread:classrecognitionpairinnerproductwinning,siameseconsidered. Sourceunsupervisedtermcorrectlyqualified;proposedcache/baselineAUCcostcheck. Ratingsreasonable,exactequivalentecd/d368onecompetition.",
+          "candidate_sha256": "f7fdf9ec98d5a75488604285284ef82935fdb0439172ece89154566e046c1ebd"
+        },
+        {
+          "candidate_id": "C-a-d36878978ec34ee4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Supervised painter classifier supplies pairwise probability inner products; source label unsupervised does not describe training.",
+          "candidate_sha256": "1b6b400250c36a3d4149150084f772948fbc9503a58873f6994fd39e97e2c34b"
+        },
+        {
+          "candidate_id": "C-a-d36878978ec34ee4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PainterGitHubresolvedcandidate/supportedoriginalread:classprobabilitydotpairbaselinewithsuperviseddescriptor;siamesenotfinal. Unseenidentitylimitation/proposedmatchedAUCcostchecksound,gradesreasonable. Sameecd/5c254decision.",
+          "candidate_sha256": "1b6b400250c36a3d4149150084f772948fbc9503a58873f6994fd39e97e2c34b"
+        },
+        {
+          "candidate_id": "C-a-ecd2a4bbaa633937",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Supervised painter classifier supplies pairwise probability inner products; source label unsupervised does not describe training.",
+          "candidate_sha256": "3dc667986907a0346aaa1b9f1f8ac1104b2d46bfc07f8bf71ea346dc31568945"
+        },
+        {
+          "candidate_id": "C-a-ecd2a4bbaa633937",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PainterHEADsupervised1584classclassifierthenpairsoftmaxdotproduct;siameseconsiderednotwinning. Cachedpairbaselinecomparisonproposed,sourceunsupervisedlabelqualifiedandunknownidentityweaknessvisible. Gradesreasonable.",
+          "candidate_sha256": "3dc667986907a0346aaa1b9f1f8ac1104b2d46bfc07f8bf71ea346dc31568945"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 193,
+        "line_end": 203,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-c69affefdd2827e6e107",
+      "canonical_key": "train first on a clean low-resolution subset, then longer on broader medium-resolution data, and finish with a short high-resolution phase. | large retrieval training is costly and noisy | predictive_quality",
+      "title": "Progress image resolution and dataset breadth in stages",
+      "statement": "When large retrieval training is costly and noisy, proposed reuse: Proposed conditional application: Train first on a clean low-resolution subset, then longer on broader medium-resolution data, and finish with a short high-resolution phase. Proposed check: Compare staged and fixed-resolution/data schedules at equal compute on held-out landmark metrics. Limitation: Changes data and resolution together; millions of images and long training are substantial.",
+      "trigger_conditions": [
+        "large retrieval training is costly and noisy"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Train first on a clean low-resolution subset, then longer on broader medium-resolution data, and finish with a short high-resolution phase."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare staged and fixed-resolution/data schedules at equal compute on held-out landmark metrics."
+      ],
+      "limitations": [
+        "Changes data and resolution together; millions of images and long training are substantial."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The landmark author progressed from a clean low-resolution subset to broader medium-resolution data and a short high-resolution phase.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-217ec5de8bf8279d4afd"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Large retrieval curriculum impractical for routine beginners.",
+        "competitor": "Useful resource allocation hypothesis for large-scale retrieval.",
+        "practitioner": "Conditional vision pretraining use with high resources."
+      },
+      "review": {
+        "candidate_id": "C-c69affefdd2827e6e107",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full landmark source progresses clean/small to noisy/broader and high-resolution; no isolated schedule gain.",
+        "candidate_sha256": "235f2e76c357ef5622d78564580c1c44f6fc3a532502107ac9fb1440cf5d6085"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000503",
+      "slug": "lesson-000503",
+      "merged_candidate_ids": [
+        "C-c69affefdd2827e6e107"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e471756360e4286170be",
+          "competition_id": "competition:landmark-recognition-2021",
+          "source_id": "source:lesson-source-015e96fc96415dd1",
+          "snapshot_path": "research/lesson-extraction/snapshots/da01297f07113d1170fbd8a6f8008b2b39bbefe779473589dccdb176c8d75536.txt",
+          "snapshot_sha256": "da01297f07113d1170fbd8a6f8008b2b39bbefe779473589dccdb176c8d75536",
+          "source_url": "https://www.kaggle.com/competitions/landmark-recognition-2021/writeups/dieter-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-217ec5de8bf8279d4afd",
+          "line_start": 31,
+          "line_end": 31,
+          "evidence_text": "As a first step I train models on small image size (e.g. 224x224) on the clean gldv2c for around 10 epochs.",
+          "kind": "used",
+          "statement": "The landmark author progressed from a clean low-resolution subset to broader medium-resolution data and a short high-resolution phase.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Large retrieval curriculum impractical for routine beginners.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Useful resource allocation hypothesis for large-scale retrieval.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Conditional vision pretraining use with high resources.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-015e96fc96415dd1",
+          "locator": "research/lesson-extraction/snapshots/da01297f07113d1170fbd8a6f8008b2b39bbefe779473589dccdb176c8d75536.txt#L31-L31",
+          "quote": "As a first step I train models on small image size (e.g. 224x224) on the clean gldv2c for around 10 epochs.",
+          "competition_id": "competition:landmark-recognition-2021",
+          "url": "https://www.kaggle.com/competitions/landmark-recognition-2021/writeups/dieter-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/da01297f07113d1170fbd8a6f8008b2b39bbefe779473589dccdb176c8d75536.txt",
+          "snapshot_sha256": "da01297f07113d1170fbd8a6f8008b2b39bbefe779473589dccdb176c8d75536",
+          "line_start": 31,
+          "line_end": 31
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-c69affefdd2827e6e107",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full landmark source progresses clean/small to noisy/broader and high-resolution; no isolated schedule gain.",
+          "candidate_sha256": "235f2e76c357ef5622d78564580c1c44f6fc3a532502107ac9fb1440cf5d6085"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 291,
+        "line_end": 295,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-218b711a474d130b",
+      "canonical_key": "use a cheap sparse pass to choose orientation and overlap, then run expensive matching on aligned crops. | image pairs include rotated views and partial overlaps | predictive_quality",
+      "title": "Use sparse matches to choose rotations and overlap crops",
+      "statement": "When image pairs include rotated views and partial overlaps, consider this source-backed action: Use a cheap sparse pass to choose orientation and overlap, then run expensive matching on aligned crops. Proposed check: Check rotation correctness, overlap recall and final geometric registration. Limit: Crop redetection creates multi-view inconsistency that needs separate handling.",
+      "trigger_conditions": [
+        "image pairs include rotated views and partial overlaps"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use a cheap sparse pass to choose orientation and overlap, then run expensive matching on aligned crops."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check rotation correctness, overlap recall and final geometric registration."
+      ],
+      "limitations": [
+        "Crop redetection creates multi-view inconsistency that needs separate handling."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team tested quarter-turn rotations, estimated overlap from initial sparse matches, resized relative crop areas and combined sparse and dense matchers.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-218b711a474d130b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Geometric matching infrastructure and coordinate transforms demanding.",
+        "competitor": "Useful sparse prepass before expensive crop matching.",
+        "practitioner": "Relevant SfM preparation for rotated/overlapping images."
+      },
+      "review": {
+        "candidate_id": "C-a-218b711a474d130b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked quarterturns/overlap crops; redetection requires track consistency handling.",
+        "candidate_sha256": "6d6bf47f2315a570b1f2e5d33917a07bad3e06f071575ad1571541e92cedf2ab"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000529",
+      "slug": "lesson-000529",
+      "merged_candidate_ids": [
+        "C-a-218b711a474d130b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-191bb3447d95f393a7d8",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-218b711a474d130b",
+          "line_start": 36,
+          "line_end": 44,
+          "evidence_text": "There are some scenes within the competition datasets which contain rotated images. Since many popular learning-based matching methods can not handle this case effectively, Our approach, similar to that of many other participants, involves rotating one of the query images several times[0, \u03c0/2, \u03c0, 3\u03c0/2] and matching it with the target image, respectively. This helps to mitigate the drastic reduction in the number of matching points caused by image rotations.\n\n### 2.2.2 Overlap Detection\n\nLike last year's solution, estimating the overlap region is a commonly employed technique. We use the first round of matching to obtain the overlap region and then perform the second round of matching within them. According to the area ratio, we resize the smaller region in one image and align it with the larger region. We find a sparse matcher is capable of balancing efficiency and effectiveness.\n\n### 2.2.3 Matching\n\nWe find the ensemble of multiple methods tends to outperform any individual method. Due to time constraints, we choose the combination of one sparse method (SPSG) and one dense method (LoFTR). We also find that substitute LoFTR by DKMv3 performs better in this competition.",
+          "kind": "used",
+          "statement": "The team tested quarter-turn rotations, estimated overlap from initial sparse matches, resized relative crop areas and combined sparse and dense matchers.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Geometric matching infrastructure and coordinate transforms demanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful sparse prepass before expensive crop matching.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Relevant SfM preparation for rotated/overlapping images.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "locator": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt#L36-L44",
+          "quote": "There are some scenes within the competition datasets which contain rotated images. Since many popular learning-based matching methods can not handle this case effectively, Our approach, similar to that of many other participants, involves rotating one of the query images several times[0, \u03c0/2, \u03c0, 3\u03c0/2] and matching it with the target image, respectively. This helps to mitigate the drastic reduction in the number of matching points caused by image rotations.\n\n### 2.2.2 Overlap Detection\n\nLike last year's solution, estimating the overlap region is a commonly employed technique. We use the first round of matching to obtain the overlap region and then perform the second round of matching within them. According to the area ratio, we resize the smaller region in one image and align it with the larger region. We find a sparse matcher is capable of balancing efficiency and effectiveness.\n\n### 2.2.3 Matching\n\nWe find the ensemble of multiple methods tends to outperform any individual method. Due to time constraints, we choose the combination of one sparse method (SPSG) and one dense method (LoFTR). We also find that substitute LoFTR by DKMv3 performs better in this competition.",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "line_start": 36,
+          "line_end": 44
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-218b711a474d130b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked quarterturns/overlap crops; redetection requires track consistency handling.",
+          "candidate_sha256": "6d6bf47f2315a570b1f2e5d33917a07bad3e06f071575ad1571541e92cedf2ab"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 263,
+        "line_end": 267,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-13ec3410d3a44169",
+      "canonical_key": "use accurate early geometry solving, then benchmark approximate parallel ba and iterative feature/geometry refinement. | large sfm scenes need speed without unstable initialization | predictive_quality",
+      "title": "Delay approximate bundle adjustment and alternate track refinement",
+      "statement": "When large SfM scenes need speed without unstable initialization, consider this source-backed action: Use accurate early geometry solving, then benchmark approximate parallel BA and iterative feature/geometry refinement. Proposed check: Compare registered cameras, reprojection errors, pose metric and runtime across iterations. Limit: The initialization rationale is author intuition; approximate solvers can converge differently.",
+      "trigger_conditions": [
+        "large SfM scenes need speed without unstable initialization"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use accurate early geometry solving, then benchmark approximate parallel BA and iterative feature/geometry refinement."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare registered cameras, reprojection errors, pose metric and runtime across iterations."
+      ],
+      "limitations": [
+        "The initialization rationale is author intuition; approximate solvers can converge differently."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team enabled parallel approximate BA only after more than forty registered images, then alternated multi-view feature-track matching, geometry BA and track topology adjustment.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-13ec3410d3a44169"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Approximate solvers/track topology require advanced geometry expertise.",
+        "competitor": "Useful solver schedule/refinement under scene runtime budgets.",
+        "practitioner": "Transfers to geometric optimization with careful convergence checks."
+      },
+      "review": {
+        "candidate_id": "C-a-13ec3410d3a44169",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked>40PBA switch/refinement; initialization benefit authorintuition.",
+        "candidate_sha256": "a3e05d252db2843cf8d958ba110e1ee2e37a8118135c8d659cb3ae9aaf74e7a4"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000534",
+      "slug": "lesson-000534",
+      "merged_candidate_ids": [
+        "C-a-13ec3410d3a44169"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-191bb3447d95f393a7d8",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "source_url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-13ec3410d3a44169",
+          "line_start": 68,
+          "line_end": 75,
+          "evidence_text": "Based on the merged matches, we perform the coarse SfM by COLMAP. Note that the geometry verification is skipped since RANSAC is performed in the matching phase. For the reconstruction of the scene with a large number of images (~250 in this competition), we enable the parallelized bundle adjustment (PBA) in COLMAP. Specifically, since PBA uses a PCG solver, which is an inexact solution to the BA problem and unlike the exact solution of Levenberg-Marquardt (LM) solver used by default in Ceres, we enable the PBA only after a large number of images are registered (i.e., >40). This is based on the intuition that the beginning of reconstruction is of critical importance, and the inexact solution of PBA may lead to a poor initialization of the scene.\n\n2.5 Iterative Refinement\n------------------------\n\nWe proceed to refine the initial SfM model to obtain improved camera poses and point clouds. To this end, we propose an iterative refinement pipeline. Within each iteration, we first enhance the accuracy of feature tracks with a transformer-based multi-view refinement matching module.\n\nThese refined feature tracks are then fed into a geometry refinement phase which optimizes camera poses and point clouds jointly. The geometry refinement iterates between the geometric-BA and track topology adjustment (including complete tracks, merge tracks, and filter observations). The refinement process can be performed multiple times for higher accuracy.",
+          "kind": "used",
+          "statement": "The team enabled parallel approximate BA only after more than forty registered images, then alternated multi-view feature-track matching, geometry BA and track topology adjustment.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Approximate solvers/track topology require advanced geometry expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful solver schedule/refinement under scene runtime budgets.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to geometric optimization with careful convergence checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6fb9267eb79e05cd",
+          "locator": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt#L68-L75",
+          "quote": "Based on the merged matches, we perform the coarse SfM by COLMAP. Note that the geometry verification is skipped since RANSAC is performed in the matching phase. For the reconstruction of the scene with a large number of images (~250 in this competition), we enable the parallelized bundle adjustment (PBA) in COLMAP. Specifically, since PBA uses a PCG solver, which is an inexact solution to the BA problem and unlike the exact solution of Levenberg-Marquardt (LM) solver used by default in Ceres, we enable the PBA only after a large number of images are registered (i.e., >40). This is based on the intuition that the beginning of reconstruction is of critical importance, and the inexact solution of PBA may lead to a poor initialization of the scene.\n\n2.5 Iterative Refinement\n------------------------\n\nWe proceed to refine the initial SfM model to obtain improved camera poses and point clouds. To this end, we propose an iterative refinement pipeline. Within each iteration, we first enhance the accuracy of feature tracks with a transformer-based multi-view refinement matching module.\n\nThese refined feature tracks are then fed into a geometry refinement phase which optimizes camera poses and point clouds jointly. The geometry refinement iterates between the geometric-BA and track topology adjustment (including complete tracks, merge tracks, and filter observations). The refinement process can be performed multiple times for higher accuracy.",
+          "competition_id": "competition:image-matching-challenge-2023",
+          "url": "https://www.kaggle.com/competitions/image-matching-challenge-2023/writeups/zju3dv-1st-place-solution-sparse-dense-matching-co",
+          "snapshot_path": "research/lesson-extraction/snapshots/bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1.txt",
+          "snapshot_sha256": "bba9ce9858e6482f06182f6978ad4e1fc702380e940f848794c5fc0c5c20f4c1",
+          "line_start": 68,
+          "line_end": 75
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-13ec3410d3a44169",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked>40PBA switch/refinement; initialization benefit authorintuition.",
+          "candidate_sha256": "a3e05d252db2843cf8d958ba110e1ee2e37a8118135c8d659cb3ae9aaf74e7a4"
+        }
+      ],
+      "book_location": {
+        "chapter": 45,
+        "path": "manuscript/chapters/45-metric-learning-arcface.md",
+        "sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
+        "line_start": 269,
+        "line_end": 273,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

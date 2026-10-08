@@ -1,0 +1,2182 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-ce320048e6d68f53f173",
+      "canonical_key": "after coarse power summation, use a width-eight sinc kernel at one-eighth-bin stride around the best line for a subset of four hundred templates. | an exhaustive fine frequency search would be costly | predictive_quality",
+      "title": "Refine only the strongest coarse signal-template candidates",
+      "statement": "When an exhaustive fine frequency search would be costly, proposed reuse: Proposed conditional application: After coarse power summation, use a width-eight sinc kernel at one-eighth-bin stride around the best line for a subset of four hundred templates. Proposed check: Compare coarse/refined searches on untouched simulations and real noise; measure score and added runtime across frequency offsets. Limitation: Public-only reported comparison; top-hat STFT assumption and coarse candidate misses limit refinement.",
+      "trigger_conditions": [
+        "an exhaustive fine frequency search would be costly"
+      ],
+      "action_steps": [
+        "Proposed conditional application: After coarse power summation, use a width-eight sinc kernel at one-eighth-bin stride around the best line for a subset of four hundred templates."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare coarse/refined searches on untouched simulations and real noise; measure score and added runtime across frequency offsets."
+      ],
+      "limitations": [
+        "Public-only reported comparison; top-hat STFT assumption and coarse candidate misses limit refinement."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "astronomy"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The wave author first searched coarse templates and then refined a subset around the strongest candidates.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-e505dda010d989d9c19f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Sinc/template physics and GPU work are substantial.",
+        "competitor": "Concrete coarse-to-fine signal search with measured author comparison.",
+        "practitioner": "Conditional signal-processing value despite high domain/compute cost."
+      },
+      "review": {
+        "candidate_id": "C-ce320048e6d68f53f173",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "G2Net full source explicitly reports public score 0.825 to 0.848 after local sinc refinement of 400 templates.",
+        "candidate_sha256": "4d014fb451a6d2bbf5b6ad7bb9d9d546b4af181ae0404dc514e0c01e9b0c0020"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000005",
+      "slug": "lesson-000005",
+      "merged_candidate_ids": [
+        "C-ce320048e6d68f53f173"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-719a23278dc7ad0217d5",
+          "competition_id": "competition:g2net-detecting-continuous-gravitational-waves",
+          "source_id": "source:lesson-source-e3731d317de63f0b",
+          "snapshot_path": "research/lesson-extraction/snapshots/32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73.txt",
+          "snapshot_sha256": "32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73",
+          "source_url": "https://www.kaggle.com/competitions/g2net-detecting-continuous-gravitational-waves/writeups/jun-koda-1st-place-solution-summing-the-power-with",
+          "source_quality": "primary_text",
+          "observation_id": "O-e505dda010d989d9c19f",
+          "line_start": 46,
+          "line_end": 46,
+          "evidence_text": "I recompute the power sum with this kernel around the largest-power line in the first step for a subsample of 400 templates. This gives a surprisingly large boost to the public score 0.825 -> 0.848",
+          "kind": "reported_gain",
+          "statement": "The wave author first searched coarse templates and then refined a subset around the strongest candidates.",
+          "reported_result": {
+            "metric": "public competition score",
+            "value": 0.848,
+            "context": "G2Net author reports public score 0.825 before versus 0.848 after width-eight, one-eighth-bin sinc refinement around strongest coarse line for 400 templates; exact metric name and private validation unknown.",
+            "evidence_text": "I recompute the power sum with this kernel around the largest-power line in the first step for a subsample of 400 templates. This gives a surprisingly large boost to the public score 0.825 -> 0.848"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 40.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Sinc/template physics and GPU work are substantial.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Concrete coarse-to-fine signal search with measured author comparison.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Conditional signal-processing value despite high domain/compute cost.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e3731d317de63f0b",
+          "locator": "research/lesson-extraction/snapshots/32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73.txt#L46-L46",
+          "quote": "I recompute the power sum with this kernel around the largest-power line in the first step for a subsample of 400 templates. This gives a surprisingly large boost to the public score 0.825 -> 0.848",
+          "competition_id": "competition:g2net-detecting-continuous-gravitational-waves",
+          "url": "https://www.kaggle.com/competitions/g2net-detecting-continuous-gravitational-waves/writeups/jun-koda-1st-place-solution-summing-the-power-with",
+          "snapshot_path": "research/lesson-extraction/snapshots/32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73.txt",
+          "snapshot_sha256": "32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73",
+          "line_start": 46,
+          "line_end": 46
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-ce320048e6d68f53f173",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "G2Net full source explicitly reports public score 0.825 to 0.848 after local sinc refinement of 400 templates.",
+          "candidate_sha256": "4d014fb451a6d2bbf5b6ad7bb9d9d546b4af181ae0404dc514e0c01e9b0c0020"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 153,
+        "line_end": 157,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-cabf0c1de9be3f19c3da",
+      "canonical_key": "apply timewise cutmix to both sequences and phrases at the same fraction, restricting mixing to the same signer. | landmark sequences need stronger regularization | predictive_quality",
+      "title": "Mix temporal segments with their corresponding phrases",
+      "statement": "When landmark sequences need stronger regularization, proposed reuse: Proposed conditional application: Apply timewise CutMix to both sequences and phrases at the same fraction, restricting mixing to the same signer. Proposed check: Ablate same-signer and unrestricted CutMix on signer-held-out edit distance; inspect phrase/sequence alignment. Limitation: Fractional cuts need not coincide with character boundaries; signer restrictions reduce diversity.",
+      "trigger_conditions": [
+        "landmark sequences need stronger regularization"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Apply timewise CutMix to both sequences and phrases at the same fraction, restricting mixing to the same signer."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate same-signer and unrestricted CutMix on signer-held-out edit distance; inspect phrase/sequence alignment."
+      ],
+      "limitations": [
+        "Fractional cuts need not coincide with character boundaries; signer restrictions reduce diversity."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The ASL author used temporal CutMix to combine sequence segments.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6a9937c5b73c520967c2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Sequence-label augmentation needs alignment expertise.",
+        "competitor": "Specific regularizer for landmark transcription.",
+        "practitioner": "Conditional value for aligned sequential targets."
+      },
+      "review": {
+        "candidate_id": "C-cabf0c1de9be3f19c3da",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full ASL packet pairs sequence and phrase cuts and prefers same-signer mixing.",
+        "candidate_sha256": "f221aedd258b642a00c4e3678b13f3396fb3e7bc7788fd0f19062903c3edc0ef"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000013",
+      "slug": "lesson-000013",
+      "merged_candidate_ids": [
+        "C-cabf0c1de9be3f19c3da"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ac92df7e609bbabd870a",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "source_url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "source_quality": "primary_text",
+          "observation_id": "O-6a9937c5b73c520967c2",
+          "line_start": 36,
+          "line_end": 36,
+          "evidence_text": "Cutmix of samples timewise - draw a random percentage between [0,1] and cut 2 sequences and related phrases at that percentage and mix. Mixing only within same signer was best",
+          "kind": "used",
+          "statement": "The ASL author used temporal CutMix to combine sequence segments.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Sequence-label augmentation needs alignment expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Specific regularizer for landmark transcription.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional value for aligned sequential targets.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "locator": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt#L36-L36",
+          "quote": "Cutmix of samples timewise - draw a random percentage between [0,1] and cut 2 sequences and related phrases at that percentage and mix. Mixing only within same signer was best",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "line_start": 36,
+          "line_end": 36
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-cabf0c1de9be3f19c3da",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full ASL packet pairs sequence and phrase cuts and prefers same-signer mixing.",
+          "candidate_sha256": "f221aedd258b642a00c4e3678b13f3396fb3e7bc7788fd0f19062903c3edc0ef"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 161,
+        "line_end": 165,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-9d21e7a612e4b18b",
+      "canonical_key": "compare grayscale 2.5d stacks with a final temporal 3d block while caching repeated backbone features. | small video-event datasets require temporal context and fast inference | predictive_quality",
+      "title": "Concentrate 3D aggregation after cached 2D feature extraction",
+      "statement": "When small video-event datasets require temporal context and fast inference, consider this source-backed action: Compare grayscale 2.5D stacks with a final temporal 3D block while caching repeated backbone features. Proposed check: Evaluate held-out videos, frame alignment, color information loss and speed. Limit: Larger-backbone overfitting was local; the fifteen-frame design is source-specific.",
+      "trigger_conditions": [
+        "small video-event datasets require temporal context and fast inference"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare grayscale 2.5D stacks with a final temporal 3D block while caching repeated backbone features."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate held-out videos, frame alignment, color information loss and speed."
+      ],
+      "limitations": [
+        "Larger-backbone overfitting was local; the fifteen-frame design is source-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team stacked grayscale neighboring frames, used small backbones because large ones overfit and placed 3D layers only at the end for cached fast inference.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-9d21e7a612e4b18b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Video tensor caching and temporal layers need advanced implementation.",
+        "competitor": "Concrete small-video architecture/cost compromise.",
+        "practitioner": "Relevant video-event modeling, color-dependent tasks need reevaluation."
+      },
+      "review": {
+        "candidate_id": "C-a-9d21e7a612e4b18b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked cached2.5D/final3D design and small backbones; grayscale tradeoff empirical.",
+        "candidate_sha256": "afc0ee190724acbba2bb1beb96be825a83bd80504a400c1406326930f4697002"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000133",
+      "slug": "lesson-000133",
+      "merged_candidate_ids": [
+        "C-a-9d21e7a612e4b18b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-70a0988b5c40d108488b",
+          "competition_id": "competition:dfl-bundesliga-data-shootout",
+          "source_id": "source:lesson-source-6e80be5dc2caecca",
+          "snapshot_path": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt",
+          "snapshot_sha256": "b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754",
+          "source_url": "https://www.kaggle.com/competitions/dfl-bundesliga-data-shootout/writeups/team-hydrogen-scores-team-hydrogen-1st-place-solut",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-9d21e7a612e4b18b",
+          "line_start": 14,
+          "line_end": 28,
+          "evidence_text": "In this competition, we used a fixed train/validation split to tune our models: the validation videos used for this included 4ffd5986_0, 407c5a9e_1, 9a97dae4_1, and ecf251d4_0. Our best local score was 0.857, and we observed strong correlation between local validation and public leaderboard (LB). For our final submission, we retrained our best models on the full data that was available to us, this is a general procedure we always try to take in the end.\n\n### Model setup\n\nAs mentioned, we solely rely on a single-stage model architecture. The input for our models was a 1024x1024 grayscale image, with the channels stacked in the time dimension over three neighboring frames. We chose to use grayscale images rather than full color due to the improved generalization and runtime capabilities it offered - and it also seems to generalize extremely well to the unseen private data.\n\nThe single-stage architecture combined 2.5D and 3D techniques. The backbone of the model was either efficientnetv2_b0 or efficientnetv2_b1, as we found that larger backbones tended to overfit quickly on the small dataset. 3D convolution layers were only used in the last block and final convolution before pooling, which allowed us to stay in 2.5D for most of the backbone and achieve fast inference times with caching.\n\nIn a bit more detail, if our current frame is `t=15`, we first stack three neighboring frames `{14,15,16}` as the channels of the input, and separately pass five different time steps (2 in each direction), each again stacked with three channels. If our time step would be 3, this would mean we pass `{8,9,10},{11,12,13},{14,15,16},{17,18,19},{20,21,22}` through the backbone, and the final 3D layer aggregates these 5 individual time steps with additional pooling.\n\nWe also experimented with different stacks over the time domain and found that 15 frames (combined over 2.5D and 3D) worked best for our final submission.\n\nWe applied the usual set of augmentations and used Mixup as well. The loss function was binary cross-entropy with three target columns. One area where we had room for experimentation and improvement was in how to set the hard or soft labels for training. In the end, our best solution used hard labels in a small window around the actual event.\n\nMost of our time during this competition was spent training on only the labeled regions of the competition data. Pre-training on some Soccernet labels improved the score by around 0.02, but we had no success with pseudo label pre-training on unlabeled regions and clips.",
+          "kind": "used",
+          "statement": "The team stacked grayscale neighboring frames, used small backbones because large ones overfit and placed 3D layers only at the end for cached fast inference.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Video tensor caching and temporal layers need advanced implementation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete small-video architecture/cost compromise.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Relevant video-event modeling, color-dependent tasks need reevaluation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6e80be5dc2caecca",
+          "locator": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt#L14-L28",
+          "quote": "In this competition, we used a fixed train/validation split to tune our models: the validation videos used for this included 4ffd5986_0, 407c5a9e_1, 9a97dae4_1, and ecf251d4_0. Our best local score was 0.857, and we observed strong correlation between local validation and public leaderboard (LB). For our final submission, we retrained our best models on the full data that was available to us, this is a general procedure we always try to take in the end.\n\n### Model setup\n\nAs mentioned, we solely rely on a single-stage model architecture. The input for our models was a 1024x1024 grayscale image, with the channels stacked in the time dimension over three neighboring frames. We chose to use grayscale images rather than full color due to the improved generalization and runtime capabilities it offered - and it also seems to generalize extremely well to the unseen private data.\n\nThe single-stage architecture combined 2.5D and 3D techniques. The backbone of the model was either efficientnetv2_b0 or efficientnetv2_b1, as we found that larger backbones tended to overfit quickly on the small dataset. 3D convolution layers were only used in the last block and final convolution before pooling, which allowed us to stay in 2.5D for most of the backbone and achieve fast inference times with caching.\n\nIn a bit more detail, if our current frame is `t=15`, we first stack three neighboring frames `{14,15,16}` as the channels of the input, and separately pass five different time steps (2 in each direction), each again stacked with three channels. If our time step would be 3, this would mean we pass `{8,9,10},{11,12,13},{14,15,16},{17,18,19},{20,21,22}` through the backbone, and the final 3D layer aggregates these 5 individual time steps with additional pooling.\n\nWe also experimented with different stacks over the time domain and found that 15 frames (combined over 2.5D and 3D) worked best for our final submission.\n\nWe applied the usual set of augmentations and used Mixup as well. The loss function was binary cross-entropy with three target columns. One area where we had room for experimentation and improvement was in how to set the hard or soft labels for training. In the end, our best solution used hard labels in a small window around the actual event.\n\nMost of our time during this competition was spent training on only the labeled regions of the competition data. Pre-training on some Soccernet labels improved the score by around 0.02, but we had no success with pseudo label pre-training on unlabeled regions and clips.",
+          "competition_id": "competition:dfl-bundesliga-data-shootout",
+          "url": "https://www.kaggle.com/competitions/dfl-bundesliga-data-shootout/writeups/team-hydrogen-scores-team-hydrogen-1st-place-solut",
+          "snapshot_path": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt",
+          "snapshot_sha256": "b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754",
+          "line_start": 14,
+          "line_end": 28
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-9d21e7a612e4b18b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked cached2.5D/final3D design and small backbones; grayscale tradeoff empirical.",
+          "candidate_sha256": "afc0ee190724acbba2bb1beb96be825a83bd80504a400c1406326930f4697002"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 169,
+        "line_end": 173,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-5f3a761d31d3c8e3",
+      "canonical_key": "compute checked band powers and summary statistics, then compare simple classifiers before complex models. | small eeg trials have meaningful frequency structure | predictive_quality",
+      "title": "Compare compact EEG band-power features with simple classifiers",
+      "statement": "When small EEG trials have meaningful frequency structure, consider this source-backed action: Compute checked band powers and summary statistics, then compare simple classifiers before complex models. Proposed check: Use participant/session-held-out splits and verify frequency limits versus sampling rate. Limit: The packet gives no split protocol or isolated feature gain; disjoint validation is proposed.",
+      "trigger_conditions": [
+        "small EEG trials have meaningful frequency structure"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compute checked band powers and summary statistics, then compare simple classifiers before complex models."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use participant/session-held-out splits and verify frequency limits versus sampling rate."
+      ],
+      "limitations": [
+        "The packet gives no split protocol or isolated feature gain; disjoint validation is proposed."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team normalized signals, used six specified bands plus five summary statistics and found LDA best among tested classifiers.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5f3a761d31d3c8e3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "EEG spectral knowledge limits beginner accessibility.",
+        "competitor": "Compact EEG baseline with concrete bands and statistical summaries.",
+        "practitioner": "Sensor-specific features transfer when sampling and session drift are checked."
+      },
+      "review": {
+        "candidate_id": "C-a-5f3a761d31d3c8e3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Bandpower features and classifier comparisons are documented, without split or isolated improvement evidence.",
+        "candidate_sha256": "b24e6358c17a306b9f1d2a65472ee432dafe4c51330e5c63146334620ed3db87"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000198",
+      "slug": "lesson-000198",
+      "merged_candidate_ids": [
+        "C-a-5f3a761d31d3c8e3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-de37ee03929616f3dec3",
+          "competition_id": "competition:neural-storm-mini-project-day-4-5",
+          "source_id": "source:lesson-source-e00fac1463827c65",
+          "snapshot_path": "research/lesson-extraction/snapshots/dd138332906eeab9538d3cdc8fa33f9c74a2142e2fb02e68cce0fb20f11f1083.txt",
+          "snapshot_sha256": "dd138332906eeab9538d3cdc8fa33f9c74a2142e2fb02e68cce0fb20f11f1083",
+          "source_url": "https://raw.githubusercontent.com/orhansoyuhos/sEEG-forced-two-choice-task-classification/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5f3a761d31d3c8e3",
+          "line_start": 14,
+          "line_end": 26,
+          "evidence_text": "The data preprocessing involved normalizing the signal data, extracting power from 6 frequency bands, and deriving summary statistics \u2014 resulting in **11 features** per trial:\n\n**Frequency band powers:**\n| Band | Range |\n|------|-------|\n| Delta | 1\u20134 Hz |\n| Theta | 4\u20138 Hz |\n| Alpha | 8\u201312 Hz |\n| Beta | 12\u201330 Hz |\n| Low Gamma | 30\u201390 Hz |\n| High Gamma | 90\u2013120 Hz |\n\n**Summary statistics:** minimum, maximum, mean, variance, standard deviation",
+          "kind": "used",
+          "statement": "The team normalized signals, used six specified bands plus five summary statistics and found LDA best among tested classifiers.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "EEG spectral knowledge limits beginner accessibility.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Compact EEG baseline with concrete bands and statistical summaries.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Sensor-specific features transfer when sampling and session drift are checked.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e00fac1463827c65",
+          "locator": "research/lesson-extraction/snapshots/dd138332906eeab9538d3cdc8fa33f9c74a2142e2fb02e68cce0fb20f11f1083.txt#L14-L26",
+          "quote": "The data preprocessing involved normalizing the signal data, extracting power from 6 frequency bands, and deriving summary statistics \u2014 resulting in **11 features** per trial:\n\n**Frequency band powers:**\n| Band | Range |\n|------|-------|\n| Delta | 1\u20134 Hz |\n| Theta | 4\u20138 Hz |\n| Alpha | 8\u201312 Hz |\n| Beta | 12\u201330 Hz |\n| Low Gamma | 30\u201390 Hz |\n| High Gamma | 90\u2013120 Hz |\n\n**Summary statistics:** minimum, maximum, mean, variance, standard deviation",
+          "competition_id": "competition:neural-storm-mini-project-day-4-5",
+          "url": "https://raw.githubusercontent.com/orhansoyuhos/sEEG-forced-two-choice-task-classification/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/dd138332906eeab9538d3cdc8fa33f9c74a2142e2fb02e68cce0fb20f11f1083.txt",
+          "snapshot_sha256": "dd138332906eeab9538d3cdc8fa33f9c74a2142e2fb02e68cce0fb20f11f1083",
+          "line_start": 14,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5f3a761d31d3c8e3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Bandpower features and classifier comparisons are documented, without split or isolated improvement evidence.",
+          "candidate_sha256": "b24e6358c17a306b9f1d2a65472ee432dafe4c51330e5c63146334620ed3db87"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 73,
+        "line_end": 83,
+        "section": "Further Signal and Spectral Experiments"
+      }
+    },
+    {
+      "candidate_id": "C-a-116aead1c633f356",
+      "canonical_key": "find coarse transit parameters, refine on an averaged signal and pass them to the full solver; flag large residuals for alternative starts and frame checks. | nonlinear transit fitting needs reliable initialization | predictive_quality",
+      "title": "Initialize nonlinear solvers with coarse and simplified fits",
+      "statement": "When nonlinear transit fitting needs reliable initialization, consider this source-backed action: Find coarse transit parameters, refine on an averaged signal and pass them to the full solver; flag large residuals for alternative starts and frame checks. Proposed check: Compare residuals and recovered parameters on known simulations, including cropped versus intact signals. Limit: Alternative-planet starts and cropping are task-specific; the cause of boundary residuals was unknown.",
+      "trigger_conditions": [
+        "nonlinear transit fitting needs reliable initialization",
+        "nonlinear Bayesian inference needs a reasonable initial point"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Find coarse transit parameters, refine on an averaged signal and pass them to the full solver; flag large residuals for alternative starts and frame checks.",
+        "Proposed conditional application: Initialize transit parameters using a depth/time grid search, fit mean-wavelength signal with BFGS, then iteratively linearize the full Bayesian solver."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare residuals and recovered parameters on known simulations, including cropped versus intact signals.",
+        "Proposed check: Compare random and staged initialization on held-out synthetic transits; measure convergence, posterior calibration and runtime."
+      ],
+      "limitations": [
+        "Alternative-planet starts and cropping are task-specific; the cause of boundary residuals was unknown.",
+        "Requires a credible physical prior and nonlinear solver; local solutions and model misspecification remain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general",
+          "astronomy"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used a depth/mid-time grid, BFGS on wavelength-averaged signal and then Bayesian inference; high residuals triggered alternative-planet initialization and boundary-frame cropping.",
+          "basis": "observed"
+        },
+        {
+          "description": "The author initialized transit parameters by grid search and fitted mean-wavelength signals with BFGS before the full solver.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-116aead1c633f356",
+        "O-b228f442df45cabd653f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Scientific initialization requires solver and transit knowledge.",
+        "competitor": "Useful staged fitting to stabilize difficult nonlinear search.",
+        "practitioner": "Coarse-to-full initialization transfers to inverse problems."
+      },
+      "review": {
+        "candidate_id": "C-a-116aead1c633f356",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked grid/BFGS/full solver and residual fallbacks; boundary cause unknown.",
+        "candidate_sha256": "1bf52c6831f46f97e938e7124cc4ab65d4f6692a61add632e6929c9c2bfc6740"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000266",
+      "slug": "lesson-000266",
+      "merged_candidate_ids": [
+        "C-72a8974d9e34326eda9a",
+        "C-a-116aead1c633f356"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f6b0bf7e1dc180410c58",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "source_url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-116aead1c633f356",
+          "line_start": 91,
+          "line_end": 102,
+          "evidence_text": "This approach does mean we need a decent starting point, which is handled as follows:\n\n*   **Grid search**: sweep over a grid of transit depth and transit mid-time to find initial values. Other transit parameters are set to the given approximation per planet (with no limb darkening).\n*   **BFGS**: fit drift and all transit parameters, using BFGS as implemented in `scipy.optimize.minimize`. In this step we only consider the mean over wavelengths of the AIRS signal.\n*   **Bayesian Inference**: the full non-linear BI solver as described above. My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).\n\nThe prediction of the transit depth and the covariance matrix of its uncertainty can be read out directly in the posterior. The covariance matrix is approximated based on 200 samples; this is mainly a holdover from last year, when there were too many parameters to construct it explicitly.\n\nThere are two additional tricks that I apply if the residual of the first two steps (grid search->BFGS) is suspiciously high:\n\n*   Use transit parameters for a different planet as starting point.\n*   Try chopping off the first and last few frames of the signal (these sometimes have a high residual for reasons I don't understand).",
+          "kind": "used",
+          "statement": "The author used a depth/mid-time grid, BFGS on wavelength-averaged signal and then Bayesian inference; high residuals triggered alternative-planet initialization and boundary-frame cropping.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-07fc525f520f13bfec45",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "source_url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "source_quality": "primary_text",
+          "observation_id": "O-b228f442df45cabd653f",
+          "line_start": 93,
+          "line_end": 94,
+          "evidence_text": "*   **Grid search**: sweep over a grid of transit depth and transit mid-time to find initial values. Other transit parameters are set to the given approximation per planet (with no limb darkening).\n*   **BFGS**: fit drift and all transit parameters, using BFGS as implemented in `scipy.optimize.minimize`. In this step we only consider the mean over wavelengths of the AIRS signal.",
+          "kind": "used",
+          "statement": "The author initialized transit parameters by grid search and fitted mean-wavelength signals with BFGS before the full solver.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Scientific initialization requires solver and transit knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful staged fitting to stabilize difficult nonlinear search.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 71.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Coarse-to-full initialization transfers to inverse problems.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "locator": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt#L91-L102",
+          "quote": "This approach does mean we need a decent starting point, which is handled as follows:\n\n*   **Grid search**: sweep over a grid of transit depth and transit mid-time to find initial values. Other transit parameters are set to the given approximation per planet (with no limb darkening).\n*   **BFGS**: fit drift and all transit parameters, using BFGS as implemented in `scipy.optimize.minimize`. In this step we only consider the mean over wavelengths of the AIRS signal.\n*   **Bayesian Inference**: the full non-linear BI solver as described above. My winning submission uses 8 iterations of the solver; the code linked here only does 4 iterations to fit training and inference into the 9 hour submission limit (this only costs 0.001 in the score).\n\nThe prediction of the transit depth and the covariance matrix of its uncertainty can be read out directly in the posterior. The covariance matrix is approximated based on 200 samples; this is mainly a holdover from last year, when there were too many parameters to construct it explicitly.\n\nThere are two additional tricks that I apply if the residual of the first two steps (grid search->BFGS) is suspiciously high:\n\n*   Use transit parameters for a different planet as starting point.\n*   Try chopping off the first and last few frames of the signal (these sometimes have a high residual for reasons I don't understand).",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "line_start": 91,
+          "line_end": 102
+        },
+        {
+          "source_id": "source:lesson-source-6cc66e3f9f06f1e1",
+          "locator": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt#L93-L94",
+          "quote": "*   **Grid search**: sweep over a grid of transit depth and transit mid-time to find initial values. Other transit parameters are set to the given approximation per planet (with no limb darkening).\n*   **BFGS**: fit drift and all transit parameters, using BFGS as implemented in `scipy.optimize.minimize`. In this step we only consider the mean over wavelengths of the AIRS signal.",
+          "competition_id": "competition:ariel-data-challenge-2025",
+          "url": "https://www.kaggle.com/competitions/ariel-data-challenge-2025/writeups/1st-place-solution-bayesian-inference-of-course",
+          "snapshot_path": "research/lesson-extraction/snapshots/8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b.txt",
+          "snapshot_sha256": "8d95aaf7b692aa30ab05851145eac3a693abecb4e73f3a68cf377d9feaf5517b",
+          "line_start": 93,
+          "line_end": 94
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-72a8974d9e34326eda9a",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete Ariel packet confirms depth/time grid, mean-wavelength BFGS then iteratively linearized Bayesian inference.",
+          "candidate_sha256": "1b10bb4d240a36a9e7d13cee691208e80d21f8845130cc40dc799be8c87c62dd"
+        },
+        {
+          "candidate_id": "C-a-116aead1c633f356",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked grid/BFGS/full solver and residual fallbacks; boundary cause unknown.",
+          "candidate_sha256": "1bf52c6831f46f97e938e7124cc4ab65d4f6692a61add632e6929c9c2bfc6740"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 175,
+        "line_end": 179,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-13f96a5dc289192bd94b",
+      "canonical_key": "normalize each landmark part separately and combine its extracted features with global landmark features | landmark sequences containing hands face and pose with differing geometry | representation_comparison",
+      "title": "Combine global and per-part landmark representations",
+      "statement": "For landmark sequences containing hands face and pose with differing geometry, normalize each landmark part separately and combine its extracted features with global landmark features. Ablate part normalization and part feature branches while retaining the same signer-aware validation design. Mean/std are per-frame and per-part; zero or missing landmarks require explicit handling. No branch ablation or gain is reported.",
+      "trigger_conditions": [
+        "landmark sequences containing hands face and pose with differing geometry"
+      ],
+      "action_steps": [
+        "Proposed: normalize each landmark part separately and combine its extracted features with global landmark features."
+      ],
+      "verification_steps": [
+        "Proposed: ablate part normalization and part feature branches while retaining the same signer-aware validation design."
+      ],
+      "limitations": [
+        "Mean/std are per-frame and per-part; zero or missing landmarks require explicit handling. No branch ablation or gain is reported."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "sequence_transcription"
+        ],
+        "application_domains": [
+          "sign_language"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "representation_comparison"
+        ],
+        "risk_tags": [
+          "distribution_shift",
+          "overfitting"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for asl-fingerspelling: Net computes per-part mean/std normalization, clears NaN/Inf and dropped landmarks, extracts four part features, concatenates them and adds them to global features.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: ablate local and global landmark representations for gesture recognition using independent subjects.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-ee84d8bf572d2332c116"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Specialized landmark architecture and normalization make this a costly, narrow exercise.",
+        "competitor": "A plausible representation comparison for hand/face/pose signals with signer-aware validation proposed.",
+        "practitioner": "Transfers to structured motion landmarks; local normalization may discard meaningful absolute position or scale."
+      },
+      "review": {
+        "candidate_id": "C-13f96a5dc289192bd94b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read Net construction/forward: per-frame part mean/std, NaN/Inf clearing and a zero-sum landmark mask precede four part feature branches, whose concatenation adds to global features. Zero-sum coordinates are a heuristic, not a universal missingness definition; no branch ablation is supplied.",
+        "candidate_sha256": "1d595ae6e5bc55fbdd60a53a3898192cc21722cbaefaec5d91c5f2821e721a01"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000359",
+      "slug": "lesson-000359",
+      "merged_candidate_ids": [
+        "C-13f96a5dc289192bd94b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e6196ac19d469296a9a0",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "source_url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-ee84d8bf572d2332c116",
+          "line_start": 792,
+          "line_end": 811,
+          "evidence_text": "        # normalise the parts\n        for ii in range(4):\n            pidx = self.landmark_types==1+ii            \n            x_mean = xp[:,:,pidx].mean(2).unsqueeze(2)\n            x_std = xp[:,:,pidx].std(2, unbiased=False).unsqueeze(2)\n            xp[:,:,pidx] = (xp[:,:,pidx] - x_mean) / x_std\n        xp[torch.isnan(xp)] = 0.\n        xp[torch.isinf(xp)] = 0.\n        dropped_mask = x[:,:,:,:2].sum(-1)==0.\n        xp[dropped_mask] = 0.\n\n        x_lhand = self.feature_extractor_lhand(xp[:,:,self.landmark_types==1], mask)\n        x_rhand = self.feature_extractor_rhand(xp[:,:,self.landmark_types==2], mask)\n        x_face = self.feature_extractor_face(xp[:,:,self.landmark_types==3], mask)\n        x_pose = self.feature_extractor_pose(xp[:,:,self.landmark_types==4], mask)\n        \n        x1 = torch.cat([x_lhand,x_rhand,x_face,x_pose],dim=-1)\n        x = self.feature_extractor(x, mask)\n        x = x + x1\n        x = self.encoder(x, self.cos, self.sin, mask)",
+          "kind": "used",
+          "statement": "Net computes per-part mean/std normalization, clears NaN/Inf and dropped landmarks, extracts four part features, concatenates them and adds them to global features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 40.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Specialized landmark architecture and normalization make this a costly, narrow exercise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "A plausible representation comparison for hand/face/pose signals with signer-aware validation proposed.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to structured motion landmarks; local normalization may discard meaningful absolute position or scale.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "locator": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt#L792-L811",
+          "quote": "        # normalise the parts\n        for ii in range(4):\n            pidx = self.landmark_types==1+ii            \n            x_mean = xp[:,:,pidx].mean(2).unsqueeze(2)\n            x_std = xp[:,:,pidx].std(2, unbiased=False).unsqueeze(2)\n            xp[:,:,pidx] = (xp[:,:,pidx] - x_mean) / x_std\n        xp[torch.isnan(xp)] = 0.\n        xp[torch.isinf(xp)] = 0.\n        dropped_mask = x[:,:,:,:2].sum(-1)==0.\n        xp[dropped_mask] = 0.\n\n        x_lhand = self.feature_extractor_lhand(xp[:,:,self.landmark_types==1], mask)\n        x_rhand = self.feature_extractor_rhand(xp[:,:,self.landmark_types==2], mask)\n        x_face = self.feature_extractor_face(xp[:,:,self.landmark_types==3], mask)\n        x_pose = self.feature_extractor_pose(xp[:,:,self.landmark_types==4], mask)\n        \n        x1 = torch.cat([x_lhand,x_rhand,x_face,x_pose],dim=-1)\n        x = self.feature_extractor(x, mask)\n        x = x + x1\n        x = self.encoder(x, self.cos, self.sin, mask)",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "line_start": 792,
+          "line_end": 811
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-13f96a5dc289192bd94b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read Net construction/forward: per-frame part mean/std, NaN/Inf clearing and a zero-sum landmark mask precede four part feature branches, whose concatenation adds to global features. Zero-sum coordinates are a heuristic, not a universal missingness definition; no branch ablation is supplied.",
+          "candidate_sha256": "1d595ae6e5bc55fbdd60a53a3898192cc21722cbaefaec5d91c5f2821e721a01"
+        },
+        {
+          "candidate_id": "C-13f96a5dc289192bd94b",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete landmark forward packet confirms per-frame/per-part means and standard deviations, NaN/Inf clearing, dropped-landmark masking, four concatenated part branches and addition to global features. Signer-aware validation and branch ablations are proposed rather than observed. Missing/zero geometry and lost absolute scale are retained; niche and expensive audience ratings are reasonable.",
+          "candidate_sha256": "1d595ae6e5bc55fbdd60a53a3898192cc21722cbaefaec5d91c5f2821e721a01"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 181,
+        "line_end": 185,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9c4b4065a6b0a6c1e440",
+      "canonical_key": "sample a dense local window plus sparse surrounding context, then sort and deduplicate timestamps | video event localization after a coarse time estimate | temporal_localization",
+      "title": "Refine event timing with dense local frames and sparse context",
+      "statement": "For video event localization after a coarse time estimate, sample a dense local window plus sparse surrounding context, then sort and deduplicate timestamps. Compare timing error and inference runtime to coarse-only localization; inspect boundary and duplicated-frame cases. This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks.",
+      "trigger_conditions": [
+        "video event localization after a coarse time estimate"
+      ],
+      "action_steps": [
+        "Proposed: sample a dense local window plus sparse surrounding context, then sort and deduplicate timestamps."
+      ],
+      "verification_steps": [
+        "Proposed: compare timing error and inference runtime to coarse-only localization; inspect boundary and duplicated-frame cases."
+      ],
+      "limitations": [
+        "This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "video"
+        ],
+        "task_types": [
+          "event_localization"
+        ],
+        "application_domains": [
+          "traffic"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "temporal_localization"
+        ],
+        "risk_tags": [
+          "compute_cost",
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for accident: Time refinement samples dense and context windows around predicted_time, merges chronologically and deduplicates rounded timestamps.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare coarse-only and dense-local contextual sampling for timestamping industrial video events.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-4fb9854c6875d85ac1ee"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "The video/VLM dependency makes this a demanding first exercise despite understandable sampling.",
+        "competitor": "Useful coarse-to-fine localization trial with explicit runtime and boundary checks.",
+        "practitioner": "Transfers to video event review; a missed coarse event can lie outside every sampled refinement window."
+      },
+      "review": {
+        "candidate_id": "C-9c4b4065a6b0a6c1e440",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read full predict.py packets and call sites: refinement samples dense local and sparse context frames, sorts them and deduplicates rounded timestamps; it falls back with fewer than four frames. This establishes pipeline implementation only, with no timing-error gain.",
+        "candidate_sha256": "641bd6e6c1a9fd687c0b70a9b1e53d1f1801ca4d1e3b7ce003d0b68a15bcff8d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000440",
+      "slug": "lesson-000440",
+      "merged_candidate_ids": [
+        "C-9c4b4065a6b0a6c1e440"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4b2712019df77b5cb693",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-bc0971ed0dbcdc41",
+          "snapshot_path": "research/lesson-extraction/snapshots/699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19.txt",
+          "snapshot_sha256": "699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/HEAD/src/exp160b/predict.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-4fb9854c6875d85ac1ee",
+          "line_start": 279,
+          "line_end": 324,
+          "evidence_text": "        dense_before = float(self.cfg.get(\"time_refine_window_before\", 2.0))\n        dense_after = float(self.cfg.get(\"time_refine_window_after\", 2.0))\n        dense_fps = float(self.cfg.get(\"time_refine_fps\", 4.0))\n        dense_limit = int(self.cfg.get(\"time_refine_limit\", 12))\n        context_before = float(self.cfg.get(\"time_refine_context_before\", 8.0))\n        context_after = float(self.cfg.get(\"time_refine_context_after\", 4.0))\n        context_fps = float(self.cfg.get(\"time_refine_context_fps\", 0.5))\n        context_limit = int(self.cfg.get(\"time_refine_context_limit\", 4))\n        blend = float(self.cfg.get(\"time_refine_blend\", 0.35))\n        max_shift = float(self.cfg.get(\"time_refine_max_shift_sec\", 1.5))\n\n        dense_start = max(0.0, predicted_time - dense_before)\n        dense_end = min(duration, predicted_time + dense_after)\n        context_start = max(0.0, predicted_time - context_before)\n        context_end = min(duration, predicted_time + context_after)\n\n        with tempfile.TemporaryDirectory(prefix=\"exp160b_trefine_\") as td:\n            context_dir = Path(td) / \"context\"\n            dense_dir = Path(td) / \"dense\"\n            context_frames = sample_frames(\n                video_path,\n                context_dir,\n                target_fps=context_fps,\n                t_start=context_start,\n                t_end=context_end,\n                limit=context_limit,\n                max_side=int(self.cfg[\"image_max_side\"]),\n            )\n            dense_frames = sample_frames(\n                video_path,\n                dense_dir,\n                target_fps=dense_fps,\n                t_start=dense_start,\n                t_end=dense_end,\n                limit=dense_limit,\n                max_side=int(self.cfg[\"image_max_side\"]),\n            )\n            merged = sorted(context_frames + dense_frames, key=lambda x: x[0])\n            dedup: list[tuple[float, Path]] = []\n            seen: set[float] = set()\n            for t, p in merged:\n                key = round(float(t), 3)\n                if key in seen:\n                    continue\n                seen.add(key)\n                dedup.append((float(t), p))",
+          "kind": "used",
+          "statement": "Time refinement samples dense and context windows around predicted_time, merges chronologically and deduplicates rounded timestamps.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "The video/VLM dependency makes this a demanding first exercise despite understandable sampling.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful coarse-to-fine localization trial with explicit runtime and boundary checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to video event review; a missed coarse event can lie outside every sampled refinement window.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-bc0971ed0dbcdc41",
+          "locator": "research/lesson-extraction/snapshots/699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19.txt#L279-L324",
+          "quote": "        dense_before = float(self.cfg.get(\"time_refine_window_before\", 2.0))\n        dense_after = float(self.cfg.get(\"time_refine_window_after\", 2.0))\n        dense_fps = float(self.cfg.get(\"time_refine_fps\", 4.0))\n        dense_limit = int(self.cfg.get(\"time_refine_limit\", 12))\n        context_before = float(self.cfg.get(\"time_refine_context_before\", 8.0))\n        context_after = float(self.cfg.get(\"time_refine_context_after\", 4.0))\n        context_fps = float(self.cfg.get(\"time_refine_context_fps\", 0.5))\n        context_limit = int(self.cfg.get(\"time_refine_context_limit\", 4))\n        blend = float(self.cfg.get(\"time_refine_blend\", 0.35))\n        max_shift = float(self.cfg.get(\"time_refine_max_shift_sec\", 1.5))\n\n        dense_start = max(0.0, predicted_time - dense_before)\n        dense_end = min(duration, predicted_time + dense_after)\n        context_start = max(0.0, predicted_time - context_before)\n        context_end = min(duration, predicted_time + context_after)\n\n        with tempfile.TemporaryDirectory(prefix=\"exp160b_trefine_\") as td:\n            context_dir = Path(td) / \"context\"\n            dense_dir = Path(td) / \"dense\"\n            context_frames = sample_frames(\n                video_path,\n                context_dir,\n                target_fps=context_fps,\n                t_start=context_start,\n                t_end=context_end,\n                limit=context_limit,\n                max_side=int(self.cfg[\"image_max_side\"]),\n            )\n            dense_frames = sample_frames(\n                video_path,\n                dense_dir,\n                target_fps=dense_fps,\n                t_start=dense_start,\n                t_end=dense_end,\n                limit=dense_limit,\n                max_side=int(self.cfg[\"image_max_side\"]),\n            )\n            merged = sorted(context_frames + dense_frames, key=lambda x: x[0])\n            dedup: list[tuple[float, Path]] = []\n            seen: set[float] = set()\n            for t, p in merged:\n                key = round(float(t), 3)\n                if key in seen:\n                    continue\n                seen.add(key)\n                dedup.append((float(t), p))",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/HEAD/src/exp160b/predict.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19.txt",
+          "snapshot_sha256": "699bd6543c4f1c5d2ca7aed04ac07fd2bd01de032ab1a1b7667a459040b85e19",
+          "line_start": 279,
+          "line_end": 324
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9c4b4065a6b0a6c1e440",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read full predict.py packets and call sites: refinement samples dense local and sparse context frames, sorts them and deduplicates rounded timestamps; it falls back with fewer than four frames. This establishes pipeline implementation only, with no timing-error gain.",
+          "candidate_sha256": "641bd6e6c1a9fd687c0b70a9b1e53d1f1801ca4d1e3b7ce003d0b68a15bcff8d"
+        },
+        {
+          "candidate_id": "C-9c4b4065a6b0a6c1e440",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Read complete predictor packet: refinement combines clipped dense and contextual sampling windows, chronologically sorts them, and deduplicates timestamps rounded to milliseconds. Coarse-only quality/runtime and boundary checks remain proposed, with no measured gain or execution inferred. Lower beginner feasibility reflects the 32B video/VLM integration.",
+          "candidate_sha256": "641bd6e6c1a9fd687c0b70a9b1e53d1f1801ca4d1e3b7ce003d0b68a15bcff8d"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 121,
+        "line_end": 131,
+        "section": "Further Signal and Spectral Experiments"
+      }
+    },
+    {
+      "candidate_id": "C-a-b5e4b02e605c70fc",
+      "canonical_key": "sort messages chronologically, derive lag and byte-distribution features and compare trees with sequence baselines. | vehicle intrusion classes involve bursts and identifier-specific attacks | predictive_quality",
+      "title": "Engineer CAN-message timing and byte patterns before choosing sequence models",
+      "statement": "When vehicle intrusion classes involve bursts and identifier-specific attacks, consider this source-backed action: Sort messages chronologically, derive lag and byte-distribution features and compare trees with sequence baselines. Proposed check: Use time-blocked validation and inspect attack-specific recall. Limit: The source does not document split isolation; temporally clustered attacks can leak through random splits.",
+      "trigger_conditions": [
+        "vehicle intrusion classes involve bursts and identifier-specific attacks"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Sort messages chronologically, derive lag and byte-distribution features and compare trees with sequence baselines."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use time-blocked validation and inspect attack-specific recall."
+      ],
+      "limitations": [
+        "The source does not document split isolation; temporally clustered attacks can leak through random splits."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team analyzed attack distributions by timestamp and CAN ID, added byte features, chronological lags and Euclidean distances, and found trees performed best.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-b5e4b02e605c70fc"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "CAN semantics and temporal feature engineering require domain knowledge.",
+        "competitor": "Useful structured baseline before assuming RNN superiority.",
+        "practitioner": "Relevant vehicle intrusion experiment; deployment-time feature availability essential."
+      },
+      "review": {
+        "candidate_id": "C-a-b5e4b02e605c70fc",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Korean timing/bytes/lags and qualitative tree ranking; split undocumented.",
+        "candidate_sha256": "30882ddb226181ff4d7789057b5ec3f675e09b36104589665b21fd844fd187d0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000466",
+      "slug": "lesson-000466",
+      "merged_candidate_ids": [
+        "C-a-b5e4b02e605c70fc"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-440f95663aee72b48993",
+          "competition_id": "competition:boaz-day-2024",
+          "source_id": "source:lesson-source-e021d7c3d6b478ff",
+          "snapshot_path": "research/lesson-extraction/snapshots/3f94d4a17f5bcf7286cb95f8b548c8e0c7f01a9b3e73d8a1421dbd09172077cd.txt",
+          "snapshot_sha256": "3f94d4a17f5bcf7286cb95f8b548c8e0c7f01a9b3e73d8a1421dbd09172077cd",
+          "source_url": "https://raw.githubusercontent.com/haeun161/BOAZ_DAY2024/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-b5e4b02e605c70fc",
+          "line_start": 13,
+          "line_end": 24,
+          "evidence_text": "   - Timestamp, CAN_ID\uc5d0 \ub530\ub77c Class \ubd84\ud3ec\ub97c \ube44\uad50\ud55c \uacb0\uacfc, \ud2b9\uc815 \uacf5\uaca9\uc5d0 \uc788\uc5b4\uc11c \ud2b9\uc9d5\uc744 \ud30c\uc545\ud588\ub2e4\n     - Flooding\uc740 \ud2b9\uc815 \uc2dc\uac04\ub300\uc5d0 \ub3d9\uc2dc\ub2e4\ubc1c\uc801\uc73c\ub85c CAN \uba54\uc2dc\uc9c0\ub97c \ub300\ub7c9 \uc804\uc1a1\ud558\ub294 \ud2b9\uc9d5\uc744 \ubcf4\uc778\ub2e4\n     - Malfunction\uc740 \uae30\uc874 \ucc28\ub7c9\uc758 CAN_ID\ub97c \uc120\ubcc4\uc801\uc73c\ub85c \ud0c0\uac9f\ud305\ud558\uc5ec \uacc4\uc18d \uacf5\uaca9\ud558\ub294 \ud2b9\uc9d5\uc744 \ud655\uc778\n   - \uacf5\uaca9 \uc720\ud615\ubcc4 Data \uc5f4\uc758 \ubc14\uc774\ud2b8 \ubd84\ud3ec\ub97c \ubd84\uc11d\ud558\uc5ec \ubc14\uc774\ud2b8 \ubcc4 \ud2b9\uc131\uc744 \uace0\ub824\ud558\uc5ec \uc0c8\ub85c\uc6b4 \uc5f4 \ucd94\uac00\n   - Time Stamp\uc5d0 \ub530\ub978 \uacf5\uaca9 \uc774\ubca4\ud2b8\ub97c \ud655\uc778 \uacb0\uacfc, \ub3d9\uc77c\ud55c \uc2dc\uac04\ub300\uc5d0 \uc9d1\uc911\uc801\uc73c\ub85c \ubd84\ud3ec \ud655\uc778 => \uc2dc\uac04\uc21c\uc73c\ub85c \uc815\ub82c \ud6c4, Lag \ubc18\uc601\ud55c \ud30c\uc0dd \ubcc0\uc218 \uc0dd\uc131\n   - \uc720\ud074\ub9ac\ub4dc \uac70\ub9ac\uc640 \uc720\ud074\ub9ac\ub4dc \uac70\ub9ac\ucc28 \ubc18\uc601\n   - \ub370\uc774\ud130 \ubd88\uade0\ud615\uc744 \ub9de\ucd94\uae30\uc704\ud55c SMOTE \ubc29\uc2dd\uc758 statistic\ud55c \ub370\uc774\ud130 \uc99d\uac15 \ubc29\ubc95 \uc0ac\uc6a9\n   - Random Forest \ubaa8\ub378\uc5d0\uc11c \uc81c\uacf5\ud558\ub294 Feature Importance \ubc18\uc601\n\n## \ubaa8\ub378\ub9c1\n- timestamp\uc758 \ud2b9\uc9d5\ub9cc \ubcf4\uace0 \uc790\uce6b\ud558\uba74 RNN \ubaa8\ub378\uc774 \uc131\ub2a5\uc774 \uc88b\uc744 \uac83 \uac19\uc9c0\ub9cc, \uc774\uc678\uc5d0 \uacf5\uaca9\uc758 \ube44\uc120\ud615\uc801\uc778 \uad00\uacc4\ub4e4\uc744 \ud3ec\ud568\ud558\uae30\uc5d0 \ud2b8\ub9ac \ubaa8\ub378\uac00 \uac00\uc7a5 \uc801\ud569\ud558\uba70, \uc131\ub2a5\uc774 \ub192\uc558\uc74c\n- ExtraTrees, Random Forest, XGBoost \uc21c\uc73c\ub85c \uc131\ub2a5\uc774 \uac00\uc7a5 \uc88b\uc558\uc74c",
+          "kind": "used",
+          "statement": "The team analyzed attack distributions by timestamp and CAN ID, added byte features, chronological lags and Euclidean distances, and found trees performed best.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "CAN semantics and temporal feature engineering require domain knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful structured baseline before assuming RNN superiority.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Relevant vehicle intrusion experiment; deployment-time feature availability essential.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e021d7c3d6b478ff",
+          "locator": "research/lesson-extraction/snapshots/3f94d4a17f5bcf7286cb95f8b548c8e0c7f01a9b3e73d8a1421dbd09172077cd.txt#L13-L24",
+          "quote": "   - Timestamp, CAN_ID\uc5d0 \ub530\ub77c Class \ubd84\ud3ec\ub97c \ube44\uad50\ud55c \uacb0\uacfc, \ud2b9\uc815 \uacf5\uaca9\uc5d0 \uc788\uc5b4\uc11c \ud2b9\uc9d5\uc744 \ud30c\uc545\ud588\ub2e4\n     - Flooding\uc740 \ud2b9\uc815 \uc2dc\uac04\ub300\uc5d0 \ub3d9\uc2dc\ub2e4\ubc1c\uc801\uc73c\ub85c CAN \uba54\uc2dc\uc9c0\ub97c \ub300\ub7c9 \uc804\uc1a1\ud558\ub294 \ud2b9\uc9d5\uc744 \ubcf4\uc778\ub2e4\n     - Malfunction\uc740 \uae30\uc874 \ucc28\ub7c9\uc758 CAN_ID\ub97c \uc120\ubcc4\uc801\uc73c\ub85c \ud0c0\uac9f\ud305\ud558\uc5ec \uacc4\uc18d \uacf5\uaca9\ud558\ub294 \ud2b9\uc9d5\uc744 \ud655\uc778\n   - \uacf5\uaca9 \uc720\ud615\ubcc4 Data \uc5f4\uc758 \ubc14\uc774\ud2b8 \ubd84\ud3ec\ub97c \ubd84\uc11d\ud558\uc5ec \ubc14\uc774\ud2b8 \ubcc4 \ud2b9\uc131\uc744 \uace0\ub824\ud558\uc5ec \uc0c8\ub85c\uc6b4 \uc5f4 \ucd94\uac00\n   - Time Stamp\uc5d0 \ub530\ub978 \uacf5\uaca9 \uc774\ubca4\ud2b8\ub97c \ud655\uc778 \uacb0\uacfc, \ub3d9\uc77c\ud55c \uc2dc\uac04\ub300\uc5d0 \uc9d1\uc911\uc801\uc73c\ub85c \ubd84\ud3ec \ud655\uc778 => \uc2dc\uac04\uc21c\uc73c\ub85c \uc815\ub82c \ud6c4, Lag \ubc18\uc601\ud55c \ud30c\uc0dd \ubcc0\uc218 \uc0dd\uc131\n   - \uc720\ud074\ub9ac\ub4dc \uac70\ub9ac\uc640 \uc720\ud074\ub9ac\ub4dc \uac70\ub9ac\ucc28 \ubc18\uc601\n   - \ub370\uc774\ud130 \ubd88\uade0\ud615\uc744 \ub9de\ucd94\uae30\uc704\ud55c SMOTE \ubc29\uc2dd\uc758 statistic\ud55c \ub370\uc774\ud130 \uc99d\uac15 \ubc29\ubc95 \uc0ac\uc6a9\n   - Random Forest \ubaa8\ub378\uc5d0\uc11c \uc81c\uacf5\ud558\ub294 Feature Importance \ubc18\uc601\n\n## \ubaa8\ub378\ub9c1\n- timestamp\uc758 \ud2b9\uc9d5\ub9cc \ubcf4\uace0 \uc790\uce6b\ud558\uba74 RNN \ubaa8\ub378\uc774 \uc131\ub2a5\uc774 \uc88b\uc744 \uac83 \uac19\uc9c0\ub9cc, \uc774\uc678\uc5d0 \uacf5\uaca9\uc758 \ube44\uc120\ud615\uc801\uc778 \uad00\uacc4\ub4e4\uc744 \ud3ec\ud568\ud558\uae30\uc5d0 \ud2b8\ub9ac \ubaa8\ub378\uac00 \uac00\uc7a5 \uc801\ud569\ud558\uba70, \uc131\ub2a5\uc774 \ub192\uc558\uc74c\n- ExtraTrees, Random Forest, XGBoost \uc21c\uc73c\ub85c \uc131\ub2a5\uc774 \uac00\uc7a5 \uc88b\uc558\uc74c",
+          "competition_id": "competition:boaz-day-2024",
+          "url": "https://raw.githubusercontent.com/haeun161/BOAZ_DAY2024/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/3f94d4a17f5bcf7286cb95f8b548c8e0c7f01a9b3e73d8a1421dbd09172077cd.txt",
+          "snapshot_sha256": "3f94d4a17f5bcf7286cb95f8b548c8e0c7f01a9b3e73d8a1421dbd09172077cd",
+          "line_start": 13,
+          "line_end": 24
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-b5e4b02e605c70fc",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Korean timing/bytes/lags and qualitative tree ranking; split undocumented.",
+          "candidate_sha256": "30882ddb226181ff4d7789057b5ec3f675e09b36104589665b21fd844fd187d0"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 85,
+        "line_end": 95,
+        "section": "Further Signal and Spectral Experiments"
+      }
+    },
+    {
+      "candidate_id": "C-db4c5cf9282360d007d2",
+      "canonical_key": "spectral-order-grid | multiple spectrometers | predictive performance",
+      "title": "Search the order of spectral preprocessing",
+      "statement": "When Spectral prediction with candidate MSC, baseline correction, smoothing and scaling steps., proposed reuse: Proposed conditional application: Use the reported MSC \u2192 baseline correction \u2192 smoothing \u2192 scaling recipe as a starting candidate.; Proposed conditional application: Compare combinations and parameters on device data; preserve order explicitly. Proposed check: Fit preprocessing only on training data and compare order/parameters on held-out measurements matching intended device deployment, reporting device-wise R2. Limitation: No held-out-deviceCVprotocol is reported; best tested order is not universally optimal.",
+      "trigger_conditions": [
+        "Spectral prediction with candidate MSC, baseline correction, smoothing and scaling steps."
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use the reported MSC \u2192 baseline correction \u2192 smoothing \u2192 scaling recipe as a starting candidate.",
+        "Proposed conditional application: Compare combinations and parameters on device data; preserve order explicitly."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit preprocessing only on training data and compare order/parameters on held-out measurements matching intended device deployment, reporting device-wise R2."
+      ],
+      "limitations": [
+        "No held-out-deviceCVprotocol is reported; best tested order is not universally optimal."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "spectrum"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "scientific_measurement"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Processing principle remains testable; implementation and validation require local checks.",
+        "book_fit": [
+          "Feature Engineering"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author searches spectral preprocessing combinations and parameters per spectrometer and reports MSC, baseline correction, smoothing, scaling as best tested order.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Fit preprocessing only on training data and compare order/parameters on held-out measurements matching intended device deployment, reporting device-wise R2.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-242169df8f615df37afe",
+        "O-8711c8507bdc6ded3f3b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Explicit preprocessing order is teachable, though spectral methods need domain understanding.",
+        "competitor": "Pipeline-order search gives a concrete experiment before adding model complexity.",
+        "practitioner": "Spectral calibration benefits from device-aware preprocessing and deployment-matched evaluation."
+      },
+      "review": {
+        "candidate_id": "C-db4c5cf9282360d007d2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Read full original and full packet: author grid-searches combinations per spectrometer and reports MSC\u2192baseline correction\u2192smoothing\u2192scalingbest; no held-out-deviceCVspecified.",
+        "candidate_sha256": "e85261e94d99cbac5e25e1bbbb3419938f928a31be2ecbaf698b1e5a87891ad9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000467",
+      "slug": "lesson-000467",
+      "merged_candidate_ids": [
+        "C-db4c5cf9282360d007d2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-04f191145f42ed82a71f",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "source_url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "source_quality": "primary_text",
+          "observation_id": "O-242169df8f615df37afe",
+          "line_start": 7,
+          "line_end": 7,
+          "evidence_text": "Original Spectra -> MSC -> Baseline correction -> Smoothing -> Scaling",
+          "kind": "used",
+          "statement": "The author reports the best tested processing sequence as MSC, baseline correction, smoothing, then scaling.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-04f191145f42ed82a71f",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "source_url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "source_quality": "primary_text",
+          "observation_id": "O-8711c8507bdc6ded3f3b",
+          "line_start": 3,
+          "line_end": 3,
+          "evidence_text": "From the [original work](https://git.tu-berlin.de/bvt-htbd/kiwi/tf3/raman-and-nir/-/tree/main?ref_type=heads) I noticed they were doing extensive preprocessing such as MSC, savgol filter, normalisation. With help of gemini I included other preprocessing steps too and experimented with various combinations of these preprocessing steps and their parameter, on each device's spectrometer data by a simple grid search.",
+          "kind": "used",
+          "statement": "The author searched preprocessing combinations and parameters separately by spectrometer.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Explicit preprocessing order is teachable, though spectral methods need domain understanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Pipeline-order search gives a concrete experiment before adding model complexity.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Spectral calibration benefits from device-aware preprocessing and deployment-matched evaluation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "locator": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt#L7-L7",
+          "quote": "Original Spectra -> MSC -> Baseline correction -> Smoothing -> Scaling",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "line_start": 7,
+          "line_end": 7
+        },
+        {
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "locator": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt#L3-L3",
+          "quote": "From the [original work](https://git.tu-berlin.de/bvt-htbd/kiwi/tf3/raman-and-nir/-/tree/main?ref_type=heads) I noticed they were doing extensive preprocessing such as MSC, savgol filter, normalisation. With help of gemini I included other preprocessing steps too and experimented with various combinations of these preprocessing steps and their parameter, on each device's spectrometer data by a simple grid search.",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "line_start": 3,
+          "line_end": 3
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-db4c5cf9282360d007d2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Read full original and full packet: author grid-searches combinations per spectrometer and reports MSC\u2192baseline correction\u2192smoothing\u2192scalingbest; no held-out-deviceCVspecified.",
+          "candidate_sha256": "e85261e94d99cbac5e25e1bbbb3419938f928a31be2ecbaf698b1e5a87891ad9"
+        },
+        {
+          "candidate_id": "C-db4c5cf9282360d007d2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Full Dig4Bio original reports per-device grid search and MSC\u2192baseline correction\u2192smoothing\u2192scaling as best tested sequence. Proposed training-only/device-matched assessment is clearly separate; no held-out-device protocol or universal order is asserted. All twelve utility scores and rationales fit a reproducible domain experiment.",
+          "candidate_sha256": "e85261e94d99cbac5e25e1bbbb3419938f928a31be2ecbaf698b1e5a87891ad9"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 97,
+        "line_end": 107,
+        "section": "Further Signal and Spectral Experiments"
+      }
+    },
+    {
+      "candidate_id": "C-de611de08bfd83746492",
+      "canonical_key": "split by scan count so high-density subsets can use temporal weather features and low-density subsets use error-code counts. | rows have radically different numbers of scans | predictive_quality",
+      "title": "Segment radar models by observation density",
+      "statement": "When rows have radically different numbers of scans, proposed reuse: Proposed conditional application: Split by scan count so high-density subsets can use temporal weather features and low-density subsets use error-code counts. Proposed check: Compare scan-count specialists/unified model on year-held-out CRPS; check sparse-bin support and routing. Limitation: Acquisition density correlates with rainfall and may shift across sensors/years.",
+      "trigger_conditions": [
+        "rows have radically different numbers of scans"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Split by scan count so high-density subsets can use temporal weather features and low-density subsets use error-code counts."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare scan-count specialists/unified model on year-held-out CRPS; check sparse-bin support and routing."
+      ],
+      "limitations": [
+        "Acquisition density correlates with rainfall and may shift across sensors/years."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Rainfall author splits by scan count to use richer temporal features for dense scans and error-code features for sparse rows.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed density-aware sensor specialists with year-held-out checks.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-abc4dcac737d07480775"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible data-density segmentation.",
+        "competitor": "Concrete feature availability-based specialization.",
+        "practitioner": "Useful irregular sensor modeling with stable routing."
+      },
+      "review": {
+        "candidate_id": "C-de611de08bfd83746492",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Rain interview segments by radar scan count so temporal features are available; extractor confused this with output-class reduction.",
+        "candidate_sha256": "72ae4ae7b92200f7b761a2a24b893bdbc86c636ac316a3eb35af395e1edb8f55"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000468",
+      "slug": "lesson-000468",
+      "merged_candidate_ids": [
+        "C-de611de08bfd83746492"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-51b537d613e944712ad3",
+          "competition_id": "competition:how-much-did-it-rain",
+          "source_id": "source:lesson-source-730207cf1abfc006",
+          "snapshot_path": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt",
+          "snapshot_sha256": "f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978",
+          "source_url": "http://blog.kaggle.com/2015/07/01/how-much-did-it-rain-winners-interview-1st-place-devin-anzelmo/",
+          "source_quality": "primary_text",
+          "observation_id": "O-abc4dcac737d07480775",
+          "line_start": 37,
+          "line_end": 37,
+          "evidence_text": "Splitting the data allowed me to use many more features for the higher scan data which gave a large boost to the score.",
+          "kind": "used",
+          "statement": "Author splits rainfall rows by radar-scan count to enable richer temporal features on dense observations, reporting a qualitative score boost.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Accessible data-density segmentation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Concrete feature availability-based specialization.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful irregular sensor modeling with stable routing.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-730207cf1abfc006",
+          "locator": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt#L37-L37",
+          "quote": "Splitting the data allowed me to use many more features for the higher scan data which gave a large boost to the score.",
+          "competition_id": "competition:how-much-did-it-rain",
+          "url": "http://blog.kaggle.com/2015/07/01/how-much-did-it-rain-winners-interview-1st-place-devin-anzelmo/",
+          "snapshot_path": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt",
+          "snapshot_sha256": "f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978",
+          "line_start": 37,
+          "line_end": 37
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-de611de08bfd83746492",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Rain interview segments by radar scan count so temporal features are available; extractor confused this with output-class reduction.",
+          "candidate_sha256": "72ae4ae7b92200f7b761a2a24b893bdbc86c636ac316a3eb35af395e1edb8f55"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 109,
+        "line_end": 119,
+        "section": "Further Signal and Spectral Experiments"
+      }
+    },
+    {
+      "candidate_id": "C-f8b19d05dafbba44950e",
+      "canonical_key": "sum amplitude-weighted power along doppler-adjusted templates instead of attempting accurate complex-mode addition. | physical signal phase patterns exceed feasible compute | predictive_quality",
+      "title": "Switch from coherent-wave addition to power templates when phase modeling fails",
+      "statement": "When physical signal phase patterns exceed feasible compute, proposed reuse: Proposed conditional application: Sum amplitude-weighted power along Doppler-adjusted templates instead of attempting accurate complex-mode addition. Proposed check: Compare power and feasible phase baselines on simulated positives plus held-out real noise, stratified by slope. Limitation: Phase information discarded and slope coverage restricted; specialist physics and substantial compute required.",
+      "trigger_conditions": [
+        "physical signal phase patterns exceed feasible compute"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Sum amplitude-weighted power along Doppler-adjusted templates instead of attempting accurate complex-mode addition."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare power and feasible phase baselines on simulated positives plus held-out real noise, stratified by slope."
+      ],
+      "limitations": [
+        "Phase information discarded and slope coverage restricted; specialist physics and substantial compute required."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "astronomy"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The wave author abandoned coherent wave addition after a month without progress under their computational budget and used power aggregation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-7e3c25549f1b524aafc3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Niche physical search exceeds routine ML skills.",
+        "competitor": "Specialist option when coherent templates cannot be computed.",
+        "practitioner": "Inverse-signal use possible with domain expertise; no scientific detection proof."
+      },
+      "review": {
+        "candidate_id": "C-f8b19d05dafbba44950e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full G2Net author abandoned coherent phase summation and used simulated amplitude-weighted power; five-day GPU search persisted.",
+        "candidate_sha256": "eb290c25e65d6395486d7f3df1024a46d4965e667a0e153af6f472c3db23081a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000478",
+      "slug": "lesson-000478",
+      "merged_candidate_ids": [
+        "C-f8b19d05dafbba44950e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-719a23278dc7ad0217d5",
+          "competition_id": "competition:g2net-detecting-continuous-gravitational-waves",
+          "source_id": "source:lesson-source-e3731d317de63f0b",
+          "snapshot_path": "research/lesson-extraction/snapshots/32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73.txt",
+          "snapshot_sha256": "32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73",
+          "source_url": "https://www.kaggle.com/competitions/g2net-detecting-continuous-gravitational-waves/writeups/jun-koda-1st-place-solution-summing-the-power-with",
+          "source_quality": "primary_text",
+          "observation_id": "O-7e3c25549f1b524aafc3",
+          "line_start": 10,
+          "line_end": 10,
+          "evidence_text": "After more than one month without any progress, I thought I should get a silver medal even with an unsatisfactory approach, give up adding the wave and add the power.",
+          "kind": "reported_failure",
+          "statement": "The wave author abandoned coherent wave addition after a month without progress under their computational budget and used power aggregation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 40.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Niche physical search exceeds routine ML skills.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 47.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Specialist option when coherent templates cannot be computed.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Inverse-signal use possible with domain expertise; no scientific detection proof.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e3731d317de63f0b",
+          "locator": "research/lesson-extraction/snapshots/32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73.txt#L10-L10",
+          "quote": "After more than one month without any progress, I thought I should get a silver medal even with an unsatisfactory approach, give up adding the wave and add the power.",
+          "competition_id": "competition:g2net-detecting-continuous-gravitational-waves",
+          "url": "https://www.kaggle.com/competitions/g2net-detecting-continuous-gravitational-waves/writeups/jun-koda-1st-place-solution-summing-the-power-with",
+          "snapshot_path": "research/lesson-extraction/snapshots/32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73.txt",
+          "snapshot_sha256": "32c16f60dfc5c69ada919feab19714a04554610408e4ea2ebac23d2ae72fba73",
+          "line_start": 10,
+          "line_end": 10
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-f8b19d05dafbba44950e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full G2Net author abandoned coherent phase summation and used simulated amplitude-weighted power; five-day GPU search persisted.",
+          "candidate_sha256": "eb290c25e65d6395486d7f3df1024a46d4965e667a0e153af6f472c3db23081a"
+        }
+      ],
+      "book_location": {
+        "chapter": 58,
+        "path": "manuscript/chapters/58-sensor-embeddings-and-augmentation.md",
+        "sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
+        "line_start": 187,
+        "line_end": 191,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

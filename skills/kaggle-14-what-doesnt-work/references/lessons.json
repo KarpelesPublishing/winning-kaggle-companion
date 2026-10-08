@@ -1,0 +1,395 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-1169dd782b7643eb",
+      "canonical_key": "compare keeping extreme transactions with an explicitly documented deletion rule before dropping them. | housing extremes tempt automatic deletion | predictive_quality",
+      "title": "Retain unsuccessful outlier removal as a local finding",
+      "statement": "When housing extremes tempt automatic deletion, consider this source-backed action: Compare keeping extreme transactions with an explicitly documented deletion rule before dropping them. Proposed check: Evaluate high-price cases and original-unit MAE on an untouched set. Limit: Threshold/method are unspecified and extreme values may be legitimate.",
+      "trigger_conditions": [
+        "housing extremes tempt automatic deletion"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare keeping extreme transactions with an explicitly documented deletion rule before dropping them."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate high-price cases and original-unit MAE on an untouched set."
+      ],
+      "limitations": [
+        "Threshold/method are unspecified and extreme values may be legitimate."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author tried removing outliers but abandoned it because results were poor.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-1169dd782b7643eb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Retain-versus-drop comparison straightforward.",
+        "competitor": "Useful negative hypothesis without discarding valid extremes automatically.",
+        "practitioner": "General extreme-case preservation discipline with target-tail checks."
+      },
+      "review": {
+        "candidate_id": "C-a-1169dd782b7643eb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked abandoned outlier removal; threshold/method absent.",
+        "candidate_sha256": "86aba85452676b5d363ba0297e24a03b561d4e5f2a64cf20de229c8038cf4daa"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000143",
+      "slug": "lesson-000143",
+      "merged_candidate_ids": [
+        "C-a-1169dd782b7643eb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-15f33378db1a6fe30cae",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "source_url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-1169dd782b7643eb",
+          "line_start": 45,
+          "line_end": 46,
+          "evidence_text": "#### **\u96e2\u7fa4\u503c\u8655\u7406**\n\u5617\u8a66\u79fb\u9664\u96e2\u7fa4\u503c\uff0c\u4f46\u6548\u679c\u4e0d\u4f73\uff0c\u6545\u66ab\u6642\u64f1\u7f6e\u3002",
+          "kind": "reported_failure",
+          "statement": "The author tried removing outliers but abandoned it because results were poor.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Retain-versus-drop comparison straightforward.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful negative hypothesis without discarding valid extremes automatically.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "General extreme-case preservation discipline with target-tail checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "locator": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt#L45-L46",
+          "quote": "#### **\u96e2\u7fa4\u503c\u8655\u7406**\n\u5617\u8a66\u79fb\u9664\u96e2\u7fa4\u503c\uff0c\u4f46\u6548\u679c\u4e0d\u4f73\uff0c\u6545\u66ab\u6642\u64f1\u7f6e\u3002",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "line_start": 45,
+          "line_end": 46
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-1169dd782b7643eb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked abandoned outlier removal; threshold/method absent.",
+          "candidate_sha256": "86aba85452676b5d363ba0297e24a03b561d4e5f2a64cf20de229c8038cf4daa"
+        },
+        {
+          "candidate_id": "C-a-1169dd782b7643eb",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Taiwanoriginaloutlierremovalpoorandabandoned. Unknownmethod/threshold,validexpensivetailcaveat,andproposedunchangedheldoutMAE/extremechecks properlyscoped. Lowlocalnegativeutilityandroutinefeasibilitygradesreasonable.",
+          "candidate_sha256": "86aba85452676b5d363ba0297e24a03b561d4e5f2a64cf20de229c8038cf4daa"
+        }
+      ],
+      "book_location": {
+        "chapter": 14,
+        "path": "manuscript/chapters/14-what-doesnt-work.md",
+        "sha256": "f7a76ffc248a8149d4f17658e7e0c4e895a0fa829825c8a1efaabe69195d5839",
+        "line_start": 47,
+        "line_end": 57,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-4f736498045c26f649e3",
+      "canonical_key": "pls-vs-spectral-pipeline | spectroscopic regression | model selection",
+      "title": "Keep unsuccessful PLS comparisons scoped to their setup",
+      "statement": "When PLS is a plausible alternative in a spectroscopic regression task., proposed reuse: Proposed conditional application: Include PLS as a comparison, rather than assuming it will improve the existing setup. Proposed check: Tune PLScomponents and preprocessing on identical training folds and assess against the current model using the same untouched device-wise metric. Limitation: Negative evidence is setup-specific; source omits PLShyperparameters and exact score.",
+      "trigger_conditions": [
+        "PLS is a plausible alternative in a spectroscopic regression task."
+      ],
+      "action_steps": [
+        "Proposed conditional application: Include PLS as a comparison, rather than assuming it will improve the existing setup."
+      ],
+      "verification_steps": [
+        "Proposed check: Tune PLScomponents and preprocessing on identical training folds and assess against the current model using the same untouched device-wise metric."
+      ],
+      "limitations": [
+        "Negative evidence is setup-specific; source omits PLShyperparameters and exact score."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "spectrum"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "scientific_measurement"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Processing principle remains testable; implementation and validation require local checks.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author tested PLS and reports no improvement over this setup.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Tune PLScomponents and preprocessing on identical training folds and assess against the current model using the same untouched device-wise metric.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-bec657cb0c2e6942aec2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Keeping a plausible simple baseline teaches fair comparison.",
+        "competitor": "Scoped negative results prevent assuming a conventional spectroscopy method must win.",
+        "practitioner": "PLSremains a testable alternative; model ranking must follow local validation."
+      },
+      "review": {
+        "candidate_id": "C-4f736498045c26f649e3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Author explicitly says PLSdidnotbeatthissetup; the original gives no universal ineffectiveness claim or component settings.",
+        "candidate_sha256": "dd582d274fd1b41c52044a6820e7ca593f6c50127e0b8077f00b82bf6547fb7d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000378",
+      "slug": "lesson-000378",
+      "merged_candidate_ids": [
+        "C-4f736498045c26f649e3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-04f191145f42ed82a71f",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "source_url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "source_quality": "primary_text",
+          "observation_id": "O-bec657cb0c2e6942aec2",
+          "line_start": 41,
+          "line_end": 41,
+          "evidence_text": "I tried other methods from the original work like PLS but they did not yield any better results than my setup.",
+          "kind": "reported_failure",
+          "statement": "The author tried PLS and reports it did not improve on their setup.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Keeping a plausible simple baseline teaches fair comparison.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Scoped negative results prevent assuming a conventional spectroscopy method must win.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "PLSremains a testable alternative; model ranking must follow local validation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "locator": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt#L41-L41",
+          "quote": "I tried other methods from the original work like PLS but they did not yield any better results than my setup.",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "line_start": 41,
+          "line_end": 41
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-4f736498045c26f649e3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Author explicitly says PLSdidnotbeatthissetup; the original gives no universal ineffectiveness claim or component settings.",
+          "candidate_sha256": "dd582d274fd1b41c52044a6820e7ca593f6c50127e0b8077f00b82bf6547fb7d"
+        },
+        {
+          "candidate_id": "C-4f736498045c26f649e3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Original Dig4Bio states PLS did not beat this setup, without score or hyperparameters. Candidate scopes negative evidence and proposes component tuning on identical folds rather than rejecting PLS generally. All twelve scores and rationales are justified by feasible conventional-baseline comparison.",
+          "candidate_sha256": "dd582d274fd1b41c52044a6820e7ca593f6c50127e0b8077f00b82bf6547fb7d"
+        }
+      ],
+      "book_location": {
+        "chapter": 14,
+        "path": "manuscript/chapters/14-what-doesnt-work.md",
+        "sha256": "f7a76ffc248a8149d4f17658e7e0c4e895a0fa829825c8a1efaabe69195d5839",
+        "line_start": 59,
+        "line_end": 69,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

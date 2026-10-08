@@ -1,0 +1,2561 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-f19eadb43bcfb5f3",
+      "canonical_key": "compare classical/neural first-stage candidates and rerank their union with a bounded candidate budget. | entity queries are noisy and ambiguous | predictive_quality",
+      "title": "Blend retrieval families before an expensive learned reranker",
+      "statement": "When entity queries are noisy and ambiguous, consider this source-backed action: Compare classical/neural first-stage candidates and rerank their union with a bounded candidate budget. Proposed check: Measure candidate recall and nDCG at one-hundred against each stage separately. Limit: The packet does not detail the exact fusion or reranker training recipe; external benchmark success is a hypothesis for local transfer.",
+      "trigger_conditions": [
+        "entity queries are noisy and ambiguous"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare classical/neural first-stage candidates and rerank their union with a bounded candidate budget."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure candidate recall and nDCG at one-hundred against each stage separately."
+      ],
+      "limitations": [
+        "The packet does not detail the exact fusion or reranker training recipe; external benchmark success is a hypothesis for local transfer."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team combined classical and neural retrieval then used an RL-trained LLM reranker, selecting neural methods with broad benchmark results in mind.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-f19eadb43bcfb5f3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multi-stage neural search requires models and compute.",
+        "competitor": "Useful diverse-candidate design before expensive reranking.",
+        "practitioner": "Search architecture transfers with local relevance and latency checks."
+      },
+      "review": {
+        "candidate_id": "C-a-f19eadb43bcfb5f3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked classical/neural/RLrerank pipeline; benchmark transfer hypothesis.",
+        "candidate_sha256": "0c6d2cb59ac540eef42fe6082d31cffc96bb6dacd380a93c8e3b957a612a67a2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000099",
+      "slug": "lesson-000099",
+      "merged_candidate_ids": [
+        "C-a-f19eadb43bcfb5f3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1b02b587761b95005640",
+          "competition_id": "competition:ir-20251-rc",
+          "source_id": "source:lesson-source-5acb1ff149d7fcc8",
+          "snapshot_path": "research/lesson-extraction/snapshots/0687d8bbc6548ef87acd3c1944995e71dfdfa3efe3bb7c62000c73884a1a7518.txt",
+          "snapshot_sha256": "0687d8bbc6548ef87acd3c1944995e71dfdfa3efe3bb7c62000c73884a1a7518",
+          "source_url": "https://raw.githubusercontent.com/vlcfaria/search-engine/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-f19eadb43bcfb5f3",
+          "line_start": 5,
+          "line_end": 7,
+          "evidence_text": "Our team managed to secure first place in the challenge, engineering several pipelines, taking advantage of classical methods, such as BM25 and Reciprocal Rank Fusion, along with neural state-of-the-art techniques, such as MonoT5, SPLADE and LLM rerankers.\n\nFor our best submission, we aimed to use neural techniques that tended to generalize well (using results primarily from the [BEIR benchmark](https://github.com/beir-cellar/beir)) and blend them with well studied classical techniques. By doing so, we established a very robust first-retrieval, which was then combined with a LLM reranker, which was specifically trained for reranking using reinforcement learning.",
+          "kind": "used",
+          "statement": "The team combined classical and neural retrieval then used an RL-trained LLM reranker, selecting neural methods with broad benchmark results in mind.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Multi-stage neural search requires models and compute.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful diverse-candidate design before expensive reranking.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Search architecture transfers with local relevance and latency checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5acb1ff149d7fcc8",
+          "locator": "research/lesson-extraction/snapshots/0687d8bbc6548ef87acd3c1944995e71dfdfa3efe3bb7c62000c73884a1a7518.txt#L5-L7",
+          "quote": "Our team managed to secure first place in the challenge, engineering several pipelines, taking advantage of classical methods, such as BM25 and Reciprocal Rank Fusion, along with neural state-of-the-art techniques, such as MonoT5, SPLADE and LLM rerankers.\n\nFor our best submission, we aimed to use neural techniques that tended to generalize well (using results primarily from the [BEIR benchmark](https://github.com/beir-cellar/beir)) and blend them with well studied classical techniques. By doing so, we established a very robust first-retrieval, which was then combined with a LLM reranker, which was specifically trained for reranking using reinforcement learning.",
+          "competition_id": "competition:ir-20251-rc",
+          "url": "https://raw.githubusercontent.com/vlcfaria/search-engine/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/0687d8bbc6548ef87acd3c1944995e71dfdfa3efe3bb7c62000c73884a1a7518.txt",
+          "snapshot_sha256": "0687d8bbc6548ef87acd3c1944995e71dfdfa3efe3bb7c62000c73884a1a7518",
+          "line_start": 5,
+          "line_end": 7
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-f19eadb43bcfb5f3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked classical/neural/RLrerank pipeline; benchmark transfer hypothesis.",
+          "candidate_sha256": "0c6d2cb59ac540eef42fe6082d31cffc96bb6dacd380a93c8e3b957a612a67a2"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 201,
+        "line_end": 205,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-7901160ce0d87e70",
+      "canonical_key": "compare graph-centrality candidate generation and ranking features separately with an existing recommender. | recommendations need unseen-content candidates from interaction graphs | predictive_quality",
+      "title": "Evaluate graph centrality as both candidate generation and ranking signal",
+      "statement": "When recommendations need unseen-content candidates from interaction graphs, consider this source-backed action: Compare graph-centrality candidate generation and ranking features separately with an existing recommender. Proposed check: Measure candidate recall and held-out ranking quality at fixed candidate budget. Limit: The centrality definition is outside this packet; reported feature gain cannot establish combined pipeline attribution.",
+      "trigger_conditions": [
+        "recommendations need unseen-content candidates from interaction graphs"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare graph-centrality candidate generation and ranking features separately with an existing recommender."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure candidate recall and held-out ranking quality at fixed candidate budget."
+      ],
+      "limitations": [
+        "The centrality definition is outside this packet; reported feature gain cannot establish combined pipeline attribution."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "graph"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used like-graph node centrality to identify candidates and as a ranking feature, reported validation benefit but had not ablated the combined feature/selection effect.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-7901160ce0d87e70"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Graph construction and candidate-recall evaluation need advanced familiarity.",
+        "competitor": "Concrete interaction-graph signal and candidate budget checks.",
+        "practitioner": "Strong recommendation relevance with separate retrieval and ranking evaluation."
+      },
+      "review": {
+        "candidate_id": "C-a-7901160ce0d87e70",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Centrality was used for candidates and ranking; only ranking-feature gain is estimated and combined contribution remains unknown.",
+        "candidate_sha256": "89cd942eba9d6e4563d83efe53c9a815d9b8979acd9c7f107afd167d836a3fcd"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000132",
+      "slug": "lesson-000132",
+      "merged_candidate_ids": [
+        "C-a-7901160ce0d87e70"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4a80b7b119ff0a28dc7b",
+          "competition_id": "competition:predict-wordpress-likes",
+          "source_id": "source:lesson-source-6eed6a06f21f3030",
+          "snapshot_path": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt",
+          "snapshot_sha256": "eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c",
+          "source_url": "http://blog.kaggle.com/2012/09/21/overkill-analytics-wordpress-winner-describes-his-method/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-7901160ce0d87e70",
+          "line_start": 95,
+          "line_end": 99,
+          "evidence_text": "In the end, this node centrality calculation served as a feature in my recommendation engine\u2019s ranking and \u2013 more importantly \u2013 as a method of identifying the candidates to be fed into the engine.\u00a0\u00a0 I have not done the work to see how much this feature and selection method added to my score, but I know as a feature it added 2%-3% to my validation score, a larger jump than many other features.\u00a0\u00a0 Moreover, my brief review of the other winner\u2019s code leads me to think this may have been a unique aspect of my entry \u2013 many of the other features I used were closely correlated elements in the other\u2019s code.\n\nMore crucially, for actual implementation by Automattic the \u2018like graph\u2019 is a more practical avenue for a recommendation engine, and is probably what the company uses to recommend new posts.\u00a0\u00a0 Most of the work we did in the competition\u00a0differentiated\u00a0between posts from blogs the user was already reading \u2013 useful, but not a huge value-add to the WordPress user.\u00a0\u00a0 Finding\u00a0unseen\u00a0blog posts in which a user may have interest would be a more relevant and valuable tool, and finding new blogs for the user with high centrality in their social graph is a reasonable way to find them.\u00a0\u00a0 From my work on the competition, I believe these methods would be more promising avenues than NLP and topic-oriented methods.\n\nThe above posts covers all of my thinking in applying network concepts to the WordPress challenge problem, but I am certain\u00a0 I only scratched the surface.\u00a0 \u00a0There are a host of other metrics that make sense to apply (such as\u00a0eccentricity,\u00a0closeness\u00a0and\u00a0betweenness).\u00a0\u00a0 If you work for WordPress/Automattic (and that is the only conceivable reason you made it this far), I\u2019d be happy to discuss additional ideas, either on this blog or in person.",
+          "kind": "reported_gain",
+          "statement": "The author used like-graph node centrality to identify candidates and as a ranking feature, reported validation benefit but had not ablated the combined feature/selection effect.",
+          "reported_result": {
+            "metric": "Validation score improvement (author estimate, units unspecified)",
+            "value": 2,
+            "context": "Centrality ranking feature versus feature absent, author reports 2%-3%; candidate-selection contribution not ablated, baseline score/split/metric and relative-versus-percentage-point interpretation unknown.",
+            "evidence_text": "In the end, this node centrality calculation served as a feature in my recommendation engine\u2019s ranking and \u2013 more importantly \u2013 as a method of identifying the candidates to be fed into the engine.\u00a0\u00a0 I have not done the work to see how much this feature and selection method added to my score, but I know as a feature it added 2%-3% to my validation score, a larger jump than many other features.\u00a0\u00a0 Moreover, my brief review of the other winner\u2019s code leads me to think this may have been a unique aspect of my entry \u2013 many of the other features I used were closely correlated elements in the other\u2019s code.\n\nMore crucially, for actual implementation by Automattic the \u2018like graph\u2019 is a more practical avenue for a recommendation engine, and is probably what the company uses to recommend new posts.\u00a0\u00a0 Most of the work we did in the competition\u00a0differentiated\u00a0between posts from blogs the user was already reading \u2013 useful, but not a huge value-add to the WordPress user.\u00a0\u00a0 Finding\u00a0unseen\u00a0blog posts in which a user may have interest would be a more relevant and valuable tool, and finding new blogs for the user with high centrality in their social graph is a reasonable way to find them.\u00a0\u00a0 From my work on the competition, I believe these methods would be more promising avenues than NLP and topic-oriented methods.\n\nThe above posts covers all of my thinking in applying network concepts to the WordPress challenge problem, but I am certain\u00a0 I only scratched the surface.\u00a0 \u00a0There are a host of other metrics that make sense to apply (such as\u00a0eccentricity,\u00a0closeness\u00a0and\u00a0betweenness).\u00a0\u00a0 If you work for WordPress/Automattic (and that is the only conceivable reason you made it this far), I\u2019d be happy to discuss additional ideas, either on this blog or in person."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Graph construction and candidate-recall evaluation need advanced familiarity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete interaction-graph signal and candidate budget checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Strong recommendation relevance with separate retrieval and ranking evaluation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6eed6a06f21f3030",
+          "locator": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt#L95-L99",
+          "quote": "In the end, this node centrality calculation served as a feature in my recommendation engine\u2019s ranking and \u2013 more importantly \u2013 as a method of identifying the candidates to be fed into the engine.\u00a0\u00a0 I have not done the work to see how much this feature and selection method added to my score, but I know as a feature it added 2%-3% to my validation score, a larger jump than many other features.\u00a0\u00a0 Moreover, my brief review of the other winner\u2019s code leads me to think this may have been a unique aspect of my entry \u2013 many of the other features I used were closely correlated elements in the other\u2019s code.\n\nMore crucially, for actual implementation by Automattic the \u2018like graph\u2019 is a more practical avenue for a recommendation engine, and is probably what the company uses to recommend new posts.\u00a0\u00a0 Most of the work we did in the competition\u00a0differentiated\u00a0between posts from blogs the user was already reading \u2013 useful, but not a huge value-add to the WordPress user.\u00a0\u00a0 Finding\u00a0unseen\u00a0blog posts in which a user may have interest would be a more relevant and valuable tool, and finding new blogs for the user with high centrality in their social graph is a reasonable way to find them.\u00a0\u00a0 From my work on the competition, I believe these methods would be more promising avenues than NLP and topic-oriented methods.\n\nThe above posts covers all of my thinking in applying network concepts to the WordPress challenge problem, but I am certain\u00a0 I only scratched the surface.\u00a0 \u00a0There are a host of other metrics that make sense to apply (such as\u00a0eccentricity,\u00a0closeness\u00a0and\u00a0betweenness).\u00a0\u00a0 If you work for WordPress/Automattic (and that is the only conceivable reason you made it this far), I\u2019d be happy to discuss additional ideas, either on this blog or in person.",
+          "competition_id": "competition:predict-wordpress-likes",
+          "url": "http://blog.kaggle.com/2012/09/21/overkill-analytics-wordpress-winner-describes-his-method/",
+          "snapshot_path": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt",
+          "snapshot_sha256": "eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c",
+          "line_start": 95,
+          "line_end": 99
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-7901160ce0d87e70",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Centrality was used for candidates and ranking; only ranking-feature gain is estimated and combined contribution remains unknown.",
+          "candidate_sha256": "89cd942eba9d6e4563d83efe53c9a815d9b8979acd9c7f107afd167d836a3fcd"
+        },
+        {
+          "candidate_id": "C-a-7901160ce0d87e70",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Wordpresswinnerpacket88-101explicitcentralitycandidate+rankfeature,featureestimated2%-3%validationgain,combinednotablated. Metric/split/baselineandrelativevspercentagepointsunknown;candidatecentralitydefinitionoutsidepacket. Separatecandidatebudgetrecall/rankingcheckproposed,gradesreasonable.",
+          "candidate_sha256": "89cd942eba9d6e4563d83efe53c9a815d9b8979acd9c7f107afd167d836a3fcd"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 155,
+        "line_end": 165,
+        "section": "Graph Candidates and Reranking Cost"
+      }
+    },
+    {
+      "candidate_id": "C-23d9c88c3470a52f74e2",
+      "canonical_key": "count three-step paths per endpoint blog, normalize by total paths and use the resulting centrality proxy to select a manageable candidate set. | three-hop user-blog expansion creates tens of thousands of candidates | predictive_quality",
+      "title": "Rank graph-expanded candidates before costly recommendation scoring",
+      "statement": "When three-hop user-blog expansion creates tens of thousands of candidates, proposed reuse: Proposed conditional application: Count three-step paths per endpoint blog, normalize by total paths and use the resulting centrality proxy to select a manageable candidate set. Proposed check: Build graph only from historical interactions, compare recall at500with random/popularity baselines, and measure path-expansion and reranking cost. Limitation: Hyperactive users inflate candidate pools; source's random-walk equivalence is unsupported without degree normalization.",
+      "trigger_conditions": [
+        "three-hop user-blog expansion creates tens of thousands of candidates"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Count three-step paths per endpoint blog, normalize by total paths and use the resulting centrality proxy to select a manageable candidate set."
+      ],
+      "verification_steps": [
+        "Proposed check: Build graph only from historical interactions, compare recall at500with random/popularity baselines, and measure path-expansion and reranking cost."
+      ],
+      "limitations": [
+        "Hyperactive users inflate candidate pools; source's random-walk equivalence is unsupported without degree normalization."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "graph"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The blog recommender aggregates three-step user-blog paths into an endpoint centrality feature and candidate-selection score.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-95f9e0a9d574ea920fad",
+        "O-br-4e8c0574f9d1204ea6"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Graph candidate pruning is useful but requires multi-hop graph processing.",
+        "competitor": "The quantified recall comparison motivates a cheap selection stage before expensive ranking.",
+        "practitioner": "Interaction graphs can generate candidates efficiently if temporal leakage and hub bias are controlled."
+      },
+      "review": {
+        "candidate_id": "C-23d9c88c3470a52f74e2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner counts normalized three-edge paths to rank candidate blogs; top500recover over20%of distance-three likes versus3%random. Simple path counts do not guarantee an equal-edge random walk.",
+        "candidate_sha256": "b81c2bb969c3dff21f56d365e72657806dbb4bbd8b2b8cdcdbd378db7a208079"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000217",
+      "slug": "lesson-000217",
+      "merged_candidate_ids": [
+        "C-23d9c88c3470a52f74e2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-13d9ca19a2a5a8350832",
+          "competition_id": "competition:predict-wordpress-likes",
+          "source_id": "source:lesson-source-6eed6a06f21f3030",
+          "snapshot_path": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt",
+          "snapshot_sha256": "eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c",
+          "source_url": "http://blog.kaggle.com/2012/09/21/overkill-analytics-wordpress-winner-describes-his-method/",
+          "source_quality": "primary_text",
+          "observation_id": "O-95f9e0a9d574ea920fad",
+          "line_start": 37,
+          "line_end": 37,
+          "evidence_text": "Step 1(b): Aggregate the paths by the end-point blog; and",
+          "kind": "reported_gain",
+          "statement": "The blog recommender aggregates three-step user-blog paths into an endpoint centrality feature and candidate-selection score.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-13d9ca19a2a5a8350832",
+          "competition_id": "competition:predict-wordpress-likes",
+          "source_id": "source:lesson-source-6eed6a06f21f3030",
+          "snapshot_path": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt",
+          "snapshot_sha256": "eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c",
+          "source_url": "http://blog.kaggle.com/2012/09/21/overkill-analytics-wordpress-winner-describes-his-method/",
+          "source_quality": "primary_text",
+          "observation_id": "O-br-4e8c0574f9d1204ea6",
+          "line_start": 49,
+          "line_end": 49,
+          "evidence_text": "As shown above, if you examine the first 500 distance 3 blogs by this node centrality metric, you can find over 20% of all the likes in the distance 3 blog set.\u00a0\u00a0 If you selected 500 candidates by random sample, however, only 3% of the likes from this population would be found.\u00a0\u00a0 While I am certain this metric could be improved greatly by using more sophisticated centrality calculations, the algorithm above serves as a very useful first cut.",
+          "kind": "reported_gain",
+          "statement": "The blog recommender aggregates three-step user-blog paths into an endpoint centrality feature and candidate-selection score.",
+          "reported_result": {
+            "metric": "distance-three like recall percent at500candidates",
+            "value": 20,
+            "context": "Over20%recall with normalized path-count ranking versus3%random sampling, restricted to distance-three blogs in the week-five historical analysis; value20is a lower bound.",
+            "evidence_text": "if you examine the first 500 distance 3 blogs by this node centrality metric, you can find over 20% of all the likes in the distance 3 blog set."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Graph candidate pruning is useful but requires multi-hop graph processing.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The quantified recall comparison motivates a cheap selection stage before expensive ranking.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Interaction graphs can generate candidates efficiently if temporal leakage and hub bias are controlled.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6eed6a06f21f3030",
+          "locator": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt#L37-L37",
+          "quote": "Step 1(b): Aggregate the paths by the end-point blog; and",
+          "competition_id": "competition:predict-wordpress-likes",
+          "url": "http://blog.kaggle.com/2012/09/21/overkill-analytics-wordpress-winner-describes-his-method/",
+          "snapshot_path": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt",
+          "snapshot_sha256": "eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c",
+          "line_start": 37,
+          "line_end": 37
+        },
+        {
+          "source_id": "source:lesson-source-6eed6a06f21f3030",
+          "locator": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt#L49-L49",
+          "quote": "As shown above, if you examine the first 500 distance 3 blogs by this node centrality metric, you can find over 20% of all the likes in the distance 3 blog set.\u00a0\u00a0 If you selected 500 candidates by random sample, however, only 3% of the likes from this population would be found.\u00a0\u00a0 While I am certain this metric could be improved greatly by using more sophisticated centrality calculations, the algorithm above serves as a very useful first cut.",
+          "competition_id": "competition:predict-wordpress-likes",
+          "url": "http://blog.kaggle.com/2012/09/21/overkill-analytics-wordpress-winner-describes-his-method/",
+          "snapshot_path": "research/lesson-extraction/snapshots/eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c.txt",
+          "snapshot_sha256": "eaebec339d91fccbd5a1f4bf61964c0669d339b2cf39d2b95d71ece62af4c26c",
+          "line_start": 49,
+          "line_end": 49
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-23d9c88c3470a52f74e2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner counts normalized three-edge paths to rank candidate blogs; top500recover over20%of distance-three likes versus3%random. Simple path counts do not guarantee an equal-edge random walk.",
+          "candidate_sha256": "b81c2bb969c3dff21f56d365e72657806dbb4bbd8b2b8cdcdbd378db7a208079"
+        },
+        {
+          "candidate_id": "C-23d9c88c3470a52f74e2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "WordPress winner normalizes three-step endpoint path counts; 500 candidates recover over 20 percent of distance-three likes versus 3 percent random in historical week five. Candidate does not equate this with degree-normalized random walks and proposes timestamp, hub-bias and cost controls. Twelve scores reflect graph expertise.",
+          "candidate_sha256": "b81c2bb969c3dff21f56d365e72657806dbb4bbd8b2b8cdcdbd378db7a208079"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 167,
+        "line_end": 177,
+        "section": "Graph Candidates and Reranking Cost"
+      }
+    },
+    {
+      "candidate_id": "C-a-9d76a9c2802ba3f0",
+      "canonical_key": "estimate candidate-pair volume across all rankers and profile complete pipeline time before choosing the ensemble. | multi-model cross-encoder inference has a fixed resource budget | compute_efficiency",
+      "title": "Budget reranking by queries times candidates times models",
+      "statement": "When multi-model cross-encoder inference has a fixed resource budget, consider this source-backed action: Estimate candidate-pair volume across all rankers and profile complete pipeline time before choosing the ensemble. Proposed check: Measure wall time, memory and final ranking quality under the actual budget. Limit: Reported runtime is specific to their models and T4; corpus indexing and downloads also contribute.",
+      "trigger_conditions": [
+        "multi-model cross-encoder inference has a fixed resource budget"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Estimate candidate-pair volume across all rankers and profile complete pipeline time before choosing the ensemble."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure wall time, memory and final ranking quality under the actual budget."
+      ],
+      "limitations": [
+        "Reported runtime is specific to their models and T4; corpus indexing and downloads also contribute."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "high",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The complete pipeline ran about ten hours on one T4, mostly reranking 300 candidates for 4912 queries across three models.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-9d76a9c2802ba3f0"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Pair-count arithmetic makes large inference budgets understandable.",
+        "competitor": "Full-volume profiling prevents submission budget failures.",
+        "practitioner": "Capacity planning highly useful for multi-ranker serving."
+      },
+      "review": {
+        "candidate_id": "C-a-9d76a9c2802ba3f0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked full10-hour T4 workload; no speed comparison implied.",
+        "candidate_sha256": "160e12153a79f8dc8d27a3ef27d8d62e5531bf4a8ea5239ac87ce91f21203485"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000240",
+      "slug": "lesson-000240",
+      "merged_candidate_ids": [
+        "C-a-9d76a9c2802ba3f0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9b32b8f8f8cbf38d5c6a",
+          "competition_id": "competition:aiml-a-a-2025-26-end-of-year-hackathon",
+          "source_id": "source:lesson-source-036324abb99e5c67",
+          "snapshot_path": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt",
+          "snapshot_sha256": "b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce",
+          "source_url": "https://raw.githubusercontent.com/m4rch1n0/aiml-hackathon-2526-passage-ranking/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-9d76a9c2802ba3f0",
+          "line_start": 108,
+          "line_end": 117,
+          "evidence_text": "The entire pipeline was executed on Kaggle using a free T4 GPU.\n\n1. Open a new Kaggle notebook with **GPU enabled**.\n2. Attach the competition data (`msmarco_sampled` dataset).\n3. Upload [`notebook.ipynb`](./notebook.ipynb) and run all cells top-to-bottom.\n4. Download `submission.csv` and submit.\n\nApproximate runtime: **~10 hours** on a single T4 (the majority of which is spent on Cross-Encoder reranking of 300 candidates \u00d7 4912 queries \u00d7 3 models).\n\nThe notebook is self-contained: it installs dependencies, downloads the dataset, builds the FAISS index, runs the ensemble reranking, and writes a valid Kaggle submission file. Running it locally requires only installing the packages listed in [`requirements.txt`](./requirements.txt) and pointing the data paths at a local copy of the competition data.",
+          "kind": "used",
+          "statement": "The complete pipeline ran about ten hours on one T4, mostly reranking 300 candidates for 4912 queries across three models.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Pair-count arithmetic makes large inference budgets understandable.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Full-volume profiling prevents submission budget failures.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Capacity planning highly useful for multi-ranker serving.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-036324abb99e5c67",
+          "locator": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt#L108-L117",
+          "quote": "The entire pipeline was executed on Kaggle using a free T4 GPU.\n\n1. Open a new Kaggle notebook with **GPU enabled**.\n2. Attach the competition data (`msmarco_sampled` dataset).\n3. Upload [`notebook.ipynb`](./notebook.ipynb) and run all cells top-to-bottom.\n4. Download `submission.csv` and submit.\n\nApproximate runtime: **~10 hours** on a single T4 (the majority of which is spent on Cross-Encoder reranking of 300 candidates \u00d7 4912 queries \u00d7 3 models).\n\nThe notebook is self-contained: it installs dependencies, downloads the dataset, builds the FAISS index, runs the ensemble reranking, and writes a valid Kaggle submission file. Running it locally requires only installing the packages listed in [`requirements.txt`](./requirements.txt) and pointing the data paths at a local copy of the competition data.",
+          "competition_id": "competition:aiml-a-a-2025-26-end-of-year-hackathon",
+          "url": "https://raw.githubusercontent.com/m4rch1n0/aiml-hackathon-2526-passage-ranking/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt",
+          "snapshot_sha256": "b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce",
+          "line_start": 108,
+          "line_end": 117
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-9d76a9c2802ba3f0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked full10-hour T4 workload; no speed comparison implied.",
+          "candidate_sha256": "160e12153a79f8dc8d27a3ef27d8d62e5531bf4a8ea5239ac87ce91f21203485"
+        },
+        {
+          "candidate_id": "C-a-9d76a9c2802ba3f0",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Pareto README explicitly reports single T4,about10h and300x4912x3 reranking volume. Runtime is complete-pipeline absolute budget, not isolated speed gain. Proposed full-volume profiling has strong practitioner value with hardware limits.",
+          "candidate_sha256": "160e12153a79f8dc8d27a3ef27d8d62e5531bf4a8ea5239ac87ce91f21203485"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 207,
+        "line_end": 217,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9006b8b54654334be133",
+      "canonical_key": "evaluate matrix factorization alongside content-based and neighborhood collaborative filtering. | user-item ratings and item metadata are both available | predictive_quality",
+      "title": "Compare content and latent interaction baselines for ratings",
+      "statement": "When user-item ratings and item metadata are both available, proposed reuse: Proposed conditional application: Evaluate matrix factorization alongside content-based and neighborhood collaborative filtering. Proposed check: Compare factorization, content and neighborhood models on time-aware ratings holdout, reporting warm/cold-start segments and regularization sensitivity. Limitation: The source omits evaluation split, competitor RMSEs and cold-start behavior; result is reported, not reproduced.",
+      "trigger_conditions": [
+        "user-item ratings and item metadata are both available"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Evaluate matrix factorization alongside content-based and neighborhood collaborative filtering."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare factorization, content and neighborhood models on time-aware ratings holdout, reporting warm/cold-start segments and regularization sensitivity."
+      ],
+      "limitations": [
+        "The source omits evaluation split, competitor RMSEs and cold-start behavior; result is reported, not reproduced."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The rating README identifies matrix factorization as its lowest-RMSE model among compared approaches.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-b71f3c467009eee3db0d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Several recommendation baselines form a useful tractable starting point.",
+        "competitor": "The reported factorization comparison supports testing complementary approaches.",
+        "practitioner": "Ratings systems need explicit cold-start and temporal evaluation beyond a single RMSE."
+      },
+      "review": {
+        "candidate_id": "C-9006b8b54654334be133",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner-owned recipe README explicitly says matrix factorization lowest RMSE1.045547over content/neighborhood methods; comparator values and split are absent.",
+        "candidate_sha256": "1de98dd86015739bf552aff0973b385c85ea85a3ea81c4169401362c1af43668"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000248",
+      "slug": "lesson-000248",
+      "merged_candidate_ids": [
+        "C-9006b8b54654334be133"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-d44d6d218e2964310ce7",
+          "competition_id": "competition:recommender-systems-2024",
+          "source_id": "source:lesson-source-ab8f5c976563701e",
+          "snapshot_path": "research/lesson-extraction/snapshots/07ab288da9831c3a8dababb73748b62604a1f3a79f4e2af007b9670e52d5e1d3.txt",
+          "snapshot_sha256": "07ab288da9831c3a8dababb73748b62604a1f3a79f4e2af007b9670e52d5e1d3",
+          "source_url": "https://raw.githubusercontent.com/hanhtran268/Recipe_Recommender_System_KaggleWinner2024/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-b71f3c467009eee3db0d",
+          "line_start": 13,
+          "line_end": 13,
+          "evidence_text": "**MF_model achieved the lowest RMSE = 1.045547**, outperforming content-based and collaborative approaches.",
+          "kind": "reported_gain",
+          "statement": "The rating README identifies matrix factorization as its lowest-RMSE model among compared approaches.",
+          "reported_result": {
+            "metric": "RMSE",
+            "value": 1.045547,
+            "context": "Matrix factorization reports lower RMSE than content-based and neighborhood collaborative approaches; split and comparator numerical values are absent.",
+            "evidence_text": "MF_model achieved the lowest RMSE = 1.045547"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Several recommendation baselines form a useful tractable starting point.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "The reported factorization comparison supports testing complementary approaches.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Ratings systems need explicit cold-start and temporal evaluation beyond a single RMSE.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ab8f5c976563701e",
+          "locator": "research/lesson-extraction/snapshots/07ab288da9831c3a8dababb73748b62604a1f3a79f4e2af007b9670e52d5e1d3.txt#L13-L13",
+          "quote": "**MF_model achieved the lowest RMSE = 1.045547**, outperforming content-based and collaborative approaches.",
+          "competition_id": "competition:recommender-systems-2024",
+          "url": "https://raw.githubusercontent.com/hanhtran268/Recipe_Recommender_System_KaggleWinner2024/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/07ab288da9831c3a8dababb73748b62604a1f3a79f4e2af007b9670e52d5e1d3.txt",
+          "snapshot_sha256": "07ab288da9831c3a8dababb73748b62604a1f3a79f4e2af007b9670e52d5e1d3",
+          "line_start": 13,
+          "line_end": 13
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-9006b8b54654334be133",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner-owned recipe README explicitly says matrix factorization lowest RMSE1.045547over content/neighborhood methods; comparator values and split are absent.",
+          "candidate_sha256": "1de98dd86015739bf552aff0973b385c85ea85a3ea81c4169401362c1af43668"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 233,
+        "line_end": 237,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-c0333bf6f6fe32e7",
+      "canonical_key": "generate same-ip candidates, add within-device rankings and oof cookie scores, prune high-ambiguity ips and rank by device. | cross-device matching shares ambiguous ip-address candidates | predictive_quality",
+      "title": "Rank entity matches within device groups after candidate pruning",
+      "statement": "When cross-device matching shares ambiguous IP-address candidates, consider this source-backed action: Generate same-IP candidates, add within-device rankings and OOF cookie scores, prune high-ambiguity IPs and rank by device. Proposed check: Measure candidate recall before pruning and final handle precision/recall afterward. Limit: Cellular downsampling can remove true pairs; handle expansion relies on reliable handle metadata.",
+      "trigger_conditions": [
+        "cross-device matching shares ambiguous IP-address candidates"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Generate same-IP candidates, add within-device rankings and OOF cookie scores, prune high-ambiguity IPs and rank by device."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure candidate recall before pruning and final handle precision/recall afterward."
+      ],
+      "limitations": [
+        "Cellular downsampling can remove true pairs; handle expansion relies on reliable handle metadata."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "graph"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team built device-cookie-IP triples, within-device cookie ranks and OOS cookie-level predictors, downsampled cellular IPs and used device-grouped pairwise ranking before expanding winning handles.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-c0333bf6f6fe32e7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Graph/entity matching requires substantial feature infrastructure.",
+        "competitor": "Concrete candidate-to-handle ranking framework for shared identifiers.",
+        "practitioner": "Relevant identity matching with reliable metadata and privacy-safe provenance."
+      },
+      "review": {
+        "candidate_id": "C-a-c0333bf6f6fe32e7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked triples/grouped rank/handle expansion; truepair recall can fall under cellular pruning.",
+        "candidate_sha256": "7a5803808d7c5779cf3acf27df1e0583dc92cea89f4f692026c54d33f74f8663"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000302",
+      "slug": "lesson-000302",
+      "merged_candidate_ids": [
+        "C-a-c0333bf6f6fe32e7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dec99a06c6c92eb10a3b",
+          "competition_id": "competition:icdm-2015-drawbridge-cross-device-connections",
+          "source_id": "source:lesson-source-ef9aad82153e9f66",
+          "snapshot_path": "research/lesson-extraction/snapshots/769b786c943f7def18f19a3b49ffa3dfd8197b1764d8cce1a22a43e8d4fd1852.txt",
+          "snapshot_sha256": "769b786c943f7def18f19a3b49ffa3dfd8197b1764d8cce1a22a43e8d4fd1852",
+          "source_url": "https://www.kaggle.com/competitions/icdm-2015-drawbridge-cross-device-connections/writeups/idle-speculation-agdavis-1st-place-solution-summar",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-c0333bf6f6fe32e7",
+          "line_start": 5,
+          "line_end": 12,
+          "evidence_text": "*   We generated a training set from the data as a collection triples of (device_id, cookie_id, ip) for each instance where a device and cookie appeared on the same ip.\n*   To this collection of triples, we join all the basic information about the device, cookie, and ip address.\n*   In addition, we generate a few hundred features based on the interaction between device, cookie, and ip. The most influential of these were ranks of each cookie partitioned by device and ordered by a basic attribute, say idxip_anonymous_c3 or ip_anonymous_c2 for instance.\n*   Cookie properties and any categorical features were one-hot encoded and also joined to the training set. We winnowed the list down substantially through cross-validation and were left with a few hundred in our final model.\n*   To this we added out-of-sample predictions of a few xgboost models built on cookie_all_basic to predict whether a cookie was matched to any device in the train set.\n*   To reduce the size of the training set we downsampled the cellular ip addresses quite heavily and also dropped any -1 drawbridge handle cookies.\n*   On this reduced dataset we built a learning-to-rank model which was a modified version of xgboost's \"rank:pairwise\" partitioning by device.\n*   For each device, we took the drawbridge handle of the highest scoring cookie and submitted all the cookie_ids for that drawbridge handle.",
+          "kind": "used",
+          "statement": "The team built device-cookie-IP triples, within-device cookie ranks and OOS cookie-level predictors, downsampled cellular IPs and used device-grouped pairwise ranking before expanding winning handles.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Graph/entity matching requires substantial feature infrastructure.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete candidate-to-handle ranking framework for shared identifiers.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Relevant identity matching with reliable metadata and privacy-safe provenance.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ef9aad82153e9f66",
+          "locator": "research/lesson-extraction/snapshots/769b786c943f7def18f19a3b49ffa3dfd8197b1764d8cce1a22a43e8d4fd1852.txt#L5-L12",
+          "quote": "*   We generated a training set from the data as a collection triples of (device_id, cookie_id, ip) for each instance where a device and cookie appeared on the same ip.\n*   To this collection of triples, we join all the basic information about the device, cookie, and ip address.\n*   In addition, we generate a few hundred features based on the interaction between device, cookie, and ip. The most influential of these were ranks of each cookie partitioned by device and ordered by a basic attribute, say idxip_anonymous_c3 or ip_anonymous_c2 for instance.\n*   Cookie properties and any categorical features were one-hot encoded and also joined to the training set. We winnowed the list down substantially through cross-validation and were left with a few hundred in our final model.\n*   To this we added out-of-sample predictions of a few xgboost models built on cookie_all_basic to predict whether a cookie was matched to any device in the train set.\n*   To reduce the size of the training set we downsampled the cellular ip addresses quite heavily and also dropped any -1 drawbridge handle cookies.\n*   On this reduced dataset we built a learning-to-rank model which was a modified version of xgboost's \"rank:pairwise\" partitioning by device.\n*   For each device, we took the drawbridge handle of the highest scoring cookie and submitted all the cookie_ids for that drawbridge handle.",
+          "competition_id": "competition:icdm-2015-drawbridge-cross-device-connections",
+          "url": "https://www.kaggle.com/competitions/icdm-2015-drawbridge-cross-device-connections/writeups/idle-speculation-agdavis-1st-place-solution-summar",
+          "snapshot_path": "research/lesson-extraction/snapshots/769b786c943f7def18f19a3b49ffa3dfd8197b1764d8cce1a22a43e8d4fd1852.txt",
+          "snapshot_sha256": "769b786c943f7def18f19a3b49ffa3dfd8197b1764d8cce1a22a43e8d4fd1852",
+          "line_start": 5,
+          "line_end": 12
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-c0333bf6f6fe32e7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked triples/grouped rank/handle expansion; truepair recall can fall under cellular pruning.",
+          "candidate_sha256": "7a5803808d7c5779cf3acf27df1e0583dc92cea89f4f692026c54d33f74f8663"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 239,
+        "line_end": 243,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-5601d449fc33dfddd0eb",
+      "canonical_key": "generate training context through the same retrieval approaches used at inference rather than using the true generation passage. | inference retrieves imperfect external passages | predictive_quality",
+      "title": "Train retrieval-augmented classifiers on retrieved rather than oracle context",
+      "statement": "When inference retrieves imperfect external passages, proposed reuse: Proposed conditional application: Generate training context through the same retrieval approaches used at inference rather than using the true generation passage. Proposed check: Compare oracle/retrieved-context training using inference-matched retrieval on unseen questions and retrieval-error strata. Limitation: Retriever leakage and context order matter; source fine-tunes 7B/13B models with substantial corpus.",
+      "trigger_conditions": [
+        "inference retrieves imperfect external passages"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Generate training context through the same retrieval approaches used at inference rather than using the true generation passage."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare oracle/retrieved-context training using inference-matched retrieval on unseen questions and retrieval-error strata."
+      ],
+      "limitations": [
+        "Retriever leakage and context order matter; source fine-tunes 7B/13B models with substantial corpus."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The science-QA team reports that training on the true generation context was weaker than training on retrieved context.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-3450735c1e6dc0aea579"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful mismatch lesson but expensive full reproduction.",
+        "competitor": "Concrete training-distribution correction for RAG.",
+        "practitioner": "High relevance where retrieved contexts are noisy."
+      },
+      "review": {
+        "candidate_id": "C-5601d449fc33dfddd0eb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full science QA source trains with retrieved rather than oracle generation passages, reporting qualitative advantage.",
+        "candidate_sha256": "5edbbea84b0b0c01e531b361d1077e3ba07986af0825f6543d8acaf12a9912c7"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000304",
+      "slug": "lesson-000304",
+      "merged_candidate_ids": [
+        "C-5601d449fc33dfddd0eb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-eb9cb33b761b7e8c5875",
+          "competition_id": "competition:kaggle-llm-science-exam",
+          "source_id": "source:lesson-source-276541d30ec01d74",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt",
+          "snapshot_sha256": "dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca",
+          "source_url": "https://www.kaggle.com/competitions/kaggle-llm-science-exam/writeups/team-h2o-llm-studio-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-3450735c1e6dc0aea579",
+          "line_start": 42,
+          "line_end": 42,
+          "evidence_text": "Training on the true context the question was generated on, was a bit worse than training on the generated context.",
+          "kind": "reported_failure",
+          "statement": "The science-QA team reports that training on the true generation context was weaker than training on retrieved context.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful mismatch lesson but expensive full reproduction.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 71.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Concrete training-distribution correction for RAG.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 78.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "High relevance where retrieved contexts are noisy.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-276541d30ec01d74",
+          "locator": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt#L42-L42",
+          "quote": "Training on the true context the question was generated on, was a bit worse than training on the generated context.",
+          "competition_id": "competition:kaggle-llm-science-exam",
+          "url": "https://www.kaggle.com/competitions/kaggle-llm-science-exam/writeups/team-h2o-llm-studio-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt",
+          "snapshot_sha256": "dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca",
+          "line_start": 42,
+          "line_end": 42
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-5601d449fc33dfddd0eb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full science QA source trains with retrieved rather than oracle generation passages, reporting qualitative advantage.",
+          "candidate_sha256": "5edbbea84b0b0c01e531b361d1077e3ba07986af0825f6543d8acaf12a9912c7"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 247,
+        "line_end": 251,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-7b2a0ed3dc2597376ea2",
+      "canonical_key": "hold out topics and remove training contents matched only to validation topics; group reranker folds by topic id. | test recommendations concern new topics | validation_reliability",
+      "title": "Evaluate retrieval on unseen topic-content associations",
+      "statement": "When test recommendations concern new topics, proposed reuse: Proposed conditional application: Hold out topics and remove training contents matched only to validation topics; group reranker folds by topic ID. Proposed check: Compare topic-grouped evaluation with random pair splits; audit every training content's association and evaluate recall on unseen topics. Limitation: Source uses a specific source-topic/random-topic partition; a new deployment needs its own topic and content availability rules.",
+      "trigger_conditions": [
+        "test recommendations concern new topics"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Hold out topics and remove training contents matched only to validation topics; group reranker folds by topic ID."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare topic-grouped evaluation with random pair splits; audit every training content's association and evaluate recall on unseen topics."
+      ],
+      "limitations": [
+        "Source uses a specific source-topic/random-topic partition; a new deployment needs its own topic and content availability rules."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "education"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The curriculum author held out topics and excluded contents matched only to validation topics.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1c7ed567cb19fb49829a"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Topic leakage is valuable to learn, but constructing the two-stage split takes retrieval experience.",
+        "competitor": "The explicit candidate-generation and reranker boundaries make this a useful retrieval validation recipe.",
+        "practitioner": "Unseen-topic evaluation closely matches curriculum retrieval deployment when content availability is reproduced."
+      },
+      "review": {
+        "candidate_id": "C-7b2a0ed3dc2597376ea2",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner describes topic holdout, exclusion of validation-only contents, and topic-grouped reranker folds; these are protocol choices, not a measured gain.",
+        "candidate_sha256": "65e7b7305cb4d6fb75928098a0f431ae1fbf6b16dd5f780f9a179f07f0f14111"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000309",
+      "slug": "lesson-000309",
+      "merged_candidate_ids": [
+        "C-7b2a0ed3dc2597376ea2"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dbd30858808bad8ddaf7",
+          "competition_id": "competition:learning-equality-curriculum-recommendations",
+          "source_id": "source:lesson-source-f1d5ccde14f77e3f",
+          "snapshot_path": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt",
+          "snapshot_sha256": "75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc",
+          "source_url": "https://www.kaggle.com/competitions/learning-equality-curriculum-recommendations/writeups/epicurus-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-1c7ed567cb19fb49829a",
+          "line_start": 13,
+          "line_end": 13,
+          "evidence_text": "The contents which only match with validation topics are excluded from the training set.",
+          "kind": "used",
+          "statement": "The curriculum author held out topics and excluded contents matched only to validation topics.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Topic leakage is valuable to learn, but constructing the two-stage split takes retrieval experience.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The explicit candidate-generation and reranker boundaries make this a useful retrieval validation recipe.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Unseen-topic evaluation closely matches curriculum retrieval deployment when content availability is reproduced.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f1d5ccde14f77e3f",
+          "locator": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt#L13-L13",
+          "quote": "The contents which only match with validation topics are excluded from the training set.",
+          "competition_id": "competition:learning-equality-curriculum-recommendations",
+          "url": "https://www.kaggle.com/competitions/learning-equality-curriculum-recommendations/writeups/epicurus-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt",
+          "snapshot_sha256": "75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc",
+          "line_start": 13,
+          "line_end": 13
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-7b2a0ed3dc2597376ea2",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner describes topic holdout, exclusion of validation-only contents, and topic-grouped reranker folds; these are protocol choices, not a measured gain.",
+          "candidate_sha256": "65e7b7305cb4d6fb75928098a0f431ae1fbf6b16dd5f780f9a179f07f0f14111"
+        },
+        {
+          "candidate_id": "C-7b2a0ed3dc2597376ea2",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "LearningEquality author holds out topics, excludes train content matched only to validation topics and group-CVs reranker by topic within validation pool. Candidate differentiates availability-specific source partition from proposed unseen-topic evaluation. Two-stage isolation expertise explains novice feasibility2 and experienced actionability4.",
+          "candidate_sha256": "65e7b7305cb4d6fb75928098a0f431ae1fbf6b16dd5f780f9a179f07f0f14111"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 255,
+        "line_end": 259,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-13888f566c964fcd",
+      "canonical_key": "measure gold-passage coverage across candidate cutoffs and choose a cutoff near the recall plateau before reranking. | expensive reranking is applied to a large passage collection | compute_efficiency",
+      "title": "Choose retrieval cutoff using oracle recall",
+      "statement": "When expensive reranking is applied to a large passage collection, consider this source-backed action: Measure gold-passage coverage across candidate cutoffs and choose a cutoff near the recall plateau before reranking. Proposed check: Measure final MAP and runtime for smaller and larger cutoffs on held-out queries. Limit: First-stage misses cannot be recovered by reranking; the 300 cutoff is collection-specific.",
+      "trigger_conditions": [
+        "expensive reranking is applied to a large passage collection"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Measure gold-passage coverage across candidate cutoffs and choose a cutoff near the recall plateau before reranking."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure final MAP and runtime for smaller and larger cutoffs on held-out queries."
+      ],
+      "limitations": [
+        "First-stage misses cannot be recovered by reranking; the 300 cutoff is collection-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used a cheap dense first stage and cross-encoder reranking; they selected 300 candidates at about 0.99 oracle recall to avoid more cost without coverage gain.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-13888f566c964fcd"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Requires gold relevance labels and retrieval infrastructure.",
+        "competitor": "Recall plateau controls candidate volume before expensive reranking.",
+        "practitioner": "Useful latency-quality decision for search with relevance judgments."
+      },
+      "review": {
+        "candidate_id": "C-a-13888f566c964fcd",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked oracle-recall criterion;0.99 at300 is coverage, not final MAP gain.",
+        "candidate_sha256": "84505d2d1a5aa50171aa187b9eb1da6f589648a33e2ee59f3824ce0a2a536cff"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000351",
+      "slug": "lesson-000351",
+      "merged_candidate_ids": [
+        "C-a-13888f566c964fcd"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9b32b8f8f8cbf38d5c6a",
+          "competition_id": "competition:aiml-a-a-2025-26-end-of-year-hackathon",
+          "source_id": "source:lesson-source-036324abb99e5c67",
+          "snapshot_path": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt",
+          "snapshot_sha256": "b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce",
+          "source_url": "https://raw.githubusercontent.com/m4rch1n0/aiml-hackathon-2526-passage-ranking/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-13888f566c964fcd",
+          "line_start": 39,
+          "line_end": 62,
+          "evidence_text": "We used a **two-stage retrieval pipeline**, the standard architecture for modern neural IR. The design balances efficiency (cheap Bi-Encoder over the full collection) and effectiveness (expensive Cross-Encoders only on candidates):\n\n```\n              \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   Query \u2500\u2500\u25b6  \u2502  Stage 1: Retrieval  \u2502 \u2500\u2500\u25b6  300 candidate passages\n              \u2502  Dual Encoder + FAISS\u2502\n              \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                         \u2502\n                         \u25bc\n              \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n              \u2502  Stage 2: Reranking  \u2502\n              \u2502  3\u00d7 Cross-Encoders   \u2502 \u2500\u2500\u25b6  Top-10 ranked passages\n              \u2502  + RRF ensemble      \u2502\n              \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n### Stage 1 - Dense Retrieval (Bi-Encoder)\n\n- **Model:** `sentence-transformers/all-mpnet-base-v2` (768-dim embeddings)\n- **Index:** FAISS `IndexFlatIP` (inner product on L2-normalized vectors)\n- **Pooling:** mean pooling over token embeddings, attention-mask weighted\n- **Cutoff:** top-K = **300** candidates per query\n\nWe selected K=300 by analyzing **Oracle Recall** - the fraction of queries for which the gold passage appears in the top-K. At K=300, Oracle Recall \u2248 **0.99**: nearly all relevant passages are retrieved, and increasing K further only adds compute without coverage gain.",
+          "kind": "used",
+          "statement": "The team used a cheap dense first stage and cross-encoder reranking; they selected 300 candidates at about 0.99 oracle recall to avoid more cost without coverage gain.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Requires gold relevance labels and retrieval infrastructure.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Recall plateau controls candidate volume before expensive reranking.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful latency-quality decision for search with relevance judgments.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-036324abb99e5c67",
+          "locator": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt#L39-L62",
+          "quote": "We used a **two-stage retrieval pipeline**, the standard architecture for modern neural IR. The design balances efficiency (cheap Bi-Encoder over the full collection) and effectiveness (expensive Cross-Encoders only on candidates):\n\n```\n              \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n   Query \u2500\u2500\u25b6  \u2502  Stage 1: Retrieval  \u2502 \u2500\u2500\u25b6  300 candidate passages\n              \u2502  Dual Encoder + FAISS\u2502\n              \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                         \u2502\n                         \u25bc\n              \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n              \u2502  Stage 2: Reranking  \u2502\n              \u2502  3\u00d7 Cross-Encoders   \u2502 \u2500\u2500\u25b6  Top-10 ranked passages\n              \u2502  + RRF ensemble      \u2502\n              \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n```\n\n### Stage 1 - Dense Retrieval (Bi-Encoder)\n\n- **Model:** `sentence-transformers/all-mpnet-base-v2` (768-dim embeddings)\n- **Index:** FAISS `IndexFlatIP` (inner product on L2-normalized vectors)\n- **Pooling:** mean pooling over token embeddings, attention-mask weighted\n- **Cutoff:** top-K = **300** candidates per query\n\nWe selected K=300 by analyzing **Oracle Recall** - the fraction of queries for which the gold passage appears in the top-K. At K=300, Oracle Recall \u2248 **0.99**: nearly all relevant passages are retrieved, and increasing K further only adds compute without coverage gain.",
+          "competition_id": "competition:aiml-a-a-2025-26-end-of-year-hackathon",
+          "url": "https://raw.githubusercontent.com/m4rch1n0/aiml-hackathon-2526-passage-ranking/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt",
+          "snapshot_sha256": "b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce",
+          "line_start": 39,
+          "line_end": 62
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-13888f566c964fcd",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked oracle-recall criterion;0.99 at300 is coverage, not final MAP gain.",
+          "candidate_sha256": "84505d2d1a5aa50171aa187b9eb1da6f589648a33e2ee59f3824ce0a2a536cff"
+        },
+        {
+          "candidate_id": "C-a-13888f566c964fcd",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete Pareto packet supports dense300 candidates and oracle recall about0.99, chosen near plateau. Proposed held-out final MAP/runtime checks and unrecoverable misses are appropriate; measured recall is not isolated speed comparison. Grades suit labeled retrieval settings.",
+          "candidate_sha256": "84505d2d1a5aa50171aa187b9eb1da6f589648a33e2ee59f3824ce0a2a536cff"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 179,
+        "line_end": 189,
+        "section": "Graph Candidates and Reranking Cost"
+      }
+    },
+    {
+      "candidate_id": "C-283b003d878aa2bd35ce",
+      "canonical_key": "outer-join candidates from character tf-idf, multilingual embeddings, nearest training topics, same-title and same-parent topics. | curriculum recommendations have titles and parent-topic structure | predictive_quality",
+      "title": "Union lexical semantic and hierarchy-derived retrieval candidates",
+      "statement": "When curriculum recommendations have titles and parent-topic structure, proposed reuse: Proposed conditional application: Outer-join candidates from character TF-IDF, multilingual embeddings, nearest training topics, same-title and same-parent topics. Proposed check: Measure candidate recall, candidate pool size, and final ranking quality for each channel and their union with known-match availability enforced. Limitation: Hierarchy and known matches must be available at inference; unioning candidates increases reranking cost.",
+      "trigger_conditions": [
+        "curriculum recommendations have titles and parent-topic structure"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Outer-join candidates from character TF-IDF, multilingual embeddings, nearest training topics, same-title and same-parent topics."
+      ],
+      "verification_steps": [
+        "Proposed check: Measure candidate recall, candidate pool size, and final ranking quality for each channel and their union with known-match availability enforced."
+      ],
+      "limitations": [
+        "Hierarchy and known matches must be available at inference; unioning candidates increases reranking cost."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "education"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The curriculum author outer-joined retrieved pairs from several lexical, embedding and hierarchy approaches.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-43f60f8b2d103d1bb679"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "The union is understandable but requires several retrieval components.",
+        "competitor": "Complementary candidate channels offer an actionable recall-versus-cost experiment.",
+        "practitioner": "The union can improve coverage in structured catalogs, subject to availability and cost checks."
+      },
+      "review": {
+        "candidate_id": "C-283b003d878aa2bd35ce",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Source explicitly outer joins lexical, embedding, and hierarchy-derived pairs; no isolated ablation proves which retrieval channel helps.",
+        "candidate_sha256": "c3be06b33f0c872263302ed1d1b02917ddc90fdcce663c4572130662650acf6c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000364",
+      "slug": "lesson-000364",
+      "merged_candidate_ids": [
+        "C-283b003d878aa2bd35ce"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dbd30858808bad8ddaf7",
+          "competition_id": "competition:learning-equality-curriculum-recommendations",
+          "source_id": "source:lesson-source-f1d5ccde14f77e3f",
+          "snapshot_path": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt",
+          "snapshot_sha256": "75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc",
+          "source_url": "https://www.kaggle.com/competitions/learning-equality-curriculum-recommendations/writeups/epicurus-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-43f60f8b2d103d1bb679",
+          "line_start": 64,
+          "line_end": 64,
+          "evidence_text": "All retrieved topic-content pairs are outer joined.",
+          "kind": "used",
+          "statement": "The curriculum author outer-joined retrieved pairs from several lexical, embedding and hierarchy approaches.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "The union is understandable but requires several retrieval components.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Complementary candidate channels offer an actionable recall-versus-cost experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The union can improve coverage in structured catalogs, subject to availability and cost checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f1d5ccde14f77e3f",
+          "locator": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt#L64-L64",
+          "quote": "All retrieved topic-content pairs are outer joined.",
+          "competition_id": "competition:learning-equality-curriculum-recommendations",
+          "url": "https://www.kaggle.com/competitions/learning-equality-curriculum-recommendations/writeups/epicurus-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt",
+          "snapshot_sha256": "75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc",
+          "line_start": 64,
+          "line_end": 64
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-283b003d878aa2bd35ce",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Source explicitly outer joins lexical, embedding, and hierarchy-derived pairs; no isolated ablation proves which retrieval channel helps.",
+          "candidate_sha256": "c3be06b33f0c872263302ed1d1b02917ddc90fdcce663c4572130662650acf6c"
+        },
+        {
+          "candidate_id": "C-283b003d878aa2bd35ce",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "LearningEquality full packet explicitly unions char4gramTFIDF, embedding retrieval and known-topic hierarchy matches via outer join. Candidate evaluates channel/union recall and cost and requires inference-time hierarchy/known matches. Related recall channels form one coherent decision; novice complexity2 and expert utility4 fit scope.",
+          "candidate_sha256": "c3be06b33f0c872263302ed1d1b02917ddc90fdcce663c4572130662650acf6c"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 263,
+        "line_end": 267,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-63a77ddf6ea8b8846cb8",
+      "canonical_key": "process database shards sequentially with matrix multiplication and retain global top-k candidates across shards. | the embedding database exceeds gpu memory | compute_efficiency",
+      "title": "Keep a global top-k while streaming a large retrieval corpus",
+      "statement": "When the embedding database exceeds GPU memory, proposed reuse: Proposed conditional application: Process database shards sequentially with matrix multiplication and retain global top-k candidates across shards. Proposed check: Compare sharded/unsharded top-k on a small corpus including ties; measure peak GPU memory and total search time. Limitation: Sharding reduces memory, not total dot-product work; precision and tie handling can alter ranks.",
+      "trigger_conditions": [
+        "the embedding database exceeds GPU memory"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Process database shards sequentially with matrix multiplication and retain global top-k candidates across shards."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare sharded/unsharded top-k on a small corpus including ties; measure peak GPU memory and total search time."
+      ],
+      "limitations": [
+        "Sharding reduces memory, not total dot-product work; precision and tie handling can alter ranks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The science-QA team streamed a sixty-million-entry database in parts for retrieval.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-d93fc8fcb485ed52401f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Algorithm clear but large-corpus GPU setup substantial.",
+        "competitor": "Practical retrieval when database exceeds device RAM.",
+        "practitioner": "High-value bounded-memory exact retrieval."
+      },
+      "review": {
+        "candidate_id": "C-63a77ddf6ea8b8846cb8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Science QA full packet streams 60M embeddings and retains global top-k; exact arithmetic search still substantial.",
+        "candidate_sha256": "091ed726a4d676bbbd463d169e729681605c21448ea09272040112c47dfe4259"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000389",
+      "slug": "lesson-000389",
+      "merged_candidate_ids": [
+        "C-63a77ddf6ea8b8846cb8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-eb9cb33b761b7e8c5875",
+          "competition_id": "competition:kaggle-llm-science-exam",
+          "source_id": "source:lesson-source-276541d30ec01d74",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt",
+          "snapshot_sha256": "dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca",
+          "source_url": "https://www.kaggle.com/competitions/kaggle-llm-science-exam/writeups/team-h2o-llm-studio-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-d93fc8fcb485ed52401f",
+          "line_start": 17,
+          "line_end": 17,
+          "evidence_text": "split the whole 60M database into smaller parts, and load them one after another.",
+          "kind": "used",
+          "statement": "The science-QA team streamed a sixty-million-entry database in parts for retrieval.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Algorithm clear but large-corpus GPU setup substantial.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Practical retrieval when database exceeds device RAM.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High-value bounded-memory exact retrieval.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-276541d30ec01d74",
+          "locator": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt#L17-L17",
+          "quote": "split the whole 60M database into smaller parts, and load them one after another.",
+          "competition_id": "competition:kaggle-llm-science-exam",
+          "url": "https://www.kaggle.com/competitions/kaggle-llm-science-exam/writeups/team-h2o-llm-studio-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca.txt",
+          "snapshot_sha256": "dc304b3737bb21f6075322d799d6d69aa65d11a67ac5073a1c77c6ad017899ca",
+          "line_start": 17,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-63a77ddf6ea8b8846cb8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Science QA full packet streams 60M embeddings and retains global top-k; exact arithmetic search still substantial.",
+          "candidate_sha256": "091ed726a4d676bbbd463d169e729681605c21448ea09272040112c47dfe4259"
+        },
+        {
+          "candidate_id": "C-63a77ddf6ea8b8846cb8",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "ScienceExam full source streams60million embeddings in parts and maintains global top-k matrix similarities. Candidate checks small-corpus exact top-k/ties and makes clear total dot-product work remains; two-GPU twice-fast statement is not attributed to sharding alone. Bounded-memory retrieval utility and novice feasibility2 fit ratings.",
+          "candidate_sha256": "091ed726a4d676bbbd463d169e729681605c21448ea09272040112c47dfe4259"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 219,
+        "line_end": 223,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-59811ee7f64bfb92f530",
+      "canonical_key": "search a candidate component weight and greedily retain additions improving mean validation quadratic weighted kappa | stored predictions span repeated validation folds and an ordinal metric | ensemble_selection",
+      "title": "Select ensemble additions against the evaluation metric",
+      "statement": "When stored predictions span repeated validation folds and an ordinal metric, search a candidate component weight and greedily retain additions improving mean validation quadratic weighted kappa. Reserve independent validation for ensemble selection assessment; assert matching row IDs and reject weights producing zero or unstable denominators. Repeated searches on the same folds can overfit. The default search allows negative weights; denominators and ordinal calibration need explicit checks.",
+      "trigger_conditions": [
+        "stored predictions span repeated validation folds and an ordinal metric"
+      ],
+      "action_steps": [
+        "Proposed: search a candidate component weight and greedily retain additions improving mean validation quadratic weighted kappa."
+      ],
+      "verification_steps": [
+        "Proposed: reserve independent validation for ensemble selection assessment; assert matching row IDs and reject weights producing zero or unstable denominators."
+      ],
+      "limitations": [
+        "Repeated searches on the same folds can overfit. The default search allows negative weights; denominators and ordinal calibration need explicit checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "ordinal_classification"
+        ],
+        "application_domains": [
+          "search_relevance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "ensemble_selection"
+        ],
+        "risk_tags": [
+          "overfitting",
+          "compute_cost",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for crowdflower-search-relevance: ensembleSelection searches each component weight with Hyperopt, evaluates QWK across validation runs/folds, retains the best improving model and updates ensemble predictions.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare greedy QWK-selected ensembles against simple averaging using a separate ordinal holdout.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-005d7efbe6724ef97261"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Advanced ensemble search has substantial implementation effort and little beginner feasibility.",
+        "competitor": "Metric-specific greedy blending is actionable for ordinal tasks with existing prediction libraries.",
+        "practitioner": "Useful in similar ordinal models, but heldout selection, calibration and serving cost need extra work."
+      },
+      "review": {
+        "candidate_id": "C-59811ee7f64bfb92f530",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read entire selector and prediction functions: Hyperopt chooses greedy additions using mean fold QWK; negative weights are allowed and a zero denominator is possible. Reusing folds for many searches can overfit; independent selection assessment is proposed.",
+        "candidate_sha256": "379e720cdbffb91d28171b0151afc4e7c7849b6a3c1103522686cafe96f46b30"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000452",
+      "slug": "lesson-000452",
+      "merged_candidate_ids": [
+        "C-59811ee7f64bfb92f530"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3ec35c7da4cd5e974244",
+          "competition_id": "competition:crowdflower-search-relevance",
+          "source_id": "source:lesson-source-0ceda07689f7ab10",
+          "snapshot_path": "research/lesson-extraction/snapshots/cc28bd88e7827b3710b1105b1acd42b36e191dc7996d6d2c58ea462100c67a18.txt",
+          "snapshot_sha256": "cc28bd88e7827b3710b1105b1acd42b36e191dc7996d6d2c58ea462100c67a18",
+          "source_url": "https://raw.githubusercontent.com/chenglongchen/kaggle_crowdflower/HEAD/Code/Model/ensemble_selection.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-005d7efbe6724ef97261",
+          "line_start": 184,
+          "line_end": 230,
+          "evidence_text": "        while True:\n            iter += 1\n            for model,_ in this_sorted_models:\n                this_p_list_valid = pred_list_valid[model2idx[model]]\n\n                ## hyperopt for the best weight\n                trials = Trials()\n                param_space = {\n                    'weight2': hp.uniform('weight2', w_min, w_max)\n                }\n                obj = lambda param: ensembleSelectionObj(param, p_ens_list_valid_tmp, 1., this_p_list_valid, Y_list_valid, cdf_list_valid, numValidMatrix)\n                best_params = fmin(obj,\n                                   param_space, algo=tpe.suggest,\n                                   trials=trials, max_evals=hypteropt_max_evals)\n                this_w = best_params['weight2']\n                this_w *= w_ens\n                # all the current prediction to the ensemble\n                kappa_cv = np.zeros((config.n_runs, config.n_folds), dtype=float)\n                for run in range(config.n_runs):\n                    for fold in range(config.n_folds):\n                        numValid = numValidMatrix[run][fold]\n                        p1 = p_ens_list_valid_tmp[run,fold,:numValid]\n                        p2 = this_p_list_valid[run,fold,:numValid]\n                        true_label = Y_list_valid[run,fold,:numValid]\n                        cdf = cdf_list_valid[run,fold,:]\n                        p_ens = (w_ens * p1 + this_w * p2) / (w_ens + this_w)\n                        score = getScore(p_ens, cdf)\n                        kappa_cv[run][fold] = quadratic_weighted_kappa(score, true_label)\n                if np.mean(kappa_cv) > best_kappa:\n                    best_kappa, best_model, best_weight = np.mean(kappa_cv), model, this_w\n            if best_model == None:\n                break\n            print(\"Iter: %d\" % iter)\n            print(\"    model: %s\" % best_model)\n            print(\"    weight: %s\" % best_weight)\n            print(\"    kappa: %.6f\" % best_kappa)\n\n            best_model_list.append(best_model)\n            best_model_weight.append(best_weight)\n            # valid\n            this_p_list_valid = pred_list_valid[model2idx[best_model]]\n            for run in range(config.n_runs):\n                for fold in range(config.n_folds):\n                    numValid = numValidMatrix[run][fold]\n                    p_ens_list_valid_tmp[run,fold,:numValid] = (w_ens * p_ens_list_valid_tmp[run,fold,:numValid] + best_weight * this_p_list_valid[run,fold,:numValid]) / (w_ens + best_weight)\n            best_model = None\n            w_ens += best_weight",
+          "kind": "used",
+          "statement": "ensembleSelection searches each component weight with Hyperopt, evaluates QWK across validation runs/folds, retains the best improving model and updates ensemble predictions.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Advanced ensemble search has substantial implementation effort and little beginner feasibility.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Metric-specific greedy blending is actionable for ordinal tasks with existing prediction libraries.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful in similar ordinal models, but heldout selection, calibration and serving cost need extra work.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-0ceda07689f7ab10",
+          "locator": "research/lesson-extraction/snapshots/cc28bd88e7827b3710b1105b1acd42b36e191dc7996d6d2c58ea462100c67a18.txt#L184-L230",
+          "quote": "        while True:\n            iter += 1\n            for model,_ in this_sorted_models:\n                this_p_list_valid = pred_list_valid[model2idx[model]]\n\n                ## hyperopt for the best weight\n                trials = Trials()\n                param_space = {\n                    'weight2': hp.uniform('weight2', w_min, w_max)\n                }\n                obj = lambda param: ensembleSelectionObj(param, p_ens_list_valid_tmp, 1., this_p_list_valid, Y_list_valid, cdf_list_valid, numValidMatrix)\n                best_params = fmin(obj,\n                                   param_space, algo=tpe.suggest,\n                                   trials=trials, max_evals=hypteropt_max_evals)\n                this_w = best_params['weight2']\n                this_w *= w_ens\n                # all the current prediction to the ensemble\n                kappa_cv = np.zeros((config.n_runs, config.n_folds), dtype=float)\n                for run in range(config.n_runs):\n                    for fold in range(config.n_folds):\n                        numValid = numValidMatrix[run][fold]\n                        p1 = p_ens_list_valid_tmp[run,fold,:numValid]\n                        p2 = this_p_list_valid[run,fold,:numValid]\n                        true_label = Y_list_valid[run,fold,:numValid]\n                        cdf = cdf_list_valid[run,fold,:]\n                        p_ens = (w_ens * p1 + this_w * p2) / (w_ens + this_w)\n                        score = getScore(p_ens, cdf)\n                        kappa_cv[run][fold] = quadratic_weighted_kappa(score, true_label)\n                if np.mean(kappa_cv) > best_kappa:\n                    best_kappa, best_model, best_weight = np.mean(kappa_cv), model, this_w\n            if best_model == None:\n                break\n            print(\"Iter: %d\" % iter)\n            print(\"    model: %s\" % best_model)\n            print(\"    weight: %s\" % best_weight)\n            print(\"    kappa: %.6f\" % best_kappa)\n\n            best_model_list.append(best_model)\n            best_model_weight.append(best_weight)\n            # valid\n            this_p_list_valid = pred_list_valid[model2idx[best_model]]\n            for run in range(config.n_runs):\n                for fold in range(config.n_folds):\n                    numValid = numValidMatrix[run][fold]\n                    p_ens_list_valid_tmp[run,fold,:numValid] = (w_ens * p_ens_list_valid_tmp[run,fold,:numValid] + best_weight * this_p_list_valid[run,fold,:numValid]) / (w_ens + best_weight)\n            best_model = None\n            w_ens += best_weight",
+          "competition_id": "competition:crowdflower-search-relevance",
+          "url": "https://raw.githubusercontent.com/chenglongchen/kaggle_crowdflower/HEAD/Code/Model/ensemble_selection.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/cc28bd88e7827b3710b1105b1acd42b36e191dc7996d6d2c58ea462100c67a18.txt",
+          "snapshot_sha256": "cc28bd88e7827b3710b1105b1acd42b36e191dc7996d6d2c58ea462100c67a18",
+          "line_start": 184,
+          "line_end": 230
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-59811ee7f64bfb92f530",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read entire selector and prediction functions: Hyperopt chooses greedy additions using mean fold QWK; negative weights are allowed and a zero denominator is possible. Reusing folds for many searches can overfit; independent selection assessment is proposed.",
+          "candidate_sha256": "379e720cdbffb91d28171b0151afc4e7c7849b6a3c1103522686cafe96f46b30"
+        },
+        {
+          "candidate_id": "C-59811ee7f64bfb92f530",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete greedy ensemble packet and observation confirm Hyperopt weight search, repeated-fold QWK evaluation and best-improving addition updates. Default negative weights can destabilize denominators; repeated-fold selection can overfit. Both are explicit with independent evaluation and alignment proposed. Advanced cost and ordinal-specific audience ratings are reasonable.",
+          "candidate_sha256": "379e720cdbffb91d28171b0151afc4e7c7849b6a3c1103522686cafe96f46b30"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 271,
+        "line_end": 275,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-ae2da11bd27ea5dbc146",
+      "canonical_key": "select matches using gaps from the best candidate and separately validate rules for training-known and new contents. | topics may match multiple contents with different seen/unseen status | predictive_quality",
+      "title": "Use relative score gaps for recommendation set selection",
+      "statement": "When topics may match multiple contents with different seen/unseen status, proposed reuse: Proposed conditional application: Select matches using gaps from the best candidate and separately validate rules for training-known and new contents. Proposed check: Tune gap rules on held-out topics, compare with absolute thresholds, and inspect precision and recall separately for known and new contents. Limitation: The source's 5%, 25%, and 55% rules are tuned values and need fresh validation; score gaps depend on candidate pool and calibration.",
+      "trigger_conditions": [
+        "topics may match multiple contents with different seen/unseen status"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Select matches using gaps from the best candidate and separately validate rules for training-known and new contents."
+      ],
+      "verification_steps": [
+        "Proposed check: Tune gap rules on held-out topics, compare with absolute thresholds, and inspect precision and recall separately for known and new contents."
+      ],
+      "limitations": [
+        "The source's 5%, 25%, and 55% rules are tuned values and need fresh validation; score gaps depend on candidate pool and calibration."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "education"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The curriculum author used gaps from the best probability and different conditions for known and new contents.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-8aaeb3ac540e06672ad8"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Relative thresholds are a useful concept but the branching rule is fairly specialized.",
+        "competitor": "The source provides a concrete set selection strategy for multi-label retrieval.",
+        "practitioner": "Gap-based selection transfers to catalog recommendation if probabilities and candidate coverage are checked."
+      },
+      "review": {
+        "candidate_id": "C-ae2da11bd27ea5dbc146",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner reports relative probability gaps and separate conditions for known and new contents; thresholds are competition-specific.",
+        "candidate_sha256": "e238c7863af07eae15d32c4fa3d08901afa7367d4b111b14a0b7f0119f6b7371"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000455",
+      "slug": "lesson-000455",
+      "merged_candidate_ids": [
+        "C-ae2da11bd27ea5dbc146"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dbd30858808bad8ddaf7",
+          "competition_id": "competition:learning-equality-curriculum-recommendations",
+          "source_id": "source:lesson-source-f1d5ccde14f77e3f",
+          "snapshot_path": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt",
+          "snapshot_sha256": "75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc",
+          "source_url": "https://www.kaggle.com/competitions/learning-equality-curriculum-recommendations/writeups/epicurus-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-8aaeb3ac540e06672ad8",
+          "line_start": 105,
+          "line_end": 105,
+          "evidence_text": "Using relative probabilities (gaps with highest matches) and using different conditions for train and test set contents were the key.",
+          "kind": "used",
+          "statement": "The curriculum author used gaps from the best probability and different conditions for known and new contents.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Relative thresholds are a useful concept but the branching rule is fairly specialized.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "The source provides a concrete set selection strategy for multi-label retrieval.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Gap-based selection transfers to catalog recommendation if probabilities and candidate coverage are checked.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f1d5ccde14f77e3f",
+          "locator": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt#L105-L105",
+          "quote": "Using relative probabilities (gaps with highest matches) and using different conditions for train and test set contents were the key.",
+          "competition_id": "competition:learning-equality-curriculum-recommendations",
+          "url": "https://www.kaggle.com/competitions/learning-equality-curriculum-recommendations/writeups/epicurus-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc.txt",
+          "snapshot_sha256": "75bd83c2f04eceee1757e3bb7638a00ae4d2a53613dfcc7873d2e3bcae1a8afc",
+          "line_start": 105,
+          "line_end": 105
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-ae2da11bd27ea5dbc146",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner reports relative probability gaps and separate conditions for known and new contents; thresholds are competition-specific.",
+          "candidate_sha256": "e238c7863af07eae15d32c4fa3d08901afa7367d4b111b14a0b7f0119f6b7371"
+        },
+        {
+          "candidate_id": "C-ae2da11bd27ea5dbc146",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "LearningEquality postprocess uses score gaps plus different known/new-content rules, with stated5/25/55percent thresholds. Candidate does not generalize tuned values; pool/calibration caveats and heldout-topic precision/recall comparison are appropriate. Specialized novice transfer2 versus experienced3 fit profiles.",
+          "candidate_sha256": "e238c7863af07eae15d32c4fa3d08901afa7367d4b111b14a0b7f0119f6b7371"
+        }
+      ],
+      "book_location": {
+        "chapter": 65,
+        "path": "manuscript/chapters/65-recommendation-systems.md",
+        "sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
+        "line_start": 225,
+        "line_end": 229,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

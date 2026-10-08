@@ -1,0 +1,1197 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-15fe9e4777a61f4fd540",
+      "canonical_key": "gather valid timestep rows, apply normalization and feed-forward operations, then scatter them back | padded sequence encoders with per-timestep feed-forward layers | padding_efficiency",
+      "title": "Skip padding in pointwise feed-forward blocks",
+      "statement": "For padded sequence encoders with per-timestep feed-forward layers, gather valid timestep rows, apply normalization and feed-forward operations, then scatter them back. Compare valid-token outputs to a masked dense implementation and measure runtime for several padding ratios. Only pointwise operations are skipped; attention and temporal convolution retain padded shapes. Runtime savings are proposed, not measured.",
+      "trigger_conditions": [
+        "padded sequence encoders with per-timestep feed-forward layers"
+      ],
+      "action_steps": [
+        "Proposed: gather valid timestep rows, apply normalization and feed-forward operations, then scatter them back."
+      ],
+      "verification_steps": [
+        "Proposed: compare valid-token outputs to a masked dense implementation and measure runtime for several padding ratios."
+      ],
+      "limitations": [
+        "Only pointwise operations are skipped; attention and temporal convolution retain padded shapes. Runtime savings are proposed, not measured."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "sequence_transcription"
+        ],
+        "application_domains": [
+          "sign_language"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "padding_efficiency"
+        ],
+        "risk_tags": [
+          "compute_cost"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for asl-fingerspelling: SqueezeformerBlock flattens and selects mask_flat rows before its feed-forward branch, then writes those rows back to the padded tensor.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: benchmark valid-token feed-forward execution in variable-length document or audio batches.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-037c7a02bde1447ba930"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "An advanced optimization exercise with uncertain runtime value for small beginner workloads.",
+        "competitor": "Offers a specific padding-cost experiment while avoiding a claim that all sequence operations skip pads.",
+        "practitioner": "Useful where pad fractions are high; benchmark realistic lengths because gather/scatter can outweigh saved matrix work."
+      },
+      "review": {
+        "candidate_id": "C-15fe9e4777a61f4fd540",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read complete Squeezeformer block and call chain: valid rows are gathered for LayerNorm/feed-forward branches and scattered back. Attention and convolution still retain padded tensors; indexing overhead and stochastic dropout complicate an equivalence/runtime comparison.",
+        "candidate_sha256": "3ea0553086e8c0ed2141bd762549a98e92c1864b83f82d8fa3c79a1865158cc3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000295",
+      "slug": "lesson-000295",
+      "merged_candidate_ids": [
+        "C-15fe9e4777a61f4fd540"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-65fa7fc9891d7d07123a",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "source_url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-037c7a02bde1447ba930",
+          "line_start": 453,
+          "line_end": 477,
+          "evidence_text": "    def forward(self, x, cos, sin, mask):\n        mask_pad = ( mask).long().bool().unsqueeze(1)\n        mask_pad = ~( mask_pad.permute(0, 2,1) * mask_pad)\n        mask_flat = mask.view(-1).bool()\n        bs, slen, nfeats = x.shape\n        \n        residual = x\n        x = x * self.scale_mhsa.to(x.dtype) + self.bias_mhsa.to(x.dtype)\n        x = residual + self.mhsa_llama(x, cos, sin, attention_mask = mask_pad.unsqueeze(1) )[0]\n        # Skip pad #1\n        x_skip = x.view(-1, x.shape[-1])\n        x = x_skip[mask_flat].unsqueeze(0)\n        x = self.ln_mhsa(x) #casts to fp32\n        residual = x\n        #32\n        x = x * self.scale_ff_mhsa.to(x.dtype) + self.bias_ff_mhsa.to(x.dtype)\n        #32\n        x = residual + self.ff_mhsa(x) \n        #32\n        x = self.ln_ff_mhsa(x) #casts to fp32\n\n        # Unskip pad #1\n#         print(x_skip[mask_flat].dtype, x[0].dtype)\n        x_skip[mask_flat] = x[0].to(x_skip.dtype)\n        x = x_skip.view(bs, slen, nfeats)",
+          "kind": "used",
+          "statement": "SqueezeformerBlock flattens and selects mask_flat rows before its feed-forward branch, then writes those rows back to the padded tensor.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "An advanced optimization exercise with uncertain runtime value for small beginner workloads.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Offers a specific padding-cost experiment while avoiding a claim that all sequence operations skip pads.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful where pad fractions are high; benchmark realistic lengths because gather/scatter can outweigh saved matrix work.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "locator": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt#L453-L477",
+          "quote": "    def forward(self, x, cos, sin, mask):\n        mask_pad = ( mask).long().bool().unsqueeze(1)\n        mask_pad = ~( mask_pad.permute(0, 2,1) * mask_pad)\n        mask_flat = mask.view(-1).bool()\n        bs, slen, nfeats = x.shape\n        \n        residual = x\n        x = x * self.scale_mhsa.to(x.dtype) + self.bias_mhsa.to(x.dtype)\n        x = residual + self.mhsa_llama(x, cos, sin, attention_mask = mask_pad.unsqueeze(1) )[0]\n        # Skip pad #1\n        x_skip = x.view(-1, x.shape[-1])\n        x = x_skip[mask_flat].unsqueeze(0)\n        x = self.ln_mhsa(x) #casts to fp32\n        residual = x\n        #32\n        x = x * self.scale_ff_mhsa.to(x.dtype) + self.bias_ff_mhsa.to(x.dtype)\n        #32\n        x = residual + self.ff_mhsa(x) \n        #32\n        x = self.ln_ff_mhsa(x) #casts to fp32\n\n        # Unskip pad #1\n#         print(x_skip[mask_flat].dtype, x[0].dtype)\n        x_skip[mask_flat] = x[0].to(x_skip.dtype)\n        x = x_skip.view(bs, slen, nfeats)",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "line_start": 453,
+          "line_end": 477
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-15fe9e4777a61f4fd540",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read complete Squeezeformer block and call chain: valid rows are gathered for LayerNorm/feed-forward branches and scattered back. Attention and convolution still retain padded tensors; indexing overhead and stochastic dropout complicate an equivalence/runtime comparison.",
+          "candidate_sha256": "3ea0553086e8c0ed2141bd762549a98e92c1864b83f82d8fa3c79a1865158cc3"
+        },
+        {
+          "candidate_id": "C-15fe9e4777a61f4fd540",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete SqueezeformerBlock packet confirms gathered valid rows pass LayerNorm/feed-forward operations and scatter back twice; attention and convolution retain padded tensor shapes. Runtime benefit remains proposed and padding-ratio/valid-output checks are concrete. Lower beginner scores and advanced implementation burden reasonably reflect gather/scatter overhead and complexity.",
+          "candidate_sha256": "3ea0553086e8c0ed2141bd762549a98e92c1864b83f82d8fa3c79a1865158cc3"
+        }
+      ],
+      "book_location": {
+        "chapter": 57,
+        "path": "manuscript/chapters/57-patchtst-for-time-series.md",
+        "sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
+        "line_start": 124,
+        "line_end": 128,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-d05f4592483174c3aee0",
+      "canonical_key": "replace relative positional embeddings with rotary embeddings and compute shared rotary embeddings once for all layers. | relative positional attention limits model speed or size | compute_efficiency",
+      "title": "Cache rotary embeddings across sequence-model layers",
+      "statement": "When relative positional attention limits model speed or size, proposed reuse: Proposed conditional application: Replace relative positional embeddings with rotary embeddings and compute shared rotary embeddings once for all layers. Proposed check: Compare attention replacements and caching separately on edit distance, parameter count and training/export latency. Limitation: Attention replacement and caching are distinct changes; architecture/export compatibility matters.",
+      "trigger_conditions": [
+        "relative positional attention limits model speed or size"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Replace relative positional embeddings with rotary embeddings and compute shared rotary embeddings once for all layers."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare attention replacements and caching separately on edit distance, parameter count and training/export latency."
+      ],
+      "limitations": [
+        "Attention replacement and caching are distinct changes; architecture/export compatibility matters."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The ASL author shared rotary-position embeddings across model components.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-e67f15dc26800c48aed5"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Custom attention/export work exceeds routine tools.",
+        "competitor": "Concrete efficiency option enabling deeper models.",
+        "practitioner": "Useful serving optimization with specialized engineering."
+      },
+      "review": {
+        "candidate_id": "C-d05f4592483174c3aee0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "ASL reports rotary attention speed and shared caches; the 20% parameter reduction is reported for this change, not universal.",
+        "candidate_sha256": "c1dfa56a6dc3ab3bf5ed6e42957dc3baf8d64e9badd594cfc10d6deb8e0efbec"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000417",
+      "slug": "lesson-000417",
+      "merged_candidate_ids": [
+        "C-d05f4592483174c3aee0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ac92df7e609bbabd870a",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "source_url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "source_quality": "primary_text",
+          "observation_id": "O-e67f15dc26800c48aed5",
+          "line_start": 65,
+          "line_end": 65,
+          "evidence_text": "Replacing this with Llama attention which uses rotary embeddings sped up training ~2X and tf-lite inference approx ~3X allowing larger models to be used. In addition, we cached the rotary embeddings once and fed them into each layer with the input data so they are not duplicated in each layer. This resulted in 20% less parameters in the model.",
+          "kind": "reported_gain",
+          "statement": "The ASL author shared rotary-position embeddings across model components.",
+          "reported_result": {
+            "metric": "parameter reduction percent",
+            "value": 20,
+            "context": "ASL author reports 20% fewer model parameters after caching rotary embeddings once for all layers; architecture-specific baseline is separately duplicated embeddings. Hardware and absolute count unknown.",
+            "evidence_text": "In addition, we cached the rotary embeddings once and fed them into each layer with the input data so they are not duplicated in each layer. This resulted in 20% less parameters in the model."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Custom attention/export work exceeds routine tools.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete efficiency option enabling deeper models.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful serving optimization with specialized engineering.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "locator": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt#L65-L65",
+          "quote": "Replacing this with Llama attention which uses rotary embeddings sped up training ~2X and tf-lite inference approx ~3X allowing larger models to be used. In addition, we cached the rotary embeddings once and fed them into each layer with the input data so they are not duplicated in each layer. This resulted in 20% less parameters in the model.",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "line_start": 65,
+          "line_end": 65
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-d05f4592483174c3aee0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "ASL reports rotary attention speed and shared caches; the 20% parameter reduction is reported for this change, not universal.",
+          "candidate_sha256": "c1dfa56a6dc3ab3bf5ed6e42957dc3baf8d64e9badd594cfc10d6deb8e0efbec"
+        }
+      ],
+      "book_location": {
+        "chapter": 57,
+        "path": "manuscript/chapters/57-patchtst-for-time-series.md",
+        "sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
+        "line_start": 130,
+        "line_end": 134,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-03b469bfa2cb11b5dacc",
+      "canonical_key": "reshape timestep and feature axes into channels before spatial convolution | short fixed-length spatial histories | architecture_comparison",
+      "title": "Treat a short frame history as CNN channels",
+      "statement": "When spatial histories have a short fixed length, reshape timestep and feature axes into channels before spatial convolution. Compare with the existing baseline on the same valid held-out split and task metric; record runtime and prediction alignment. The reshaping supports a fixed history size; it does not establish that temporal order is modeled as a recurrence or that CNNs outperform recurrent models.",
+      "trigger_conditions": [
+        "spatial histories have a short fixed length"
+      ],
+      "action_steps": [
+        "Proposed: reshape timestep and feature axes into channels before spatial convolution."
+      ],
+      "verification_steps": [
+        "Proposed: compare with the existing baseline on the same valid held-out split and task metric; record runtime and prediction alignment."
+      ],
+      "limitations": [
+        "The reshaping supports a fixed history size; it does not establish that temporal order is modeled as a recurrence or that CNNs outperform recurrent models."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "physical_simulation"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "architecture_comparison"
+        ],
+        "risk_tags": [
+          "distribution_shift",
+          "overfitting"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for 2024-flame-ai-challenge: ResidualCNN reshapes batch, sequence, channels, height, width into batch, sequence times channels, height, width before convolution.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: use recent weather maps as ordered channels for a short fixed-window forecast baseline.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1b6e0016794703f11952"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A small reshape offers a tractable CNN experiment once tensor axes are understood.",
+        "competitor": "Cheap architecture baseline for fixed short histories; comparing against recurrence is clear but unmeasured.",
+        "practitioner": "Useful for fixed-window gridded forecasts, with retraining required if history length or channel semantics change."
+      },
+      "review": {
+        "candidate_id": "C-03b469bfa2cb11b5dacc",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read ResidualCNN in context: view merges the ordered fixed-length sequence and feature axes before Conv2d. The network is called by the training pipeline. This encodes time as fixed channel positions, not recurrent temporal state, with no comparison to recurrent models.",
+        "candidate_sha256": "bacfd96561ccf9d1e072f5424c7718a62ca8303b907410f7115bc9e01948c630"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000422",
+      "slug": "lesson-000422",
+      "merged_candidate_ids": [
+        "C-03b469bfa2cb11b5dacc"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3623e0883c0354f386e0",
+          "competition_id": "competition:2024-flame-ai-challenge",
+          "source_id": "source:lesson-source-4666bfc6b866fce3",
+          "snapshot_path": "research/lesson-extraction/snapshots/1c1b91fce602f8343339fa3777213d77088b0b0eb7bcbab03fb6f63ffcd80b52.txt",
+          "snapshot_sha256": "1c1b91fce602f8343339fa3777213d77088b0b0eb7bcbab03fb6f63ffcd80b52",
+          "source_url": "https://raw.githubusercontent.com/ajayasai/2024-flame-ai-challenge---kaggle/HEAD/Training/ResidualCNN_1T/2024 FLAME AI ResidualCNN 1T.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-1b6e0016794703f11952",
+          "line_start": 379,
+          "line_end": 389,
+          "evidence_text": "    def forward(self, x):\n        # Reshape input to match expected size\n        batch_size, seq_len, channels, height, width = x.size()\n        x = x.view(batch_size, seq_len * channels, height, width)\n\n        out = self.initial_conv(x)\n        out = self.bn(out)\n        out = self.activation(out)\n\n        out = self.residual_blocks(out)\n        out = self.output_conv(out)",
+          "kind": "used",
+          "statement": "ResidualCNN reshapes batch, sequence, channels, height, width into batch, sequence times channels, height, width before convolution.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "A small reshape offers a tractable CNN experiment once tensor axes are understood.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Cheap architecture baseline for fixed short histories; comparing against recurrence is clear but unmeasured.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful for fixed-window gridded forecasts, with retraining required if history length or channel semantics change.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-4666bfc6b866fce3",
+          "locator": "research/lesson-extraction/snapshots/1c1b91fce602f8343339fa3777213d77088b0b0eb7bcbab03fb6f63ffcd80b52.txt#L379-L389",
+          "quote": "    def forward(self, x):\n        # Reshape input to match expected size\n        batch_size, seq_len, channels, height, width = x.size()\n        x = x.view(batch_size, seq_len * channels, height, width)\n\n        out = self.initial_conv(x)\n        out = self.bn(out)\n        out = self.activation(out)\n\n        out = self.residual_blocks(out)\n        out = self.output_conv(out)",
+          "competition_id": "competition:2024-flame-ai-challenge",
+          "url": "https://raw.githubusercontent.com/ajayasai/2024-flame-ai-challenge---kaggle/HEAD/Training/ResidualCNN_1T/2024 FLAME AI ResidualCNN 1T.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/1c1b91fce602f8343339fa3777213d77088b0b0eb7bcbab03fb6f63ffcd80b52.txt",
+          "snapshot_sha256": "1c1b91fce602f8343339fa3777213d77088b0b0eb7bcbab03fb6f63ffcd80b52",
+          "line_start": 379,
+          "line_end": 389
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-03b469bfa2cb11b5dacc",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read ResidualCNN in context: view merges the ordered fixed-length sequence and feature axes before Conv2d. The network is called by the training pipeline. This encodes time as fixed channel positions, not recurrent temporal state, with no comparison to recurrent models.",
+          "candidate_sha256": "bacfd96561ccf9d1e072f5424c7718a62ca8303b907410f7115bc9e01948c630"
+        },
+        {
+          "candidate_id": "C-03b469bfa2cb11b5dacc",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete ResidualCNN packet confirms ordered timestep and feature axes are flattened into fixed input channels before spatial convolution. The lesson avoids recurrence or comparative-quality claims and proposes a valid same-split baseline test. Fixed history and retraining caveats match the code; differentiated audience ratings are reasonable.",
+          "candidate_sha256": "bacfd96561ccf9d1e072f5424c7718a62ca8303b907410f7115bc9e01948c630"
+        }
+      ],
+      "book_location": {
+        "chapter": 57,
+        "path": "manuscript/chapters/57-patchtst-for-time-series.md",
+        "sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
+        "line_start": 136,
+        "line_end": 140,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-c285940e7df5957c60a6",
+      "canonical_key": "reverse valid target tokens while preserving the terminal token and reverse encoder states and masks consistently | sequence transcription with a backward auxiliary decoder | auxiliary_training",
+      "title": "Preserve the terminal label position in backward supervision",
+      "statement": "For sequence transcription with a backward auxiliary decoder, reverse valid target tokens while preserving the final valid token, and reverse encoder states and masks consistently. Inspect reversed labels and masks on short examples, then ablate backward supervision against forward-only training. The code preserves the last valid label while reversing earlier labels; assert that this label is the intended terminal token. Backward and score auxiliary losses are combined without an isolated ablation.",
+      "trigger_conditions": [
+        "sequence transcription with a backward auxiliary decoder"
+      ],
+      "action_steps": [
+        "Proposed: reverse valid target tokens while preserving the final valid token, and reverse encoder states and masks consistently."
+      ],
+      "verification_steps": [
+        "Proposed: inspect reversed labels and masks on short examples, then ablate backward supervision against forward-only training."
+      ],
+      "limitations": [
+        "The code preserves the last valid label while reversing earlier labels; assert that this label is the intended terminal token. Backward and score auxiliary losses are combined without an isolated ablation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "sequence_transcription"
+        ],
+        "application_domains": [
+          "sign_language"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "auxiliary_training"
+        ],
+        "risk_tags": [
+          "compute_cost",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for asl-fingerspelling: The model reverses encoder states/masks and valid labels except the last token; forward and backward CE losses are combined with a separate weighted auxiliary loss.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare forward-only versus backward auxiliary transcription after asserting terminal-token and padding semantics.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-fefacf36514593371e16"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Backward auxiliary decoding is a specialized training extension beyond a routine first sequence model.",
+        "competitor": "Concrete token/mask checks support a controlled backward-supervision ablation, though extra decoder training adds cost.",
+        "practitioner": "May help sequence tasks with meaningful reversed targets; loss weighting and special-token contracts need task-specific work."
+      },
+      "review": {
+        "candidate_id": "C-c285940e7df5957c60a6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read forward/backward decoder and loss code: encoder states and masks are reversed, valid labels reverse except their final element, and weighted CE combines with score auxiliary loss. The source does not independently prove the final element is EOS for all datasets; verify token semantics before reuse.",
+        "candidate_sha256": "abcb8d89ada2fff9ea1e483df24d3d556322b84b69b35b5d5b79057fa772c8f2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000437",
+      "slug": "lesson-000437",
+      "merged_candidate_ids": [
+        "C-c285940e7df5957c60a6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e6196ac19d469296a9a0",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "source_url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-fefacf36514593371e16",
+          "line_start": 827,
+          "line_end": 846,
+          "evidence_text": "        x_bwd = torch.flip(x, [1])\n        mask_bwd = torch.flip(mask, [1])\n        lbl_bwd = [dlbl[msk==1] for dlbl,msk in zip(labels.clone(), label_mask)]\n        lbl_bwd = [torch.cat((torch.flip(i[:-1], [0]), i[-1:])) for  i in lbl_bwd]\n        lbl_bwd = torch.nn.utils.rnn.pad_sequence(lbl_bwd, batch_first=True)\n        decoder_lbl_bwd = lbl_bwd.clone()\n        if self.training:\n            m = torch.rand(lbl_bwd.shape) < self.decoder_mask_aug\n            decoder_lbl_bwd[m] = 62\n        logits_bwd = self.decoder2(x_bwd,\n                                  labels=decoder_lbl_bwd, \n                                  encoder_attention_mask=mask_bwd.long(),\n    #                               attention_mask=label_mask,\n                                 )\n        \n        loss_ce = self.loss_fn(logits.view(-1, self.decoder.config.vocab_size), labels.view(-1))   \n        loss_ce_bwd = self.loss_fn(logits_bwd.view(-1, self.decoder.config.vocab_size), lbl_bwd.view(-1))   \n        loss_aux = self.aux_loss_fn(aux_logits,batch['score'].clamp(0,1)[:,None])\n        loss = (1- self.aux_loss_weight) * (loss_ce * (1-self.bwd_loss_weight) + self.bwd_loss_weight * loss_ce_bwd) \\\n                + self.aux_loss_weight * loss_aux",
+          "kind": "used",
+          "statement": "The model reverses encoder states/masks and valid labels except the last token; forward and backward CE losses are combined with a separate weighted auxiliary loss.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 40.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Backward auxiliary decoding is a specialized training extension beyond a routine first sequence model.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete token/mask checks support a controlled backward-supervision ablation, though extra decoder training adds cost.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "May help sequence tasks with meaningful reversed targets; loss weighting and special-token contracts need task-specific work.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "locator": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt#L827-L846",
+          "quote": "        x_bwd = torch.flip(x, [1])\n        mask_bwd = torch.flip(mask, [1])\n        lbl_bwd = [dlbl[msk==1] for dlbl,msk in zip(labels.clone(), label_mask)]\n        lbl_bwd = [torch.cat((torch.flip(i[:-1], [0]), i[-1:])) for  i in lbl_bwd]\n        lbl_bwd = torch.nn.utils.rnn.pad_sequence(lbl_bwd, batch_first=True)\n        decoder_lbl_bwd = lbl_bwd.clone()\n        if self.training:\n            m = torch.rand(lbl_bwd.shape) < self.decoder_mask_aug\n            decoder_lbl_bwd[m] = 62\n        logits_bwd = self.decoder2(x_bwd,\n                                  labels=decoder_lbl_bwd, \n                                  encoder_attention_mask=mask_bwd.long(),\n    #                               attention_mask=label_mask,\n                                 )\n        \n        loss_ce = self.loss_fn(logits.view(-1, self.decoder.config.vocab_size), labels.view(-1))   \n        loss_ce_bwd = self.loss_fn(logits_bwd.view(-1, self.decoder.config.vocab_size), lbl_bwd.view(-1))   \n        loss_aux = self.aux_loss_fn(aux_logits,batch['score'].clamp(0,1)[:,None])\n        loss = (1- self.aux_loss_weight) * (loss_ce * (1-self.bwd_loss_weight) + self.bwd_loss_weight * loss_ce_bwd) \\\n                + self.aux_loss_weight * loss_aux",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "line_start": 827,
+          "line_end": 846
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-c285940e7df5957c60a6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read forward/backward decoder and loss code: encoder states and masks are reversed, valid labels reverse except their final element, and weighted CE combines with score auxiliary loss. The source does not independently prove the final element is EOS for all datasets; verify token semantics before reuse.",
+          "candidate_sha256": "abcb8d89ada2fff9ea1e483df24d3d556322b84b69b35b5d5b79057fa772c8f2"
+        },
+        {
+          "candidate_id": "C-c285940e7df5957c60a6",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete landmark forward packet confirms reversing encoder states and mask, selecting valid labels, reversing all but their final token, and combining forward/backward CE with score auxiliary loss. Terminal-token identity is explicitly an assertion to add, not a proven property. No isolated ablation is claimed and low-to-moderate value ratings suit this specialized extra decoder.",
+          "candidate_sha256": "abcb8d89ada2fff9ea1e483df24d3d556322b84b69b35b5d5b79057fa772c8f2"
+        }
+      ],
+      "book_location": {
+        "chapter": 57,
+        "path": "manuscript/chapters/57-patchtst-for-time-series.md",
+        "sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
+        "line_start": 150,
+        "line_end": 154,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-7356b1fa84f99aac64ed",
+      "canonical_key": "select valid timesteps for batchnorm and zero padded activations before and after convolution | variable-length sequences padded into batches | padding_control",
+      "title": "Exclude padded timesteps from temporal BatchNorm",
+      "statement": "For variable-length sequences padded into batches, select valid timesteps for BatchNorm and zero padded activations before and after convolution. Compare the same sequence under different padding lengths and ensure valid-timestep outputs and normalization statistics behave as intended. The ConvModule normalization selects valid timesteps, but other BatchNorm layers in this model can still process padding. This code does not establish whole-model padding invariance or a measured gain.",
+      "trigger_conditions": [
+        "variable-length sequences padded into batches"
+      ],
+      "action_steps": [
+        "Proposed: select valid timesteps for BatchNorm and zero padded activations before and after convolution."
+      ],
+      "verification_steps": [
+        "Proposed: compare the same sequence under different padding lengths and ensure valid-timestep outputs and normalization statistics behave as intended."
+      ],
+      "limitations": [
+        "The ConvModule normalization selects valid timesteps, but other BatchNorm layers in this model can still process padding. This code does not establish whole-model padding invariance or a measured gain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "sequence_transcription"
+        ],
+        "application_domains": [
+          "sign_language"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "padding_control"
+        ],
+        "risk_tags": [
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for asl-fingerspelling: ConvModule masks padded inputs, applies BatchNorm to rows selected by mask_bn, and masks padded outputs again.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: test masked normalization in padded audio or sensor sequence encoders under varied batch length distributions.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-16ec701d87d1a6d1d76e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Mask-aware normalization is valuable but implementing gather/scatter in sequence layers is difficult for a beginner.",
+        "competitor": "Targets padding-dependent statistics in variable-length transcription; valid-row and tiny-batch edge cases are clear checks.",
+        "practitioner": "Applicable to padded sensor/audio models; convolution boundary effects and other normalization layers require separate audits."
+      },
+      "review": {
+        "candidate_id": "C-7356b1fa84f99aac64ed",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read ConvModule, SqueezeformerBlock and encoder wiring: padded inputs/outputs are zeroed and only mask-selected rows enter this BatchNorm. Other convolutions/normalization in the network may still involve padding; whole-model padding invariance is a proposed test, not established.",
+        "candidate_sha256": "decae714a23b4b7f503e197c6fe9634e9ae77c6d55b56671334b5b3227325ad6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000457",
+      "slug": "lesson-000457",
+      "merged_candidate_ids": [
+        "C-7356b1fa84f99aac64ed"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a65c7117c8f19536399b",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "source_url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-16ec701d87d1a6d1d76e",
+          "line_start": 330,
+          "line_end": 350,
+          "evidence_text": "        # mask batch padding\n        x = x.transpose(1, 2)\n        if mask_pad.size(2) > 0:  # time > 0\n            x = x.masked_fill(~mask_pad, 0.0)\n        x = self.pw_conv_1(x)\n        x = self.act1(x)\n        x = self.dw_conv(x)\n        # torch.Size([4, 128, 384])\n        x_bn = x.permute(0,2,1).reshape(-1, x.shape[1])\n        mask_bn = mask_pad.view(-1)\n        x_bn[mask_bn] = self.bn(x_bn[mask_bn])\n        x = x_bn.view(x.permute(0,2,1).shape).permute(0,2,1)\n        '''\n        x = self.bn(x)\n        '''\n        x = self.act2(x)\n        x = self.pw_conv_2(x)\n        x = self.do(x)\n        # mask batch padding\n        if mask_pad.size(2) > 0:  # time > 0\n            x = x.masked_fill(~mask_pad, 0.0)",
+          "kind": "used",
+          "statement": "ConvModule masks padded inputs, applies BatchNorm to rows selected by mask_bn, and masks padded outputs again.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Mask-aware normalization is valuable but implementing gather/scatter in sequence layers is difficult for a beginner.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Targets padding-dependent statistics in variable-length transcription; valid-row and tiny-batch edge cases are clear checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Applicable to padded sensor/audio models; convolution boundary effects and other normalization layers require separate audits.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a48d155d0bf70a55",
+          "locator": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt#L330-L350",
+          "quote": "        # mask batch padding\n        x = x.transpose(1, 2)\n        if mask_pad.size(2) > 0:  # time > 0\n            x = x.masked_fill(~mask_pad, 0.0)\n        x = self.pw_conv_1(x)\n        x = self.act1(x)\n        x = self.dw_conv(x)\n        # torch.Size([4, 128, 384])\n        x_bn = x.permute(0,2,1).reshape(-1, x.shape[1])\n        mask_bn = mask_pad.view(-1)\n        x_bn[mask_bn] = self.bn(x_bn[mask_bn])\n        x = x_bn.view(x.permute(0,2,1).shape).permute(0,2,1)\n        '''\n        x = self.bn(x)\n        '''\n        x = self.act2(x)\n        x = self.pw_conv_2(x)\n        x = self.do(x)\n        # mask batch padding\n        if mask_pad.size(2) > 0:  # time > 0\n            x = x.masked_fill(~mask_pad, 0.0)",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://raw.githubusercontent.com/christofhenkel/kaggle-asl-fingerspelling-1st-place-solution/HEAD/models/mdl_2_pt.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858.txt",
+          "snapshot_sha256": "8fda2f2f73bf08d2cf8ffe0bac7e25071224f376dd0244cc35317fb1543b9858",
+          "line_start": 330,
+          "line_end": 350
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-7356b1fa84f99aac64ed",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read ConvModule, SqueezeformerBlock and encoder wiring: padded inputs/outputs are zeroed and only mask-selected rows enter this BatchNorm. Other convolutions/normalization in the network may still involve padding; whole-model padding invariance is a proposed test, not established.",
+          "candidate_sha256": "decae714a23b4b7f503e197c6fe9634e9ae77c6d55b56671334b5b3227325ad6"
+        },
+        {
+          "candidate_id": "C-7356b1fa84f99aac64ed",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete ConvModule packet confirms valid-row BatchNorm selection and masking before/after the convolution branch. The companion model packet reveals other BatchNorm locations; the lesson explicitly limits its claim to this normalization, without whole-model invariance or measured gain. Padding-length comparisons and modest experienced feasibility are appropriate.",
+          "candidate_sha256": "decae714a23b4b7f503e197c6fe9634e9ae77c6d55b56671334b5b3227325ad6"
+        }
+      ],
+      "book_location": {
+        "chapter": 57,
+        "path": "manuscript/chapters/57-patchtst-for-time-series.md",
+        "sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
+        "line_start": 142,
+        "line_end": 146,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-fd84800d0be4dbeb9a4a",
+      "canonical_key": "tile static scalars into spatial channels and pair each past-frame window with the immediately following target frame | spatial simulation sequences with past frames and static scalar parameters | data_alignment",
+      "title": "Construct next-step targets after the input window",
+      "statement": "When spatial simulation sequences provide past frames and static scalar parameters, tile static scalars into spatial channels and pair each past-frame window with the immediately following target frame. Assert input and target time indices on a small sequence; split simulation IDs before creating windows. This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks.",
+      "trigger_conditions": [
+        "spatial simulation sequences provide past frames and static scalar parameters"
+      ],
+      "action_steps": [
+        "Proposed: tile static scalars into spatial channels and pair each past-frame window with the immediately following target frame."
+      ],
+      "verification_steps": [
+        "Proposed: assert input and target time indices on a small sequence; split simulation IDs before creating windows."
+      ],
+      "limitations": [
+        "This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "physical_simulation"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "data_alignment"
+        ],
+        "risk_tags": [
+          "leakage",
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for 2024-flame-ai-challenge: FireDataset stacks ustar, theta, xi, u and alpha for each past timestep and takes xi at t + seq_len as its target.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: build next-day gridded environmental forecast examples from past fields and known static parameters; verify time alignment and run separation.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-6242f99951cea4c448d4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A tangible indexing exercise, but spatial tensors and tiled scalars require PyTorch knowledge beyond pandas.",
+        "competitor": "Avoids off-by-one labels in spatiotemporal forecasts; the exact slicing and index check are usable with moderate adaptation.",
+        "practitioner": "Useful for simulation surrogate datasets; time availability and skipped-run coverage need a local audit."
+      },
+      "review": {
+        "candidate_id": "C-fd84800d0be4dbeb9a4a",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Checked the entire FireDataset packet: training slices past frames, tiles u/alpha and targets xi at t+seq_len; testing uses only the initial history. No execution or improvement is established; missing/short simulations are skipped. Group splitting is a proposed prerequisite.",
+        "candidate_sha256": "e88d74a4e9cd89c0bfaed3ddbdbfc55784dbd394c33b227a4671ee405c0d489e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000488",
+      "slug": "lesson-000488",
+      "merged_candidate_ids": [
+        "C-fd84800d0be4dbeb9a4a"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ede25fe9b02109001181",
+          "competition_id": "competition:2024-flame-ai-challenge",
+          "source_id": "source:lesson-source-332c9d836a9be188",
+          "snapshot_path": "research/lesson-extraction/snapshots/4fbee3fd4b82582bfa3e06cf603f443dbbd2ea01b5da85780fe682394cd043d0.txt",
+          "snapshot_sha256": "4fbee3fd4b82582bfa3e06cf603f443dbbd2ea01b5da85780fe682394cd043d0",
+          "source_url": "https://raw.githubusercontent.com/ajayasai/2024-flame-ai-challenge---kaggle/HEAD/Training/ResidualCNN_Self_Attention_1T/2024 FLAME AI ResidualCNN Self Attention 1T.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-6242f99951cea4c448d4",
+          "line_start": 241,
+          "line_end": 288,
+          "evidence_text": "            if self.is_train:\n                # Ensure there are enough timesteps to create at least one sample\n                if Nt < self.seq_len + 1:\n                    print(f\"Not enough timesteps for ID {id}. Required: {self.seq_len + 1}, Available: {Nt}\")\n                    continue\n\n                # Create multiple samples using sliding window\n                for t in range(Nt - self.seq_len):\n                    # Input sequences: theta, ustar, xi for seq_len timesteps\n                    theta_seq = theta[t:t+self.seq_len]  # Shape: [seq_len, 113, 32]\n                    ustar_seq = ustar[t:t+self.seq_len]\n                    xi_seq = xi[t:t+self.seq_len]\n\n                    # Stack features per time step: [seq_len, 5, 113, 32]\n                    # Each time step has channels: [ustar, theta, xi, u, alpha]\n                    # u and alpha are scalar features, tiled to [1, 113, 32] each\n                    features = []\n                    for i in range(self.seq_len):\n                        theta_i = theta_seq[i]  # [113,32]\n                        ustar_i = ustar_seq[i]\n                        xi_i = xi_seq[i]\n                        u_i = u\n                        alpha_i = alpha\n\n                        # Convert scalar features to tensors and tile\n                        u_tensor = torch.tensor(u_i, dtype=torch.float32).unsqueeze(0).unsqueeze(1).repeat(1, 113, 32)  # [1,113,32]\n                        alpha_tensor = torch.tensor(alpha_i, dtype=torch.float32).unsqueeze(0).unsqueeze(1).repeat(1, 113, 32)  # [1,113,32]\n\n                        # Stack all features\n                        feature = torch.stack([\n                            torch.tensor(ustar_i, dtype=torch.float32),  # [113,32]\n                            torch.tensor(theta_i, dtype=torch.float32),  # [113,32]\n                            torch.tensor(xi_i, dtype=torch.float32),     # [113,32]\n                            u_tensor.squeeze(0),                        # [113,32]\n                            alpha_tensor.squeeze(0)                     # [113,32]\n                        ], dim=0)  # [5,113,32]\n\n                        features.append(feature)\n                    \n                    feature_sequence = torch.stack(features, dim=0)  # [seq_len, 5, 113,32]\n\n                    # Target is the next xi timestep\n                    target = torch.tensor(xi[t + self.seq_len], dtype=torch.float32).unsqueeze(0)  # [1,113,32]\n\n                    samples.append({\n                        'id': id,\n                        'input': feature_sequence,  # [3,5,113,32]\n                        'target': target  # [1,113,32]",
+          "kind": "used",
+          "statement": "FireDataset stacks ustar, theta, xi, u and alpha for each past timestep and takes xi at t + seq_len as its target.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "A tangible indexing exercise, but spatial tensors and tiled scalars require PyTorch knowledge beyond pandas.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Avoids off-by-one labels in spatiotemporal forecasts; the exact slicing and index check are usable with moderate adaptation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful for simulation surrogate datasets; time availability and skipped-run coverage need a local audit.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-332c9d836a9be188",
+          "locator": "research/lesson-extraction/snapshots/4fbee3fd4b82582bfa3e06cf603f443dbbd2ea01b5da85780fe682394cd043d0.txt#L241-L288",
+          "quote": "            if self.is_train:\n                # Ensure there are enough timesteps to create at least one sample\n                if Nt < self.seq_len + 1:\n                    print(f\"Not enough timesteps for ID {id}. Required: {self.seq_len + 1}, Available: {Nt}\")\n                    continue\n\n                # Create multiple samples using sliding window\n                for t in range(Nt - self.seq_len):\n                    # Input sequences: theta, ustar, xi for seq_len timesteps\n                    theta_seq = theta[t:t+self.seq_len]  # Shape: [seq_len, 113, 32]\n                    ustar_seq = ustar[t:t+self.seq_len]\n                    xi_seq = xi[t:t+self.seq_len]\n\n                    # Stack features per time step: [seq_len, 5, 113, 32]\n                    # Each time step has channels: [ustar, theta, xi, u, alpha]\n                    # u and alpha are scalar features, tiled to [1, 113, 32] each\n                    features = []\n                    for i in range(self.seq_len):\n                        theta_i = theta_seq[i]  # [113,32]\n                        ustar_i = ustar_seq[i]\n                        xi_i = xi_seq[i]\n                        u_i = u\n                        alpha_i = alpha\n\n                        # Convert scalar features to tensors and tile\n                        u_tensor = torch.tensor(u_i, dtype=torch.float32).unsqueeze(0).unsqueeze(1).repeat(1, 113, 32)  # [1,113,32]\n                        alpha_tensor = torch.tensor(alpha_i, dtype=torch.float32).unsqueeze(0).unsqueeze(1).repeat(1, 113, 32)  # [1,113,32]\n\n                        # Stack all features\n                        feature = torch.stack([\n                            torch.tensor(ustar_i, dtype=torch.float32),  # [113,32]\n                            torch.tensor(theta_i, dtype=torch.float32),  # [113,32]\n                            torch.tensor(xi_i, dtype=torch.float32),     # [113,32]\n                            u_tensor.squeeze(0),                        # [113,32]\n                            alpha_tensor.squeeze(0)                     # [113,32]\n                        ], dim=0)  # [5,113,32]\n\n                        features.append(feature)\n                    \n                    feature_sequence = torch.stack(features, dim=0)  # [seq_len, 5, 113,32]\n\n                    # Target is the next xi timestep\n                    target = torch.tensor(xi[t + self.seq_len], dtype=torch.float32).unsqueeze(0)  # [1,113,32]\n\n                    samples.append({\n                        'id': id,\n                        'input': feature_sequence,  # [3,5,113,32]\n                        'target': target  # [1,113,32]",
+          "competition_id": "competition:2024-flame-ai-challenge",
+          "url": "https://raw.githubusercontent.com/ajayasai/2024-flame-ai-challenge---kaggle/HEAD/Training/ResidualCNN_Self_Attention_1T/2024 FLAME AI ResidualCNN Self Attention 1T.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/4fbee3fd4b82582bfa3e06cf603f443dbbd2ea01b5da85780fe682394cd043d0.txt",
+          "snapshot_sha256": "4fbee3fd4b82582bfa3e06cf603f443dbbd2ea01b5da85780fe682394cd043d0",
+          "line_start": 241,
+          "line_end": 288
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-fd84800d0be4dbeb9a4a",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Checked the entire FireDataset packet: training slices past frames, tiles u/alpha and targets xi at t+seq_len; testing uses only the initial history. No execution or improvement is established; missing/short simulations are skipped. Group splitting is a proposed prerequisite.",
+          "candidate_sha256": "e88d74a4e9cd89c0bfaed3ddbdbfc55784dbd394c33b227a4671ee405c0d489e"
+        },
+        {
+          "candidate_id": "C-fd84800d0be4dbeb9a4a",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Read complete FireDataset packet: each window excludes xi[t+seq_len], target uses that next index, and u/alpha are spatially tiled. Proposed split/index checks are appropriate; observed application is implementation only. Skipped malformed/missing runs and fixed 113x32 layout require local checks. Audience ratings reasonably distinguish tensor expertise from indexing utility.",
+          "candidate_sha256": "e88d74a4e9cd89c0bfaed3ddbdbfc55784dbd394c33b227a4671ee405c0d489e"
+        }
+      ],
+      "book_location": {
+        "chapter": 57,
+        "path": "manuscript/chapters/57-patchtst-for-time-series.md",
+        "sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
+        "line_start": 106,
+        "line_end": 116,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

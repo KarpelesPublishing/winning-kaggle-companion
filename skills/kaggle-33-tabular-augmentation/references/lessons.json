@@ -1,0 +1,197 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-b2152c040296e7862063",
+      "canonical_key": "use an imblearn pipeline for smote and scaling within cross-validation. | class-imbalanced tabular classification uses smote | predictive_quality",
+      "title": "Put resampling inside cross-validation preprocessing",
+      "statement": "When class-imbalanced tabular classification uses SMOTE, proposed reuse: Proposed conditional application: Use an imblearn pipeline for SMOTE and scaling within cross-validation. Proposed check: Inspect fold boundaries and log indices so scaling and resampling fit only training folds; score untouched validation rows against no-SMOTE baseline. Limitation: README documentation establishes a described implementation, not verified execution or production readiness.",
+      "trigger_conditions": [
+        "class-imbalanced tabular classification uses SMOTE"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use an imblearn pipeline for SMOTE and scaling within cross-validation."
+      ],
+      "verification_steps": [
+        "Proposed check: Inspect fold boundaries and log indices so scaling and resampling fit only training folds; score untouched validation rows against no-SMOTE baseline."
+      ],
+      "limitations": [
+        "README documentation establishes a described implementation, not verified execution or production readiness.",
+        "Resampling before fold separation would contaminate validation; scaling needs training-fold fitting."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation",
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Fit resampling and preprocessing within current fold-aware tooling.",
+        "book_fit": [
+          "Validation",
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The README describes an imblearn pipeline combining SMOTE and StandardScaler.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-096c65ff6927229cfbc1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A concrete leakage prevention step using familiar tabular tools.",
+        "competitor": "Protects CV validity in imbalance experiments at modest implementation cost.",
+        "practitioner": "Applies to imbalanced classification pipelines, with no production safety claim."
+      },
+      "review": {
+        "candidate_id": "C-b2152c040296e7862063",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full repository README describes imblearn SMOTE and scaling integration in a later conversion; its claimed proper CV was not audited in code or execution.",
+        "candidate_sha256": "18d8aa30f9181a929ad5621bed9710bfad5c0484642334282214906cb29dc7c5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000535",
+      "slug": "lesson-000535",
+      "merged_candidate_ids": [
+        "C-b2152c040296e7862063"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-50138162f11f2d23d98a",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "source_url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-096c65ff6927229cfbc1",
+          "line_start": 285,
+          "line_end": 285,
+          "evidence_text": "**sklearn Pipeline Integration**: Proper use of imblearn.Pipeline for SMOTE + StandardScaler",
+          "kind": "postcompetition",
+          "statement": "The README describes an imblearn pipeline combining SMOTE and StandardScaler.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "A concrete leakage prevention step using familiar tabular tools.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 78.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Protects CV validity in imbalance experiments at modest implementation cost.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 78.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Applies to imbalanced classification pipelines, with no production safety claim.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "locator": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt#L285-L285",
+          "quote": "**sklearn Pipeline Integration**: Proper use of imblearn.Pipeline for SMOTE + StandardScaler",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "line_start": 285,
+          "line_end": 285
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-b2152c040296e7862063",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full repository README describes imblearn SMOTE and scaling integration in a later conversion; its claimed proper CV was not audited in code or execution.",
+          "candidate_sha256": "18d8aa30f9181a929ad5621bed9710bfad5c0484642334282214906cb29dc7c5"
+        }
+      ],
+      "book_location": {
+        "chapter": 33,
+        "path": "manuscript/chapters/33-tabular-augmentation.md",
+        "sha256": "d50b87923246c8044584faf958e000d3770cb54c0357bc9b8960661b79044da8",
+        "line_start": 243,
+        "line_end": 253,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

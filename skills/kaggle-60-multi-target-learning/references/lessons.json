@@ -1,0 +1,784 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-194c8dee89d9cf6f2f8f",
+      "canonical_key": "apply the response-availability mask to training loss and both aggregate and per-output metrics | multi-output labels have missing observations | missing_label_consistency",
+      "title": "Mask absent responses consistently in loss and evaluation",
+      "statement": "When multi-output labels have missing observations, apply the response-availability mask to training loss and both aggregate and per-output metrics. Verify mask polarity and replace missing NaN targets before weighted arithmetic; compare metrics against manual valid-target computations. Mask construction and target sanitization are outside this packet; a zero weight alone does not guarantee NaN arithmetic is safe. No measured gain is reported.",
+      "trigger_conditions": [
+        "multi-output labels have missing observations"
+      ],
+      "action_steps": [
+        "Proposed: apply the response-availability mask to training loss and both aggregate and per-output metrics."
+      ],
+      "verification_steps": [
+        "Proposed: verify mask polarity and replace missing NaN targets before weighted arithmetic; compare metrics against manual valid-target computations."
+      ],
+      "limitations": [
+        "Mask construction and target sanitization are outside this packet; a zero weight alone does not guarantee NaN arithmetic is safe. No measured gain is reported."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "multi_output_regression"
+        ],
+        "application_domains": [
+          "neural_response"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "missing_label_consistency"
+        ],
+        "risk_tags": [
+          "missing_labels",
+          "nonfinite_arithmetic",
+          "metric_population"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for uwndc19: The model reads nan_mask, supplies it as MSE weights and uses the same mask for overall and column-specific RMSE.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: sanitize missing targets, apply the same valid-response mask to loss and metrics, and hand-check weighted reductions and coverage.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a18eae344e6511353476"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner can understand consistent availability masks but weighted reduction and missing-target arithmetic need care.",
+        "competitor": "Competitor can align loss and metric populations in partially labeled multi-output tasks.",
+        "practitioner": "Practitioner gains robust missing-response assessment, requiring coverage counts and empty-output policies for reliable monitoring."
+      },
+      "review": {
+        "candidate_id": "C-194c8dee89d9cf6f2f8f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete multiclass-named model is actually multi-output regression; it feeds nan_mask to MSE and aggregate/per-column RMSE. Mask construction, NaN sanitization and zero-valid-target behavior are outside packet; multiplication by zero is not sufficient to sanitize NaNs. No result comparison.",
+        "candidate_sha256": "69cea36a84cb74621f77087553dfb45c991d17abeca45b9ea955ef03db410c67"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000012",
+      "slug": "lesson-000012",
+      "merged_candidate_ids": [
+        "C-194c8dee89d9cf6f2f8f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-16d3559ea3268881c422",
+          "competition_id": "competition:uwndc19",
+          "source_id": "source:lesson-source-6e1e5922a1f08510",
+          "snapshot_path": "research/lesson-extraction/snapshots/22dcfc2d883d8bd31752c3fa0970f077b2d7d10fac1c2550f354a152d203f0cb.txt",
+          "snapshot_sha256": "22dcfc2d883d8bd31752c3fa0970f077b2d7d10fac1c2550f354a152d203f0cb",
+          "source_url": "https://raw.githubusercontent.com/apls777/kaggle-uw-neural-data-challenge/HEAD/uwndc19/models/multiclass/model.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-a18eae344e6511353476",
+          "line_start": 65,
+          "line_end": 99,
+          "evidence_text": "    # compute the loss\n    nan_mask = tf.cast(features['nan_mask'], tf.float32)\n    mse_loss = tf.losses.mean_squared_error(labels=labels, predictions=logits, weights=nan_mask)\n    loss = mse_loss + tf.losses.get_regularization_loss()\n\n    # get train variables\n    train_vars = [var for var in tf.trainable_variables() if var.name not in freeze_variables]\n\n    # return training specification\n    if mode == tf.estimator.ModeKeys.TRAIN:\n        train_op = tf.contrib.layers.optimize_loss(\n            loss=loss,\n            global_step=tf.train.get_global_step(),\n            learning_rate=params['training']['learning_rate'],\n            optimizer='Adam',\n            summaries=['learning_rate', 'loss', 'gradients', 'gradient_norm'],\n            variables=train_vars,\n        )\n\n        # perform update ops for batch normalization\n        update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)\n        train_op = tf.group([train_op, update_ops])\n\n        return tf.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)\n\n    # evaluation metrics\n    eval_metric_ops = {\n        'rmse': tf.metrics.root_mean_squared_error(labels=labels, predictions=logits, weights=nan_mask),\n    }\n\n    # RMSE per column\n    for i in range(num_classes):\n        eval_metric_ops['rmse/column%d' % i] = tf.metrics.root_mean_squared_error(labels=labels[:, i],\n                                                                                  predictions=logits[:, i],\n                                                                                  weights=nan_mask[:, i])",
+          "kind": "used",
+          "statement": "The model reads nan_mask, supplies it as MSE weights and uses the same mask for overall and column-specific RMSE.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Beginner can understand consistent availability masks but weighted reduction and missing-target arithmetic need care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Competitor can align loss and metric populations in partially labeled multi-output tasks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner gains robust missing-response assessment, requiring coverage counts and empty-output policies for reliable monitoring.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6e1e5922a1f08510",
+          "locator": "research/lesson-extraction/snapshots/22dcfc2d883d8bd31752c3fa0970f077b2d7d10fac1c2550f354a152d203f0cb.txt#L65-L99",
+          "quote": "    # compute the loss\n    nan_mask = tf.cast(features['nan_mask'], tf.float32)\n    mse_loss = tf.losses.mean_squared_error(labels=labels, predictions=logits, weights=nan_mask)\n    loss = mse_loss + tf.losses.get_regularization_loss()\n\n    # get train variables\n    train_vars = [var for var in tf.trainable_variables() if var.name not in freeze_variables]\n\n    # return training specification\n    if mode == tf.estimator.ModeKeys.TRAIN:\n        train_op = tf.contrib.layers.optimize_loss(\n            loss=loss,\n            global_step=tf.train.get_global_step(),\n            learning_rate=params['training']['learning_rate'],\n            optimizer='Adam',\n            summaries=['learning_rate', 'loss', 'gradients', 'gradient_norm'],\n            variables=train_vars,\n        )\n\n        # perform update ops for batch normalization\n        update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)\n        train_op = tf.group([train_op, update_ops])\n\n        return tf.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)\n\n    # evaluation metrics\n    eval_metric_ops = {\n        'rmse': tf.metrics.root_mean_squared_error(labels=labels, predictions=logits, weights=nan_mask),\n    }\n\n    # RMSE per column\n    for i in range(num_classes):\n        eval_metric_ops['rmse/column%d' % i] = tf.metrics.root_mean_squared_error(labels=labels[:, i],\n                                                                                  predictions=logits[:, i],\n                                                                                  weights=nan_mask[:, i])",
+          "competition_id": "competition:uwndc19",
+          "url": "https://raw.githubusercontent.com/apls777/kaggle-uw-neural-data-challenge/HEAD/uwndc19/models/multiclass/model.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/22dcfc2d883d8bd31752c3fa0970f077b2d7d10fac1c2550f354a152d203f0cb.txt",
+          "snapshot_sha256": "22dcfc2d883d8bd31752c3fa0970f077b2d7d10fac1c2550f354a152d203f0cb",
+          "line_start": 65,
+          "line_end": 99
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-194c8dee89d9cf6f2f8f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete multiclass-named model is actually multi-output regression; it feeds nan_mask to MSE and aggregate/per-column RMSE. Mask construction, NaN sanitization and zero-valid-target behavior are outside packet; multiplication by zero is not sufficient to sanitize NaNs. No result comparison.",
+          "candidate_sha256": "69cea36a84cb74621f77087553dfb45c991d17abeca45b9ea955ef03db410c67"
+        },
+        {
+          "candidate_id": "C-194c8dee89d9cf6f2f8f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete neural-response source uses the same nan_mask weights for MSE, overall RMSE and each output RMSE. Candidate preserves unknown mask construction/target sanitation, zero-times-NaN hazard and absent gain, and proposes manual valid-target/reduction checks. Partial-label population consistency and necessary arithmetic care justify grades.",
+          "candidate_sha256": "69cea36a84cb74621f77087553dfb45c991d17abeca45b9ea955ef03db410c67"
+        }
+      ],
+      "book_location": {
+        "chapter": 60,
+        "path": "manuscript/chapters/60-multi-target-learning.md",
+        "sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
+        "line_start": 226,
+        "line_end": 236,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-77e9f9b087d00e118f55",
+      "canonical_key": "combine rare labels and use their empirical cdf as a mixture component, weighted by classification probabilities. | a probabilistic output has too few samples per class | predictive_quality",
+      "title": "Use empirical conditional distributions for sparse tail classes",
+      "statement": "When a probabilistic output has too few samples per class, proposed reuse: Proposed conditional application: Combine rare labels and use their empirical CDF as a mixture component, weighted by classification probabilities. Proposed check: Fit pooled tail CDF using training rows only; compare probabilistic loss and tail calibration with separate tail learners. Limitation: Empirical tails need enough samples and stable label distribution; coarse pooling loses resolution.",
+      "trigger_conditions": [
+        "a probabilistic output has too few samples per class"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Combine rare labels and use their empirical CDF as a mixture component, weighted by classification probabilities."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit pooled tail CDF using training rows only; compare probabilistic loss and tail calibration with separate tail learners."
+      ],
+      "limitations": [
+        "Empirical tails need enough samples and stable label distribution; coarse pooling loses resolution."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Rainfall author found separate minority regression/classification worse than empirical conditional distributions.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed pooled empirical tail components when class support is sparse.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-3ef25b2cd8b6a64d30cf"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Distribution mixtures require statistical understanding.",
+        "competitor": "Specific sparse-tail baseline for probabilistic contests.",
+        "practitioner": "Useful rare-event modeling with calibration checks."
+      },
+      "review": {
+        "candidate_id": "C-77e9f9b087d00e118f55",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full rain interview says empirical rare-class CDF beat separate minority regression/classification; extractor reversed the failure.",
+        "candidate_sha256": "c54895bdc04d4dc132840820ea15d1c5b54ecf0519c3fc919ead98d72a3bd4cc"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000073",
+      "slug": "lesson-000073",
+      "merged_candidate_ids": [
+        "C-77e9f9b087d00e118f55"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-51b537d613e944712ad3",
+          "competition_id": "competition:how-much-did-it-rain",
+          "source_id": "source:lesson-source-730207cf1abfc006",
+          "snapshot_path": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt",
+          "snapshot_sha256": "f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978",
+          "source_url": "http://blog.kaggle.com/2015/07/01/how-much-did-it-rain-winners-interview-1st-place-devin-anzelmo/",
+          "source_quality": "primary_text",
+          "observation_id": "O-3ef25b2cd8b6a64d30cf",
+          "line_start": 29,
+          "line_end": 29,
+          "evidence_text": "I did try regression and classification just on the data from the minority classes but it never performed quite as well as just using the empirical distribution.",
+          "kind": "reported_failure",
+          "statement": "Separate minority-class regression/classification performed worse than the author's empirical conditional distribution approach.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Distribution mixtures require statistical understanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Specific sparse-tail baseline for probabilistic contests.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful rare-event modeling with calibration checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-730207cf1abfc006",
+          "locator": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt#L29-L29",
+          "quote": "I did try regression and classification just on the data from the minority classes but it never performed quite as well as just using the empirical distribution.",
+          "competition_id": "competition:how-much-did-it-rain",
+          "url": "http://blog.kaggle.com/2015/07/01/how-much-did-it-rain-winners-interview-1st-place-devin-anzelmo/",
+          "snapshot_path": "research/lesson-extraction/snapshots/f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978.txt",
+          "snapshot_sha256": "f4ef77e5a394555e0f7108fb068934c40e3f325920382beb9347f2288c338978",
+          "line_start": 29,
+          "line_end": 29
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-77e9f9b087d00e118f55",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full rain interview says empirical rare-class CDF beat separate minority regression/classification; extractor reversed the failure.",
+          "candidate_sha256": "c54895bdc04d4dc132840820ea15d1c5b54ecf0519c3fc919ead98d72a3bd4cc"
+        }
+      ],
+      "book_location": {
+        "chapter": 60,
+        "path": "manuscript/chapters/60-multi-target-learning.md",
+        "sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
+        "line_start": 256,
+        "line_end": 260,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-67d69ed315f75328f946",
+      "canonical_key": "predict mortality and use the predictions with other features for length-of-stay regression. | length-of-stay modeling has a related mortality target | predictive_quality",
+      "title": "Use a predicted clinical intermediate as a regression feature",
+      "statement": "When length-of-stay modeling has a related mortality target, proposed reuse: Proposed conditional application: Predict mortality and use the predictions with other features for length-of-stay regression. Proposed check: Generate patient-grouped OOF mortality features using only admission-available covariates; compare LOS RMSE without intermediate features. Limitation: Outcome-derived inputs and in-sample intermediate predictions can leak; no clinical utility established.",
+      "trigger_conditions": [
+        "length-of-stay modeling has a related mortality target"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Predict mortality and use the predictions with other features for length-of-stay regression."
+      ],
+      "verification_steps": [
+        "Proposed check: Generate patient-grouped OOF mortality features using only admission-available covariates; compare LOS RMSE without intermediate features."
+      ],
+      "limitations": [
+        "Outcome-derived inputs and in-sample intermediate predictions can leak; no clinical utility established."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used mortality prediction as an intermediate model for hospital length-of-stay prediction.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-eea93d6f78b7b821beb3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Two-stage clinical stacking needs leakage expertise.",
+        "competitor": "Concrete related-target feature hypothesis.",
+        "practitioner": "Conditional value for related outcomes with strict timing controls."
+      },
+      "review": {
+        "candidate_id": "C-67d69ed315f75328f946",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "ICU source explicitly uses mortality predictions for LOS; OOF construction and prediction-time availability are unstated.",
+        "candidate_sha256": "1d28259d2c491f599bbea5d70b4f9c8eb4b7be41f2761302ece210fb3dd5caaf"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000383",
+      "slug": "lesson-000383",
+      "merged_candidate_ids": [
+        "C-67d69ed315f75328f946"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f36a370dec7545380425",
+          "competition_id": "competition:b-gse-dt-los",
+          "source_id": "source:lesson-source-f5c153cf8f4e5df6",
+          "snapshot_path": "research/lesson-extraction/snapshots/a81837e61d1ffd0d9132f92e298458ea7d33cf57b7d9141e6de55b772f41ec35.txt",
+          "snapshot_sha256": "a81837e61d1ffd0d9132f92e298458ea7d33cf57b7d9141e6de55b772f41ec35",
+          "source_url": "https://raw.githubusercontent.com/juanpiccio/hospital-LOS/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-eea93d6f78b7b821beb3",
+          "line_start": 27,
+          "line_end": 27,
+          "evidence_text": "LOS predictions: we used the previous predictions -and all the other pertinent features- to predict lengths of stay.",
+          "kind": "used",
+          "statement": "The author used mortality prediction as an intermediate model for hospital length-of-stay prediction.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Two-stage clinical stacking needs leakage expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Concrete related-target feature hypothesis.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional value for related outcomes with strict timing controls.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f5c153cf8f4e5df6",
+          "locator": "research/lesson-extraction/snapshots/a81837e61d1ffd0d9132f92e298458ea7d33cf57b7d9141e6de55b772f41ec35.txt#L27-L27",
+          "quote": "LOS predictions: we used the previous predictions -and all the other pertinent features- to predict lengths of stay.",
+          "competition_id": "competition:b-gse-dt-los",
+          "url": "https://raw.githubusercontent.com/juanpiccio/hospital-LOS/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/a81837e61d1ffd0d9132f92e298458ea7d33cf57b7d9141e6de55b772f41ec35.txt",
+          "snapshot_sha256": "a81837e61d1ffd0d9132f92e298458ea7d33cf57b7d9141e6de55b772f41ec35",
+          "line_start": 27,
+          "line_end": 27
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-67d69ed315f75328f946",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "ICU source explicitly uses mortality predictions for LOS; OOF construction and prediction-time availability are unstated.",
+          "candidate_sha256": "1d28259d2c491f599bbea5d70b4f9c8eb4b7be41f2761302ece210fb3dd5caaf"
+        }
+      ],
+      "book_location": {
+        "chapter": 60,
+        "path": "manuscript/chapters/60-multi-target-learning.md",
+        "sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
+        "line_start": 238,
+        "line_end": 248,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-974d94034532d94f5c8d",
+      "canonical_key": "train per-label logits with bcewithlogitsloss rather than an exclusive-class loss | each document can belong to multiple labels | task_loss_match",
+      "title": "Use independent binary losses for multilabel targets",
+      "statement": "When each document can belong to multiple labels, train per-label logits with BCEWithLogitsLoss rather than an exclusive-class loss. Verify nonexclusive labels, label order and threshold calibration; compute metrics on the original label matrix. This deployment-retraining notebook is an implementation snapshot, without an isolated BCE gain or confirmed final-submission use. Its pooling is CLS despite a meanpool tag; flattened macro F1 averages binary classes, and ROC AUC consumes thresholded predictions.",
+      "trigger_conditions": [
+        "each document can belong to multiple labels"
+      ],
+      "action_steps": [
+        "Proposed: train per-label logits with BCEWithLogitsLoss rather than an exclusive-class loss."
+      ],
+      "verification_steps": [
+        "Proposed: verify nonexclusive labels, label order and threshold calibration; compute metrics on the original label matrix."
+      ],
+      "limitations": [
+        "This deployment-retraining notebook is an implementation snapshot, without an isolated BCE gain or confirmed final-submission use. Its pooling is CLS despite a meanpool tag; flattened macro F1 averages binary classes, and ROC AUC consumes thresholded predictions."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "multilabel_classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "task_loss_match"
+        ],
+        "risk_tags": [
+          "metric_mismatch",
+          "label_alignment"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for datasolve-india: The forward function projects the CLS embedding into fifty logits and computes BCEWithLogitsLoss against float label vectors.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: match per-label logits and BCE to nonexclusive targets, then compute label-aware metrics and thresholds on held-out data.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-2c04e156c0e947f797e8"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner gets a clear loss/target matching example; fifty-label GPU retraining costs more than adopting the loss.",
+        "competitor": "Competitor already knows BCE but can use explicit metric-shape checks and label-order controls.",
+        "practitioner": "Practitioner can prevent incompatible multiclass objectives on multilabel products with standard tooling."
+      },
+      "review": {
+        "candidate_id": "C-974d94034532d94f5c8d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete notebook implements fifty CLS logits with BCEWithLogitsLoss; labels are nonexclusive vectors. Tracking says meanpool but implementation is CLS. Flattened macro F1 is over binary values, not label columns; AUC uses thresholded predictions. No measured loss comparison.",
+        "candidate_sha256": "7917195cda19deafc51f89a1ac9b544172d478eb311f8a2304c9c5645a747df2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000508",
+      "slug": "lesson-000508",
+      "merged_candidate_ids": [
+        "C-974d94034532d94f5c8d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6e25f505c8936d7081e0",
+          "competition_id": "competition:datasolve-india",
+          "source_id": "source:lesson-source-7fe3c9ef65c244ec",
+          "snapshot_path": "research/lesson-extraction/snapshots/284b78732cd05dc90c7ca63d74e11043c8e0e954a3f1034aa74c9e038ef21370.txt",
+          "snapshot_sha256": "284b78732cd05dc90c7ca63d74e11043c8e0e954a3f1034aa74c9e038ef21370",
+          "source_url": "https://raw.githubusercontent.com/gladiator07/datasolve-wk-2022/HEAD/notebooks/best_model_retrain.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-2c04e156c0e947f797e8",
+          "line_start": 343,
+          "line_end": 353,
+          "evidence_text": "    def forward(self, input_ids, attention_mask, labels=None):\n        trans_out = self.backbone(input_ids, attention_mask=attention_mask)\n        last_hidden_state = trans_out.last_hidden_state\n        pooled_embeds = last_hidden_state[:, 0] # CLS Token\n        \n        logits = self.output(pooled_embeds)\n\n        loss = None\n        if labels is not None:\n            loss_fct = torch.nn.BCEWithLogitsLoss()\n            loss = loss_fct(logits.view(-1, 50), labels.float().view(-1, 50))",
+          "kind": "used",
+          "statement": "The forward function projects the CLS embedding into fifty logits and computes BCEWithLogitsLoss against float label vectors.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Beginner gets a clear loss/target matching example; fifty-label GPU retraining costs more than adopting the loss.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Competitor already knows BCE but can use explicit metric-shape checks and label-order controls.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Practitioner can prevent incompatible multiclass objectives on multilabel products with standard tooling.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7fe3c9ef65c244ec",
+          "locator": "research/lesson-extraction/snapshots/284b78732cd05dc90c7ca63d74e11043c8e0e954a3f1034aa74c9e038ef21370.txt#L343-L353",
+          "quote": "    def forward(self, input_ids, attention_mask, labels=None):\n        trans_out = self.backbone(input_ids, attention_mask=attention_mask)\n        last_hidden_state = trans_out.last_hidden_state\n        pooled_embeds = last_hidden_state[:, 0] # CLS Token\n        \n        logits = self.output(pooled_embeds)\n\n        loss = None\n        if labels is not None:\n            loss_fct = torch.nn.BCEWithLogitsLoss()\n            loss = loss_fct(logits.view(-1, 50), labels.float().view(-1, 50))",
+          "competition_id": "competition:datasolve-india",
+          "url": "https://raw.githubusercontent.com/gladiator07/datasolve-wk-2022/HEAD/notebooks/best_model_retrain.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/284b78732cd05dc90c7ca63d74e11043c8e0e954a3f1034aa74c9e038ef21370.txt",
+          "snapshot_sha256": "284b78732cd05dc90c7ca63d74e11043c8e0e954a3f1034aa74c9e038ef21370",
+          "line_start": 343,
+          "line_end": 353
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-974d94034532d94f5c8d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete notebook implements fifty CLS logits with BCEWithLogitsLoss; labels are nonexclusive vectors. Tracking says meanpool but implementation is CLS. Flattened macro F1 is over binary values, not label columns; AUC uses thresholded predictions. No measured loss comparison.",
+          "candidate_sha256": "7917195cda19deafc51f89a1ac9b544172d478eb311f8a2304c9c5645a747df2"
+        },
+        {
+          "candidate_id": "C-974d94034532d94f5c8d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete deployment-retraining notebook constructs 50-dimensional binary targets and uses BCEWithLogitsLoss with a 50-logit CLS head. Candidate preserves nonexclusive label semantics, observed CLS versus notebook tags, flattened metric and thresholded AUC limitations, and retraining timing; proposed metric/calibration corrections are distinct from implementation and unmeasured gain. Grades reflect standard loss matching and schema work.",
+          "candidate_sha256": "7917195cda19deafc51f89a1ac9b544172d478eb311f8a2304c9c5645a747df2"
+        }
+      ],
+      "book_location": {
+        "chapter": 60,
+        "path": "manuscript/chapters/60-multi-target-learning.md",
+        "sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
+        "line_start": 262,
+        "line_end": 266,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

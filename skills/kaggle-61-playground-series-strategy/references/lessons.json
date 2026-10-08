@@ -1,0 +1,383 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-0b8074a4a0f3faee",
+      "canonical_key": "screen cheaply, then rerun finalists on aligned multilabel folds before selecting weighted ensembles. | multilabel text experiments need fast screening and comparable oof predictions | validation_reliability",
+      "title": "Use rapid holdout screening then aligned multilabel folds",
+      "statement": "When multilabel text experiments need fast screening and comparable OOF predictions, consider this source-backed action: Screen cheaply, then rerun finalists on aligned multilabel folds before selecting weighted ensembles. Proposed check: Audit shared row/fold IDs and check weight stability on independent validation. Limit: Repeated holdout screening and hill climbing can still overfit; no isolated gain is shown.",
+      "trigger_conditions": [
+        "multilabel text experiments need fast screening and comparable OOF predictions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Screen cheaply, then rerun finalists on aligned multilabel folds before selecting weighted ensembles."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit shared row/fold IDs and check weight stability on independent validation."
+      ],
+      "limitations": [
+        "Repeated holdout screening and hill climbing can still overfit; no isolated gain is shown."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Quick experiments used a simple split with overfitting warning; final transformer and sparse-text tree models shared five multilabel-stratified folds and hill-climbed ensemble weights.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-0b8074a4a0f3faee"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Aligned multiclass/fold artifacts require bookkeeping and extra fits.",
+        "competitor": "Useful fast-screening/final-validation balance for diverse ensembles.",
+        "practitioner": "Strong repeatable evaluation workflow for multilabel text pipelines."
+      },
+      "review": {
+        "candidate_id": "C-a-0b8074a4a0f3faee",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked quicksplit warning/shared multilabel folds; hillclimb remains overfit risk.",
+        "candidate_sha256": "851856e45acf10efbbda9ca84eee6de191eb2e71c95f0a1a9e76d3037c7f1ae3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000451",
+      "slug": "lesson-000451",
+      "merged_candidate_ids": [
+        "C-a-0b8074a4a0f3faee"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bca25d13740379a6853a",
+          "competition_id": "competition:datasolve-india",
+          "source_id": "source:lesson-source-a387022cac6fe449",
+          "snapshot_path": "research/lesson-extraction/snapshots/98fbf8aaf62531ba3b2fed5c265737e3d1f2d34d91c9ac9a292ac0b6d162624b.txt",
+          "snapshot_sha256": "98fbf8aaf62531ba3b2fed5c265737e3d1f2d34d91c9ac9a292ac0b6d162624b",
+          "source_url": "https://raw.githubusercontent.com/Gladiator07/DataSolve-WK-2022/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-0b8074a4a0f3faee",
+          "line_start": 22,
+          "line_end": 26,
+          "evidence_text": "- **[Transformer train-test-split pipeline](https://www.kaggle.com/code/atharvaingle/datasolve-tts-pipeline)** \u2192 Transformer based pipeline. Note, this pipeline just use a simple split from train set for evaluation which might be not the most general way to evaluate models and have a huge risk of overfitting on the validation set. This pipeline was just used for running quick and dirty experiments and the final experiments were ran with the 5-fold pipeline for more robust results. Same notebook can be found on [GitHub repo too](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/transformer_tts_pipeline.ipynb).\n- **[Transformer 5-fold pipeline](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/transformer_kfold.ipynb)** \u2192 All the transformer models used for the final ensemble were based out of this notebook. This pipeline runs a 5-fold training. The folds are stratified using the [iterstrat package](https://github.com/trent-b/iterative-stratification) which helps to stratify multi-label data. Specifically,\u00a0`MultilabelStratifiedKFold`\u00a0was used to create the folds. You can also check the complete data preprocessing and preparation stage in\u00a0[this notebook](https://www.kaggle.com/code/atharvaingle/datasolve-eda-cv-setup).\n- **[XGBoost pipeline](https://www.kaggle.com/code/atharvaingle/datasolve-xgboost-pipeline)** - traditional approaches like XGBoost with TFIDF/CountVectorizer was also used for diversity in the final ensemble. This used the same 5-folds used in the transformer pipleline for comparing the results and leak-free ensemble. Same notebook can be found on [GitHub repo](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/xgboost_pipeline.ipynb) too.\n- **[Catboost pipeline](https://www.kaggle.com/code/atharvaingle/datasolve-catboost-pipeline)** - replaced XGBoost model with Catboost (this was trained on CPU as catboost doesn\u2019t support multi-label training on GPU yet). Same notebook can be found on [GitHub repo](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/catboost_pipeline.ipynb) too.\n- **[Hill climbing ensemble](https://www.kaggle.com/code/atharvaingle/datasolve-hill-climbing-ensemble/notebook)** - The final leaderboard score (`0.92276 private LB`) was obtained from this notebook. This notebook uses hill climbing algorithm for selecting the final models with corresponding weights obtaining overall best score on the cross-validation setup and then take the weighted average of them.",
+          "kind": "used",
+          "statement": "Quick experiments used a simple split with overfitting warning; final transformer and sparse-text tree models shared five multilabel-stratified folds and hill-climbed ensemble weights.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Aligned multiclass/fold artifacts require bookkeeping and extra fits.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful fast-screening/final-validation balance for diverse ensembles.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong repeatable evaluation workflow for multilabel text pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a387022cac6fe449",
+          "locator": "research/lesson-extraction/snapshots/98fbf8aaf62531ba3b2fed5c265737e3d1f2d34d91c9ac9a292ac0b6d162624b.txt#L22-L26",
+          "quote": "- **[Transformer train-test-split pipeline](https://www.kaggle.com/code/atharvaingle/datasolve-tts-pipeline)** \u2192 Transformer based pipeline. Note, this pipeline just use a simple split from train set for evaluation which might be not the most general way to evaluate models and have a huge risk of overfitting on the validation set. This pipeline was just used for running quick and dirty experiments and the final experiments were ran with the 5-fold pipeline for more robust results. Same notebook can be found on [GitHub repo too](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/transformer_tts_pipeline.ipynb).\n- **[Transformer 5-fold pipeline](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/transformer_kfold.ipynb)** \u2192 All the transformer models used for the final ensemble were based out of this notebook. This pipeline runs a 5-fold training. The folds are stratified using the [iterstrat package](https://github.com/trent-b/iterative-stratification) which helps to stratify multi-label data. Specifically,\u00a0`MultilabelStratifiedKFold`\u00a0was used to create the folds. You can also check the complete data preprocessing and preparation stage in\u00a0[this notebook](https://www.kaggle.com/code/atharvaingle/datasolve-eda-cv-setup).\n- **[XGBoost pipeline](https://www.kaggle.com/code/atharvaingle/datasolve-xgboost-pipeline)** - traditional approaches like XGBoost with TFIDF/CountVectorizer was also used for diversity in the final ensemble. This used the same 5-folds used in the transformer pipleline for comparing the results and leak-free ensemble. Same notebook can be found on [GitHub repo](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/xgboost_pipeline.ipynb) too.\n- **[Catboost pipeline](https://www.kaggle.com/code/atharvaingle/datasolve-catboost-pipeline)** - replaced XGBoost model with Catboost (this was trained on CPU as catboost doesn\u2019t support multi-label training on GPU yet). Same notebook can be found on [GitHub repo](https://github.com/Gladiator07/DataSolve-WK-2022/blob/main/notebooks/catboost_pipeline.ipynb) too.\n- **[Hill climbing ensemble](https://www.kaggle.com/code/atharvaingle/datasolve-hill-climbing-ensemble/notebook)** - The final leaderboard score (`0.92276 private LB`) was obtained from this notebook. This notebook uses hill climbing algorithm for selecting the final models with corresponding weights obtaining overall best score on the cross-validation setup and then take the weighted average of them.",
+          "competition_id": "competition:datasolve-india",
+          "url": "https://raw.githubusercontent.com/Gladiator07/DataSolve-WK-2022/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/98fbf8aaf62531ba3b2fed5c265737e3d1f2d34d91c9ac9a292ac0b6d162624b.txt",
+          "snapshot_sha256": "98fbf8aaf62531ba3b2fed5c265737e3d1f2d34d91c9ac9a292ac0b6d162624b",
+          "line_start": 22,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-0b8074a4a0f3faee",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked quicksplit warning/shared multilabel folds; hillclimb remains overfit risk.",
+          "candidate_sha256": "851856e45acf10efbbda9ca84eee6de191eb2e71c95f0a1a9e76d3037c7f1ae3"
+        },
+        {
+          "candidate_id": "C-a-0b8074a4a0f3faee",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "DataSolve author explicitly quick riskyholdout versus final5MultilabelStratified folds shared sparse-tree/transformer models,and hillclimbing weights. Row/fold audit/independent weight stability proposed; no isolated gain from final0.92276. Moderate-resource ratings reasonable.",
+          "candidate_sha256": "851856e45acf10efbbda9ca84eee6de191eb2e71c95f0a1a9e76d3037c7f1ae3"
+        }
+      ],
+      "book_location": {
+        "chapter": 61,
+        "path": "manuscript/chapters/61-playground-series-strategy.md",
+        "sha256": "1136e713f9def4b414b84465435def010cca22959bbe863d1a48b040ebf29bc8",
+        "line_start": 77,
+        "line_end": 87,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-3e1d94de4e40d5cd",
+      "canonical_key": "search valid estimator count, depth, leaf size and feature-subset settings under a fixed validation budget. | an established tree baseline warrants bounded tuning | predictive_quality",
+      "title": "Search tree capacity and minimum leaf sizes",
+      "statement": "When an established tree baseline warrants bounded tuning, consider this source-backed action: Search valid estimator count, depth, leaf size and feature-subset settings under a fixed validation budget. Proposed check: Compare tuned models against the baseline on untouched folds. Limit: The source grid includes min_samples_split=1, which is not a safe parameter to copy; validate current parameter constraints.",
+      "trigger_conditions": [
+        "an established tree baseline warrants bounded tuning"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Search valid estimator count, depth, leaf size and feature-subset settings under a fixed validation budget."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare tuned models against the baseline on untouched folds."
+      ],
+      "limitations": [
+        "The source grid includes min_samples_split=1, which is not a safe parameter to copy; validate current parameter constraints."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors tuned ExtraTrees estimator counts, depths, split and leaf minima and feature subsets with randomized search.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3e1d94de4e40d5cd"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear bounded search teaches practical model tuning.",
+        "competitor": "Routine capacity tuning has useful but modest expected increment.",
+        "practitioner": "Tree search transfers broadly; tuning cost depends on data."
+      },
+      "review": {
+        "candidate_id": "C-a-3e1d94de4e40d5cd",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked ExtraTrees grid; invalid split minimum explicitly excluded.",
+        "candidate_sha256": "7723c11bf904f6f339bd466cd19abe89d6c34f43b7d6d66599747addb9959eb8"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000453",
+      "slug": "lesson-000453",
+      "merged_candidate_ids": [
+        "C-a-3e1d94de4e40d5cd"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-50961750a81bc2a2f434",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "source_url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3e1d94de4e40d5cd",
+          "line_start": 123,
+          "line_end": 132,
+          "evidence_text": "To improve the performance of the ExtraTreesClassifier, my group has performed Hyperparameter Tuning using the `.RandomGridSearch()` function. Through research, my group have found good parameters to tune for ExtraTrees:\n\n```python\n{\n    'n_estimators': [120, 300, 500, 800, 1200],\n    'max_depth': [5, 8, 15, 25, 30, None],\n    'min_samples_split': [1, 2, 5, 10, 15, 100],\n    'min_samples_leaf': [1, 2, 5, 10],\n    'max_features': ['log2', 'sqrt', None]\n}",
+          "kind": "used",
+          "statement": "The authors tuned ExtraTrees estimator counts, depths, split and leaf minima and feature subsets with randomized search.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear bounded search teaches practical model tuning.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Routine capacity tuning has useful but modest expected increment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Tree search transfers broadly; tuning cost depends on data.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-be6fa6032262f823",
+          "locator": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt#L123-L132",
+          "quote": "To improve the performance of the ExtraTreesClassifier, my group has performed Hyperparameter Tuning using the `.RandomGridSearch()` function. Through research, my group have found good parameters to tune for ExtraTrees:\n\n```python\n{\n    'n_estimators': [120, 300, 500, 800, 1200],\n    'max_depth': [5, 8, 15, 25, 30, None],\n    'min_samples_split': [1, 2, 5, 10, 15, 100],\n    'min_samples_leaf': [1, 2, 5, 10],\n    'max_features': ['log2', 'sqrt', None]\n}",
+          "competition_id": "competition:ai200-mar-2022-human-or-bot",
+          "url": "https://raw.githubusercontent.com/teorongchang/ai200_bot_detection_ml_pipeline/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae.txt",
+          "snapshot_sha256": "6419add6872748b2658e0d553f2957a78b87c9b6b4765699f1a8fb4bc3bda5ae",
+          "line_start": 123,
+          "line_end": 132
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3e1d94de4e40d5cd",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked ExtraTrees grid; invalid split minimum explicitly excluded.",
+          "candidate_sha256": "7723c11bf904f6f339bd466cd19abe89d6c34f43b7d6d66599747addb9959eb8"
+        }
+      ],
+      "book_location": {
+        "chapter": 61,
+        "path": "manuscript/chapters/61-playground-series-strategy.md",
+        "sha256": "1136e713f9def4b414b84465435def010cca22959bbe863d1a48b040ebf29bc8",
+        "line_start": 65,
+        "line_end": 75,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

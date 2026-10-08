@@ -1,0 +1,1178 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-310cf678ac7cc12c",
+      "canonical_key": "build sparse categorical interactions, consolidate very rare combinations and compare with tree-friendly categorical features. | few categorical columns have high-cardinality interactions | predictive_quality",
+      "title": "Compress rare categorical interactions for sparse models",
+      "statement": "When few categorical columns have high-cardinality interactions, consider this source-backed action: Build sparse categorical interactions, consolidate very rare combinations and compare with tree-friendly categorical features. Proposed check: Measure sparsity, memory, AUC and interaction ablations on consistent folds. Limit: Rare-value thresholds are unspecified; the repository currently uses fast Naive Bayes and suggests a logistic replacement, but does not establish which estimator configuration produced the original winning submission.",
+      "trigger_conditions": [
+        "few categorical columns have high-cardinality interactions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Build sparse categorical interactions, consolidate very rare combinations and compare with tree-friendly categorical features."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure sparsity, memory, AUC and interaction ablations on consistent folds."
+      ],
+      "limitations": [
+        "Rare-value thresholds are unspecified; the repository currently uses fast Naive Bayes and suggests a logistic replacement, but does not establish which estimator configuration produced the original winning submission."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author binarized categorical values and second/third-order interactions, merged rare binary values into fewer features, and separately built categorical tree features.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-310cf678ac7cc12c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Sparse interaction construction requires memory and encoding knowledge.",
+        "competitor": "Useful representation alternative when tree/linear models complement.",
+        "practitioner": "Category pooling transfers to high-cardinality permissions and events."
+      },
+      "review": {
+        "candidate_id": "C-a-310cf678ac7cc12c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "root-audit-repair-fresh",
+        "reason": "Read complete Amazon README. Sparse interaction pooling is supported; current Naive Bayes and proposed logistic replacement do not identify the historical winning estimator.",
+        "candidate_sha256": "5f5b6ec0e0b14c6176ec6db4b6452c2210706acd372ca47a70eedd6a75b63244"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000044",
+      "slug": "lesson-000044",
+      "merged_candidate_ids": [
+        "C-a-310cf678ac7cc12c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a972e8344f256964af4d",
+          "competition_id": "competition:amazon-employee-access-challenge",
+          "source_id": "source:lesson-source-41c9879530e9492e",
+          "snapshot_path": "research/lesson-extraction/snapshots/e812210afb16abede35f2e6acf6d7f256982692702da13f018a7b5551c15cf7b.txt",
+          "snapshot_sha256": "e812210afb16abede35f2e6acf6d7f256982692702da13f018a7b5551c15cf7b",
+          "source_url": "https://raw.githubusercontent.com/bensolucky/Amazon/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-310cf678ac7cc12c",
+          "line_start": 15,
+          "line_end": 18,
+          "evidence_text": "The general strategy was to produce 2 feature sets: one categorical to be modeled with decision tree based approaches and the second a sparse matrix of binary features, created by binarizing all categorical values and 2nd and 3rd order combinations of categorical values. The latter features could be modeled with Logistic Regressoin, SVMs, etc. The starting point of this latter set of code was provided on the forums by Miroslaw Horbal.  The most critical modeification I made to it was in merging the most rarely occuring binary features into a much smaller number of features holding these rare values.\n\nensemble.py generates the categorical featuers and runs the ensemble of tree models.\nlogistic_features.py generates the binarized categorical data.  It's currently set up to predict using a NaiveBayes algorithm (for speed), but a 1-line change could replace that with Logistic regression, which should be much higher scoring.",
+          "kind": "used",
+          "statement": "The author binarized categorical values and second/third-order interactions, merged rare binary values into fewer features, and separately built categorical tree features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Sparse interaction construction requires memory and encoding knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful representation alternative when tree/linear models complement.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Category pooling transfers to high-cardinality permissions and events.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-41c9879530e9492e",
+          "locator": "research/lesson-extraction/snapshots/e812210afb16abede35f2e6acf6d7f256982692702da13f018a7b5551c15cf7b.txt#L15-L18",
+          "quote": "The general strategy was to produce 2 feature sets: one categorical to be modeled with decision tree based approaches and the second a sparse matrix of binary features, created by binarizing all categorical values and 2nd and 3rd order combinations of categorical values. The latter features could be modeled with Logistic Regressoin, SVMs, etc. The starting point of this latter set of code was provided on the forums by Miroslaw Horbal.  The most critical modeification I made to it was in merging the most rarely occuring binary features into a much smaller number of features holding these rare values.\n\nensemble.py generates the categorical featuers and runs the ensemble of tree models.\nlogistic_features.py generates the binarized categorical data.  It's currently set up to predict using a NaiveBayes algorithm (for speed), but a 1-line change could replace that with Logistic regression, which should be much higher scoring.",
+          "competition_id": "competition:amazon-employee-access-challenge",
+          "url": "https://raw.githubusercontent.com/bensolucky/Amazon/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/e812210afb16abede35f2e6acf6d7f256982692702da13f018a7b5551c15cf7b.txt",
+          "snapshot_sha256": "e812210afb16abede35f2e6acf6d7f256982692702da13f018a7b5551c15cf7b",
+          "line_start": 15,
+          "line_end": 18
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-310cf678ac7cc12c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "root-audit-repair-fresh",
+          "reason": "Read complete Amazon README. Sparse interaction pooling is supported; current Naive Bayes and proposed logistic replacement do not identify the historical winning estimator.",
+          "candidate_sha256": "5f5b6ec0e0b14c6176ec6db4b6452c2210706acd372ca47a70eedd6a75b63244"
+        },
+        {
+          "candidate_id": "C-a-310cf678ac7cc12c",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Rechecked resolved Amazon repair against full README15-18: rareinteractionpooling used; currentNB/logisticreplacement now correctly distinguishes unknown original estimator. Action/check/ratings unchanged and reasonable; accepted current fingerprint.",
+          "candidate_sha256": "5f5b6ec0e0b14c6176ec6db4b6452c2210706acd372ca47a70eedd6a75b63244"
+        }
+      ],
+      "book_location": {
+        "chapter": 10,
+        "path": "manuscript/chapters/10-interactions-groups-text.md",
+        "sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
+        "line_start": 222,
+        "line_end": 226,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-2b78e15ce62c819d",
+      "canonical_key": "compare multiple fold-safe encodings, exhaustively screen feasible pairwise interactions and use bounded sampling for higher orders. | anonymized tabular features lack easy domain interpretations | predictive_quality",
+      "title": "Create complementary encodings and search interactions with a bounded hierarchy",
+      "statement": "When anonymized tabular features lack easy domain interpretations, consider this source-backed action: Compare multiple fold-safe encodings, exhaustively screen feasible pairwise interactions and use bounded sampling for higher orders. Proposed check: Fit supervised encodings within folds and evaluate interaction families on independent validation. Limit: Interaction search can overfit and grow combinatorially; frequency transforms may shift at deployment.",
+      "trigger_conditions": [
+        "anonymized tabular features lack easy domain interpretations"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare multiple fold-safe encodings, exhaustively screen feasible pairwise interactions and use bounded sampling for higher orders."
+      ],
+      "verification_steps": [
+        "Proposed verification: Fit supervised encodings within folds and evaluate interaction families on independent validation."
+      ],
+      "limitations": [
+        "Interaction search can overfit and grow combinatorially; frequency transforms may shift at deployment."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used IDs, counts, OOF likelihood, one-hot and numerical percentile transforms, exhaustively searched two-way interactions and sampled higher-order combinations guided by rankings.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-2b78e15ce62c819d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Large feature searches require substantial compute and fold knowledge.",
+        "competitor": "Useful bounded interaction generation for anonymized tables.",
+        "practitioner": "Representation diversity transfers; frequency drift and selection cost matter."
+      },
+      "review": {
+        "candidate_id": "C-a-2b78e15ce62c819d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked encoding variety/pair exhaustive/higher-order sampling; combinatorial overfit risk.",
+        "candidate_sha256": "be5b86c591e28af6f72eb09db37b48b2c40fa83b17c88d88db4a35f00e324d4a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000152",
+      "slug": "lesson-000152",
+      "merged_candidate_ids": [
+        "C-a-2b78e15ce62c819d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8313eb4af83328821dbf",
+          "competition_id": "competition:homesite-quote-conversion",
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "source_url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-2b78e15ce62c819d",
+          "line_start": 49,
+          "line_end": 65,
+          "evidence_text": "This dataset required hardly any cleaning and we encoded the provided data in many different ways in order to illuminate the input space as much as possible:\n\nCategorical \u21d2 ID per category\n\nCategorical \u21d2 value count for each category\n\nCategorical \u21d2 out-of-fold likelihood for each category with respect to the target attribute\n\nCategorical \u21d2 one-hot encoding\n\nNumerical \u21d2 as is\n\nNumerical \u21d2 percentile transformation\n\nOne-hot encodings and value counts of all features with distinct values below a threshold\n\nRegarding feature engineering, we extracted year, month, day & weekday out of Original_Quote_Date, explored summary statistics and 2-, 3- & 4-way feature interactions (sums, differences, products and quotients). The search for the latter\u00a0was initiated due to the positive effect of the \"golden features\" (differences of highly correlated features) used in the \"Keras around 0.9633*\" public script. We searched interaction candidates either by simple target correlation checks or through logistic regression and XGBoost as wrappers. The space of possible 2-way interactions was searched\u00a0exhaustively and random searches with adjusted sampling probabilities based on feature rankings were used to find higher-order interactions. Afterwards, we applied the feature selection methods described below to the most promising candidates. Feature interactions helped to get diverse as well as better performing models, which added significant value to our ensemble.",
+          "kind": "used",
+          "statement": "The team used IDs, counts, OOF likelihood, one-hot and numerical percentile transforms, exhaustively searched two-way interactions and sampled higher-order combinations guided by rankings.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Large feature searches require substantial compute and fold knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful bounded interaction generation for anonymized tables.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Representation diversity transfers; frequency drift and selection cost matter.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "locator": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt#L49-L65",
+          "quote": "This dataset required hardly any cleaning and we encoded the provided data in many different ways in order to illuminate the input space as much as possible:\n\nCategorical \u21d2 ID per category\n\nCategorical \u21d2 value count for each category\n\nCategorical \u21d2 out-of-fold likelihood for each category with respect to the target attribute\n\nCategorical \u21d2 one-hot encoding\n\nNumerical \u21d2 as is\n\nNumerical \u21d2 percentile transformation\n\nOne-hot encodings and value counts of all features with distinct values below a threshold\n\nRegarding feature engineering, we extracted year, month, day & weekday out of Original_Quote_Date, explored summary statistics and 2-, 3- & 4-way feature interactions (sums, differences, products and quotients). The search for the latter\u00a0was initiated due to the positive effect of the \"golden features\" (differences of highly correlated features) used in the \"Keras around 0.9633*\" public script. We searched interaction candidates either by simple target correlation checks or through logistic regression and XGBoost as wrappers. The space of possible 2-way interactions was searched\u00a0exhaustively and random searches with adjusted sampling probabilities based on feature rankings were used to find higher-order interactions. Afterwards, we applied the feature selection methods described below to the most promising candidates. Feature interactions helped to get diverse as well as better performing models, which added significant value to our ensemble.",
+          "competition_id": "competition:homesite-quote-conversion",
+          "url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "line_start": 49,
+          "line_end": 65
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-2b78e15ce62c819d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked encoding variety/pair exhaustive/higher-order sampling; combinatorial overfit risk.",
+          "candidate_sha256": "be5b86c591e28af6f72eb09db37b48b2c40fa83b17c88d88db4a35f00e324d4a"
+        }
+      ],
+      "book_location": {
+        "chapter": 10,
+        "path": "manuscript/chapters/10-interactions-groups-text.md",
+        "sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
+        "line_start": 228,
+        "line_end": 232,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-8305363031d7c47b",
+      "canonical_key": "compare text embeddings with a structured-data baseline and retain them only if quality justifies cost. | categorical names tempt semantic embedding features | predictive_quality",
+      "title": "Reject expensive embeddings when structured features suffice",
+      "statement": "When categorical names tempt semantic embedding features, consider this source-backed action: Compare text embeddings with a structured-data baseline and retain them only if quality justifies cost. Proposed check: Measure original-unit RMSE, training time and inference resource use on the same split. Limit: The small reported difference is not statistically tested and may not generalize.",
+      "trigger_conditions": [
+        "categorical names tempt semantic embedding features"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare text embeddings with a structured-data baseline and retain them only if quality justifies cost."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure original-unit RMSE, training time and inference resource use on the same split."
+      ],
+      "limitations": [
+        "The small reported difference is not statistically tested and may not generalize."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Text embeddings and UMAP did not beat the structured XGBoost approach; embedding RMSE was about 1893 versus 1888 with greater cost.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-8305363031d7c47b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Embeddings add model/runtime complexity to a clear baseline comparison.",
+        "competitor": "Avoids expensive feature expansion without incremental score value.",
+        "practitioner": "Cost-quality comparison useful for categorical-name embeddings."
+      },
+      "review": {
+        "candidate_id": "C-a-8305363031d7c47b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked embedding1893 versus structured1888RMSE; cost difference qualitative.",
+        "candidate_sha256": "56bc1477b761ba58b0384bb9e7bcdbcd429f55263a7042fd633f4bcc80ff5769"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000188",
+      "slug": "lesson-000188",
+      "merged_candidate_ids": [
+        "C-a-8305363031d7c47b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-37cf948e7d7f9191d69f",
+          "competition_id": "competition:assignment-3-dsba",
+          "source_id": "source:lesson-source-6cbdbaa3665ddabc",
+          "snapshot_path": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt",
+          "snapshot_sha256": "b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea",
+          "source_url": "https://raw.githubusercontent.com/EliValLoc/Used_Car_Prices_Kaggle/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-8305363031d7c47b",
+          "line_start": 117,
+          "line_end": 135,
+          "evidence_text": "In addition to the structured features, I experimented with text-based feature processing for categorical variables such as `model` and `brand`.\n\nI tested sentence embeddings using:\n\n* `all-MiniLM-L6-v2`\n* `microsoft/mpnet-base`\n\nI also experimented with dimensionality reduction using UMAP. However, the embedding-based models did not outperform the best structured-data XGBoost model. They achieved similar performance but required substantially more computational resources.\n\nFrom a practical perspective, the simpler XGBoost model without text embeddings was therefore preferable.\n\n## Results\n\nThe best model was an **XGBoost Regressor with BayesSearchCV hyperparameter tuning**.\n\nIn cross-validation, the best model achieved an RMSE of approximately **2,097**.\nOn the Kaggle leaderboard, the final winning submission achieved an RMSE of approximately **1,888**.\n\nA second approach using text embeddings achieved a very similar Kaggle RMSE of approximately **1,893**, but it was more computationally expensive and therefore not selected as the preferred final model.",
+          "kind": "reported_failure",
+          "statement": "Text embeddings and UMAP did not beat the structured XGBoost approach; embedding RMSE was about 1893 versus 1888 with greater cost.",
+          "reported_result": {
+            "metric": "Kaggle RMSE approximate",
+            "value": 1893,
+            "context": "Used-car assignment: embedding approach1893 versus structured XGBoost1888, lower better; same Kaggle metric but cost/uncertainty and exact matched training conditions unknown.",
+            "evidence_text": "In addition to the structured features, I experimented with text-based feature processing for categorical variables such as `model` and `brand`.\n\nI tested sentence embeddings using:\n\n* `all-MiniLM-L6-v2`\n* `microsoft/mpnet-base`\n\nI also experimented with dimensionality reduction using UMAP. However, the embedding-based models did not outperform the best structured-data XGBoost model. They achieved similar performance but required substantially more computational resources.\n\nFrom a practical perspective, the simpler XGBoost model without text embeddings was therefore preferable.\n\n## Results\n\nThe best model was an **XGBoost Regressor with BayesSearchCV hyperparameter tuning**.\n\nIn cross-validation, the best model achieved an RMSE of approximately **2,097**.\nOn the Kaggle leaderboard, the final winning submission achieved an RMSE of approximately **1,888**.\n\nA second approach using text embeddings achieved a very similar Kaggle RMSE of approximately **1,893**, but it was more computationally expensive and therefore not selected as the preferred final model."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Embeddings add model/runtime complexity to a clear baseline comparison.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Avoids expensive feature expansion without incremental score value.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Cost-quality comparison useful for categorical-name embeddings.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cbdbaa3665ddabc",
+          "locator": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt#L117-L135",
+          "quote": "In addition to the structured features, I experimented with text-based feature processing for categorical variables such as `model` and `brand`.\n\nI tested sentence embeddings using:\n\n* `all-MiniLM-L6-v2`\n* `microsoft/mpnet-base`\n\nI also experimented with dimensionality reduction using UMAP. However, the embedding-based models did not outperform the best structured-data XGBoost model. They achieved similar performance but required substantially more computational resources.\n\nFrom a practical perspective, the simpler XGBoost model without text embeddings was therefore preferable.\n\n## Results\n\nThe best model was an **XGBoost Regressor with BayesSearchCV hyperparameter tuning**.\n\nIn cross-validation, the best model achieved an RMSE of approximately **2,097**.\nOn the Kaggle leaderboard, the final winning submission achieved an RMSE of approximately **1,888**.\n\nA second approach using text embeddings achieved a very similar Kaggle RMSE of approximately **1,893**, but it was more computationally expensive and therefore not selected as the preferred final model.",
+          "competition_id": "competition:assignment-3-dsba",
+          "url": "https://raw.githubusercontent.com/EliValLoc/Used_Car_Prices_Kaggle/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt",
+          "snapshot_sha256": "b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea",
+          "line_start": 117,
+          "line_end": 135
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-8305363031d7c47b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked embedding1893 versus structured1888RMSE; cost difference qualitative.",
+          "candidate_sha256": "56bc1477b761ba58b0384bb9e7bcdbcd429f55263a7042fd633f4bcc80ff5769"
+        },
+        {
+          "candidate_id": "C-a-8305363031d7c47b",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Original compares embedding approach Kaggle RMSE~1893 versus structured XGBoost~1888,with greater compute and preferred structured final model. CV2097 is distinct. Matched evaluation/cost checks proposed; uncertainty and nontransferability caveats preserved. Grades reasonable.",
+          "candidate_sha256": "56bc1477b761ba58b0384bb9e7bcdbcd429f55263a7042fd633f4bcc80ff5769"
+        }
+      ],
+      "book_location": {
+        "chapter": 10,
+        "path": "manuscript/chapters/10-interactions-groups-text.md",
+        "sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
+        "line_start": 180,
+        "line_end": 190,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-1d858fcd1cfa8174ec09",
+      "canonical_key": "fit tf-idf only on training text and transform validation text with the fitted vocabulary | text classification with a learned tf-idf representation | validation_reliability",
+      "title": "Fit text vocabulary after the validation split",
+      "statement": "For text classification with a learned TF-IDF representation, fit TF-IDF only on training text and transform validation text with the fitted vocabulary. Assert the vocabulary excludes tokens seen solely in validation; choose entity/group splitting if near-duplicate bugs share context. This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks.",
+      "trigger_conditions": [
+        "text classification with a learned TF-IDF representation"
+      ],
+      "action_steps": [
+        "Proposed: fit TF-IDF only on training text and transform validation text with the fitted vocabulary."
+      ],
+      "verification_steps": [
+        "Proposed: assert the vocabulary excludes tokens seen solely in validation; choose entity/group splitting if near-duplicate bugs share context."
+      ],
+      "limitations": [
+        "This source shows an implementation, without an isolated gain, execution result, or confirmed final-submission provenance. Historical dependencies and dataset assumptions require local checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "software_defects"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "leakage",
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for cs-412-in-class-kaggle-competition: The bug-severity script splits summaries first, then fit_transforms training summaries and transforms validation summaries.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: fit ticket-text vocabularies inside training folds and transform later tickets unchanged.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-48f7cd2fdc19bc3605c5"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A routine scikit-learn fit/transform example strongly improves text-validation hygiene.",
+        "competitor": "Broadly useful baseline practice; near-duplicate bugs may still require grouped splits.",
+        "practitioner": "Transfers to inductive text pipelines with a versioned vocabulary and realistic deployment split."
+      },
+      "review": {
+        "candidate_id": "C-1d858fcd1cfa8174ec09",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read full bug-severity script: splitting precedes TF-IDF fitting and holdout/test transforms reuse its vocabulary. Random splitting and unseen target classes remain separate issues; no numeric feature-fit comparison is reported.",
+        "candidate_sha256": "88fc201e355738297e2aa435ad1469faad84f3dcb1abe652b80210bf9bb488e2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000287",
+      "slug": "lesson-000287",
+      "merged_candidate_ids": [
+        "C-1d858fcd1cfa8174ec09"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f1db66c7d9071590eec9",
+          "competition_id": "competition:cs-412-in-class-kaggle-competition",
+          "source_id": "source:lesson-source-e02e14915053ee6a",
+          "snapshot_path": "research/lesson-extraction/snapshots/ec56dd33e6c44e9235c1a817185892edc54144eaf30d48a65a89a3ef6391450a.txt",
+          "snapshot_sha256": "ec56dd33e6c44e9235c1a817185892edc54144eaf30d48a65a89a3ef6391450a",
+          "source_url": "https://raw.githubusercontent.com/bkurtulmus/predicting-bug-severity-with-ml/HEAD/Predicting-Bug-Severity-with-ML.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-48f7cd2fdc19bc3605c5",
+          "line_start": 15,
+          "line_end": 26,
+          "evidence_text": "# 3. Split the Data\nX_train, X_test, y_train, y_test = train_test_split(data['summary'], data['severity'], test_size=0.2, random_state=42)\n\n# 4. Feature Extraction: Convert text data to numerical features using TF-IDF\ntfidf = TfidfVectorizer()\nX_train_tfidf = tfidf.fit_transform(X_train)\nX_test_tfidf = tfidf.transform(X_test)\n\n# 5. Label Encoding for target variable\nle = LabelEncoder()\ny_train_encoded = le.fit_transform(y_train)\ny_test_encoded = le.transform(y_test)",
+          "kind": "used",
+          "statement": "The bug-severity script splits summaries first, then fit_transforms training summaries and transforms validation summaries.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A routine scikit-learn fit/transform example strongly improves text-validation hygiene.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broadly useful baseline practice; near-duplicate bugs may still require grouped splits.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Transfers to inductive text pipelines with a versioned vocabulary and realistic deployment split.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e02e14915053ee6a",
+          "locator": "research/lesson-extraction/snapshots/ec56dd33e6c44e9235c1a817185892edc54144eaf30d48a65a89a3ef6391450a.txt#L15-L26",
+          "quote": "# 3. Split the Data\nX_train, X_test, y_train, y_test = train_test_split(data['summary'], data['severity'], test_size=0.2, random_state=42)\n\n# 4. Feature Extraction: Convert text data to numerical features using TF-IDF\ntfidf = TfidfVectorizer()\nX_train_tfidf = tfidf.fit_transform(X_train)\nX_test_tfidf = tfidf.transform(X_test)\n\n# 5. Label Encoding for target variable\nle = LabelEncoder()\ny_train_encoded = le.fit_transform(y_train)\ny_test_encoded = le.transform(y_test)",
+          "competition_id": "competition:cs-412-in-class-kaggle-competition",
+          "url": "https://raw.githubusercontent.com/bkurtulmus/predicting-bug-severity-with-ml/HEAD/Predicting-Bug-Severity-with-ML.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/ec56dd33e6c44e9235c1a817185892edc54144eaf30d48a65a89a3ef6391450a.txt",
+          "snapshot_sha256": "ec56dd33e6c44e9235c1a817185892edc54144eaf30d48a65a89a3ef6391450a",
+          "line_start": 15,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1d858fcd1cfa8174ec09",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read full bug-severity script: splitting precedes TF-IDF fitting and holdout/test transforms reuse its vocabulary. Random splitting and unseen target classes remain separate issues; no numeric feature-fit comparison is reported.",
+          "candidate_sha256": "88fc201e355738297e2aa435ad1469faad84f3dcb1abe652b80210bf9bb488e2"
+        },
+        {
+          "candidate_id": "C-1d858fcd1cfa8174ec09",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete bug-severity script splits summaries first and fits TF-IDF only on training text, reusing the fitted transform for validation and final test. Vocabulary exclusion and grouped near-duplicate checks are proposed; observed application claims no execution or final winning provenance. This accessible inductive-validation safeguard reasonably has high workflow value.",
+          "candidate_sha256": "88fc201e355738297e2aa435ad1469faad84f3dcb1abe652b80210bf9bb488e2"
+        }
+      ],
+      "book_location": {
+        "chapter": 10,
+        "path": "manuscript/chapters/10-interactions-groups-text.md",
+        "sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
+        "line_start": 192,
+        "line_end": 202,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-918551277647a111f395",
+      "canonical_key": "keep abstract/title/author features separate from in-degree, out-degree, neighbor degree and node/word embedding vectors for downstream pipelines. | article classification includes citation graph and textual metadata | predictive_quality",
+      "title": "Expose text and graph views through separate feature transformers",
+      "statement": "When article classification includes citation graph and textual metadata, proposed reuse: Proposed conditional application: Keep abstract/title/author features separate from in-degree, out-degree, neighbor degree and node/word embedding vectors for downstream pipelines. Proposed check: Unit-check each field and missing value, then ablate graph and text views under an edge-availability-respecting split. Limitation: Published transformer implementation is not execution proof; downstream fitting and measured benefits are absent.",
+      "trigger_conditions": [
+        "article classification includes citation graph and textual metadata"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Keep abstract/title/author features separate from in-degree, out-degree, neighbor degree and node/word embedding vectors for downstream pipelines."
+      ],
+      "verification_steps": [
+        "Proposed check: Unit-check each field and missing value, then ablate graph and text views under an edge-availability-respecting split."
+      ],
+      "limitations": [
+        "Published transformer implementation is not execution proof; downstream fitting and measured benefits are absent."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "text",
+          "graph"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "scientific_literature"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The article feature code exposes graph in-degree, out-degree and average-neighbor-degree features alongside text views.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-de6e17bd916bb385c0a1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Separating feature views is teachable, though graph processing is a prerequisite.",
+        "competitor": "The code suggests a reusable feature pipeline, with limited performance evidence.",
+        "practitioner": "Feature-view modularity transfers well, but the source does not establish production behavior."
+      },
+      "review": {
+        "candidate_id": "C-918551277647a111f395",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Inspected entire transformer code: it exposes graph degrees, node/word embeddings and text fields, but gives no execution or classifier-gain evidence.",
+        "candidate_sha256": "699650323ab3cb29fa15f1a40c698967624cdd0561bbc7456d9bd9afe13b0b7f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000328",
+      "slug": "lesson-000328",
+      "merged_candidate_ids": [
+        "C-918551277647a111f395"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2c18cddbf217caefbc02",
+          "competition_id": "competition:m35216f-article-classification-challenge",
+          "source_id": "source:lesson-source-b9c11df97ab6d409",
+          "snapshot_path": "research/lesson-extraction/snapshots/650c84675af580a1c872d824025ca7147785c947d1218593dc6aa81a6a8fe9b1.txt",
+          "snapshot_sha256": "650c84675af580a1c872d824025ca7147785c947d1218593dc6aa81a6a8fe9b1",
+          "source_url": "https://raw.githubusercontent.com/gchoumos/research-paper-classifier/HEAD/feature_union_sklearn.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-de6e17bd916bb385c0a1",
+          "line_start": 46,
+          "line_end": 48,
+          "evidence_text": "'outdeg': float(line[0]),\n                    'indeg': float(line[1]),\n                    'avg_neigh_deg': float(line[2]),",
+          "kind": "used",
+          "statement": "The article feature code exposes graph in-degree, out-degree and average-neighbor-degree features alongside text views.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Separating feature views is teachable, though graph processing is a prerequisite.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "The code suggests a reusable feature pipeline, with limited performance evidence.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Feature-view modularity transfers well, but the source does not establish production behavior.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b9c11df97ab6d409",
+          "locator": "research/lesson-extraction/snapshots/650c84675af580a1c872d824025ca7147785c947d1218593dc6aa81a6a8fe9b1.txt#L46-L48",
+          "quote": "'outdeg': float(line[0]),\n                    'indeg': float(line[1]),\n                    'avg_neigh_deg': float(line[2]),",
+          "competition_id": "competition:m35216f-article-classification-challenge",
+          "url": "https://raw.githubusercontent.com/gchoumos/research-paper-classifier/HEAD/feature_union_sklearn.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/650c84675af580a1c872d824025ca7147785c947d1218593dc6aa81a6a8fe9b1.txt",
+          "snapshot_sha256": "650c84675af580a1c872d824025ca7147785c947d1218593dc6aa81a6a8fe9b1",
+          "line_start": 46,
+          "line_end": 48
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-918551277647a111f395",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Inspected entire transformer code: it exposes graph degrees, node/word embeddings and text fields, but gives no execution or classifier-gain evidence.",
+          "candidate_sha256": "699650323ab3cb29fa15f1a40c698967624cdd0561bbc7456d9bd9afe13b0b7f"
+        },
+        {
+          "candidate_id": "C-918551277647a111f395",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Article code identifies upstream MattTerry template modified by repository author; custom GraphProperties and MainExtractor expose degree/text/embedding views. Candidate only claims published implementation, explicitly no downstream fitting/gain. Field/missing-value and edge-availability checks cover fragile extraction. Limited impact1/2 and moderate transfer3 appropriate.",
+          "candidate_sha256": "699650323ab3cb29fa15f1a40c698967624cdd0561bbc7456d9bd9afe13b0b7f"
+        }
+      ],
+      "book_location": {
+        "chapter": 10,
+        "path": "manuscript/chapters/10-interactions-groups-text.md",
+        "sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
+        "line_start": 234,
+        "line_end": 238,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-fcee2f0b54614ee4",
+      "canonical_key": "preserve ids through collation, audit duplicate groups and compare token-length choices. | text pipelines reorder batches and contain duplicate examples | predictive_quality",
+      "title": "Verify text-row ordering and deduplicate before chasing preprocessing",
+      "statement": "When text pipelines reorder batches and contain duplicate examples, Preserve sample IDs through collation and audit duplicate groups before training and evaluating. Verify: Join predictions by ID and validate duplicate-group isolation against a fixed baseline. Limits: Reported deduplication gain lacks split details.; Token removal and sequence-length experiments are separate preprocessing choices.",
+      "trigger_conditions": [
+        "text pipelines reorder batches and contain duplicate examples"
+      ],
+      "action_steps": [
+        "Preserve sample IDs through collation and audit duplicate groups before training and evaluating."
+      ],
+      "verification_steps": [
+        "Join predictions by ID and validate duplicate-group isolation against a fixed baseline."
+      ],
+      "limitations": [
+        "Reported deduplication gain lacks split details.",
+        "Token removal and sequence-length experiments are separate preprocessing choices."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team fixed test collate ordering, removed fourteen-percent duplicates and reported accuracy 0.979 to 0.983; removing frequent tokens had little effect and shorter token limits reduced performance.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-fcee2f0b54614ee4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "ID and duplicate checks accessible in pandas.",
+        "competitor": "Prevents silent prediction misalignment and duplicated evaluation.",
+        "practitioner": "High data-integrity value across text classification pipelines."
+      },
+      "review": {
+        "candidate_id": "C-a-fcee2f0b54614ee4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Korean collation/dedup/token experiments; narrowed to data identity/duplicate audit.",
+        "candidate_sha256": "dbd906e27cc4c06d8fc35c29249c6987cac927e0322d737aab566c2d1bfe3ca2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000385",
+      "slug": "lesson-000385",
+      "merged_candidate_ids": [
+        "C-a-fcee2f0b54614ee4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ca3d80f627e2fee7fd58",
+          "competition_id": "competition:goormtextclassificationproject",
+          "source_id": "source:lesson-source-d4196e0dd4e79d13",
+          "snapshot_path": "research/lesson-extraction/snapshots/7741259edc1198cc3648f7ae91c27104f227b72cc653765b6e44f06e1d77f7b3.txt",
+          "snapshot_sha256": "7741259edc1198cc3648f7ae91c27104f227b72cc653765b6e44f06e1d77f7b3",
+          "source_url": "https://raw.githubusercontent.com/kkogggokk/TextClassification/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-fcee2f0b54614ee4",
+          "line_start": 24,
+          "line_end": 32,
+          "evidence_text": "- **Test Data Collate Function \uc218\uc815**: \ub370\uc774\ud130 \uc21c\uc11c \uc815\ub82c \uc624\ub958\ub97c \ubc1c\uacac\ud558\uace0 \uc218\uc815\ud558\uc5ec \ubaa8\ub378 \uc131\ub2a5\uc744 \uc548\uc815\ud654.\n\n## 2.2 EDA \ubc0f Preprocessing\n![EDA \ubc0f Preprocessing](https://raw.githubusercontent.com/kkogggokk/TextClassification/refs/heads/main/images/Screenshot_2024-11-25_at_1.40.53_PM.png)\n\n- **Token \ube48\ub3c4 \ubd84\uc11d \ubc0f \uc81c\uac70:** `_num_`, `n` \ub4f1 \ube48\ub3c4\uac00 \ub192\uc740 \ubd88\ud544\uc694 \ud1a0\ud070 \uc81c\uac70, \uc131\ub2a5 \uc601\ud5a5 \ubbf8\ubbf8.\n- **\uc911\ubcf5 \ub370\uc774\ud130 \ud655\uc778 \ubc0f \uc81c\uac70:** \uc911\ubcf5 \ub370\uc774\ud130 14% \uc81c\uac70 \ud6c4 accuracy 0.979 \u2192 0.983\uc73c\ub85c \uc131\ub2a5 \ud5a5\uc0c1.\n- **\ubb38\uc7a5 \uae38\uc774 \ubd84\uc11d:** \ubb38\uc7a5 \uae38\uc774\uc5d0 \ub530\ub77c Token \ucd5c\ub300 \uae38\uc774\ub97c \uc124\uc815\ud588\uc73c\ub098, \uc131\ub2a5 \uac10\uc18c \ud655\uc778.\n- **Class Imbalance \ud655\uc778:** Validation \ubc0f Test set\uc758 \ud074\ub798\uc2a4 \ubd84\ud3ec\uac00 \uc720\uc0ac\ud560 \ub54c \ub354 \ub098\uc740 \uc131\ub2a5 \ud655\uc778.",
+          "kind": "reported_gain",
+          "statement": "The team fixed test collate ordering, removed fourteen-percent duplicates and reported accuracy 0.979 to 0.983; removing frequent tokens had little effect and shorter token limits reduced performance.",
+          "reported_result": {
+            "metric": "reported accuracy after duplicate removal",
+            "value": 0.983,
+            "context": "Yelp text: removing14%duplicates0.983 versus0.979; split/duplicate definition/uncertainty unspecified, ordering fix a separate observation.",
+            "evidence_text": "- **Test Data Collate Function \uc218\uc815**: \ub370\uc774\ud130 \uc21c\uc11c \uc815\ub82c \uc624\ub958\ub97c \ubc1c\uacac\ud558\uace0 \uc218\uc815\ud558\uc5ec \ubaa8\ub378 \uc131\ub2a5\uc744 \uc548\uc815\ud654.\n\n## 2.2 EDA \ubc0f Preprocessing\n![EDA \ubc0f Preprocessing](https://raw.githubusercontent.com/kkogggokk/TextClassification/refs/heads/main/images/Screenshot_2024-11-25_at_1.40.53_PM.png)\n\n- **Token \ube48\ub3c4 \ubd84\uc11d \ubc0f \uc81c\uac70:** `_num_`, `n` \ub4f1 \ube48\ub3c4\uac00 \ub192\uc740 \ubd88\ud544\uc694 \ud1a0\ud070 \uc81c\uac70, \uc131\ub2a5 \uc601\ud5a5 \ubbf8\ubbf8.\n- **\uc911\ubcf5 \ub370\uc774\ud130 \ud655\uc778 \ubc0f \uc81c\uac70:** \uc911\ubcf5 \ub370\uc774\ud130 14% \uc81c\uac70 \ud6c4 accuracy 0.979 \u2192 0.983\uc73c\ub85c \uc131\ub2a5 \ud5a5\uc0c1.\n- **\ubb38\uc7a5 \uae38\uc774 \ubd84\uc11d:** \ubb38\uc7a5 \uae38\uc774\uc5d0 \ub530\ub77c Token \ucd5c\ub300 \uae38\uc774\ub97c \uc124\uc815\ud588\uc73c\ub098, \uc131\ub2a5 \uac10\uc18c \ud655\uc778.\n- **Class Imbalance \ud655\uc778:** Validation \ubc0f Test set\uc758 \ud074\ub798\uc2a4 \ubd84\ud3ec\uac00 \uc720\uc0ac\ud560 \ub54c \ub354 \ub098\uc740 \uc131\ub2a5 \ud655\uc778."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "ID and duplicate checks accessible in pandas.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Prevents silent prediction misalignment and duplicated evaluation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High data-integrity value across text classification pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-d4196e0dd4e79d13",
+          "locator": "research/lesson-extraction/snapshots/7741259edc1198cc3648f7ae91c27104f227b72cc653765b6e44f06e1d77f7b3.txt#L24-L32",
+          "quote": "- **Test Data Collate Function \uc218\uc815**: \ub370\uc774\ud130 \uc21c\uc11c \uc815\ub82c \uc624\ub958\ub97c \ubc1c\uacac\ud558\uace0 \uc218\uc815\ud558\uc5ec \ubaa8\ub378 \uc131\ub2a5\uc744 \uc548\uc815\ud654.\n\n## 2.2 EDA \ubc0f Preprocessing\n![EDA \ubc0f Preprocessing](https://raw.githubusercontent.com/kkogggokk/TextClassification/refs/heads/main/images/Screenshot_2024-11-25_at_1.40.53_PM.png)\n\n- **Token \ube48\ub3c4 \ubd84\uc11d \ubc0f \uc81c\uac70:** `_num_`, `n` \ub4f1 \ube48\ub3c4\uac00 \ub192\uc740 \ubd88\ud544\uc694 \ud1a0\ud070 \uc81c\uac70, \uc131\ub2a5 \uc601\ud5a5 \ubbf8\ubbf8.\n- **\uc911\ubcf5 \ub370\uc774\ud130 \ud655\uc778 \ubc0f \uc81c\uac70:** \uc911\ubcf5 \ub370\uc774\ud130 14% \uc81c\uac70 \ud6c4 accuracy 0.979 \u2192 0.983\uc73c\ub85c \uc131\ub2a5 \ud5a5\uc0c1.\n- **\ubb38\uc7a5 \uae38\uc774 \ubd84\uc11d:** \ubb38\uc7a5 \uae38\uc774\uc5d0 \ub530\ub77c Token \ucd5c\ub300 \uae38\uc774\ub97c \uc124\uc815\ud588\uc73c\ub098, \uc131\ub2a5 \uac10\uc18c \ud655\uc778.\n- **Class Imbalance \ud655\uc778:** Validation \ubc0f Test set\uc758 \ud074\ub798\uc2a4 \ubd84\ud3ec\uac00 \uc720\uc0ac\ud560 \ub54c \ub354 \ub098\uc740 \uc131\ub2a5 \ud655\uc778.",
+          "competition_id": "competition:goormtextclassificationproject",
+          "url": "https://raw.githubusercontent.com/kkogggokk/TextClassification/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/7741259edc1198cc3648f7ae91c27104f227b72cc653765b6e44f06e1d77f7b3.txt",
+          "snapshot_sha256": "7741259edc1198cc3648f7ae91c27104f227b72cc653765b6e44f06e1d77f7b3",
+          "line_start": 24,
+          "line_end": 32
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-fcee2f0b54614ee4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Korean collation/dedup/token experiments; narrowed to data identity/duplicate audit.",
+          "candidate_sha256": "dbd906e27cc4c06d8fc35c29249c6987cac927e0322d737aab566c2d1bfe3ca2"
+        },
+        {
+          "candidate_id": "C-a-fcee2f0b54614ee4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Korean Yelpteam originalexplicitcollateorderfix,14%dedupaccuracy0.979to0.983,tokenremovalminimal/lengthlimitharm. IDjoin/groupisolationchecks proposed;dedupsplitdefinition/uncertaintyunknown andorderingnotattributednumericgain. Data-integrity grades reasonable.",
+          "candidate_sha256": "dbd906e27cc4c06d8fc35c29249c6987cac927e0322d737aab566c2d1bfe3ca2"
+        }
+      ],
+      "book_location": {
+        "chapter": 10,
+        "path": "manuscript/chapters/10-interactions-groups-text.md",
+        "sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
+        "line_start": 204,
+        "line_end": 214,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

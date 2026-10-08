@@ -1,0 +1,1435 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-2d47116bab062f948c2c",
+      "canonical_key": "autogluon-per-target-budget | multiple regression targets | training cost",
+      "title": "Budget automated training per target",
+      "statement": "When Training one AutoGluon model for each of multiple regression targets., proposed reuse: Proposed conditional application: Record the per-target time allowance and number of targets.; Proposed conditional application: Track the total training requirement; the source used1hour pertarget,3hours total. Proposed check: Record target count, parallelism and per-target allowances, measure actual total elapsed/GPUorCPUusage, and compare shorter/longer budgets on fixed holdouts. Limitation: Hardware and parallel execution are unspecified; allotted budgets need not equal elapsed time in another environment.",
+      "trigger_conditions": [
+        "Training one AutoGluon model for each of multiple regression targets."
+      ],
+      "action_steps": [
+        "Proposed conditional application: Record the per-target time allowance and number of targets.",
+        "Proposed conditional application: Track the total training requirement; the source used1hour pertarget,3hours total."
+      ],
+      "verification_steps": [
+        "Proposed check: Record target count, parallelism and per-target allowances, measure actual total elapsed/GPUorCPUusage, and compare shorter/longer budgets on fixed holdouts."
+      ],
+      "limitations": [
+        "Hardware and parallel execution are unspecified; allotted budgets need not equal elapsed time in another environment."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "spectrum"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "scientific_measurement"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Processing principle remains testable; implementation and validation require local checks.",
+        "book_fit": [
+          "Models and Tuning"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reports AutoGluon best_quality training budget of1hour per target and3hours total.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Record target count, parallelism and per-target allowances, measure actual total elapsed/GPUorCPUusage, and compare shorter/longer budgets on fixed holdouts.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-5bec4355b8c3c8d5a5bf"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiplying per-target budgets prevents an easy cost-accounting mistake.",
+        "competitor": "Explicit total budget helps plan automated multi-target searches.",
+        "practitioner": "Compute accounting by target and parallelism transfers directly to project planning."
+      },
+      "review": {
+        "candidate_id": "C-2d47116bab062f948c2c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Original states1hrper target=3hrstotalbest_quality; this is a budget report, not optimality or a quantitative method-gain comparison.",
+        "candidate_sha256": "81cd55ee923f51a7a934a21b9e8dba9e02680d84cfba4ab2cbd121f02a5ac65c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000027",
+      "slug": "lesson-000027",
+      "merged_candidate_ids": [
+        "C-2d47116bab062f948c2c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-04f191145f42ed82a71f",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "source_url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "source_quality": "primary_text",
+          "observation_id": "O-5bec4355b8c3c8d5a5bf",
+          "line_start": 33,
+          "line_end": 33,
+          "evidence_text": "Autogluon models were trained for 1hr/target = 3hrs with preset='best_quality'",
+          "kind": "used",
+          "statement": "The author reports onehour pertarget andthreehours total with best_quality AutoGluon.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Multiplying per-target budgets prevents an easy cost-accounting mistake.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Explicit total budget helps plan automated multi-target searches.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Compute accounting by target and parallelism transfers directly to project planning.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-639dc5742b031c57",
+          "locator": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt#L33-L33",
+          "quote": "Autogluon models were trained for 1hr/target = 3hrs with preset='best_quality'",
+          "competition_id": "competition:dig-4-bio-raman-transfer-learning-challenge",
+          "url": "https://www.kaggle.com/competitions/dig-4-bio-raman-transfer-learning-challenge/writeups/1st-place-solution-preprocessing-is-all-you-need",
+          "snapshot_path": "research/lesson-extraction/snapshots/b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a.txt",
+          "snapshot_sha256": "b392e9f8a030879aeb60c5aa1965218badb238965a93b77e9577df29550eaf5a",
+          "line_start": 33,
+          "line_end": 33
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2d47116bab062f948c2c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Original states1hrper target=3hrstotalbest_quality; this is a budget report, not optimality or a quantitative method-gain comparison.",
+          "candidate_sha256": "81cd55ee923f51a7a934a21b9e8dba9e02680d84cfba4ab2cbd121f02a5ac65c"
+        },
+        {
+          "candidate_id": "C-2d47116bab062f948c2c",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Original reports AutoGluon best_quality1hour per target,3hours total. Candidate separates allowances from elapsed time, requires target count and parallelism measurement, and claims no measured acceleration. High twelve scores are reasonable for cheap transferable resource accounting.",
+          "candidate_sha256": "81cd55ee923f51a7a934a21b9e8dba9e02680d84cfba4ab2cbd121f02a5ac65c"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 151,
+        "line_end": 161,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-c05e0358e7d75f8e04b0",
+      "canonical_key": "compare chi-square stopping confidence levels on a holdout and refit the selected level on full training data. | a custom tree otherwise grows until every information gain vanishes | predictive_quality",
+      "title": "Choose significance-based tree stopping on validation",
+      "statement": "When a custom tree otherwise grows until every information gain vanishes, proposed reuse: Proposed conditional application: Compare chi-square stopping confidence levels on a holdout and refit the selected level on full training data. Proposed check: Compare stopping levels on untouched validation, repeat splits, and keep final test evaluation separate from alpha selection. Limitation: Historical99%is not universal; source's statement that forests never overfit is not adopted.",
+      "trigger_conditions": [
+        "a custom tree otherwise grows until every information gain vanishes"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare chi-square stopping confidence levels on a holdout and refit the selected level on full training data."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare stopping levels on untouched validation, repeat splits, and keep final test evaluation separate from alpha selection."
+      ],
+      "limitations": [
+        "Historical99%is not universal; source's statement that forests never overfit is not adopted."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The splice-tree author uses chi-square confidence to stop growing decision trees.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-br-0b2b9ba747b06be582",
+        "O-fc2a6fdf8fa8774f9bd4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Tree stopping is a concrete overfitting example with an accessible holdout procedure.",
+        "competitor": "The significance threshold offers a focused custom-tree experiment.",
+        "practitioner": "Validation-controlled complexity is reusable, though this custom statistical stopping rule is niche."
+      },
+      "review": {
+        "candidate_id": "C-c05e0358e7d75f8e04b0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner archive selects chi-square tree stopping on70/30holdout and reports90%test accuracy at99%versus86%without chi-square; test-set comparability is only author reported.",
+        "candidate_sha256": "ab81b85fe8a3f4cf4ef3d028ccd7b2be405dff9de27c23f42fb34fadb4991da8"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000096",
+      "slug": "lesson-000096",
+      "merged_candidate_ids": [
+        "C-c05e0358e7d75f8e04b0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-74198bbd78e42189da65",
+          "competition_id": "competition:project-1-decision-trees-cs529-2018",
+          "source_id": "source:lesson-source-34502c35c431a3b0",
+          "snapshot_path": "research/lesson-extraction/snapshots/1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12.txt",
+          "snapshot_sha256": "1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12",
+          "source_url": "https://raw.githubusercontent.com/kirarpit/decision-trees/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-br-0b2b9ba747b06be582",
+          "line_start": 48,
+          "line_end": 48,
+          "evidence_text": "- 90% accuracy on the testing set was obtained with Chi-Square and 99% confidence.",
+          "kind": "reported_gain",
+          "statement": "The splice-tree author uses chi-square confidence to stop growing decision trees.",
+          "reported_result": {
+            "metric": "reported testing accuracy percent",
+            "value": 90,
+            "context": "Chi-square99%confidence tree90%versus86%without chi-square stopping; source reports testing scores, split identity is not further specified.",
+            "evidence_text": "90% accuracy on the testing set was obtained with Chi-Square and 99% confidence."
+          }
+        },
+        {
+          "packet_id": "P-74198bbd78e42189da65",
+          "competition_id": "competition:project-1-decision-trees-cs529-2018",
+          "source_id": "source:lesson-source-34502c35c431a3b0",
+          "snapshot_path": "research/lesson-extraction/snapshots/1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12.txt",
+          "snapshot_sha256": "1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12",
+          "source_url": "https://raw.githubusercontent.com/kirarpit/decision-trees/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-fc2a6fdf8fa8774f9bd4",
+          "line_start": 35,
+          "line_end": 35,
+          "evidence_text": "Chi-Square method is used to determine when to stop growing the tree further.",
+          "kind": "reported_gain",
+          "statement": "The splice-tree author uses chi-square confidence to stop growing decision trees.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Tree stopping is a concrete overfitting example with an accessible holdout procedure.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "The significance threshold offers a focused custom-tree experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Validation-controlled complexity is reusable, though this custom statistical stopping rule is niche.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-34502c35c431a3b0",
+          "locator": "research/lesson-extraction/snapshots/1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12.txt#L48-L48",
+          "quote": "- 90% accuracy on the testing set was obtained with Chi-Square and 99% confidence.",
+          "competition_id": "competition:project-1-decision-trees-cs529-2018",
+          "url": "https://raw.githubusercontent.com/kirarpit/decision-trees/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12.txt",
+          "snapshot_sha256": "1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12",
+          "line_start": 48,
+          "line_end": 48
+        },
+        {
+          "source_id": "source:lesson-source-34502c35c431a3b0",
+          "locator": "research/lesson-extraction/snapshots/1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12.txt#L35-L35",
+          "quote": "Chi-Square method is used to determine when to stop growing the tree further.",
+          "competition_id": "competition:project-1-decision-trees-cs529-2018",
+          "url": "https://raw.githubusercontent.com/kirarpit/decision-trees/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12.txt",
+          "snapshot_sha256": "1ccb3dbca5c03d1d2e52c980ed43c0b6fef7c7aa412b51a4e36c7e3307dc9e12",
+          "line_start": 35,
+          "line_end": 35
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-c05e0358e7d75f8e04b0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner archive selects chi-square tree stopping on70/30holdout and reports90%test accuracy at99%versus86%without chi-square; test-set comparability is only author reported.",
+          "candidate_sha256": "ab81b85fe8a3f4cf4ef3d028ccd7b2be405dff9de27c23f42fb34fadb4991da8"
+        },
+        {
+          "candidate_id": "C-c05e0358e7d75f8e04b0",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Splice winner validates chi-square stopping and refits all training data. Reported test accuracy 90 percent at 99 percent confidence versus 86 without stopping keeps split identity unknown. Candidate preserves independent test assessment and rejects never-overfit forest advice. Twelve scores fit niche tree implementation.",
+          "candidate_sha256": "ab81b85fe8a3f4cf4ef3d028ccd7b2be405dff9de27c23f42fb34fadb4991da8"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 163,
+        "line_end": 173,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-c27f53a1a98971d35054",
+      "canonical_key": "explore sizable hyperparameter increments and inspect response curves instead of tuning spurious decimal precision. | small datasets yield volatile scores | validation_reliability",
+      "title": "Prefer coarse hyperparameter changes under noisy validation",
+      "statement": "When small datasets yield volatile scores, proposed reuse: Proposed conditional application: Explore sizable hyperparameter increments and inspect response curves instead of tuning spurious decimal precision. Proposed check: Use coarse grid, repeated fixed folds and uncertainty bands before refining broad stable regions. Limitation: Some optima are narrow; coarse search alone does not prevent multiple-comparison overfit.",
+      "trigger_conditions": [
+        "small datasets yield volatile scores"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Explore sizable hyperparameter increments and inspect response curves instead of tuning spurious decimal precision."
+      ],
+      "verification_steps": [
+        "Proposed check: Use coarse grid, repeated fixed folds and uncertainty bands before refining broad stable regions."
+      ],
+      "limitations": [
+        "Some optima are narrow; coarse search alone does not prevent multiple-comparison overfit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author recommends sizable hyperparameter increments to reduce overtuning of unstable validation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1c764606bab183515e7d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cheap understandable tuning discipline.",
+        "competitor": "Useful against small-validation noise chasing.",
+        "practitioner": "Broad resource-aware hyperparameter selection."
+      },
+      "review": {
+        "candidate_id": "C-c27f53a1a98971d35054",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Homesite author advises sizable changes and checking response curves; decimal precision is not itself proof of overfit.",
+        "candidate_sha256": "9f2ce6acca1b47db226a3011aed9f2be50ba8d22daaa6b93b4ea5ad30aa11e4d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000259",
+      "slug": "lesson-000259",
+      "merged_candidate_ids": [
+        "C-c27f53a1a98971d35054"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6e9f5ae155e847c7badf",
+          "competition_id": "competition:homesite-quote-conversion",
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "source_url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "source_quality": "primary_text",
+          "observation_id": "O-1c764606bab183515e7d",
+          "line_start": 152,
+          "line_end": 152,
+          "evidence_text": "Do sizable increases/decreases of your hyperparameters.",
+          "kind": "author_advice",
+          "statement": "The author recommends sizable hyperparameter increments to reduce overtuning of unstable validation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Cheap understandable tuning discipline.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 78.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Useful against small-validation noise chasing.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 78.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Broad resource-aware hyperparameter selection.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "locator": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt#L152-L152",
+          "quote": "Do sizable increases/decreases of your hyperparameters.",
+          "competition_id": "competition:homesite-quote-conversion",
+          "url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "line_start": 152,
+          "line_end": 152
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-c27f53a1a98971d35054",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Homesite author advises sizable changes and checking response curves; decimal precision is not itself proof of overfit.",
+          "candidate_sha256": "9f2ce6acca1b47db226a3011aed9f2be50ba8d22daaa6b93b4ea5ad30aa11e4d"
+        },
+        {
+          "candidate_id": "C-c27f53a1a98971d35054",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Homesite advice uses coarse parameter increments rather than spurious decimal precision and examines response curves. Candidate does not inherit claim that decimals prove overfit; repeated-fold uncertainty and narrow-optimum/multiple-comparison caveats qualify proposed action. Modest impact/transfer3 and feasibility4 fit each audience.",
+          "candidate_sha256": "9f2ce6acca1b47db226a3011aed9f2be50ba8d22daaa6b93b4ea5ad30aa11e4d"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 211,
+        "line_end": 215,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-c845810a40a4b87e",
+      "canonical_key": "proposed safe adaptation: fit outlier rules, scaling and forward selection within training folds, then tune the rbf svm. | small numerical classification data may benefit from a compact nonlinear feature set | validation_reliability",
+      "title": "Nest forward feature selection with nonlinear SVM tuning",
+      "statement": "When small numerical classification data may benefit from a compact nonlinear feature set, consider this source-backed action: Proposed safe adaptation: fit outlier rules, scaling and forward selection within training folds, then tune the RBF SVM. Proposed check: Compare original features, interactions and selected subsets on an untouched split. Limit: The packet does not demonstrate fold-local transforms; outliers may be legitimate minority examples.",
+      "trigger_conditions": [
+        "small numerical classification data may benefit from a compact nonlinear feature set"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed safe adaptation: fit outlier rules, scaling and forward selection within training folds, then tune the RBF SVM."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare original features, interactions and selected subsets on an untouched split."
+      ],
+      "limitations": [
+        "The packet does not demonstrate fold-local transforms; outliers may be legitimate minority examples."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used standardized interaction terms, Z-score outlier removal, forward selection and RBF SVM tuning across multiple splits.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-c845810a40a4b87e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Nested selection/tuning needs more ML experience and fits.",
+        "competitor": "Useful small-tabular validation discipline for nonlinear selection.",
+        "practitioner": "Transfers to supervised feature search with legitimate-outlier caveat."
+      },
+      "review": {
+        "candidate_id": "C-a-c845810a40a4b87e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked listed transforms/forward selection/RBF; isolation is proposed safeguard.",
+        "candidate_sha256": "960131e5ad9a49aede3b36099ae07aab4fa22b13d069d9e426d80bccd5f5f4d2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000396",
+      "slug": "lesson-000396",
+      "merged_candidate_ids": [
+        "C-a-c845810a40a4b87e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e26f63c40204df877fb9",
+          "competition_id": "competition:dat-200-ca-3-2025",
+          "source_id": "source:lesson-source-d9bda4387c569c8b",
+          "snapshot_path": "research/lesson-extraction/snapshots/b9262b27223cdc80cb43577dee7826a6cb2ef6d3821b786e5d8837b7aeaca97f.txt",
+          "snapshot_sha256": "b9262b27223cdc80cb43577dee7826a6cb2ef6d3821b786e5d8837b7aeaca97f",
+          "source_url": "https://raw.githubusercontent.com/zertez/dat200-ca3-banana-quality-classifier/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-c845810a40a4b87e",
+          "line_start": 16,
+          "line_end": 28,
+          "evidence_text": "- **Model**: Support Vector Machine with RBF kernel\n- **Feature Selection**: Sequential forward feature selection for optimal feature subset\n- **Data Processing**: Z-score outlier removal, feature standardization, interaction term generation\n- **Validation**: Multiple train/test splits with comprehensive hyperparameter tuning\n- **Optimization**: Grid search with cross-validation for optimal model parameters\n\n## Key Features\n\n- Advanced outlier detection and removal using Z-score methodology\n- Feature engineering with polynomial interaction terms\n- Sequential forward selection for dimensionality reduction\n- SVM with RBF kernel for non-linear classification\n- Robust validation strategy with multiple data splits",
+          "kind": "used",
+          "statement": "The team used standardized interaction terms, Z-score outlier removal, forward selection and RBF SVM tuning across multiple splits.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Nested selection/tuning needs more ML experience and fits.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful small-tabular validation discipline for nonlinear selection.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to supervised feature search with legitimate-outlier caveat.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-d9bda4387c569c8b",
+          "locator": "research/lesson-extraction/snapshots/b9262b27223cdc80cb43577dee7826a6cb2ef6d3821b786e5d8837b7aeaca97f.txt#L16-L28",
+          "quote": "- **Model**: Support Vector Machine with RBF kernel\n- **Feature Selection**: Sequential forward feature selection for optimal feature subset\n- **Data Processing**: Z-score outlier removal, feature standardization, interaction term generation\n- **Validation**: Multiple train/test splits with comprehensive hyperparameter tuning\n- **Optimization**: Grid search with cross-validation for optimal model parameters\n\n## Key Features\n\n- Advanced outlier detection and removal using Z-score methodology\n- Feature engineering with polynomial interaction terms\n- Sequential forward selection for dimensionality reduction\n- SVM with RBF kernel for non-linear classification\n- Robust validation strategy with multiple data splits",
+          "competition_id": "competition:dat-200-ca-3-2025",
+          "url": "https://raw.githubusercontent.com/zertez/dat200-ca3-banana-quality-classifier/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b9262b27223cdc80cb43577dee7826a6cb2ef6d3821b786e5d8837b7aeaca97f.txt",
+          "snapshot_sha256": "b9262b27223cdc80cb43577dee7826a6cb2ef6d3821b786e5d8837b7aeaca97f",
+          "line_start": 16,
+          "line_end": 28
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-c845810a40a4b87e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked listed transforms/forward selection/RBF; isolation is proposed safeguard.",
+          "candidate_sha256": "960131e5ad9a49aede3b36099ae07aab4fa22b13d069d9e426d80bccd5f5f4d2"
+        },
+        {
+          "candidate_id": "C-a-c845810a40a4b87e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Banana winner README explicitly Zscore filtering,scaling/interactions,forward selection,RBF SVM,multiple splits/gridCV. Fold-local/nested implementation is proposed,not established. Legitimate minority outliers caveated; added-fit feasibility grades reasonable.",
+          "candidate_sha256": "960131e5ad9a49aede3b36099ae07aab4fa22b13d069d9e426d80bccd5f5f4d2"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 175,
+        "line_end": 185,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-2a2441410bfa76f4e446",
+      "canonical_key": "repeat comparisons under aligned data and random seeds before attributing small differences to the package. | two boosted-tree wrappers give close regression scores | validation_reliability",
+      "title": "Repeat similar wrapper implementations before ranking them",
+      "statement": "When two boosted-tree wrappers give close regression scores, proposed reuse: Proposed conditional application: Repeat comparisons under aligned data and random seeds before attributing small differences to the package. Proposed check: Align features, splits, parameters and paired seeds; compare RMSE distributions and wrapper defaults. Limitation: Defaults and stopping behavior may differ; randomness is author explanation.",
+      "trigger_conditions": [
+        "two boosted-tree wrappers give close regression scores"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Repeat comparisons under aligned data and random seeds before attributing small differences to the package."
+      ],
+      "verification_steps": [
+        "Proposed check: Align features, splits, parameters and paired seeds; compare RMSE distributions and wrapper defaults."
+      ],
+      "limitations": [
+        "Defaults and stopping behavior may differ; randomness is author explanation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The movie README reports similar scores from two boosted-tree wrappers whose ranking sometimes changed with randomness.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-ed9d14536a032eaf1a19"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible repeated-tree comparison.",
+        "competitor": "Prevents package claims from one lucky run.",
+        "practitioner": "General reproducible implementation benchmarking."
+      },
+      "review": {
+        "candidate_id": "C-2a2441410bfa76f4e446",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Entire IMDB README says caret/xgboost ranking changed with randomness; no repeated-run data supplied.",
+        "candidate_sha256": "1b23c0de217111656ece730663ad0e9971297fc5a08dbab1856d2ae2de3fa21d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000413",
+      "slug": "lesson-000413",
+      "merged_candidate_ids": [
+        "C-2a2441410bfa76f4e446"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7026b529a0434196ecfa",
+          "competition_id": "competition:imdbusmovies",
+          "source_id": "source:lesson-source-8f987490e5ceffa8",
+          "snapshot_path": "research/lesson-extraction/snapshots/087a5222a5ed69925da567057391f414295377af92ceaeea7804ed24e583c00b.txt",
+          "snapshot_sha256": "087a5222a5ed69925da567057391f414295377af92ceaeea7804ed24e583c00b",
+          "source_url": "https://raw.githubusercontent.com/mrmorgan17/IMDB/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-ed9d14536a032eaf1a19",
+          "line_start": 7,
+          "line_end": 7,
+          "evidence_text": "Both models performed similarly, and due to randomness, sometimes the caret model's predictions",
+          "kind": "used",
+          "statement": "The movie README reports similar scores from two boosted-tree wrappers whose ranking sometimes changed with randomness.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Accessible repeated-tree comparison.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Prevents package claims from one lucky run.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "General reproducible implementation benchmarking.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8f987490e5ceffa8",
+          "locator": "research/lesson-extraction/snapshots/087a5222a5ed69925da567057391f414295377af92ceaeea7804ed24e583c00b.txt#L7-L7",
+          "quote": "Both models performed similarly, and due to randomness, sometimes the caret model's predictions",
+          "competition_id": "competition:imdbusmovies",
+          "url": "https://raw.githubusercontent.com/mrmorgan17/IMDB/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/087a5222a5ed69925da567057391f414295377af92ceaeea7804ed24e583c00b.txt",
+          "snapshot_sha256": "087a5222a5ed69925da567057391f414295377af92ceaeea7804ed24e583c00b",
+          "line_start": 7,
+          "line_end": 7
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2a2441410bfa76f4e446",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Entire IMDB README says caret/xgboost ranking changed with randomness; no repeated-run data supplied.",
+          "candidate_sha256": "1b23c0de217111656ece730663ad0e9971297fc5a08dbab1856d2ae2de3fa21d"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 217,
+        "line_end": 221,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-e53d6c81d256454811ed",
+      "canonical_key": "tune data configuration with five-minute good-quality runs, then compare final two-hour-per-property best-quality training with manual ensembles. | high-quality automl makes each preprocessing trial expensive | compute_efficiency",
+      "title": "Use a cheap AutoML proxy for feature and dataset tuning",
+      "statement": "When high-quality AutoML makes each preprocessing trial expensive, proposed reuse: Proposed conditional application: Tune data configuration with five-minute good-quality runs, then compare final two-hour-per-property best-quality training with manual ensembles. Proposed check: Check proxy-versus-final configuration ranking on several trials, then compare final quality and total tuning cost on untouched folds. Limitation: Proxy ranking can change at full budget; the twentyfold estimate excludes substantial preprocessing tuning and is not a total-cost guarantee.",
+      "trigger_conditions": [
+        "high-quality AutoML makes each preprocessing trial expensive"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Tune data configuration with five-minute good-quality runs, then compare final two-hour-per-property best-quality training with manual ensembles."
+      ],
+      "verification_steps": [
+        "Proposed check: Check proxy-versus-final configuration ranking on several trials, then compare final quality and total tuning cost on untouched folds."
+      ],
+      "limitations": [
+        "Proxy ranking can change at full budget; the twentyfold estimate excludes substantial preprocessing tuning and is not a total-cost guarantee."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "materials_science"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The polymer author used five-minute AutoGluon runs for data tuning and longer best-quality runs for final models.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-bd42e6c0e5a123d54f45",
+        "O-br-12885b8d6f18d563d9"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cheap-to-expensive trials are accessible through AutoML presets.",
+        "competitor": "A practical proxy strategy frees experimentation budget while retaining final-quality checks.",
+        "practitioner": "Multi-fidelity tuning is broadly useful, with proxy rank and full cost accounting essential."
+      },
+      "review": {
+        "candidate_id": "C-e53d6c81d256454811ed",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner uses five-minute good-quality AutoGluon for data tuning and two-hour best-quality final runs; author compares about 2% better wMAE against a manual ensemble using about twentyfold training compute.",
+        "candidate_sha256": "d5edd2d854931defa46dc6bb77a2fa771188eb02a1cddc19b987495e03fa5d50"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000526",
+      "slug": "lesson-000526",
+      "merged_candidate_ids": [
+        "C-e53d6c81d256454811ed"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-17fa9d1448768833359b",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "source_url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-bd42e6c0e5a123d54f45",
+          "line_start": 128,
+          "line_end": 128,
+          "evidence_text": "paired it with \"good\" quality AG runs with a 5 minute time limit.",
+          "kind": "reported_gain",
+          "statement": "The polymer author used five-minute AutoGluon runs for data tuning and longer best-quality runs for final models.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-17fa9d1448768833359b",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "source_url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-br-12885b8d6f18d563d9",
+          "line_start": 128,
+          "line_end": 128,
+          "evidence_text": "**AutoGluon vs. \"traditional methods\":** AutoGluon's \"best\" quality preset with a 2 hour limit for each property was able to beat an ensemble of XGBoost, LightGBM, and TabM models that I tuned with Optuna and ~20x that amount of compute (not counting data preprocessing tuning, which was in the ballpark of ~1 day per downstream prediction library I paired it with, or all the other models I tried before settling on XGB + LGBM + TabM for the relatively manual ensemble). Its wMAE score was ~2% better than the relatively manual ensemble, good enough that it was not useful to make an ensemble of AutoGluon + my more manually constructed ensemble. The \"best\" quality AutoGluon runs are very slow, so to let the data tuning run in a reasonable timeframe with a decent trial count I paired it with \"good\" quality AG runs with a 5 minute time limit. This was my first time using AutoGluon, and I found it very impressive. The level of effort invested in the manual ensemble was maybe only a third of what I used to win the UM MCTS competition, so it is plausible I could beat it if I really pulled out all the stops and wasn't distracted by non-tabular experiments, but I was absolutely gob-smacked by AutoGluon's efficiency. The \"extreme\" quality present introduced in AG 1.4.0 is supposedly even more accurate and efficient, but I did not observe any benefits when I tried switching over to it (possibly because the feature counts were too high for it to use all of its models - I saw some errors about that), so the tabular predictor in my final ensemble was created with the \"best\" quality preset.",
+          "kind": "reported_gain",
+          "statement": "The polymer author used five-minute AutoGluon runs for data tuning and longer best-quality runs for final models.",
+          "reported_result": {
+            "metric": "relative wMAE improvement percent",
+            "value": 2,
+            "context": "Best-quality two-hour-per-property AutoGluon versus manually tuned XGBoost/LightGBM/TabM ensemble; author reports approximately2% better wMAE and manual model compute approximately20 times higher, excluding preprocessing tuning.",
+            "evidence_text": "Its wMAE score was ~2% better than the relatively manual ensemble"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Cheap-to-expensive trials are accessible through AutoML presets.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A practical proxy strategy frees experimentation budget while retaining final-quality checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Multi-fidelity tuning is broadly useful, with proxy rank and full cost accounting essential.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "locator": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt#L128-L128",
+          "quote": "paired it with \"good\" quality AG runs with a 5 minute time limit.",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "line_start": 128,
+          "line_end": 128
+        },
+        {
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "locator": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt#L128-L128",
+          "quote": "**AutoGluon vs. \"traditional methods\":** AutoGluon's \"best\" quality preset with a 2 hour limit for each property was able to beat an ensemble of XGBoost, LightGBM, and TabM models that I tuned with Optuna and ~20x that amount of compute (not counting data preprocessing tuning, which was in the ballpark of ~1 day per downstream prediction library I paired it with, or all the other models I tried before settling on XGB + LGBM + TabM for the relatively manual ensemble). Its wMAE score was ~2% better than the relatively manual ensemble, good enough that it was not useful to make an ensemble of AutoGluon + my more manually constructed ensemble. The \"best\" quality AutoGluon runs are very slow, so to let the data tuning run in a reasonable timeframe with a decent trial count I paired it with \"good\" quality AG runs with a 5 minute time limit. This was my first time using AutoGluon, and I found it very impressive. The level of effort invested in the manual ensemble was maybe only a third of what I used to win the UM MCTS competition, so it is plausible I could beat it if I really pulled out all the stops and wasn't distracted by non-tabular experiments, but I was absolutely gob-smacked by AutoGluon's efficiency. The \"extreme\" quality present introduced in AG 1.4.0 is supposedly even more accurate and efficient, but I did not observe any benefits when I tried switching over to it (possibly because the feature counts were too high for it to use all of its models - I saw some errors about that), so the tabular predictor in my final ensemble was created with the \"best\" quality preset.",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "line_start": 128,
+          "line_end": 128
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-e53d6c81d256454811ed",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner uses five-minute good-quality AutoGluon for data tuning and two-hour best-quality final runs; author compares about 2% better wMAE against a manual ensemble using about twentyfold training compute.",
+          "candidate_sha256": "d5edd2d854931defa46dc6bb77a2fa771188eb02a1cddc19b987495e03fa5d50"
+        },
+        {
+          "candidate_id": "C-e53d6c81d256454811ed",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Polymer author uses five-minute good presets for data trials, then two-hour best presets per property. Best AutoGluon is reported about 2 percent better wMAE than manual XGB/LGBM/TabM at about 20 times model compute, excluding preprocessing. Candidate tests proxy ranking and total budget; twelve scores preserve assessment cost.",
+          "candidate_sha256": "d5edd2d854931defa46dc6bb77a2fa771188eb02a1cddc19b987495e03fa5d50"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 225,
+        "line_end": 229,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-3daf264cf6cc7f12",
+      "canonical_key": "use a broad randomized stage followed by a narrower bayesian search. | a credible baseline needs bounded hyperparameter tuning | predictive_quality",
+      "title": "Refine a broad randomized search with Bayesian tuning",
+      "statement": "When a credible baseline needs bounded hyperparameter tuning, consider this source-backed action: Use a broad randomized stage followed by a narrower Bayesian search. Proposed check: Reserve untouched validation and record total trial budget. Limit: Search bounds and budget are unspecified.",
+      "trigger_conditions": [
+        "a credible baseline needs bounded hyperparameter tuning"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use a broad randomized stage followed by a narrower Bayesian search."
+      ],
+      "verification_steps": [
+        "Proposed verification: Reserve untouched validation and record total trial budget."
+      ],
+      "limitations": [
+        "Search bounds and budget are unspecified."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The final workflow explored broadly with randomized search then refined with Bayesian search.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3daf264cf6cc7f12"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Two-stage tuning requires search library familiarity.",
+        "competitor": "Useful bounded refinement after broad exploration.",
+        "practitioner": "General tuning workflow; expected increment modest and budget-dependent."
+      },
+      "review": {
+        "candidate_id": "C-a-3daf264cf6cc7f12",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked randomized-to-Bayesian sequence; bounds/budgets absent.",
+        "candidate_sha256": "2a81b2da9b6d6f2b96022d51e4f02417aea36feb6bacf8a0f571109b0d41e992"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000528",
+      "slug": "lesson-000528",
+      "merged_candidate_ids": [
+        "C-a-3daf264cf6cc7f12"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-37cf948e7d7f9191d69f",
+          "competition_id": "competition:assignment-3-dsba",
+          "source_id": "source:lesson-source-6cbdbaa3665ddabc",
+          "snapshot_path": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt",
+          "snapshot_sha256": "b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea",
+          "source_url": "https://raw.githubusercontent.com/EliValLoc/Used_Car_Prices_Kaggle/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3daf264cf6cc7f12",
+          "line_start": 106,
+          "line_end": 113,
+          "evidence_text": "Several tuning strategies were used:\n\n* `GridSearchCV`\n* `RandomizedSearchCV`\n* `BayesSearchCV`\n* Experimental tuning with Optuna\n\nThe final workflow used a systematic tuning strategy. I first explored a broader parameter space with `RandomizedSearchCV` and then refined the search space with `BayesSearchCV`.",
+          "kind": "used",
+          "statement": "The final workflow explored broadly with randomized search then refined with Bayesian search.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Two-stage tuning requires search library familiarity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful bounded refinement after broad exploration.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "General tuning workflow; expected increment modest and budget-dependent.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6cbdbaa3665ddabc",
+          "locator": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt#L106-L113",
+          "quote": "Several tuning strategies were used:\n\n* `GridSearchCV`\n* `RandomizedSearchCV`\n* `BayesSearchCV`\n* Experimental tuning with Optuna\n\nThe final workflow used a systematic tuning strategy. I first explored a broader parameter space with `RandomizedSearchCV` and then refined the search space with `BayesSearchCV`.",
+          "competition_id": "competition:assignment-3-dsba",
+          "url": "https://raw.githubusercontent.com/EliValLoc/Used_Car_Prices_Kaggle/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea.txt",
+          "snapshot_sha256": "b92634021c47ecf6cb7de1c45f0f993d9e39d0c058e0c359117646f6afc901ea",
+          "line_start": 106,
+          "line_end": 113
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3daf264cf6cc7f12",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked randomized-to-Bayesian sequence; bounds/budgets absent.",
+          "candidate_sha256": "2a81b2da9b6d6f2b96022d51e4f02417aea36feb6bacf8a0f571109b0d41e992"
+        },
+        {
+          "candidate_id": "C-a-3daf264cf6cc7f12",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Used-car final workflow explicitly broad randomized then refined Bayesian search. Untouched validation/trial budget are proposed; bounds and budget unknown. Moderate tuning utility rather than rank-driven scores reasonable.",
+          "candidate_sha256": "2a81b2da9b6d6f2b96022d51e4f02417aea36feb6bacf8a0f571109b0d41e992"
+        }
+      ],
+      "book_location": {
+        "chapter": 13,
+        "path": "manuscript/chapters/13-optuna-and-hyperparameter-tuning.md",
+        "sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
+        "line_start": 187,
+        "line_end": 197,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-1b784d3ae7fbe1fe",
+      "canonical_key": "simulate calibrated matchup probabilities, then evaluate any forced-team or concentration strategy against ordinary sampling. | a bracket-portfolio contest rewards joint tournament outcomes | predictive_quality",
+      "title": "Separate calibrated matchup simulation from aggressive bracket bets",
+      "statement": "When a bracket-portfolio contest rewards joint tournament outcomes, consider this source-backed action: Simulate calibrated matchup probabilities, then evaluate any forced-team or concentration strategy against ordinary sampling. Proposed check: Compare Monte Carlo convergence and portfolio risk/expected score across many simulated tournaments. Limit: Five-thousand was a heuristic; the winning aggressive bet is not evidence of optimal calibration or repeatable strategy.",
+      "trigger_conditions": [
+        "a bracket-portfolio contest rewards joint tournament outcomes"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Simulate calibrated matchup probabilities, then evaluate any forced-team or concentration strategy against ordinary sampling."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare Monte Carlo convergence and portfolio risk/expected score across many simulated tournaments."
+      ],
+      "limitations": [
+        "Five-thousand was a heuristic; the winning aggressive bet is not evidence of optimal calibration or repeatable strategy."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "problem_framing"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "optimization"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "overfitting",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Competition Strategy"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author converted rating differences through normal CDF with home advantage and simulated five-thousand tournaments; forcing two teams to win was acknowledged as possibly excessive gambling.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-1b784d3ae7fbe1fe"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "MonteCarlo/bracket-risk reasoning needs probability familiarity.",
+        "competitor": "Niche portfolio strategy test separating prediction from concentration risk.",
+        "practitioner": "Simulation transfers to joint outcomes, forced winners contest-specific."
+      },
+      "review": {
+        "candidate_id": "C-a-1b784d3ae7fbe1fe",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked ratingsnormalCDF/5000simulations and acknowledged aggressive bet; calibration proposed.",
+        "candidate_sha256": "4c096dd6e1161c85c0199bd096e9d6e0d86b673f12e1d3717d219decb4d1ce19"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000462",
+      "slug": "lesson-000462",
+      "merged_candidate_ids": [
+        "C-a-1b784d3ae7fbe1fe"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a8ed498f0b3580d6f27d",
+          "competition_id": "competition:march-machine-learning-mania-2024",
+          "source_id": "source:lesson-source-2ed587c96d5de72e",
+          "snapshot_path": "research/lesson-extraction/snapshots/7fb94e15548be264c8e238410bc4586974bc7ec648325d7a3049e7dd38304740.txt",
+          "snapshot_sha256": "7fb94e15548be264c8e238410bc4586974bc7ec648325d7a3049e7dd38304740",
+          "source_url": "https://www.kaggle.com/competitions/march-machine-learning-mania-2024/writeups/jared-cross-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-1b784d3ae7fbe1fe",
+          "line_start": 17,
+          "line_end": 36,
+          "evidence_text": "My submission started with Nate Silver's ratings for Men's and Women's teams. It then gambles by making South Carolina's women's team and UConn's men's team super teams (good enough to win all of their games in every simulation). In retrospect, this may have been more gambling than I should have used to maximize my chances of finishing in the top 8.\n\nA simple formula turns the differences between the ratings of two matched teams into the probability of a team winning (with a bump for home-field advantage for the top 4 seeds in the first two rounds of the women's tournament):\n\n```\nmsilver_wpct = function(pwr1, pwr2){\npred_pt_margin = (pwr1-pwr2)\ntscore = pred_pt_margin/11\npnorm(tscore)\n}\n\nwsilver_wpct = function(pwr1, pwr2, home=0){\n# home = 1 (home), 0 (neutral), -1 (away)\nhfa = 2.73*home\ntscore = (pwr1 - pwr2 + hfa)/11.5\npnorm(tscore)\n}\n```\n\nThe tournaments are then simulated 5000 times which takes under an hour. My thinking was that 5000 simulations was sufficient to make my average bracket quite close to the expected probabilities (according to the Silver ratings).",
+          "kind": "used",
+          "statement": "The author converted rating differences through normal CDF with home advantage and simulated five-thousand tournaments; forcing two teams to win was acknowledged as possibly excessive gambling.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "MonteCarlo/bracket-risk reasoning needs probability familiarity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Niche portfolio strategy test separating prediction from concentration risk.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Simulation transfers to joint outcomes, forced winners contest-specific.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-2ed587c96d5de72e",
+          "locator": "research/lesson-extraction/snapshots/7fb94e15548be264c8e238410bc4586974bc7ec648325d7a3049e7dd38304740.txt#L17-L36",
+          "quote": "My submission started with Nate Silver's ratings for Men's and Women's teams. It then gambles by making South Carolina's women's team and UConn's men's team super teams (good enough to win all of their games in every simulation). In retrospect, this may have been more gambling than I should have used to maximize my chances of finishing in the top 8.\n\nA simple formula turns the differences between the ratings of two matched teams into the probability of a team winning (with a bump for home-field advantage for the top 4 seeds in the first two rounds of the women's tournament):\n\n```\nmsilver_wpct = function(pwr1, pwr2){\npred_pt_margin = (pwr1-pwr2)\ntscore = pred_pt_margin/11\npnorm(tscore)\n}\n\nwsilver_wpct = function(pwr1, pwr2, home=0){\n# home = 1 (home), 0 (neutral), -1 (away)\nhfa = 2.73*home\ntscore = (pwr1 - pwr2 + hfa)/11.5\npnorm(tscore)\n}\n```\n\nThe tournaments are then simulated 5000 times which takes under an hour. My thinking was that 5000 simulations was sufficient to make my average bracket quite close to the expected probabilities (according to the Silver ratings).",
+          "competition_id": "competition:march-machine-learning-mania-2024",
+          "url": "https://www.kaggle.com/competitions/march-machine-learning-mania-2024/writeups/jared-cross-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/7fb94e15548be264c8e238410bc4586974bc7ec648325d7a3049e7dd38304740.txt",
+          "snapshot_sha256": "7fb94e15548be264c8e238410bc4586974bc7ec648325d7a3049e7dd38304740",
+          "line_start": 17,
+          "line_end": 36
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-1b784d3ae7fbe1fe",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked ratingsnormalCDF/5000simulations and acknowledged aggressive bet; calibration proposed.",
+          "candidate_sha256": "4c096dd6e1161c85c0199bd096e9d6e0d86b673f12e1d3717d219decb4d1ce19"
+        }
+      ],
+      "book_location": {
+        "chapter": 6,
+        "path": "manuscript/chapters/06-march-mania-case-study.md",
+        "sha256": "f8c7e8b9a0201d484fa314af3a14d31aca80d74a0b551ec90f722b26a40fb315",
+        "line_start": 265,
+        "line_end": 269,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

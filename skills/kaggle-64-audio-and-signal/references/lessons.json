@@ -1,0 +1,3428 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-d6327564b9495c8f",
+      "canonical_key": "align padded waveforms to guarantee overlapping content and benchmark small-model ensembles. | variable-length waveforms are mixed for augmentation | predictive_quality",
+      "title": "Ensure mixed audio actually overlaps",
+      "statement": "When variable-length waveforms are mixed for augmentation, Align padded waveforms so nonzero audio content overlaps before mixing, and combine labels consistently. Verify: Inspect nonzero overlap and mixed labels on variable-length boundary cases; compare with the unchanged audio augmentation recipe. Limits: Source small/deeper ensemble comparison is separate from this padding decision.; Mixing weights and labels must remain consistent; overlap alone does not establish benefit.",
+      "trigger_conditions": [
+        "variable-length waveforms are mixed for augmentation"
+      ],
+      "action_steps": [
+        "Align padded waveforms so nonzero audio content overlaps before mixing, and combine labels consistently."
+      ],
+      "verification_steps": [
+        "Inspect nonzero overlap and mixed labels on variable-length boundary cases; compare with the unchanged audio augmentation recipe."
+      ],
+      "limitations": [
+        "Source small/deeper ensemble comparison is separate from this padding decision.",
+        "Mixing weights and labels must remain consistent; overlap alone does not establish benefit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author mixed normalized raw audio with equal species sampling and left-padded clips so variable lengths overlap on the right; small ensembles nearly matched deeper ones.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-d6327564b9495c8f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Waveform overlap checks are simple and concrete.",
+        "competitor": "Prevents silent failure of variable-length audio mixing.",
+        "practitioner": "Useful audio augmentation integrity check, label mixing still matters."
+      },
+      "review": {
+        "candidate_id": "C-a-d6327564b9495c8f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked left-padding alignment; capacity comparison separate from augmentation decision.",
+        "candidate_sha256": "bd05f1d51b3309d22f6243a07179830398d5804e7c74f1eb441780ed11cc26d1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000008",
+      "slug": "lesson-000008",
+      "merged_candidate_ids": [
+        "C-a-d6327564b9495c8f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bbe033b93aea0a0423e5",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-d6327564b9495c8f",
+          "line_start": 24,
+          "line_end": 31,
+          "evidence_text": "*   Mixup: p = 0.5, on normalized by absmax raw audio with an equal sampling weight for each species\n\n*   Padding: To keep samples of different lengths overlapping after mixup, the left part of it was filled with 0, so on the right, there is always an overlap that ensures train samples are always actually mixed up\n*   Models: efficientnet0, regnety8. An ensemble of small models on the 1st stage gave almost the same results as ensembling deeper ones\n\n#### Loss choice\n\nI noticed that the choice of loss got a lot of attention in the discussions. So I conducted some experiments and found that both CE and BCE/Focal losses could give me similar results when the learning rate and the number of epochs were well-tuned. However, CE gave me a bit better results, so I settled on it.",
+          "kind": "used",
+          "statement": "The author mixed normalized raw audio with equal species sampling and left-padded clips so variable lengths overlap on the right; small ensembles nearly matched deeper ones.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Waveform overlap checks are simple and concrete.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 4
+          },
+          "rationale": "Prevents silent failure of variable-length audio mixing.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful audio augmentation integrity check, label mixing still matters.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L24-L31",
+          "quote": "*   Mixup: p = 0.5, on normalized by absmax raw audio with an equal sampling weight for each species\n\n*   Padding: To keep samples of different lengths overlapping after mixup, the left part of it was filled with 0, so on the right, there is always an overlap that ensures train samples are always actually mixed up\n*   Models: efficientnet0, regnety8. An ensemble of small models on the 1st stage gave almost the same results as ensembling deeper ones\n\n#### Loss choice\n\nI noticed that the choice of loss got a lot of attention in the discussions. So I conducted some experiments and found that both CE and BCE/Focal losses could give me similar results when the learning rate and the number of epochs were well-tuned. However, CE gave me a bit better results, so I settled on it.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 24,
+          "line_end": 31
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-d6327564b9495c8f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked left-padding alignment; capacity comparison separate from augmentation decision.",
+          "candidate_sha256": "bd05f1d51b3309d22f6243a07179830398d5804e7c74f1eb441780ed11cc26d1"
+        },
+        {
+          "candidate_id": "C-a-d6327564b9495c8f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "BirdCLEF winner explicitly left-zero-pads variable lengths to ensure waveform overlap,normalized raw mixup/equal species. Small/deeper comparison separated by caveat and not causal padding gain. Boundary/mixed-label check proposed; audio-specific integrity grades reasonable.",
+          "candidate_sha256": "bd05f1d51b3309d22f6243a07179830398d5804e7c74f1eb441780ed11cc26d1"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 119,
+        "line_end": 123,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-af4c330c52a7bae2c7b5",
+      "canonical_key": "apply a power greater than one to probabilities before the next iteration instead of temperature scaling logits, then stop if another iteration fails to improve. | later noisy-student iterations stop converging | predictive_quality",
+      "title": "Suppress pseudo-label noise between self-training iterations",
+      "statement": "When later noisy-student iterations stop converging, proposed reuse: Proposed conditional application: Apply a power greater than one to probabilities before the next iteration instead of temperature scaling logits, then stop if another iteration fails to improve. Proposed check: Tune powers on independent soundscapes at fixed architecture; inspect label calibration, rare recall and stopping criteria. Limitation: Shrinking probabilities can remove real weak positives; multiple retraining iterations are costly.",
+      "trigger_conditions": [
+        "later noisy-student iterations stop converging"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Apply a power greater than one to probabilities before the next iteration instead of temperature scaling logits, then stop if another iteration fails to improve."
+      ],
+      "verification_steps": [
+        "Proposed check: Tune powers on independent soundscapes at fixed architecture; inspect label calibration, rare recall and stopping criteria."
+      ],
+      "limitations": [
+        "Shrinking probabilities can remove real weak positives; multiple retraining iterations are costly."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The source used a power-based noisy-student pseudo-labeling recipe.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-c846cb11b68b29d280dc"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Repeated self-training is resource intensive.",
+        "competitor": "Useful scoped noise-control experiment with leakage-free tuning.",
+        "practitioner": "Conditional noisy-label utility; cost and calibration limit reuse."
+      },
+      "review": {
+        "candidate_id": "C-af4c330c52a7bae2c7b5",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BirdCLEF25 raises probabilities to powers above one; public-LB tuning and changing model library confound iteration gains.",
+        "candidate_sha256": "c9ca4c52d072985ada8cb1fe8006d89b1b199e211002d8790b409fbd773d6a52"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000009",
+      "slug": "lesson-000009",
+      "merged_candidate_ids": [
+        "C-af4c330c52a7bae2c7b5"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c18dc5176c9a2c0ab339",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-c846cb11b68b29d280dc",
+          "line_start": 141,
+          "line_end": 141,
+          "evidence_text": "The trick was to apply a power greater than 1 to the probabilities (similar to temperature scaling, but applied to probabilities instead of logits). This worked because applying temperature to logits increases probabilities above 0.5, which was deteriorating.",
+          "kind": "used",
+          "statement": "The source used a power-based noisy-student pseudo-labeling recipe.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Repeated self-training is resource intensive.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful scoped noise-control experiment with leakage-free tuning.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional noisy-label utility; cost and calibration limit reuse.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L141-L141",
+          "quote": "The trick was to apply a power greater than 1 to the probabilities (similar to temperature scaling, but applied to probabilities instead of logits). This worked because applying temperature to logits increases probabilities above 0.5, which was deteriorating.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 141,
+          "line_end": 141
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-af4c330c52a7bae2c7b5",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BirdCLEF25 raises probabilities to powers above one; public-LB tuning and changing model library confound iteration gains.",
+          "candidate_sha256": "c9ca4c52d072985ada8cb1fe8006d89b1b199e211002d8790b409fbd773d6a52"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 125,
+        "line_end": 129,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-63a0a91e9c0bb7bf",
+      "canonical_key": "cache patch/template features and compare their contribution before repeating costly extraction. | bird audio contains reusable local spectral motifs | predictive_quality",
+      "title": "Treat spectrogram template extraction as a cached expensive stage",
+      "statement": "When bird audio contains reusable local spectral motifs, consider this source-backed action: Cache patch/template features and compare their contribution before repeating costly extraction. Proposed check: Measure AUC with feature-family ablations and inspect reproducible cache provenance. Limit: Pattern extraction details are not specified and repeated CV-based exports can bias selection.",
+      "trigger_conditions": [
+        "bird audio contains reusable local spectral motifs"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Cache patch/template features and compare their contribution before repeating costly extraction."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure AUC with feature-family ablations and inspect reproducible cache provenance."
+      ],
+      "limitations": [
+        "Pattern extraction details are not specified and repeated CV-based exports can bias selection."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author extracted spectrogram patches, used template matching, merged segment histograms/location and trained random forests; feature generation took ten-to-twelve hours and could run in parallel.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-63a0a91e9c0bb7bf"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Template extraction expensive and implementation details sparse.",
+        "competitor": "Useful reusable audio feature preparation budget.",
+        "practitioner": "Applies to local spectral motif tasks; cache provenance essential."
+      },
+      "review": {
+        "candidate_id": "C-a-63a0a91e9c0bb7bf",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked spectrogramtemplates/cachedfeatures/10\u201312hour prep; AUCthreshold can bias selection.",
+        "candidate_sha256": "2f384f12bd939365a2d322a45c8910971717aab7bacc1f0cfd6d17349b74ae84"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000047",
+      "slug": "lesson-000047",
+      "merged_candidate_ids": [
+        "C-a-63a0a91e9c0bb7bf"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3a424f5559c922845db2",
+          "competition_id": "competition:mlsp-2013-birds",
+          "source_id": "source:lesson-source-708ab27dfebe338e",
+          "snapshot_path": "research/lesson-extraction/snapshots/08280eced07b17d49164dd59517e9abb1782b68baa69f9b133716e3877801233.txt",
+          "snapshot_sha256": "08280eced07b17d49164dd59517e9abb1782b68baa69f9b133716e3877801233",
+          "source_url": "https://github.com/gaborfodor/MLSP_2013",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-63a0a91e9c0bb7bf",
+          "line_start": 33,
+          "line_end": 39,
+          "evidence_text": "1) creates the spectrograms and does multiple the image processing steps to capture interesting patches.\n\n2-3) After the patches are extracted the next step is feature generation using template matching. \nThese are the most time consuming steps (10-12 hours) but you can run them parallel.\n\n4) Finally I merge my features with the provided histogram of segments and location information. \nDuring cross validation the submission files will be exported if the cv AUC is higher than 0.93.",
+          "kind": "used",
+          "statement": "The author extracted spectrogram patches, used template matching, merged segment histograms/location and trained random forests; feature generation took ten-to-twelve hours and could run in parallel.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Template extraction expensive and implementation details sparse.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful reusable audio feature preparation budget.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Applies to local spectral motif tasks; cache provenance essential.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-708ab27dfebe338e",
+          "locator": "research/lesson-extraction/snapshots/08280eced07b17d49164dd59517e9abb1782b68baa69f9b133716e3877801233.txt#L33-L39",
+          "quote": "1) creates the spectrograms and does multiple the image processing steps to capture interesting patches.\n\n2-3) After the patches are extracted the next step is feature generation using template matching. \nThese are the most time consuming steps (10-12 hours) but you can run them parallel.\n\n4) Finally I merge my features with the provided histogram of segments and location information. \nDuring cross validation the submission files will be exported if the cv AUC is higher than 0.93.",
+          "competition_id": "competition:mlsp-2013-birds",
+          "url": "https://github.com/gaborfodor/MLSP_2013",
+          "snapshot_path": "research/lesson-extraction/snapshots/08280eced07b17d49164dd59517e9abb1782b68baa69f9b133716e3877801233.txt",
+          "snapshot_sha256": "08280eced07b17d49164dd59517e9abb1782b68baa69f9b133716e3877801233",
+          "line_start": 33,
+          "line_end": 39
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-63a0a91e9c0bb7bf",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked spectrogramtemplates/cachedfeatures/10\u201312hour prep; AUCthreshold can bias selection.",
+          "candidate_sha256": "2f384f12bd939365a2d322a45c8910971717aab7bacc1f0cfd6d17349b74ae84"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 163,
+        "line_end": 167,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-5ca4712c4f06850b",
+      "canonical_key": "cache teacher outputs at useful granularity and test confidence-based sampling rather than assuming finer labels are better. | self-training repeatedly samples long soundscapes | predictive_quality",
+      "title": "Cache pseudo-labels at sufficient temporal granularity",
+      "statement": "When self-training repeatedly samples long soundscapes, consider this source-backed action: Cache teacher outputs at useful granularity and test confidence-based sampling rather than assuming finer labels are better. Proposed check: Compare labeling accuracy, storage, sampling coverage and student score across granularities. Limit: Confidence-to-correctness relation may shift by species; this packet does not give a final sampling algorithm.",
+      "trigger_conditions": [
+        "self-training repeatedly samples long soundscapes"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Cache teacher outputs at useful granularity and test confidence-based sampling rather than assuming finer labels are better."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare labeling accuracy, storage, sampling coverage and student score across granularities."
+      ],
+      "limitations": [
+        "Confidence-to-correctness relation may shift by species; this packet does not give a final sampling algorithm."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author cached max probabilities per five seconds or framewise predictions; denser chunk splits usually did not improve results, and higher summed label confidence corresponded to more accurate soundscapes.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5ca4712c4f06850b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Teacher cache and temporal sampling require pipeline work.",
+        "competitor": "Controls storage and pseudo-label sampling granularity.",
+        "practitioner": "Useful audio self-training data engineering; confidence relation may shift."
+      },
+      "review": {
+        "candidate_id": "C-a-5ca4712c4f06850b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked cached granularity alternatives; denser labels not necessarily better.",
+        "candidate_sha256": "fae0bb5cd8ed4f7490ef3ccd5346433736df0c3af4923619a8c82c1985f58d5e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000048",
+      "slug": "lesson-000048",
+      "merged_candidate_ids": [
+        "C-a-5ca4712c4f06850b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bbe033b93aea0a0423e5",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5ca4712c4f06850b",
+          "line_start": 94,
+          "line_end": 102,
+          "evidence_text": "#### Pseudo-labels preparation\n\n*   Pseudo-labels were generated using the best ensemble of models from the previous stage.\n*   Pseudo-labels were generated before self-training and stored as max label probabilities for 5-second segments, or framewise predictions were stored as they are without pooling(4 frames per 5-second segment).\n*   Framewise predictions provided more splits of soundscapes into chunks(9 splits for 20-second chunks when save for each 5 sec, and 45 splits when save framewise predictions), but more splits usually did not provide better results\n\n#### Pseudo-labeled data sampling\n\n*   Soundscapes with a higher sum of maximum label probabilities were usually pseudo-labeled more accurately. This is because most soundscapes were overloaded with various species calls, and a low sum often indicated that the models struggled to recognize and distinguish those species.",
+          "kind": "used",
+          "statement": "The author cached max probabilities per five seconds or framewise predictions; denser chunk splits usually did not improve results, and higher summed label confidence corresponded to more accurate soundscapes.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Teacher cache and temporal sampling require pipeline work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Controls storage and pseudo-label sampling granularity.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful audio self-training data engineering; confidence relation may shift.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L94-L102",
+          "quote": "#### Pseudo-labels preparation\n\n*   Pseudo-labels were generated using the best ensemble of models from the previous stage.\n*   Pseudo-labels were generated before self-training and stored as max label probabilities for 5-second segments, or framewise predictions were stored as they are without pooling(4 frames per 5-second segment).\n*   Framewise predictions provided more splits of soundscapes into chunks(9 splits for 20-second chunks when save for each 5 sec, and 45 splits when save framewise predictions), but more splits usually did not provide better results\n\n#### Pseudo-labeled data sampling\n\n*   Soundscapes with a higher sum of maximum label probabilities were usually pseudo-labeled more accurately. This is because most soundscapes were overloaded with various species calls, and a low sum often indicated that the models struggled to recognize and distinguish those species.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 94,
+          "line_end": 102
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5ca4712c4f06850b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked cached granularity alternatives; denser labels not necessarily better.",
+          "candidate_sha256": "fae0bb5cd8ed4f7490ef3ccd5346433736df0c3af4923619a8c82c1985f58d5e"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 131,
+        "line_end": 135,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-bb65b1fe9026b02b",
+      "canonical_key": "compare a smaller pretrained feature extractor and attention block, tuning epochs separately for mixup. | audio classification has about a hundred recordings per class | predictive_quality",
+      "title": "Reduce sound-event capacity when per-class recordings are scarce",
+      "statement": "When audio classification has about a hundred recordings per class, consider this source-backed action: Compare a smaller pretrained feature extractor and attention block, tuning epochs separately for mixup. Proposed check: Measure held-out overfitting, parameter count and quality per training budget. Limit: Reduced overfitting was the author\u2019s rationale, not an isolated demonstrated cause.",
+      "trigger_conditions": [
+        "audio classification has about a hundred recordings per class"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare a smaller pretrained feature extractor and attention block, tuning epochs separately for mixup."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure held-out overfitting, parameter count and quality per training budget."
+      ],
+      "limitations": [
+        "Reduced overfitting was the author\u2019s rationale, not an isolated demonstrated cause."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author replaced an 80-million-parameter baseline with DenseNet121 and a 1024 attention block; final models included with/without mixup using different epoch budgets.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-bb65b1fe9026b02b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Smaller audio models manageable; architecture changes need expertise.",
+        "competitor": "Specific capacity control for scarce per-class recordings.",
+        "practitioner": "Useful small-data sound modeling with target validation."
+      },
+      "review": {
+        "candidate_id": "C-a-bb65b1fe9026b02b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked smaller DenseNet/attention practice; overfit explanation not isolated evidence.",
+        "candidate_sha256": "6c24e57240f0044b3bd2faa85ed14f674ca487cbe84ca32a208c61531e0b5405"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000081",
+      "slug": "lesson-000081",
+      "merged_candidate_ids": [
+        "C-a-bb65b1fe9026b02b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-12dfec766d8828847152",
+          "competition_id": "competition:birdsong-recognition",
+          "source_id": "source:lesson-source-e0b06d704da7a9db",
+          "snapshot_path": "research/lesson-extraction/snapshots/e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25.txt",
+          "snapshot_sha256": "e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25",
+          "source_url": "https://www.kaggle.com/competitions/birdsong-recognition/writeups/ryan-wong-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-bb65b1fe9026b02b",
+          "line_start": 16,
+          "line_end": 31,
+          "evidence_text": "I noticed that the default SED model had over 80 million parameters so I switched all my models to use a pretrained densenet121 model as the cnn feature extractor and reduced the attention block size to 1024. Since it was much smaller and wouldn't overfit as much as we only had around 100 files for each audio class. I mainly tried densenet as previous top solutions to audio competitions used a densenet like architecture. I also replaced the clamp on the attention with tanh as mentioned in the [comments on the SED notebook](https://www.kaggle.com/hidehisaarai1213/introduction-to-sound-event-detection/comments#962915)\n\n*   4 fold models without mixup\n*   4 fold models with mixup\n*   5 fold models without mixup\n\nTraining\n--------\n\n*   Cosine Annealing Scheduler with warmup\n*   batch size of 28\n*   Mixup (on 4 of the final models)\n*   50 epochs for non-mixup models and 100 epochs for mixup models\n*   AdamW with weight_decay 0.01\n*   SpecAugmentation enabled\n*   30 second audio clips during training and evaluating on 2 30 second clips per audio.",
+          "kind": "used",
+          "statement": "The author replaced an 80-million-parameter baseline with DenseNet121 and a 1024 attention block; final models included with/without mixup using different epoch budgets.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Smaller audio models manageable; architecture changes need expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Specific capacity control for scarce per-class recordings.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful small-data sound modeling with target validation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e0b06d704da7a9db",
+          "locator": "research/lesson-extraction/snapshots/e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25.txt#L16-L31",
+          "quote": "I noticed that the default SED model had over 80 million parameters so I switched all my models to use a pretrained densenet121 model as the cnn feature extractor and reduced the attention block size to 1024. Since it was much smaller and wouldn't overfit as much as we only had around 100 files for each audio class. I mainly tried densenet as previous top solutions to audio competitions used a densenet like architecture. I also replaced the clamp on the attention with tanh as mentioned in the [comments on the SED notebook](https://www.kaggle.com/hidehisaarai1213/introduction-to-sound-event-detection/comments#962915)\n\n*   4 fold models without mixup\n*   4 fold models with mixup\n*   5 fold models without mixup\n\nTraining\n--------\n\n*   Cosine Annealing Scheduler with warmup\n*   batch size of 28\n*   Mixup (on 4 of the final models)\n*   50 epochs for non-mixup models and 100 epochs for mixup models\n*   AdamW with weight_decay 0.01\n*   SpecAugmentation enabled\n*   30 second audio clips during training and evaluating on 2 30 second clips per audio.",
+          "competition_id": "competition:birdsong-recognition",
+          "url": "https://www.kaggle.com/competitions/birdsong-recognition/writeups/ryan-wong-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25.txt",
+          "snapshot_sha256": "e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25",
+          "line_start": 16,
+          "line_end": 31
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-bb65b1fe9026b02b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked smaller DenseNet/attention practice; overfit explanation not isolated evidence.",
+          "candidate_sha256": "6c24e57240f0044b3bd2faa85ed14f674ca487cbe84ca32a208c61531e0b5405"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 177,
+        "line_end": 181,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-7f154034e41d2d7f",
+      "canonical_key": "compare fixed balanced waveform mixing and stochastic depth during self-training against simple concatenation and supervised-only regularization. | pseudo-labeled soundscapes are noisier than clean labeled clips | predictive_quality",
+      "title": "Distinguish noisy-student regularization from naive pseudo-label concatenation",
+      "statement": "When pseudo-labeled soundscapes are noisier than clean labeled clips, consider this source-backed action: Compare fixed balanced waveform mixing and stochastic depth during self-training against simple concatenation and supervised-only regularization. Proposed check: Audit pseudo-label errors and evaluate every component separately under the same budget. Limit: The explanation is the author\u2019s interpretation; 0.5 weights and 0.15 drop-path are local settings.",
+      "trigger_conditions": [
+        "pseudo-labeled soundscapes are noisier than clean labeled clips"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare fixed balanced waveform mixing and stochastic depth during self-training against simple concatenation and supervised-only regularization."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit pseudo-label errors and evaluate every component separately under the same budget."
+      ],
+      "limitations": [
+        "The explanation is the author\u2019s interpretation; 0.5 weights and 0.15 drop-path are local settings."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Separate pseudo-label batches failed; fixed 0.5 waveform mixing worked after low-Beta attempts failed; stochastic depth helped self-training but not supervised training.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-7f154034e41d2d7f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Noisy-student audio training requires costly teacher/student pipeline.",
+        "competitor": "Specific components can be ablated in soundscape self-training.",
+        "practitioner": "Relevant to noisy target audio; local settings require retuning."
+      },
+      "review": {
+        "candidate_id": "C-a-7f154034e41d2d7f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked concatenation failure/fixed mix/dropdepth success; author mechanism interpreted.",
+        "candidate_sha256": "d08fd0083accf7dc3f457b0ef47914b03066dc228ea9298fe089b523d2af37ca"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000125",
+      "slug": "lesson-000125",
+      "merged_candidate_ids": [
+        "C-a-7f154034e41d2d7f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bbe033b93aea0a0423e5",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-7f154034e41d2d7f",
+          "line_start": 63,
+          "line_end": 78,
+          "evidence_text": "I pseudo-labeled the unlabeled data using the best LB ensemble from the 1 stage with the described above inference flow, and began experimenting with the ways to incorporate pseudo-labeled data in the training.\n\nInitial attempts to concatenate the pseudo-labeled data into training batches separately didn\u2019t succeed.\n\n#### MixUps (finally working)\n\nThen I tried mixing up the pseudo-labeled raw data with the training raw data, following the approach from [the 2nd place solution 2024](https://www.kaggle.com/competitions/birdclef-2024/discussion/512340). At first, it didn\u2019t work because I had set the Beta distribution\u2019s parameters to be too low(used to sample blending weights). But after switching to a constant blending weight of 0.5(Beta\u2019s parameters = inf), the magic started to happen, and the LB score began to rise. I suspect that is related to the fact that blending weights far from 0.5 sometimes suppress the meaningful signals, especially when mixing relatively clear train data with much noisier train soundscapes.\n\n##### Stochastic Depth\n\nReading the paper on the Noisy Student approach [1], I found certain similarities with the self-training approach I was using.\n\nSo, I started experimenting with the techniques that showed a positive impact on self-training in the mentioned paper and found that adding Stochastic Depth [3] (i.e., dropout applied to the entire residual blocks) worked for me as well.\n\n*   Applying `drop_path_rate = 0.15` (which turned out to be optimal for all the models I trained), I consistently saw a boost in the LB score, up to 0.005 for some models.\n*   Applying Stochastic Depth during supervised training didn\u2019t lead to any improvement, which supports the idea that the current self-training approach is a form of Noisy Student self-training.",
+          "kind": "reported_failure",
+          "statement": "Separate pseudo-label batches failed; fixed 0.5 waveform mixing worked after low-Beta attempts failed; stochastic depth helped self-training but not supervised training.",
+          "reported_result": {
+            "metric": "reported stochastic-depth leaderboard gain upper bound",
+            "value": 0.005,
+            "context": "BirdCLEF2025 self-training: drop_path_rate0.15 versus self-training without stochastic depth, up to0.005 for some models; no improvement supervised-only. Architecture/split/uncertainty unspecified.",
+            "evidence_text": "I pseudo-labeled the unlabeled data using the best LB ensemble from the 1 stage with the described above inference flow, and began experimenting with the ways to incorporate pseudo-labeled data in the training.\n\nInitial attempts to concatenate the pseudo-labeled data into training batches separately didn\u2019t succeed.\n\n#### MixUps (finally working)\n\nThen I tried mixing up the pseudo-labeled raw data with the training raw data, following the approach from [the 2nd place solution 2024](https://www.kaggle.com/competitions/birdclef-2024/discussion/512340). At first, it didn\u2019t work because I had set the Beta distribution\u2019s parameters to be too low(used to sample blending weights). But after switching to a constant blending weight of 0.5(Beta\u2019s parameters = inf), the magic started to happen, and the LB score began to rise. I suspect that is related to the fact that blending weights far from 0.5 sometimes suppress the meaningful signals, especially when mixing relatively clear train data with much noisier train soundscapes.\n\n##### Stochastic Depth\n\nReading the paper on the Noisy Student approach [1], I found certain similarities with the self-training approach I was using.\n\nSo, I started experimenting with the techniques that showed a positive impact on self-training in the mentioned paper and found that adding Stochastic Depth [3] (i.e., dropout applied to the entire residual blocks) worked for me as well.\n\n*   Applying `drop_path_rate = 0.15` (which turned out to be optimal for all the models I trained), I consistently saw a boost in the LB score, up to 0.005 for some models.\n*   Applying Stochastic Depth during supervised training didn\u2019t lead to any improvement, which supports the idea that the current self-training approach is a form of Noisy Student self-training."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Noisy-student audio training requires costly teacher/student pipeline.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Specific components can be ablated in soundscape self-training.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Relevant to noisy target audio; local settings require retuning.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L63-L78",
+          "quote": "I pseudo-labeled the unlabeled data using the best LB ensemble from the 1 stage with the described above inference flow, and began experimenting with the ways to incorporate pseudo-labeled data in the training.\n\nInitial attempts to concatenate the pseudo-labeled data into training batches separately didn\u2019t succeed.\n\n#### MixUps (finally working)\n\nThen I tried mixing up the pseudo-labeled raw data with the training raw data, following the approach from [the 2nd place solution 2024](https://www.kaggle.com/competitions/birdclef-2024/discussion/512340). At first, it didn\u2019t work because I had set the Beta distribution\u2019s parameters to be too low(used to sample blending weights). But after switching to a constant blending weight of 0.5(Beta\u2019s parameters = inf), the magic started to happen, and the LB score began to rise. I suspect that is related to the fact that blending weights far from 0.5 sometimes suppress the meaningful signals, especially when mixing relatively clear train data with much noisier train soundscapes.\n\n##### Stochastic Depth\n\nReading the paper on the Noisy Student approach [1], I found certain similarities with the self-training approach I was using.\n\nSo, I started experimenting with the techniques that showed a positive impact on self-training in the mentioned paper and found that adding Stochastic Depth [3] (i.e., dropout applied to the entire residual blocks) worked for me as well.\n\n*   Applying `drop_path_rate = 0.15` (which turned out to be optimal for all the models I trained), I consistently saw a boost in the LB score, up to 0.005 for some models.\n*   Applying Stochastic Depth during supervised training didn\u2019t lead to any improvement, which supports the idea that the current self-training approach is a form of Noisy Student self-training.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 63,
+          "line_end": 78
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-7f154034e41d2d7f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked concatenation failure/fixed mix/dropdepth success; author mechanism interpreted.",
+          "candidate_sha256": "d08fd0083accf7dc3f457b0ef47914b03066dc228ea9298fe089b523d2af37ca"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 137,
+        "line_end": 141,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-250403a67248ddd4",
+      "canonical_key": "compare joint clip/frame gating with frame-only predictions and monitor positive-label loss alongside f1. | sound-event false positives occur across short intervals | predictive_quality",
+      "title": "Require agreement between clip and frame event predictions",
+      "statement": "When sound-event false positives occur across short intervals, Compare joint clip/frame probability gating with frame-only predictions. Verify: Measure false positives and missed events across neighboring thresholds on independent soundscapes. Limits: Source thresholds were selected through leaderboard feedback and may not transfer.; SpecAugment TTA and positive-label loss monitoring are separate contextual practices.",
+      "trigger_conditions": [
+        "sound-event false positives occur across short intervals"
+      ],
+      "action_steps": [
+        "Compare joint clip/frame probability gating with frame-only predictions."
+      ],
+      "verification_steps": [
+        "Measure false positives and missed events across neighboring thresholds on independent soundscapes."
+      ],
+      "limitations": [
+        "Source thresholds were selected through leaderboard feedback and may not transfer.",
+        "SpecAugment TTA and positive-label loss monitoring are separate contextual practices."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author required clip and frame probabilities above 0.3 and used ten SpecAugment views; positive-label loss was informative even when F1 increased.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-250403a67248ddd4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Joint-threshold checks clear; tuning needs soundscape labels.",
+        "competitor": "Actionable false-positive control for frame/clip SED outputs.",
+        "practitioner": "Transfers to hierarchical event detection with recall tradeoff."
+      },
+      "review": {
+        "candidate_id": "C-a-250403a67248ddd4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked0.3clip/frame gate; loss monitoring is separate contextual observation.",
+        "candidate_sha256": "74620068720ef6bcff7c3632f4e89e80b10ac3a674cf517cd34697bb1e0cad2e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000142",
+      "slug": "lesson-000142",
+      "merged_candidate_ids": [
+        "C-a-250403a67248ddd4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-12dfec766d8828847152",
+          "competition_id": "competition:birdsong-recognition",
+          "source_id": "source:lesson-source-e0b06d704da7a9db",
+          "snapshot_path": "research/lesson-extraction/snapshots/e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25.txt",
+          "snapshot_sha256": "e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25",
+          "source_url": "https://www.kaggle.com/competitions/birdsong-recognition/writeups/ryan-wong-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-250403a67248ddd4",
+          "line_start": 85,
+          "line_end": 90,
+          "evidence_text": "I used a threshold of 0.3 on the `framewise_output` and 0.3 on the `clipwise_output` to reduce the impact of false positives. So if the 30 second clip contained a bird according to the clipwise prediction and the 5 second interval based on framewise prediction also said it had the same bird then it would be a valid prediction. During inference I also applied 10 TTA by just adding the same audio sample 10 times in the batch and enabling Spec Augmentation.\n\nCV vs LB\n--------\n\nMy CV didn't match the public LB at all, so I mainly relied on the LB for feedback. During training I monitored the f1 score of the clipwise prediction, framewise prediction and the loss associated with classes existing in the audio (i.e the value of `F_loss_1` in the above loss function). When loss value of `F_loss_1` increased it generally meant that it would do worse on the LB even though the f1 score was increasing too.",
+          "kind": "used",
+          "statement": "The author required clip and frame probabilities above 0.3 and used ten SpecAugment views; positive-label loss was informative even when F1 increased.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Joint-threshold checks clear; tuning needs soundscape labels.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Actionable false-positive control for frame/clip SED outputs.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to hierarchical event detection with recall tradeoff.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e0b06d704da7a9db",
+          "locator": "research/lesson-extraction/snapshots/e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25.txt#L85-L90",
+          "quote": "I used a threshold of 0.3 on the `framewise_output` and 0.3 on the `clipwise_output` to reduce the impact of false positives. So if the 30 second clip contained a bird according to the clipwise prediction and the 5 second interval based on framewise prediction also said it had the same bird then it would be a valid prediction. During inference I also applied 10 TTA by just adding the same audio sample 10 times in the batch and enabling Spec Augmentation.\n\nCV vs LB\n--------\n\nMy CV didn't match the public LB at all, so I mainly relied on the LB for feedback. During training I monitored the f1 score of the clipwise prediction, framewise prediction and the loss associated with classes existing in the audio (i.e the value of `F_loss_1` in the above loss function). When loss value of `F_loss_1` increased it generally meant that it would do worse on the LB even though the f1 score was increasing too.",
+          "competition_id": "competition:birdsong-recognition",
+          "url": "https://www.kaggle.com/competitions/birdsong-recognition/writeups/ryan-wong-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25.txt",
+          "snapshot_sha256": "e56ffc61f2fc03e7d71276bf4b9be9f665bab752902988bd0724c746c389da25",
+          "line_start": 85,
+          "line_end": 90
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-250403a67248ddd4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked0.3clip/frame gate; loss monitoring is separate contextual observation.",
+          "candidate_sha256": "74620068720ef6bcff7c3632f4e89e80b10ac3a674cf517cd34697bb1e0cad2e"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 191,
+        "line_end": 195,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-abd6d4ce5af2abf0",
+      "canonical_key": "compare losses with separately tuned training budgets and explicitly document target normalization. | audio loss comparisons change gradient scale | predictive_quality",
+      "title": "Retune optimization when comparing audio losses",
+      "statement": "When audio loss comparisons change gradient scale, consider this source-backed action: Compare losses with separately tuned training budgets and explicitly document target normalization. Proposed check: Evaluate rare and common classes using the same metric and splits. Limit: The proposed causal explanation of CE is speculative and unnormalized labels change sample weights.",
+      "trigger_conditions": [
+        "audio loss comparisons change gradient scale"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare losses with separately tuned training budgets and explicitly document target normalization."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate rare and common classes using the same metric and splits."
+      ],
+      "limitations": [
+        "The proposed causal explanation of CE is speculative and unnormalized labels change sample weights."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "CE and BCE/focal gave similar results after learning-rate/epoch tuning, with CE slightly better; multilabel targets were not normalized.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-abd6d4ce5af2abf0"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiple tuned losses require optimization experience and compute.",
+        "competitor": "Avoids unfair loss comparisons under altered gradient scales.",
+        "practitioner": "Transfers to objectives with different normalization conventions."
+      },
+      "review": {
+        "candidate_id": "C-a-abd6d4ce5af2abf0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked loss retuning and unnormalized labels; CE mechanism speculative.",
+        "candidate_sha256": "1d8a91f1e3a8994f618a37320c53b4fd9a9887d660282492a2ec955baa74fbab"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000147",
+      "slug": "lesson-000147",
+      "merged_candidate_ids": [
+        "C-a-abd6d4ce5af2abf0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bbe033b93aea0a0423e5",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-abd6d4ce5af2abf0",
+          "line_start": 31,
+          "line_end": 38,
+          "evidence_text": "I noticed that the choice of loss got a lot of attention in the discussions. So I conducted some experiments and found that both CE and BCE/Focal losses could give me similar results when the learning rate and the number of epochs were well-tuned. However, CE gave me a bit better results, so I settled on it.\n\nI connect better results with CE (I might be wrong) with the following interconnected assumptions:\n\n*   The magnitude of updates with CE for each label depends on how well the positive labels (probability > 0) are classified. This means that if a rare positive label A gets a low probability, then the negative overrepresented label B(that has a higher probability than other negative labels) is pushed to zero with a stronger update.\n*   CE handles imbalanced labels better and avoids overfitting to overrepresented classes by punishing them when Softmax can not give a higher score for A because the overrepresented label B already got too high logits as a result of the previous numerous imbalanced updates when label B was positive.\n\nAlso, I didn\u2019t normalize sample labels to sum to one, motivated by the idea that more difficult samples (those with more positive labels) should have a greater impact on the loss.",
+          "kind": "reported_gain",
+          "statement": "CE and BCE/focal gave similar results after learning-rate/epoch tuning, with CE slightly better; multilabel targets were not normalized.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Multiple tuned losses require optimization experience and compute.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Avoids unfair loss comparisons under altered gradient scales.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to objectives with different normalization conventions.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L31-L38",
+          "quote": "I noticed that the choice of loss got a lot of attention in the discussions. So I conducted some experiments and found that both CE and BCE/Focal losses could give me similar results when the learning rate and the number of epochs were well-tuned. However, CE gave me a bit better results, so I settled on it.\n\nI connect better results with CE (I might be wrong) with the following interconnected assumptions:\n\n*   The magnitude of updates with CE for each label depends on how well the positive labels (probability > 0) are classified. This means that if a rare positive label A gets a low probability, then the negative overrepresented label B(that has a higher probability than other negative labels) is pushed to zero with a stronger update.\n*   CE handles imbalanced labels better and avoids overfitting to overrepresented classes by punishing them when Softmax can not give a higher score for A because the overrepresented label B already got too high logits as a result of the previous numerous imbalanced updates when label B was positive.\n\nAlso, I didn\u2019t normalize sample labels to sum to one, motivated by the idea that more difficult samples (those with more positive labels) should have a greater impact on the loss.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 31,
+          "line_end": 38
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-abd6d4ce5af2abf0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked loss retuning and unnormalized labels; CE mechanism speculative.",
+          "candidate_sha256": "1d8a91f1e3a8994f618a37320c53b4fd9a9887d660282492a2ec955baa74fbab"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 143,
+        "line_end": 147,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-b4c361fe157282b10115",
+      "canonical_key": "compare sigmoid inference from ce-trained logits and minimum reduction across models with softmax and mean reduction. | mostly single-label audio training uses ce but evaluation is multi-label | predictive_quality",
+      "title": "Test inference activation and conservative ensemble reduction",
+      "statement": "When mostly single-label audio training uses CE but evaluation is multi-label, proposed reuse: Proposed conditional application: Compare sigmoid inference from CE-trained logits and minimum reduction across models with softmax and mean reduction. Proposed check: Ablate activation and mean/min reduction separately on held-out soundscapes; inspect missed calls and calibration. Limitation: Sigmoid of multiclass logits is not calibrated multilabel probability; minimum may erase valid detections.",
+      "trigger_conditions": [
+        "mostly single-label audio training uses CE but evaluation is multi-label"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare sigmoid inference from CE-trained logits and minimum reduction across models with softmax and mean reduction."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate activation and mean/min reduction separately on held-out soundscapes; inspect missed calls and calibration."
+      ],
+      "limitations": [
+        "Sigmoid of multiclass logits is not calibrated multilabel probability; minimum may erase valid detections."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Authors use sigmoid inference for CE-trained models, chunk averaging and minimum ensemble reduction.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed separate activation and reduction ablations on target soundscapes.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-696f10483ad6eac6f211"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear transformations but metric behavior needs expertise.",
+        "competitor": "Concrete inference hypothesis for sparse training labels.",
+        "practitioner": "Conditional utility; uncalibrated outputs need downstream checks."
+      },
+      "review": {
+        "candidate_id": "C-b4c361fe157282b10115",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BirdCLEF24 uses CE-trained logits with sigmoid at inference, not sigmoid-trained models; min aggregation is separate.",
+        "candidate_sha256": "00e9a7d62e770d569790c05552908c5466827f4649ffba58b76216defe9f6f36"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000178",
+      "slug": "lesson-000178",
+      "merged_candidate_ids": [
+        "C-b4c361fe157282b10115"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbab30e40869b2f74c9e",
+          "competition_id": "competition:birdclef-2024",
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-696f10483ad6eac6f211",
+          "line_start": 52,
+          "line_end": 52,
+          "evidence_text": "Although logits are passed through softmax during the train, we use sigmoid in the inference. The two most important things in the inference pipeline are **chunks averaging** and **ensembling with `min()` reduction**.",
+          "kind": "used",
+          "statement": "Authors apply sigmoid at inference to CE-trained models, with chunk averaging and minimum ensemble reduction; no sigmoid-trained component is stated.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Clear transformations but metric behavior needs expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Concrete inference hypothesis for sparse training labels.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional utility; uncalibrated outputs need downstream checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "locator": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt#L52-L52",
+          "quote": "Although logits are passed through softmax during the train, we use sigmoid in the inference. The two most important things in the inference pipeline are **chunks averaging** and **ensembling with `min()` reduction**.",
+          "competition_id": "competition:birdclef-2024",
+          "url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "line_start": 52,
+          "line_end": 52
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-b4c361fe157282b10115",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BirdCLEF24 uses CE-trained logits with sigmoid at inference, not sigmoid-trained models; min aggregation is separate.",
+          "candidate_sha256": "00e9a7d62e770d569790c05552908c5466827f4649ffba58b76216defe9f6f36"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 197,
+        "line_end": 201,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-434623609db5ac8d9d4a",
+      "canonical_key": "compare simple pretrained cnn backbones with more complex architectures; reject equal-score models that take much longer. | audio classification has cpu inference constraints | compute_efficiency",
+      "title": "Choose audio backbones using speed as well as score",
+      "statement": "When audio classification has CPU inference constraints, proposed reuse: Proposed conditional application: Compare simple pretrained CNN backbones with more complex architectures; reject equal-score models that take much longer. Proposed check: Benchmark each backbone on identical audio, CPU and metric; retain accuracy-latency Pareto options. Limitation: Equal results are qualitative; architecture conclusion is setup-specific.",
+      "trigger_conditions": [
+        "audio classification has CPU inference constraints"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare simple pretrained CNN backbones with more complex architectures; reject equal-score models that take much longer."
+      ],
+      "verification_steps": [
+        "Proposed check: Benchmark each backbone on identical audio, CPU and metric; retain accuracy-latency Pareto options."
+      ],
+      "limitations": [
+        "Equal results are qualitative; architecture conclusion is setup-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Authors report similar SEResNeXt and EfficientNet results with almost threefold SEResNeXt inference time.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed backbone benchmarking on target inference hardware.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-c4e0c3dd337b89f7a7e1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful speed lesson; audio benchmarking needs setup.",
+        "competitor": "Clear constrained-submission model tradeoff.",
+        "practitioner": "Strong serving relevance for fixed CPU budgets."
+      },
+      "review": {
+        "candidate_id": "C-434623609db5ac8d9d4a",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BirdCLEF24 compares SEResNeXt with EfficientNet: similar results, almost threefold inference time; no demonstrated budget overrun.",
+        "candidate_sha256": "df60d15a0224a39a5bb9b2ae81bdb5f37268bd56cae21c9cdf45dce266509d55"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000179",
+      "slug": "lesson-000179",
+      "merged_candidate_ids": [
+        "C-434623609db5ac8d9d4a"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbab30e40869b2f74c9e",
+          "competition_id": "competition:birdclef-2024",
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-c4e0c3dd337b89f7a7e1",
+          "line_start": 17,
+          "line_end": 17,
+          "evidence_text": "seresnext gives the same results as efficientnet, but the inference time is almost 3 times longer.",
+          "kind": "reported_failure",
+          "statement": "Authors report similar SEResNeXt and EfficientNet results but almost threefold SEResNeXt inference time.",
+          "reported_result": {
+            "metric": "inference runtime ratio",
+            "value": 3,
+            "context": "BirdCLEF24 SEResNeXt versus EfficientNet, almost 3 times longer with qualitatively similar results; exact CPU configuration, sample count and quality metric unspecified in this span.",
+            "evidence_text": "seresnext gives the same results as efficientnet, but the inference time is almost 3 times longer."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful speed lesson; audio benchmarking needs setup.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear constrained-submission model tradeoff.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong serving relevance for fixed CPU budgets.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "locator": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt#L17-L17",
+          "quote": "seresnext gives the same results as efficientnet, but the inference time is almost 3 times longer.",
+          "competition_id": "competition:birdclef-2024",
+          "url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "line_start": 17,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-434623609db5ac8d9d4a",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BirdCLEF24 compares SEResNeXt with EfficientNet: similar results, almost threefold inference time; no demonstrated budget overrun.",
+          "candidate_sha256": "df60d15a0224a39a5bb9b2ae81bdb5f37268bd56cae21c9cdf45dce266509d55"
+        },
+        {
+          "candidate_id": "C-434623609db5ac8d9d4a",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "BirdCLEF24 full packet reports SEResNeXt qualitatively equal quality but almost3x inference time; runtime ratio is qualified, hardware and quality metric unknown in span. Target-CPU Pareto benchmarking follows, with beginner feasibility2 versus experienced3.",
+          "candidate_sha256": "df60d15a0224a39a5bb9b2ae81bdb5f37268bd56cae21c9cdf45dce266509d55"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 183,
+        "line_end": 187,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-21f807bc1be972ac101b",
+      "canonical_key": "compare the existing data with filtered external xeno-canto additions before adopting them. | external species recordings appear relevant but differ from target data | predictive_quality",
+      "title": "Validate external audio before expanding training data",
+      "statement": "When external species recordings appear relevant but differ from target data, proposed reuse: Proposed conditional application: Compare the existing data with filtered external Xeno-Canto additions before adopting them. Proposed check: Compare additions on recording-disjoint target-domain holdouts, stratified by species and recording conditions. Limitation: External labeling and acquisition shifts can outweigh sample count.",
+      "trigger_conditions": [
+        "external species recordings appear relevant but differ from target data"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare the existing data with filtered external Xeno-Canto additions before adopting them."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare additions on recording-disjoint target-domain holdouts, stratified by species and recording conditions."
+      ],
+      "limitations": [
+        "External labeling and acquisition shifts can outweigh sample count."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author reports that additional external audio data did not improve this setup.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-0d675d7c52a393250871"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful data-quality lesson at modest experimental cost.",
+        "competitor": "Prevents costly adoption of unhelpful external corpora.",
+        "practitioner": "Broad domain-matched data expansion discipline."
+      },
+      "review": {
+        "candidate_id": "C-21f807bc1be972ac101b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BirdCLEF24 source rejects added Xeno-Canto after filtering in this setup; not a universal external-data failure.",
+        "candidate_sha256": "39600a7230def129fc765cb198dd5e9077c3fde933424f85b76ab328e7ed625b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000189",
+      "slug": "lesson-000189",
+      "merged_candidate_ids": [
+        "C-21f807bc1be972ac101b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbab30e40869b2f74c9e",
+          "competition_id": "competition:birdclef-2024",
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-0d675d7c52a393250871",
+          "line_start": 94,
+          "line_end": 94,
+          "evidence_text": "The best solution is not to use additional data\u2026 The private score also proves it.",
+          "kind": "reported_failure",
+          "statement": "The author reports that additional external audio data did not improve this setup.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful data-quality lesson at modest experimental cost.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Prevents costly adoption of unhelpful external corpora.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Broad domain-matched data expansion discipline.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "locator": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt#L94-L94",
+          "quote": "The best solution is not to use additional data\u2026 The private score also proves it.",
+          "competition_id": "competition:birdclef-2024",
+          "url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "line_start": 94,
+          "line_end": 94
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-21f807bc1be972ac101b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BirdCLEF24 source rejects added Xeno-Canto after filtering in this setup; not a universal external-data failure.",
+          "candidate_sha256": "39600a7230def129fc765cb198dd5e9077c3fde933424f85b76ab328e7ed625b"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 211,
+        "line_end": 215,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-ad58efe458a501cd54c6",
+      "canonical_key": "compile with openvino, compute spectrograms in parallel and retain them in ram for model reuse. | many models consume the same mel spectrograms | compute_efficiency",
+      "title": "Compile fixed-shape audio inference and reuse spectral inputs",
+      "statement": "When many models consume the same mel spectrograms, proposed reuse: Proposed conditional application: Compile with OpenVINO, compute spectrograms in parallel and retain them in RAM for model reuse. Proposed check: Check compiled output parity; benchmark wall time and peak RAM with and without shared spectrogram caching. Limitation: RAM cache can exceed memory; compilation is hardware/shape dependent.",
+      "trigger_conditions": [
+        "many models consume the same mel spectrograms"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compile with OpenVINO, compute spectrograms in parallel and retain them in RAM for model reuse."
+      ],
+      "verification_steps": [
+        "Proposed check: Check compiled output parity; benchmark wall time and peak RAM with and without shared spectrogram caching."
+      ],
+      "limitations": [
+        "RAM cache can exceed memory; compilation is hardware/shape dependent."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The audio source reused an OpenVINO inference path for CPU execution.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-b26665d2a06b0523b689"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Practical reuse but compiler setup is moderate effort.",
+        "competitor": "Avoids repeated preprocessing in CPU ensembles.",
+        "practitioner": "Strong batch-serving efficiency principle with parity checks."
+      },
+      "review": {
+        "candidate_id": "C-ad58efe458a501cd54c6",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full BirdCLEF24 packet describes fixed-input OpenVINO, parallel spectra and RAM cache; reported absolute runtimes lack comparison.",
+        "candidate_sha256": "8747801d4087f7fbae0e1118b149d36b8e7cba103abfeddeff86c4b13cb83928"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000196",
+      "slug": "lesson-000196",
+      "merged_candidate_ids": [
+        "C-ad58efe458a501cd54c6"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbab30e40869b2f74c9e",
+          "competition_id": "competition:birdclef-2024",
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-b26665d2a06b0523b689",
+          "line_start": 62,
+          "line_end": 64,
+          "evidence_text": "*   Compilation with OpenVINO (fixed model input)\n*   Parallel mel spectrograms computing with joblib\n*   Storing all the computed mel spectrograms in RAM",
+          "kind": "used",
+          "statement": "The audio source reused an OpenVINO inference path for CPU execution.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Practical reuse but compiler setup is moderate effort.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Avoids repeated preprocessing in CPU ensembles.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong batch-serving efficiency principle with parity checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "locator": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt#L62-L64",
+          "quote": "*   Compilation with OpenVINO (fixed model input)\n*   Parallel mel spectrograms computing with joblib\n*   Storing all the computed mel spectrograms in RAM",
+          "competition_id": "competition:birdclef-2024",
+          "url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "line_start": 62,
+          "line_end": 64
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-ad58efe458a501cd54c6",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full BirdCLEF24 packet describes fixed-input OpenVINO, parallel spectra and RAM cache; reported absolute runtimes lack comparison.",
+          "candidate_sha256": "8747801d4087f7fbae0e1118b149d36b8e7cba103abfeddeff86c4b13cb83928"
+        },
+        {
+          "candidate_id": "C-ad58efe458a501cd54c6",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "BirdCLEF24 explicitly lists fixed-input OpenVINO compilation, joblib spectrogram parallelism and RAM retention together as inference optimization. Proposed wall-time/RAM/parity checks address their coherent shared CPU path; no isolated gain or invented hardware attributed. Audience costs fit scores.",
+          "candidate_sha256": "8747801d4087f7fbae0e1118b149d36b8e7cba103abfeddeff86c4b13cb83928"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 203,
+        "line_end": 207,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-52538dbeacea96fc09c0",
+      "canonical_key": "ensemble supervised and different self-training-stage models rather than only the final-stage ensemble. | successive pseudo-label iterations may overfit | predictive_quality",
+      "title": "Blend models from different self-training stages",
+      "statement": "When successive pseudo-label iterations may overfit, proposed reuse: Proposed conditional application: Ensemble supervised and different self-training-stage models rather than only the final-stage ensemble. Proposed check: Compare final-stage-only with stage-diverse blends at equal model count on untouched soundscapes. Limitation: More stages/backbones confound benefit; public tuning can still overfit.",
+      "trigger_conditions": [
+        "successive pseudo-label iterations may overfit"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Ensemble supervised and different self-training-stage models rather than only the final-stage ensemble."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare final-stage-only with stage-diverse blends at equal model count on untouched soundscapes."
+      ],
+      "limitations": [
+        "More stages/backbones confound benefit; public tuning can still overfit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The source ensembled models from different training stages.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-280f04026e979113e347"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Requires saving and running several models.",
+        "competitor": "Clear diversity option for iterative pseudo-labeling.",
+        "practitioner": "Moderate-value safeguard when self-training checkpoints already exist."
+      },
+      "review": {
+        "candidate_id": "C-52538dbeacea96fc09c0",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BirdCLEF25 explicitly blends supervised and self-training stages; reduced overfitting is belief rather than measured guarantee.",
+        "candidate_sha256": "72be2030a670cc1a41284e75f98ac6816d17cd4d444519c1bffdafaaf9f38bc2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000237",
+      "slug": "lesson-000237",
+      "merged_candidate_ids": [
+        "C-52538dbeacea96fc09c0"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c18dc5176c9a2c0ab339",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-280f04026e979113e347",
+          "line_start": 191,
+          "line_end": 191,
+          "evidence_text": "I found that ensembling models from different training stages was beneficial not only for slightly improving the LB score, but also for giving me a little confidence that my solution is not overfitted by doing more and more self-training iterations.",
+          "kind": "used",
+          "statement": "The source ensembled models from different training stages.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Requires saving and running several models.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Clear diversity option for iterative pseudo-labeling.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Moderate-value safeguard when self-training checkpoints already exist.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L191-L191",
+          "quote": "I found that ensembling models from different training stages was beneficial not only for slightly improving the LB score, but also for giving me a little confidence that my solution is not overfitted by doing more and more self-training iterations.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 191,
+          "line_end": 191
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-52538dbeacea96fc09c0",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BirdCLEF25 explicitly blends supervised and self-training stages; reduced overfitting is belief rather than measured guarantee.",
+          "candidate_sha256": "72be2030a670cc1a41284e75f98ac6816d17cd4d444519c1bffdafaaf9f38bc2"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 219,
+        "line_end": 223,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-603295274a8909225d99",
+      "canonical_key": "fine-tune a pretrained hubert model and evaluate it alongside a small resnet on the same command task. | speech-command recognition has limited domain labels | predictive_quality",
+      "title": "Compare pretrained speech representations with a compact CNN baseline",
+      "statement": "When speech-command recognition has limited domain labels, proposed reuse: Proposed conditional application: Fine-tune a pretrained HuBERT model and evaluate it alongside a small ResNet on the same command task. Proposed check: Compare small CNN and pretrained speech model on speaker-isolated command data, including latency, memory and noisy-channel accuracy. Limitation: The reported model comparison combines architecture, scale and pretraining; it is not an isolated pretraining ablation.",
+      "trigger_conditions": [
+        "speech-command recognition has limited domain labels"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Fine-tune a pretrained HuBERT model and evaluate it alongside a small ResNet on the same command task."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare small CNN and pretrained speech model on speaker-isolated command data, including latency, memory and noisy-channel accuracy."
+      ],
+      "limitations": [
+        "The reported model comparison combines architecture, scale and pretraining; it is not an isolated pretraining ablation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The speech README reports fine-tuned HuBERT accuracy alongside a smaller ResNet baseline.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-50f9190087cd6653b886"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Transfer learning is useful, but large audio models reduce beginner feasibility.",
+        "competitor": "A quantified compact-versus-pretrained baseline helps budget a speech experiment.",
+        "practitioner": "Serving cost and speaker/channel shift matter alongside the small accuracy difference."
+      },
+      "review": {
+        "candidate_id": "C-603295274a8909225d99",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner-owned README table gives HuBERT fine-tuned98.6%test versus1.6MResNet98.0%; no matched training/compute controls are supplied.",
+        "candidate_sha256": "b112fab113a25fbb7da51b3e8ee4db5896b7fd9f58d7518e0a08fdf3497e275f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000268",
+      "slug": "lesson-000268",
+      "merged_candidate_ids": [
+        "C-603295274a8909225d99"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-376172cf708088cfe90f",
+          "competition_id": "competition:tvd-2024-reconocimiento-de-comandos-de-voz",
+          "source_id": "source:lesson-source-630bd107531ef97a",
+          "snapshot_path": "research/lesson-extraction/snapshots/cea3e997101698a6edb26c458a3c747a60cc4471c223ac498fbde081a84c9eb6.txt",
+          "snapshot_sha256": "cea3e997101698a6edb26c458a3c747a60cc4471c223ac498fbde081a84c9eb6",
+          "source_url": "https://raw.githubusercontent.com/pauhidalgoo/speech-recognition/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-50f9190087cd6653b886",
+          "line_start": 25,
+          "line_end": 25,
+          "evidence_text": "HuBERT-Large (fine-tune) | 98.5%          | 98.6%",
+          "kind": "reported_gain",
+          "statement": "The speech README reports fine-tuned HuBERT accuracy alongside a smaller ResNet baseline.",
+          "reported_result": {
+            "metric": "test accuracy percent",
+            "value": 98.6,
+            "context": "Fine-tuned HuBERT-Large98.6%test accuracy versus1.6MResNet98.0%; validation98.5%versus97.8%; training controls and compute unspecified.",
+            "evidence_text": "HuBERT-Large (fine-tune) | 98.5%          | 98.6%"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Transfer learning is useful, but large audio models reduce beginner feasibility.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A quantified compact-versus-pretrained baseline helps budget a speech experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Serving cost and speaker/channel shift matter alongside the small accuracy difference.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-630bd107531ef97a",
+          "locator": "research/lesson-extraction/snapshots/cea3e997101698a6edb26c458a3c747a60cc4471c223ac498fbde081a84c9eb6.txt#L25-L25",
+          "quote": "HuBERT-Large (fine-tune) | 98.5%          | 98.6%",
+          "competition_id": "competition:tvd-2024-reconocimiento-de-comandos-de-voz",
+          "url": "https://raw.githubusercontent.com/pauhidalgoo/speech-recognition/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/cea3e997101698a6edb26c458a3c747a60cc4471c223ac498fbde081a84c9eb6.txt",
+          "snapshot_sha256": "cea3e997101698a6edb26c458a3c747a60cc4471c223ac498fbde081a84c9eb6",
+          "line_start": 25,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-603295274a8909225d99",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner-owned README table gives HuBERT fine-tuned98.6%test versus1.6MResNet98.0%; no matched training/compute controls are supplied.",
+          "candidate_sha256": "b112fab113a25fbb7da51b3e8ee4db5896b7fd9f58d7518e0a08fdf3497e275f"
+        },
+        {
+          "candidate_id": "C-603295274a8909225d99",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Speech-command winner README reports HuBERT-Large test98.6% versus 1.6M ResNet98.0%, validation98.5% versus97.8%. Candidate treats comparison as whole architecture/scale/pretraining pipeline, not isolated pretraining effect, and proposes speaker/channel/cost checks. Large-model setup lowers beginner feasibility, experienced actionability/transfer4 remain scoped.",
+          "candidate_sha256": "b112fab113a25fbb7da51b3e8ee4db5896b7fd9f58d7518e0a08fdf3497e275f"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 101,
+        "line_end": 111,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-8f8267dec1f11f40",
+      "canonical_key": "sweep hop length and mel-band count jointly under the end-to-end inference budget. | long audio inputs require distinguishing narrow-band species calls | predictive_quality",
+      "title": "Tune mel time and frequency resolution under inference limits",
+      "statement": "When long audio inputs require distinguishing narrow-band species calls, consider this source-backed action: Sweep hop length and mel-band count jointly under the end-to-end inference budget. Proposed check: Compare species-wise metric and runtime across time/frequency resolutions. Limit: The narrow-call explanation is attributed and no isolated numeric comparison is given.",
+      "trigger_conditions": [
+        "long audio inputs require distinguishing narrow-band species calls"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Sweep hop length and mel-band count jointly under the end-to-end inference budget."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare species-wise metric and runtime across time/frequency resolutions."
+      ],
+      "limitations": [
+        "The narrow-call explanation is attributed and no isolated numeric comparison is given."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Long audio required larger hop length for runtime; the author found more mel bands important and hypothesized narrow-frequency calls.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-8f8267dec1f11f40"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Spectrogram sweeps require audio and accelerator familiarity.",
+        "competitor": "Useful resolution-budget control for species classification.",
+        "practitioner": "Transfers to narrow-band sound recognition, with hardware profiling."
+      },
+      "review": {
+        "candidate_id": "C-a-8f8267dec1f11f40",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked hop/mel tradeoff; narrow-frequency explanation attributed.",
+        "candidate_sha256": "460402e0e769762906760eff09e603a1e2e2fb9b522857fcdb6e85e3f05c555c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000479",
+      "slug": "lesson-000479",
+      "merged_candidate_ids": [
+        "C-a-8f8267dec1f11f40"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bbe033b93aea0a0423e5",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-8f8267dec1f11f40",
+          "line_start": 3,
+          "line_end": 4,
+          "evidence_text": "*   Because long input chunks were used, I had to set a larger hop length value, otherwise, inference would take too long, and I wouldn\u2019t have the capacity to prepare a good ensemble.\n*   The important thing was setting a larger number of n_mels. I suspect this is because some species (especially from the Amphibia and Insecta groups) have calls within narrow frequency ranges, so showing more mel bands to models was important to distinguish species well.",
+          "kind": "used",
+          "statement": "Long audio required larger hop length for runtime; the author found more mel bands important and hypothesized narrow-frequency calls.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Spectrogram sweeps require audio and accelerator familiarity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful resolution-budget control for species classification.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to narrow-band sound recognition, with hardware profiling.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L3-L4",
+          "quote": "*   Because long input chunks were used, I had to set a larger hop length value, otherwise, inference would take too long, and I wouldn\u2019t have the capacity to prepare a good ensemble.\n*   The important thing was setting a larger number of n_mels. I suspect this is because some species (especially from the Amphibia and Insecta groups) have calls within narrow frequency ranges, so showing more mel bands to models was important to distinguish species well.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 3,
+          "line_end": 4
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-8f8267dec1f11f40",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked hop/mel tradeoff; narrow-frequency explanation attributed.",
+          "candidate_sha256": "460402e0e769762906760eff09e603a1e2e2fb9b522857fcdb6e85e3f05c555c"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 169,
+        "line_end": 173,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-6c9f62f8b15a41c3a9f1",
+      "canonical_key": "treat twenty-, thirty- or sixty-second audio segments as separate files and adjust epochs for the changed steps per epoch. | one sampled chunk per file underweights long unlabeled soundscapes | predictive_quality",
+      "title": "Balance long soundscapes with short clips through segmentation",
+      "statement": "When one sampled chunk per file underweights long unlabeled soundscapes, proposed reuse: Proposed conditional application: Treat twenty-, thirty- or sixty-second audio segments as separate files and adjust epochs for the changed steps per epoch. Proposed check: Compare file-level and segment-level sampling at equal optimizer steps on recording-disjoint validation. Limitation: Segments from the same recording must remain in one split; epoch counts are not equal work.",
+      "trigger_conditions": [
+        "one sampled chunk per file underweights long unlabeled soundscapes"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Treat twenty-, thirty- or sixty-second audio segments as separate files and adjust epochs for the changed steps per epoch."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare file-level and segment-level sampling at equal optimizer steps on recording-disjoint validation."
+      ],
+      "limitations": [
+        "Segments from the same recording must remain in one split; epoch counts are not equal work."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The audio source balanced labeled and pseudo-labeled audio segments during training.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a1a75f05e3af15471f38"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Sampler changes require audio-pipeline knowledge.",
+        "competitor": "Useful exposure balancing without changing model family.",
+        "practitioner": "Transfers to mixed-duration media with recording-aware splits."
+      },
+      "review": {
+        "candidate_id": "C-6c9f62f8b15a41c3a9f1",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full BirdCLEF24 packet splits long files to balance per-file random-chunk exposure and changes epochs with segment count.",
+        "candidate_sha256": "55790872fcfb968599d65aca37c1e04b2b3107bc8858ad77e435b5df65b109b0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000524",
+      "slug": "lesson-000524",
+      "merged_candidate_ids": [
+        "C-6c9f62f8b15a41c3a9f1"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fbab30e40869b2f74c9e",
+          "competition_id": "competition:birdclef-2024",
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a1a75f05e3af15471f38",
+          "line_start": 44,
+          "line_end": 44,
+          "evidence_text": "As a result, we balance the `train_audio` and `unlabeled_soundscapes`.",
+          "kind": "used",
+          "statement": "The audio source balanced labeled and pseudo-labeled audio segments during training.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Sampler changes require audio-pipeline knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful exposure balancing without changing model family.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to mixed-duration media with recording-aware splits.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f3ce90c1d89bcca5",
+          "locator": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt#L44-L44",
+          "quote": "As a result, we balance the `train_audio` and `unlabeled_soundscapes`.",
+          "competition_id": "competition:birdclef-2024",
+          "url": "https://www.kaggle.com/competitions/birdclef-2024/writeups/team-kefir-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f.txt",
+          "snapshot_sha256": "237f8a4d80ae9fd496fd92356e1849012b6effaac8b4bbac4d87bb73b2e33c8f",
+          "line_start": 44,
+          "line_end": 44
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-6c9f62f8b15a41c3a9f1",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full BirdCLEF24 packet splits long files to balance per-file random-chunk exposure and changes epochs with segment count.",
+          "candidate_sha256": "55790872fcfb968599d65aca37c1e04b2b3107bc8858ad77e435b5df65b109b0"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 149,
+        "line_end": 153,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-83a77297ba5f5b8c",
+      "canonical_key": "use several fold or seed models per setup and compare their mean and variability; proposed independent holdouts remain essential. | noisy score feedback obscures architecture comparisons | validation_reliability",
+      "title": "Estimate audio experiment variance with repeated folds",
+      "statement": "When noisy score feedback obscures architecture comparisons, consider this source-backed action: Use several fold or seed models per setup and compare their mean and variability; proposed independent holdouts remain essential. Proposed check: Track seed/fold dispersion and avoid excessive feedback-driven selection. Limit: The author relied on public LB because CV disagreed; ensembling does not eliminate leaderboard overfitting.",
+      "trigger_conditions": [
+        "noisy score feedback obscures architecture comparisons"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use several fold or seed models per setup and compare their mean and variability; proposed independent holdouts remain essential."
+      ],
+      "verification_steps": [
+        "Proposed verification: Track seed/fold dispersion and avoid excessive feedback-driven selection."
+      ],
+      "limitations": [
+        "The author relied on public LB because CV disagreed; ensembling does not eliminate leaderboard overfitting."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Single-model leaderboard scores varied substantially by seed; the author ensembled two to five folds to get more reliable feedback.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-83a77297ba5f5b8c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Repeated fits substantially increase compute requirements.",
+        "competitor": "Separates noisy setup comparisons from random-seed outcomes.",
+        "practitioner": "Variance estimation useful; external feedback must remain independent."
+      },
+      "review": {
+        "candidate_id": "C-a-83a77297ba5f5b8c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked seed variance and2\u20135fold ensembles; public-only validation not endorsed.",
+        "candidate_sha256": "9d256a418f8280adaa1bf9a6adfae8c87f3658ba3e883de427a42b8196911eb5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000544",
+      "slug": "lesson-000544",
+      "merged_candidate_ids": [
+        "C-a-83a77297ba5f5b8c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-bbe033b93aea0a0423e5",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-83a77297ba5f5b8c",
+          "line_start": 8,
+          "line_end": 9,
+          "evidence_text": "*   I did not find a good CV/ LB correlation, so considering the Host's words that public/private distributions are very similar and the knowledge from last year's solutions, I validated ideas using only the public LB.\n*   A single model\u2019s LB score varied a lot for different seeds, so usually I trained the same setup on different folds(2-5, depending on the remaining time that I had) and ensembled them to obtain a more reliable response from the LB.",
+          "kind": "used",
+          "statement": "Single-model leaderboard scores varied substantially by seed; the author ensembled two to five folds to get more reliable feedback.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Repeated fits substantially increase compute requirements.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Separates noisy setup comparisons from random-seed outcomes.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Variance estimation useful; external feedback must remain independent.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L8-L9",
+          "quote": "*   I did not find a good CV/ LB correlation, so considering the Host's words that public/private distributions are very similar and the knowledge from last year's solutions, I validated ideas using only the public LB.\n*   A single model\u2019s LB score varied a lot for different seeds, so usually I trained the same setup on different folds(2-5, depending on the remaining time that I had) and ensembled them to obtain a more reliable response from the LB.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 8,
+          "line_end": 9
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-83a77297ba5f5b8c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked seed variance and2\u20135fold ensembles; public-only validation not endorsed.",
+          "candidate_sha256": "9d256a418f8280adaa1bf9a6adfae8c87f3658ba3e883de427a42b8196911eb5"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 227,
+        "line_end": 231,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-7d2a5b97b9fb02cf016f",
+      "canonical_key": "weight soundscape sampling by the sum of maximum label probabilities, then train on random twenty-second intervals. | pseudo-label confidence varies among long audio samples | predictive_quality",
+      "title": "Downweight low-information pseudo-labeled soundscapes",
+      "statement": "When pseudo-label confidence varies among long audio samples, proposed reuse: Proposed conditional application: Weight soundscape sampling by the sum of maximum label probabilities, then train on random twenty-second intervals. Proposed check: Compare weighted and uniform sampling at equal steps; audit pseudo-label correctness and rare/no-call coverage. Limitation: Probability sum also measures call density and can suppress rare quiet recordings.",
+      "trigger_conditions": [
+        "pseudo-label confidence varies among long audio samples"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Weight soundscape sampling by the sum of maximum label probabilities, then train on random twenty-second intervals."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare weighted and uniform sampling at equal steps; audit pseudo-label correctness and rare/no-call coverage."
+      ],
+      "limitations": [
+        "Probability sum also measures call density and can suppress rare quiet recordings."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology",
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The source weighted pseudo-label sampling according to label confidence.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-93be5bea81bc8255e0f1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Confidence sampling needs pseudo-label pipeline skills.",
+        "competitor": "Specific remedy for nearly unlabeled soundscapes.",
+        "practitioner": "Useful only when confidence proxy correlates with label quality."
+      },
+      "review": {
+        "candidate_id": "C-7d2a5b97b9fb02cf016f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BirdCLEF25 weights sampling by summed maximum probabilities; accuracy interpretation is author hypothesis, not calibration.",
+        "candidate_sha256": "2486c63b874c7b5e90e4ded1658973921094e3f2552af2107710a3778e180b29"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000557",
+      "slug": "lesson-000557",
+      "merged_candidate_ids": [
+        "C-7d2a5b97b9fb02cf016f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c18dc5176c9a2c0ab339",
+          "competition_id": "competition:birdclef-2025",
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "source_url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "source_quality": "primary_text",
+          "observation_id": "O-93be5bea81bc8255e0f1",
+          "line_start": 103,
+          "line_end": 103,
+          "evidence_text": "WeightedRandomSampler was used with weights equal to the sum of maximum label probabilities within each soundscape. This ensured that samples with more accurate pseudo-labels were sampled more frequently.",
+          "kind": "used",
+          "statement": "The source weighted pseudo-label sampling according to label confidence.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Confidence sampling needs pseudo-label pipeline skills.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Specific remedy for nearly unlabeled soundscapes.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful only when confidence proxy correlates with label quality.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aac4f8f58f817494",
+          "locator": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt#L103-L103",
+          "quote": "WeightedRandomSampler was used with weights equal to the sum of maximum label probabilities within each soundscape. This ensured that samples with more accurate pseudo-labels were sampled more frequently.",
+          "competition_id": "competition:birdclef-2025",
+          "url": "https://www.kaggle.com/competitions/birdclef-2025/writeups/nikita-babych-1st-place-solution-multi-iterative-n",
+          "snapshot_path": "research/lesson-extraction/snapshots/92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88.txt",
+          "snapshot_sha256": "92ce87f816049576b97db4f72ab78ca68620f32235da3a15b3cb8e07b3d36f88",
+          "line_start": 103,
+          "line_end": 103
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-7d2a5b97b9fb02cf016f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BirdCLEF25 weights sampling by summed maximum probabilities; accuracy interpretation is author hypothesis, not calibration.",
+          "candidate_sha256": "2486c63b874c7b5e90e4ded1658973921094e3f2552af2107710a3778e180b29"
+        }
+      ],
+      "book_location": {
+        "chapter": 64,
+        "path": "manuscript/chapters/64-audio-and-signal.md",
+        "sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
+        "line_start": 155,
+        "line_end": 159,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

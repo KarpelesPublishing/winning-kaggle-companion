@@ -1,0 +1,202 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-21020d4f42ef163337b3",
+      "canonical_key": "compute shap explanations at both instance and global levels to inspect feature contributions. | a clinical classifier needs interpretable behavior | validation_reliability",
+      "title": "Inspect instance and global explanations for clinical plausibility",
+      "statement": "When a clinical classifier needs interpretable behavior, proposed reuse: Proposed conditional application: Compute SHAP explanations at both instance and global levels to inspect feature contributions. Proposed check: Inspect explanations with domain experts and correlate suspicious contributions with data audits; test sensitivity to background choice and correlated features. Limitation: SHAP explains model outputs rather than causal effects; clinical plausibility is not a substitute for outcome validation.",
+      "trigger_conditions": [
+        "a clinical classifier needs interpretable behavior"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compute SHAP explanations at both instance and global levels to inspect feature contributions."
+      ],
+      "verification_steps": [
+        "Proposed check: Inspect explanations with domain experts and correlate suspicious contributions with data audits; test sensitivity to background choice and correlated features."
+      ],
+      "limitations": [
+        "SHAP explains model outputs rather than causal effects; clinical plausibility is not a substitute for outcome validation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The clinical README describes SHAP explanations at instance and global levels.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-049cc600f3499881d961"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Local and global explanations help beginners connect predictions to features.",
+        "competitor": "Explanation inspection can reveal leakage and implausible shortcuts.",
+        "practitioner": "Clinical model review can use explanation diagnostics alongside independent outcome and subgroup evaluation."
+      },
+      "review": {
+        "candidate_id": "C-21020d4f42ef163337b3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner README says SHAP implemented at instance/global levels; no validation proves clinical robustness or causal risk factors.",
+        "candidate_sha256": "a28b5e8e731d0c1dbcaf49680a338c90276bf26ed0ab4553d7e9f3ed413c0c86"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000203",
+      "slug": "lesson-000203",
+      "merged_candidate_ids": [
+        "C-21020d4f42ef163337b3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2b81f538005cfa16afde",
+          "competition_id": "competition:stroke-trial-prediction",
+          "source_id": "source:lesson-source-54aa27ec634fed25",
+          "snapshot_path": "research/lesson-extraction/snapshots/a36e9663d4ba06c35cd201cb7e248e7ed1282c0b0973d991a72dde05657bd23e.txt",
+          "snapshot_sha256": "a36e9663d4ba06c35cd201cb7e248e7ed1282c0b0973d991a72dde05657bd23e",
+          "source_url": "https://raw.githubusercontent.com/chongjwedmund/Stroke-Prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-049cc600f3499881d961",
+          "line_start": 16,
+          "line_end": 16,
+          "evidence_text": "Shapley Values (SHAP) was implemented, as it provides contextualized explanation of the model outputs at both an instance and global level.",
+          "kind": "used",
+          "statement": "The clinical README describes SHAP explanations at instance and global levels.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Local and global explanations help beginners connect predictions to features.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Explanation inspection can reveal leakage and implausible shortcuts.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Clinical model review can use explanation diagnostics alongside independent outcome and subgroup evaluation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-54aa27ec634fed25",
+          "locator": "research/lesson-extraction/snapshots/a36e9663d4ba06c35cd201cb7e248e7ed1282c0b0973d991a72dde05657bd23e.txt#L16-L16",
+          "quote": "Shapley Values (SHAP) was implemented, as it provides contextualized explanation of the model outputs at both an instance and global level.",
+          "competition_id": "competition:stroke-trial-prediction",
+          "url": "https://raw.githubusercontent.com/chongjwedmund/Stroke-Prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/a36e9663d4ba06c35cd201cb7e248e7ed1282c0b0973d991a72dde05657bd23e.txt",
+          "snapshot_sha256": "a36e9663d4ba06c35cd201cb7e248e7ed1282c0b0973d991a72dde05657bd23e",
+          "line_start": 16,
+          "line_end": 16
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-21020d4f42ef163337b3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner README says SHAP implemented at instance/global levels; no validation proves clinical robustness or causal risk factors.",
+          "candidate_sha256": "a28b5e8e731d0c1dbcaf49680a338c90276bf26ed0ab4553d7e9f3ed413c0c86"
+        },
+        {
+          "candidate_id": "C-21020d4f42ef163337b3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Stroke winner README implements instance and global SHAP explanations; its robustness/clinical-effect assertions are not adopted. Candidate proposes expert plausibility, suspicious-feature audits and background/correlation sensitivity, explicitly distinguishing model attribution from causation/outcome validation. Accessibility and practitioner diagnostic relevance match utility profiles.",
+          "candidate_sha256": "a28b5e8e731d0c1dbcaf49680a338c90276bf26ed0ab4553d7e9f3ed413c0c86"
+        }
+      ],
+      "book_location": {
+        "chapter": 27,
+        "path": "manuscript/chapters/27-shap-for-feature-engineering.md",
+        "sha256": "40565d62339c2f20b2a5f18fd3d0319ce9e8440a7b3ade2d552429ff312747e8",
+        "line_start": 203,
+        "line_end": 213,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

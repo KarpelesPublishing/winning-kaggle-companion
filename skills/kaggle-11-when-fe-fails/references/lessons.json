@@ -1,0 +1,379 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-7d7bc540669cebed",
+      "canonical_key": "compare direct aggregate/interest-rate features with separate table-model predictions before committing to stacking them. | relational tables tempt standalone models or domain ratios | predictive_quality",
+      "title": "Keep failed relational-table predictors in the comparison record",
+      "statement": "When relational tables tempt standalone models or domain ratios, consider this source-backed action: Compare direct aggregate/interest-rate features with separate table-model predictions before committing to stacking them. Proposed check: Generate table predictions OOF and test marginal applicant-model improvement. Limit: OOF safeguards are proposed; failure was local and interest-rate construction details are absent.",
+      "trigger_conditions": [
+        "relational tables tempt standalone models or domain ratios"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare direct aggregate/interest-rate features with separate table-model predictions before committing to stacking them."
+      ],
+      "verification_steps": [
+        "Proposed verification: Generate table predictions OOF and test marginal applicant-model improvement."
+      ],
+      "limitations": [
+        "OOF safeguards are proposed; failure was local and interest-rate construction details are absent."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author computed a useful yearly interest-rate feature but separate bureau/previous-application predictions did not produce gains seen by other teams.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-7d7bc540669cebed"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Relational submodels require extra model/schema work.",
+        "competitor": "Useful negative comparison before additional stacking complexity.",
+        "practitioner": "Relevant multi-table risk models; failure remains setup-specific."
+      },
+      "review": {
+        "candidate_id": "C-a-7d7bc540669cebed",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked standalone table-prediction failure/interest feature; OOF check proposed.",
+        "candidate_sha256": "2e00226b86140961d1901b865620aa13e5c62d8671d1730f6b45d9988fe6a9b0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000109",
+      "slug": "lesson-000109",
+      "merged_candidate_ids": [
+        "C-a-7d7bc540669cebed"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fddacf3cce399681b8cb",
+          "competition_id": "competition:home-credit-default-risk",
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "source_url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-7d7bc540669cebed",
+          "line_start": 29,
+          "line_end": 29,
+          "evidence_text": "I suppose most of the competitors know my features and dataset :) Out of the public kernel I tried to compute a yearly interest rate that became one of the highest scoring feature on my models. I also had a try at creating predictions on a few tables (bureau and previous application) but for some reason I did not get the boost reported by other teams.",
+          "kind": "reported_failure",
+          "statement": "The author computed a useful yearly interest-rate feature but separate bureau/previous-application predictions did not produce gains seen by other teams.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Relational submodels require extra model/schema work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful negative comparison before additional stacking complexity.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Relevant multi-table risk models; failure remains setup-specific.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "locator": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt#L29-L29",
+          "quote": "I suppose most of the competitors know my features and dataset :) Out of the public kernel I tried to compute a yearly interest rate that became one of the highest scoring feature on my models. I also had a try at creating predictions on a few tables (bureau and previous application) but for some reason I did not get the boost reported by other teams.",
+          "competition_id": "competition:home-credit-default-risk",
+          "url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "line_start": 29,
+          "line_end": 29
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-7d7bc540669cebed",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked standalone table-prediction failure/interest feature; OOF check proposed.",
+          "candidate_sha256": "2e00226b86140961d1901b865620aa13e5c62d8671d1730f6b45d9988fe6a9b0"
+        }
+      ],
+      "book_location": {
+        "chapter": 11,
+        "path": "manuscript/chapters/11-when-fe-fails.md",
+        "sha256": "b4250e16053875a866eebd54500284fddaf8bd1808aad2e344fcf403eb43b59b",
+        "line_start": 56,
+        "line_end": 60,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-8db996419f3b32047f94",
+      "canonical_key": "compare downstream predictions with and without predicted feature imputations instead of judging the imputation model alone. | a missing feature can itself be modeled accurately | predictive_quality",
+      "title": "Check predictive imputations for downstream benefit",
+      "statement": "When a missing feature can itself be modeled accurately, proposed reuse: Proposed conditional application: Compare downstream predictions with and without predicted feature imputations instead of judging the imputation model alone. Proposed check: Fit imputers within folds; compare downstream model with/without imputed features and missingness flags. Limitation: Predictable imputation does not add independent target information; 0.78x is not exact numeric evidence.",
+      "trigger_conditions": [
+        "a missing feature can itself be modeled accurately"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare downstream predictions with and without predicted feature imputations instead of judging the imputation model alone."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit imputers within folds; compare downstream model with/without imputed features and missingness flags."
+      ],
+      "limitations": [
+        "Predictable imputation does not add independent target information; 0.78x is not exact numeric evidence."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The credit team reports that predicted EXT features did not help its base models in CV or public scoring.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-181afd939be8918dd35c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear downstream-value check.",
+        "competitor": "Prevents optimizing irrelevant auxiliary accuracy.",
+        "practitioner": "Broad feature-imputation evaluation principle."
+      },
+      "review": {
+        "candidate_id": "C-8db996419f3b32047f94",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Credit packet reports predicted EXT features did not improve downstream CV/public scores; imputation AUC is approximate 0.78x.",
+        "candidate_sha256": "2417c79ba41be2af0c390b1750479c1f2754ceb21205e8f74a27b625aed926c9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000111",
+      "slug": "lesson-000111",
+      "merged_candidate_ids": [
+        "C-8db996419f3b32047f94"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ce2da7717bfb1ac5f878",
+          "competition_id": "competition:home-credit-default-risk",
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "source_url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-181afd939be8918dd35c",
+          "line_start": 127,
+          "line_end": 127,
+          "evidence_text": "The imputed features had AUC of 0.78x, but they did not help our base models, either for CV or on public LB.",
+          "kind": "reported_failure",
+          "statement": "The credit team reports that predicted EXT features did not help its base models in CV or public scoring.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear downstream-value check.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Prevents optimizing irrelevant auxiliary accuracy.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Broad feature-imputation evaluation principle.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "locator": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt#L127-L127",
+          "quote": "The imputed features had AUC of 0.78x, but they did not help our base models, either for CV or on public LB.",
+          "competition_id": "competition:home-credit-default-risk",
+          "url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "line_start": 127,
+          "line_end": 127
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-8db996419f3b32047f94",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Credit packet reports predicted EXT features did not improve downstream CV/public scores; imputation AUC is approximate 0.78x.",
+          "candidate_sha256": "2417c79ba41be2af0c390b1750479c1f2754ceb21205e8f74a27b625aed926c9"
+        }
+      ],
+      "book_location": {
+        "chapter": 11,
+        "path": "manuscript/chapters/11-when-fe-fails.md",
+        "sha256": "b4250e16053875a866eebd54500284fddaf8bd1808aad2e344fcf403eb43b59b",
+        "line_start": 62,
+        "line_end": 66,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-c8d41741bb1de016",
+      "canonical_key": "compare external labeled pretraining and pseudo-label alternatives separately, including temporal target-window choices. | event localization has related external labeled video and unlabeled clips | predictive_quality",
+      "title": "Compare labeled-domain pretraining with pseudo-label pretraining",
+      "statement": "When event localization has related external labeled video and unlabeled clips, Compare related external labeled pretraining with pseudo-label pretraining under the same target labels and training budget. Verify: Proposed verification: Evaluate unseen videos under fixed training budgets and label-window alignment. Limits: The pseudo-label failure is setup-specific and the metric name for the 0.02 gain is not repeated here.",
+      "trigger_conditions": [
+        "event localization has related external labeled video and unlabeled clips"
+      ],
+      "action_steps": [
+        "Compare related external labeled pretraining with pseudo-label pretraining under the same target labels and training budget."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate unseen videos under fixed training budgets and label-window alignment."
+      ],
+      "limitations": [
+        "The pseudo-label failure is setup-specific and the metric name for the 0.02 gain is not repeated here."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Hard event labels in small windows worked best; Soccernet pretraining reportedly added about 0.02 while pseudo-label pretraining on unlabeled clips failed.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-c8d41741bb1de016"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "External video pretraining consumes substantial resources.",
+        "competitor": "Useful labeled-versus-pseudo-label domain adaptation experiment.",
+        "practitioner": "Transfers to labeled video sources with taxonomy/domain compatibility."
+      },
+      "review": {
+        "candidate_id": "C-a-c8d41741bb1de016",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Soccernet0.02pretraining gain versus unlabeled failure; labelwindows contextual.",
+        "candidate_sha256": "c8dc13ef84b06261e247b181f989c0e9dff918f42f439ff0130f6d4e7ba752ce"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000121",
+      "slug": "lesson-000121",
+      "merged_candidate_ids": [
+        "C-a-c8d41741bb1de016"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-70a0988b5c40d108488b",
+          "competition_id": "competition:dfl-bundesliga-data-shootout",
+          "source_id": "source:lesson-source-6e80be5dc2caecca",
+          "snapshot_path": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt",
+          "snapshot_sha256": "b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754",
+          "source_url": "https://www.kaggle.com/competitions/dfl-bundesliga-data-shootout/writeups/team-hydrogen-scores-team-hydrogen-1st-place-solut",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-c8d41741bb1de016",
+          "line_start": 26,
+          "line_end": 28,
+          "evidence_text": "We applied the usual set of augmentations and used Mixup as well. The loss function was binary cross-entropy with three target columns. One area where we had room for experimentation and improvement was in how to set the hard or soft labels for training. In the end, our best solution used hard labels in a small window around the actual event.\n\nMost of our time during this competition was spent training on only the labeled regions of the competition data. Pre-training on some Soccernet labels improved the score by around 0.02, but we had no success with pseudo label pre-training on unlabeled regions and clips.",
+          "kind": "reported_failure",
+          "statement": "Hard event labels in small windows worked best; Soccernet pretraining reportedly added about 0.02 while pseudo-label pretraining on unlabeled clips failed.",
+          "reported_result": {
+            "metric": "reported event-score gain approximate",
+            "value": 0.02,
+            "context": "DFL: Soccernet label pretraining versus no external pretraining, about0.02; evaluation metric/split and uncertainty not stated, pseudo-label pretraining unsuccessful locally.",
+            "evidence_text": "We applied the usual set of augmentations and used Mixup as well. The loss function was binary cross-entropy with three target columns. One area where we had room for experimentation and improvement was in how to set the hard or soft labels for training. In the end, our best solution used hard labels in a small window around the actual event.\n\nMost of our time during this competition was spent training on only the labeled regions of the competition data. Pre-training on some Soccernet labels improved the score by around 0.02, but we had no success with pseudo label pre-training on unlabeled regions and clips."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "External video pretraining consumes substantial resources.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful labeled-versus-pseudo-label domain adaptation experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Transfers to labeled video sources with taxonomy/domain compatibility.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6e80be5dc2caecca",
+          "locator": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt#L26-L28",
+          "quote": "We applied the usual set of augmentations and used Mixup as well. The loss function was binary cross-entropy with three target columns. One area where we had room for experimentation and improvement was in how to set the hard or soft labels for training. In the end, our best solution used hard labels in a small window around the actual event.\n\nMost of our time during this competition was spent training on only the labeled regions of the competition data. Pre-training on some Soccernet labels improved the score by around 0.02, but we had no success with pseudo label pre-training on unlabeled regions and clips.",
+          "competition_id": "competition:dfl-bundesliga-data-shootout",
+          "url": "https://www.kaggle.com/competitions/dfl-bundesliga-data-shootout/writeups/team-hydrogen-scores-team-hydrogen-1st-place-solut",
+          "snapshot_path": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt",
+          "snapshot_sha256": "b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754",
+          "line_start": 26,
+          "line_end": 28
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-c8d41741bb1de016",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Soccernet0.02pretraining gain versus unlabeled failure; labelwindows contextual.",
+          "candidate_sha256": "c8dc13ef84b06261e247b181f989c0e9dff918f42f439ff0130f6d4e7ba752ce"
+        }
+      ],
+      "book_location": {
+        "chapter": 48,
+        "path": "manuscript/chapters/48-pseudo-labeling-for-cv.md",
+        "sha256": "8ebda5603551b49e165fd1f308cf169a6e4ec2b4d7c908963f1faee76c1eba39",
+        "line_start": 120,
+        "line_end": 124,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-0aefb9fee229a175",
+      "canonical_key": "log decode failures and compare an explicit minimum-resolution rule against retaining small images. | image downloads include unusable files | predictive_quality",
+      "title": "Reject unreadable and tiny images with a logged quality policy",
+      "statement": "When image downloads include unusable files, consider this source-backed action: Log decode failures and compare an explicit minimum-resolution rule against retaining small images. Proposed check: Inspect class-specific rejection rates and evaluate performance on low-resolution target examples. Limit: Removing small images can skew classes; threshold is source-specific and no isolated gain is supplied.",
+      "trigger_conditions": [
+        "image downloads include unusable files"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Log decode failures and compare an explicit minimum-resolution rule against retaining small images."
+      ],
+      "verification_steps": [
+        "Proposed verification: Inspect class-specific rejection rates and evaluate performance on low-resolution target examples."
+      ],
+      "limitations": [
+        "Removing small images can skew classes; threshold is source-specific and no isolated gain is supplied."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team removed corrupt images and images below thirty-two pixels in either dimension.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-0aefb9fee229a175"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Decode/rejection logs accessible and useful.",
+        "competitor": "Prevents unreadable training assets while tracking class exclusions.",
+        "practitioner": "Broad image-quality audit with low-resolution target checks."
+      },
+      "review": {
+        "candidate_id": "C-a-0aefb9fee229a175",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked corrupt/<32pixel rejection; no isolated gain, class-skew caveat.",
+        "candidate_sha256": "68ae762c27b58cfeb866af3bc1d0e87e45ac77a3052af826c9085bbe08bc79b3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000342",
+      "slug": "lesson-000342",
+      "merged_candidate_ids": [
+        "C-a-0aefb9fee229a175"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-977ff09bc0b33e143c15",
+          "competition_id": "competition:imaterialist-product-2019",
+          "source_id": "source:lesson-source-38171f10401d56bd",
+          "snapshot_path": "research/lesson-extraction/snapshots/b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788.txt",
+          "snapshot_sha256": "b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788",
+          "source_url": "https://www.kaggle.com/competitions/imaterialist-product-2019/writeups/jd-ai-research-brief-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-0aefb9fee229a175",
+          "line_start": 7,
+          "line_end": 12,
+          "evidence_text": "We removed:\n\n1.   Corrupt images\n2.   Small resolution images (height or width less than 32 pixels)\n\nAfter preprocessing, we got 996251 images for training.",
+          "kind": "used",
+          "statement": "The team removed corrupt images and images below thirty-two pixels in either dimension.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Decode/rejection logs accessible and useful.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Prevents unreadable training assets while tracking class exclusions.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Broad image-quality audit with low-resolution target checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-38171f10401d56bd",
+          "locator": "research/lesson-extraction/snapshots/b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788.txt#L7-L12",
+          "quote": "We removed:\n\n1.   Corrupt images\n2.   Small resolution images (height or width less than 32 pixels)\n\nAfter preprocessing, we got 996251 images for training.",
+          "competition_id": "competition:imaterialist-product-2019",
+          "url": "https://www.kaggle.com/competitions/imaterialist-product-2019/writeups/jd-ai-research-brief-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788.txt",
+          "snapshot_sha256": "b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788",
+          "line_start": 7,
+          "line_end": 12
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-0aefb9fee229a175",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked corrupt/<32pixel rejection; no isolated gain, class-skew caveat.",
+          "candidate_sha256": "68ae762c27b58cfeb866af3bc1d0e87e45ac77a3052af826c9085bbe08bc79b3"
+        },
+        {
+          "candidate_id": "C-a-0aefb9fee229a175",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "JDwinner explicitcorruptimageandside<32removal. Logging/minresolutionversusretain/classrejectratelowreschecks proposed; no cleaninggain from finalscore. Routineauditgrades reasonable and classskewcaveat appropriate.",
+          "candidate_sha256": "68ae762c27b58cfeb866af3bc1d0e87e45ac77a3052af826c9085bbe08bc79b3"
+        }
+      ],
+      "book_location": {
+        "chapter": 48,
+        "path": "manuscript/chapters/48-pseudo-labeling-for-cv.md",
+        "sha256": "8ebda5603551b49e165fd1f308cf169a6e4ec2b4d7c908963f1faee76c1eba39",
+        "line_start": 102,
+        "line_end": 112,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

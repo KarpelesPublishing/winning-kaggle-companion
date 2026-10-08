@@ -1,0 +1,974 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-5500d2ad504ca5c4",
+      "canonical_key": "add per-instance and global budgets, preserve abstention reasons and test a representative runnable validation slice early. | repair evaluation has costly uneven instances and negative penalties | deployment_reliability",
+      "title": "Bound repair-agent work per sample and globally",
+      "statement": "When repair evaluation has costly uneven instances and negative penalties, consider this source-backed action: Add per-instance and global budgets, preserve abstention reasons and test a representative runnable validation slice early. Proposed check: Check wall-time caps, skipped/failing cases and repo coverage rather than interpreting a small Django-only set as representative. Limit: The source abandoned reliable local scoring; multiple-seed LB ranges are not proof of robustness.",
+      "trigger_conditions": [
+        "repair evaluation has costly uneven instances and negative penalties"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Add per-instance and global budgets, preserve abstention reasons and test a representative runnable validation slice early."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check wall-time caps, skipped/failing cases and repo coverage rather than interpreting a small Django-only set as representative."
+      ],
+      "limitations": [
+        "The source abandoned reliable local scoring; multiple-seed LB ranges are not proof of robustness."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The source capped samples at twelve minutes and skipped remaining work after twenty hours; local benchmark setup failed across repos and 24 GB hardware limited context.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5500d2ad504ca5c4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Budget checks accessible, representative harness still demanding.",
+        "competitor": "Avoids longtail instance costs exhausting entire evaluation.",
+        "practitioner": "Useful agent-job reliability and explicit abstention records."
+      },
+      "review": {
+        "candidate_id": "C-a-5500d2ad504ca5c4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked12min/20hour caps and Django-limited validation; seedLB not proof.",
+        "candidate_sha256": "2792e93b6241cf0ff0ad4299a305b3e643faa12b3efaa02cb266f63c1235bca8"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000003",
+      "slug": "lesson-000003",
+      "merged_candidate_ids": [
+        "C-a-5500d2ad504ca5c4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-84c4771b27b20341b657",
+          "competition_id": "competition:konwinski-prize",
+          "source_id": "source:lesson-source-f9c5e5b64c471acd",
+          "snapshot_path": "research/lesson-extraction/snapshots/f53a7a2ac9c6afdffd441b1d6d897382abee8235349d8ee644f68eca2a311203.txt",
+          "snapshot_sha256": "f53a7a2ac9c6afdffd441b1d6d897382abee8235349d8ee644f68eca2a311203",
+          "source_url": "https://www.kaggle.com/competitions/konwinski-prize/writeups/eduardo-rocha-de-andrade-1st-place-solution-write-",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5500d2ad504ca5c4",
+          "line_start": 179,
+          "line_end": 202,
+          "evidence_text": "I spent a lot of time doing runtime optimizations on the solution and, in the end, my best subs were running in ~5-7 hours (~3 to 10 minutes per sample). Regardless, I added two time protections, one to skip everything remaining if the global runtime was above 20 hours and another to skip the sample if we were more than 12 minutes on that sample.\n\nOther improvements\n------------------\n\nAbove, I tried to list all the most important details of my sub. However, there were countless other minor changes I made to Agentless to make it run faster and be better/more robust with \"small\" local models. I won't extensively list them here as it would be too much for a single post and, honestly, I didn't properly ablate many of them to be confident on how much they actually impacted the solution.\n\nThoughts on score and robustness\n--------------------------------\n\nI submitted my best solution many times with different seeds or with small hparam changes and it always scored from 0.056LB to 0.098LB, so I believe it to be somewhat robust.\n\nThat said, there was a time that it failed without me knowing why. It also executes code that is generated by the LLM, which is always a potential risk.\n\nGiven how hard the dataset is and how heavily penalized mistakes are, I think luck will play a significant role in the end. My solution also has a lot of moving parts that are potential failure points (even with try-catching everything). So, being completely honest, I'm not very confident that I'll get a good result in the end but, at least, I had fun \ud83e\udd23\n\nThings I tried and didn't work\n------------------------------\n\n*   Agent mode, i.e., generating a test, running and then providing the error back to the model to fix (I only tried this very late so I still think it could work with more time)\n*   Reasoning models (a LOT of thinking and \"but wait\u2026\" and solutions didn't prove much better than qwen coder)\n*   Local validation\n*   I spent almost an week trying to set up a local validation with SweBench verified but in the end only manage to generate a few samples mostly for Django (other repos for some reason would not export the packages), which is what I used locally.\n*   I also only have a single RTX4090 so 24GB of vRAM does not allow me to test much stuff locally as the context is reduced to ~8K tokens. Thus, I gave up on local validation and used it mostly to code and debug stuff instead of actually trying to get a local score. This is definitively not ideal but it was what I found possible with the time I had left and with the hardware I have available",
+          "kind": "reported_failure",
+          "statement": "The source capped samples at twelve minutes and skipped remaining work after twenty hours; local benchmark setup failed across repos and 24 GB hardware limited context.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Budget checks accessible, representative harness still demanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Avoids longtail instance costs exhausting entire evaluation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful agent-job reliability and explicit abstention records.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f9c5e5b64c471acd",
+          "locator": "research/lesson-extraction/snapshots/f53a7a2ac9c6afdffd441b1d6d897382abee8235349d8ee644f68eca2a311203.txt#L179-L202",
+          "quote": "I spent a lot of time doing runtime optimizations on the solution and, in the end, my best subs were running in ~5-7 hours (~3 to 10 minutes per sample). Regardless, I added two time protections, one to skip everything remaining if the global runtime was above 20 hours and another to skip the sample if we were more than 12 minutes on that sample.\n\nOther improvements\n------------------\n\nAbove, I tried to list all the most important details of my sub. However, there were countless other minor changes I made to Agentless to make it run faster and be better/more robust with \"small\" local models. I won't extensively list them here as it would be too much for a single post and, honestly, I didn't properly ablate many of them to be confident on how much they actually impacted the solution.\n\nThoughts on score and robustness\n--------------------------------\n\nI submitted my best solution many times with different seeds or with small hparam changes and it always scored from 0.056LB to 0.098LB, so I believe it to be somewhat robust.\n\nThat said, there was a time that it failed without me knowing why. It also executes code that is generated by the LLM, which is always a potential risk.\n\nGiven how hard the dataset is and how heavily penalized mistakes are, I think luck will play a significant role in the end. My solution also has a lot of moving parts that are potential failure points (even with try-catching everything). So, being completely honest, I'm not very confident that I'll get a good result in the end but, at least, I had fun \ud83e\udd23\n\nThings I tried and didn't work\n------------------------------\n\n*   Agent mode, i.e., generating a test, running and then providing the error back to the model to fix (I only tried this very late so I still think it could work with more time)\n*   Reasoning models (a LOT of thinking and \"but wait\u2026\" and solutions didn't prove much better than qwen coder)\n*   Local validation\n*   I spent almost an week trying to set up a local validation with SweBench verified but in the end only manage to generate a few samples mostly for Django (other repos for some reason would not export the packages), which is what I used locally.\n*   I also only have a single RTX4090 so 24GB of vRAM does not allow me to test much stuff locally as the context is reduced to ~8K tokens. Thus, I gave up on local validation and used it mostly to code and debug stuff instead of actually trying to get a local score. This is definitively not ideal but it was what I found possible with the time I had left and with the hardware I have available",
+          "competition_id": "competition:konwinski-prize",
+          "url": "https://www.kaggle.com/competitions/konwinski-prize/writeups/eduardo-rocha-de-andrade-1st-place-solution-write-",
+          "snapshot_path": "research/lesson-extraction/snapshots/f53a7a2ac9c6afdffd441b1d6d897382abee8235349d8ee644f68eca2a311203.txt",
+          "snapshot_sha256": "f53a7a2ac9c6afdffd441b1d6d897382abee8235349d8ee644f68eca2a311203",
+          "line_start": 179,
+          "line_end": 202
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5500d2ad504ca5c4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked12min/20hour caps and Django-limited validation; seedLB not proof.",
+          "candidate_sha256": "2792e93b6241cf0ff0ad4299a305b3e643faa12b3efaa02cb266f63c1235bca8"
+        },
+        {
+          "candidate_id": "C-a-5500d2ad504ca5c4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Konwinski source12minsample/20hglobalcap,typical5-7h andpoorDjango-onlylocalsetup/RTX4090context~8K. Representativecoverage/abstentionchecksproposed;LBseedrange0.056-0.098notproofrobustness. Broadbudgetutilitygradesreasonable.",
+          "candidate_sha256": "2792e93b6241cf0ff0ad4299a305b3e643faa12b3efaa02cb266f63c1235bca8"
+        }
+      ],
+      "book_location": {
+        "chapter": 62,
+        "path": "manuscript/chapters/62-kaggle-landscape-2024-2026.md",
+        "sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
+        "line_start": 59,
+        "line_end": 63,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-6501b0f5ac679e44",
+      "canonical_key": "compare temporal interleaving with full-frame ensemble inference and optimize decoding/cpu processing. | video inference cost prevents evaluating every model on every frame | predictive_quality",
+      "title": "Interleave model inference across video frames under a runtime cap",
+      "statement": "When video inference cost prevents evaluating every model on every frame, consider this source-backed action: Compare temporal interleaving with full-frame ensemble inference and optimize decoding/CPU processing. Proposed check: Measure event recall near skipped frames, latency and total runtime. Limit: Temporal interleaving may miss short events; reported runtime is implementation-specific.",
+      "trigger_conditions": [
+        "video inference cost prevents evaluating every model on every frame"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare temporal interleaving with full-frame ensemble inference and optimize decoding/CPU processing."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure event recall near skipped frames, latency and total runtime."
+      ],
+      "limitations": [
+        "Temporal interleaving may miss short events; reported runtime is implementation-specific."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used CPU threading, predicted alternate frames per model and blended two models alternating frame by frame; runtimes were about 2.5 hours single and five hours final.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-6501b0f5ac679e44"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Efficient video scheduling requires temporal inference expertise.",
+        "competitor": "Useful runtime hypothesis when full ensemble is too costly.",
+        "practitioner": "Applicable video serving with short-event recall safeguards."
+      },
+      "review": {
+        "candidate_id": "C-a-6501b0f5ac679e44",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked alternate-frame interleaving/runtime; no full-frame quality comparison supplied.",
+        "candidate_sha256": "e83504d08e4483755ce6c085b2f042fe15d1bad2119f4fa7277a4d54f44d45a4"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000187",
+      "slug": "lesson-000187",
+      "merged_candidate_ids": [
+        "C-a-6501b0f5ac679e44"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-70a0988b5c40d108488b",
+          "competition_id": "competition:dfl-bundesliga-data-shootout",
+          "source_id": "source:lesson-source-6e80be5dc2caecca",
+          "snapshot_path": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt",
+          "snapshot_sha256": "b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754",
+          "source_url": "https://www.kaggle.com/competitions/dfl-bundesliga-data-shootout/writeups/team-hydrogen-scores-team-hydrogen-1st-place-solut",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-6501b0f5ac679e44",
+          "line_start": 32,
+          "line_end": 34,
+          "evidence_text": "Increasing the inference resolution by 128 also slightly improved our cross-validation (CV) and LB scores. We spent a significant amount of time optimizing the inference kernel to run as efficiently as possible, utilizing both CPU cores with threading. We predicted only every second frame for a single model, and our final solution blended the results of two models, alternating between them frame by frame. We then applied post-processing to reduce the number of false positives.\n\nA single model had a runtime of 2.5 hours in the kernel, and processing a single video took 25 minutes. Our final solution with two models had a runtime of around 5 hours. There was potential for using even more models, but we opted to keep things as simple as possible.",
+          "kind": "used",
+          "statement": "The team used CPU threading, predicted alternate frames per model and blended two models alternating frame by frame; runtimes were about 2.5 hours single and five hours final.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Efficient video scheduling requires temporal inference expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 72.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful runtime hypothesis when full ensemble is too costly.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Applicable video serving with short-event recall safeguards.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-6e80be5dc2caecca",
+          "locator": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt#L32-L34",
+          "quote": "Increasing the inference resolution by 128 also slightly improved our cross-validation (CV) and LB scores. We spent a significant amount of time optimizing the inference kernel to run as efficiently as possible, utilizing both CPU cores with threading. We predicted only every second frame for a single model, and our final solution blended the results of two models, alternating between them frame by frame. We then applied post-processing to reduce the number of false positives.\n\nA single model had a runtime of 2.5 hours in the kernel, and processing a single video took 25 minutes. Our final solution with two models had a runtime of around 5 hours. There was potential for using even more models, but we opted to keep things as simple as possible.",
+          "competition_id": "competition:dfl-bundesliga-data-shootout",
+          "url": "https://www.kaggle.com/competitions/dfl-bundesliga-data-shootout/writeups/team-hydrogen-scores-team-hydrogen-1st-place-solut",
+          "snapshot_path": "research/lesson-extraction/snapshots/b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754.txt",
+          "snapshot_sha256": "b18ebf22660e32b01990585d598522cf82814c1c6ec87178b57422616c977754",
+          "line_start": 32,
+          "line_end": 34
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-6501b0f5ac679e44",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked alternate-frame interleaving/runtime; no full-frame quality comparison supplied.",
+          "candidate_sha256": "e83504d08e4483755ce6c085b2f042fe15d1bad2119f4fa7277a4d54f44d45a4"
+        },
+        {
+          "candidate_id": "C-a-6501b0f5ac679e44",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Hydrogen winner writeup specifies2CPUthreading,alternate-frame permodel/blended2models,runtime2.5hvs5h. Absolute runtime/config comparison,not claimed isolated saving; proposed full-frame/eventrecall check protects short events. Video-specific expertise/cost grades reasonable.",
+          "candidate_sha256": "e83504d08e4483755ce6c085b2f042fe15d1bad2119f4fa7277a4d54f44d45a4"
+        }
+      ],
+      "book_location": {
+        "chapter": 62,
+        "path": "manuscript/chapters/62-kaggle-landscape-2024-2026.md",
+        "sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
+        "line_start": 65,
+        "line_end": 69,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-df2421537f1e08a9320f",
+      "canonical_key": "load completed sample keys, skip them, and persist predictions after each newly processed sample | costly per-video inference that may be interrupted | restartability",
+      "title": "Checkpoint long inference at sample boundaries",
+      "statement": "For costly per-video inference that may be interrupted, load completed sample keys, skip them, and persist predictions after each newly processed sample. Interrupt a small run and confirm restart yields exactly one result per input path and matches uninterrupted outputs. The file is rewritten after every sample, without atomic replacement shown; the hardware comment names one RTX PRO 6000 but reports no runtime result.",
+      "trigger_conditions": [
+        "costly per-video inference that may be interrupted"
+      ],
+      "action_steps": [
+        "Proposed: load completed sample keys, skip them, and persist predictions after each newly processed sample."
+      ],
+      "verification_steps": [
+        "Proposed: interrupt a small run and confirm restart yields exactly one result per input path and matches uninterrupted outputs."
+      ],
+      "limitations": [
+        "The file is rewritten after every sample, without atomic replacement shown; the hardware comment names one RTX PRO 6000 but reports no runtime result."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "video"
+        ],
+        "task_types": [
+          "multi_output_prediction"
+        ],
+        "application_domains": [
+          "traffic"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "restartability"
+        ],
+        "risk_tags": [
+          "artifact_integrity",
+          "prediction_alignment"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for accident: submit.py loads existing paths and rows from OUT_CSV, skips completed paths and rewrites the accumulated submission after each video.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: resume a document-processing batch from atomically persisted keyed results and recorded model/config versions.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-bd7279ff2d8e707a68a3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A CSV-backed restart exercise is accessible and reduces repeated costly work.",
+        "competitor": "Highly useful for interrupted per-sample inference; key uniqueness and output equality checks are explicit.",
+        "practitioner": "Broad workflow value for batch jobs, with atomic writes and artifact-version invalidation required for reliability."
+      },
+      "review": {
+        "candidate_id": "C-df2421537f1e08a9320f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read complete submit.py: existing paths are skipped and all rows are rewritten after each new video. Atomic replacement and model/config identity checks are proposed improvements; the RTX PRO 6000 comment is a declaration, not runtime evidence.",
+        "candidate_sha256": "955da06e9f66447a034a6b512371f05ddae53ba4c4c4c63338899851ea3c03f0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000341",
+      "slug": "lesson-000341",
+      "merged_candidate_ids": [
+        "C-df2421537f1e08a9320f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a80bf142dc6298f7451a",
+          "competition_id": "competition:accident",
+          "source_id": "source:lesson-source-eaeb16ca4226cf9e",
+          "snapshot_path": "research/lesson-extraction/snapshots/858d50b15df9c0bf998885c4b8270e474a8995c3e815865cadfdc8efc9467eff.txt",
+          "snapshot_sha256": "858d50b15df9c0bf998885c4b8270e474a8995c3e815865cadfdc8efc9467eff",
+          "source_url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/HEAD/src/exp160b/submit.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-bd7279ff2d8e707a68a3",
+          "line_start": 25,
+          "line_end": 44,
+          "evidence_text": "    done = set(pd.read_csv(OUT_CSV)[\"path\"]) if OUT_CSV.exists() else set()\n    rows = pd.read_csv(OUT_CSV)[SUB_COLS].to_dict(\"records\") if OUT_CSV.exists() else []\n\n    total = len(test_df)\n    t_start = time.time()\n    for i, row in enumerate(test_df.itertuples(index=False), start=1):\n        video_rel = str(row.path)\n        if video_rel in done:\n            continue\n        t0 = time.time()\n        out = predictor.predict_video(resolve_video(DATASET_ROOT, video_rel), video_rel=video_rel)\n        pred = out[\"prediction\"]\n        rows.append({\n            \"path\": video_rel,\n            \"accident_time\": float(pred[\"accident_time\"]),\n            \"center_x\": float(pred[\"center_x\"]),\n            \"center_y\": float(pred[\"center_y\"]),\n            \"type\": str(pred[\"type\"]),\n        })\n        pd.DataFrame(rows, columns=SUB_COLS).to_csv(OUT_CSV, index=False)",
+          "kind": "used",
+          "statement": "submit.py loads existing paths and rows from OUT_CSV, skips completed paths and rewrites the accumulated submission after each video.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A CSV-backed restart exercise is accessible and reduces repeated costly work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Highly useful for interrupted per-sample inference; key uniqueness and output equality checks are explicit.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad workflow value for batch jobs, with atomic writes and artifact-version invalidation required for reliability.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-eaeb16ca4226cf9e",
+          "locator": "research/lesson-extraction/snapshots/858d50b15df9c0bf998885c4b8270e474a8995c3e815865cadfdc8efc9467eff.txt#L25-L44",
+          "quote": "    done = set(pd.read_csv(OUT_CSV)[\"path\"]) if OUT_CSV.exists() else set()\n    rows = pd.read_csv(OUT_CSV)[SUB_COLS].to_dict(\"records\") if OUT_CSV.exists() else []\n\n    total = len(test_df)\n    t_start = time.time()\n    for i, row in enumerate(test_df.itertuples(index=False), start=1):\n        video_rel = str(row.path)\n        if video_rel in done:\n            continue\n        t0 = time.time()\n        out = predictor.predict_video(resolve_video(DATASET_ROOT, video_rel), video_rel=video_rel)\n        pred = out[\"prediction\"]\n        rows.append({\n            \"path\": video_rel,\n            \"accident_time\": float(pred[\"accident_time\"]),\n            \"center_x\": float(pred[\"center_x\"]),\n            \"center_y\": float(pred[\"center_y\"]),\n            \"type\": str(pred[\"type\"]),\n        })\n        pd.DataFrame(rows, columns=SUB_COLS).to_csv(OUT_CSV, index=False)",
+          "competition_id": "competition:accident",
+          "url": "https://raw.githubusercontent.com/fuumin621/cvpr2026-accident-1st-place-solution/HEAD/src/exp160b/submit.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/858d50b15df9c0bf998885c4b8270e474a8995c3e815865cadfdc8efc9467eff.txt",
+          "snapshot_sha256": "858d50b15df9c0bf998885c4b8270e474a8995c3e815865cadfdc8efc9467eff",
+          "line_start": 25,
+          "line_end": 44
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-df2421537f1e08a9320f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read complete submit.py: existing paths are skipped and all rows are rewritten after each new video. Atomic replacement and model/config identity checks are proposed improvements; the RTX PRO 6000 comment is a declaration, not runtime evidence.",
+          "candidate_sha256": "955da06e9f66447a034a6b512371f05ddae53ba4c4c4c63338899851ea3c03f0"
+        },
+        {
+          "candidate_id": "C-df2421537f1e08a9320f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete submission script reads existing paths/rows, skips prior keys, and rewrites results after every newly processed video. Non-atomic rewriting is explicit; restart uniqueness/equality is proposed, not established. Hardware is attributed to the script comment without runtime claims, and artifact-version invalidation is retained in practitioner rationale. High workflow ratings are reasonable.",
+          "candidate_sha256": "955da06e9f66447a034a6b512371f05ddae53ba4c4c4c63338899851ea3c03f0"
+        }
+      ],
+      "book_location": {
+        "chapter": 62,
+        "path": "manuscript/chapters/62-kaggle-landscape-2024-2026.md",
+        "sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
+        "line_start": 29,
+        "line_end": 39,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-384a0ab554bdf676",
+      "canonical_key": "store selected ids, their order, cache-generation configuration and generator code with each cache. | final predictions reuse partial inference caches | reproducibility",
+      "title": "Bind adaptive-inference caches to selected IDs and data order",
+      "statement": "When final predictions reuse partial inference caches, consider this source-backed action: Store selected IDs, their order, cache-generation configuration and generator code with each cache. Proposed check: Reject mismatched ID hashes and reproduce a small cache independently before combining probabilities. Limit: The source explicitly says the cache generator is absent and GPU inference was not rerun during repository cleanup.",
+      "trigger_conditions": [
+        "final predictions reuse partial inference caches"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Store selected IDs, their order, cache-generation configuration and generator code with each cache."
+      ],
+      "verification_steps": [
+        "Proposed verification: Reject mismatched ID hashes and reproduce a small cache independently before combining probabilities."
+      ],
+      "limitations": [
+        "The source explicitly says the cache generator is absent and GPU inference was not rerun during repository cleanup."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "reproducibility"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "reproducibility"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Reproducibility"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Adaptive caches use hashes derived from selected ID lists and require the same data order and selection rule; the final pipeline cannot be reproduced from the two notebooks without the missing adaptive cache generator.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-384a0ab554bdf676"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cache identity requires intermediate pipeline familiarity.",
+        "competitor": "Critical for adaptive inference artifacts that cover different subsets.",
+        "practitioner": "Broadly useful partial prediction integrity and reproducibility checks."
+      },
+      "review": {
+        "candidate_id": "C-a-384a0ab554bdf676",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Cache hashes depend on ordered selected IDs and matching selection; missing generator is explicit.",
+        "candidate_sha256": "dbc2109f14b2e456a40a9d12d9f509f882b0f7ee0b3978f1a57ff427a42d6723"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000475",
+      "slug": "lesson-000475",
+      "merged_candidate_ids": [
+        "C-a-384a0ab554bdf676"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3cc7ac34c97522994c04",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "source_url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-384a0ab554bdf676",
+          "line_start": 140,
+          "line_end": 153,
+          "evidence_text": "| \ud559\uc2b5 adapter | `qwen35_27b_FINAL_full5073_bf16_v1024_epoch1/` |\n| \uc815\ubc00\ub3c4 \uc124\uc815 | `qwen35_27b_FINAL_full5073_v1024_epoch1_run_config.json` |\n| \uae30\ubcf8 TTA4 \uce90\uc2dc | `tta_cache_qwen35_27b_full5073_bf16_v1024_e1/` \uc544\ub798 `*_perm1.npz` ~ `*_perm4.npz` |\n| Adaptive \ucd94\uac00 20\uac1c \uce90\uc2dc | `adaptive_tta27b/extra_v1024_h1000_<hash>_k20/` |\n| HiRes TTA4 \uce90\uc2dc | `adaptive_tta27b/hires_v1536_h400_<hash>_tta4/` |\n\n`<hash>`\ub294 \uc120\ud0dd\ub41c ID \ubaa9\ub85d\uc5d0\uc11c \uacc4\uc0b0\ub429\ub2c8\ub2e4. \uc784\uc758\ub85c \ud3f4\ub354 \uc774\ub984\ub9cc \ubc14\uafb8\uba74 \uc548 \ub418\uba70, \uac19\uc740 \ub370\uc774\ud130 \uc21c\uc11c\u00b7\uc120\uc815 \uae30\uc900\uc73c\ub85c \uc0dd\uc131\ub41c \uce90\uc2dc\uac00 \ud544\uc694\ud569\ub2c8\ub2e4. \uce90\uc2dc\ub294 \ubcf8\uc778\uc774 \uc0dd\uc131\ud55c \uc2e0\ub8b0\ud560 \uc218 \uc788\ub294 \ud30c\uc77c\ub9cc \uc0ac\uc6a9\ud569\ub2c8\ub2e4.\n\n1. \ub450 \ubc88\uc9f8 \ub178\ud2b8\ubd81\uc758 `ROOT`, `FINAL_ADAPTER_DIR`, `RUN_CONFIG_PATH`, `BASE_TTA_CACHE_DIR`\ub97c \ud655\uc778\ud569\ub2c8\ub2e4. \uacbd\ub85c\ub97c \ubc14\uafb8\uba74 \uc774 \ub124 \uc124\uc815\uc744 \ud568\uaed8 \uc218\uc815\ud569\ub2c8\ub2e4.\n2. \uc124\uce58\u00b7\ub9c8\uc6b4\ud2b8 \ud6c4 **0~9\ubc88 \ub2e8\uacc4**\ub97c \uc21c\uc11c\ub300\ub85c \uc2e4\ud589\ud569\ub2c8\ub2e4.\n3. `ROOT/submission/submission_qwen35_27b_LASTMILE_BASEOFF_BALANCED.csv`\ub97c \ud655\uc778\ud569\ub2c8\ub2e4.\n4. Multi-crop \uc2e4\ud5d8\uc774 \ud544\uc694\ud560 \ub54c\ub9cc 10\ubc88 \uc774\ud6c4 \ub2e8\uacc4\ub97c \uc2e4\ud589\ud569\ub2c8\ub2e4.\n\n**\ub450 \ub178\ud2b8\ubd81\ub9cc\uc73c\ub85c\ub294 Adaptive/HiRes \uce90\uc2dc\ub97c \ucc98\uc74c\ubd80\ud130 \uc0dd\uc131\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.** \uce90\uc2dc\uac00 \uc5c6\ub294 \uc0c8 \ud658\uacbd\uc5d0\uc11c \ucd5c\uace0 \uc810\uc218 \ud30c\uc774\ud504\ub77c\uc778\uc744 \uc7ac\ud604\ud558\ub824\uba74 \ubcc4\ub3c4\uc758 `vqa_qwen35_27b_ADAPTIVE_TTA24_HIRES_FINAL.ipynb`\uac00 \ucd94\uac00\ub85c \ud544\uc694\ud569\ub2c8\ub2e4. \uccab \ub178\ud2b8\ubd81 \u2192 Adaptive/HiRes \uce90\uc2dc \uc900\ube44 \u2192 Last-mile \uc21c\uc11c\uc774\uba70, \uce90\uc2dc \uc5c6\uc774 \uccab \ub178\ud2b8\ubd81\uc5d0\uc11c \ubc14\ub85c Last-mile\ub85c \uc9c4\ud589\ud558\uba74 \uce90\uc2dc \ud655\uc778 \ub2e8\uacc4\uc5d0\uc11c \uc911\ub2e8\ub429\ub2c8\ub2e4.",
+          "kind": "used",
+          "statement": "Adaptive caches use hashes derived from selected ID lists and require the same data order and selection rule; the final pipeline cannot be reproduced from the two notebooks without the missing adaptive cache generator.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Cache identity requires intermediate pipeline familiarity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Critical for adaptive inference artifacts that cover different subsets.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broadly useful partial prediction integrity and reproducibility checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-13bd11cbb4ca1716",
+          "locator": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt#L140-L153",
+          "quote": "| \ud559\uc2b5 adapter | `qwen35_27b_FINAL_full5073_bf16_v1024_epoch1/` |\n| \uc815\ubc00\ub3c4 \uc124\uc815 | `qwen35_27b_FINAL_full5073_v1024_epoch1_run_config.json` |\n| \uae30\ubcf8 TTA4 \uce90\uc2dc | `tta_cache_qwen35_27b_full5073_bf16_v1024_e1/` \uc544\ub798 `*_perm1.npz` ~ `*_perm4.npz` |\n| Adaptive \ucd94\uac00 20\uac1c \uce90\uc2dc | `adaptive_tta27b/extra_v1024_h1000_<hash>_k20/` |\n| HiRes TTA4 \uce90\uc2dc | `adaptive_tta27b/hires_v1536_h400_<hash>_tta4/` |\n\n`<hash>`\ub294 \uc120\ud0dd\ub41c ID \ubaa9\ub85d\uc5d0\uc11c \uacc4\uc0b0\ub429\ub2c8\ub2e4. \uc784\uc758\ub85c \ud3f4\ub354 \uc774\ub984\ub9cc \ubc14\uafb8\uba74 \uc548 \ub418\uba70, \uac19\uc740 \ub370\uc774\ud130 \uc21c\uc11c\u00b7\uc120\uc815 \uae30\uc900\uc73c\ub85c \uc0dd\uc131\ub41c \uce90\uc2dc\uac00 \ud544\uc694\ud569\ub2c8\ub2e4. \uce90\uc2dc\ub294 \ubcf8\uc778\uc774 \uc0dd\uc131\ud55c \uc2e0\ub8b0\ud560 \uc218 \uc788\ub294 \ud30c\uc77c\ub9cc \uc0ac\uc6a9\ud569\ub2c8\ub2e4.\n\n1. \ub450 \ubc88\uc9f8 \ub178\ud2b8\ubd81\uc758 `ROOT`, `FINAL_ADAPTER_DIR`, `RUN_CONFIG_PATH`, `BASE_TTA_CACHE_DIR`\ub97c \ud655\uc778\ud569\ub2c8\ub2e4. \uacbd\ub85c\ub97c \ubc14\uafb8\uba74 \uc774 \ub124 \uc124\uc815\uc744 \ud568\uaed8 \uc218\uc815\ud569\ub2c8\ub2e4.\n2. \uc124\uce58\u00b7\ub9c8\uc6b4\ud2b8 \ud6c4 **0~9\ubc88 \ub2e8\uacc4**\ub97c \uc21c\uc11c\ub300\ub85c \uc2e4\ud589\ud569\ub2c8\ub2e4.\n3. `ROOT/submission/submission_qwen35_27b_LASTMILE_BASEOFF_BALANCED.csv`\ub97c \ud655\uc778\ud569\ub2c8\ub2e4.\n4. Multi-crop \uc2e4\ud5d8\uc774 \ud544\uc694\ud560 \ub54c\ub9cc 10\ubc88 \uc774\ud6c4 \ub2e8\uacc4\ub97c \uc2e4\ud589\ud569\ub2c8\ub2e4.\n\n**\ub450 \ub178\ud2b8\ubd81\ub9cc\uc73c\ub85c\ub294 Adaptive/HiRes \uce90\uc2dc\ub97c \ucc98\uc74c\ubd80\ud130 \uc0dd\uc131\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.** \uce90\uc2dc\uac00 \uc5c6\ub294 \uc0c8 \ud658\uacbd\uc5d0\uc11c \ucd5c\uace0 \uc810\uc218 \ud30c\uc774\ud504\ub77c\uc778\uc744 \uc7ac\ud604\ud558\ub824\uba74 \ubcc4\ub3c4\uc758 `vqa_qwen35_27b_ADAPTIVE_TTA24_HIRES_FINAL.ipynb`\uac00 \ucd94\uac00\ub85c \ud544\uc694\ud569\ub2c8\ub2e4. \uccab \ub178\ud2b8\ubd81 \u2192 Adaptive/HiRes \uce90\uc2dc \uc900\ube44 \u2192 Last-mile \uc21c\uc11c\uc774\uba70, \uce90\uc2dc \uc5c6\uc774 \uccab \ub178\ud2b8\ubd81\uc5d0\uc11c \ubc14\ub85c Last-mile\ub85c \uc9c4\ud589\ud558\uba74 \uce90\uc2dc \ud655\uc778 \ub2e8\uacc4\uc5d0\uc11c \uc911\ub2e8\ub429\ub2c8\ub2e4.",
+          "competition_id": "competition:ssafy-16-1-ai",
+          "url": "https://raw.githubusercontent.com/kimkihyun1/ssafy-ai-challenge-vqa/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af.txt",
+          "snapshot_sha256": "76c725c22500d03ce9171f1026c53ab0ccf068309d4e657dde5f170d514e34af",
+          "line_start": 140,
+          "line_end": 153
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-384a0ab554bdf676",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Cache hashes depend on ordered selected IDs and matching selection; missing generator is explicit.",
+          "candidate_sha256": "dbc2109f14b2e456a40a9d12d9f509f882b0f7ee0b3978f1a57ff427a42d6723"
+        },
+        {
+          "candidate_id": "C-a-384a0ab554bdf676",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete VQA source read. SelectedIDhash/order/cache requirements and missing intermediate generator explicit; cleanup did not rerun GPU. Independent small-cache audit proposed, pipeline feasibility grades reasonable.",
+          "candidate_sha256": "dbc2109f14b2e456a40a9d12d9f509f882b0f7ee0b3978f1a57ff427a42d6723"
+        }
+      ],
+      "book_location": {
+        "chapter": 62,
+        "path": "manuscript/chapters/62-kaggle-landscape-2024-2026.md",
+        "sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
+        "line_start": 41,
+        "line_end": 51,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-98aea83f54a8ae5912c3",
+      "canonical_key": "train a confidence head using normalized clipped levenshtein distance from oof predictions, and test a fallback for low confidence or fewer than fifteen frames. | corrupted sequences produce unreliable decoded phrases | predictive_quality",
+      "title": "Use a confidence fallback for corrupted short landmark inputs",
+      "statement": "When corrupted sequences produce unreliable decoded phrases, proposed reuse: Proposed conditional application: Train a confidence head using normalized clipped Levenshtein distance from OOF predictions, and test a fallback for low confidence or fewer than fifteen frames. Proposed check: Tune fallback threshold on signer-held-out edit distance; report affected coverage and inspect semantic error costs. Limitation: Dummy phrase optimizes the competition edit-distance distribution and can fabricate meaningless transcription.",
+      "trigger_conditions": [
+        "corrupted sequences produce unreliable decoded phrases"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Train a confidence head using normalized clipped Levenshtein distance from OOF predictions, and test a fallback for low confidence or fewer than fifteen frames."
+      ],
+      "verification_steps": [
+        "Proposed check: Tune fallback threshold on signer-held-out edit distance; report affected coverage and inspect semantic error costs."
+      ],
+      "limitations": [
+        "Dummy phrase optimizes the competition edit-distance distribution and can fabricate meaningless transcription.",
+        "OOF confidence targets and short-input cutoff require calibration."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "generation"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author trained a confidence head using clipped normalized OOF edit distance and replaced low-confidence or under-15-frame outputs with a static dummy phrase.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed abstention for corrupted transcription input; assess user error costs separately from edit distance.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-0ff1c3ae8ee9a46c94d7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 0,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Specific metric trick with little beginner workflow value.",
+        "competitor": "Useful for this corrupted-input metric under strict limits.",
+        "practitioner": "Static fabricated transcription has little operational utility."
+      },
+      "review": {
+        "candidate_id": "C-98aea83f54a8ae5912c3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full ASL source uses a static dummy phrase, not a language-model fallback; corrected both observation and application.",
+        "candidate_sha256": "1214d0953db8d035f8ac0331cd2640bc810032f8b7f9527dfd7e5e26fe40075b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000495",
+      "slug": "lesson-000495",
+      "merged_candidate_ids": [
+        "C-98aea83f54a8ae5912c3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ac92df7e609bbabd870a",
+          "competition_id": "competition:asl-fingerspelling",
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "source_url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "source_quality": "primary_text",
+          "observation_id": "O-0ff1c3ae8ee9a46c94d7",
+          "line_start": 69,
+          "line_end": 69,
+          "evidence_text": "As a target for this we used normalized levensthein distance clipped to [0,1] of OOF predictions of a decent previous model.",
+          "kind": "used",
+          "statement": "Author trained the confidence target from clipped normalized Levenshtein distance of OOF predictions; full packet describes a static dummy-phrase fallback, not a language model.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 47.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 2
+          },
+          "rationale": "Specific metric trick with little beginner workflow value.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Useful for this corrupted-input metric under strict limits.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 37.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 0,
+            "feasibility": 3
+          },
+          "rationale": "Static fabricated transcription has little operational utility.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-92548079c85ad7c2",
+          "locator": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt#L69-L69",
+          "quote": "As a target for this we used normalized levensthein distance clipped to [0,1] of OOF predictions of a decent previous model.",
+          "competition_id": "competition:asl-fingerspelling",
+          "url": "https://www.kaggle.com/competitions/asl-fingerspelling/writeups/darragh-dieter-1st-place-solution-improved-squeeze",
+          "snapshot_path": "research/lesson-extraction/snapshots/bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21.txt",
+          "snapshot_sha256": "bcf1613542d42a3e181f7115cf7ee848eb97651c577d9d3188f115eefa25cd21",
+          "line_start": 69,
+          "line_end": 69
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-98aea83f54a8ae5912c3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full ASL source uses a static dummy phrase, not a language-model fallback; corrected both observation and application.",
+          "candidate_sha256": "1214d0953db8d035f8ac0331cd2640bc810032f8b7f9527dfd7e5e26fe40075b"
+        }
+      ],
+      "book_location": {
+        "chapter": 62,
+        "path": "manuscript/chapters/62-kaggle-landscape-2024-2026.md",
+        "sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
+        "line_start": 71,
+        "line_end": 75,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

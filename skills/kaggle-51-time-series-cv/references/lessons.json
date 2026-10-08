@@ -1,0 +1,2805 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-eee403f2dab743a13a62",
+      "canonical_key": "check spatial/temporal proximity leakage when scaling training data and use genuinely separated periods for proposed validation. | new training rows are near validation rows in space and time | validation_reliability",
+      "title": "Revisit random validation as dense physical training expands",
+      "statement": "When new training rows are near validation rows in space and time, proposed reuse: Proposed conditional application: Check spatial/temporal proximity leakage when scaling training data and use genuinely separated periods for proposed validation. Proposed check: Hold out independent year/spacetime blocks and quantify nearest-training distances versus random-split score. Limitation: Public tuning can overfit; local spatial blocking does not necessarily cover future-year shifts.",
+      "trigger_conditions": [
+        "new training rows are near validation rows in space and time"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Check spatial/temporal proximity leakage when scaling training data and use genuinely separated periods for proposed validation."
+      ],
+      "verification_steps": [
+        "Proposed check: Hold out independent year/spacetime blocks and quantify nearest-training distances versus random-split score."
+      ],
+      "limitations": [
+        "Public tuning can overfit; local spatial blocking does not necessarily cover future-year shifts."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The climate author notes that expanded training data contained rows near validation coordinates and times, while using public scoring for final tuning.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-84125367d848207353aa"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear leakage audit with coordinate-aware split work.",
+        "competitor": "High value when adding dense correlated samples.",
+        "practitioner": "Critical environmental surrogate generalization check."
+      },
+      "review": {
+        "candidate_id": "C-eee403f2dab743a13a62",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "LEAP author admits nearby spacetime validation and public-LB tuning; separated validation is proposed correction.",
+        "candidate_sha256": "0c65ecdc8ba97ab0912ce0e72ee2bbb8bfd15bcb73394ae679219d06a4cffb12"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000060",
+      "slug": "lesson-000060",
+      "merged_candidate_ids": [
+        "C-eee403f2dab743a13a62"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-e9828d6ff99f4bb4e36f",
+          "competition_id": "competition:leap-atmospheric-physics-ai-climsim",
+          "source_id": "source:lesson-source-8cbeb88f51c831fe",
+          "snapshot_path": "research/lesson-extraction/snapshots/a2c60d837267a177252ef06194dff4d1763ce787eb8227de0349d4aafe605ded.txt",
+          "snapshot_sha256": "a2c60d837267a177252ef06194dff4d1763ce787eb8227de0349d4aafe605ded",
+          "source_url": "https://www.kaggle.com/competitions/leap-atmospheric-physics-ai-climsim/writeups/greysnow-no-leaky-1st-place-solution-for-the-leap-",
+          "source_quality": "primary_text",
+          "observation_id": "O-84125367d848207353aa",
+          "line_start": 175,
+          "line_end": 175,
+          "evidence_text": "it includes samples that are very close in time to the local validation samples and with the same latitude/longitude",
+          "kind": "reported_failure",
+          "statement": "The climate author notes that expanded training data contained rows near validation coordinates and times, while using public scoring for final tuning.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear leakage audit with coordinate-aware split work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High value when adding dense correlated samples.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Critical environmental surrogate generalization check.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8cbeb88f51c831fe",
+          "locator": "research/lesson-extraction/snapshots/a2c60d837267a177252ef06194dff4d1763ce787eb8227de0349d4aafe605ded.txt#L175-L175",
+          "quote": "it includes samples that are very close in time to the local validation samples and with the same latitude/longitude",
+          "competition_id": "competition:leap-atmospheric-physics-ai-climsim",
+          "url": "https://www.kaggle.com/competitions/leap-atmospheric-physics-ai-climsim/writeups/greysnow-no-leaky-1st-place-solution-for-the-leap-",
+          "snapshot_path": "research/lesson-extraction/snapshots/a2c60d837267a177252ef06194dff4d1763ce787eb8227de0349d4aafe605ded.txt",
+          "snapshot_sha256": "a2c60d837267a177252ef06194dff4d1763ce787eb8227de0349d4aafe605ded",
+          "line_start": 175,
+          "line_end": 175
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-eee403f2dab743a13a62",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "LEAP author admits nearby spacetime validation and public-LB tuning; separated validation is proposed correction.",
+          "candidate_sha256": "0c65ecdc8ba97ab0912ce0e72ee2bbb8bfd15bcb73394ae679219d06a4cffb12"
+        },
+        {
+          "candidate_id": "C-eee403f2dab743a13a62",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "LEAP author explicitly suspects time/location-near random holdout overfit after training expansion and finally tunes publicLB; source does not use isolated-year holdouts. Candidate labels block/year evaluation proposed and retains public-tuning/future-shift caveats. Impact/actionability4 and moderate split feasibility3 fit scope.",
+          "candidate_sha256": "0c65ecdc8ba97ab0912ce0e72ee2bbb8bfd15bcb73394ae679219d06a4cffb12"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 97,
+        "line_end": 101,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-6489818b156c6b73",
+      "canonical_key": "compare exponential recency weighting with an equal-weight linear trend under matched forecast origins. | older observations may be less representative of future trend | predictive_quality",
+      "title": "Test recency-weighted trend fitting",
+      "statement": "When older observations may be less representative of future trend, consider this source-backed action: Compare exponential recency weighting with an equal-weight linear trend under matched forecast origins. Proposed check: Tune decay on held-out origins and inspect series where recency weighting fails. Limit: The decay rate and numeric improvement are absent; author-reported causality is not a controlled ablation.",
+      "trigger_conditions": [
+        "older observations may be less representative of future trend"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare exponential recency weighting with an equal-weight linear trend under matched forecast origins."
+      ],
+      "verification_steps": [
+        "Proposed verification: Tune decay on held-out origins and inspect series where recency weighting fails."
+      ],
+      "limitations": [
+        "The decay rate and numeric improvement are absent; author-reported causality is not a controlled ablation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "travel"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used exponentially weighted least-squares trend fitting and reports better predictions for many series and lower blended MASE.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-6489818b156c6b73"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Manageable weighted regression experiment with a decay parameter.",
+        "competitor": "Useful nonstationary-trend baseline with few modeling costs.",
+        "practitioner": "Transfers to changing series when decay is tested historically."
+      },
+      "review": {
+        "candidate_id": "C-a-6489818b156c6b73",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Exponential recency-weighted trend reportedly improves many series and blend; no decay or numeric gain supplied.",
+        "candidate_sha256": "8801b4f94dcdf27ff7574543b4ac887c945f500054c1fd0508e3450d4c8affa5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000120",
+      "slug": "lesson-000120",
+      "merged_candidate_ids": [
+        "C-a-6489818b156c6b73"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-5ca713e322c9113bf75b",
+          "competition_id": "competition:tourism1",
+          "source_id": "source:lesson-source-041ebfcb575f5f14",
+          "snapshot_path": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt",
+          "snapshot_sha256": "82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee",
+          "source_url": "http://blog.kaggle.com/2010/09/27/how-i-did-it-lee-baker-on-winning-tourism-forecasting-part-one/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-6489818b156c6b73",
+          "line_start": 15,
+          "line_end": 15,
+          "evidence_text": "#3: In thinking about these two predictors, I recognized that the naive predictor, though accurate, throws away most of the provided data, and only uses a single element of the time series. The polynomial line predictor uses all of the data, weighted equally, though the most recent data is probably of more value in indicating future performance than the earlier data in the time series. I examined and eventually used an exponentially-weighted least squares regression to fit a line to the data. This algorithm gave more accurate predictions for many of the time series by itself, and also lowered the MASE when used in combination with the two above predictors. The r**2 value of this fit was also used for blending the predictors.",
+          "kind": "reported_gain",
+          "statement": "The author used exponentially weighted least-squares trend fitting and reports better predictions for many series and lower blended MASE.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Manageable weighted regression experiment with a decay parameter.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful nonstationary-trend baseline with few modeling costs.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Transfers to changing series when decay is tested historically.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-041ebfcb575f5f14",
+          "locator": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt#L15-L15",
+          "quote": "#3: In thinking about these two predictors, I recognized that the naive predictor, though accurate, throws away most of the provided data, and only uses a single element of the time series. The polynomial line predictor uses all of the data, weighted equally, though the most recent data is probably of more value in indicating future performance than the earlier data in the time series. I examined and eventually used an exponentially-weighted least squares regression to fit a line to the data. This algorithm gave more accurate predictions for many of the time series by itself, and also lowered the MASE when used in combination with the two above predictors. The r**2 value of this fit was also used for blending the predictors.",
+          "competition_id": "competition:tourism1",
+          "url": "http://blog.kaggle.com/2010/09/27/how-i-did-it-lee-baker-on-winning-tourism-forecasting-part-one/",
+          "snapshot_path": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt",
+          "snapshot_sha256": "82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee",
+          "line_start": 15,
+          "line_end": 15
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-6489818b156c6b73",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Exponential recency-weighted trend reportedly improves many series and blend; no decay or numeric gain supplied.",
+          "candidate_sha256": "8801b4f94dcdf27ff7574543b4ac887c945f500054c1fd0508e3450d4c8affa5"
+        },
+        {
+          "candidate_id": "C-a-6489818b156c6b73",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete tourism source read. ExponentialweightedLS reported manyseries/blend benefit without decay/numbers; matchedorigin decay check proposed and uncontrolled causality limited. Grades reasonable.",
+          "candidate_sha256": "8801b4f94dcdf27ff7574543b4ac887c945f500054c1fd0508e3450d4c8affa5"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 159,
+        "line_end": 163,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-c5fe301f9a03708c",
+      "canonical_key": "compare otherwise matched models with and without the most recent month of training data. | a forecast must be made beyond a substantial data-delivery lag | predictive_quality",
+      "title": "Test how much recent training history matters",
+      "statement": "When a forecast must be made beyond a substantial data-delivery lag, consider this source-backed action: Compare otherwise matched models with and without the most recent month of training data. Proposed check: Repeat across several historical forecast origins and report horizon-specific loss. Limit: No numeric comparison is given; the finding does not justify omitting recent data for other series.",
+      "trigger_conditions": [
+        "a forecast must be made beyond a substantial data-delivery lag"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare otherwise matched models with and without the most recent month of training data."
+      ],
+      "verification_steps": [
+        "Proposed verification: Repeat across several historical forecast origins and report horizon-specific loss."
+      ],
+      "limitations": [
+        "No numeric comparison is given; the finding does not justify omitting recent data for other series."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "retail"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "A Rossmann model excluding the most recent month performed almost as well as one including it; the author explicitly calls this finding dataset-specific.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-c5fe301f9a03708c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Clear controlled comparison to test data delivery lag.",
+        "competitor": "Useful horizon-specific sensitivity experiment rather than blanket truncation.",
+        "practitioner": "Useful robustness estimate when recent observations arrive late."
+      },
+      "review": {
+        "candidate_id": "C-a-c5fe301f9a03708c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Recent-month exclusion nearly matched full history only in Rossmann; no numeric effect is available.",
+        "candidate_sha256": "d5ed95f980e51fa9a99608ff1f400c8e7dc32687f07fbe74a62fd46f164fc4e7"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000155",
+      "slug": "lesson-000155",
+      "merged_candidate_ids": [
+        "C-a-c5fe301f9a03708c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-800cd88f622f426d310a",
+          "competition_id": "competition:rossmann-store-sales",
+          "source_id": "source:lesson-source-5bc50e33cfc5af8f",
+          "snapshot_path": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt",
+          "snapshot_sha256": "7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d",
+          "source_url": "http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-c5fe301f9a03708c",
+          "line_start": 43,
+          "line_end": 43,
+          "evidence_text": "Yes, I was surprised that a model without the most recent month of data (that I used to predict sales further ahead) did almost as well as a model that did include recent data. This finding is very specific for the Rossmann data, and it means that short term changes are less important than they often are in forecasting.",
+          "kind": "used",
+          "statement": "A Rossmann model excluding the most recent month performed almost as well as one including it; the author explicitly calls this finding dataset-specific.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Clear controlled comparison to test data delivery lag.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful horizon-specific sensitivity experiment rather than blanket truncation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Useful robustness estimate when recent observations arrive late.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5bc50e33cfc5af8f",
+          "locator": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt#L43-L43",
+          "quote": "Yes, I was surprised that a model without the most recent month of data (that I used to predict sales further ahead) did almost as well as a model that did include recent data. This finding is very specific for the Rossmann data, and it means that short term changes are less important than they often are in forecasting.",
+          "competition_id": "competition:rossmann-store-sales",
+          "url": "http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/",
+          "snapshot_path": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt",
+          "snapshot_sha256": "7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d",
+          "line_start": 43,
+          "line_end": 43
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-c5fe301f9a03708c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Recent-month exclusion nearly matched full history only in Rossmann; no numeric effect is available.",
+          "candidate_sha256": "d5ed95f980e51fa9a99608ff1f400c8e7dc32687f07fbe74a62fd46f164fc4e7"
+        },
+        {
+          "candidate_id": "C-a-c5fe301f9a03708c",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full Rossmann interview read. Missing recent months almost as good is Rossmann-specific qualitative report; matched historical-origin lag experiment proposed. Moderate impact and applicability limits reasonable.",
+          "candidate_sha256": "d5ed95f980e51fa9a99608ff1f400c8e7dc32687f07fbe74a62fd46f164fc4e7"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 103,
+        "line_end": 107,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-8de39b0be1cb8659af00",
+      "canonical_key": "compare short recent training windows with longer histories using a forward validation period. | retail histories change and the forecast window is recent | validation_reliability",
+      "title": "Test recent-only training when older sales data hurts",
+      "statement": "When retail histories change and the forecast window is recent, proposed reuse: Proposed conditional application: Compare short recent training windows with longer histories using a forward validation period. Proposed check: Sweep training-history lengths on multiple rolling future windows at equal horizon; inspect seasonal/rare-item errors. Limitation: Short windows can lose annual seasonality; one historical competition period is insufficient.",
+      "trigger_conditions": [
+        "retail histories change and the forecast window is recent"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare short recent training windows with longer histories using a forward validation period."
+      ],
+      "verification_steps": [
+        "Proposed check: Sweep training-history lengths on multiple rolling future windows at equal horizon; inspect seasonal/rare-item errors."
+      ],
+      "limitations": [
+        "Short windows can lose annual seasonality; one historical competition period is insufficient."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The purchase author reports that using more historical data failed and a sixteen-day model had a smaller public/private gap.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-720882eeea0ca477addf"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible history-window experiment.",
+        "competitor": "Useful under sales regime change.",
+        "practitioner": "Practical recency tradeoff with rolling checks."
+      },
+      "review": {
+        "candidate_id": "C-8de39b0be1cb8659af00",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete Favorita source uses 2017 windows and says more data failed; narrow-window leaderboard gaps are not isolated forecast gain.",
+        "candidate_sha256": "46e2402c81d756b8844e07b4e78f7fa6dd8d9efd11eeb1c5f7627a0dc5cd6365"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000177",
+      "slug": "lesson-000177",
+      "merged_candidate_ids": [
+        "C-8de39b0be1cb8659af00"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a4477e9ab5ab0d88c699",
+          "competition_id": "competition:favorita-grocery-sales-forecasting",
+          "source_id": "source:lesson-source-c9e0fc9c55127144",
+          "snapshot_path": "research/lesson-extraction/snapshots/ea5cb91f84fba7f68bf0c353895c8b020d1ce3c83dc155dcb3f646204e040f8c.txt",
+          "snapshot_sha256": "ea5cb91f84fba7f68bf0c353895c8b020d1ce3c83dc155dcb3f646204e040f8c",
+          "source_url": "https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting/writeups/w-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-720882eeea0ca477addf",
+          "line_start": 32,
+          "line_end": 32,
+          "evidence_text": "In fact, we tried to use more data but failed.",
+          "kind": "reported_failure",
+          "statement": "The purchase author reports that using more historical data failed and a sixteen-day model had a smaller public/private gap.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Accessible history-window experiment.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful under sales regime change.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Practical recency tradeoff with rolling checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c9e0fc9c55127144",
+          "locator": "research/lesson-extraction/snapshots/ea5cb91f84fba7f68bf0c353895c8b020d1ce3c83dc155dcb3f646204e040f8c.txt#L32-L32",
+          "quote": "In fact, we tried to use more data but failed.",
+          "competition_id": "competition:favorita-grocery-sales-forecasting",
+          "url": "https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting/writeups/w-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/ea5cb91f84fba7f68bf0c353895c8b020d1ce3c83dc155dcb3f646204e040f8c.txt",
+          "snapshot_sha256": "ea5cb91f84fba7f68bf0c353895c8b020d1ce3c83dc155dcb3f646204e040f8c",
+          "line_start": 32,
+          "line_end": 32
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-8de39b0be1cb8659af00",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete Favorita source uses 2017 windows and says more data failed; narrow-window leaderboard gaps are not isolated forecast gain.",
+          "candidate_sha256": "46e2402c81d756b8844e07b4e78f7fa6dd8d9efd11eeb1c5f7627a0dc5cd6365"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 109,
+        "line_end": 113,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-b7e006f4c4292bcd",
+      "canonical_key": "construct the holdout using the same time or geographic separation mechanism as the intended test. | the evaluation split mechanism is known | validation_reliability",
+      "title": "Match the holdout split to the test-generation mechanism",
+      "statement": "When the evaluation split mechanism is known, consider this source-backed action: Construct the holdout using the same time or geographic separation mechanism as the intended test. Proposed check: Check prediction horizon and group separation; retain another untouched check after repeated tuning. Limit: The public leaderboard is not an independent remedy for repeated holdout tuning, despite the author\u2019s advice in this paragraph.",
+      "trigger_conditions": [
+        "the evaluation split mechanism is known"
+      ],
+      "action_steps": [
+        "Author advice: Construct the holdout using the same time or geographic separation mechanism as the intended test."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check prediction horizon and group separation; retain another untouched check after repeated tuning."
+      ],
+      "limitations": [
+        "The public leaderboard is not an independent remedy for repeated holdout tuning, despite the author\u2019s advice in this paragraph."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "retail"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Gert Jacobusse used a time-based holdout for Rossmann and reported that local improvements predicted leaderboard improvements.",
+          "basis": "observed"
+        },
+        {
+          "description": "For another forecasting task, imitate the intended time or geographic split mechanism and retain an untouched check after repeated tuning.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-b7e006f4c4292bcd"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Foundational validation principle with concrete time and city examples.",
+        "competitor": "Critical model ranking safeguard when test separation differs from random splits.",
+        "practitioner": "Broadly useful deployment-aligned validation with untouched final checks."
+      },
+      "review": {
+        "candidate_id": "C-a-b7e006f4c4292bcd",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Read complete Rossmann packet: imitating time or city split mechanism is explicit conditional author advice. Direct attribution is retained; untouched validation safeguard remains separately proposed. Historical Rossmann time-holdout application is now observed, with target-task adaptation in a separate proposed application.",
+        "candidate_sha256": "3b1d2215fdfa55621eed3c7d64a47a75d9950c239f6d398db55c9c49d47a3c19"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000210",
+      "slug": "lesson-000210",
+      "merged_candidate_ids": [
+        "C-a-b7e006f4c4292bcd"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-800cd88f622f426d310a",
+          "competition_id": "competition:rossmann-store-sales",
+          "source_id": "source:lesson-source-5bc50e33cfc5af8f",
+          "snapshot_path": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt",
+          "snapshot_sha256": "7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d",
+          "source_url": "http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-b7e006f4c4292bcd",
+          "line_start": 31,
+          "line_end": 39,
+          "evidence_text": "The most important insight was that I could reliably predict performance improvements based on a hold out set within the trainset. Because of this insight, I did not overfit the public test set, so my model worked very well on the public test set as well as the unseen private test set that was four weeks further ahead.\n\nDo you always use hold out sets to validate your model in every competition?\n\nYes, sometimes using cross-validation (with multiple holdout sets) and sometimes with a single holdout set, like I did in this competition. The advantage of a holdout set is that I can use the public test set as a real test set, not a set that gives me feedback to improve my model. As a consequence, I get reliable feedback about how much I overfitted my own holdout set. Therefore, I do not like competitions where the train/ test split is not-random, while the public/ private split is random: in such competitions, you can build a better model by using feedback from the public leaderboard. I do not like that because I am not aware of any real life problem that would require such an approach. This competition was ideal for me: the train test split was time based, and so was the public/private split!\n\nDo you have any recommendations for selecting data for a hold out set and using it most effectively?\n\nFor selecting a hold out set, I always try to imitate the way that the train and test set were split. So, if it is a time split, I split my holdout sample time based; if it is a geographical split by city, I split my holdout set by city; and if it is a random split, then my holdout split will be random as well. You can effectively use a holdout set to push the limit towards how much you can learn from the data without overfitting. Don't be afraid to overfit your holdout set, the public leaderboard will tell you if you do so.",
+          "kind": "author_advice",
+          "statement": "The author used a time holdout in Rossmann and advised mimicking time, geographic or random train/test splitting in validation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Foundational validation principle with concrete time and city examples.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Critical model ranking safeguard when test separation differs from random splits.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broadly useful deployment-aligned validation with untouched final checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5bc50e33cfc5af8f",
+          "locator": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt#L31-L39",
+          "quote": "The most important insight was that I could reliably predict performance improvements based on a hold out set within the trainset. Because of this insight, I did not overfit the public test set, so my model worked very well on the public test set as well as the unseen private test set that was four weeks further ahead.\n\nDo you always use hold out sets to validate your model in every competition?\n\nYes, sometimes using cross-validation (with multiple holdout sets) and sometimes with a single holdout set, like I did in this competition. The advantage of a holdout set is that I can use the public test set as a real test set, not a set that gives me feedback to improve my model. As a consequence, I get reliable feedback about how much I overfitted my own holdout set. Therefore, I do not like competitions where the train/ test split is not-random, while the public/ private split is random: in such competitions, you can build a better model by using feedback from the public leaderboard. I do not like that because I am not aware of any real life problem that would require such an approach. This competition was ideal for me: the train test split was time based, and so was the public/private split!\n\nDo you have any recommendations for selecting data for a hold out set and using it most effectively?\n\nFor selecting a hold out set, I always try to imitate the way that the train and test set were split. So, if it is a time split, I split my holdout sample time based; if it is a geographical split by city, I split my holdout set by city; and if it is a random split, then my holdout split will be random as well. You can effectively use a holdout set to push the limit towards how much you can learn from the data without overfitting. Don't be afraid to overfit your holdout set, the public leaderboard will tell you if you do so.",
+          "competition_id": "competition:rossmann-store-sales",
+          "url": "http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/",
+          "snapshot_path": "research/lesson-extraction/snapshots/7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d.txt",
+          "snapshot_sha256": "7edcee9dfbfa6c784590f61a6ffe5da15edfc3c4df0f5359a383edfeaad9ce7d",
+          "line_start": 31,
+          "line_end": 39
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-b7e006f4c4292bcd",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Read complete Rossmann packet: imitating time or city split mechanism is explicit conditional author advice. Direct attribution is retained; untouched validation safeguard remains separately proposed. Historical Rossmann time-holdout application is now observed, with target-task adaptation in a separate proposed application.",
+          "candidate_sha256": "3b1d2215fdfa55621eed3c7d64a47a75d9950c239f6d398db55c9c49d47a3c19"
+        },
+        {
+          "candidate_id": "C-a-b7e006f4c4292bcd",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full Rossmann packet and final record reread. Actual timeholdout/directional agreement now observed; targettask adaptation separate proposed. Direct split-imitation Authoradvice faithful and untouched/horizon checks proposed. Publicoverfit warning retained and grades reasonable; final basis repair accepted.",
+          "candidate_sha256": "3b1d2215fdfa55621eed3c7d64a47a75d9950c239f6d398db55c9c49d47a3c19"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 115,
+        "line_end": 119,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-46f641c99ab5b626",
+      "canonical_key": "evaluate on held-out rows matching the test-hour window and also retain a full-day diagnostic. | test traffic occupies a restricted time-of-day window | validation_reliability",
+      "title": "Match validation hours to the submission window",
+      "statement": "When test traffic occupies a restricted time-of-day window, consider this source-backed action: Evaluate on held-out rows matching the test-hour window and also retain a full-day diagnostic. Proposed check: Check hour coverage, date separation and label prevalence in both evaluation views. Limit: Matching hours does not address all date-level distribution shifts; no comparison is reported.",
+      "trigger_conditions": [
+        "test traffic occupies a restricted time-of-day window"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Evaluate on held-out rows matching the test-hour window and also retain a full-day diagnostic."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check hour coverage, date separation and label prevalence in both evaluation views."
+      ],
+      "limitations": [
+        "Matching hours does not address all date-level distribution shifts; no comparison is reported."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "advertising"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Validation data is filtered by click hour because submission test data covers only a small part of one day.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-46f641c99ab5b626"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Accessible conditional validation with explicit hour coverage.",
+        "competitor": "Improves relevance of local ranking to restricted submission traffic.",
+        "practitioner": "Useful operating-window evaluation, while broader drift needs separate checks."
+      },
+      "review": {
+        "candidate_id": "C-a-46f641c99ab5b626",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Validation hour filtering matches restricted test window; full-day diagnostic and date separation are proposed checks.",
+        "candidate_sha256": "09b3df046930c77cc35ef64865856a8de8d8cc3a1a60dd36f6d13583236e2404"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000249",
+      "slug": "lesson-000249",
+      "merged_candidate_ids": [
+        "C-a-46f641c99ab5b626"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-3defa506f019cf7b4ec4",
+          "competition_id": "competition:talkingdata-adtracking-fraud-detection",
+          "source_id": "source:lesson-source-bbfbf46a45253cba",
+          "snapshot_path": "research/lesson-extraction/snapshots/3644cb08a22aef40738668588b6d05b7b3e6bbec7174c2bc107a47f70a724902.txt",
+          "snapshot_sha256": "3644cb08a22aef40738668588b6d05b7b3e6bbec7174c2bc107a47f70a724902",
+          "source_url": "https://raw.githubusercontent.com/flowlight0/talkingdata-adtracking-fraud-detection/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-46f641c99ab5b626",
+          "line_start": 108,
+          "line_end": 109,
+          "evidence_text": "* test_hours:\n  * filter_validation: If filter_validation = true, we filter out validation data based on its click hour because test dataset for submission contains an only small time-range of one day.  ",
+          "kind": "used",
+          "statement": "Validation data is filtered by click hour because submission test data covers only a small part of one day.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Accessible conditional validation with explicit hour coverage.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Improves relevance of local ranking to restricted submission traffic.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Useful operating-window evaluation, while broader drift needs separate checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-bbfbf46a45253cba",
+          "locator": "research/lesson-extraction/snapshots/3644cb08a22aef40738668588b6d05b7b3e6bbec7174c2bc107a47f70a724902.txt#L108-L109",
+          "quote": "* test_hours:\n  * filter_validation: If filter_validation = true, we filter out validation data based on its click hour because test dataset for submission contains an only small time-range of one day.  ",
+          "competition_id": "competition:talkingdata-adtracking-fraud-detection",
+          "url": "https://raw.githubusercontent.com/flowlight0/talkingdata-adtracking-fraud-detection/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/3644cb08a22aef40738668588b6d05b7b3e6bbec7174c2bc107a47f70a724902.txt",
+          "snapshot_sha256": "3644cb08a22aef40738668588b6d05b7b3e6bbec7174c2bc107a47f70a724902",
+          "line_start": 108,
+          "line_end": 109
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-46f641c99ab5b626",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Validation hour filtering matches restricted test window; full-day diagnostic and date separation are proposed checks.",
+          "candidate_sha256": "09b3df046930c77cc35ef64865856a8de8d8cc3a1a60dd36f6d13583236e2404"
+        },
+        {
+          "candidate_id": "C-a-46f641c99ab5b626",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete TalkingData README read. Clickhour validation filter matches restricted testwindow, date/prevalence/full-day diagnostics proposed. No fullshift remedy claimed; grades appropriate.",
+          "candidate_sha256": "09b3df046930c77cc35ef64865856a8de8d8cc3a1a60dd36f6d13583236e2404"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 121,
+        "line_end": 125,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-b38948bd38a9fc2ec571",
+      "canonical_key": "fit environment-specific models with explicitly selected historical windows | separate environments have different historical data coverage and drift | distribution_adaptation",
+      "title": "Compare subgroup-specific training windows",
+      "statement": "When separate environments have different historical data coverage and drift, fit environment-specific models with explicitly selected historical windows. Compare pooled and per-city models on the same forward holdout and audit sample counts for every city/window. The per-city windows and settings have no pooled-model comparison. Learning rate and depth can carry across loop iterations, and precomputed features require a separate temporal-availability audit.",
+      "trigger_conditions": [
+        "separate environments have different historical data coverage and drift"
+      ],
+      "action_steps": [
+        "Proposed: fit environment-specific models with explicitly selected historical windows."
+      ],
+      "verification_steps": [
+        "Proposed: compare pooled and per-city models on the same forward holdout and audit sample counts for every city/window."
+      ],
+      "limitations": [
+        "The per-city windows and settings have no pooled-model comparison. Learning rate and depth can carry across loop iterations, and precomputed features require a separate temporal-availability audit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "multi_output_regression"
+        ],
+        "application_domains": [
+          "civic_engagement"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "distribution_adaptation"
+        ],
+        "risk_tags": [
+          "validation_overfitting",
+          "temporal_availability",
+          "configuration_state"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for see-click-predict-fix: The city loop selects different training-day windows, tree counts and learning rates for Chicago, Oakland, Richmond and New Haven.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare explicit per-city window configurations with pooled training on the same forward holdout and audit subgroup sample counts.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-df6e5ecc1c02ffecad2c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner faces many environment-specific knobs with no validated recipe to copy.",
+        "competitor": "Competitor can test subgroup-specific windows when history/drift differs, but multiple comparisons and sparse-city samples limit value.",
+        "practitioner": "Practitioner can tailor retraining horizons by environment, needing pooled benchmarks, sample sufficiency and explicit configurations."
+      },
+      "review": {
+        "candidate_id": "C-b38948bd38a9fc2ec571",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete city loop implements different windows and GBM settings; LR/depth defaults are mutable and can carry across iterations. No pooled-versus-city comparison supports benefit. Precomputed target/history features and all-city constant-column detection require availability audits.",
+        "candidate_sha256": "7b3f1a2f42968c78357a0a4369ff3bc37dae959adddccea727cfb2c75666d544"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000281",
+      "slug": "lesson-000281",
+      "merged_candidate_ids": [
+        "C-b38948bd38a9fc2ec571"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-76500951612b9d4b0d4d",
+          "competition_id": "competition:see-click-predict-fix",
+          "source_id": "source:lesson-source-ab02f030541ef80a",
+          "snapshot_path": "research/lesson-extraction/snapshots/93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859.txt",
+          "snapshot_sha256": "93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859",
+          "source_url": "https://raw.githubusercontent.com/blindape/seeclickpredictfix/HEAD/models.R",
+          "source_quality": "primary_code",
+          "observation_id": "O-df6e5ecc1c02ffecad2c",
+          "line_start": 771,
+          "line_end": 795,
+          "evidence_text": "\tcities <- c('New_Haven', 'Oakland', 'Richmond', 'Chicago')\n\tfor (CITY in cities) {\n\t\tload(file=paste(DATA_PATH, 'bigdata.RData', sep=''))\n\t\tif (CITY=='Chicago') {\n\t\t\tTRAIN_LENGTH = 180\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\t\t\t\n\t\t\tID = 8\n\t\t\tLR = 0.002\n\t\t\tTREES = 1300\n\t\t}\n\t\tif (CITY=='Oakland') {\n\t\t\tLR = 0.005\n\t\t\tTRAIN_LENGTH = 1000\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\n\t\t\tTREES = 2300\n\t\t}\n\t\tif (CITY=='Richmond') {\n\t\t\tTRAIN_LENGTH = 120\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\n\t\t\tTREES = 3500\n\t\t}\n\t\tif (CITY=='New_Haven') {\n\t\t\tTRAIN_LENGTH = 120\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\n\t\t\tTREES = 8500",
+          "kind": "used",
+          "statement": "The city loop selects different training-day windows, tree counts and learning rates for Chicago, Oakland, Richmond and New Haven.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Beginner faces many environment-specific knobs with no validated recipe to copy.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Competitor can test subgroup-specific windows when history/drift differs, but multiple comparisons and sparse-city samples limit value.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner can tailor retraining horizons by environment, needing pooled benchmarks, sample sufficiency and explicit configurations.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ab02f030541ef80a",
+          "locator": "research/lesson-extraction/snapshots/93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859.txt#L771-L795",
+          "quote": "\tcities <- c('New_Haven', 'Oakland', 'Richmond', 'Chicago')\n\tfor (CITY in cities) {\n\t\tload(file=paste(DATA_PATH, 'bigdata.RData', sep=''))\n\t\tif (CITY=='Chicago') {\n\t\t\tTRAIN_LENGTH = 180\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\t\t\t\n\t\t\tID = 8\n\t\t\tLR = 0.002\n\t\t\tTREES = 1300\n\t\t}\n\t\tif (CITY=='Oakland') {\n\t\t\tLR = 0.005\n\t\t\tTRAIN_LENGTH = 1000\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\n\t\t\tTREES = 2300\n\t\t}\n\t\tif (CITY=='Richmond') {\n\t\t\tTRAIN_LENGTH = 120\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\n\t\t\tTREES = 3500\n\t\t}\n\t\tif (CITY=='New_Haven') {\n\t\t\tTRAIN_LENGTH = 120\n\t\t\tTRAIN_BEGIN = TEST_BEGIN - TRAIN_LENGTH\n\t\t\tTREES = 8500",
+          "competition_id": "competition:see-click-predict-fix",
+          "url": "https://raw.githubusercontent.com/blindape/seeclickpredictfix/HEAD/models.R",
+          "snapshot_path": "research/lesson-extraction/snapshots/93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859.txt",
+          "snapshot_sha256": "93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859",
+          "line_start": 771,
+          "line_end": 795
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-b38948bd38a9fc2ec571",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete city loop implements different windows and GBM settings; LR/depth defaults are mutable and can carry across iterations. No pooled-versus-city comparison supports benefit. Precomputed target/history features and all-city constant-column detection require availability audits.",
+          "candidate_sha256": "7b3f1a2f42968c78357a0a4369ff3bc37dae959adddccea727cfb2c75666d544"
+        },
+        {
+          "candidate_id": "C-b38948bd38a9fc2ec571",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete per-city implementation changes windows/tree counts, permits learning rate/depth state carryover and imports feature datasets. Candidate explicitly proposes pooled versus subgroup comparison, shared forward holdout, sample checks and explicit configurations rather than claiming validated adaptation gain. Conservative specialized grades reflect multiple knobs and sparse subgroup risk.",
+          "candidate_sha256": "7b3f1a2f42968c78357a0a4369ff3bc37dae959adddccea727cfb2c75666d544"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 167,
+        "line_end": 171,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-51940d2a2381c4297f75",
+      "canonical_key": "fit the transform on each training window and transform its held-out window before early-stopped model fitting | time-ordered regression tuned across expanding windows | validation_reliability",
+      "title": "Fit transforms within expanding validation windows",
+      "statement": "For time-ordered regression tuned across expanding windows, fit the transform on each training window and transform its held-out window before early-stopped model fitting. Verify expanding-window chronology and the forecast gap from the actual splitter; ensure any target encoder fits only the training portion. The splitter implementation is imported, so this packet establishes the expanding-window constructor and fold-local calls, not its exact index leakage guarantees.",
+      "trigger_conditions": [
+        "time-ordered regression tuned across expanding windows"
+      ],
+      "action_steps": [
+        "Proposed: fit the transform on each training window and transform its held-out window before early-stopped model fitting."
+      ],
+      "verification_steps": [
+        "Proposed: verify expanding-window chronology and the forecast gap from the actual splitter; ensure any target encoder fits only the training portion."
+      ],
+      "limitations": [
+        "The splitter implementation is imported, so this packet establishes the expanding-window constructor and fold-local calls, not its exact index leakage guarantees."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "glucose_forecasting"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "leakage",
+          "overfitting",
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for brist1d: The tuning loop fits transformer on X_train/y_train, transforms X_test, trains LightGBM against that held-out eval_set and records fold RMSE/best iteration.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: use expanding history folds with fold-local encoders and an untouched later-period test.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-0ad8ec9c98bc647da70f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A clear chronological pipeline example, though custom splitting and tuning add implementation complexity.",
+        "competitor": "Useful fold-local transforms for forecasting; audit gaps and reserve later unseen data after tuning.",
+        "practitioner": "Transfers to temporal prediction if information availability and horizon overlap are explicitly enforced."
+      },
+      "review": {
+        "candidate_id": "C-51940d2a2381c4297f75",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read complete train.py: every CV window refits transformer on its training indices and transforms holdout; early stopping and Optuna tuning use those holdouts. ExpandingWindowCV is imported, so its actual chronological/gap guarantees remain unchecked and tuning CV is not an independent final test.",
+        "candidate_sha256": "2ade8b2e4c1af40710a4da053833c5fa891020ddf4a60545a8a984d5a2c3f1d2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000289",
+      "slug": "lesson-000289",
+      "merged_candidate_ids": [
+        "C-51940d2a2381c4297f75"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2f07fb6f2d34620c4194",
+          "competition_id": "competition:brist1d",
+          "source_id": "source:lesson-source-c49b596cd04e50f0",
+          "snapshot_path": "research/lesson-extraction/snapshots/0688e608b71e9994e937845aea984032b8845e8341f22b996df20473cb63cbbb.txt",
+          "snapshot_sha256": "0688e608b71e9994e937845aea984032b8845e8341f22b996df20473cb63cbbb",
+          "source_url": "https://raw.githubusercontent.com/scuya2050/brist1d_blood_glucose_prediction_competition/HEAD/train.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-0ad8ec9c98bc647da70f",
+          "line_start": 62,
+          "line_end": 95,
+          "evidence_text": "    for idx, (train_idx, test_idx) in enumerate(cv.split(X)):\n        print(f'running fold n\u00b0 {idx + 1}')\n        X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]\n        y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]\n        # train_weights, test_weights = weights.iloc[train_idx], weights.iloc[test_idx]\n\n        X_train = transformer.fit_transform(X_train, y_train)\n        X_test = transformer.transform(X_test)\n        \n        regressor.fit(\n            X_train,\n            y_train,\n            # sample_weight=train_weights,\n            eval_set=[(X_test, y_test)],\n            # eval_sample_weight=[(test_weights)],\n            eval_metric=\"rmse\",\n            callbacks=[\n                # lgb.log_evaluation(\n                #     100\n                # ),\n                lgb.early_stopping(\n                    stopping_rounds=250, \n                    # min_delta=0.001, \n                    verbose=False\n                ),\n                # LightGBMPruningCallback(trial, 'rmse')\n            ]\n        )\n            \n        best_n_estimators = regressor.best_iteration_\n        preds = regressor.predict(X_test)\n        \n        cv_scores[idx] = root_mean_squared_error(y_test, preds)\n        cv_n_estimators[idx] = best_n_estimators",
+          "kind": "used",
+          "statement": "The tuning loop fits transformer on X_train/y_train, transforms X_test, trains LightGBM against that held-out eval_set and records fold RMSE/best iteration.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "A clear chronological pipeline example, though custom splitting and tuning add implementation complexity.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful fold-local transforms for forecasting; audit gaps and reserve later unseen data after tuning.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to temporal prediction if information availability and horizon overlap are explicitly enforced.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c49b596cd04e50f0",
+          "locator": "research/lesson-extraction/snapshots/0688e608b71e9994e937845aea984032b8845e8341f22b996df20473cb63cbbb.txt#L62-L95",
+          "quote": "    for idx, (train_idx, test_idx) in enumerate(cv.split(X)):\n        print(f'running fold n\u00b0 {idx + 1}')\n        X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]\n        y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]\n        # train_weights, test_weights = weights.iloc[train_idx], weights.iloc[test_idx]\n\n        X_train = transformer.fit_transform(X_train, y_train)\n        X_test = transformer.transform(X_test)\n        \n        regressor.fit(\n            X_train,\n            y_train,\n            # sample_weight=train_weights,\n            eval_set=[(X_test, y_test)],\n            # eval_sample_weight=[(test_weights)],\n            eval_metric=\"rmse\",\n            callbacks=[\n                # lgb.log_evaluation(\n                #     100\n                # ),\n                lgb.early_stopping(\n                    stopping_rounds=250, \n                    # min_delta=0.001, \n                    verbose=False\n                ),\n                # LightGBMPruningCallback(trial, 'rmse')\n            ]\n        )\n            \n        best_n_estimators = regressor.best_iteration_\n        preds = regressor.predict(X_test)\n        \n        cv_scores[idx] = root_mean_squared_error(y_test, preds)\n        cv_n_estimators[idx] = best_n_estimators",
+          "competition_id": "competition:brist1d",
+          "url": "https://raw.githubusercontent.com/scuya2050/brist1d_blood_glucose_prediction_competition/HEAD/train.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/0688e608b71e9994e937845aea984032b8845e8341f22b996df20473cb63cbbb.txt",
+          "snapshot_sha256": "0688e608b71e9994e937845aea984032b8845e8341f22b996df20473cb63cbbb",
+          "line_start": 62,
+          "line_end": 95
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-51940d2a2381c4297f75",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read complete train.py: every CV window refits transformer on its training indices and transforms holdout; early stopping and Optuna tuning use those holdouts. ExpandingWindowCV is imported, so its actual chronological/gap guarantees remain unchecked and tuning CV is not an independent final test.",
+          "candidate_sha256": "2ade8b2e4c1af40710a4da053833c5fa891020ddf4a60545a8a984d5a2c3f1d2"
+        },
+        {
+          "candidate_id": "C-51940d2a2381c4297f75",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete tuning script confirms each fold calls fit_transform(X_train,y_train), transform(X_test), then uses that held-out fold for early stopping and RMSE. Imported splitter guarantees are not claimed; chronology, forecast gap and target-encoder provenance remain proposed checks with untouched later test suggested. Audience ratings appropriately reflect custom temporal evaluation effort.",
+          "candidate_sha256": "2ade8b2e4c1af40710a4da053833c5fa891020ddf4a60545a8a984d5a2c3f1d2"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 67,
+        "line_end": 77,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-0189a1d9ef7df8b5c0de",
+      "canonical_key": "partition a contiguous latest holdout block after a bounded earlier training window | engagement prediction occurs in a later contiguous time period | temporal_validation",
+      "title": "Use recent time blocks for forward validation",
+      "statement": "When engagement prediction occurs in a later contiguous time period, partition a contiguous latest holdout block after a bounded earlier training window. Assert training days precede holdout days and features are computed with only information available at each boundary. Category frequencies are computed before assigning the holdout; imported LOO/BAYES features are not proven fold-safe. Specific day/window constants are examples, not optimal recipes.",
+      "trigger_conditions": [
+        "engagement prediction occurs in a later contiguous time period"
+      ],
+      "action_steps": [
+        "Proposed: partition a contiguous latest holdout block after a bounded earlier training window."
+      ],
+      "verification_steps": [
+        "Proposed: assert training days precede holdout days and features are computed with only information available at each boundary."
+      ],
+      "limitations": [
+        "Category frequencies are computed before assigning the holdout; imported LOO/BAYES features are not proven fold-safe. Specific day/window constants are examples, not optimal recipes."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "multi_output_regression"
+        ],
+        "application_domains": [
+          "civic_engagement"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "temporal_validation"
+        ],
+        "risk_tags": [
+          "temporal_leakage",
+          "transductive_preprocessing"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for see-click-predict-fix: The basic model computes TRAIN_BEGIN from test boundary, holdout and training lengths, marks latest training days hold, and places training rows before holdout rows for nTrain.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: choose contiguous later validation blocks, require earlier training dates and recompute features using only boundary-available information.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-0246276f0f9a1c62533d"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner gets a concrete forward split and simple chronology assertions at low cost.",
+        "competitor": "Competitor can match later engagement prediction and audit feature availability beyond split indices.",
+        "practitioner": "Practitioner gains broad temporal deployment validation, with rolling feature provenance requiring additional engineering."
+      },
+      "review": {
+        "candidate_id": "C-0189a1d9ef7df8b5c0de",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete launcher/basic models show contiguous recent holdout and preceding bounded training rows passed with nTrain. Category frequencies include holdout before partitioning; loaded LOO/BAYES features are not verified temporally safe. Implemented split is not proof entire evaluation pipeline is leakage-free.",
+        "candidate_sha256": "8d70c78dd714c3d6e6af47e422ef21f81c779e761dbaeb9b485fb7e7e092250d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000367",
+      "slug": "lesson-000367",
+      "merged_candidate_ids": [
+        "C-0189a1d9ef7df8b5c0de"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8d13bbbbb788e642454a",
+          "competition_id": "competition:see-click-predict-fix",
+          "source_id": "source:lesson-source-ab02f030541ef80a",
+          "snapshot_path": "research/lesson-extraction/snapshots/93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859.txt",
+          "snapshot_sha256": "93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859",
+          "source_url": "https://raw.githubusercontent.com/blindape/seeclickpredictfix/HEAD/models.R",
+          "source_quality": "primary_code",
+          "observation_id": "O-0246276f0f9a1c62533d",
+          "line_start": 185,
+          "line_end": 219,
+          "evidence_text": "\tTEST_BEGIN = 485\n\tHOLD_LENGTH = 60\n\tTRAIN_LENGTH = 120\n\tMIN_FACTOR_CASES = 20\n\tTRAIN_BEGIN = TEST_BEGIN - HOLD_LENGTH - TRAIN_LENGTH\n\tFEATURES <- c('id_', 'id', 'set', 'num_views', 'num_votes', 'num_comments', 'day', 'latitude', 'longitude', 'hour', \n\t\t'week_day', 'summary_len', 'description_len', 'city', 'tag_type', 'source')\n\tID = 8\n\tMOIN = 20\n\tSEED = 53\n\tBF = 0.90\n\tTREES = c(2700,10900,8000)\n\talldata <- alldata[, FEATURES, with=FALSE]\n\t##\n\t## One hot encoding\n\t##\n\tsetkey(alldata, tag_type)\n\ttag_type_freq <- alldata[set!='test' & day > TRAIN_BEGIN,.N, by= tag_type]\n\tkey_OK <- tag_type_freq[N >= MIN_FACTOR_CASES,tag_type]\n\talldata[!(tag_type %in% key_OK), tag_type:='Others']\n\talldata[, tag_type:=as.factor(tag_type)]\n\tunique_keys <- unique(as.character(alldata$source))\n\tfor (i in unique_keys) {\n\t\talldata[,paste('source_',i,sep=''):=as.integer(source==i)]\n\t}\n\talldata[is.na(tag_type), tag_type:='NA']\n\tunique_keys <- unique(as.character(alldata$tag_type))\n\tfor (i in unique_keys) {\n\t\talldata[,paste('tag_type_',i,sep=''):=as.integer(tag_type==i)]\n\t}\n\talldata[,c('tag_type','source'):=NULL]\n\tif (HOLD_LENGTH>0){\n\t\talldata[set=='train' & day >= TEST_BEGIN - HOLD_LENGTH, set:='hold']\n\t\ttrain <- rbind(alldata[set=='train' & day >= TRAIN_BEGIN,], alldata[set=='hold'& day >= TRAIN_BEGIN,])\n\t\tnTrain <- nrow(train[set=='train',])",
+          "kind": "used",
+          "statement": "The basic model computes TRAIN_BEGIN from test boundary, holdout and training lengths, marks latest training days hold, and places training rows before holdout rows for nTrain.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Beginner gets a concrete forward split and simple chronology assertions at low cost.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Competitor can match later engagement prediction and audit feature availability beyond split indices.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner gains broad temporal deployment validation, with rolling feature provenance requiring additional engineering.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ab02f030541ef80a",
+          "locator": "research/lesson-extraction/snapshots/93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859.txt#L185-L219",
+          "quote": "\tTEST_BEGIN = 485\n\tHOLD_LENGTH = 60\n\tTRAIN_LENGTH = 120\n\tMIN_FACTOR_CASES = 20\n\tTRAIN_BEGIN = TEST_BEGIN - HOLD_LENGTH - TRAIN_LENGTH\n\tFEATURES <- c('id_', 'id', 'set', 'num_views', 'num_votes', 'num_comments', 'day', 'latitude', 'longitude', 'hour', \n\t\t'week_day', 'summary_len', 'description_len', 'city', 'tag_type', 'source')\n\tID = 8\n\tMOIN = 20\n\tSEED = 53\n\tBF = 0.90\n\tTREES = c(2700,10900,8000)\n\talldata <- alldata[, FEATURES, with=FALSE]\n\t##\n\t## One hot encoding\n\t##\n\tsetkey(alldata, tag_type)\n\ttag_type_freq <- alldata[set!='test' & day > TRAIN_BEGIN,.N, by= tag_type]\n\tkey_OK <- tag_type_freq[N >= MIN_FACTOR_CASES,tag_type]\n\talldata[!(tag_type %in% key_OK), tag_type:='Others']\n\talldata[, tag_type:=as.factor(tag_type)]\n\tunique_keys <- unique(as.character(alldata$source))\n\tfor (i in unique_keys) {\n\t\talldata[,paste('source_',i,sep=''):=as.integer(source==i)]\n\t}\n\talldata[is.na(tag_type), tag_type:='NA']\n\tunique_keys <- unique(as.character(alldata$tag_type))\n\tfor (i in unique_keys) {\n\t\talldata[,paste('tag_type_',i,sep=''):=as.integer(tag_type==i)]\n\t}\n\talldata[,c('tag_type','source'):=NULL]\n\tif (HOLD_LENGTH>0){\n\t\talldata[set=='train' & day >= TEST_BEGIN - HOLD_LENGTH, set:='hold']\n\t\ttrain <- rbind(alldata[set=='train' & day >= TRAIN_BEGIN,], alldata[set=='hold'& day >= TRAIN_BEGIN,])\n\t\tnTrain <- nrow(train[set=='train',])",
+          "competition_id": "competition:see-click-predict-fix",
+          "url": "https://raw.githubusercontent.com/blindape/seeclickpredictfix/HEAD/models.R",
+          "snapshot_path": "research/lesson-extraction/snapshots/93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859.txt",
+          "snapshot_sha256": "93718585c07ace5e84f3f84f33454105083fda86b4ebebc1f3af0eed09e89859",
+          "line_start": 185,
+          "line_end": 219
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-0189a1d9ef7df8b5c0de",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete launcher/basic models show contiguous recent holdout and preceding bounded training rows passed with nTrain. Category frequencies include holdout before partitioning; loaded LOO/BAYES features are not verified temporally safe. Implemented split is not proof entire evaluation pipeline is leakage-free.",
+          "candidate_sha256": "8d70c78dd714c3d6e6af47e422ef21f81c779e761dbaeb9b485fb7e7e092250d"
+        },
+        {
+          "candidate_id": "C-0189a1d9ef7df8b5c0de",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete civic-engagement packet implements bounded earlier training plus latest contiguous holdout through set ordering and nTrain. Candidate preserves category-frequency fitting before holdout and unknown imported LOO/BAYES provenance and avoids treating day constants as optimal. Chronology and availability audits are proposed; individual grades are justified.",
+          "candidate_sha256": "8d70c78dd714c3d6e6af47e422ef21f81c779e761dbaeb9b485fb7e7e092250d"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 127,
+        "line_end": 131,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9d359bf7963e2ba11aca",
+      "canonical_key": "recover panel grouping and ordering, but distinguish historical lag labels from future lead labels before claiming deployment utility. | anonymized categories hide customer-contract time sequences | validation_reliability",
+      "title": "Audit prediction-time availability after discovering panel structure",
+      "statement": "When anonymized categories hide customer-contract time sequences, proposed reuse: Proposed conditional application: Recover panel grouping and ordering, but distinguish historical lag labels from future lead labels before claiming deployment utility. Proposed check: Timestamp every derived feature and replay future-period predictions using only historically available labels. Limitation: Competition transduction with future labels does not establish a deployable model; anonymized grouping can be mistaken.",
+      "trigger_conditions": [
+        "anonymized categories hide customer-contract time sequences"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Recover panel grouping and ordering, but distinguish historical lag labels from future lead labels before claiming deployment utility."
+      ],
+      "verification_steps": [
+        "Proposed check: Timestamp every derived feature and replay future-period predictions using only historically available labels."
+      ],
+      "limitations": [
+        "Competition transduction with future labels does not establish a deployable model; anonymized grouping can be mistaken."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The BNP authors state that future lead-target features made their model unusable for prospective prediction.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-28c61616ae6d00a645f5"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "High-value availability lesson; reconstruction itself is advanced.",
+        "competitor": "Prevents confusing leaderboard exploitation with legitimate validation.",
+        "practitioner": "Critical prediction-time feature audit for panel systems."
+      },
+      "review": {
+        "candidate_id": "C-9d359bf7963e2ba11aca",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "BNP full packet explicitly identifies future lead labels as unusable prospectively; exploratory reconstructed grouping remains source-supported.",
+        "candidate_sha256": "e51ac888b36dbabde78384dd2bd9409f856454594a5b9c835b95d462a62af8fd"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000408",
+      "slug": "lesson-000408",
+      "merged_candidate_ids": [
+        "C-9d359bf7963e2ba11aca"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-0431b4db38c58fc8a997",
+          "competition_id": "competition:bnp-paribas-cardif-claims-management",
+          "source_id": "source:lesson-source-c8596cf789cc0dca",
+          "snapshot_path": "research/lesson-extraction/snapshots/c0bc1379700adf438c91cdde4c2734d98b772bb43596e45c34d7eb33a442fea0.txt",
+          "snapshot_sha256": "c0bc1379700adf438c91cdde4c2734d98b772bb43596e45c34d7eb33a442fea0",
+          "source_url": "https://www.kaggle.com/competitions/bnp-paribas-cardif-claims-management/writeups/dexter-s-lab-1-dexter-s-lab-winning-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-28c61616ae6d00a645f5",
+          "line_start": 100,
+          "line_end": 100,
+          "evidence_text": "In the end we created a useless model for Bnp, as our lead(target) variables use information from the future:)",
+          "kind": "reported_failure",
+          "statement": "The BNP authors state that future lead-target features made their model unusable for prospective prediction.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "High-value availability lesson; reconstruction itself is advanced.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Prevents confusing leaderboard exploitation with legitimate validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Critical prediction-time feature audit for panel systems.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c8596cf789cc0dca",
+          "locator": "research/lesson-extraction/snapshots/c0bc1379700adf438c91cdde4c2734d98b772bb43596e45c34d7eb33a442fea0.txt#L100-L100",
+          "quote": "In the end we created a useless model for Bnp, as our lead(target) variables use information from the future:)",
+          "competition_id": "competition:bnp-paribas-cardif-claims-management",
+          "url": "https://www.kaggle.com/competitions/bnp-paribas-cardif-claims-management/writeups/dexter-s-lab-1-dexter-s-lab-winning-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/c0bc1379700adf438c91cdde4c2734d98b772bb43596e45c34d7eb33a442fea0.txt",
+          "snapshot_sha256": "c0bc1379700adf438c91cdde4c2734d98b772bb43596e45c34d7eb33a442fea0",
+          "line_start": 100,
+          "line_end": 100
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9d359bf7963e2ba11aca",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "BNP full packet explicitly identifies future lead labels as unusable prospectively; exploratory reconstructed grouping remains source-supported.",
+          "candidate_sha256": "e51ac888b36dbabde78384dd2bd9409f856454594a5b9c835b95d462a62af8fd"
+        },
+        {
+          "candidate_id": "C-9d359bf7963e2ba11aca",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "BNP winning authors explicitly say future lead(target) made their model useless prospectively; nonwinner comment is unnecessary supporting context. Candidate proposes feature-timestamp replay rather than endorsing future labels. High impact/transfer and moderate reconstructive effort match individual scores.",
+          "candidate_sha256": "e51ac888b36dbabde78384dd2bd9409f856454594a5b9c835b95d462a62af8fd"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 133,
+        "line_end": 137,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-6dcf13e9b357e6d29e25",
+      "canonical_key": "restrict label-derived temporal features to prediction-time-available labels and reproduce test-set hidden-label gaps in validation. | fraud features depend on labels from adjacent card transactions | validation_reliability",
+      "title": "Simulate missing neighboring labels in validation",
+      "statement": "When fraud features depend on labels from adjacent card transactions, proposed reuse: Proposed conditional application: Restrict label-derived temporal features to prediction-time-available labels and reproduce test-set hidden-label gaps in validation. Proposed check: Rebuild features with only confirmed historical labels; mask validation labels to emulate real feedback delays. Limitation: Future labels and held-out neighbor labels leak; reported training F1 is not prospective evidence.",
+      "trigger_conditions": [
+        "fraud features depend on labels from adjacent card transactions"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Restrict label-derived temporal features to prediction-time-available labels and reproduce test-set hidden-label gaps in validation."
+      ],
+      "verification_steps": [
+        "Proposed check: Rebuild features with only confirmed historical labels; mask validation labels to emulate real feedback delays."
+      ],
+      "limitations": [
+        "Future labels and held-out neighbor labels leak; reported training F1 is not prospective evidence."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The fraud author reports a gap between a test split from training data and submitted test performance for neighbor-label features.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-237c99869ea1bf922e69"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Concrete hidden-label warning with modest simulation work.",
+        "competitor": "High value for evaluating target-neighbor features legitimately.",
+        "practitioner": "Critical for delayed fraud outcomes and online availability."
+      },
+      "review": {
+        "candidate_id": "C-6dcf13e9b357e6d29e25",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full fraud report explicitly uses future labels and acknowledges missing neighbor labels in submission data.",
+        "candidate_sha256": "0abec1cf127a3879b8fffe4065d4fdcc8e60ba663ffdb98086e37182ed3adac1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000426",
+      "slug": "lesson-000426",
+      "merged_candidate_ids": [
+        "C-6dcf13e9b357e6d29e25"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-aa90df1f1957edddb4e8",
+          "competition_id": "competition:cs506-midterm-2024",
+          "source_id": "source:lesson-source-97377505c8d66d56",
+          "snapshot_path": "research/lesson-extraction/snapshots/a0eff8b6a0e3040cad88a33e66b6b628f3ee821ca25e4a83bff56fb28d777bc8.txt",
+          "snapshot_sha256": "a0eff8b6a0e3040cad88a33e66b6b628f3ee821ca25e4a83bff56fb28d777bc8",
+          "source_url": "https://raw.githubusercontent.com/MJLevine65/CS506-Midterm-Kaggle-Competition/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-237c99869ea1bf922e69",
+          "line_start": 44,
+          "line_end": 44,
+          "evidence_text": "it also lead to better scoring on the testing set that was split off of the training data compared to the submission set.",
+          "kind": "reported_failure",
+          "statement": "The fraud author reports a gap between a test split from training data and submitted test performance for neighbor-label features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete hidden-label warning with modest simulation work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "High value for evaluating target-neighbor features legitimately.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Critical for delayed fraud outcomes and online availability.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-97377505c8d66d56",
+          "locator": "research/lesson-extraction/snapshots/a0eff8b6a0e3040cad88a33e66b6b628f3ee821ca25e4a83bff56fb28d777bc8.txt#L44-L44",
+          "quote": "it also lead to better scoring on the testing set that was split off of the training data compared to the submission set.",
+          "competition_id": "competition:cs506-midterm-2024",
+          "url": "https://raw.githubusercontent.com/MJLevine65/CS506-Midterm-Kaggle-Competition/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/a0eff8b6a0e3040cad88a33e66b6b628f3ee821ca25e4a83bff56fb28d777bc8.txt",
+          "snapshot_sha256": "a0eff8b6a0e3040cad88a33e66b6b628f3ee821ca25e4a83bff56fb28d777bc8",
+          "line_start": 44,
+          "line_end": 44
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-6dcf13e9b357e6d29e25",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full fraud report explicitly uses future labels and acknowledges missing neighbor labels in submission data.",
+          "candidate_sha256": "0abec1cf127a3879b8fffe4065d4fdcc8e60ba663ffdb98086e37182ed3adac1"
+        },
+        {
+          "candidate_id": "C-6dcf13e9b357e6d29e25",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "CS506 author describes neighbor-label features and inflated training-derived holdout scores versus submitted data because labels are hidden there. Candidate makes chronological confirmed-label masking proposed, explicitly rejects future/validation labels and trainingF1 as prospective support. High impact and moderate simulation effort fit ratings.",
+          "candidate_sha256": "0abec1cf127a3879b8fffe4065d4fdcc8e60ba663ffdb98086e37182ed3adac1"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 139,
+        "line_end": 143,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-666ebb5b7825ebdb",
+      "canonical_key": "split by user and simulate test truncation; repeat doubtful comparisons across multiple random histories. | test predictions use unseen users with incomplete histories | validation_reliability",
+      "title": "Validate truncated histories with repeated user-group splits",
+      "statement": "When test predictions use unseen users with incomplete histories, consider this source-backed action: Split by user and simulate test truncation; repeat doubtful comparisons across multiple random histories. Proposed check: Report metric dispersion and prohibit post-cutoff events in every feature. Limit: Their 50\u2013100 nested simulations are expensive and truncation must match target use.",
+      "trigger_conditions": [
+        "test predictions use unseen users with incomplete histories"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Split by user and simulate test truncation; repeat doubtful comparisons across multiple random histories."
+      ],
+      "verification_steps": [
+        "Proposed verification: Report metric dispersion and prohibit post-cutoff events in every feature."
+      ],
+      "limitations": [
+        "Their 50\u2013100 nested simulations are expensive and truncation must match target use."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used repeated five-fold installation grouping and, for doubtful changes, repeated simulations with full-history training users and truncated-history testing users.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-666ebb5b7825ebdb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Realistic truncation and many repeats exceed small compute budgets.",
+        "competitor": "Strong split-design value for user-history competition targets.",
+        "practitioner": "High value for partially observed user journeys with leakage control."
+      },
+      "review": {
+        "candidate_id": "C-a-666ebb5b7825ebdb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked user grouping and history truncation;50\u2013100simulations costly.",
+        "candidate_sha256": "31c20b010f9d85c58fd0b362e413b8bf9c1c1d933571305e093fa727b2622a55"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000469",
+      "slug": "lesson-000469",
+      "merged_candidate_ids": [
+        "C-a-666ebb5b7825ebdb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9f65f837716532675063",
+          "competition_id": "competition:data-science-bowl-2019",
+          "source_id": "source:lesson-source-3df148a3bca94840",
+          "snapshot_path": "research/lesson-extraction/snapshots/e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e.txt",
+          "snapshot_sha256": "e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e",
+          "source_url": "https://www.kaggle.com/competitions/data-science-bowl-2019/writeups/zr-oyx-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-666ebb5b7825ebdb",
+          "line_start": 24,
+          "line_end": 28,
+          "evidence_text": "In the early game , we find that the LB score is unstable and has low correlation with the local cv, so we decide to focus on the local cv score only. We have tried several ideas to make the local cv stable. Below are two validation sets we use:\n\n**2.1 GroupK CV** : We use the 5 times * 5-fold GroupK by installation_id, each time with random groupk split seed and random column order. However qwk is still not so stable on our local cv, so we mainly concern the weighted rmse when validating our ideas and ignore qwk. For the weighted loss , the weight is the sample prob for each sample (We use full data, for the test part, we calculate the expectation of the sample prob as weight).\n\n**2.2 Nested CV**: Usually, the GroupK cv above works well. When we think the GroupK cv's decision has low confidence (eg. inconsistent with our common sense), we will use another nested set for double check: We simulate the train-test split on the local data : random select 1400 users with full history for the nested training and 2200 users with truncated history for the nested testing. We repeat it for 50~100 times and calculate the mean score for validation.",
+          "kind": "used",
+          "statement": "The team used repeated five-fold installation grouping and, for doubtful changes, repeated simulations with full-history training users and truncated-history testing users.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Realistic truncation and many repeats exceed small compute budgets.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 87.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Strong split-design value for user-history competition targets.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "High value for partially observed user journeys with leakage control.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-3df148a3bca94840",
+          "locator": "research/lesson-extraction/snapshots/e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e.txt#L24-L28",
+          "quote": "In the early game , we find that the LB score is unstable and has low correlation with the local cv, so we decide to focus on the local cv score only. We have tried several ideas to make the local cv stable. Below are two validation sets we use:\n\n**2.1 GroupK CV** : We use the 5 times * 5-fold GroupK by installation_id, each time with random groupk split seed and random column order. However qwk is still not so stable on our local cv, so we mainly concern the weighted rmse when validating our ideas and ignore qwk. For the weighted loss , the weight is the sample prob for each sample (We use full data, for the test part, we calculate the expectation of the sample prob as weight).\n\n**2.2 Nested CV**: Usually, the GroupK cv above works well. When we think the GroupK cv's decision has low confidence (eg. inconsistent with our common sense), we will use another nested set for double check: We simulate the train-test split on the local data : random select 1400 users with full history for the nested training and 2200 users with truncated history for the nested testing. We repeat it for 50~100 times and calculate the mean score for validation.",
+          "competition_id": "competition:data-science-bowl-2019",
+          "url": "https://www.kaggle.com/competitions/data-science-bowl-2019/writeups/zr-oyx-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e.txt",
+          "snapshot_sha256": "e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e",
+          "line_start": 24,
+          "line_end": 28
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-666ebb5b7825ebdb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked user grouping and history truncation;50\u2013100simulations costly.",
+          "candidate_sha256": "31c20b010f9d85c58fd0b362e413b8bf9c1c1d933571305e093fa727b2622a55"
+        },
+        {
+          "candidate_id": "C-a-666ebb5b7825ebdb",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "DSB2019 winner explicitly repeated5x5GroupK installation splits and doubtful-change simulations1400full-history train/2200truncated test repeated50-100. Metric dispersion/cutoff check proposed; expensive repetition reflected in grades. No production reliability inferred.",
+          "candidate_sha256": "31c20b010f9d85c58fd0b362e413b8bf9c1c1d933571305e093fa727b2622a55"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 145,
+        "line_end": 149,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-3289e515c25d9a93",
+      "canonical_key": "train on past periods and validate on subsequent periods, carrying all feature transforms inside the time split. | target data are from a future period with temporal effects | validation_reliability",
+      "title": "Use forward-time validation when test data are in the future",
+      "statement": "When target data are from a future period with temporal effects, consider this source-backed action: Train on past periods and validate on subsequent periods, carrying all feature transforms inside the time split. Proposed check: Compare repeated forward backtests and inspect horizon/distribution match. Limit: Random stratification is not generally valid with groups, leakage or temporal dependence; author advice is conditional.",
+      "trigger_conditions": [
+        "target data are from a future period with temporal effects",
+        "the prediction task involves a future time period"
+      ],
+      "action_steps": [
+        "Proposed adaptation of author advice: Train on past periods and validate on subsequent periods, carrying all feature transforms inside the time split.",
+        "Proposed conditional application: Train on past observations and validate on later observations rather than using random stratified folds."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare repeated forward backtests and inspect horizon/distribution match.",
+        "Proposed check: Assert each fold's training timestamps precede validation and feature availability obeys forecast origin."
+      ],
+      "limitations": [
+        "Random stratification is not generally valid with groups, leakage or temporal dependence; author advice is conditional.",
+        "Choose embargo/horizon for delayed labels; future distribution may still differ."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification",
+          "forecasting"
+        ],
+        "application_domains": [
+          "finance",
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author advises random stratified folds for appropriate exchangeable data but past-training/future-testing when time matters and test lies later.",
+          "basis": "observed"
+        },
+        {
+          "description": "The author recommends forward-time validation when the test is in the future and time is relevant.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-774d90eae8e5c4972eb2",
+        "O-a-3289e515c25d9a93"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Chronological split is clear and practical.",
+        "competitor": "High utility when evaluation occurs after training data.",
+        "practitioner": "Broad future-period validation value with horizon consistency."
+      },
+      "review": {
+        "candidate_id": "C-a-3289e515c25d9a93",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Read complete Homesite packet: author explicitly conditions past/future validation on future test data and temporal effects; carrying feature transforms inside the split is our proposed leakage safeguard.",
+        "candidate_sha256": "9a2dee09e2ba5de26a499dc4fd5abdceae1d42f84f4f2d218371d6e92fec649a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000506",
+      "slug": "lesson-000506",
+      "merged_candidate_ids": [
+        "C-87f73018c640b39e60aa",
+        "C-a-3289e515c25d9a93"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6e9f5ae155e847c7badf",
+          "competition_id": "competition:homesite-quote-conversion",
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "source_url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "source_quality": "primary_text",
+          "observation_id": "O-774d90eae8e5c4972eb2",
+          "line_start": 133,
+          "line_end": 133,
+          "evidence_text": "formulate your CV process to always train on past data and test on future data (e.g. do a time split).",
+          "kind": "author_advice",
+          "statement": "The author recommends forward-time validation when the test is in the future and time is relevant.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-8313eb4af83328821dbf",
+          "competition_id": "competition:homesite-quote-conversion",
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "source_url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3289e515c25d9a93",
+          "line_start": 131,
+          "line_end": 133,
+          "evidence_text": "Reliable cross validation, detection of tiny inconsistencies and dealing with serious overfitting issues have probably been the most important ingredients in our solution. So I thought this post would be a good place to share some aspects that I have been considering useful over my past 70+ Kaggle competitions to set up a reliable CV:\n\nStratified k-fold. Unless the dataset you are being tested on (e.g the test set ) is in future period, then most of the times use random stratified k-fold - it seems to work\u00a0well. However, if the test data is in the future - and time seems to be an important factor like in stock marker or store sales - then you need to formulate your CV process to always train on past data and test on future data (e.g. do a time split).",
+          "kind": "author_advice",
+          "statement": "The author advises random stratified folds for appropriate exchangeable data but past-training/future-testing when time matters and test lies later.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Chronological split is clear and practical.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High utility when evaluation occurs after training data.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broad future-period validation value with horizon consistency.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "locator": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt#L133-L133",
+          "quote": "formulate your CV process to always train on past data and test on future data (e.g. do a time split).",
+          "competition_id": "competition:homesite-quote-conversion",
+          "url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "line_start": 133,
+          "line_end": 133
+        },
+        {
+          "source_id": "source:lesson-source-660d92382c80523c",
+          "locator": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt#L131-L133",
+          "quote": "Reliable cross validation, detection of tiny inconsistencies and dealing with serious overfitting issues have probably been the most important ingredients in our solution. So I thought this post would be a good place to share some aspects that I have been considering useful over my past 70+ Kaggle competitions to set up a reliable CV:\n\nStratified k-fold. Unless the dataset you are being tested on (e.g the test set ) is in future period, then most of the times use random stratified k-fold - it seems to work\u00a0well. However, if the test data is in the future - and time seems to be an important factor like in stock marker or store sales - then you need to formulate your CV process to always train on past data and test on future data (e.g. do a time split).",
+          "competition_id": "competition:homesite-quote-conversion",
+          "url": "http://blog.kaggle.com/2016/04/08/homesite-quote-conversion-winners-write-up-1st-place-kazanova-faron-clobber/",
+          "snapshot_path": "research/lesson-extraction/snapshots/a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46.txt",
+          "snapshot_sha256": "a9029d2a358d5ef35882f1b326204a5ca79ff585686454ada160663e96d90d46",
+          "line_start": 131,
+          "line_end": 133
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-87f73018c640b39e60aa",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Homesite full advice explicitly uses past-to-future splits when time matters.",
+          "candidate_sha256": "a6eccd1510665ad9d346a098638b95560911514964a5d2a9e2c52cf41d8948aa"
+        },
+        {
+          "candidate_id": "C-87f73018c640b39e60aa",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Homesite winner qualifies random stratification when future test and temporal effects matter, recommending past-to-future CV. Candidate explicitly checks chronology and feature availability and mentions delay/horizon/shift caveats. Utility4 ratings concern cheap general validation protection, not winner gain.",
+          "candidate_sha256": "a6eccd1510665ad9d346a098638b95560911514964a5d2a9e2c52cf41d8948aa"
+        },
+        {
+          "candidate_id": "C-a-3289e515c25d9a93",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Read complete Homesite packet: author explicitly conditions past/future validation on future test data and temporal effects; carrying feature transforms inside the split is our proposed leakage safeguard.",
+          "candidate_sha256": "9a2dee09e2ba5de26a499dc4fd5abdceae1d42f84f4f2d218371d6e92fec649a"
+        },
+        {
+          "candidate_id": "C-a-3289e515c25d9a93",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full packet previously read; final prefix reread. Conditional pasttrain/futuretest advice literal; fold-localtransforms/repeatedbacktests now proposed adaptation. Group/leakage caveat and reasonable grades retained; accepted.",
+          "candidate_sha256": "9a2dee09e2ba5de26a499dc4fd5abdceae1d42f84f4f2d218371d6e92fec649a"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 151,
+        "line_end": 155,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9789c20bb2cb94945bbb",
+      "canonical_key": "train with three-fold cross-validation using continuous periods to resemble the test dataset. | test forecasts cover continuous time periods | validation_reliability",
+      "title": "Use contiguous validation periods for weather forecasting",
+      "statement": "When test forecasts cover continuous time periods, proposed reuse: Proposed conditional application: Train with three-fold cross-validation using continuous periods to resemble the test dataset. Proposed check: Inspect contiguous fold dates and forecast horizon; compare with rolling future holdouts and ensure preprocessing fits training periods. Limitation: Contiguous folds are not necessarily forward-only; seasonal and geographic shifts remain.",
+      "trigger_conditions": [
+        "test forecasts cover continuous time periods"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Train with three-fold cross-validation using continuous periods to resemble the test dataset."
+      ],
+      "verification_steps": [
+        "Proposed check: Inspect contiguous fold dates and forecast horizon; compare with rolling future holdouts and ensure preprocessing fits training periods."
+      ],
+      "limitations": [
+        "Contiguous folds are not necessarily forward-only; seasonal and geographic shifts remain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "energy"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used three-fold validation with continuous periods to resemble the forecast test periods.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-c4b65c4416ed085e8879"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Easy date-block construction improves forecasting validation.",
+        "competitor": "High value when random rows inflate weather validation.",
+        "practitioner": "Practical forecasting principle, requiring deployment-matched chronology."
+      },
+      "review": {
+        "candidate_id": "C-9789c20bb2cb94945bbb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Entire one-line AMS document specifies continuous-period three-fold CV; it does not state forward-only chronology.",
+        "candidate_sha256": "b3687129b11b28db1e323db67f71b08ea006db537f52226527ff998b18d1b652"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000520",
+      "slug": "lesson-000520",
+      "merged_candidate_ids": [
+        "C-9789c20bb2cb94945bbb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-0eaf199ac395b7364adf",
+          "competition_id": "competition:ams-2014-solar-energy-prediction-contest",
+          "source_id": "source:lesson-source-5da879924846a600",
+          "snapshot_path": "research/lesson-extraction/snapshots/e5343591e7725f4844269cafe0213b4ffd4538744ca0e979bbee9461da56e93e.txt",
+          "snapshot_sha256": "e5343591e7725f4844269cafe0213b4ffd4538744ca0e979bbee9461da56e93e",
+          "source_url": "https://github.com/lucaseustaquio/ams-2013-2014-solar-energy/blob/master/ModelDocumentation.odt",
+          "source_quality": "primary_text",
+          "observation_id": "O-c4b65c4416ed085e8879",
+          "line_start": 1,
+          "line_end": 1,
+          "evidence_text": "The 13 models we trainned using a 3 fold cross-validation with continuous periods. This was done to make the trainning dataset similar to the test dataset and to avoid overfitting.",
+          "kind": "used",
+          "statement": "The team used three-fold validation with continuous periods to resemble the forecast test periods.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Easy date-block construction improves forecasting validation.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "High value when random rows inflate weather validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Practical forecasting principle, requiring deployment-matched chronology.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5da879924846a600",
+          "locator": "research/lesson-extraction/snapshots/e5343591e7725f4844269cafe0213b4ffd4538744ca0e979bbee9461da56e93e.txt#L1-L1",
+          "quote": "The 13 models we trainned using a 3 fold cross-validation with continuous periods. This was done to make the trainning dataset similar to the test dataset and to avoid overfitting.",
+          "competition_id": "competition:ams-2014-solar-energy-prediction-contest",
+          "url": "https://github.com/lucaseustaquio/ams-2013-2014-solar-energy/blob/master/ModelDocumentation.odt",
+          "snapshot_path": "research/lesson-extraction/snapshots/e5343591e7725f4844269cafe0213b4ffd4538744ca0e979bbee9461da56e93e.txt",
+          "snapshot_sha256": "e5343591e7725f4844269cafe0213b4ffd4538744ca0e979bbee9461da56e93e",
+          "line_start": 1,
+          "line_end": 1
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9789c20bb2cb94945bbb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Entire one-line AMS document specifies continuous-period three-fold CV; it does not state forward-only chronology.",
+          "candidate_sha256": "b3687129b11b28db1e323db67f71b08ea006db537f52226527ff998b18d1b652"
+        },
+        {
+          "candidate_id": "C-9789c20bb2cb94945bbb",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Complete AMS documentation explicitly uses continuous-period three-fold CV for test resemblance; does not establish forward-only chronology. Rolling future checks and geographic/seasonal caveats preserve that distinction. Accessible split construction supports audience feasibility4 and experienced impact4.",
+          "candidate_sha256": "b3687129b11b28db1e323db67f71b08ea006db537f52226527ff998b18d1b652"
+        }
+      ],
+      "book_location": {
+        "chapter": 51,
+        "path": "manuscript/chapters/51-time-series-cv.md",
+        "sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
+        "line_start": 79,
+        "line_end": 89,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

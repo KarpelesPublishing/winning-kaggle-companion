@@ -1,0 +1,206 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-6ea931c139a7c867f559",
+      "canonical_key": "compute all first-stage predictions before updating with current-row targets | multi-label outputs are used as predictors for other outputs | online_prediction_features",
+      "title": "Generate online prediction features before target updates",
+      "statement": "When multi-label outputs are used as predictors for other outputs, compute all first-stage predictions before updating with current-row targets. Assert no current-row label enters prediction features and compare independent held-out loss with and without cross-label features. This is an online implementation using shared weight arrays, not a conventional frozen OOF stack. The fixed boundary238 must match generated feature layout; no isolated gain is shown.",
+      "trigger_conditions": [
+        "multi-label outputs are used as predictors for other outputs"
+      ],
+      "action_steps": [
+        "Proposed: compute all first-stage predictions before updating with current-row targets."
+      ],
+      "verification_steps": [
+        "Proposed: assert no current-row label enters prediction features and compare independent held-out loss with and without cross-label features."
+      ],
+      "limitations": [
+        "This is an online implementation using shared weight arrays, not a conventional frozen OOF stack. The fixed boundary238 must match generated feature layout; no isolated gain is shown."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "multilabel_classification"
+        ],
+        "application_domains": [
+          "multilabel_documents"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "online_prediction_features"
+        ],
+        "risk_tags": [
+          "online_evaluation",
+          "feature_layout",
+          "hash_instability"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for tradeshift-text-classification: For each training row the source computes all K predictions, stores them in x, then calls predict2 and updates both weight portions.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compute all prediction features before current-row updates, assert target exclusion and compare independent loss with and without cross-label features.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-00710d23def8118b610b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 2,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner faces specialized streaming cross-label models and very large Python arrays before this narrow benefit is usable.",
+        "competitor": "Competitor can explore online label-dependency features with strict update ordering and held-out loss comparisons.",
+        "practitioner": "Practitioner can adapt pre-update prediction features to streams, but layout/version controls and correlated-label assumptions add engineering."
+      },
+      "review": {
+        "candidate_id": "C-6ea931c139a7c867f559",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete tk16 online loop computes all first-stage probabilities before any current-row target update, then adds cross-label weights. First/second stages share per-label base arrays and depend on fixed238 boundary; no frozen OOF stack or isolated gain. Predict-before-update prevents direct current-row label use but does not itself establish independent generalization.",
+        "candidate_sha256": "2c8c72d085fd68aa836f4b35cddd020562e1bfb4666d84ba8e523875cc230630"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000197",
+      "slug": "lesson-000197",
+      "merged_candidate_ids": [
+        "C-6ea931c139a7c867f559"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c2ea78c6a51bc3e0c102",
+          "competition_id": "competition:tradeshift-text-classification",
+          "source_id": "source:lesson-source-99946748fa654253",
+          "snapshot_path": "research/lesson-extraction/snapshots/45ad67e0fe1737ad2e986b2b751c9df0d324ff11fcfda7a1dfc65cc052f3ca09.txt",
+          "snapshot_sha256": "45ad67e0fe1737ad2e986b2b751c9df0d324ff11fcfda7a1dfc65cc052f3ca09",
+          "source_url": "https://raw.githubusercontent.com/daxiongshu/kaggle-tradeshift-winning-solution/HEAD/src/online-model/tk16_solution.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-00710d23def8118b610b",
+          "line_start": 164,
+          "line_end": 181,
+          "evidence_text": "for ID, x, y in data(train, label):\n\n    # get predictions and train on all labels\n    P=[]\n    for k in K:\n        p = predict(x, w[k])\n        P.append(p)\n       # update(alpha, w[k], n[k], x, p, y[k])\n        if k<13:\n           x[238+k]=p\n        else:\n           x[237+k]=p\n        loss += logloss(p, y[k]) \n    for k,p in zip(K,P):\n        p2 = predict2(x, w[k])\n        update(alpha, w[k], n[k], x, p2, y[k])\n        update2(alpha, w[k], n[k], x, p2, y[k])\n        loss2 += logloss(p2, y[k])  # for progressive validation",
+          "kind": "used",
+          "statement": "For each training row the source computes all K predictions, stores them in x, then calls predict2 and updates both weight portions.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 37.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 2,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Beginner faces specialized streaming cross-label models and very large Python arrays before this narrow benefit is usable.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 61.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Competitor can explore online label-dependency features with strict update ordering and held-out loss comparisons.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Practitioner can adapt pre-update prediction features to streams, but layout/version controls and correlated-label assumptions add engineering.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-99946748fa654253",
+          "locator": "research/lesson-extraction/snapshots/45ad67e0fe1737ad2e986b2b751c9df0d324ff11fcfda7a1dfc65cc052f3ca09.txt#L164-L181",
+          "quote": "for ID, x, y in data(train, label):\n\n    # get predictions and train on all labels\n    P=[]\n    for k in K:\n        p = predict(x, w[k])\n        P.append(p)\n       # update(alpha, w[k], n[k], x, p, y[k])\n        if k<13:\n           x[238+k]=p\n        else:\n           x[237+k]=p\n        loss += logloss(p, y[k]) \n    for k,p in zip(K,P):\n        p2 = predict2(x, w[k])\n        update(alpha, w[k], n[k], x, p2, y[k])\n        update2(alpha, w[k], n[k], x, p2, y[k])\n        loss2 += logloss(p2, y[k])  # for progressive validation",
+          "competition_id": "competition:tradeshift-text-classification",
+          "url": "https://raw.githubusercontent.com/daxiongshu/kaggle-tradeshift-winning-solution/HEAD/src/online-model/tk16_solution.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/45ad67e0fe1737ad2e986b2b751c9df0d324ff11fcfda7a1dfc65cc052f3ca09.txt",
+          "snapshot_sha256": "45ad67e0fe1737ad2e986b2b751c9df0d324ff11fcfda7a1dfc65cc052f3ca09",
+          "line_start": 164,
+          "line_end": 181
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-6ea931c139a7c867f559",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete tk16 online loop computes all first-stage probabilities before any current-row target update, then adds cross-label weights. First/second stages share per-label base arrays and depend on fixed238 boundary; no frozen OOF stack or isolated gain. Predict-before-update prevents direct current-row label use but does not itself establish independent generalization.",
+          "candidate_sha256": "2c8c72d085fd68aa836f4b35cddd020562e1bfb4666d84ba8e523875cc230630"
+        },
+        {
+          "candidate_id": "C-6ea931c139a7c867f559",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete streaming code computes every first-stage output before any current-row target update, then uses cross-label features and updates shared weights. Candidate accurately preserves online shared-array semantics and fixed238 layout boundary rather than claiming a frozen OOF stack or gain. Specialized memory-heavy workflow warrants restrained audience grades.",
+          "candidate_sha256": "2c8c72d085fd68aa836f4b35cddd020562e1bfb4666d84ba8e523875cc230630"
+        }
+      ],
+      "book_location": {
+        "chapter": 41,
+        "path": "manuscript/chapters/41-online-learning.md",
+        "sha256": "888c200b0f16e4ae8db18168bfb5563b2d3bc7953709c1ea88410de494dfd735",
+        "line_start": 110,
+        "line_end": 114,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

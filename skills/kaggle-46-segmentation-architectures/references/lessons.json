@@ -1,0 +1,2970 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-a595a4bf7542432c",
+      "canonical_key": "compare pseudo-label sources separately | segmentation training uses multiple teacher outputs | predictive_quality",
+      "title": "Track pseudo-label sources separately in segmentation",
+      "statement": "When Segmentation training uses multiple pseudo-label sources., Track teacher/source identity for each pseudo-labeled slide and compare source-specific training variants. Verify: Evaluate on clean patient-held-out labels and audit teacher training provenance. Limits: The proposed ensemble-diversity explanation is speculative; source does not establish hand-labeling superiority.; Nonempty deep-supervision loss is a separate training choice.",
+      "trigger_conditions": [
+        "Segmentation training uses multiple pseudo-label sources."
+      ],
+      "action_steps": [
+        "Track teacher/source identity for each pseudo-labeled slide and compare source-specific training variants."
+      ],
+      "verification_steps": [
+        "Evaluate on clean patient-held-out labels and audit teacher training provenance."
+      ],
+      "limitations": [
+        "The proposed ensemble-diversity explanation is speculative; source does not establish hand-labeling superiority.",
+        "Nonempty deep-supervision loss is a separate training choice."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used BCE plus Lovasz with 0.1 deep supervision for nonempty masks, and compared own versus another author\u2019s pseudo-labels for one slide, finding little performance difference.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-a595a4bf7542432c"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Teacher-source tracking clear, segmentation retraining costly.",
+        "competitor": "Useful source comparison without assuming hand-label superiority.",
+        "practitioner": "Applies to pseudo-labeled segmentation with patient/teacher isolation."
+      },
+      "review": {
+        "candidate_id": "C-a-a595a4bf7542432c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked own/Carno pseudo-label provenance and similar private scores; mechanism speculative.",
+        "candidate_sha256": "cfc3655d98512c38d28075b945811437bacefa92e694830dbb6d28326a6046c6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000165",
+      "slug": "lesson-000165",
+      "merged_candidate_ids": [
+        "C-a-a595a4bf7542432c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-594201d0984fe9c7b254",
+          "competition_id": "competition:hubmap-kidney-segmentation",
+          "source_id": "source:lesson-source-ea417fdde3963ead",
+          "snapshot_path": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt",
+          "snapshot_sha256": "dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a",
+          "source_url": "https://www.kaggle.com/competitions/hubmap-kidney-segmentation/writeups/tom-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-a595a4bf7542432c",
+          "line_start": 213,
+          "line_end": 220,
+          "evidence_text": "I used bce loss + lovasz-hinge loss, on top oh that I used deep supervision with bce loss + lovasz-hinge loss (for only non-empty masks) multiplied by 0.1. For classification head, I used bce loss\n\n6. External data and Pseudo-label\n---------------------------------\n\nI generated pseudo-labels for (EDIT) train data, public test data, the hubmap-portal ([https://portal.hubmapconsortium.org/search?entity_type[0]=Dataset](https://portal.hubmapconsortium.org/search?entity_type[0]=Dataset))\n\nand dataset_a_dib ([https://data.mendeley.com/datasets/k7nvtgn2x6/3)](https://data.mendeley.com/datasets/k7nvtgn2x6/3)). For the data d488c759a, I used Carno Zhao's pseudo-label (thanks [@carnozhao](https://www.kaggle.com/carnozhao) !) for one of my final model and my model's pseudo-label for the other one. I checked my private scores and found that these models' performances are not so different. But my 1st place model is the former one with Carno Zhao's pseudo-label. I think it's not the hand-labeling but the indirectly ensemble effect that boosted my score since my model is single and diversity should contribute.",
+          "kind": "used",
+          "statement": "The author used BCE plus Lovasz with 0.1 deep supervision for nonempty masks, and compared own versus another author\u2019s pseudo-labels for one slide, finding little performance difference.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Teacher-source tracking clear, segmentation retraining costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful source comparison without assuming hand-label superiority.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Applies to pseudo-labeled segmentation with patient/teacher isolation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ea417fdde3963ead",
+          "locator": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt#L213-L220",
+          "quote": "I used bce loss + lovasz-hinge loss, on top oh that I used deep supervision with bce loss + lovasz-hinge loss (for only non-empty masks) multiplied by 0.1. For classification head, I used bce loss\n\n6. External data and Pseudo-label\n---------------------------------\n\nI generated pseudo-labels for (EDIT) train data, public test data, the hubmap-portal ([https://portal.hubmapconsortium.org/search?entity_type[0]=Dataset](https://portal.hubmapconsortium.org/search?entity_type[0]=Dataset))\n\nand dataset_a_dib ([https://data.mendeley.com/datasets/k7nvtgn2x6/3)](https://data.mendeley.com/datasets/k7nvtgn2x6/3)). For the data d488c759a, I used Carno Zhao's pseudo-label (thanks [@carnozhao](https://www.kaggle.com/carnozhao) !) for one of my final model and my model's pseudo-label for the other one. I checked my private scores and found that these models' performances are not so different. But my 1st place model is the former one with Carno Zhao's pseudo-label. I think it's not the hand-labeling but the indirectly ensemble effect that boosted my score since my model is single and diversity should contribute.",
+          "competition_id": "competition:hubmap-kidney-segmentation",
+          "url": "https://www.kaggle.com/competitions/hubmap-kidney-segmentation/writeups/tom-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt",
+          "snapshot_sha256": "dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a",
+          "line_start": 213,
+          "line_end": 220
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-a595a4bf7542432c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked own/Carno pseudo-label provenance and similar private scores; mechanism speculative.",
+          "candidate_sha256": "cfc3655d98512c38d28075b945811437bacefa92e694830dbb6d28326a6046c6"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 247,
+        "line_end": 251,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-1a24f60aaa307000",
+      "canonical_key": "detect individual face regions and classify each detected region with a separate recognition model. | an image contains multiple faces requiring separate identity predictions | predictive_quality",
+      "title": "Separate face localization from identity classification",
+      "statement": "When an image contains multiple faces requiring separate identity predictions, Proposed adaptation of source observation: Detect individual face regions and classify each detected region with a separate recognition model. Verify: Proposed verification: Measure end-to-end recall as well as classification accuracy on correctly localized regions. Limits: The first-place claim is for classifier Part1; timing of the winner-owned full detector/classifier continuation is unspecified and it is not established as the competition submission. Detector failures propagate; no measured latency or isolated pipeline gain is supplied.",
+      "trigger_conditions": [
+        "an image contains multiple faces requiring separate identity predictions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Detect individual face regions and classify each detected region with a separate recognition model."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure end-to-end recall as well as classification accuracy on correctly localized regions."
+      ],
+      "limitations": [
+        "The first-place claim is for classifier Part1; timing of the winner-owned full detector/classifier continuation is unspecified and it is not established as the competition submission. Detector failures propagate; no measured latency or isolated pipeline gain is supplied."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Winner-owned repository describes a complete face-localization and identity-classification continuation alongside its ranked classifier; exact timing is unspecified.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-1a24f60aaa307000"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Two models and crop contracts require intermediate image skills.",
+        "competitor": "Concrete multi-object pipeline, not evidence of winning classifier improvement.",
+        "practitioner": "Useful modular deployment pattern with cascading-error evaluation."
+      },
+      "review": {
+        "candidate_id": "C-a-1a24f60aaa307000",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Reread complete CelebVision README: winner-owned two-stage system is used in the repository, but exact timing and use as the winning competition submission are unspecified. Timing-neutral used observation replaces unsupported postcompetition dating; existing limitations remain.",
+        "candidate_sha256": "a4bc3d5552f1112838eabeb659c901276608ccc99f3322811733804f271ed114"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000226",
+      "slug": "lesson-000226",
+      "merged_candidate_ids": [
+        "C-a-1a24f60aaa307000"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7b993ed9ff4c15bae1c7",
+          "competition_id": "competition:s-2025-multi-class-pretraied-network-project",
+          "source_id": "source:lesson-source-5eb27d040b2a01fd",
+          "snapshot_path": "research/lesson-extraction/snapshots/65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba.txt",
+          "snapshot_sha256": "65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba",
+          "source_url": "https://raw.githubusercontent.com/SyedBurhanAhmed/CelebVision-Multi-Pipeline-Celebrity-Recognition-System/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-1a24f60aaa307000",
+          "line_start": 145,
+          "line_end": 148,
+          "evidence_text": "### Model Architecture\n- **Detection**: YOLOv11n fine-tuned on custom dataset (5.2MB)\n- **Classification**: EfficientNetV2-S with transfer learning (~80MB)\n- **Pipeline**: Integrated two-stage inference system",
+          "kind": "used",
+          "statement": "Winner-owned repository continuation integrates a detector and classifier; first-place metadata applies to classifier Part1, and exact continuation timing is unspecified.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Two models and crop contracts require intermediate image skills.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete multi-object pipeline, not evidence of winning classifier improvement.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful modular deployment pattern with cascading-error evaluation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5eb27d040b2a01fd",
+          "locator": "research/lesson-extraction/snapshots/65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba.txt#L145-L148",
+          "quote": "### Model Architecture\n- **Detection**: YOLOv11n fine-tuned on custom dataset (5.2MB)\n- **Classification**: EfficientNetV2-S with transfer learning (~80MB)\n- **Pipeline**: Integrated two-stage inference system",
+          "competition_id": "competition:s-2025-multi-class-pretraied-network-project",
+          "url": "https://raw.githubusercontent.com/SyedBurhanAhmed/CelebVision-Multi-Pipeline-Celebrity-Recognition-System/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba.txt",
+          "snapshot_sha256": "65e692efabcd85cb242736242cae5660e0446792369bed696b3d38da3460e7ba",
+          "line_start": 145,
+          "line_end": 148
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-1a24f60aaa307000",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Reread complete CelebVision README: winner-owned two-stage system is used in the repository, but exact timing and use as the winning competition submission are unspecified. Timing-neutral used observation replaces unsupported postcompetition dating; existing limitations remain.",
+          "candidate_sha256": "a4bc3d5552f1112838eabeb659c901276608ccc99f3322811733804f271ed114"
+        },
+        {
+          "candidate_id": "C-a-1a24f60aaa307000",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full CelebVision packet and final record reread. Integrated detector/classifier use literal; timing now unknown with used kind. Winning classifierPart1 distinct from continuation not establishedassubmission; no latency/isolation gain. Endtoendrecall check proposed, grades reasonable; final timing repair accepted.",
+          "candidate_sha256": "a4bc3d5552f1112838eabeb659c901276608ccc99f3322811733804f271ed114"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 273,
+        "line_end": 277,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-246e782c1c0ebfd3dd20",
+      "canonical_key": "double-angle-yaw-average | undirected 3d boxes | fusion geometry",
+      "title": "Handle 180-degree yaw ambiguity before box averaging",
+      "statement": "When 3D box orientations are equivalent modulo180degrees, proposed reuse: Proposed recipe: compare circular averaging of doubled yaw angles with naive angle averaging. Proposed check: Test circular doubled-angle averaging at175/5degrees and near wraparound, halve the final angle, and compare box IoUwith naive averaging. Limitation: Applicable to orientation modulo180degrees only; directed headings require360degree treatment.",
+      "trigger_conditions": [
+        "3D box orientations are equivalent modulo180degrees"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare circular averaging of doubled yaw angles with naive angle averaging."
+      ],
+      "verification_steps": [
+        "Proposed check: Test circular doubled-angle averaging at175/5degrees and near wraparound, halve the final angle, and compare box IoUwith naive averaging."
+      ],
+      "limitations": [
+        "Applicable to orientation modulo180degrees only; directed headings require360degree treatment."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "point_cloud"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [
+          "coordinate_consistency"
+        ],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author addresses180degree orientation ambiguity by averaging doubled yaw.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Test circular doubled-angle averaging at175/5degrees and near wraparound, halve the final angle, and compare box IoUwith naive averaging.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1b4392f293c2d53bf87f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "The counterexample is instructive, but circular geometry is a prerequisite.",
+        "competitor": "Correct angular fusion prevents a severe otherwise silent box error.",
+        "practitioner": "Equivalent-angle handling transfers to axes, orientations and geometric ensembles."
+      },
+      "review": {
+        "candidate_id": "C-246e782c1c0ebfd3dd20",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Source describes doubled-angle sine/cosine interpolation to handle modulo180yaw; intuitive author rationale is not presented as an experimental gain.",
+        "candidate_sha256": "e6eae51ea943cf0670198606efe80460d3a83a9f3fcbb1c69d511c9f4e711b84"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000233",
+      "slug": "lesson-000233",
+      "merged_candidate_ids": [
+        "C-246e782c1c0ebfd3dd20"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-24fef7851f210c3cde3b",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "source_url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "source_quality": "primary_text",
+          "observation_id": "O-1b4392f293c2d53bf87f",
+          "line_start": 60,
+          "line_end": 60,
+          "evidence_text": "To deal with this problem, we use an intuitive method: average 2 * yaw instead of yaw.",
+          "kind": "used",
+          "statement": "Author addresses180degree orientation ambiguity by averaging doubled yaw.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "The counterexample is instructive, but circular geometry is a prerequisite.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Correct angular fusion prevents a severe otherwise silent box error.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Equivalent-angle handling transfers to axes, orientations and geometric ensembles.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "locator": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt#L60-L60",
+          "quote": "To deal with this problem, we use an intuitive method: average 2 * yaw instead of yaw.",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "line_start": 60,
+          "line_end": 60
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-246e782c1c0ebfd3dd20",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Source describes doubled-angle sine/cosine interpolation to handle modulo180yaw; intuitive author rationale is not presented as an experimental gain.",
+          "candidate_sha256": "e6eae51ea943cf0670198606efe80460d3a83a9f3fcbb1c69d511c9f4e711b84"
+        },
+        {
+          "candidate_id": "C-246e782c1c0ebfd3dd20",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Complete 3D writeup explains175/-5degree ambiguity and uses doubled-angle sine/cosine interpolation for undirected yaw. Candidate preserves modulo180 condition, halves result, and proposes pathological geometry tests; directed headings excluded. Twelve scores reflect specialist geometry and concrete silent-error prevention.",
+          "candidate_sha256": "e6eae51ea943cf0670198606efe80460d3a83a9f3fcbb1c69d511c9f4e711b84"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 305,
+        "line_end": 309,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9514386f53421030617f",
+      "canonical_key": "fine-tune from the base checkpoint on teacher-ensemble labels, then repeat using the first pseudo-label model outputs. | a detector ensemble can supply labels for extra unlabeled images | predictive_quality",
+      "title": "Iterate detector pseudo-label refinement",
+      "statement": "When a detector ensemble can supply labels for extra unlabeled images, proposed reuse: Proposed conditional application: Fine-tune from the base checkpoint on teacher-ensemble labels, then repeat using the first pseudo-label model outputs. Proposed check: Generate leakage-safe teacher boxes, compare one versus two rounds at equal training budget, and measure quality on untouched source-held-out images. Limitation: Hidden-test pseudo-labeling is competition transduction; deployment reuse requires eligible unlabeled images and an untouched labeled holdout.",
+      "trigger_conditions": [
+        "a detector ensemble can supply labels for extra unlabeled images"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Fine-tune from the base checkpoint on teacher-ensemble labels, then repeat using the first pseudo-label model outputs."
+      ],
+      "verification_steps": [
+        "Proposed check: Generate leakage-safe teacher boxes, compare one versus two rounds at equal training budget, and measure quality on untouched source-held-out images."
+      ],
+      "limitations": [
+        "Hidden-test pseudo-labeling is competition transduction; deployment reuse requires eligible unlabeled images and an untouched labeled holdout."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The wheat author continued training for a second pseudo-label round using first-round outputs and its checkpoint.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed controlled application under the stated conditions.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-0da0ad3eade8f4041337"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Iterative pseudo-labeling is useful but detector ensembles are costly.",
+        "competitor": "A second pseudo-label round is an actionable test where unlabeled target images are permitted.",
+        "practitioner": "Teacher refinement transfers to detection but needs contamination and confirmation-bias checks."
+      },
+      "review": {
+        "candidate_id": "C-9514386f53421030617f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Wheat winner continues from round-one checkpoint on original plus pseudo-labeled hidden test images; source confounds rounds, teacher and extra training.",
+        "candidate_sha256": "1b6defede1286db09bbd35031148125921125379e04f645c0ee7e46104cf1be1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000269",
+      "slug": "lesson-000269",
+      "merged_candidate_ids": [
+        "C-9514386f53421030617f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e06322f3205967eb0b7",
+          "competition_id": "competition:global-wheat-detection",
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "source_url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "source_quality": "primary_text",
+          "observation_id": "O-0da0ad3eade8f4041337",
+          "line_start": 79,
+          "line_end": 79,
+          "evidence_text": "Round2: Continue train EfficientDet-d6 6 epochs with trainset + hidden testset (output of pseudo labeling round1), load weight from pseudo labeling round1 checkpoint",
+          "kind": "used",
+          "statement": "The wheat author continued training for a second pseudo-label round using first-round outputs and its checkpoint.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Iterative pseudo-labeling is useful but detector ensembles are costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 2
+          },
+          "rationale": "A second pseudo-label round is an actionable test where unlabeled target images are permitted.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Teacher refinement transfers to detection but needs contamination and confirmation-bias checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "locator": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt#L79-L79",
+          "quote": "Round2: Continue train EfficientDet-d6 6 epochs with trainset + hidden testset (output of pseudo labeling round1), load weight from pseudo labeling round1 checkpoint",
+          "competition_id": "competition:global-wheat-detection",
+          "url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "line_start": 79,
+          "line_end": 79
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9514386f53421030617f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Wheat winner continues from round-one checkpoint on original plus pseudo-labeled hidden test images; source confounds rounds, teacher and extra training.",
+          "candidate_sha256": "1b6defede1286db09bbd35031148125921125379e04f645c0ee7e46104cf1be1"
+        },
+        {
+          "candidate_id": "C-9514386f53421030617f",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Read complete wheat writeup and comments. Round2 continues from round1 checkpoint using its hidden-test labels; candidate preserves teacher identity and does not turn pipeline scores into a controlled round effect. Transductive eligibility and untouched source holdouts are explicit. Twelve scores appropriately penalize ensemble cost and novice feasibility.",
+          "candidate_sha256": "1b6defede1286db09bbd35031148125921125379e04f645c0ee7e46104cf1be1"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 253,
+        "line_end": 257,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-46d7a2032168fe1e7ab4",
+      "canonical_key": "invert-3d-tta-transforms | transformed point clouds | geometric validity",
+      "title": "Undo every 3D test-time transform before fusing boxes",
+      "statement": "When point clouds are transformed for test-time augmentation, proposed reuse: Proposed recipe: map predicted box centers and yaw back to the original coordinates before fusion. Proposed check: Round-trip synthetic boxes through each transform and inverse, including flips, scaling and wraparound, before comparing fused predictions. Limitation: Box conventions and yaw direction differ across libraries; inverse correctness must be tested independently of quality gains.",
+      "trigger_conditions": [
+        "point clouds are transformed for test-time augmentation"
+      ],
+      "action_steps": [
+        "Proposed recipe: map predicted box centers and yaw back to the original coordinates before fusion."
+      ],
+      "verification_steps": [
+        "Proposed check: Round-trip synthetic boxes through each transform and inverse, including flips, scaling and wraparound, before comparing fused predictions."
+      ],
+      "limitations": [
+        "Box conventions and yaw direction differ across libraries; inverse correctness must be tested independently of quality gains."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "point_cloud"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [
+          "coordinate_consistency"
+        ],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author transforms predicted boxes back to original coordinates. Author explicitly changes center and yaw when undoing a rotation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Round-trip synthetic boxes through each transform and inverse, including flips, scaling and wraparound, before comparing fused predictions.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-69099174d24e3368346c",
+        "O-b0474ae555830bca68a3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Coordinate consistency is clear, though3Dgeometry requires care.",
+        "competitor": "Correct inverse transforms are essential to valid3DTTA.",
+        "practitioner": "Transform round-trip checks generalize to geometric perception and mapping pipelines."
+      },
+      "review": {
+        "candidate_id": "C-46d7a2032168fe1e7ab4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete3Ddetection source explicitly inverses point-cloud transforms including box center and yaw before fusion; no execution was performed.",
+        "candidate_sha256": "f08473c9b8b568f0d7615c81ebae3b729df3055d00b5a7b026c6f82f1e0b79ca"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000321",
+      "slug": "lesson-000321",
+      "merged_candidate_ids": [
+        "C-46d7a2032168fe1e7ab4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-24fef7851f210c3cde3b",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "source_url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "source_quality": "primary_text",
+          "observation_id": "O-69099174d24e3368346c",
+          "line_start": 34,
+          "line_end": 34,
+          "evidence_text": "both the center position and yaw angle are changed",
+          "kind": "used",
+          "statement": "Author explicitly changes center and yaw when undoing a rotation.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-24fef7851f210c3cde3b",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "source_url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "source_quality": "primary_text",
+          "observation_id": "O-b0474ae555830bca68a3",
+          "line_start": 34,
+          "line_end": 34,
+          "evidence_text": "Then the predicted boxes are transformed back.",
+          "kind": "used",
+          "statement": "Author transforms predicted boxes back to original coordinates.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Coordinate consistency is clear, though3Dgeometry requires care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Correct inverse transforms are essential to valid3DTTA.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Transform round-trip checks generalize to geometric perception and mapping pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "locator": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt#L34-L34",
+          "quote": "both the center position and yaw angle are changed",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "line_start": 34,
+          "line_end": 34
+        },
+        {
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "locator": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt#L34-L34",
+          "quote": "Then the predicted boxes are transformed back.",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "line_start": 34,
+          "line_end": 34
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-46d7a2032168fe1e7ab4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete3Ddetection source explicitly inverses point-cloud transforms including box center and yaw before fusion; no execution was performed.",
+          "candidate_sha256": "f08473c9b8b568f0d7615c81ebae3b729df3055d00b5a7b026c6f82f1e0b79ca"
+        },
+        {
+          "candidate_id": "C-46d7a2032168fe1e7ab4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Full 3D winner source explicitly reverses center and yaw after point-cloud rotations before fusion; flip-only four-copy recipe is distinct from later extra transforms. Proposed synthetic round trips and library convention checks are justified. All twelve scores fit essential geometric reliability without claiming measured inverse ablation.",
+          "candidate_sha256": "f08473c9b8b568f0d7615c81ebae3b729df3055d00b5a7b026c6f82f1e0b79ca"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 279,
+        "line_end": 283,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9176fc02937f4cdf4c89",
+      "canonical_key": "multitask-loss-weighting | classification and bbox regression | objective balance",
+      "title": "Tune the balance between classification and box-regression losses",
+      "statement": "When classification and localization are trained jointly, proposed reuse: Proposed recipe: compare loss weights instead of assuming equal task weighting. Proposed check: Sweep loss weights on inner validation, report accuracy/IoUtradeoffs on an untouched holdout, and monitor relative loss/gradient scales. Limitation: Alpha0.7depends on loss scales and task priorities; no controlled weight sweep is reported.",
+      "trigger_conditions": [
+        "classification and localization are trained jointly"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare loss weights instead of assuming equal task weighting."
+      ],
+      "verification_steps": [
+        "Proposed check: Sweep loss weights on inner validation, report accuracy/IoUtradeoffs on an untouched holdout, and monitor relative loss/gradient scales."
+      ],
+      "limitations": [
+        "Alpha0.7depends on loss scales and task priorities; no controlled weight sweep is reported."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports a weighted sum of the two task losses.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Sweep loss weights on inner validation, report accuracy/IoUtradeoffs on an untouched holdout, and monitor relative loss/gradient scales.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-9fe1866bad6099ebd0ff"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Balancing two losses is accessible and makes task tradeoffs explicit.",
+        "competitor": "A weight sweep prevents arbitrary joint-task optimization choices.",
+        "practitioner": "Multi-objective models need weights aligned with operational utility and scale."
+      },
+      "review": {
+        "candidate_id": "C-9176fc02937f4cdf4c89",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner README defines weighted classification/regression loss with alpha0.7; this is a configuration, not evidence of optimality.",
+        "candidate_sha256": "121fb1a4ac37345ffd5ceb8cdf305836a98870c6de35821c8a0c58e40ce254f8"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000358",
+      "slug": "lesson-000358",
+      "merged_candidate_ids": [
+        "C-9176fc02937f4cdf4c89"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8fe7d5037a9b9b44735b",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "source_url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "source_quality": "primary_text",
+          "observation_id": "O-9fe1866bad6099ebd0ff",
+          "line_start": 96,
+          "line_end": 96,
+          "evidence_text": "L_total = (1 - \u03b1) \u00d7 L_classification + \u03b1 \u00d7 L_regression",
+          "kind": "used",
+          "statement": "Author reports a weighted sum of the two task losses.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Balancing two losses is accessible and makes task tradeoffs explicit.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A weight sweep prevents arbitrary joint-task optimization choices.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Multi-objective models need weights aligned with operational utility and scale.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "locator": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt#L96-L96",
+          "quote": "L_total = (1 - \u03b1) \u00d7 L_classification + \u03b1 \u00d7 L_regression",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "line_start": 96,
+          "line_end": 96
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9176fc02937f4cdf4c89",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner README defines weighted classification/regression loss with alpha0.7; this is a configuration, not evidence of optimality.",
+          "candidate_sha256": "121fb1a4ac37345ffd5ceb8cdf305836a98870c6de35821c8a0c58e40ce254f8"
+        },
+        {
+          "candidate_id": "C-9176fc02937f4cdf4c89",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Full aircraft README reports(1-alpha)classification+alpha regression withalpha0.7. Candidate retains scale/task-priority dependence and no controlled sweep; proposes inner weight selection and untouched task tradeoffs. Twelve utility scores are appropriate for a concrete inexpensive multitask balance experiment.",
+          "candidate_sha256": "121fb1a4ac37345ffd5ceb8cdf305836a98870c6de35821c8a0c58e40ce254f8"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 205,
+        "line_end": 215,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-0472ed124be4025ba24e",
+      "canonical_key": "normalized-box-targets | resized images | coordinate consistency",
+      "title": "Keep bounding-box targets consistent with image resizing",
+      "statement": "When image resizing changes the coordinate system used for localization, proposed reuse: Proposed recipe: verify normalized box targets and all resize and augmentation transformations. Proposed check: Overlay transformed boxes on resize/crop/flip fixtures and round-trip coordinates to the original image, checking edges and degenerate boxes. Limitation: Normalization conventions must match resize and augmentation; published description does not prove transform implementation correctness.",
+      "trigger_conditions": [
+        "image resizing changes the coordinate system used for localization"
+      ],
+      "action_steps": [
+        "Proposed recipe: verify normalized box targets and all resize and augmentation transformations."
+      ],
+      "verification_steps": [
+        "Proposed check: Overlay transformed boxes on resize/crop/flip fixtures and round-trip coordinates to the original image, checking edges and degenerate boxes."
+      ],
+      "limitations": [
+        "Normalization conventions must match resize and augmentation; published description does not prove transform implementation correctness."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "deployment_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author normalizes bounding boxes to unit coordinates. Author resizes input images.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Overlay transformed boxes on resize/crop/flip fixtures and round-trip coordinates to the original image, checking edges and degenerate boxes.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-9067633e27100979c63a",
+        "O-d3b3d38fa18c0a0ee75e"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Visual overlays make a critical localization invariant easy to understand.",
+        "competitor": "Coordinate fixtures prevent silent box-target corruption before model tuning.",
+        "practitioner": "Geometric consistency checks transfer to detection and annotation pipelines."
+      },
+      "review": {
+        "candidate_id": "C-0472ed124be4025ba24e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner aircraft README normalizes boxes to[0,1]and resizes images400\u00d7255; correctness of every augmentation transform remains a proposed check.",
+        "candidate_sha256": "50463071be44b76249fca44fc508eb3932d446d0c045ec03ac136ea1ceb288da"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000360",
+      "slug": "lesson-000360",
+      "merged_candidate_ids": [
+        "C-0472ed124be4025ba24e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8fe7d5037a9b9b44735b",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "source_url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "source_quality": "primary_text",
+          "observation_id": "O-9067633e27100979c63a",
+          "line_start": 115,
+          "line_end": 115,
+          "evidence_text": "Bounding boxes normalized to [0, 1]",
+          "kind": "used",
+          "statement": "Author normalizes bounding boxes to unit coordinates.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-8fe7d5037a9b9b44735b",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "source_url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "source_quality": "primary_text",
+          "observation_id": "O-d3b3d38fa18c0a0ee75e",
+          "line_start": 114,
+          "line_end": 114,
+          "evidence_text": "Images resized to 400\u00d7255",
+          "kind": "used",
+          "statement": "Author resizes input images.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Visual overlays make a critical localization invariant easy to understand.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Coordinate fixtures prevent silent box-target corruption before model tuning.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Geometric consistency checks transfer to detection and annotation pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "locator": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt#L115-L115",
+          "quote": "Bounding boxes normalized to [0, 1]",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "line_start": 115,
+          "line_end": 115
+        },
+        {
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "locator": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt#L114-L114",
+          "quote": "Images resized to 400\u00d7255",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "line_start": 114,
+          "line_end": 114
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-0472ed124be4025ba24e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner aircraft README normalizes boxes to[0,1]and resizes images400\u00d7255; correctness of every augmentation transform remains a proposed check.",
+          "candidate_sha256": "50463071be44b76249fca44fc508eb3932d446d0c045ec03ac136ea1ceb288da"
+        },
+        {
+          "candidate_id": "C-0472ed124be4025ba24e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Aircraft source reports resizing400x255 and unit-normalized boxes, without proof of augmentation correctness. Candidate proposes overlays and coordinate round trips with edge/degenerate cases. Twelve high scores support this precise input invariant; 2D resized targets differ meaningfully from 3D TTA inverse/fusion conditions.",
+          "candidate_sha256": "50463071be44b76249fca44fc508eb3932d446d0c045ec03ac136ea1ceb288da"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 217,
+        "line_end": 227,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a2704775591b7daa694b",
+      "canonical_key": "predict candidate iou using morphological features with lightgbm and choose separation thresholds per candidate. | segmentation candidates have uncertain watershed thresholds | predictive_quality",
+      "title": "Learn proposal separation quality from morphology",
+      "statement": "When segmentation candidates have uncertain watershed thresholds, proposed reuse: Proposed conditional application: Predict candidate IoU using morphological features with LightGBM and choose separation thresholds per candidate. Proposed check: Fit IoU regressor on OOF candidates; compare adaptive/fixed thresholds on untouched image types. Limitation: Candidate labels can leak from fitted base masks; distribution shift affects learned quality.",
+      "trigger_conditions": [
+        "segmentation candidates have uncertain watershed thresholds"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Predict candidate IoU using morphological features with LightGBM and choose separation thresholds per candidate."
+      ],
+      "verification_steps": [
+        "Proposed check: Fit IoU regressor on OOF candidates; compare adaptive/fixed thresholds on untouched image types."
+      ],
+      "limitations": [
+        "Candidate labels can leak from fitted base masks; distribution shift affects learned quality."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The nuclei team selected candidate separation thresholds using predicted IoU.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-787f250eb91bb30aada8"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Two-stage segmentation is specialist work.",
+        "competitor": "Specific adaptive postprocessing option.",
+        "practitioner": "Conditional value if proposal morphology predicts quality across domains."
+      },
+      "review": {
+        "candidate_id": "C-a2704775591b7daa694b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full nuclei source selects watershed separation by morphology-predicted IoU; threshold tuning overfit image types.",
+        "candidate_sha256": "8699a55ed3af110516e8fcac3fe3125a01a4018a368d09e32047513878a6bdfa"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000381",
+      "slug": "lesson-000381",
+      "merged_candidate_ids": [
+        "C-a2704775591b7daa694b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f13830d56dfd95cafce6",
+          "competition_id": "competition:data-science-bowl-2018",
+          "source_id": "source:lesson-source-c8d928fac651f4d7",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt",
+          "snapshot_sha256": "ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d",
+          "source_url": "https://www.kaggle.com/competitions/data-science-bowl-2018/writeups/ods-ai-topcoders-ods-ai-topcoders-1st-place-soluti",
+          "source_quality": "primary_text",
+          "observation_id": "O-787f250eb91bb30aada8",
+          "line_start": 109,
+          "line_end": 109,
+          "evidence_text": "Then best separation threshold selected for each candidate according to predicted iou.",
+          "kind": "used",
+          "statement": "The nuclei team selected candidate separation thresholds using predicted IoU.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Two-stage segmentation is specialist work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Specific adaptive postprocessing option.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional value if proposal morphology predicts quality across domains.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c8d928fac651f4d7",
+          "locator": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt#L109-L109",
+          "quote": "Then best separation threshold selected for each candidate according to predicted iou.",
+          "competition_id": "competition:data-science-bowl-2018",
+          "url": "https://www.kaggle.com/competitions/data-science-bowl-2018/writeups/ods-ai-topcoders-ods-ai-topcoders-1st-place-soluti",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt",
+          "snapshot_sha256": "ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d",
+          "line_start": 109,
+          "line_end": 109
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a2704775591b7daa694b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full nuclei source selects watershed separation by morphology-predicted IoU; threshold tuning overfit image types.",
+          "candidate_sha256": "8699a55ed3af110516e8fcac3fe3125a01a4018a368d09e32047513878a6bdfa"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 285,
+        "line_end": 289,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-5e3a5fc2a503d900c9aa",
+      "canonical_key": "predict cell-interior and touching-border channels and use watershed; combine full-mask predictions when border removal hurts iou. | binary masks merge neighboring nuclei | predictive_quality",
+      "title": "Predict touching borders to separate adjacent instances",
+      "statement": "When binary masks merge neighboring nuclei, proposed reuse: Proposed conditional application: Predict cell-interior and touching-border channels and use watershed; combine full-mask predictions when border removal hurts IoU. Proposed check: Compare border/full-mask targets with watershed on image-source-held-out instance precision and IoU thresholds. Limitation: Border removal improves separation but removes area; multiple networks increase cost.",
+      "trigger_conditions": [
+        "binary masks merge neighboring nuclei"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Predict cell-interior and touching-border channels and use watershed; combine full-mask predictions when border removal hurts IoU."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare border/full-mask targets with watershed on image-source-held-out instance precision and IoU thresholds."
+      ],
+      "limitations": [
+        "Border removal improves separation but removes area; multiple networks increase cost."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The nuclei team predicted borders specifically between touching cells.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-ffe384d1e8c91ae0439f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Specialized segmentation training needed.",
+        "competitor": "Concrete remedy for touching-object errors.",
+        "practitioner": "Useful microscopy instances; biological benefit remains untested."
+      },
+      "review": {
+        "candidate_id": "C-5e3a5fc2a503d900c9aa",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full nuclei packet predicts touching borders and recovers full masks to offset high-IoU loss.",
+        "candidate_sha256": "27d9fade83a73339924807f58764adb41e3882234f21c473c4f73c52c30c6e9e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000382",
+      "slug": "lesson-000382",
+      "merged_candidate_ids": [
+        "C-5e3a5fc2a503d900c9aa"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f13830d56dfd95cafce6",
+          "competition_id": "competition:data-science-bowl-2018",
+          "source_id": "source:lesson-source-c8d928fac651f4d7",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt",
+          "snapshot_sha256": "ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d",
+          "source_url": "https://www.kaggle.com/competitions/data-science-bowl-2018/writeups/ods-ai-topcoders-ods-ai-topcoders-1st-place-soluti",
+          "source_quality": "primary_text",
+          "observation_id": "O-ffe384d1e8c91ae0439f",
+          "line_start": 45,
+          "line_end": 45,
+          "evidence_text": "Hence we decided to predict only the borders between the cells.",
+          "kind": "used",
+          "statement": "The nuclei team predicted borders specifically between touching cells.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Specialized segmentation training needed.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete remedy for touching-object errors.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful microscopy instances; biological benefit remains untested.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c8d928fac651f4d7",
+          "locator": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt#L45-L45",
+          "quote": "Hence we decided to predict only the borders between the cells.",
+          "competition_id": "competition:data-science-bowl-2018",
+          "url": "https://www.kaggle.com/competitions/data-science-bowl-2018/writeups/ods-ai-topcoders-ods-ai-topcoders-1st-place-soluti",
+          "snapshot_path": "research/lesson-extraction/snapshots/ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d.txt",
+          "snapshot_sha256": "ecfd1012a22f74d84c9508cd857e934c9d4178c18332d7fb76bcb784cb7ab54d",
+          "line_start": 45,
+          "line_end": 45
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-5e3a5fc2a503d900c9aa",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full nuclei packet predicts touching borders and recovers full masks to offset high-IoU loss.",
+          "candidate_sha256": "27d9fade83a73339924807f58764adb41e3882234f21c473c4f73c52c30c6e9e"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 319,
+        "line_end": 323,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-f227885c37894f1385c4",
+      "canonical_key": "shared-backbone-two-heads | classification and localization | multitask architecture",
+      "title": "Share a backbone while separating classification and localization heads",
+      "statement": "When each image requires both a class and bounding box, proposed reuse: Proposed recipe: compare a shared feature extractor with task-specific prediction heads. Proposed check: Compare shared and separate backbones under the same split and budget, report both accuracy and IoU, and inspect negative task transfer. Limitation: Joint learning can harm either task; source's win explanation does not establish component causality.",
+      "trigger_conditions": [
+        "each image requires both a class and bounding box"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare a shared feature extractor with task-specific prediction heads."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare shared and separate backbones under the same split and budget, report both accuracy and IoU, and inspect negative task transfer."
+      ],
+      "limitations": [
+        "Joint learning can harm either task; source's win explanation does not establish component causality."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author uses shared backbone and two task heads.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare shared and separate backbones under the same split and budget, report both accuracy and IoU, and inspect negative task transfer.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-325aa7fba655a8adaa77"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Two heads on one backbone are a clear multi-task example.",
+        "competitor": "Sharing features offers a concrete joint classification/localization baseline.",
+        "practitioner": "Multi-task sharing can reduce computation if task tradeoffs are validated."
+      },
+      "review": {
+        "candidate_id": "C-f227885c37894f1385c4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner aircraft README describes shared image backbone with separate class and box heads; no isolated shared-versus-separate ablation.",
+        "candidate_sha256": "2e51a34dee5c83facce2d31afa2662ccf9d08613b4848a9e5ecbc39dcd602ad1"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000459",
+      "slug": "lesson-000459",
+      "merged_candidate_ids": [
+        "C-f227885c37894f1385c4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8fe7d5037a9b9b44735b",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "source_url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "source_quality": "primary_text",
+          "observation_id": "O-325aa7fba655a8adaa77",
+          "line_start": 82,
+          "line_end": 82,
+          "evidence_text": "Both models use a shared backbone with two task-specific heads:",
+          "kind": "used",
+          "statement": "Author uses shared backbone and two task heads.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Two heads on one backbone are a clear multi-task example.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Sharing features offers a concrete joint classification/localization baseline.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Multi-task sharing can reduce computation if task tradeoffs are validated.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-cfeb6286ef6c28b8",
+          "locator": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt#L82-L82",
+          "quote": "Both models use a shared backbone with two task-specific heads:",
+          "competition_id": "competition:aa-iv-2025-i-object-localization",
+          "url": "https://raw.githubusercontent.com/daorhe2272/object_detection/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9.txt",
+          "snapshot_sha256": "5dbf638605371500f3b3002175b55c7dca27afcd3298cc920cc9774fc4f88dd9",
+          "line_start": 82,
+          "line_end": 82
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-f227885c37894f1385c4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner aircraft README describes shared image backbone with separate class and box heads; no isolated shared-versus-separate ablation.",
+          "candidate_sha256": "2e51a34dee5c83facce2d31afa2662ccf9d08613b4848a9e5ecbc39dcd602ad1"
+        },
+        {
+          "candidate_id": "C-f227885c37894f1385c4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Complete aircraft course winner README uses a shared backbone with classification and box heads. Candidate treats separate-backbone comparison and negative transfer as proposed; source's causal win explanation is not adopted. All twelve moderate scores fit conditional multitask architecture design.",
+          "candidate_sha256": "2e51a34dee5c83facce2d31afa2662ccf9d08613b4848a9e5ecbc39dcd602ad1"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 229,
+        "line_end": 239,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-7442f2c7ebd012e90688",
+      "canonical_key": "train on bounded image crops and evaluate multiscale full images under an explicit size cap | high-resolution document detection with limited gpu memory | memory_feasibility",
+      "title": "Use crops for training when full-image detection exceeds memory",
+      "statement": "For high-resolution document detection with limited GPU memory, train on bounded image crops and evaluate multiscale full images under an explicit size cap. Ensure boundary-crossing boxes are handled consistently and compare crop training/full-image inference across scale settings while recording peak memory. The author reports two 1080 Ti GPUs and leaderboard scores of 0.935 and 0.946 for different training/testing scale packages, plus 0.950 for an ensemble. The metric definition and leaderboard partition are unspecified; crop and scale effects are not isolated.",
+      "trigger_conditions": [
+        "high-resolution document detection with limited GPU memory"
+      ],
+      "action_steps": [
+        "Proposed: train on bounded image crops and evaluate multiscale full images under an explicit size cap."
+      ],
+      "verification_steps": [
+        "Proposed: ensure boundary-crossing boxes are handled consistently and compare crop training/full-image inference across scale settings while recording peak memory."
+      ],
+      "limitations": [
+        "The author reports two 1080 Ti GPUs and leaderboard scores of 0.935 and 0.946 for different training/testing scale packages, plus 0.950 for an ensemble. The metric definition and leaderboard partition are unspecified; crop and scale effects are not isolated."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "object_detection"
+        ],
+        "application_domains": [
+          "historical_documents"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "memory_feasibility"
+        ],
+        "risk_tags": [
+          "hardware_dependency",
+          "crop_boundary_labels",
+          "distribution_shift"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author-reported Kuzushiji detector setup uses 1024\u00d71024 training crops due to limited GPU memory and size-capped full-image multiscale testing.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: bound training crops and full-image inference size, audit crossing boxes and compare scale packages while measuring peak memory.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-7aba9056891b5a3c33c3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner understands crop feasibility but detector training and crop-boundary targets are demanding.",
+        "competitor": "Competitor gains a concrete memory-limited document detection recipe, needing expensive scale and boundary validation.",
+        "practitioner": "Practitioner can adapt crop training to large imagery; full-image inference peak and deployment coverage require specialized checks."
+      },
+      "review": {
+        "candidate_id": "C-7442f2c7ebd012e90688",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete detector README attributes1024 crops to memory limits and gives explicit scale-package comparison: same HRNetw32, LB0.935 for train512\u2013768/test0.5\u20130.75 versus0.946 for train768\u20131280/test0.75\u20131.25. Both train/test scales change, so no isolated crop or scale causality. LB partition and metric definition unknown; two1080Ti stated.",
+        "candidate_sha256": "891d27e2bb85809374b774468ffe2af0fbe9a164e4f82489f6283d8ed711a27b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000504",
+      "slug": "lesson-000504",
+      "merged_candidate_ids": [
+        "C-7442f2c7ebd012e90688"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c881670e0b43fb938675",
+          "competition_id": "competition:kuzushiji-recognition",
+          "source_id": "source:lesson-source-5b6120cf616b8064",
+          "snapshot_path": "research/lesson-extraction/snapshots/4289f13728f6af2e6a7d2595e17f83add0bf6873721dd38916c68c4a22907e54.txt",
+          "snapshot_sha256": "4289f13728f6af2e6a7d2595e17f83add0bf6873721dd38916c68c4a22907e54",
+          "source_url": "https://raw.githubusercontent.com/tascj/kaggle-kuzushiji-recognition/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-7aba9056891b5a3c33c3",
+          "line_start": 38,
+          "line_end": 55,
+          "evidence_text": "Cascade R-CNN with:\n\n* Strong backbones\n* Multi-scale train&test\n\nDue to limited GPU memory, models were trained on 1024x1024 crops and tested on full images(with a max size limit).\n\nLB score 0.935 with:\n* HRNet w32\n* train scales 512~768\n* test scales [0.5, 0.625, 0.75]\n\nLB score 0.946 with:\n* HRNet w32\n* train scales 768~1280\n* test scales [0.75, 0.875, 1.0, 1.125, 1.25]\n\nEnsembling HRNet_w32 and HRNet_w48 results -> 0.950.",
+          "kind": "reported_gain",
+          "statement": "The README attributes1024x1024 training crops to limited GPU memory and reports full-image capped testing with multi-scale Cascade R-CNN.",
+          "reported_result": {
+            "metric": "leaderboard score (metric definition unspecified)",
+            "value": 0.946,
+            "context": "Author-reported Kuzushiji HRNetw32 scale-package score0.946 versus0.935: train768\u20131280/test[0.75,0.875,1,1.125,1.25] versus train512\u2013768/test[0.5,0.625,0.75]. LB partition, replication and isolated causal attribution unknown; crop setup shared.",
+            "evidence_text": "LB score 0.935 with:\n* HRNet w32\n* train scales 512~768\n* test scales [0.5, 0.625, 0.75]\n\nLB score 0.946 with:\n* HRNet w32\n* train scales 768~1280\n* test scales [0.75, 0.875, 1.0, 1.125, 1.25]"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 42.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Beginner understands crop feasibility but detector training and crop-boundary targets are demanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 71.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Competitor gains a concrete memory-limited document detection recipe, needing expensive scale and boundary validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 71.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Practitioner can adapt crop training to large imagery; full-image inference peak and deployment coverage require specialized checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-5b6120cf616b8064",
+          "locator": "research/lesson-extraction/snapshots/4289f13728f6af2e6a7d2595e17f83add0bf6873721dd38916c68c4a22907e54.txt#L38-L55",
+          "quote": "Cascade R-CNN with:\n\n* Strong backbones\n* Multi-scale train&test\n\nDue to limited GPU memory, models were trained on 1024x1024 crops and tested on full images(with a max size limit).\n\nLB score 0.935 with:\n* HRNet w32\n* train scales 512~768\n* test scales [0.5, 0.625, 0.75]\n\nLB score 0.946 with:\n* HRNet w32\n* train scales 768~1280\n* test scales [0.75, 0.875, 1.0, 1.125, 1.25]\n\nEnsembling HRNet_w32 and HRNet_w48 results -> 0.950.",
+          "competition_id": "competition:kuzushiji-recognition",
+          "url": "https://raw.githubusercontent.com/tascj/kaggle-kuzushiji-recognition/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/4289f13728f6af2e6a7d2595e17f83add0bf6873721dd38916c68c4a22907e54.txt",
+          "snapshot_sha256": "4289f13728f6af2e6a7d2595e17f83add0bf6873721dd38916c68c4a22907e54",
+          "line_start": 38,
+          "line_end": 55
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-7442f2c7ebd012e90688",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete detector README attributes1024 crops to memory limits and gives explicit scale-package comparison: same HRNetw32, LB0.935 for train512\u2013768/test0.5\u20130.75 versus0.946 for train768\u20131280/test0.75\u20131.25. Both train/test scales change, so no isolated crop or scale causality. LB partition and metric definition unknown; two1080Ti stated.",
+          "candidate_sha256": "891d27e2bb85809374b774468ffe2af0fbe9a164e4f82489f6283d8ed711a27b"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 259,
+        "line_end": 263,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-be00adf263ac501ce982",
+      "canonical_key": "tta-transform-budget | lidar box detection | inference tradeoff",
+      "title": "Budget 3D TTA by measured incremental benefit",
+      "statement": "When additional point-cloud transformations increase inference work, proposed reuse: Proposed recipe: compare the limited flip-only TTA with more rotations and transformations under the runtime constraint. Proposed check: Profile each added transform's validation gain and end-to-end inference time after inverse mapping and fusion, stopping when budget or marginal utility is exhausted. Limitation: TTA benefits depend on fusion and transform validity; source supplies no quantified extra-copy speed tradeoff.",
+      "trigger_conditions": [
+        "additional point-cloud transformations increase inference work"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare the limited flip-only TTA with more rotations and transformations under the runtime constraint."
+      ],
+      "verification_steps": [
+        "Proposed check: Profile each added transform's validation gain and end-to-end inference time after inverse mapping and fusion, stopping when budget or marginal utility is exhausted."
+      ],
+      "limitations": [
+        "TTA benefits depend on fusion and transform validity; source supplies no quantified extra-copy speed tradeoff."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "point_cloud"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "transport"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports additional TTA transforms giving slight improvement at increased inference time.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Profile each added transform's validation gain and end-to-end inference time after inverse mapping and fusion, stopping when budget or marginal utility is exhausted.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1d2f0310c4755b08e623"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Incremental TTA budgeting is an accessible cost lesson.",
+        "competitor": "A measured transform budget avoids spending runtime for negligible gains.",
+        "practitioner": "Serving-time augmentation should be selected by marginal quality and latency."
+      },
+      "review": {
+        "candidate_id": "C-be00adf263ac501ce982",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Author used four flip copies in competition and says more transforms slightly improved results with more inference time; exact gain/time absent.",
+        "candidate_sha256": "2dde2e6f30093f09030917c46d8872930c7f710444a6daed1f56dd16d0c5ca2d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000525",
+      "slug": "lesson-000525",
+      "merged_candidate_ids": [
+        "C-be00adf263ac501ce982"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-24fef7851f210c3cde3b",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "source_url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "source_quality": "primary_text",
+          "observation_id": "O-1d2f0310c4755b08e623",
+          "line_start": 34,
+          "line_end": 34,
+          "evidence_text": "It gives slightly better results but needs more inference time.",
+          "kind": "reported_gain",
+          "statement": "Author reports additional TTA transforms giving slight improvement at increased inference time.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Incremental TTA budgeting is an accessible cost lesson.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A measured transform budget avoids spending runtime for negligible gains.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Serving-time augmentation should be selected by marginal quality and latency.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-db19e01176357f15",
+          "locator": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt#L34-L34",
+          "quote": "It gives slightly better results but needs more inference time.",
+          "competition_id": "competition:3d-object-detection-for-autonomous-vehicles",
+          "url": "https://www.kaggle.com/competitions/3d-object-detection-for-autonomous-vehicles/writeups/wenjing-1st-place-solution-0-220-public-lb",
+          "snapshot_path": "research/lesson-extraction/snapshots/06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026.txt",
+          "snapshot_sha256": "06b222beea5ad2238c3eb3e290bd73d4690a304d9b94638c2d7706c38e804026",
+          "line_start": 34,
+          "line_end": 34
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-be00adf263ac501ce982",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Author used four flip copies in competition and says more transforms slightly improved results with more inference time; exact gain/time absent.",
+          "candidate_sha256": "2dde2e6f30093f09030917c46d8872930c7f710444a6daed1f56dd16d0c5ca2d"
+        },
+        {
+          "candidate_id": "C-be00adf263ac501ce982",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Winner uses four flip copies during competition and reports slight improvement from additional rotation/scaling/translation with more inference time. Candidate preserves unquantified marginal tradeoff and proposes profiling after valid inversion/fusion. Twelve scores support practical budgeting, distinct from coordinate correctness and voxel diversity.",
+          "candidate_sha256": "2dde2e6f30093f09030917c46d8872930c7f710444a6daed1f56dd16d0c5ca2d"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 291,
+        "line_end": 295,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-371febbaf7f12035",
+      "canonical_key": "use overlapping context tiles and retain central predictions, optionally gating empty tiles with a classifier. | large-image segmentation has edge artifacts in tiled predictions | predictive_quality",
+      "title": "Discard tile borders while budgeting overlap inference cost",
+      "statement": "When large-image segmentation has edge artifacts in tiled predictions, consider this source-backed action: Use overlapping context tiles and retain central predictions, optionally gating empty tiles with a classifier. Proposed check: Check complete coverage, border quality and missed-positive gating errors plus total inference time. Limit: The source reports fourfold inference cost; aggressive gating can miss small masks and validation used the old dataset.",
+      "trigger_conditions": [
+        "large-image segmentation has edge artifacts in tiled predictions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use overlapping context tiles and retain central predictions, optionally gating empty tiles with a classifier."
+      ],
+      "verification_steps": [
+        "Proposed verification: Check complete coverage, border quality and missed-positive gating errors plus total inference time."
+      ],
+      "limitations": [
+        "The source reports fourfold inference cost; aggressive gating can miss small masks and validation used the old dataset."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Using only the central 512 of 1024 tiles consistently improved reported CV/LB; smaller centers cost more, and a classification head helped save time.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-371febbaf7f12035"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Tiling coverage/parity requires spatial indexing care.",
+        "competitor": "Actionable boundary-artifact control with explicit compute tradeoff.",
+        "practitioner": "Transfers to large-image segmentation, classifier gating can miss positives."
+      },
+      "review": {
+        "candidate_id": "C-a-371febbaf7f12035",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked512center/1024context and4x runtime; old-data validation condition retained.",
+        "candidate_sha256": "c8a95bca216f6e629ae52cda4605601e0de7e656fb52026fb5e9a50178ef1e5b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000542",
+      "slug": "lesson-000542",
+      "merged_candidate_ids": [
+        "C-a-371febbaf7f12035"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-594201d0984fe9c7b254",
+          "competition_id": "competition:hubmap-kidney-segmentation",
+          "source_id": "source:lesson-source-ea417fdde3963ead",
+          "snapshot_path": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt",
+          "snapshot_sha256": "dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a",
+          "source_url": "https://www.kaggle.com/competitions/hubmap-kidney-segmentation/writeups/tom-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-371febbaf7f12035",
+          "line_start": 222,
+          "line_end": 235,
+          "evidence_text": "7. A trick for inference\n------------------------\n\nI found that avoiding edge effect consistently boosts CV and LB. My trick is to use only the center part of tiles for prediction (I notice that 3rd place solution by [@shujun717](https://www.kaggle.com/shujun717) used the same idea). I found that using smaller part as prediction gave better CV and LB, but it is time-consuming. So I end up with using 512x512 center part from original 1024x1024 as prediction. I needed x4 time for inference, but using classification head prediction was helpful to save inference time.\n\n8. LB scores\n------------\n\npublic LB=0.936 / private LB=0.951\n\n9. Some thoughts\n----------------\n\nI used what I learned from the previous competitions and I used the same model architecture for most of my experiments. This saved my time and I focused on the data preparation and how to avoid the edge effect. I think I did something different from the other competitors but I'm not sure these were the keys in the final position since I've not experimented a lot for the new dataset.",
+          "kind": "reported_gain",
+          "statement": "Using only the central 512 of 1024 tiles consistently improved reported CV/LB; smaller centers cost more, and a classification head helped save time.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Tiling coverage/parity requires spatial indexing care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Actionable boundary-artifact control with explicit compute tradeoff.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to large-image segmentation, classifier gating can miss positives.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ea417fdde3963ead",
+          "locator": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt#L222-L235",
+          "quote": "7. A trick for inference\n------------------------\n\nI found that avoiding edge effect consistently boosts CV and LB. My trick is to use only the center part of tiles for prediction (I notice that 3rd place solution by [@shujun717](https://www.kaggle.com/shujun717) used the same idea). I found that using smaller part as prediction gave better CV and LB, but it is time-consuming. So I end up with using 512x512 center part from original 1024x1024 as prediction. I needed x4 time for inference, but using classification head prediction was helpful to save inference time.\n\n8. LB scores\n------------\n\npublic LB=0.936 / private LB=0.951\n\n9. Some thoughts\n----------------\n\nI used what I learned from the previous competitions and I used the same model architecture for most of my experiments. This saved my time and I focused on the data preparation and how to avoid the edge effect. I think I did something different from the other competitors but I'm not sure these were the keys in the final position since I've not experimented a lot for the new dataset.",
+          "competition_id": "competition:hubmap-kidney-segmentation",
+          "url": "https://www.kaggle.com/competitions/hubmap-kidney-segmentation/writeups/tom-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt",
+          "snapshot_sha256": "dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a",
+          "line_start": 222,
+          "line_end": 235
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-371febbaf7f12035",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked512center/1024context and4x runtime; old-data validation condition retained.",
+          "candidate_sha256": "c8a95bca216f6e629ae52cda4605601e0de7e656fb52026fb5e9a50178ef1e5b"
+        },
+        {
+          "candidate_id": "C-a-371febbaf7f12035",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "HuBMAP Tom explicitlycentral512of1024prediction,smallercentersbetterbutcostly,4xinferencetime,classifierheadtimesaving. OnlyqualitativeCVLBgain,no isolated numericmetric. Olddataset/coverage/missedpositivegate caveats preserved; spatialexpertise grades reasonable.",
+          "candidate_sha256": "c8a95bca216f6e629ae52cda4605601e0de7e656fb52026fb5e9a50178ef1e5b"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 297,
+        "line_end": 301,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-1f6252c7d3eae85d6c34",
+      "canonical_key": "use weighted box fusion to combine multi-scale detector predictions and compare it with the existing suppression/ensemble baseline. | multiple detectors produce competing boxes for the same objects | predictive_quality",
+      "title": "Fuse boxes across detector scales",
+      "statement": "When multiple detectors produce competing boxes for the same objects, proposed reuse: Proposed conditional application: Use weighted box fusion to combine multi-scale detector predictions and compare it with the existing suppression/ensemble baseline. Proposed check: Compare WBF and NMS with identical detectors on source-held-out AP; check class mapping and coordinate rescaling. Limitation: Correlated detectors can reinforce errors; nine-model inference is expensive.",
+      "trigger_conditions": [
+        "multiple detectors produce competing boxes for the same objects"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use weighted box fusion to combine multi-scale detector predictions and compare it with the existing suppression/ensemble baseline."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare WBF and NMS with identical detectors on source-held-out AP; check class mapping and coordinate rescaling."
+      ],
+      "limitations": [
+        "Correlated detectors can reinforce errors; nine-model inference is expensive."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The wheat author fused predictions from multiple detector scales with weighted box fusion.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-b1d0f0f5f9fdfc93c2ac"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiple detectors make reproduction costly.",
+        "competitor": "Clear multi-scale localization fusion option.",
+        "practitioner": "Conditional detection improvement with high serving cost."
+      },
+      "review": {
+        "candidate_id": "C-1f6252c7d3eae85d6c34",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete wheat source uses WBF across nine multi-scale detector models; no isolated fusion-method ablation.",
+        "candidate_sha256": "c31963caeb9942618091ac23ee3febf94a3102c2a6b7519db6e78f97880f609b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000550",
+      "slug": "lesson-000550",
+      "merged_candidate_ids": [
+        "C-1f6252c7d3eae85d6c34"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e06322f3205967eb0b7",
+          "competition_id": "competition:global-wheat-detection",
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "source_url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "source_quality": "primary_text",
+          "observation_id": "O-b1d0f0f5f9fdfc93c2ac",
+          "line_start": 17,
+          "line_end": 17,
+          "evidence_text": "Ensemble multi-scale model: Weighted-Boxes-Fusion",
+          "kind": "used",
+          "statement": "The wheat author fused predictions from multiple detector scales with weighted box fusion.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Multiple detectors make reproduction costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Clear multi-scale localization fusion option.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional detection improvement with high serving cost.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "locator": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt#L17-L17",
+          "quote": "Ensemble multi-scale model: Weighted-Boxes-Fusion",
+          "competition_id": "competition:global-wheat-detection",
+          "url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "line_start": 17,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1f6252c7d3eae85d6c34",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete wheat source uses WBF across nine multi-scale detector models; no isolated fusion-method ablation.",
+          "candidate_sha256": "c31963caeb9942618091ac23ee3febf94a3102c2a6b7519db6e78f97880f609b"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 311,
+        "line_end": 315,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-eb631b536ed8bb9d891c",
+      "canonical_key": "verify accumulation behavior against actual-batch training before adopting it. | large detection models motivate smaller micro-batches | predictive_quality",
+      "title": "Test gradient accumulation rather than assuming equivalence",
+      "statement": "When large detection models motivate smaller micro-batches, proposed reuse: Proposed conditional application: Verify accumulation behavior against actual-batch training before adopting it. Proposed check: Match effective batch, optimizer steps and LR; compare actual/accumulated batches with normalization behavior controlled. Limitation: Microbatch statistics, loss scaling or implementation may differ; failure is local.",
+      "trigger_conditions": [
+        "large detection models motivate smaller micro-batches"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Verify accumulation behavior against actual-batch training before adopting it."
+      ],
+      "verification_steps": [
+        "Proposed check: Match effective batch, optimizer steps and LR; compare actual/accumulated batches with normalization behavior controlled."
+      ],
+      "limitations": [
+        "Microbatch statistics, loss scaling or implementation may differ; failure is local."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The wheat author reports that gradient accumulation did not work for them.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-c46df73492344839ab5b"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful warning requiring training-loop knowledge.",
+        "competitor": "Prevents assuming accumulated batches are equivalent.",
+        "practitioner": "General memory-workaround verification habit."
+      },
+      "review": {
+        "candidate_id": "C-eb631b536ed8bb9d891c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Wheat author says accumulation did not work; no cause or exact comparison stated.",
+        "candidate_sha256": "63a2e0edf164897614830936cdb85e1d3749bf5a5df583edd531e6fa46397784"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000553",
+      "slug": "lesson-000553",
+      "merged_candidate_ids": [
+        "C-eb631b536ed8bb9d891c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e06322f3205967eb0b7",
+          "competition_id": "competition:global-wheat-detection",
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "source_url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "source_quality": "primary_text",
+          "observation_id": "O-c46df73492344839ab5b",
+          "line_start": 230,
+          "line_end": 230,
+          "evidence_text": "gradient accumulation didn't work for me",
+          "kind": "reported_failure",
+          "statement": "The wheat author reports that gradient accumulation did not work for them.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful warning requiring training-loop knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Prevents assuming accumulated batches are equivalent.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 75.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "General memory-workaround verification habit.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-4febd42b7d745e95",
+          "locator": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt#L230-L230",
+          "quote": "gradient accumulation didn't work for me",
+          "competition_id": "competition:global-wheat-detection",
+          "url": "https://www.kaggle.com/competitions/global-wheat-detection/writeups/dungnb-1st-place-solution-mit-compliant",
+          "snapshot_path": "research/lesson-extraction/snapshots/d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a.txt",
+          "snapshot_sha256": "d504ebb3d812d06a9b24cf3f86b34cf830822c7a6b4f71abf22befa2106bbd1a",
+          "line_start": 230,
+          "line_end": 230
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-eb631b536ed8bb9d891c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Wheat author says accumulation did not work; no cause or exact comparison stated.",
+          "candidate_sha256": "63a2e0edf164897614830936cdb85e1d3749bf5a5df583edd531e6fa46397784"
+        }
+      ],
+      "book_location": {
+        "chapter": 46,
+        "path": "manuscript/chapters/46-segmentation-architectures.md",
+        "sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
+        "line_start": 265,
+        "line_end": 269,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

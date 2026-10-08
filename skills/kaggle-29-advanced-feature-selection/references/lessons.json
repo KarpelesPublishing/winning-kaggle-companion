@@ -1,0 +1,1354 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-084d832ff52402d05542",
+      "canonical_key": "compare a cfssubseteval-selected feature subset with all extracted sentiment, emotion and linguistic features. | small multilingual fake-news data has many correlated linguistic features | predictive_quality",
+      "title": "Select compact linguistic features after broad API extraction",
+      "statement": "When small multilingual fake-news data has many correlated linguistic features, proposed reuse: Proposed conditional application: Compare a CfsSubsetEval-selected feature subset with all extracted sentiment, emotion and linguistic features. Proposed check: Nest feature selection inside CV and compare selected/all features using the same learner and article splits. Limitation: Small bilingual sample and API features may encode source/language shortcuts; external API cost unknown.",
+      "trigger_conditions": [
+        "small multilingual fake-news data has many correlated linguistic features"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare a CfsSubsetEval-selected feature subset with all extracted sentiment, emotion and linguistic features."
+      ],
+      "verification_steps": [
+        "Proposed check: Nest feature selection inside CV and compare selected/all features using the same learner and article splits."
+      ],
+      "limitations": [
+        "Small bilingual sample and API features may encode source/language shortcuts; external API cost unknown."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The fake-news author reports selecting seventeen of 165 extracted linguistic features with CfsSubsetEval.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-46b99f3d37e3b7c18771"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "GUI selection accessible with validation care.",
+        "competitor": "Concrete dimensionality experiment without causal score claim.",
+        "practitioner": "Conditional API feature reduction; domain shift limits reuse."
+      },
+      "review": {
+        "candidate_id": "C-084d832ff52402d05542",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Entire fake-news source selects 17/165 features but changes classifier to LMT; selection gain not isolated.",
+        "candidate_sha256": "f84ec609abdf7e1dc74fab08fe59d47994d066691988e9857edbb4356b31a1b6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000075",
+      "slug": "lesson-000075",
+      "merged_candidate_ids": [
+        "C-084d832ff52402d05542"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-47a1e54e15784885e33b",
+          "competition_id": "competition:detecting-fake-news",
+          "source_id": "source:lesson-source-2c5f34c249f294e8",
+          "snapshot_path": "research/lesson-extraction/snapshots/b30bfdd37ca8eecc74c7de883592653127636849104ae317d8966c66f95b5df3.txt",
+          "snapshot_sha256": "b30bfdd37ca8eecc74c7de883592653127636849104ae317d8966c66f95b5df3",
+          "source_url": "https://raw.githubusercontent.com/albonicc/TC2011-IntelligentSystems/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-46b99f3d37e3b7c18771",
+          "line_start": 18,
+          "line_end": 18,
+          "evidence_text": "I used a CFsSubsetEval Attribute Evaluator for preproccesing data, which threw that only 17 of the 165 features where relevant",
+          "kind": "used",
+          "statement": "The fake-news author reports selecting seventeen of 165 extracted linguistic features with CfsSubsetEval.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "GUI selection accessible with validation care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Concrete dimensionality experiment without causal score claim.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional API feature reduction; domain shift limits reuse.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-2c5f34c249f294e8",
+          "locator": "research/lesson-extraction/snapshots/b30bfdd37ca8eecc74c7de883592653127636849104ae317d8966c66f95b5df3.txt#L18-L18",
+          "quote": "I used a CFsSubsetEval Attribute Evaluator for preproccesing data, which threw that only 17 of the 165 features where relevant",
+          "competition_id": "competition:detecting-fake-news",
+          "url": "https://raw.githubusercontent.com/albonicc/TC2011-IntelligentSystems/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b30bfdd37ca8eecc74c7de883592653127636849104ae317d8966c66f95b5df3.txt",
+          "snapshot_sha256": "b30bfdd37ca8eecc74c7de883592653127636849104ae317d8966c66f95b5df3",
+          "line_start": 18,
+          "line_end": 18
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-084d832ff52402d05542",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Entire fake-news source selects 17/165 features but changes classifier to LMT; selection gain not isolated.",
+          "candidate_sha256": "f84ec609abdf7e1dc74fab08fe59d47994d066691988e9857edbb4356b31a1b6"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 305,
+        "line_end": 309,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-05916be8e61683c1",
+      "canonical_key": "compare a cheap linear selector and deduplicated feature union before building giant supersets. | independently engineered feature sets are redundant and deadline constrained | predictive_quality",
+      "title": "Use a cheap selector before merging large feature libraries",
+      "statement": "When independently engineered feature sets are redundant and deadline constrained, consider this source-backed action: Compare a cheap linear selector and deduplicated feature union before building giant supersets. Proposed check: Evaluate selected versus complete feature sets under identical folds and track training cost and blend contribution. Limit: The selector\u2019s reported success does not establish equality across all models; late merged sets were not carefully optimized.",
+      "trigger_conditions": [
+        "independently engineered feature sets are redundant and deadline constrained"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare a cheap linear selector and deduplicated feature union before building giant supersets."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate selected versus complete feature sets under identical folds and track training cost and blend contribution."
+      ],
+      "limitations": [
+        "The selector\u2019s reported success does not establish equality across all models; late merged sets were not carefully optimized."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Ridge forward selection reduced more than sixteen-hundred features to about 240; late team merges became crude under time constraints, while slow CatBoost models were retained for possible diversity and FFM disappointed.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-05916be8e61683c1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Forward selection needs repeated fits and careful feature handling.",
+        "competitor": "Useful cheap screening before merging huge feature supersets.",
+        "practitioner": "Transfers to redundant engineered libraries with nonlinear-loss caveat."
+      },
+      "review": {
+        "candidate_id": "C-a-05916be8e61683c1",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Ridge1600-to240reduction and crude late unions; predictive parity not shown.",
+        "candidate_sha256": "217f139fc8ae6ef9ec40af0609a40db95ad1ca475c3d245b7ab9a55017112fc2"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000076",
+      "slug": "lesson-000076",
+      "merged_candidate_ids": [
+        "C-a-05916be8e61683c1"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fddacf3cce399681b8cb",
+          "competition_id": "competition:home-credit-default-risk",
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "source_url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-05916be8e61683c1",
+          "line_start": 65,
+          "line_end": 79,
+          "evidence_text": "Feature selection and reduction (Bojan)\n\nOne of the things that proved very useful for this competition was a good way of restricting the feature set. Various ways of aggregating features would usually result in feature sets that numbered in thousands, and it\u2019s very likely that many, if not most, of those features were redundant, noisy, or both. I tried some very simple ways of reducing the number of features using frequency-encoded categorical features with the numerical features, and then running very simple forward feature selection using just Ridge regression. I\u2019ve used this technique in the past for metafeatures, but this was the first time I tried it on raw features. Surprisingly enough, it worked remarkably well. I was able to reduce the \u201cbig\u201d original set of features that numbered over 1600 features to just 240 features or so. Later on when Olivier added more features to the \u201cbase set\u201d, I just directly added these features to my 240, and ended up with 287. These 287 features were able to give us models with CV of 0.7985 or so, with LB scores of 0.802-0.803. As we were adding more members to the team, it became important to try to combine their features with ours. It took some heroic effort on Olivier\u2019s part to discern which one of Phil\u2019s features were complementary to our own, and the combined set of features numbered in about 700+. When Ryan and Yang joined the team, it became impossible to repeat most of that effort. We\u2019d try to just roughly see which ones of our features were different, and add them to theirs.\n\nTowards the end, it became obvious that Yang\u2019s base set of features was perhaps overall the best. One of his Kernels alone was able to get 0.802x private / 0.803x public, thus placing it in the top 20 on the final LB. We would combine his base set with all the \u201cspecial\u201d features from the other feature sets, but due to time constraints we had to do this in a crude and probably very inefficient way. Our final \u201csupersets\u201d numbered in 1800-2000 features. It\u2019s hard to put down the exact numbers - we had some \u201cjoint\u201d sets, but we were also individually combining them for our own models.\n\n**Base Models**\n\nAll of our base models were trained on StratifiedKFold, with 5-folds. I choose that setup for one of my models early on, for no particular reason, and that become the default. I know there has been lots of back and forth about relative merits of Stratified vs. \u201cregular\u201d KFold, but in the end I don\u2019t think that choice makes much of a difference, at least not for this competition and this kind of problems.\n\n(Olivier) I used LightGBM, FastRGF and had a try at FFM but CV results were really below expectations (0.76 AUC).\n\n(Bojan) I used XGBoost, LightGBM, CatBoost, and even a simple Linear Regression. I essentially used just one set of hyperparameters for XGB (a pretty \u201cstandard\u201d one, that you can find in most kernels, and about three different sets for LightGBMs - one that you can get in the kernels, one that the Neptune guys used, and one that\u2019s more or less \u201cstandard\u201d set of hyperparameters. Most of my XGB models were trained with gpu_hist on a GPU, while LightGBMs were trained on CPU. CatBoost models were not that good, and took forever to train, but I think they helped a bit with metafeature diversity.\n\n(Ryan and Yang) Trained several LightGBM models on their engineered datasets, as well as on some combination of their data with the rest of the datasets. Ryan also tried his luck with FFM, but no luck there either.",
+          "kind": "used",
+          "statement": "Ridge forward selection reduced more than sixteen-hundred features to about 240; late team merges became crude under time constraints, while slow CatBoost models were retained for possible diversity and FFM disappointed.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Forward selection needs repeated fits and careful feature handling.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful cheap screening before merging huge feature supersets.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Transfers to redundant engineered libraries with nonlinear-loss caveat.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "locator": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt#L65-L79",
+          "quote": "Feature selection and reduction (Bojan)\n\nOne of the things that proved very useful for this competition was a good way of restricting the feature set. Various ways of aggregating features would usually result in feature sets that numbered in thousands, and it\u2019s very likely that many, if not most, of those features were redundant, noisy, or both. I tried some very simple ways of reducing the number of features using frequency-encoded categorical features with the numerical features, and then running very simple forward feature selection using just Ridge regression. I\u2019ve used this technique in the past for metafeatures, but this was the first time I tried it on raw features. Surprisingly enough, it worked remarkably well. I was able to reduce the \u201cbig\u201d original set of features that numbered over 1600 features to just 240 features or so. Later on when Olivier added more features to the \u201cbase set\u201d, I just directly added these features to my 240, and ended up with 287. These 287 features were able to give us models with CV of 0.7985 or so, with LB scores of 0.802-0.803. As we were adding more members to the team, it became important to try to combine their features with ours. It took some heroic effort on Olivier\u2019s part to discern which one of Phil\u2019s features were complementary to our own, and the combined set of features numbered in about 700+. When Ryan and Yang joined the team, it became impossible to repeat most of that effort. We\u2019d try to just roughly see which ones of our features were different, and add them to theirs.\n\nTowards the end, it became obvious that Yang\u2019s base set of features was perhaps overall the best. One of his Kernels alone was able to get 0.802x private / 0.803x public, thus placing it in the top 20 on the final LB. We would combine his base set with all the \u201cspecial\u201d features from the other feature sets, but due to time constraints we had to do this in a crude and probably very inefficient way. Our final \u201csupersets\u201d numbered in 1800-2000 features. It\u2019s hard to put down the exact numbers - we had some \u201cjoint\u201d sets, but we were also individually combining them for our own models.\n\n**Base Models**\n\nAll of our base models were trained on StratifiedKFold, with 5-folds. I choose that setup for one of my models early on, for no particular reason, and that become the default. I know there has been lots of back and forth about relative merits of Stratified vs. \u201cregular\u201d KFold, but in the end I don\u2019t think that choice makes much of a difference, at least not for this competition and this kind of problems.\n\n(Olivier) I used LightGBM, FastRGF and had a try at FFM but CV results were really below expectations (0.76 AUC).\n\n(Bojan) I used XGBoost, LightGBM, CatBoost, and even a simple Linear Regression. I essentially used just one set of hyperparameters for XGB (a pretty \u201cstandard\u201d one, that you can find in most kernels, and about three different sets for LightGBMs - one that you can get in the kernels, one that the Neptune guys used, and one that\u2019s more or less \u201cstandard\u201d set of hyperparameters. Most of my XGB models were trained with gpu_hist on a GPU, while LightGBMs were trained on CPU. CatBoost models were not that good, and took forever to train, but I think they helped a bit with metafeature diversity.\n\n(Ryan and Yang) Trained several LightGBM models on their engineered datasets, as well as on some combination of their data with the rest of the datasets. Ryan also tried his luck with FFM, but no luck there either.",
+          "competition_id": "competition:home-credit-default-risk",
+          "url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "line_start": 65,
+          "line_end": 79
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-05916be8e61683c1",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Ridge1600-to240reduction and crude late unions; predictive parity not shown.",
+          "candidate_sha256": "217f139fc8ae6ef9ec40af0609a40db95ad1ca475c3d245b7ab9a55017112fc2"
+        },
+        {
+          "candidate_id": "C-a-05916be8e61683c1",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "HomeCredit Bojan explicitlyRidgeforwardreduces>1600to~240,287featuresCV~0.7985,late1800-2000supersetscrude,andpossibleCatBoostdiversity/FFMfailure. Cardinality/configscore not isolatedqualitycomparator. Proposedselectedvsfullsamefold/runtime check;grades reasonable.",
+          "candidate_sha256": "217f139fc8ae6ef9ec40af0609a40db95ad1ca475c3d245b7ab9a55017112fc2"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 311,
+        "line_end": 315,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-20c784a6936adb72",
+      "canonical_key": "compare category-level inclusion and dimensionality choices separately for each target. | molecular targets differ in which feature families are useful | predictive_quality",
+      "title": "Tune feature-family inclusion and fingerprint dimensions per target",
+      "statement": "When molecular targets differ in which feature families are useful, consider this source-backed action: Compare category-level inclusion and dimensionality choices separately for each target. Proposed check: Fit any supervised importance ranking within training folds and evaluate target-wise error and cost. Limit: The packet does not state fold-local importance computation; shared rankings can hide target-specific signals.",
+      "trigger_conditions": [
+        "molecular targets differ in which feature families are useful"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare category-level inclusion and dimensionality choices separately for each target."
+      ],
+      "verification_steps": [
+        "Proposed verification: Fit any supervised importance ranking within training folds and evaluate target-wise error and cost."
+      ],
+      "limitations": [
+        "The packet does not state fold-local importance computation; shared rankings can hide target-specific signals."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author let Optuna drop entire descriptor/fingerprint categories and select top-N descriptors from precomputed cross-property importance.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-20c784a6936adb72"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Molecular descriptor selection requires domain and tuning skills.",
+        "competitor": "Concrete search space reduces unproductive fingerprint trials.",
+        "practitioner": "Target-specific descriptor selection is useful with nested validation."
+      },
+      "review": {
+        "candidate_id": "C-a-20c784a6936adb72",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Per-property feature families were tuned; shared importance provenance must be checked for leakage.",
+        "candidate_sha256": "21e9af125f9b8976c0d78a8d23e30abef1107d01033ac712f293ddde1e1da34e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000095",
+      "slug": "lesson-000095",
+      "merged_candidate_ids": [
+        "C-a-20c784a6936adb72"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-d709d0f0d7c098fc235b",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "source_url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-20c784a6936adb72",
+          "line_start": 105,
+          "line_end": 109,
+          "evidence_text": "**Feature engineering:** Features were selected from the broad categories below. I used Optuna to tune what features were used for each property and type of tabular model that I tried. It was able to drop entire feature categories, adjust fingerprint dimension counts, and perform importance-based feature selection for molecular descriptors. Feature importance scores were precomputed for an ensemble of XGBoost and LightGBM models, averaged across target properties, and shared across subsequent runs. Optuna was able to tune how many of the top-N features of each type were kept.\n\n*   All of the 2D and graph based molecular descriptors supported by RDKit.\n*   Morgan fingerprints.\n*   Atom pair fingerprints.",
+          "kind": "used",
+          "statement": "The author let Optuna drop entire descriptor/fingerprint categories and select top-N descriptors from precomputed cross-property importance.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Molecular descriptor selection requires domain and tuning skills.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Concrete search space reduces unproductive fingerprint trials.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Target-specific descriptor selection is useful with nested validation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-0ea57bacfe097b0c",
+          "locator": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt#L105-L109",
+          "quote": "**Feature engineering:** Features were selected from the broad categories below. I used Optuna to tune what features were used for each property and type of tabular model that I tried. It was able to drop entire feature categories, adjust fingerprint dimension counts, and perform importance-based feature selection for molecular descriptors. Feature importance scores were precomputed for an ensemble of XGBoost and LightGBM models, averaged across target properties, and shared across subsequent runs. Optuna was able to tune how many of the top-N features of each type were kept.\n\n*   All of the 2D and graph based molecular descriptors supported by RDKit.\n*   Morgan fingerprints.\n*   Atom pair fingerprints.",
+          "competition_id": "competition:neurips-open-polymer-prediction-2025",
+          "url": "https://www.kaggle.com/competitions/neurips-open-polymer-prediction-2025/writeups/1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313.txt",
+          "snapshot_sha256": "c4c8d159c6d3e03ccb71d6634968c2e7e524ee9d0ac7bdc75fe2b9346f5b8313",
+          "line_start": 105,
+          "line_end": 109
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-20c784a6936adb72",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Per-property feature families were tuned; shared importance provenance must be checked for leakage.",
+          "candidate_sha256": "21e9af125f9b8976c0d78a8d23e30abef1107d01033ac712f293ddde1e1da34e"
+        },
+        {
+          "candidate_id": "C-a-20c784a6936adb72",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Polymer Optunaperpropertyfamilydrop/dimensiontopN fromsharedcrosspropertyimportanceexplicit. Fold-localrankingproposed/sourceundocumented,target-specificsignalriskpreserved. Domainexpertisecostgradesreasonable.",
+          "candidate_sha256": "21e9af125f9b8976c0d78a8d23e30abef1107d01033ac712f293ddde1e1da34e"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 317,
+        "line_end": 321,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-4301100618edc180",
+      "canonical_key": "compare real-label versus permuted-label importance and audit train/truncated-test distinguishability before selection. | a large engineered library may contain redundancy or leakage | predictive_quality",
+      "title": "Screen large feature libraries with null importance and shift audits",
+      "statement": "When a large engineered library may contain redundancy or leakage, consider this source-backed action: Compare real-label versus permuted-label importance and audit train/truncated-test distinguishability before selection. Proposed check: Repeat selection inside folds and check calibration/ordinal metric after threshold fitting. Limit: Adversarial AUC near 0.5 does not prove absence of leakage; the source presents it as an audit heuristic.",
+      "trigger_conditions": [
+        "a large engineered library may contain redundancy or leakage"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare real-label versus permuted-label importance and audit train/truncated-test distinguishability before selection."
+      ],
+      "verification_steps": [
+        "Proposed verification: Repeat selection inside folds and check calibration/ordinal metric after threshold fitting."
+      ],
+      "limitations": [
+        "Adversarial AUC near 0.5 does not prove absence of leakage; the source presents it as an audit heuristic."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team removed duplicate columns, used truncated adversarial validation and selected 500 of about 20000 features by null importance; trained RMSE and tuned ordinal thresholds.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-4301100618edc180"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Permutation fits and large libraries require resources.",
+        "competitor": "Useful selection control against redundant/spurious engineered features.",
+        "practitioner": "Feature/shift audits generalize, with independent leakage review still necessary."
+      },
+      "review": {
+        "candidate_id": "C-a-4301100618edc180",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked null importance/shift heuristic; AUC0.5does not prove leak absence.",
+        "candidate_sha256": "15894ea4d3678913e4ff87deb17743c866ca9ab726f8cca672d4bbd95720e615"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000172",
+      "slug": "lesson-000172",
+      "merged_candidate_ids": [
+        "C-a-4301100618edc180"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9f65f837716532675063",
+          "competition_id": "competition:data-science-bowl-2019",
+          "source_id": "source:lesson-source-3df148a3bca94840",
+          "snapshot_path": "research/lesson-extraction/snapshots/e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e.txt",
+          "snapshot_sha256": "e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e",
+          "source_url": "https://www.kaggle.com/competitions/data-science-bowl-2019/writeups/zr-oyx-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-4301100618edc180",
+          "line_start": 50,
+          "line_end": 60,
+          "evidence_text": "1.   Drop duplicate cols\n2.   Truncated adversarial validation to make sure there is no leak and no code errors, the mean adversarial AUC should be around 0.5.\n3.   Use [null important method](https://www.kaggle.com/competitions/data-science-bowl-2019/writeups/*https://www.kaggle.com/ogrellier/feature-selection-with-null-importances*) to select top 500 features.\n\n5. Model\n========\n\n1.   **Data augmentation** : The model is trained on the full data (full train history and test previous, improve + 0.002).\n2.   **Loss** : We use rmse loss for training, and weighted rmse loss for validate.\n3.   **Threshold** : Then use [Opitmizer Rounder](https://www.kaggle.com/naveenasaithambi/optimizedrounder-improved) to optimize thresholds for weighted qwk.\n4.   **Ensemble** : We just try a simple blending method (0.8 * lightgbm + 0.2 * catboost, the private score is 0.570. Since the cv score is not improved, we do not select it for our final results.",
+          "kind": "used",
+          "statement": "The team removed duplicate columns, used truncated adversarial validation and selected 500 of about 20000 features by null importance; trained RMSE and tuned ordinal thresholds.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 1
+          },
+          "rationale": "Permutation fits and large libraries require resources.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful selection control against redundant/spurious engineered features.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Feature/shift audits generalize, with independent leakage review still necessary.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-3df148a3bca94840",
+          "locator": "research/lesson-extraction/snapshots/e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e.txt#L50-L60",
+          "quote": "1.   Drop duplicate cols\n2.   Truncated adversarial validation to make sure there is no leak and no code errors, the mean adversarial AUC should be around 0.5.\n3.   Use [null important method](https://www.kaggle.com/competitions/data-science-bowl-2019/writeups/*https://www.kaggle.com/ogrellier/feature-selection-with-null-importances*) to select top 500 features.\n\n5. Model\n========\n\n1.   **Data augmentation** : The model is trained on the full data (full train history and test previous, improve + 0.002).\n2.   **Loss** : We use rmse loss for training, and weighted rmse loss for validate.\n3.   **Threshold** : Then use [Opitmizer Rounder](https://www.kaggle.com/naveenasaithambi/optimizedrounder-improved) to optimize thresholds for weighted qwk.\n4.   **Ensemble** : We just try a simple blending method (0.8 * lightgbm + 0.2 * catboost, the private score is 0.570. Since the cv score is not improved, we do not select it for our final results.",
+          "competition_id": "competition:data-science-bowl-2019",
+          "url": "https://www.kaggle.com/competitions/data-science-bowl-2019/writeups/zr-oyx-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e.txt",
+          "snapshot_sha256": "e49c645e93bd920cc50cc6033afeb9ccf1bb16358cc5f0eaa331e825d8875f8e",
+          "line_start": 50,
+          "line_end": 60
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-4301100618edc180",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked null importance/shift heuristic; AUC0.5does not prove leak absence.",
+          "candidate_sha256": "15894ea4d3678913e4ff87deb17743c866ca9ab726f8cca672d4bbd95720e615"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 325,
+        "line_end": 329,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-413c1462fc6534ac914e",
+      "canonical_key": "fit each label selector on the training fold and apply that selector to held-out and test rows | multilabel tabular models use target-dependent univariate feature selection | validation_reliability",
+      "title": "Fit supervised feature selection separately in each fold",
+      "statement": "When multilabel tabular models use target-dependent univariate feature selection, fit each label selector on the training fold and apply that selector to held-out and test rows. Assert held-out labels never enter selector fitting and validate the rarity-dependent requested feature count range. Rarity-based feature counts use full training label frequencies, and random folds may share recording conditions. AUROC is pooled across species rather than averaged per species.",
+      "trigger_conditions": [
+        "multilabel tabular models use target-dependent univariate feature selection"
+      ],
+      "action_steps": [
+        "Proposed: fit each label selector on the training fold and apply that selector to held-out and test rows."
+      ],
+      "verification_steps": [
+        "Proposed: assert held-out labels never enter selector fitting and validate the rarity-dependent requested feature count range."
+      ],
+      "limitations": [
+        "Rarity-based feature counts use full training label frequencies, and random folds may share recording conditions. AUROC is pooled across species rather than averaged per species."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "audio"
+        ],
+        "task_types": [
+          "multilabel_classification"
+        ],
+        "application_domains": [
+          "bird_species"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "supervised_preprocessing_leakage",
+          "group_leakage",
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for mlsp-2013-birds: The per-bird loop fits SelectKBest on X_90/y_90 and transforms X_90, X_10 and T before RandomForestRegressor fitting.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: fit label selectors in each training fold, keep selection parameters fold-safe and validate rare-label feature counts and recording groups.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-809c548d41b3fce60a41"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner learns fit/transform fold boundaries with a concrete selector, but multilabel loops and rare-species handling need care.",
+        "competitor": "Competitor gets reusable supervised-selection validation discipline and checks on label-specific k.",
+        "practitioner": "Practitioner can preserve independent feature selection in multilabel pipelines broadly, with nested parameter selection and recording groups still required."
+      },
+      "review": {
+        "candidate_id": "C-413c1462fc6534ac914e",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete bird script fits each supervised selector only on fold training labels and applies it to holdout/test. Requested k uses full-training species frequency; recording-condition random-fold leakage and pooled rather than per-species AUROC remain. Rare/absent species can make log frequency or k invalid.",
+        "candidate_sha256": "a14260e4d4b25fdc3eda22edf1ff78ae1f827a1f91377cf7b0adfb9563dd8b15"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000280",
+      "slug": "lesson-000280",
+      "merged_candidate_ids": [
+        "C-413c1462fc6534ac914e"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-a580eccb5554e65762da",
+          "competition_id": "competition:mlsp-2013-birds",
+          "source_id": "source:lesson-source-136937caa2791e5f",
+          "snapshot_path": "research/lesson-extraction/snapshots/cbe43c78de6d8c1df55d0d0275a899a666ec7173ef3f018067c1b6e39b38057d.txt",
+          "snapshot_sha256": "cbe43c78de6d8c1df55d0d0275a899a666ec7173ef3f018067c1b6e39b38057d",
+          "source_url": "https://raw.githubusercontent.com/gaborfodor/mlsp_2013/HEAD/3_train.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-809c548d41b3fce60a41",
+          "line_start": 142,
+          "line_end": 158,
+          "evidence_text": "                    for c in range(CV_FOLDS):\n                        df_10 = train3[train3.cv == c]\n                        df_90 = train3[train3.cv != c]\n                        X_90 = df_90[spec_names+hos_features+['pc']+log_spec_names]\n                        X_10 = df_10[spec_names+hos_features+['pc']+log_spec_names]\n                        T = test3[spec_names+hos_features+['pc']+log_spec_names]\n                        for bird in range(num_species):\n                            rs = rs+1\n                            y_90 = df_90[bird]\n                            y_10 = df_10[bird]\n                            selector = SelectKBest(f_regression,NUM_FEATURES + 50 -int(spec_num_features[bird]*10))\n                            selector.fit(X_90, y_90)\n                            df_90_features = selector.transform(X_90)\n                            df_10_features = selector.transform(X_10)\n                            T_features = selector.transform(T)\n                            rfr = RandomForestRegressor(n_estimators = N_ESTIMATORS, max_features = MAX_FEATURES, min_samples_split = MIN_SAMPLES_SPLIT,random_state = rs*100, verbose = 0)\n                            rfr.fit(df_90_features,y_90)",
+          "kind": "used",
+          "statement": "The per-bird loop fits SelectKBest on X_90/y_90 and transforms X_90, X_10 and T before RandomForestRegressor fitting.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Beginner learns fit/transform fold boundaries with a concrete selector, but multilabel loops and rare-species handling need care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Competitor gets reusable supervised-selection validation discipline and checks on label-specific k.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner can preserve independent feature selection in multilabel pipelines broadly, with nested parameter selection and recording groups still required.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-136937caa2791e5f",
+          "locator": "research/lesson-extraction/snapshots/cbe43c78de6d8c1df55d0d0275a899a666ec7173ef3f018067c1b6e39b38057d.txt#L142-L158",
+          "quote": "                    for c in range(CV_FOLDS):\n                        df_10 = train3[train3.cv == c]\n                        df_90 = train3[train3.cv != c]\n                        X_90 = df_90[spec_names+hos_features+['pc']+log_spec_names]\n                        X_10 = df_10[spec_names+hos_features+['pc']+log_spec_names]\n                        T = test3[spec_names+hos_features+['pc']+log_spec_names]\n                        for bird in range(num_species):\n                            rs = rs+1\n                            y_90 = df_90[bird]\n                            y_10 = df_10[bird]\n                            selector = SelectKBest(f_regression,NUM_FEATURES + 50 -int(spec_num_features[bird]*10))\n                            selector.fit(X_90, y_90)\n                            df_90_features = selector.transform(X_90)\n                            df_10_features = selector.transform(X_10)\n                            T_features = selector.transform(T)\n                            rfr = RandomForestRegressor(n_estimators = N_ESTIMATORS, max_features = MAX_FEATURES, min_samples_split = MIN_SAMPLES_SPLIT,random_state = rs*100, verbose = 0)\n                            rfr.fit(df_90_features,y_90)",
+          "competition_id": "competition:mlsp-2013-birds",
+          "url": "https://raw.githubusercontent.com/gaborfodor/mlsp_2013/HEAD/3_train.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/cbe43c78de6d8c1df55d0d0275a899a666ec7173ef3f018067c1b6e39b38057d.txt",
+          "snapshot_sha256": "cbe43c78de6d8c1df55d0d0275a899a666ec7173ef3f018067c1b6e39b38057d",
+          "line_start": 142,
+          "line_end": 158
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-413c1462fc6534ac914e",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete bird script fits each supervised selector only on fold training labels and applies it to holdout/test. Requested k uses full-training species frequency; recording-condition random-fold leakage and pooled rather than per-species AUROC remain. Rare/absent species can make log frequency or k invalid.",
+          "candidate_sha256": "a14260e4d4b25fdc3eda22edf1ff78ae1f827a1f91377cf7b0adfb9563dd8b15"
+        },
+        {
+          "candidate_id": "C-413c1462fc6534ac914e",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete birds training loop fits each label SelectKBest only on its training fold, then transforms held-out and test data. Full-data rarity-based k, random recording folds and pooled species AUROC limits are explicit; proposed k-range and label-exclusion checks avoid implying wholly leakage-free execution. Multilabel parameter care and broad fold discipline support grades.",
+          "candidate_sha256": "a14260e4d4b25fdc3eda22edf1ff78ae1f827a1f91377cf7b0adfb9563dd8b15"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 263,
+        "line_end": 273,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-1b250675ffdd871eccfd",
+      "canonical_key": "move feature selection and learned transforms inside training folds when estimating generalization | supervised feature selection and learned preprocessing precede fold splitting | validation_reliability",
+      "title": "Audit feature selection before cross-validation",
+      "statement": "When supervised feature selection and learned preprocessing precede fold splitting, move feature selection and learned transforms inside training folds when estimating generalization. Refit imputation, mutual-information mask and scaler separately within each fold, then compare validation estimates with the source order. Moving transforms within folds is proposed corrective synthesis. The source does not implement fold-local feature selection; full-data MI uses validation labels.",
+      "trigger_conditions": [
+        "supervised feature selection and learned preprocessing precede fold splitting"
+      ],
+      "action_steps": [
+        "Proposed: move feature selection and learned transforms inside training folds when estimating generalization."
+      ],
+      "verification_steps": [
+        "Proposed: refit imputation, mutual-information mask and scaler separately within each fold, then compare validation estimates with the source order."
+      ],
+      "limitations": [
+        "Moving transforms within folds is proposed corrective synthesis. The source does not implement fold-local feature selection; full-data MI uses validation labels."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [
+          "leakage"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for binary-battle-ml-bank-customer-churn-challenge: The churn script fits imputation, mutual-information selection and scaling on the full training matrix before StratifiedKFold indices are created.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: fit imputation, target-dependent selection and scaling inside each bank-churn training fold.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-fab9920bd704840c6197"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A concrete ordering mistake explains supervised-selection leakage and can be repaired with fold-local pipelines.",
+        "competitor": "High value for trustworthy CV; selection and preprocessing must be refitted, not merely resplit.",
+        "practitioner": "Broadly useful for tabular evaluation before deployment, though the source does not quantify bias magnitude."
+      },
+      "review": {
+        "candidate_id": "C-1b250675ffdd871eccfd",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read complete train.py: KNN imputation, full-y mutual information and scaling precede stratified folds. The MI mask uses validation labels; fold-local fitting is the proposed correction. Imported feature engineering is not audited by this packet, and the original CV cannot be treated as leakage-free.",
+        "candidate_sha256": "3ba1499b7bfd4a5eab40890bcb9800a162f79edb39c07892d4eab8d8d0944565"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000356",
+      "slug": "lesson-000356",
+      "merged_candidate_ids": [
+        "C-1b250675ffdd871eccfd"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4abe6fcab7022ece43f1",
+          "competition_id": "competition:binary-battle-ml-bank-customer-churn-challenge",
+          "source_id": "source:lesson-source-070b308baf958e99",
+          "snapshot_path": "research/lesson-extraction/snapshots/f20d2a39e057d51cb4acc38b343aa9be0220a28ee64b5eb852fa3cb9b06cc1e4.txt",
+          "snapshot_sha256": "f20d2a39e057d51cb4acc38b343aa9be0220a28ee64b5eb852fa3cb9b06cc1e4",
+          "source_url": "https://raw.githubusercontent.com/mrli-dev0/kaggle-binary-battle-bank-customer-churn/HEAD/src/train.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-fab9920bd704840c6197",
+          "line_start": 62,
+          "line_end": 77,
+          "evidence_text": "    imp = KNNImputer(n_neighbors=8)\n    X = imp.fit_transform(X)\n    Xt = imp.transform(Xt)\n\n    mi = mutual_info_classif(X, y, random_state=SEED)\n    mask = mi > np.percentile(mi, 20)\n    X_selected = X[:, mask]\n\n    scaler = StandardScaler()\n    X_s = scaler.fit_transform(X_selected)\n\n    skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)\n    for fold, (tr, val) in enumerate(skf.split(X_selected, y)):\n        xt, xv = X_selected[tr], X_selected[val]\n        yt, yv = y[tr], y[val]\n        xs_t = X_s[tr]",
+          "kind": "used",
+          "statement": "The churn script fits imputation, mutual-information selection and scaling on the full training matrix before StratifiedKFold indices are created.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A concrete ordering mistake explains supervised-selection leakage and can be repaired with fold-local pipelines.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High value for trustworthy CV; selection and preprocessing must be refitted, not merely resplit.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broadly useful for tabular evaluation before deployment, though the source does not quantify bias magnitude.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-070b308baf958e99",
+          "locator": "research/lesson-extraction/snapshots/f20d2a39e057d51cb4acc38b343aa9be0220a28ee64b5eb852fa3cb9b06cc1e4.txt#L62-L77",
+          "quote": "    imp = KNNImputer(n_neighbors=8)\n    X = imp.fit_transform(X)\n    Xt = imp.transform(Xt)\n\n    mi = mutual_info_classif(X, y, random_state=SEED)\n    mask = mi > np.percentile(mi, 20)\n    X_selected = X[:, mask]\n\n    scaler = StandardScaler()\n    X_s = scaler.fit_transform(X_selected)\n\n    skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=SEED)\n    for fold, (tr, val) in enumerate(skf.split(X_selected, y)):\n        xt, xv = X_selected[tr], X_selected[val]\n        yt, yv = y[tr], y[val]\n        xs_t = X_s[tr]",
+          "competition_id": "competition:binary-battle-ml-bank-customer-churn-challenge",
+          "url": "https://raw.githubusercontent.com/mrli-dev0/kaggle-binary-battle-bank-customer-churn/HEAD/src/train.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/f20d2a39e057d51cb4acc38b343aa9be0220a28ee64b5eb852fa3cb9b06cc1e4.txt",
+          "snapshot_sha256": "f20d2a39e057d51cb4acc38b343aa9be0220a28ee64b5eb852fa3cb9b06cc1e4",
+          "line_start": 62,
+          "line_end": 77
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1b250675ffdd871eccfd",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read complete train.py: KNN imputation, full-y mutual information and scaling precede stratified folds. The MI mask uses validation labels; fold-local fitting is the proposed correction. Imported feature engineering is not audited by this packet, and the original CV cannot be treated as leakage-free.",
+          "candidate_sha256": "3ba1499b7bfd4a5eab40890bcb9800a162f79edb39c07892d4eab8d8d0944565"
+        },
+        {
+          "candidate_id": "C-1b250675ffdd871eccfd",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete churn training script fits KNN imputation, label-dependent mutual information and scaling before folds. The lesson correctly presents fold-local refitting as a corrective proposal rather than code behavior. No bias magnitude or winning execution is inferred. Strong value ratings fit a specific, broadly useful validation repair.",
+          "candidate_sha256": "3ba1499b7bfd4a5eab40890bcb9800a162f79edb39c07892d4eab8d8d0944565"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 275,
+        "line_end": 285,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-1b6d3e912c1a3e6f4c68",
+      "canonical_key": "perform forward selection over stocks and reverse selection within stocks using logistic regression, then compare compact final models. | many stock series contain redundant shifted price variables | predictive_quality",
+      "title": "Use hierarchical feature selection before final modeling",
+      "statement": "When many stock series contain redundant shifted price variables, proposed reuse: Proposed conditional application: Perform forward selection over stocks and reverse selection within stocks using logistic regression, then compare compact final models. Proposed check: Nest both selection stages within forward-time validation; audit whether advanced values are available at prediction. Limitation: Temporal shift wording ambiguous; exhaustive stepwise selection can overfit.",
+      "trigger_conditions": [
+        "many stock series contain redundant shifted price variables"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Perform forward selection over stocks and reverse selection within stocks using logistic regression, then compare compact final models."
+      ],
+      "verification_steps": [
+        "Proposed check: Nest both selection stages within forward-time validation; audit whether advanced values are available at prediction."
+      ],
+      "limitations": [
+        "Temporal shift wording ambiguous; exhaustive stepwise selection can overfit."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The stock source describes two-stage L1 logistic selection tuned by five-fold cross-validation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-5b1c33d31c86b957e277"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Hierarchical selection needs validation expertise.",
+        "competitor": "Useful redundancy reduction in grouped feature families.",
+        "practitioner": "Conditional financial feature research, not profitability evidence."
+      },
+      "review": {
+        "candidate_id": "C-1b6d3e912c1a3e6f4c68",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full INFORMS packet distinguishes winner's forward-stock/reverse-feature selection from third-place L1/fivefold; corrected conflation.",
+        "candidate_sha256": "f544fec516375884b104128c3dad55295f94b639a56637849bbc47f20bda8802"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000370",
+      "slug": "lesson-000370",
+      "merged_candidate_ids": [
+        "C-1b6d3e912c1a3e6f4c68"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4779fc2e7b45ccf69892",
+          "competition_id": "competition:informs2010",
+          "source_id": "source:lesson-source-c1273537cbdb3219",
+          "snapshot_path": "research/lesson-extraction/snapshots/bc8edbeca2564e10a3f36bdaa044a2e9c9d2a10c9e1dd82204c74b671db52ace.txt",
+          "snapshot_sha256": "bc8edbeca2564e10a3f36bdaa044a2e9c9d2a10c9e1dd82204c74b671db52ace",
+          "source_url": "http://blog.kaggle.com/2010/10/11/how-i-did-it-the-top-three-from-the-2010-informs-data-mining-contest/",
+          "source_quality": "primary_text",
+          "observation_id": "O-5b1c33d31c86b957e277",
+          "line_start": 15,
+          "line_end": 15,
+          "evidence_text": "forward stepwise selection of stocks, reverse stepwise selection of particular features for a given stock, evaluated using logistic regression.",
+          "kind": "used",
+          "statement": "Winner Cole Harris used forward stock selection and reverse within-stock feature selection evaluated by logistic regression; L1/fivefold belongs to third-place Nan Zhou.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Hierarchical selection needs validation expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful redundancy reduction in grouped feature families.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Conditional financial feature research, not profitability evidence.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-c1273537cbdb3219",
+          "locator": "research/lesson-extraction/snapshots/bc8edbeca2564e10a3f36bdaa044a2e9c9d2a10c9e1dd82204c74b671db52ace.txt#L15-L15",
+          "quote": "forward stepwise selection of stocks, reverse stepwise selection of particular features for a given stock, evaluated using logistic regression.",
+          "competition_id": "competition:informs2010",
+          "url": "http://blog.kaggle.com/2010/10/11/how-i-did-it-the-top-three-from-the-2010-informs-data-mining-contest/",
+          "snapshot_path": "research/lesson-extraction/snapshots/bc8edbeca2564e10a3f36bdaa044a2e9c9d2a10c9e1dd82204c74b671db52ace.txt",
+          "snapshot_sha256": "bc8edbeca2564e10a3f36bdaa044a2e9c9d2a10c9e1dd82204c74b671db52ace",
+          "line_start": 15,
+          "line_end": 15
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-1b6d3e912c1a3e6f4c68",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full INFORMS packet distinguishes winner's forward-stock/reverse-feature selection from third-place L1/fivefold; corrected conflation.",
+          "candidate_sha256": "f544fec516375884b104128c3dad55295f94b639a56637849bbc47f20bda8802"
+        }
+      ],
+      "book_location": {
+        "chapter": 29,
+        "path": "manuscript/chapters/29-advanced-feature-selection.md",
+        "sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
+        "line_start": 287,
+        "line_end": 297,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

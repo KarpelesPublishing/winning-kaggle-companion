@@ -1,0 +1,3472 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-0cc721835f208da8edbc",
+      "canonical_key": "check whether resolution beyond radius 270 and multi-view/multi-network ensembles improve enough to justify cost. | small medical features suggest expensive higher-resolution or multi-view inference | compute_efficiency",
+      "title": "Measure resolution and ensemble returns on medical images",
+      "statement": "When small medical features suggest expensive higher-resolution or multi-view inference, proposed reuse: Proposed conditional application: Check whether resolution beyond radius 270 and multi-view/multi-network ensembles improve enough to justify cost. Proposed check: Sweep resolution and separately ensemble size on patient holdouts; plot metric versus training/inference cost. Limitation: 270 is a historical setup result, not universal sufficient resolution; subtle pathology may require higher detail.",
+      "trigger_conditions": [
+        "small medical features suggest expensive higher-resolution or multi-view inference"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Check whether resolution beyond radius 270 and multi-view/multi-network ensembles improve enough to justify cost."
+      ],
+      "verification_steps": [
+        "Proposed check: Sweep resolution and separately ensemble size on patient holdouts; plot metric versus training/inference cost."
+      ],
+      "limitations": [
+        "270 is a historical setup result, not universal sufficient resolution; subtle pathology may require higher detail."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The retinal author reports no benefit above radius 270 and little benefit from image-view or model ensembling.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-9994e22caafad2e8ecee"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Multiple image fits require GPUs.",
+        "competitor": "Useful marginal-return discipline for medical vision.",
+        "practitioner": "Resource-aware imaging choice with diagnostic detail checks."
+      },
+      "review": {
+        "candidate_id": "C-0cc721835f208da8edbc",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Retinal source qualitatively finds no gain above radius 270 and little ensemble return; processing-time explanation is speculation.",
+        "candidate_sha256": "619fac03a1adbf126e573ef3d7c8bccacb1d8478aaff5ab9a21e17bab42a518b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000063",
+      "slug": "lesson-000063",
+      "merged_candidate_ids": [
+        "C-0cc721835f208da8edbc"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f5c3947f507e92fd1b4e",
+          "competition_id": "competition:diabetic-retinopathy-detection",
+          "source_id": "source:lesson-source-fad5f528dd361b0b",
+          "snapshot_path": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt",
+          "snapshot_sha256": "535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae",
+          "source_url": "http://blog.kaggle.com/2015/09/09/diabetic-retinopathy-winners-interview-1st-place-ben-graham/",
+          "source_quality": "primary_text",
+          "observation_id": "O-9994e22caafad2e8ecee",
+          "line_start": 21,
+          "line_end": 21,
+          "evidence_text": "increasing the scale of the images beyond radius=270 pixels did not seem to help.",
+          "kind": "reported_failure",
+          "statement": "The retinal author reports no benefit above radius 270 and little benefit from image-view or model ensembling.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Multiple image fits require GPUs.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Useful marginal-return discipline for medical vision.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Resource-aware imaging choice with diagnostic detail checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-fad5f528dd361b0b",
+          "locator": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt#L21-L21",
+          "quote": "increasing the scale of the images beyond radius=270 pixels did not seem to help.",
+          "competition_id": "competition:diabetic-retinopathy-detection",
+          "url": "http://blog.kaggle.com/2015/09/09/diabetic-retinopathy-winners-interview-1st-place-ben-graham/",
+          "snapshot_path": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt",
+          "snapshot_sha256": "535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae",
+          "line_start": 21,
+          "line_end": 21
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-0cc721835f208da8edbc",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Retinal source qualitatively finds no gain above radius 270 and little ensemble return; processing-time explanation is speculation.",
+          "candidate_sha256": "619fac03a1adbf126e573ef3d7c8bccacb1d8478aaff5ab9a21e17bab42a518b"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 311,
+        "line_end": 315,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-1dd6b187b8e1bcbdc563",
+      "canonical_key": "compare mean and maximum breast-score aggregation at the patient decision unit | a patient outcome is predicted from multiple breast probabilities | predictive_quality",
+      "title": "Compare breast-to-patient aggregation before final ensembling",
+      "statement": "When breast-level mammography probabilities require a patient-level score, proposed reuse: Proposed conditional application: Compare mean and maximum breast probabilities when computing patient-level scores within the same ensemble. Proposed check: Compare mean and maximum breast-to-patient aggregation with a fixed ensemble and patient-grouped validation, including unilateral and bilateral cases. Limitation: Public AUC comparison may reflect leaderboard tuning; the maximum rule may overreact to a noisy breast score.",
+      "trigger_conditions": [
+        "breast-level mammography probabilities require a patient-level score",
+        "one patient outcome is predicted from multiple breast-level scores"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare mean and maximum breast probabilities when computing patient-level scores within the same ensemble.",
+        "Proposed adaptation of source observation: Compare mean and maximum aggregation on patient-level predictions."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare mean and maximum breast-to-patient aggregation with a fixed ensemble and patient-grouped validation, including unilateral and bilateral cases.",
+        "Proposed verification: Use identical breast predictions and patient labels for the paired AUC comparison."
+      ],
+      "limitations": [
+        "Public AUC comparison may reflect leaderboard tuning; the maximum rule may overreact to a noisy breast score.",
+        "This is a source-reported comparison; the aggregation rule should match the target outcome and is not a universal medical rule."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "inference"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Inference"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author changed averaging to maximum breast probability for patient-level scoring and reported public AUC0.783to0.793.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed patient-level reuse requires patient-grouped evaluation and calibration.",
+          "basis": "proposed"
+        },
+        {
+          "description": "The author reports changing breast-to-patient aggregation from mean probability to maximum probability and an AUC change from 0.783 to 0.793.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-59394e4327f1f126f354",
+        "O-a-dbd999a88414c661",
+        "O-br-d1c644876d36e74d16"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Aggregation is simple once patient and breast units are clearly distinguished.",
+        "competitor": "A fixed-ensemble aggregation comparison is a useful inference experiment.",
+        "practitioner": "Patient-level clinical outcomes require testing aggregation and within-patient correlation."
+      },
+      "review": {
+        "candidate_id": "C-1dd6b187b8e1bcbdc563",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Read original source header and table headers: maximum aggregates breast-level probabilities into patient scores, with public AUC0.783to0.793; extractor reversed aggregation level.",
+        "candidate_sha256": "36a7ee10302bb0d53d64fd0d1897151be47407d923762763b950d6663d2b55a5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000149",
+      "slug": "lesson-000149",
+      "merged_candidate_ids": [
+        "C-1dd6b187b8e1bcbdc563",
+        "C-a-dbd999a88414c661"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-1636a767728d03e50d97",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-59394e4327f1f126f354",
+          "line_start": 273,
+          "line_end": 273,
+          "evidence_text": "Ensemble top1 model in each fold [1`(2)`, 2`(13)`, 8`(0)`] [max breast score]",
+          "kind": "reported_gain",
+          "statement": "The original mammography source changes mean to maximum breast probability when calculating patient-level scores and reports public AUC0.783to0.793.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-ec205e5bcfb002548591",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-dbd999a88414c661",
+          "line_start": 232,
+          "line_end": 236,
+          "evidence_text": "### What works\n- Ensemble model. Make sure each fold-based model is involved in the ensemble model, even if no models in the same fold are good (not very sure).\n- Large size of the image sometimes works better.\n- Advancement of the backbone model. For example, EfficientNet-B2/B5 and ConvNext-Small are better than ResNet18. May be due to the more parameters and optimized architectural design.\n- I changed the averaging probs to maximum prob when calculating the patient-level scores from breast-level scores, AUC ups from 0.783 to 0.793!",
+          "kind": "reported_gain",
+          "statement": "The author reports changing breast-to-patient aggregation from mean probability to maximum probability and an AUC change from 0.783 to 0.793.",
+          "reported_result": {
+            "metric": "AUC",
+            "value": 0.793,
+            "context": "Source-reported patient-level AUC after changing breast-level aggregation from averaging to maximum, compared with 0.783 using averaging. Public leaderboard tuning; no independent ablation claimed.",
+            "evidence_text": "I changed the averaging probs to maximum prob when calculating the patient-level scores from breast-level scores, AUC ups from 0.783 to 0.793!"
+          }
+        },
+        {
+          "packet_id": "P-br-172b01c4be7bf7a961",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-br-d1c644876d36e74d16",
+          "line_start": 236,
+          "line_end": 236,
+          "evidence_text": "- I changed the averaging probs to maximum prob when calculating the patient-level scores from breast-level scores, AUC ups from 0.783 to 0.793!",
+          "kind": "reported_gain",
+          "statement": "The original mammography source changes mean to maximum breast probability when calculating patient-level scores and reports public AUC0.783to0.793.",
+          "reported_result": {
+            "metric": "public leaderboard AUC",
+            "value": 0.793,
+            "context": "Maximum versus mean breast-level probabilities for patient-level scoring in the same top-one-per-fold ensemble,0.783to0.793; source table headers checked.",
+            "evidence_text": "I changed the averaging probs to maximum prob when calculating the patient-level scores from breast-level scores, AUC ups from 0.783 to 0.793!"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Aggregation is simple once patient and breast units are clearly distinguished.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A fixed-ensemble aggregation comparison is a useful inference experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Patient-level clinical outcomes require testing aggregation and within-patient correlation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L273-L273",
+          "quote": "Ensemble top1 model in each fold [1`(2)`, 2`(13)`, 8`(0)`] [max breast score]",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 273,
+          "line_end": 273
+        },
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L232-L236",
+          "quote": "### What works\n- Ensemble model. Make sure each fold-based model is involved in the ensemble model, even if no models in the same fold are good (not very sure).\n- Large size of the image sometimes works better.\n- Advancement of the backbone model. For example, EfficientNet-B2/B5 and ConvNext-Small are better than ResNet18. May be due to the more parameters and optimized architectural design.\n- I changed the averaging probs to maximum prob when calculating the patient-level scores from breast-level scores, AUC ups from 0.783 to 0.793!",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 232,
+          "line_end": 236
+        },
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L236-L236",
+          "quote": "- I changed the averaging probs to maximum prob when calculating the patient-level scores from breast-level scores, AUC ups from 0.783 to 0.793!",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 236,
+          "line_end": 236
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-1dd6b187b8e1bcbdc563",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Read original source header and table headers: maximum aggregates breast-level probabilities into patient scores, with public AUC0.783to0.793; extractor reversed aggregation level.",
+          "candidate_sha256": "36a7ee10302bb0d53d64fd0d1897151be47407d923762763b950d6663d2b55a5"
+        },
+        {
+          "candidate_id": "C-1dd6b187b8e1bcbdc563",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "SPR original narrative explicitly aggregates breast probabilities into patient scores, changing mean to maximum. Full table headers and identical top-one-per-fold rows give public AUC 0.783 versus 0.793. Candidate correctly fixes aggregation direction and retains public-tuning/noisy-maximum caveats; patient-grouped unilateral/bilateral evaluation is proposed.",
+          "candidate_sha256": "36a7ee10302bb0d53d64fd0d1897151be47407d923762763b950d6663d2b55a5"
+        },
+        {
+          "candidate_id": "C-a-dbd999a88414c661",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Explicit AUC 0.783 to 0.793 supports this patient aggregation comparison; target semantics determine transfer.",
+          "candidate_sha256": "c7764e6b43bf9f6c276977c7d4446bd256e5025b2e245cbdd205195eb3dd72d1"
+        },
+        {
+          "candidate_id": "C-a-dbd999a88414c661",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete mammography README read. Author AUC0.783\u21920.793 is public tuned patient aggregation comparison, table confirms same selected-per-fold ensemble mean/max; no universal medical rule. Paired verification proposed; grades appropriate.",
+          "candidate_sha256": "c7764e6b43bf9f6c276977c7d4446bd256e5025b2e245cbdd205195eb3dd72d1"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 257,
+        "line_end": 267,
+        "section": "Patient-Level Decisions from the Expanded Sources"
+      }
+    },
+    {
+      "candidate_id": "C-2afe3c4d44b0566a1778",
+      "canonical_key": "compare the full ensemble with the supplied one-classifier plus five-relation-network variant. | a large medical detection ensemble has substantial setup cost | compute_efficiency",
+      "title": "Keep a simplified detector pipeline as a cost benchmark",
+      "statement": "When a large medical detection ensemble has substantial setup cost, proposed reuse: Proposed conditional application: Compare the full ensemble with the supplied one-classifier plus five-relation-network variant. Proposed check: Reproduce small and full pipelines on the same validation, then compare detection quality, model loading, latency and memory. Limitation: Smaller model count suggests a cost experiment but no measured cost saving is provided; setup still includes several detectors.",
+      "trigger_conditions": [
+        "a large medical detection ensemble has substantial setup cost"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare the full ensemble with the supplied one-classifier plus five-relation-network variant."
+      ],
+      "verification_steps": [
+        "Proposed check: Reproduce small and full pipelines on the same validation, then compare detection quality, model loading, latency and memory."
+      ],
+      "limitations": [
+        "Smaller model count suggests a cost experiment but no measured cost saving is provided; setup still includes several detectors."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "detection"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The medical detection archive supplies a smaller reproduction with one classifier and five relation networks.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-29fecb2dbfe59e5154e1"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A simplified reference is useful, but six medical models remain a substantial project.",
+        "competitor": "It creates a practical quality-versus-complexity benchmark for detector ensembles.",
+        "practitioner": "A compact baseline helps deployment decisions when actual latency and memory are measured."
+      },
+      "review": {
+        "candidate_id": "C-2afe3c4d44b0566a1778",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Archive offers one classifier plus five relation networks; its0.253private score has no matched full-ensemble cost comparison.",
+        "candidate_sha256": "85837a60c3d123a16acccf1836e20e6d46077689da2b4d65842531c1a193ade5"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000190",
+      "slug": "lesson-000190",
+      "merged_candidate_ids": [
+        "C-2afe3c4d44b0566a1778"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ac614f5e9e66a0f4c352",
+          "competition_id": "competition:rsna-pneumonia-detection-challenge",
+          "source_id": "source:lesson-source-e34a8780c9c3a1d3",
+          "snapshot_path": "research/lesson-extraction/snapshots/9c9bcc5444b4bd5a77c85a8e3b98f4a518b3b0cb944aa3f756af544682692d7b.txt",
+          "snapshot_sha256": "9c9bcc5444b4bd5a77c85a8e3b98f4a518b3b0cb944aa3f756af544682692d7b",
+          "source_url": "https://raw.githubusercontent.com/i-pan/kaggle-rsna18/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-29fecb2dbfe59e5154e1",
+          "line_start": 115,
+          "line_end": 115,
+          "evidence_text": "This code will train 1 InceptionResNetV2 classifier at 256x256px and 5 deformable relation networks.",
+          "kind": "used",
+          "statement": "The medical detection archive supplies a smaller reproduction with one classifier and five relation networks.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "A simplified reference is useful, but six medical models remain a substantial project.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "It creates a practical quality-versus-complexity benchmark for detector ensembles.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A compact baseline helps deployment decisions when actual latency and memory are measured.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e34a8780c9c3a1d3",
+          "locator": "research/lesson-extraction/snapshots/9c9bcc5444b4bd5a77c85a8e3b98f4a518b3b0cb944aa3f756af544682692d7b.txt#L115-L115",
+          "quote": "This code will train 1 InceptionResNetV2 classifier at 256x256px and 5 deformable relation networks.",
+          "competition_id": "competition:rsna-pneumonia-detection-challenge",
+          "url": "https://raw.githubusercontent.com/i-pan/kaggle-rsna18/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/9c9bcc5444b4bd5a77c85a8e3b98f4a518b3b0cb944aa3f756af544682692d7b.txt",
+          "snapshot_sha256": "9c9bcc5444b4bd5a77c85a8e3b98f4a518b3b0cb944aa3f756af544682692d7b",
+          "line_start": 115,
+          "line_end": 115
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2afe3c4d44b0566a1778",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Archive offers one classifier plus five relation networks; its0.253private score has no matched full-ensemble cost comparison.",
+          "candidate_sha256": "85837a60c3d123a16acccf1836e20e6d46077689da2b4d65842531c1a193ade5"
+        },
+        {
+          "candidate_id": "C-2afe3c4d44b0566a1778",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "RSNA18 archive supplies one classifier plus five relation networks as a simple variant with absolute private score 0.253, not measured runtime saving. Candidate proposes same-validation quality/loading/latency/memory benchmark; six models still impose novice cost. Expert conditional simplicity value and beginner feasibility2 fit ratings.",
+          "candidate_sha256": "85837a60c3d123a16acccf1836e20e6d46077689da2b4d65842531c1a193ade5"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 317,
+        "line_end": 321,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-7ec7af0ef2b19ceb",
+      "canonical_key": "evaluate seed pairs and use coarse hyperparameter changes; proposed adaptation also maintains independent validation. | competition feedback is noisy and repeated submissions are limited | validation_reliability",
+      "title": "Limit degrees of freedom in leaderboard experiments",
+      "statement": "When competition feedback is noisy and repeated submissions are limited, consider this source-backed action: Evaluate seed pairs and use coarse hyperparameter changes; proposed adaptation also maintains independent validation. Proposed check: Estimate seed variance and track the number of feedback-driven decisions. Limit: Public-only selection can still overfit; coarse search does not guarantee reliability.",
+      "trigger_conditions": [
+        "competition feedback is noisy and repeated submissions are limited"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Evaluate seed pairs and use coarse hyperparameter changes; proposed adaptation also maintains independent validation."
+      ],
+      "verification_steps": [
+        "Proposed verification: Estimate seed variance and track the number of feedback-driven decisions."
+      ],
+      "limitations": [
+        "Public-only selection can still overfit; coarse search does not guarantee reliability."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author evaluated pairs of seeds for stability and varied epochs in steps of five to reduce hyperparameter freedom when probing the leaderboard.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-7ec7af0ef2b19ceb"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Extra seeds add compute to an accessible tuning safeguard.",
+        "competitor": "Useful limited-feedback discipline; no reliability guarantee.",
+        "practitioner": "Coarse selection transfers, public feedback rationale remains contest-specific."
+      },
+      "review": {
+        "candidate_id": "C-a-7ec7af0ef2b19ceb",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked seed pairs/coarse epoch changes; public selection still overfits.",
+        "candidate_sha256": "b280cdb4b20ed9ffcf89fc2927882f98aab20f1a893c6c025f19ccc88f39c84f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000252",
+      "slug": "lesson-000252",
+      "merged_candidate_ids": [
+        "C-a-7ec7af0ef2b19ceb"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-db3874fa4d669d548716",
+          "competition_id": "competition:aptos2019-blindness-detection",
+          "source_id": "source:lesson-source-8c28aecb438a9df9",
+          "snapshot_path": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt",
+          "snapshot_sha256": "f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14",
+          "source_url": "https://www.kaggle.com/competitions/aptos2019-blindness-detection/writeups/guanshuo-xu-1st-place-solution-summary",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-7ec7af0ef2b19ceb",
+          "line_start": 79,
+          "line_end": 89,
+          "evidence_text": "The training process can be divided into two stages. In the first stage, I routinely trained the eight models and validated each of them on the public LB. To get more stable results, models were evaluated in pairs (with different seeds), that's why I have 2x for each type of model. When probing LB, I tried to reduce the degree of freedom of hyperparemeters to alleviate overfitting, for example, to determine the best number of epochs for training I used a step size of five. The following are the optimized results after stage1 training:\n\ninception_resnet_v2 public: 0.831 private: 0.927\n\ninception_v4 public: 0.826 private: 0.924\n\nseresnext50 public: 0.826 private: 0.931\n\nseresnext101 public: 0.819 private: 0.923 (the 2nd best result, missing the best)\n\nensemble public: 0.844 private: 0.934",
+          "kind": "used",
+          "statement": "The author evaluated pairs of seeds for stability and varied epochs in steps of five to reduce hyperparameter freedom when probing the leaderboard.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Extra seeds add compute to an accessible tuning safeguard.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful limited-feedback discipline; no reliability guarantee.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Coarse selection transfers, public feedback rationale remains contest-specific.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8c28aecb438a9df9",
+          "locator": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt#L79-L89",
+          "quote": "The training process can be divided into two stages. In the first stage, I routinely trained the eight models and validated each of them on the public LB. To get more stable results, models were evaluated in pairs (with different seeds), that's why I have 2x for each type of model. When probing LB, I tried to reduce the degree of freedom of hyperparemeters to alleviate overfitting, for example, to determine the best number of epochs for training I used a step size of five. The following are the optimized results after stage1 training:\n\ninception_resnet_v2 public: 0.831 private: 0.927\n\ninception_v4 public: 0.826 private: 0.924\n\nseresnext50 public: 0.826 private: 0.931\n\nseresnext101 public: 0.819 private: 0.923 (the 2nd best result, missing the best)\n\nensemble public: 0.844 private: 0.934",
+          "competition_id": "competition:aptos2019-blindness-detection",
+          "url": "https://www.kaggle.com/competitions/aptos2019-blindness-detection/writeups/guanshuo-xu-1st-place-solution-summary",
+          "snapshot_path": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt",
+          "snapshot_sha256": "f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14",
+          "line_start": 79,
+          "line_end": 89
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-7ec7af0ef2b19ceb",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked seed pairs/coarse epoch changes; public selection still overfits.",
+          "candidate_sha256": "b280cdb4b20ed9ffcf89fc2927882f98aab20f1a893c6c025f19ccc88f39c84f"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 343,
+        "line_end": 347,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-83f637aa15fa5c180bf9",
+      "canonical_key": "extract features from detector proposals and combine lesion probabilities with a learned dummy-nodule probability for missed disease. | case-level cancer prediction depends on multiple detected nodules | predictive_quality",
+      "title": "Aggregate detected lesions while accounting for missed lesions",
+      "statement": "When case-level cancer prediction depends on multiple detected nodules, proposed reuse: Proposed conditional application: Extract features from detector proposals and combine lesion probabilities with a learned dummy-nodule probability for missed disease. Proposed check: Ablate dummy term on patient-held-out log loss/calibration, stratified by detection misses. Limitation: Noisy-or dependence assumptions and missed-lesion interpretation need validation; full training reported 8 GPUs over days.",
+      "trigger_conditions": [
+        "case-level cancer prediction depends on multiple detected nodules"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Extract features from detector proposals and combine lesion probabilities with a learned dummy-nodule probability for missed disease."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate dummy term on patient-held-out log loss/calibration, stratified by detection misses."
+      ],
+      "limitations": [
+        "Noisy-or dependence assumptions and missed-lesion interpretation need validation; full training reported 8 GPUs over days.",
+        "Competition cancer prediction does not establish clinical utility."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The cancer source aggregates detected nodules with a trainable dummy-nodule cancer probability.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-1b5a3d3857e2353bdc92"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        }
+      },
+      "grading_rationales": {
+        "beginner": "3D detectors require substantial expertise and resources.",
+        "competitor": "Specific case-aggregation hypothesis with costly training.",
+        "practitioner": "Potential imaging research use with calibration and clinical evidence absent."
+      },
+      "review": {
+        "candidate_id": "C-83f637aa15fa5c180bf9",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "DSB2017 describes noisy-or lesion probabilities with learned dummy constant for missed lesions.",
+        "candidate_sha256": "ce23aea70ce42d193a2a7a9ba82c1c0da31d5485ffdb42f06c096eeb5802ac90"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000260",
+      "slug": "lesson-000260",
+      "merged_candidate_ids": [
+        "C-83f637aa15fa5c180bf9"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7b0d08982d814c77eb65",
+          "competition_id": "competition:data-science-bowl-2017",
+          "source_id": "source:lesson-source-04df25a66f1ad8db",
+          "snapshot_path": "research/lesson-extraction/snapshots/bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e.txt",
+          "snapshot_sha256": "bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e",
+          "source_url": "https://raw.githubusercontent.com/lfz/DSB2017/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-1b5a3d3857e2353bdc92",
+          "line_start": 56,
+          "line_end": 56,
+          "evidence_text": "where the $P_d$ stand for the probability of cancer of a dummy nodule, which is a trainable constant.",
+          "kind": "used",
+          "statement": "The cancer source aggregates detected nodules with a trainable dummy-nodule cancer probability.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 40.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "3D detectors require substantial expertise and resources.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 62.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Specific case-aggregation hypothesis with costly training.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 52.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Potential imaging research use with calibration and clinical evidence absent.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-04df25a66f1ad8db",
+          "locator": "research/lesson-extraction/snapshots/bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e.txt#L56-L56",
+          "quote": "where the $P_d$ stand for the probability of cancer of a dummy nodule, which is a trainable constant.",
+          "competition_id": "competition:data-science-bowl-2017",
+          "url": "https://raw.githubusercontent.com/lfz/DSB2017/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e.txt",
+          "snapshot_sha256": "bc61dff620ff88aba68f65f7e547e5bacf24f58e7fa3541d3e496a76c08b633e",
+          "line_start": 56,
+          "line_end": 56
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-83f637aa15fa5c180bf9",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "DSB2017 describes noisy-or lesion probabilities with learned dummy constant for missed lesions.",
+          "candidate_sha256": "ce23aea70ce42d193a2a7a9ba82c1c0da31d5485ffdb42f06c096eeb5802ac90"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 323,
+        "line_end": 327,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-9e75ff995a0ee3029c3a",
+      "canonical_key": "fit a second-stage random forest using predictions from both eyes before mapping to integer labels. | two eyes belong to the same case and are available together at inference | predictive_quality",
+      "title": "Combine paired anatomical predictions in a second stage",
+      "statement": "When two eyes belong to the same case and are available together at inference, proposed reuse: Proposed conditional application: Fit a second-stage Random Forest using predictions from both eyes before mapping to integer labels. Proposed check: Train the RF on out-of-fold paired-eye predictions, group folds by patient, and test one-eye missingness and ordinal-label mapping. Limitation: Both eyes must be available together; patient overlap and in-sample base predictions would bias stacking evaluation.",
+      "trigger_conditions": [
+        "two eyes belong to the same case and are available together at inference"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Fit a second-stage Random Forest using predictions from both eyes before mapping to integer labels."
+      ],
+      "verification_steps": [
+        "Proposed check: Train the RF on out-of-fold paired-eye predictions, group folds by patient, and test one-eye missingness and ordinal-label mapping."
+      ],
+      "limitations": [
+        "Both eyes must be available together; patient overlap and in-sample base predictions would bias stacking evaluation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The retinal author used a Random Forest combining network predictions from both eyes to produce integer labels.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed controlled application under the stated conditions.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-3b22f2aaa6bb6d191fb6"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Paired context is intuitive, but safe two-stage fitting needs care.",
+        "competitor": "Anatomical pairs offer a concrete stacking feature opportunity.",
+        "practitioner": "Patient-level context can help clinical prediction when availability and patient isolation are enforced."
+      },
+      "review": {
+        "candidate_id": "C-9e75ff995a0ee3029c3a",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner source uses paired-eye network outputs in a second-stage RF; no patient-fold specification or isolated gain is supplied.",
+        "candidate_sha256": "a1a987e769d2b09c32ff27a3dbc0c243918f4479e1c30b998d2f299f77396d11"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000275",
+      "slug": "lesson-000275",
+      "merged_candidate_ids": [
+        "C-9e75ff995a0ee3029c3a"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f5c3947f507e92fd1b4e",
+          "competition_id": "competition:diabetic-retinopathy-detection",
+          "source_id": "source:lesson-source-fad5f528dd361b0b",
+          "snapshot_path": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt",
+          "snapshot_sha256": "535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae",
+          "source_url": "http://blog.kaggle.com/2015/09/09/diabetic-retinopathy-winners-interview-1st-place-ben-graham/",
+          "source_quality": "primary_text",
+          "observation_id": "O-3b22f2aaa6bb6d191fb6",
+          "line_start": 17,
+          "line_end": 17,
+          "evidence_text": "I used a random forest so that I could combine the data from the two eyes to make each prediction.",
+          "kind": "used",
+          "statement": "The retinal author used a Random Forest combining network predictions from both eyes to produce integer labels.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Paired context is intuitive, but safe two-stage fitting needs care.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Anatomical pairs offer a concrete stacking feature opportunity.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Patient-level context can help clinical prediction when availability and patient isolation are enforced.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-fad5f528dd361b0b",
+          "locator": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt#L17-L17",
+          "quote": "I used a random forest so that I could combine the data from the two eyes to make each prediction.",
+          "competition_id": "competition:diabetic-retinopathy-detection",
+          "url": "http://blog.kaggle.com/2015/09/09/diabetic-retinopathy-winners-interview-1st-place-ben-graham/",
+          "snapshot_path": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt",
+          "snapshot_sha256": "535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae",
+          "line_start": 17,
+          "line_end": 17
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-9e75ff995a0ee3029c3a",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner source uses paired-eye network outputs in a second-stage RF; no patient-fold specification or isolated gain is supplied.",
+          "candidate_sha256": "a1a987e769d2b09c32ff27a3dbc0c243918f4479e1c30b998d2f299f77396d11"
+        },
+        {
+          "candidate_id": "C-9e75ff995a0ee3029c3a",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Full Ben Graham interview supports random-forest mapping of both-eye network predictions to integer labels. OOF fitting, patient grouping and missing-eye tests are explicitly proposed rather than historical claims. Source gives no isolated RF gain; all twelve audience scores reflect stacking complexity and paired-case applicability.",
+          "candidate_sha256": "a1a987e769d2b09c32ff27a3dbc0c243918f4479e1c30b998d2f299f77396d11"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 329,
+        "line_end": 333,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-06d1cb6cf49df477",
+      "canonical_key": "include the diagnostic folds and prediction pass in the compute budget before committing to a label-cleaning pipeline. | an out-of-fold noise audit requires its own model training | compute_efficiency",
+      "title": "Budget the diagnostic model before label-cleaning retraining",
+      "statement": "When an out-of-fold noise audit requires its own model training, consider this source-backed action: Include the diagnostic folds and prediction pass in the compute budget before committing to a label-cleaning pipeline. Proposed check: Measure one complete fold and estimate total audit plus retraining wall time. Limit: These timings are author estimates on a stated setup and do not transfer directly to other hardware.",
+      "trigger_conditions": [
+        "an out-of-fold noise audit requires its own model training"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Include the diagnostic folds and prediction pass in the compute budget before committing to a label-cleaning pipeline."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure one complete fold and estimate total audit plus retraining wall time."
+      ],
+      "limitations": [
+        "These timings are author estimates on a stated setup and do not transfer directly to other hardware."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "compute_efficiency"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The base noise-removal model required about 18 hours per fold with one expected TitanRTX, followed by about one hour of held-out prediction per fold.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-06d1cb6cf49df477"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Straightforward fold budget calculation before a costly project.",
+        "competitor": "Prevents undercounting diagnostic training before retraining.",
+        "practitioner": "Broadly useful capacity gate for multiple-pass curation pipelines."
+      },
+      "review": {
+        "candidate_id": "C-a-06d1cb6cf49df477",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Diagnostic training and prediction times are hardware-specific budget observations, not method gains.",
+        "candidate_sha256": "3e671dbdc81ffaa51f01bfdf6bd4f22f7b8bad1c66fe310d600184b0545276d7"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000314",
+      "slug": "lesson-000314",
+      "merged_candidate_ids": [
+        "C-a-06d1cb6cf49df477"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ba9fb09330d1f85f83e0",
+          "competition_id": "competition:prostate-cancer-grade-assessment",
+          "source_id": "source:lesson-source-01686cfbfc54b244",
+          "snapshot_path": "research/lesson-extraction/snapshots/413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d.txt",
+          "snapshot_sha256": "413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d",
+          "source_url": "https://raw.githubusercontent.com/kentaroy47/Kaggle-PANDA-1st-place-solution/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-06d1cb6cf49df477",
+          "line_start": 99,
+          "line_end": 118,
+          "evidence_text": "## 3. Train base model for removing noise(expected TitanRTX x 1)\n\nEach fold needs about 18 hours.\n\n```bash\n$ cd src\n$ python train.py --config configs/final_1.yaml --kfold 1\n$ python train.py --config configs/final_1.yaml --kfold 2\n$ python train.py --config configs/final_1.yaml --kfold 3\n$ python train.py --config configs/final_1.yaml --kfold 4\n$ python train.py --config configs/final_1.yaml --kfold 5\n```\n\n- output:\n  - `output/model/final_1`\n    - Each weights and train logs\n\n## 4. Predict to local validation for removing noise\n\nEach fold needs about 1 hour.",
+          "kind": "used",
+          "statement": "The base noise-removal model required about 18 hours per fold with one expected TitanRTX, followed by about one hour of held-out prediction per fold.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Straightforward fold budget calculation before a costly project.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Prevents undercounting diagnostic training before retraining.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broadly useful capacity gate for multiple-pass curation pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-01686cfbfc54b244",
+          "locator": "research/lesson-extraction/snapshots/413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d.txt#L99-L118",
+          "quote": "## 3. Train base model for removing noise(expected TitanRTX x 1)\n\nEach fold needs about 18 hours.\n\n```bash\n$ cd src\n$ python train.py --config configs/final_1.yaml --kfold 1\n$ python train.py --config configs/final_1.yaml --kfold 2\n$ python train.py --config configs/final_1.yaml --kfold 3\n$ python train.py --config configs/final_1.yaml --kfold 4\n$ python train.py --config configs/final_1.yaml --kfold 5\n```\n\n- output:\n  - `output/model/final_1`\n    - Each weights and train logs\n\n## 4. Predict to local validation for removing noise\n\nEach fold needs about 1 hour.",
+          "competition_id": "competition:prostate-cancer-grade-assessment",
+          "url": "https://raw.githubusercontent.com/kentaroy47/Kaggle-PANDA-1st-place-solution/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d.txt",
+          "snapshot_sha256": "413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d",
+          "line_start": 99,
+          "line_end": 118
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-06d1cb6cf49df477",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Diagnostic training and prediction times are hardware-specific budget observations, not method gains.",
+          "candidate_sha256": "3e671dbdc81ffaa51f01bfdf6bd4f22f7b8bad1c66fe310d600184b0545276d7"
+        },
+        {
+          "candidate_id": "C-a-06d1cb6cf49df477",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete PANDA source read. 18h diagnostic training plus 1h heldout prediction per fold are expected TitanRTX timings, not portable measurements; proposed pilot budgeting and moderate feasibility fit.",
+          "candidate_sha256": "3e671dbdc81ffaa51f01bfdf6bd4f22f7b8bad1c66fe310d600184b0545276d7"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 375,
+        "line_end": 379,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-5229f09471586700",
+      "canonical_key": "inspect image-hash groups before constructing fixed folds and keep confirmed duplicates together. | histology slides may include visually duplicated images | predictive_quality",
+      "title": "Audit image-hash duplicate groups before assigning folds",
+      "statement": "When histology slides may include visually duplicated images, consider this source-backed action: Inspect image-hash groups before constructing fixed folds and keep confirmed duplicates together. Proposed check: Verify group disjointness across folds and inspect threshold-boundary pairs manually. Limit: The README does not establish that its grouping is actually enforced by its split script; grouping enforcement is a proposed check.",
+      "trigger_conditions": [
+        "histology slides may include visually duplicated images"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Inspect image-hash groups before constructing fixed folds and keep confirmed duplicates together."
+      ],
+      "verification_steps": [
+        "Proposed verification: Verify group disjointness across folds and inspect threshold-boundary pairs manually."
+      ],
+      "limitations": [
+        "The README does not establish that its grouping is actually enforced by its split script; grouping enforcement is a proposed check."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The PANDA repository provides grouped image IDs from an image-hash threshold artifact and a fixed-seed five-fold split artifact.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-5229f09471586700"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Visual duplicate inspection is accessible; hashing thresholds need judgment.",
+        "competitor": "Direct safeguard against optimistic slide validation.",
+        "practitioner": "Broad image integrity check with manual threshold review."
+      },
+      "review": {
+        "candidate_id": "C-a-5229f09471586700",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Hash group and fold files are provided; actual group enforcement is not established by README.",
+        "candidate_sha256": "b9420ac4dfe5944e0e435b0a6c21a18a0e973d54a0658247c8e6d71026727fa4"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000317",
+      "slug": "lesson-000317",
+      "merged_candidate_ids": [
+        "C-a-5229f09471586700"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ba9fb09330d1f85f83e0",
+          "competition_id": "competition:prostate-cancer-grade-assessment",
+          "source_id": "source:lesson-source-01686cfbfc54b244",
+          "snapshot_path": "research/lesson-extraction/snapshots/413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d.txt",
+          "snapshot_sha256": "413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d",
+          "source_url": "https://raw.githubusercontent.com/kentaroy47/Kaggle-PANDA-1st-place-solution/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-5229f09471586700",
+          "line_start": 66,
+          "line_end": 81,
+          "evidence_text": "### (skip) 2.2 Grouping imageids by image hash threshold\n\n- If you want to do it on your own: https://www.kaggle.com/yukkyo/imagehash-to-detect-duplicate-images-and-grouping\n- We will just place the output of the script as: \n  - `input/duplicate_imgids_imghash_thres_090.csv`\n\n### (skip) 2.3 Split kfold\n\n```bash\n$ cd src\n$ python data_process/s00_make_k_fold.py\n```\n\n- Is constant with fixed seed\n- output:\n  - `input/train-5kfold.csv`",
+          "kind": "used",
+          "statement": "The PANDA repository provides grouped image IDs from an image-hash threshold artifact and a fixed-seed five-fold split artifact.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Visual duplicate inspection is accessible; hashing thresholds need judgment.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Direct safeguard against optimistic slide validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broad image integrity check with manual threshold review.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-01686cfbfc54b244",
+          "locator": "research/lesson-extraction/snapshots/413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d.txt#L66-L81",
+          "quote": "### (skip) 2.2 Grouping imageids by image hash threshold\n\n- If you want to do it on your own: https://www.kaggle.com/yukkyo/imagehash-to-detect-duplicate-images-and-grouping\n- We will just place the output of the script as: \n  - `input/duplicate_imgids_imghash_thres_090.csv`\n\n### (skip) 2.3 Split kfold\n\n```bash\n$ cd src\n$ python data_process/s00_make_k_fold.py\n```\n\n- Is constant with fixed seed\n- output:\n  - `input/train-5kfold.csv`",
+          "competition_id": "competition:prostate-cancer-grade-assessment",
+          "url": "https://raw.githubusercontent.com/kentaroy47/Kaggle-PANDA-1st-place-solution/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d.txt",
+          "snapshot_sha256": "413c00c89c8153af5cf003af700685b6a99d560b8ad647d0e64c690b23e2285d",
+          "line_start": 66,
+          "line_end": 81
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-5229f09471586700",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Hash group and fold files are provided; actual group enforcement is not established by README.",
+          "candidate_sha256": "b9420ac4dfe5944e0e435b0a6c21a18a0e973d54a0658247c8e6d71026727fa4"
+        },
+        {
+          "candidate_id": "C-a-5229f09471586700",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete PANDA README and supporting observation read. Hash grouping is an artifact, not evidence folds enforce it; confirmation, overlap and threshold checks are proposed. Grades fit accessible duplicate auditing.",
+          "candidate_sha256": "b9420ac4dfe5944e0e435b0a6c21a18a0e973d54a0658247c8e6d71026727fa4"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 349,
+        "line_end": 353,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-1a399a7be5f84ea3",
+      "canonical_key": "keep all patient-derived images in one validation fold | multiple images or tiles share patient origin | validation_reliability",
+      "title": "Keep all images from each patient in one validation fold",
+      "statement": "When Microscopy tiles share patient origin., Assign all slides and tiles from a patient to one validation fold. Verify: Audit patient disjointness, slide ancestry and held-out segmentation quality. Limits: Patient grouping requires accurate provenance and enough independent patients.; Balanced mask-area sampling is a separate training decision that alters prevalence.",
+      "trigger_conditions": [
+        "Microscopy tiles share patient origin.",
+        "multiple medical images belong to one patient"
+      ],
+      "action_steps": [
+        "Assign all slides and tiles from a patient to one validation fold.",
+        "Proposed adaptation of source observation: Keep all images of each patient in one validation fold."
+      ],
+      "verification_steps": [
+        "Audit patient disjointness, slide ancestry and held-out segmentation quality.",
+        "Proposed verification: Assert that patient IDs never overlap between training and validation."
+      ],
+      "limitations": [
+        "Patient grouping requires accurate provenance and enough independent patients.",
+        "Balanced mask-area sampling is a separate training decision that alters prevalence.",
+        "The source reports the split choice without comparing against an image-level split."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation",
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author grouped slides by patient and sampled masked/unmasked tiles then four mask-area bins to balance training.",
+          "basis": "observed"
+        },
+        {
+          "description": "The mammography repository explicitly splits training and validation at the patient level.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-1a399a7be5f84ea3",
+        "O-a-41f5c3b21fd016a7"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Patient grouping is straightforward once provenance exists.",
+        "competitor": "High validation value for many correlated microscopy tiles.",
+        "practitioner": "Essential patient-level generalization check; clinical outcome not established."
+      },
+      "review": {
+        "candidate_id": "C-a-1a399a7be5f84ea3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Reviewed current patient-grouped action and original patient-list evidence, together with the previously read mammography application. Neutral title expresses the shared patient-disjoint validation decision without restricting it to microscopy; grades and ancestry caveats remain.",
+        "candidate_sha256": "0f184dfe95cc741f8b7f25ceaf214736cce55830e381a6f3f3285c735246b3d0"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000329",
+      "slug": "lesson-000329",
+      "merged_candidate_ids": [
+        "C-a-1a399a7be5f84ea3",
+        "C-a-41f5c3b21fd016a7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-594201d0984fe9c7b254",
+          "competition_id": "competition:hubmap-kidney-segmentation",
+          "source_id": "source:lesson-source-ea417fdde3963ead",
+          "snapshot_path": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt",
+          "snapshot_sha256": "dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a",
+          "source_url": "https://www.kaggle.com/competitions/hubmap-kidney-segmentation/writeups/tom-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-1a399a7be5f84ea3",
+          "line_start": 21,
+          "line_end": 46,
+          "evidence_text": "I selected the validation data so that the same patient number is in the same group\n\n```\nval_patient_numbers_list = [\n[63921], # fold0\n[68250], # fold1\n[65631], # fold2\n[67177], # fold3\n]\n```\n\n3. Balanced tile sampling for training\n--------------------------------------\n\nFirst I binned the tile data with respect to the masked area (number of bins = 4 for masked tiles). Then I apply the following procedure for balanced sampling.\n\n```\nn_sample = trn_df['is_masked'].value_counts().min()\ntrn_df_0 = trn_df[trn_df['is_masked']==False].sample(n_sample, replace=True)\ntrn_df_1 = trn_df[trn_df['is_masked']==True].sample(n_sample, replace=True)\nn_bin = int(trn_df_1['binned'].value_counts().mean())\ntrn_df_list = []\nfor bin_size in trn_df_1['binned'].unique():\ntrn_df_list.append(trn_df_1[trn_df_1['binned']==bin_size].sample(n_bin, replace=True))\ntrn_df_1 = pd.concat(trn_df_list, axis=0)\ntrn_df_balanced = pd.concat([trn_df_1, trn_df_0], axis=0).reset_index(drop=True)",
+          "kind": "used",
+          "statement": "The author grouped slides by patient and sampled masked/unmasked tiles then four mask-area bins to balance training.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-ec205e5bcfb002548591",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-41f5c3b21fd016a7",
+          "line_start": 81,
+          "line_end": 87,
+          "evidence_text": "    <summary style=\"font-size:13px; color:#0b0b0b;\"> <b> Step 4: Data Splitting </b> </summary>\n\n[//]: # (#### Step 4: Data Splitting)\n- The data is split into training and validation sets. The split is done on the patient level.\n```bash\npython ./Image_preprocess/cv_split.py\n```",
+          "kind": "used",
+          "statement": "The mammography repository explicitly splits training and validation at the patient level.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Patient grouping is straightforward once provenance exists.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 95.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "High validation value for many correlated microscopy tiles.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Essential patient-level generalization check; clinical outcome not established.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 2,
+        "competitions": 2
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ea417fdde3963ead",
+          "locator": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt#L21-L46",
+          "quote": "I selected the validation data so that the same patient number is in the same group\n\n```\nval_patient_numbers_list = [\n[63921], # fold0\n[68250], # fold1\n[65631], # fold2\n[67177], # fold3\n]\n```\n\n3. Balanced tile sampling for training\n--------------------------------------\n\nFirst I binned the tile data with respect to the masked area (number of bins = 4 for masked tiles). Then I apply the following procedure for balanced sampling.\n\n```\nn_sample = trn_df['is_masked'].value_counts().min()\ntrn_df_0 = trn_df[trn_df['is_masked']==False].sample(n_sample, replace=True)\ntrn_df_1 = trn_df[trn_df['is_masked']==True].sample(n_sample, replace=True)\nn_bin = int(trn_df_1['binned'].value_counts().mean())\ntrn_df_list = []\nfor bin_size in trn_df_1['binned'].unique():\ntrn_df_list.append(trn_df_1[trn_df_1['binned']==bin_size].sample(n_bin, replace=True))\ntrn_df_1 = pd.concat(trn_df_list, axis=0)\ntrn_df_balanced = pd.concat([trn_df_1, trn_df_0], axis=0).reset_index(drop=True)",
+          "competition_id": "competition:hubmap-kidney-segmentation",
+          "url": "https://www.kaggle.com/competitions/hubmap-kidney-segmentation/writeups/tom-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a.txt",
+          "snapshot_sha256": "dea1240d2cfc7859b6ddbef23d67510a63c2ff6dd8aa6d4153895b9c3e61c81a",
+          "line_start": 21,
+          "line_end": 46
+        },
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L81-L87",
+          "quote": "    <summary style=\"font-size:13px; color:#0b0b0b;\"> <b> Step 4: Data Splitting </b> </summary>\n\n[//]: # (#### Step 4: Data Splitting)\n- The data is split into training and validation sets. The split is done on the patient level.\n```bash\npython ./Image_preprocess/cv_split.py\n```",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 81,
+          "line_end": 87
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-1a399a7be5f84ea3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Reviewed current patient-grouped action and original patient-list evidence, together with the previously read mammography application. Neutral title expresses the shared patient-disjoint validation decision without restricting it to microscopy; grades and ancestry caveats remain.",
+          "candidate_sha256": "0f184dfe95cc741f8b7f25ceaf214736cce55830e381a6f3f3285c735246b3d0"
+        },
+        {
+          "candidate_id": "C-a-1a399a7be5f84ea3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c_final",
+          "reason": "Independently read full HuBMAP writeup and mammography README, both observations and their explicit merge decision. Generalized patient-image title accurately describes the shared patient grouping unit; HuBMAP slide/tile ancestry, accurate IDs, patient sample sufficiency, balanced training prevalence and mammography absence of an image-split comparison remain in merged fields. No quantified leakage reduction or clinical benefit inferred. Conservative microscopy representative utility grades remain reasonable despite the wider merged image applications.",
+          "candidate_sha256": "0f184dfe95cc741f8b7f25ceaf214736cce55830e381a6f3f3285c735246b3d0"
+        },
+        {
+          "candidate_id": "C-a-41f5c3b21fd016a7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Patient-level split is explicit; no image-level comparative gain is inferred.",
+          "candidate_sha256": "d789323b42b41a246afc5d9c3cf082af8de76a8f5528ed7305c3eb829a5626f1"
+        },
+        {
+          "candidate_id": "C-a-41f5c3b21fd016a7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete mammography README read. Patient split explicit, ID-overlap assertion proposed and no image-level ablation invented. High foundational grouping grades reasonable.",
+          "candidate_sha256": "d789323b42b41a246afc5d9c3cf082af8de76a8f5528ed7305c3eb829a5626f1"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 269,
+        "line_end": 279,
+        "section": "Patient-Level Decisions from the Expanded Sources"
+      }
+    },
+    {
+      "candidate_id": "C-a-62206a2220843a2f",
+      "canonical_key": "keep external label sources distinct; evaluate smoothing labels with stage-one predictions and group-based label harmonization before retraining. | external image datasets use different ordinal grading conventions | predictive_quality",
+      "title": "Harmonize external ordinal labels before pseudo-label training",
+      "statement": "When external image datasets use different ordinal grading conventions, consider this source-backed action: Keep external label sources distinct; evaluate smoothing labels with stage-one predictions and group-based label harmonization before retraining. Proposed check: Use trusted held-out grades to check calibration and the incremental contribution of each external source. Limit: Model-based relabeling can reinforce bias; threshold changes and added data occur together, so no isolated gain is established.",
+      "trigger_conditions": [
+        "external image datasets use different ordinal grading conventions"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Keep external label sources distinct; evaluate smoothing labels with stage-one predictions and group-based label harmonization before retraining."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use trusted held-out grades to check calibration and the incremental contribution of each external source."
+      ],
+      "limitations": [
+        "Model-based relabeling can reinforce bias; threshold changes and added data occur together, so no isolated gain is established."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author added soft test pseudo-labels, smoothed five-level Idrid labels with predictions, and bounded four-level Messidor predictions using label-group means before ten extra epochs.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-62206a2220843a2f"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Ordinal harmonization and pseudo-label bias need advanced judgment.",
+        "competitor": "Concrete external-data hypothesis for scarce-label retinal competitions.",
+        "practitioner": "Potential label compatibility audit; model relabeling demands trusted labels."
+      },
+      "review": {
+        "candidate_id": "C-a-62206a2220843a2f",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Idrid/Messidor smoothing and bounds; bundled retraining prevents attribution.",
+        "candidate_sha256": "bcb314fcfc4add1e47339e013412984bb745c377f3f350c7c405f629fb5fa365"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000331",
+      "slug": "lesson-000331",
+      "merged_candidate_ids": [
+        "C-a-62206a2220843a2f"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-db3874fa4d669d548716",
+          "competition_id": "competition:aptos2019-blindness-detection",
+          "source_id": "source:lesson-source-8c28aecb438a9df9",
+          "snapshot_path": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt",
+          "snapshot_sha256": "f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14",
+          "source_url": "https://www.kaggle.com/competitions/aptos2019-blindness-detection/writeups/guanshuo-xu-1st-place-solution-summary",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-62206a2220843a2f",
+          "line_start": 91,
+          "line_end": 91,
+          "evidence_text": "In the second stage of training, I added pseudo-labelled (soft version) public test data and two additional external data - the Idrid and the Messidor dataset, to the stage1 trainset. The labels of Idrid also have five levels, to mitigate the labeling bias (my guess), the Idrid labels were smoothed by averaging the provided labels with the predicted labels from stage1 models. For the Messidor dataset which we only have four levels, I grouped the stage1 predicted soft labels by the provided groundtruth labels, calculated the mean of each group, and bounded the outliers using the mean values. For example, if the mean value of a group is 2.2, and within the same group an image has stage1 prediction of 1.1, then the label is adjusted to 2.2-0.5=1.7. After the preparation of all the labels and data, each stage1 model were trained for 10 more epoch. Finally, the LB improved from public:0.850 and private:0.935. Hours before the deadline, I made the last shot by changing the qwk thresholds from [0.5, 1.5, 2.5, 3.5] to [0.7, 1.5, 2.5, 3.5] and private improved to 0.936 \u2026",
+          "kind": "used",
+          "statement": "The author added soft test pseudo-labels, smoothed five-level Idrid labels with predictions, and bounded four-level Messidor predictions using label-group means before ten extra epochs.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Ordinal harmonization and pseudo-label bias need advanced judgment.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete external-data hypothesis for scarce-label retinal competitions.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 56.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Potential label compatibility audit; model relabeling demands trusted labels.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8c28aecb438a9df9",
+          "locator": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt#L91-L91",
+          "quote": "In the second stage of training, I added pseudo-labelled (soft version) public test data and two additional external data - the Idrid and the Messidor dataset, to the stage1 trainset. The labels of Idrid also have five levels, to mitigate the labeling bias (my guess), the Idrid labels were smoothed by averaging the provided labels with the predicted labels from stage1 models. For the Messidor dataset which we only have four levels, I grouped the stage1 predicted soft labels by the provided groundtruth labels, calculated the mean of each group, and bounded the outliers using the mean values. For example, if the mean value of a group is 2.2, and within the same group an image has stage1 prediction of 1.1, then the label is adjusted to 2.2-0.5=1.7. After the preparation of all the labels and data, each stage1 model were trained for 10 more epoch. Finally, the LB improved from public:0.850 and private:0.935. Hours before the deadline, I made the last shot by changing the qwk thresholds from [0.5, 1.5, 2.5, 3.5] to [0.7, 1.5, 2.5, 3.5] and private improved to 0.936 \u2026",
+          "competition_id": "competition:aptos2019-blindness-detection",
+          "url": "https://www.kaggle.com/competitions/aptos2019-blindness-detection/writeups/guanshuo-xu-1st-place-solution-summary",
+          "snapshot_path": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt",
+          "snapshot_sha256": "f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14",
+          "line_start": 91,
+          "line_end": 91
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-62206a2220843a2f",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Idrid/Messidor smoothing and bounds; bundled retraining prevents attribution.",
+          "candidate_sha256": "bcb314fcfc4add1e47339e013412984bb745c377f3f350c7c405f629fb5fa365"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 383,
+        "line_end": 387,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-9421489bfe36c957",
+      "canonical_key": "proposed: diagnose cross-year distribution and labeling differences before abandoning an independent holdout. | historical and current image datasets give conflicting validation feedback | validation_reliability",
+      "title": "Treat cross-year validation disagreement as unresolved evidence",
+      "statement": "When historical and current image datasets give conflicting validation feedback, consider this source-backed action: Proposed: diagnose cross-year distribution and labeling differences before abandoning an independent holdout. Proposed check: Compare year-held-out and within-year splits, documenting leaderboard disagreement. Limit: The source actually used public-only validation; this is a proposed safer adaptation, not their validated solution.",
+      "trigger_conditions": [
+        "historical and current image datasets give conflicting validation feedback"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed: diagnose cross-year distribution and labeling differences before abandoning an independent holdout."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare year-held-out and within-year splits, documenting leaderboard disagreement."
+      ],
+      "limitations": [
+        "The source actually used public-only validation; this is a proposed safer adaptation, not their validated solution."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author\u2019s 2015-training/2019-validation scores did not correlate with public LB, so the final solution combined both years and relied solely on public LB.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-9421489bfe36c957"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Cross-year audit requires extra model fits and split knowledge.",
+        "competitor": "Useful response to validation disagreement without endorsing public-only selection.",
+        "practitioner": "Dataset/year mismatch matters strongly in health model evaluation."
+      },
+      "review": {
+        "candidate_id": "C-a-9421489bfe36c957",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked cross-year mismatch; safer holdout diagnosis explicitly proposed.",
+        "candidate_sha256": "10b9e4bc809e575e53c775823d6e9ad6cffb48ff0633f735473379ad2b93a623"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000398",
+      "slug": "lesson-000398",
+      "merged_candidate_ids": [
+        "C-a-9421489bfe36c957"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-db3874fa4d669d548716",
+          "competition_id": "competition:aptos2019-blindness-detection",
+          "source_id": "source:lesson-source-8c28aecb438a9df9",
+          "snapshot_path": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt",
+          "snapshot_sha256": "f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14",
+          "source_url": "https://www.kaggle.com/competitions/aptos2019-blindness-detection/writeups/guanshuo-xu-1st-place-solution-summary",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-9421489bfe36c957",
+          "line_start": 14,
+          "line_end": 14,
+          "evidence_text": "One of the most popular topics in every competition are proper validation strategies. During the early stage, I tried using 2015 data (both train and test) as train set, and 2019 train data as validation set. Unfortunately, the validation results and public LB were very different, I was not able to make their performance correlate well. In some discussions and kernels, other participants were also reporting inconsistent performance between CV and LB. Because of this, I did not know how to move forward, so I shifted to some other competitions for a few weeks. When I came back to this competition, I made the decision to combine the whole 2015 and 2019 data as train set, and solely relied on public LB for validation.",
+          "kind": "reported_failure",
+          "statement": "The author\u2019s 2015-training/2019-validation scores did not correlate with public LB, so the final solution combined both years and relied solely on public LB.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Cross-year audit requires extra model fits and split knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful response to validation disagreement without endorsing public-only selection.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Dataset/year mismatch matters strongly in health model evaluation.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8c28aecb438a9df9",
+          "locator": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt#L14-L14",
+          "quote": "One of the most popular topics in every competition are proper validation strategies. During the early stage, I tried using 2015 data (both train and test) as train set, and 2019 train data as validation set. Unfortunately, the validation results and public LB were very different, I was not able to make their performance correlate well. In some discussions and kernels, other participants were also reporting inconsistent performance between CV and LB. Because of this, I did not know how to move forward, so I shifted to some other competitions for a few weeks. When I came back to this competition, I made the decision to combine the whole 2015 and 2019 data as train set, and solely relied on public LB for validation.",
+          "competition_id": "competition:aptos2019-blindness-detection",
+          "url": "https://www.kaggle.com/competitions/aptos2019-blindness-detection/writeups/guanshuo-xu-1st-place-solution-summary",
+          "snapshot_path": "research/lesson-extraction/snapshots/f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14.txt",
+          "snapshot_sha256": "f0617342a45aa6165e9c9aeed69b62eb87612df650a334fb5459c31c85f69f14",
+          "line_start": 14,
+          "line_end": 14
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-9421489bfe36c957",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked cross-year mismatch; safer holdout diagnosis explicitly proposed.",
+          "candidate_sha256": "10b9e4bc809e575e53c775823d6e9ad6cffb48ff0633f735473379ad2b93a623"
+        },
+        {
+          "candidate_id": "C-a-9421489bfe36c957",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "APTOS winner explicitly abandoned2015-train/2019-validation due LB disagreement and used public-only validation. Candidate accurately proposes safer cross-year diagnosis, not observed independent holdout success. Practitioner validation grades reasonable without clinical benefit.",
+          "candidate_sha256": "10b9e4bc809e575e53c775823d6e9ad6cffb48ff0633f735473379ad2b93a623"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 355,
+        "line_end": 359,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-6031bb2e5dbdedb7",
+      "canonical_key": "require an independent target-task check before retaining an auxiliary loss. | an age or other auxiliary task appears helpful in cross-validation | validation_reliability",
+      "title": "Treat auxiliary-task CV gains as provisional",
+      "statement": "When an age or other auxiliary task appears helpful in cross-validation, consider this source-backed action: Require an independent target-task check before retaining an auxiliary loss. Proposed check: Compare matched target-task models and test whether auxiliary labels induce shortcut learning. Limit: Overfitting is the author\u2019s hypothesis; the excerpt supplies no controlled diagnosis.",
+      "trigger_conditions": [
+        "an age or other auxiliary task appears helpful in cross-validation"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Require an independent target-task check before retaining an auxiliary loss."
+      ],
+      "verification_steps": [
+        "Proposed verification: Compare matched target-task models and test whether auxiliary labels induce shortcut learning."
+      ],
+      "limitations": [
+        "Overfitting is the author\u2019s hypothesis; the excerpt supplies no controlled diagnosis."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author says auxiliary-task learning did not work well and hypothesizes CV overfitting.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-6031bb2e5dbdedb7",
+        "O-a-review-mammography-aux-comparison"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Useful independent check before adding an extra training objective.",
+        "competitor": "Concrete gate for auxiliary-task improvements seen only in CV.",
+        "practitioner": "Broad protection against optimizing surrogate objectives over actual targets."
+      },
+      "review": {
+        "candidate_id": "C-a-6031bb2e5dbdedb7",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Auxiliary age training failed locally; overfitting explanation remains explicitly hypothetical.",
+        "candidate_sha256": "174f240e40b2274be68dcb65cd9b3a1ba1c041ba946f19b128b74c3b1c532595"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000420",
+      "slug": "lesson-000420",
+      "merged_candidate_ids": [
+        "C-a-6031bb2e5dbdedb7"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ec205e5bcfb002548591",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-6031bb2e5dbdedb7",
+          "line_start": 238,
+          "line_end": 239,
+          "evidence_text": "### What doesn't work\n- Aux-task learning is not working well. The model may be overfitting on the CV.",
+          "kind": "reported_failure",
+          "statement": "The author says auxiliary-task learning did not work well and hypothesizes CV overfitting.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-ec205e5bcfb002548591",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-review-mammography-aux-comparison",
+          "line_start": 248,
+          "line_end": 261,
+          "evidence_text": "| [1] EfficientNet-B2 (Mammo-CLIP)                                                                                               | `1536\u00d7768`  | SPR                       | 0.785  | 0.766  | 0.781  | 0.769  | 0.772                                          | -                                         |\n| [2] EfficientNet-B5 (Mammo-CLIP)                                                                                               | `1536\u00d7768`  | SPR                       | 0.776  | 0.774  | 0.780  | 0.781  | 0.773                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2]**</span>                                                                      | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.775**</span>      | -                                         |\n| **_MIRAI pretrained method_**                                                                                                  |\n| [3] ResNet18 (MIRAI)                                                                                                           | `1536\u00d7768`  | SPR                       | 0.773  | 0.768  | 0.775  | 0.762  | 0.762                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2, 3]**</span>                                                                   | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.777**</span>      | -                                         |\n| RSNA2023Mammo pretrained method                                                                                                |\n| [4] ConvNext-Small (RSNA2023Mammo)                                                                                             | `1536\u00d7768`  | SPR                       | 0.784  | 0.771  | 0.770  | 0.770  | 0.771                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2, 3, 4]** </span>                                                               | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.780**</span>      | _                                         |\n| **_Aux-task method_**                                                                                                          |\n| ~~[5] ResNet18 (MIRAI)  Aux-task [age]~~                                                                                       | `1536\u00d7768`  | SPR                       | 0.775  | 0.764  | 0.774  | 0.770  | TODO                                           | -                                         |\n| ~~<span style=\"color:blue;\">**Ensemble model [1, 2, 3, 4, 5]**</span>~~                                                        | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | ~~<span style=\"color:blue;\">0.776</span>~~     | -                                         |\n| ~~<span style=\"color:blue;\">**Ensemble model [1, 2, 4, 5]**</span>~~                                                           | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | ~~<span style=\"color:blue;\">0.778</span>~~     | -                                         |\n| ~~[6] EfficientNet-B2 (Mammo-CLIP) Aux-task [age]~~                                                                            | `1536\u00d7768`  | SPR                       | 0.785  | 0.771  | 0.773  | 0.778  | 0.766                                          | -                                         |",
+          "kind": "reported_failure",
+          "statement": "Age-auxiliary EfficientNet-B2 public score is lower than same-backbone non-auxiliary row, despite several better fold scores; matched tuning and seed conditions are unknown.",
+          "reported_result": {
+            "metric": "Public leaderboard score",
+            "value": 0.766,
+            "context": "EfficientNet-B2 age-auxiliary row[6] 0.766 versus non-auxiliary row[1]0.772 at1536x768 trained onSPR. Several fold scores improve, but aggregate public score falls; no controlled overfitting diagnosis or uncertainty supplied.",
+            "evidence_text": "| [1] EfficientNet-B2 (Mammo-CLIP)                                                                                               | `1536\u00d7768`  | SPR                       | 0.785  | 0.766  | 0.781  | 0.769  | 0.772                                          | -                                         |\n| [2] EfficientNet-B5 (Mammo-CLIP)                                                                                               | `1536\u00d7768`  | SPR                       | 0.776  | 0.774  | 0.780  | 0.781  | 0.773                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2]**</span>                                                                      | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.775**</span>      | -                                         |\n| **_MIRAI pretrained method_**                                                                                                  |\n| [3] ResNet18 (MIRAI)                                                                                                           | `1536\u00d7768`  | SPR                       | 0.773  | 0.768  | 0.775  | 0.762  | 0.762                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2, 3]**</span>                                                                   | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.777**</span>      | -                                         |\n| RSNA2023Mammo pretrained method                                                                                                |\n| [4] ConvNext-Small (RSNA2023Mammo)                                                                                             | `1536\u00d7768`  | SPR                       | 0.784  | 0.771  | 0.770  | 0.770  | 0.771                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2, 3, 4]** </span>                                                               | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.780**</span>      | _                                         |\n| **_Aux-task method_**                                                                                                          |\n| ~~[5] ResNet18 (MIRAI)  Aux-task [age]~~                                                                                       | `1536\u00d7768`  | SPR                       | 0.775  | 0.764  | 0.774  | 0.770  | TODO                                           | -                                         |\n| ~~<span style=\"color:blue;\">**Ensemble model [1, 2, 3, 4, 5]**</span>~~                                                        | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | ~~<span style=\"color:blue;\">0.776</span>~~     | -                                         |\n| ~~<span style=\"color:blue;\">**Ensemble model [1, 2, 4, 5]**</span>~~                                                           | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | ~~<span style=\"color:blue;\">0.778</span>~~     | -                                         |\n| ~~[6] EfficientNet-B2 (Mammo-CLIP) Aux-task [age]~~                                                                            | `1536\u00d7768`  | SPR                       | 0.785  | 0.771  | 0.773  | 0.778  | 0.766                                          | -                                         |"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Useful independent check before adding an extra training objective.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 86.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Concrete gate for auxiliary-task improvements seen only in CV.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Broad protection against optimizing surrogate objectives over actual targets.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L238-L239",
+          "quote": "### What doesn't work\n- Aux-task learning is not working well. The model may be overfitting on the CV.",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 238,
+          "line_end": 239
+        },
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L248-L261",
+          "quote": "| [1] EfficientNet-B2 (Mammo-CLIP)                                                                                               | `1536\u00d7768`  | SPR                       | 0.785  | 0.766  | 0.781  | 0.769  | 0.772                                          | -                                         |\n| [2] EfficientNet-B5 (Mammo-CLIP)                                                                                               | `1536\u00d7768`  | SPR                       | 0.776  | 0.774  | 0.780  | 0.781  | 0.773                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2]**</span>                                                                      | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.775**</span>      | -                                         |\n| **_MIRAI pretrained method_**                                                                                                  |\n| [3] ResNet18 (MIRAI)                                                                                                           | `1536\u00d7768`  | SPR                       | 0.773  | 0.768  | 0.775  | 0.762  | 0.762                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2, 3]**</span>                                                                   | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.777**</span>      | -                                         |\n| RSNA2023Mammo pretrained method                                                                                                |\n| [4] ConvNext-Small (RSNA2023Mammo)                                                                                             | `1536\u00d7768`  | SPR                       | 0.784  | 0.771  | 0.770  | 0.770  | 0.771                                          | -                                         |\n| <span style=\"color:red;\">**Ensemble model [1, 2, 3, 4]** </span>                                                               | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | <span style=\"color:red;\">**0.780**</span>      | _                                         |\n| **_Aux-task method_**                                                                                                          |\n| ~~[5] ResNet18 (MIRAI)  Aux-task [age]~~                                                                                       | `1536\u00d7768`  | SPR                       | 0.775  | 0.764  | 0.774  | 0.770  | TODO                                           | -                                         |\n| ~~<span style=\"color:blue;\">**Ensemble model [1, 2, 3, 4, 5]**</span>~~                                                        | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | ~~<span style=\"color:blue;\">0.776</span>~~     | -                                         |\n| ~~<span style=\"color:blue;\">**Ensemble model [1, 2, 4, 5]**</span>~~                                                           | `1536\u00d7768`  | SPR                       | -      | -      | -      | -      | ~~<span style=\"color:blue;\">0.778</span>~~     | -                                         |\n| ~~[6] EfficientNet-B2 (Mammo-CLIP) Aux-task [age]~~                                                                            | `1536\u00d7768`  | SPR                       | 0.785  | 0.771  | 0.773  | 0.778  | 0.766                                          | -                                         |",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 248,
+          "line_end": 261
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-6031bb2e5dbdedb7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Auxiliary age training failed locally; overfitting explanation remains explicitly hypothetical.",
+          "candidate_sha256": "174f240e40b2274be68dcb65cd9b3a1ba1c041ba946f19b128b74c3b1c532595"
+        },
+        {
+          "candidate_id": "C-a-6031bb2e5dbdedb7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete mammography README and both observations read. Auxage B2 public0.766 versus nonaux0.772 with several better fold scores literal; tuning/seeds unknown, CV-overfit hypothesis not proven. Independent target-task and shortcut checks proposed; grades reasonable.",
+          "candidate_sha256": "174f240e40b2274be68dcb65cd9b3a1ba1c041ba946f19b128b74c3b1c532595"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 281,
+        "line_end": 291,
+        "section": "Patient-Level Decisions from the Expanded Sources"
+      }
+    },
+    {
+      "candidate_id": "C-0a55b614409fb6b64e68",
+      "canonical_key": "retain a simple gaussian-process classifier supported by leave-one-out validation rather than discarding it solely for weak public score. | public evaluation is noisy for a small mri dataset | validation_reliability",
+      "title": "Keep a credible local small-data baseline despite weak public score",
+      "statement": "When public evaluation is noisy for a small MRI dataset, proposed reuse: Proposed conditional application: Retain a simple Gaussian-process classifier supported by leave-one-out validation rather than discarding it solely for weak public score. Proposed check: Audit subject independence and preprocessing within LOOCV, compare simple baselines, and quantify uncertainty before reacting to public scores. Limitation: LOOCV score and kernel are absent; a later private success is not proof the local protocol was unbiased.",
+      "trigger_conditions": [
+        "public evaluation is noisy for a small MRI dataset"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Retain a simple Gaussian-process classifier supported by leave-one-out validation rather than discarding it solely for weak public score."
+      ],
+      "verification_steps": [
+        "Proposed check: Audit subject independence and preprocessing within LOOCV, compare simple baselines, and quantify uncertainty before reacting to public scores."
+      ],
+      "limitations": [
+        "LOOCV score and kernel are absent; a later private success is not proof the local protocol was unbiased."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The Gaussian-process author retained a simple model with promising leave-one-out validation despite discouraging public score.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-8b970539c716b9ca0949"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "The model-retention lesson is accessible, though LOOCV can be costly.",
+        "competitor": "This is useful evidence against discarding a credible baseline solely on a noisy leaderboard.",
+        "practitioner": "Independent validation can outweigh exposed benchmark fluctuations, but the split must be audited."
+      },
+      "review": {
+        "candidate_id": "C-0a55b614409fb6b64e68",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner retained a simple Gaussian-process draft with promising LOOCV despite 0.70536 public score; no exact LOOCV comparison or kernel is provided.",
+        "candidate_sha256": "6b217f86d066f807d67ae94589654accb05e4e91cd0c05d27e5ecc20c10b7ae3"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000428",
+      "slug": "lesson-000428",
+      "merged_candidate_ids": [
+        "C-0a55b614409fb6b64e68"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2ebfe45236ee2f45016a",
+          "competition_id": "competition:mlsp-2014-mri",
+          "source_id": "source:lesson-source-f9d8810787b23b24",
+          "snapshot_path": "research/lesson-extraction/snapshots/30d0a6f0f4bbe7a97c92fb88432b8f68da2292cfd5b7aa9cb0176e8e857112c2.txt",
+          "snapshot_sha256": "30d0a6f0f4bbe7a97c92fb88432b8f68da2292cfd5b7aa9cb0176e8e857112c2",
+          "source_url": "https://www.kaggle.com/competitions/mlsp-2014-mri/writeups/solution-draft-mlsp-1st-position-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-8b970539c716b9ca0949",
+          "line_start": 9,
+          "line_end": 9,
+          "evidence_text": "it did show promising performance using LOOCV.",
+          "kind": "used",
+          "statement": "The Gaussian-process author retained a simple model with promising leave-one-out validation despite discouraging public score.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The model-retention lesson is accessible, though LOOCV can be costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "This is useful evidence against discarding a credible baseline solely on a noisy leaderboard.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Independent validation can outweigh exposed benchmark fluctuations, but the split must be audited.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f9d8810787b23b24",
+          "locator": "research/lesson-extraction/snapshots/30d0a6f0f4bbe7a97c92fb88432b8f68da2292cfd5b7aa9cb0176e8e857112c2.txt#L9-L9",
+          "quote": "it did show promising performance using LOOCV.",
+          "competition_id": "competition:mlsp-2014-mri",
+          "url": "https://www.kaggle.com/competitions/mlsp-2014-mri/writeups/solution-draft-mlsp-1st-position-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/30d0a6f0f4bbe7a97c92fb88432b8f68da2292cfd5b7aa9cb0176e8e857112c2.txt",
+          "snapshot_sha256": "30d0a6f0f4bbe7a97c92fb88432b8f68da2292cfd5b7aa9cb0176e8e857112c2",
+          "line_start": 9,
+          "line_end": 9
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-0a55b614409fb6b64e68",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner retained a simple Gaussian-process draft with promising LOOCV despite 0.70536 public score; no exact LOOCV comparison or kernel is provided.",
+          "candidate_sha256": "6b217f86d066f807d67ae94589654accb05e4e91cd0c05d27e5ecc20c10b7ae3"
+        },
+        {
+          "candidate_id": "C-0a55b614409fb6b64e68",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "MLSP winner reports promising GP LOOCV and public 0.70536 discouraging further tuning, yet that model won privately. Candidate proposes subject/transform/uncertainty checks and states private success cannot establish unbiased LOOCV. Twelve scores fit conditional retention without medical efficacy inference.",
+          "candidate_sha256": "6b217f86d066f807d67ae94589654accb05e4e91cd0c05d27e5ecc20c10b7ae3"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 361,
+        "line_end": 365,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-036ab00926c9b311",
+      "canonical_key": "retain raw conversions and a separately indexed cropped-resized branch for controlled preprocessing comparison. | large medical images include substantial non-breast background | predictive_quality",
+      "title": "Preserve a raw-image branch when cropping mammograms",
+      "statement": "When large medical images include substantial non-breast background, consider this source-backed action: Retain raw conversions and a separately indexed cropped-resized branch for controlled preprocessing comparison. Proposed check: Inspect border lesions and verify identical image IDs and intensity handling across branches. Limit: Cropping quality and a raw-versus-cropped ablation are not reported.",
+      "trigger_conditions": [
+        "large medical images include substantial non-breast background"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Retain raw conversions and a separately indexed cropped-resized branch for controlled preprocessing comparison."
+      ],
+      "verification_steps": [
+        "Proposed verification: Inspect border lesions and verify identical image IDs and intensity handling across branches."
+      ],
+      "limitations": [
+        "Cropping quality and a raw-versus-cropped ablation are not reported."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The preprocessing produces raw PNGs and a separate breast-cropped branch resized to 2048 by 1024.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-036ab00926c9b311"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Understandable before-and-after crop audit with added storage.",
+        "competitor": "Enables controlled preprocessing comparisons and lesion-border inspection.",
+        "practitioner": "Useful image provenance and rollback when crops may discard evidence."
+      },
+      "review": {
+        "candidate_id": "C-a-036ab00926c9b311",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Raw and breast-cropped branches are retained; crop gain and intensity details are unresolved.",
+        "candidate_sha256": "e43b4bd41dc093ac090c4ed2aedd0aa8e07f8aa318bcfb0a2a7c449a56588042"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000430",
+      "slug": "lesson-000430",
+      "merged_candidate_ids": [
+        "C-a-036ab00926c9b311"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-ec205e5bcfb002548591",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "source_url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-036ab00926c9b311",
+          "line_start": 55,
+          "line_end": 65,
+          "evidence_text": "- The data is in DICOM format. I will use the `pydicom` library to read the DICOM files and convert them to PNG format.\n```bash\ncd /Your/Codebase/Path/Kaggle_SPR\n# Two kinds of processed data are provided: raw PNG and cropped+resized PNG into the \"raw_png\" folder and the \"processed_png\" folder.\n# The raw PNG is converted from the original DICOM files directly.\n# The cropped+resized PNG is converted from the original DICOM files after cropping the breast area and resizing to 2048 \\times 1024. \n\npython ./Image_preprocess/data_preprocess.py \\\n    --src_folder /Your/Data/Path/Kaggle_SPR_Screening_Mammography/dicoms/ \\\n    --dest_folder /Your/Data/Path/Kaggle_SPR_Screening_Mammography/pngs/ \\\n```",
+          "kind": "used",
+          "statement": "The preprocessing produces raw PNGs and a separate breast-cropped branch resized to 2048 by 1024.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Understandable before-and-after crop audit with added storage.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Enables controlled preprocessing comparisons and lesion-border inspection.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful image provenance and rollback when crops may discard evidence.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e8cc3583b31bc79d",
+          "locator": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt#L55-L65",
+          "quote": "- The data is in DICOM format. I will use the `pydicom` library to read the DICOM files and convert them to PNG format.\n```bash\ncd /Your/Codebase/Path/Kaggle_SPR\n# Two kinds of processed data are provided: raw PNG and cropped+resized PNG into the \"raw_png\" folder and the \"processed_png\" folder.\n# The raw PNG is converted from the original DICOM files directly.\n# The cropped+resized PNG is converted from the original DICOM files after cropping the breast area and resizing to 2048 \\times 1024. \n\npython ./Image_preprocess/data_preprocess.py \\\n    --src_folder /Your/Data/Path/Kaggle_SPR_Screening_Mammography/dicoms/ \\\n    --dest_folder /Your/Data/Path/Kaggle_SPR_Screening_Mammography/pngs/ \\\n```",
+          "competition_id": "competition:spr-screening-mammography-recall",
+          "url": "https://raw.githubusercontent.com/xinwangxinwang/Kaggle_SPR/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035.txt",
+          "snapshot_sha256": "c8649539ffcbb9feb464c0528a32844bd2bb40b6d920536068feb67d894fd035",
+          "line_start": 55,
+          "line_end": 65
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-036ab00926c9b311",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Raw and breast-cropped branches are retained; crop gain and intensity details are unresolved.",
+          "candidate_sha256": "e43b4bd41dc093ac090c4ed2aedd0aa8e07f8aa318bcfb0a2a7c449a56588042"
+        },
+        {
+          "candidate_id": "C-a-036ab00926c9b311",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete mammography README read. Raw and cropped2048x1024 PNG branches literal; paired ID/intensity/border audit proposed, raw-versus-crop gain unknown. Grades respect storage and medical scope.",
+          "candidate_sha256": "e43b4bd41dc093ac090c4ed2aedd0aa8e07f8aa318bcfb0a2a7c449a56588042"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 293,
+        "line_end": 303,
+        "section": "Patient-Level Decisions from the Expanded Sources"
+      }
+    },
+    {
+      "candidate_id": "C-a05f1c5e01c6ad62618b",
+      "canonical_key": "scale retinal photographs to a common radius and subtract local average color before fitting the image model. | retinal photographs vary in scale and lighting | predictive_quality",
+      "title": "Normalize retinal scale and lighting",
+      "statement": "When retinal photographs vary in scale and lighting, proposed reuse: Proposed conditional application: Scale retinal photographs to a common radius and subtract local average color before fitting the image model. Proposed check: Ablate scale and color correction on patient-held-out grading metrics; inspect lesion visibility and acquisition subgroups. Limitation: Normalization can erase subtle lesions; no clinical benefit or isolated numerical gain established.",
+      "trigger_conditions": [
+        "retinal photographs vary in scale and lighting"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Scale retinal photographs to a common radius and subtract local average color before fitting the image model."
+      ],
+      "verification_steps": [
+        "Proposed check: Ablate scale and color correction on patient-held-out grading metrics; inspect lesion visibility and acquisition subgroups."
+      ],
+      "limitations": [
+        "Normalization can erase subtle lesions; no clinical benefit or isolated numerical gain established."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "data_audit"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Data"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The retinal author scaled photographs to a common radius and subtracted local average color.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-fc307ce7b91072d5e389"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Image processing moderately accessible after domain review.",
+        "competitor": "Concrete retinal preprocessing hypothesis.",
+        "practitioner": "Useful acquisition normalization with medical validation requirements."
+      },
+      "review": {
+        "candidate_id": "C-a05f1c5e01c6ad62618b",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete retinal interview specifies radius scaling and local average-color subtraction.",
+        "candidate_sha256": "68bd3af5af85d2a9ba15102e7e3d0ecc6ccada9b0ac46bf2f3004374f1a4979a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000449",
+      "slug": "lesson-000449",
+      "merged_candidate_ids": [
+        "C-a05f1c5e01c6ad62618b"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f5c3947f507e92fd1b4e",
+          "competition_id": "competition:diabetic-retinopathy-detection",
+          "source_id": "source:lesson-source-fad5f528dd361b0b",
+          "snapshot_path": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt",
+          "snapshot_sha256": "535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae",
+          "source_url": "http://blog.kaggle.com/2015/09/09/diabetic-retinopathy-winners-interview-1st-place-ben-graham/",
+          "source_quality": "primary_text",
+          "observation_id": "O-fc307ce7b91072d5e389",
+          "line_start": 15,
+          "line_end": 15,
+          "evidence_text": "For preprocessing, I first scaled the images to a given radius. I then subtracted local average color to reduce differences in lighting.",
+          "kind": "used",
+          "statement": "The retinal author scaled photographs to a common radius and subtracted local average color.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Image processing moderately accessible after domain review.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Concrete retinal preprocessing hypothesis.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful acquisition normalization with medical validation requirements.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-fad5f528dd361b0b",
+          "locator": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt#L15-L15",
+          "quote": "For preprocessing, I first scaled the images to a given radius. I then subtracted local average color to reduce differences in lighting.",
+          "competition_id": "competition:diabetic-retinopathy-detection",
+          "url": "http://blog.kaggle.com/2015/09/09/diabetic-retinopathy-winners-interview-1st-place-ben-graham/",
+          "snapshot_path": "research/lesson-extraction/snapshots/535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae.txt",
+          "snapshot_sha256": "535fb247761f693aebe74733f7d3a57ea9a03430f7c7e9e35a3cbe33bea7eaae",
+          "line_start": 15,
+          "line_end": 15
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a05f1c5e01c6ad62618b",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete retinal interview specifies radius scaling and local average-color subtraction.",
+          "candidate_sha256": "68bd3af5af85d2a9ba15102e7e3d0ecc6ccada9b0ac46bf2f3004374f1a4979a"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 389,
+        "line_end": 393,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a7cb0dcd43d4ad61c8db",
+      "canonical_key": "select sixteen darkest tiles and train slide-level attention pooling instead of average pooling. | slide labels supervise a selected subset of histology tiles | predictive_quality",
+      "title": "Aggregate informative slide tiles with attention",
+      "statement": "When slide labels supervise a selected subset of histology tiles, proposed reuse: Proposed conditional application: Select sixteen darkest tiles and train slide-level attention pooling instead of average pooling. Proposed check: Compare average and attention pooling on identical patient-grouped folds and tile sets; measure tile selection sensitivity and inference cost. Limitation: More tiles and stain normalization failed in this source; the reported comparison is author evidence on small-data folds.",
+      "trigger_conditions": [
+        "slide labels supervise a selected subset of histology tiles"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Select sixteen darkest tiles and train slide-level attention pooling instead of average pooling."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare average and attention pooling on identical patient-grouped folds and tile sets; measure tile selection sensitivity and inference cost."
+      ],
+      "limitations": [
+        "More tiles and stain normalization failed in this source; the reported comparison is author evidence on small-data folds."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The histology author reports improved five-fold average from attention pooling over selected tiles.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-12fa305161bb91f47a82"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "The recipe is clear, but slide tiling and large backbones are expensive prerequisites.",
+        "competitor": "A quantified attention-pooling comparison makes a focused histology experiment.",
+        "practitioner": "Slide aggregation is useful in histology, but requires new-patient and acquisition-shift checks."
+      },
+      "review": {
+        "candidate_id": "C-a7cb0dcd43d4ad61c8db",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner reports attention pooling five-fold mean 0.69 to 0.66 over sixteen darkest tiles; winner comments confirm slide-level end-to-end training.",
+        "candidate_sha256": "9ae2cd4b3597d8f1e3e8290403c6e1fbcfc1c222de8b51c8c304ceb37f222a14"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000456",
+      "slug": "lesson-000456",
+      "merged_candidate_ids": [
+        "C-a7cb0dcd43d4ad61c8db"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e9774a90d9de1140f56",
+          "competition_id": "competition:mayo-clinic-strip-ai",
+          "source_id": "source:lesson-source-7dcce4a107203d26",
+          "snapshot_path": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt",
+          "snapshot_sha256": "a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199",
+          "source_url": "https://www.kaggle.com/competitions/mayo-clinic-strip-ai/writeups/khyeh-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-12fa305161bb91f47a82",
+          "line_start": 25,
+          "line_end": 25,
+          "evidence_text": "attention pooling: 5-fold cv average improves from 0.69->0.66",
+          "kind": "reported_gain",
+          "statement": "The histology author reports improved five-fold average from attention pooling over selected tiles.",
+          "reported_result": {
+            "metric": "five-fold CV mean competition loss",
+            "value": 0.66,
+            "context": "Attention pooling versus average pooling improves five-fold mean from 0.69 to 0.66, on selected histology tiles; author report, not replication.",
+            "evidence_text": "attention pooling: 5-fold cv average improves from 0.69->0.66"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "The recipe is clear, but slide tiling and large backbones are expensive prerequisites.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 87.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "A quantified attention-pooling comparison makes a focused histology experiment.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Slide aggregation is useful in histology, but requires new-patient and acquisition-shift checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7dcce4a107203d26",
+          "locator": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt#L25-L25",
+          "quote": "attention pooling: 5-fold cv average improves from 0.69->0.66",
+          "competition_id": "competition:mayo-clinic-strip-ai",
+          "url": "https://www.kaggle.com/competitions/mayo-clinic-strip-ai/writeups/khyeh-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt",
+          "snapshot_sha256": "a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199",
+          "line_start": 25,
+          "line_end": 25
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a7cb0dcd43d4ad61c8db",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner reports attention pooling five-fold mean 0.69 to 0.66 over sixteen darkest tiles; winner comments confirm slide-level end-to-end training.",
+          "candidate_sha256": "9ae2cd4b3597d8f1e3e8290403c6e1fbcfc1c222de8b51c8c304ceb37f222a14"
+        },
+        {
+          "candidate_id": "C-a7cb0dcd43d4ad61c8db",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Mayo winner selects16 darkest tiles, attention-pools slide-level end-to-end and reports mean competition loss0.69to0.66 versus average pooling. Winner comments confirm slide-level architecture; no nonwinner conjecture required. Fixed patient/tile ablation and costs fit expert experimental utility and novice feasibility1.",
+          "candidate_sha256": "9ae2cd4b3597d8f1e3e8290403c6e1fbcfc1c222de8b51c8c304ceb37f222a14"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 335,
+        "line_end": 339,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-8a9307a353466256a2c3",
+      "canonical_key": "use patient-grouped stratified folds and track both mean score and fold deviation; compare self-supervised pretraining by stability. | a small public leaderboard cannot distinguish tiny gains | validation_reliability",
+      "title": "Assess fold dispersion when selecting small-data medical models",
+      "statement": "When a small public leaderboard cannot distinguish tiny gains, proposed reuse: Proposed conditional application: Use patient-grouped stratified folds and track both mean score and fold deviation; compare self-supervised pretraining by stability. Proposed check: Repeat pretraining comparisons on fixed patient-grouped folds and seeds; report mean, dispersion and uncertainty rather than only the best fold. Limitation: Fold deviation from five folds is imprecise and does not guarantee unseen-patient stability; pretraining adds cost.",
+      "trigger_conditions": [
+        "a small public leaderboard cannot distinguish tiny gains"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use patient-grouped stratified folds and track both mean score and fold deviation; compare self-supervised pretraining by stability."
+      ],
+      "verification_steps": [
+        "Proposed check: Repeat pretraining comparisons on fixed patient-grouped folds and seeds; report mean, dispersion and uncertainty rather than only the best fold."
+      ],
+      "limitations": [
+        "Fold deviation from five folds is imprecise and does not guarantee unseen-patient stability; pretraining adds cost."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The histology author reports reduced cross-validation dispersion after MoCo-v3 pretraining.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-da29d6595a41543f4ca0"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Tracking dispersion is straightforward, though contrastive pretraining needs expertise.",
+        "competitor": "A concrete stability comparison supports looking beyond mean CV gains.",
+        "practitioner": "Small medical datasets need uncertainty and patient isolation, with external validation still required."
+      },
+      "review": {
+        "candidate_id": "C-8a9307a353466256a2c3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner explicitly reports MoCo-v3 reducing five-fold deviation 0.30 to 0.15 and considers mean plus dispersion; 20 epochs is supported by winner comments.",
+        "candidate_sha256": "6971be07d580586c4158d20c35d9fb33558ee3b5322ee944cc3bcfa53516b39b"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000543",
+      "slug": "lesson-000543",
+      "merged_candidate_ids": [
+        "C-8a9307a353466256a2c3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e9774a90d9de1140f56",
+          "competition_id": "competition:mayo-clinic-strip-ai",
+          "source_id": "source:lesson-source-7dcce4a107203d26",
+          "snapshot_path": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt",
+          "snapshot_sha256": "a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199",
+          "source_url": "https://www.kaggle.com/competitions/mayo-clinic-strip-ai/writeups/khyeh-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-da29d6595a41543f4ca0",
+          "line_start": 26,
+          "line_end": 26,
+          "evidence_text": "moco-v3 pretraining: 5-fold cv deviation improves from 0.30->0.15",
+          "kind": "reported_gain",
+          "statement": "The histology author reports reduced cross-validation dispersion after MoCo-v3 pretraining.",
+          "reported_result": {
+            "metric": "five-fold CV deviation",
+            "value": 0.15,
+            "context": "MoCo-v3 pretraining versus prior training reduced reported five-fold deviation from 0.30 to 0.15; exact deviation definition is unstated.",
+            "evidence_text": "moco-v3 pretraining: 5-fold cv deviation improves from 0.30->0.15"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Tracking dispersion is straightforward, though contrastive pretraining needs expertise.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "A concrete stability comparison supports looking beyond mean CV gains.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Small medical datasets need uncertainty and patient isolation, with external validation still required.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7dcce4a107203d26",
+          "locator": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt#L26-L26",
+          "quote": "moco-v3 pretraining: 5-fold cv deviation improves from 0.30->0.15",
+          "competition_id": "competition:mayo-clinic-strip-ai",
+          "url": "https://www.kaggle.com/competitions/mayo-clinic-strip-ai/writeups/khyeh-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt",
+          "snapshot_sha256": "a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199",
+          "line_start": 26,
+          "line_end": 26
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-8a9307a353466256a2c3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner explicitly reports MoCo-v3 reducing five-fold deviation 0.30 to 0.15 and considers mean plus dispersion; 20 epochs is supported by winner comments.",
+          "candidate_sha256": "6971be07d580586c4158d20c35d9fb33558ee3b5322ee944cc3bcfa53516b39b"
+        },
+        {
+          "candidate_id": "C-8a9307a353466256a2c3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Mayo winner uses patient-grouped stratification and reports MoCov3 five-fold deviation0.30to0.15, with deviation definition unknown. Candidate tracks uncertainty, fixed folds/seeds and warns five-fold dispersion cannot guarantee new-patient stability. Moderate pretraining feasibility supports audience scores.",
+          "candidate_sha256": "6971be07d580586c4158d20c35d9fb33558ee3b5322ee944cc3bcfa53516b39b"
+        }
+      ],
+      "book_location": {
+        "chapter": 47,
+        "path": "manuscript/chapters/47-medical-imaging-patterns.md",
+        "sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
+        "line_start": 367,
+        "line_end": 371,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

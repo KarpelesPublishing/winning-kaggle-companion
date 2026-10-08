@@ -1,0 +1,581 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-f11a4262e583ebb86ed5",
+      "canonical_key": "add an attribute head and compare focal loss with the previous attribute loss. | instance masks also require imbalanced attribute labels | predictive_quality",
+      "title": "Use focal loss for sparse attribute prediction",
+      "statement": "When instance masks also require imbalanced attribute labels, proposed reuse: Proposed conditional application: Add an attribute head and compare focal loss with the previous attribute loss. Proposed check: Compare previous loss/focal variants at fixed detector on independent attribute F1, mask score and rare labels. Limitation: Full detector took ~69 TPU hours; attribute thresholds and base model confound overall scoring.",
+      "trigger_conditions": [
+        "instance masks also require imbalanced attribute labels"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Add an attribute head and compare focal loss with the previous attribute loss."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare previous loss/focal variants at fixed detector on independent attribute F1, mask score and rare labels."
+      ],
+      "limitations": [
+        "Full detector took ~69 TPU hours; attribute thresholds and base model confound overall scoring."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "segmentation"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The fashion author used focal loss for attribute prediction.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-87cd8e935bfb192934e9"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Expensive detector reproduction for specialized label imbalance.",
+        "competitor": "Concrete loss comparison with source-reported gain.",
+        "practitioner": "Conditional sparse-attribute value and substantial resources."
+      },
+      "review": {
+        "candidate_id": "C-f11a4262e583ebb86ed5",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Fashion author reports +0.012 private/+0.018 public switching attribute head to focal loss; previous loss unnamed.",
+        "candidate_sha256": "4c2bec55211a67f0f9e25319fc6ee1654d733f1a7c5f1eb0dbc8c710f67a38d6"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000002",
+      "slug": "lesson-000002",
+      "merged_candidate_ids": [
+        "C-f11a4262e583ebb86ed5"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-95e4eed984ae3ceb4551",
+          "competition_id": "competition:imaterialist-fashion-2020-fgvc7",
+          "source_id": "source:lesson-source-2ee05b85dad02bed",
+          "snapshot_path": "research/lesson-extraction/snapshots/150f3a9fe67dbe5e9c5028cf35624e35f137a1854c7e5faef0f3b74eb107c0c3.txt",
+          "snapshot_sha256": "150f3a9fe67dbe5e9c5028cf35624e35f137a1854c7e5faef0f3b74eb107c0c3",
+          "source_url": "https://www.kaggle.com/competitions/imaterialist-fashion-2020-fgvc7/writeups/oleg-polosin-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-87cd8e935bfb192934e9",
+          "line_start": 29,
+          "line_end": 29,
+          "evidence_text": "Switching to the focal loss improved the score by ~+0.012 (private), ~+0.018 (public)",
+          "kind": "reported_gain",
+          "statement": "The fashion author used focal loss for attribute prediction.",
+          "reported_result": {
+            "metric": "private competition score improvement",
+            "value": 0.012,
+            "context": "Fashion author reports ~+0.012 private and ~+0.018 public improvement when attribute head switched to focal loss. Previous loss and exact controlled evaluation details unspecified.",
+            "evidence_text": "Switching to the focal loss improved the score by ~+0.012 (private), ~+0.018 (public)"
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 50.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 1
+          },
+          "rationale": "Expensive detector reproduction for specialized label imbalance.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 66.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Concrete loss comparison with source-reported gain.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 63.75,
+          "grade": "C",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Conditional sparse-attribute value and substantial resources.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-2ee05b85dad02bed",
+          "locator": "research/lesson-extraction/snapshots/150f3a9fe67dbe5e9c5028cf35624e35f137a1854c7e5faef0f3b74eb107c0c3.txt#L29-L29",
+          "quote": "Switching to the focal loss improved the score by ~+0.012 (private), ~+0.018 (public)",
+          "competition_id": "competition:imaterialist-fashion-2020-fgvc7",
+          "url": "https://www.kaggle.com/competitions/imaterialist-fashion-2020-fgvc7/writeups/oleg-polosin-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/150f3a9fe67dbe5e9c5028cf35624e35f137a1854c7e5faef0f3b74eb107c0c3.txt",
+          "snapshot_sha256": "150f3a9fe67dbe5e9c5028cf35624e35f137a1854c7e5faef0f3b74eb107c0c3",
+          "line_start": 29,
+          "line_end": 29
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-f11a4262e583ebb86ed5",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Fashion author reports +0.012 private/+0.018 public switching attribute head to focal loss; previous loss unnamed.",
+          "candidate_sha256": "4c2bec55211a67f0f9e25319fc6ee1654d733f1a7c5f1eb0dbc8c710f67a38d6"
+        }
+      ],
+      "book_location": {
+        "chapter": 44,
+        "path": "manuscript/chapters/44-loss-functions-for-cv.md",
+        "sha256": "9d2ff17a8ad30a0e40be658825380d40a461f27d84332c36e40047f187a22dbf",
+        "line_start": 265,
+        "line_end": 269,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-b8f4c365f16623fe",
+      "canonical_key": "compare each alternative with the same cross-entropy baseline and record its actual retention status. | specialized losses or sampling are proposed for noisy fine-grained images | predictive_quality",
+      "title": "Keep standard cross-entropy as a comparator for specialized image losses",
+      "statement": "When specialized losses or sampling are proposed for noisy fine-grained images, consider this source-backed action: Compare each alternative with the same cross-entropy baseline and record its actual retention status. Proposed check: Retune optimizer-sensitive alternatives and evaluate minority and noisy examples separately. Limit: Local negative evidence lacks settings and does not establish universal ineffectiveness.",
+      "trigger_conditions": [
+        "specialized losses or sampling are proposed for noisy fine-grained images"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare each alternative with the same cross-entropy baseline and record its actual retention status."
+      ],
+      "verification_steps": [
+        "Proposed verification: Retune optimizer-sensitive alternatives and evaluate minority and noisy examples separately."
+      ],
+      "limitations": [
+        "Local negative evidence lacks settings and does not establish universal ineffectiveness."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Focal, ASoftmax, label smoothing, hierarchy loss, weighted sampling and noise-learning alternatives did not work for this team.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-b8f4c365f16623fe"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Standard-loss comparison accessible, alternatives consume extra fits.",
+        "competitor": "Records local failure without assuming universal prohibition.",
+        "practitioner": "Useful objective experiment discipline for noisy image tasks."
+      },
+      "review": {
+        "candidate_id": "C-a-b8f4c365f16623fe",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked list of local alternatives failing; retuning proposed.",
+        "candidate_sha256": "db8f83e59e780cb68ac07336702670180e4e4f4667d6ee80614df184e00e5910"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000114",
+      "slug": "lesson-000114",
+      "merged_candidate_ids": [
+        "C-a-b8f4c365f16623fe"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-977ff09bc0b33e143c15",
+          "competition_id": "competition:imaterialist-product-2019",
+          "source_id": "source:lesson-source-38171f10401d56bd",
+          "snapshot_path": "research/lesson-extraction/snapshots/b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788.txt",
+          "snapshot_sha256": "b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788",
+          "source_url": "https://www.kaggle.com/competitions/imaterialist-product-2019/writeups/jd-ai-research-brief-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-b8f4c365f16623fe",
+          "line_start": 69,
+          "line_end": 81,
+          "evidence_text": "### What didn\u2019t work\n\n1.Focal loss\n\n2.ASoftmax\n\n3.LabelSmooth\n\n4.Hierarchy loss\n\n5.Weight sample\n\n6.Some methods try to learning direct from noise data.",
+          "kind": "reported_failure",
+          "statement": "Focal, ASoftmax, label smoothing, hierarchy loss, weighted sampling and noise-learning alternatives did not work for this team.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Standard-loss comparison accessible, alternatives consume extra fits.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 71.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Records local failure without assuming universal prohibition.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful objective experiment discipline for noisy image tasks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-38171f10401d56bd",
+          "locator": "research/lesson-extraction/snapshots/b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788.txt#L69-L81",
+          "quote": "### What didn\u2019t work\n\n1.Focal loss\n\n2.ASoftmax\n\n3.LabelSmooth\n\n4.Hierarchy loss\n\n5.Weight sample\n\n6.Some methods try to learning direct from noise data.",
+          "competition_id": "competition:imaterialist-product-2019",
+          "url": "https://www.kaggle.com/competitions/imaterialist-product-2019/writeups/jd-ai-research-brief-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788.txt",
+          "snapshot_sha256": "b1523b107ef47f281c2a894b6c45aaf98aed70e40df3732875bd70e7f7d82788",
+          "line_start": 69,
+          "line_end": 81
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-b8f4c365f16623fe",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked list of local alternatives failing; retuning proposed.",
+          "candidate_sha256": "db8f83e59e780cb68ac07336702670180e4e4f4667d6ee80614df184e00e5910"
+        }
+      ],
+      "book_location": {
+        "chapter": 44,
+        "path": "manuscript/chapters/44-loss-functions-for-cv.md",
+        "sha256": "9d2ff17a8ad30a0e40be658825380d40a461f27d84332c36e40047f187a22dbf",
+        "line_start": 247,
+        "line_end": 257,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-bb26c0c991ed7da6dbc3",
+      "canonical_key": "implement the actual metric and compare an aligned training objective with ordinary logloss. | a weighted competition loss differs materially from ordinary logloss | predictive_quality",
+      "title": "Align training and selection with a nonstandard metric",
+      "statement": "When a weighted competition loss differs materially from ordinary logloss, proposed reuse: Proposed conditional application: Implement the actual metric and compare an aligned training objective with ordinary logloss. Proposed check: Implement metric test fixtures, compare aligned and standard training losses under identical patient folds, and select models by the actual target metric. Limitation: A metric-aligned surrogate may have optimization difficulties; the source comparison is specific to small STRIP AI folds.",
+      "trigger_conditions": [
+        "a weighted competition loss differs materially from ordinary logloss"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Implement the actual metric and compare an aligned training objective with ordinary logloss."
+      ],
+      "verification_steps": [
+        "Proposed check: Implement metric test fixtures, compare aligned and standard training losses under identical patient folds, and select models by the actual target metric."
+      ],
+      "limitations": [
+        "A metric-aligned surrogate may have optimization difficulties; the source comparison is specific to small STRIP AI folds."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "training"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Training"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The histology author reports ordinary logloss training giving a worse competition metric on validation.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed controlled application under the stated conditions.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-161a7b60ce8a99b9df97"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Checking the metric is a fundamental lesson with clear implementation steps.",
+        "competitor": "Objective and selection alignment avoids tuning the wrong target.",
+        "practitioner": "Business or clinical loss alignment transfers broadly with independent calibration and utility assessment."
+      },
+      "review": {
+        "candidate_id": "C-bb26c0c991ed7da6dbc3",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Histology winner reports ordinary logloss training and evaluation differing from competition metric, with worse metric on validation; no magnitude supplied.",
+        "candidate_sha256": "3743db4a5076f1e1b645304827518f200a75371fe0e0239e43b01ef2191c220c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000311",
+      "slug": "lesson-000311",
+      "merged_candidate_ids": [
+        "C-bb26c0c991ed7da6dbc3"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7e9774a90d9de1140f56",
+          "competition_id": "competition:mayo-clinic-strip-ai",
+          "source_id": "source:lesson-source-7dcce4a107203d26",
+          "snapshot_path": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt",
+          "snapshot_sha256": "a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199",
+          "source_url": "https://www.kaggle.com/competitions/mayo-clinic-strip-ai/writeups/khyeh-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-161a7b60ce8a99b9df97",
+          "line_start": 47,
+          "line_end": 47,
+          "evidence_text": "Logloss as training loss cause worse competition metric in my validation.",
+          "kind": "reported_failure",
+          "statement": "The histology author reports ordinary logloss training giving a worse competition metric on validation.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Checking the metric is a fundamental lesson with clear implementation steps.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Objective and selection alignment avoids tuning the wrong target.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Business or clinical loss alignment transfers broadly with independent calibration and utility assessment.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-7dcce4a107203d26",
+          "locator": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt#L47-L47",
+          "quote": "Logloss as training loss cause worse competition metric in my validation.",
+          "competition_id": "competition:mayo-clinic-strip-ai",
+          "url": "https://www.kaggle.com/competitions/mayo-clinic-strip-ai/writeups/khyeh-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199.txt",
+          "snapshot_sha256": "a82328f4c0560ea331fc8f2735038360c9321488d137435e92210e5f13265199",
+          "line_start": 47,
+          "line_end": 47
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-bb26c0c991ed7da6dbc3",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Histology winner reports ordinary logloss training and evaluation differing from competition metric, with worse metric on validation; no magnitude supplied.",
+          "candidate_sha256": "3743db4a5076f1e1b645304827518f200a75371fe0e0239e43b01ef2191c220c"
+        },
+        {
+          "candidate_id": "C-bb26c0c991ed7da6dbc3",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Mayo winner explicitly implements competition metric/loss and reports ordinary logloss training yields worse target validation. Candidate proposes metric fixtures and paired objective checks with optimization/small-fold caveats, without clinical utility or isolated number. Broad objective-selection alignment supports high scores; beginner feasibility3 acknowledges implementation work.",
+          "candidate_sha256": "3743db4a5076f1e1b645304827518f200a75371fe0e0239e43b01ef2191c220c"
+        }
+      ],
+      "book_location": {
+        "chapter": 44,
+        "path": "manuscript/chapters/44-loss-functions-for-cv.md",
+        "sha256": "9d2ff17a8ad30a0e40be658825380d40a461f27d84332c36e40047f187a22dbf",
+        "line_start": 271,
+        "line_end": 275,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    }
+  ]
+}

@@ -1,0 +1,782 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-3b5eae5c4716e2c6ad1c",
+      "canonical_key": "calculate minimum defense ships using current inventory, incoming ships and attack time, then spawn or reinforce from nearby shipyards. | fleet movements and spawning capacity are observable | predictive_quality",
+      "title": "Base deterministic game defense on projected arrivals",
+      "statement": "When fleet movements and spawning capacity are observable, proposed reuse: Proposed conditional application: Calculate minimum defense ships using current inventory, incoming ships and attack time, then spawn or reinforce from nearby shipyards. Proposed check: Simulate diverse deterministic board states; assert defense survives predicted arrivals while tracking mining opportunity cost. Limitation: Specific Kore mechanics and visible deterministic paths constrain transfer; adversary routing changes remain.",
+      "trigger_conditions": [
+        "fleet movements and spawning capacity are observable"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Calculate minimum defense ships using current inventory, incoming ships and attack time, then spawn or reinforce from nearby shipyards."
+      ],
+      "verification_steps": [
+        "Proposed check: Simulate diverse deterministic board states; assert defense survives predicted arrivals while tracking mining opportunity cost."
+      ],
+      "limitations": [
+        "Specific Kore mechanics and visible deterministic paths constrain transfer; adversary routing changes remain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "optimization"
+        ],
+        "application_domains": [
+          "games"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The game agent estimated incoming ships and required reinforcement to defend shipyards.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-b53681e56d9fecab31f3"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Niche game-state simulation skill required.",
+        "competitor": "Concrete deterministic defense policy.",
+        "practitioner": "Limited value outside fully observable resource games."
+      },
+      "review": {
+        "candidate_id": "C-3b5eae5c4716e2c6ad1c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Full Kore winner source uses deterministic visible arrivals and spawning/reinforcement; attack calculation sometimes failed.",
+        "candidate_sha256": "259ae2476c9fdf81f001cd7ab199b8321bb48d63647caea19a203c8e04132d7d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000050",
+      "slug": "lesson-000050",
+      "merged_candidate_ids": [
+        "C-3b5eae5c4716e2c6ad1c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-29df60c52f7766cf24d0",
+          "competition_id": "competition:kore-2022-beta",
+          "source_id": "source:lesson-source-1a808818901f5f3f",
+          "snapshot_path": "research/lesson-extraction/snapshots/f2d1a9cfe893327dbbbc8c7150e5333475ee3b301b668a6136712667fc918471.txt",
+          "snapshot_sha256": "f2d1a9cfe893327dbbbc8c7150e5333475ee3b301b668a6136712667fc918471",
+          "source_url": "https://www.kaggle.com/competitions/kore-2022-beta/writeups/adg4b-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-b53681e56d9fecab31f3",
+          "line_start": 7,
+          "line_end": 7,
+          "evidence_text": "Knowing how many ships are currently in the shipyard and how many my ships will arrive in the near future, I can say exactly what minimum number of additional ships I need",
+          "kind": "used",
+          "statement": "The game agent estimated incoming ships and required reinforcement to defend shipyards.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 47.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 2
+          },
+          "rationale": "Niche game-state simulation skill required.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 65.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Concrete deterministic defense policy.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 45.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Limited value outside fully observable resource games.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-1a808818901f5f3f",
+          "locator": "research/lesson-extraction/snapshots/f2d1a9cfe893327dbbbc8c7150e5333475ee3b301b668a6136712667fc918471.txt#L7-L7",
+          "quote": "Knowing how many ships are currently in the shipyard and how many my ships will arrive in the near future, I can say exactly what minimum number of additional ships I need",
+          "competition_id": "competition:kore-2022-beta",
+          "url": "https://www.kaggle.com/competitions/kore-2022-beta/writeups/adg4b-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/f2d1a9cfe893327dbbbc8c7150e5333475ee3b301b668a6136712667fc918471.txt",
+          "snapshot_sha256": "f2d1a9cfe893327dbbbc8c7150e5333475ee3b301b668a6136712667fc918471",
+          "line_start": 7,
+          "line_end": 7
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-3b5eae5c4716e2c6ad1c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Full Kore winner source uses deterministic visible arrivals and spawning/reinforcement; attack calculation sometimes failed.",
+          "candidate_sha256": "259ae2476c9fdf81f001cd7ab199b8321bb48d63647caea19a203c8e04132d7d"
+        }
+      ],
+      "book_location": {
+        "chapter": 56,
+        "path": "manuscript/chapters/56-reinforcement-learning-games.md",
+        "sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
+        "line_start": 143,
+        "line_end": 153,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-19e0e7e875e744d40fd8",
+      "canonical_key": "compare engineered board-state features with a stack of tree and cnn predictions using an xgboost meta-learner. | game rules permit learned move prediction but prohibit exact solvers | predictive_quality",
+      "title": "Combine board heuristics with diverse supervised models",
+      "statement": "When game rules permit learned move prediction but prohibit exact solvers, proposed reuse: Proposed conditional application: Compare engineered board-state features with a stack of tree and CNN predictions using an XGBoost meta-learner. Proposed check: Generate OOF base predictions; compare move accuracy and legal-move game outcomes against individual models. Limitation: Feature formulas and stacking splits unspecified; board encodings are not separate sensory modalities.",
+      "trigger_conditions": [
+        "game rules permit learned move prediction but prohibit exact solvers"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare engineered board-state features with a stack of tree and CNN predictions using an XGBoost meta-learner."
+      ],
+      "verification_steps": [
+        "Proposed check: Generate OOF base predictions; compare move accuracy and legal-move game outcomes against individual models."
+      ],
+      "limitations": [
+        "Feature formulas and stacking splits unspecified; board encodings are not separate sensory modalities."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "modeling"
+        ],
+        "modalities": [
+          "tabular",
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "games"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "high",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Modeling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The board-game README describes an XGBoost meta-learner combining base-model predictions.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-f2f0e0144e0fc031ffa2"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 1,
+          "actionability": 2,
+          "transferability": 1,
+          "feasibility": 1
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 2,
+          "transferability": 1,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 1,
+          "actionability": 2,
+          "transferability": 1,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Complex stack with incomplete recipe.",
+        "competitor": "Niche supervised-game hypothesis under solver restrictions.",
+        "practitioner": "Little transfer outside learned board policies."
+      },
+      "review": {
+        "candidate_id": "C-19e0e7e875e744d40fd8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Complete Connect4 README describes board features and four-base XGBoost stack; lookahead and optimality not demonstrated.",
+        "candidate_sha256": "5a48c1c7e91bccbf62a8dd43b3b374bfa3a68fc8c4647e2ab17530ce4e5bedbc"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000115",
+      "slug": "lesson-000115",
+      "merged_candidate_ids": [
+        "C-19e0e7e875e744d40fd8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-f066ee7f4a4c48706488",
+          "competition_id": "competition:csc462-connect-4",
+          "source_id": "source:lesson-source-f932e2ae9766d12c",
+          "snapshot_path": "research/lesson-extraction/snapshots/590a7f7ddc40d3f1360631a71d9927003e263c706d550793ec3007f8f29bee06.txt",
+          "snapshot_sha256": "590a7f7ddc40d3f1360631a71d9927003e263c706d550793ec3007f8f29bee06",
+          "source_url": "https://raw.githubusercontent.com/Ghaidahiz/Connect4AI/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-f2f0e0144e0fc031ffa2",
+          "line_start": 58,
+          "line_end": 58,
+          "evidence_text": "Meta-learner (xgboost) that combines predictions from all base models",
+          "kind": "used",
+          "statement": "The board-game README describes an XGBoost meta-learner combining base-model predictions.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 32.5,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 2,
+            "transferability": 1,
+            "feasibility": 1
+          },
+          "rationale": "Complex stack with incomplete recipe.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 45.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 2,
+            "actionability": 2,
+            "transferability": 1,
+            "feasibility": 2
+          },
+          "rationale": "Niche supervised-game hypothesis under solver restrictions.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 35.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 2,
+            "transferability": 1,
+            "feasibility": 2
+          },
+          "rationale": "Little transfer outside learned board policies.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-f932e2ae9766d12c",
+          "locator": "research/lesson-extraction/snapshots/590a7f7ddc40d3f1360631a71d9927003e263c706d550793ec3007f8f29bee06.txt#L58-L58",
+          "quote": "Meta-learner (xgboost) that combines predictions from all base models",
+          "competition_id": "competition:csc462-connect-4",
+          "url": "https://raw.githubusercontent.com/Ghaidahiz/Connect4AI/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/590a7f7ddc40d3f1360631a71d9927003e263c706d550793ec3007f8f29bee06.txt",
+          "snapshot_sha256": "590a7f7ddc40d3f1360631a71d9927003e263c706d550793ec3007f8f29bee06",
+          "line_start": 58,
+          "line_end": 58
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-19e0e7e875e744d40fd8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Complete Connect4 README describes board features and four-base XGBoost stack; lookahead and optimality not demonstrated.",
+          "candidate_sha256": "5a48c1c7e91bccbf62a8dd43b3b374bfa3a68fc8c4647e2ab17530ce4e5bedbc"
+        }
+      ],
+      "book_location": {
+        "chapter": 56,
+        "path": "manuscript/chapters/56-reinforcement-learning-games.md",
+        "sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
+        "line_start": 185,
+        "line_end": 189,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-2eb6614afe667db1c4f1",
+      "canonical_key": "convert absolute pieces into separate current-player and opponent occupancy channels | two-player board positions include an explicit side to move | representation_invariance",
+      "title": "Encode game boards relative to the active player",
+      "statement": "When two-player board positions include an explicit side to move, convert absolute pieces into separate current-player and opponent occupancy channels. Swap player signs and side-to-move on the same position and confirm the relative encoding remains identical. The occupancy channels are relative, but the returned feature frame also retains the absolute turn value. Full-model sign invariance is not established; board orientation and move legality require separate checks.",
+      "trigger_conditions": [
+        "two-player board positions include an explicit side to move"
+      ],
+      "action_steps": [
+        "Proposed: convert absolute pieces into separate current-player and opponent occupancy channels."
+      ],
+      "verification_steps": [
+        "Proposed: swap player signs and side-to-move on the same position and confirm the relative encoding remains identical."
+      ],
+      "limitations": [
+        "The occupancy channels are relative, but the returned feature frame also retains the absolute turn value. Full-model sign invariance is not established; board orientation and move legality require separate checks."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "move_classification"
+        ],
+        "application_domains": [
+          "board_games"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "representation_invariance"
+        ],
+        "risk_tags": [
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Feature Engineering"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for csc462-connect-4: expand_board_channels compares each board cell with turn and -turn to produce my_* and opp_* features.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: encode two-player game positions relative to the player to move and test sign-swap channel invariance.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-726d303831f8d34e20da"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 1,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "A tractable board-encoding exercise with narrow game-specific transfer.",
+        "competitor": "Useful player-relative feature experiment; test channel invariance and compare validation results.",
+        "practitioner": "Mainly useful in adversarial games with symmetric player roles; arbitrary enterprise categories do not share this symmetry."
+      },
+      "review": {
+        "candidate_id": "C-2eb6614afe667db1c4f1",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read complete Connect4 model and prepare-input call: active/opponent occupancy channels compare pieces to turn and -turn. Absolute turn remains a feature in the returned frame, so only the occupancy encoding has sign-swap invariance, not necessarily the whole model.",
+        "candidate_sha256": "e79fedef954e77de3168762e93c9e112c12be9d091e726dbe3db9aa04aaf6aab"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000211",
+      "slug": "lesson-000211",
+      "merged_candidate_ids": [
+        "C-2eb6614afe667db1c4f1"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4ac76979f39f1c877a25",
+          "competition_id": "competition:csc462-connect-4",
+          "source_id": "source:lesson-source-24fd615488bc7db5",
+          "snapshot_path": "research/lesson-extraction/snapshots/4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563.txt",
+          "snapshot_sha256": "4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563",
+          "source_url": "https://raw.githubusercontent.com/ghaidahiz/connect4ai/HEAD/model.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-726d303831f8d34e20da",
+          "line_start": 194,
+          "line_end": 208,
+          "evidence_text": "def expand_board_channels(df):\n\n    df_out = df.copy()\n    p_cols = [f'p{i}' for i in range(1, 43)]\n    \n    player_ids = df['turn'].values.reshape(-1, 1)\n    board_values = df[p_cols].values\n    \n    my_board = (board_values == player_ids).astype(int)\n    opp_board = (board_values == (-1 * player_ids)).astype(int)\n    \n    df_my = pd.DataFrame(my_board, columns=[f'my_{c}' for c in p_cols], index=df.index)\n    df_opp = pd.DataFrame(opp_board, columns=[f'opp_{c}' for c in p_cols], index=df.index)\n    \n    return pd.concat([df_out.drop(columns=p_cols), df_my, df_opp], axis=1)",
+          "kind": "used",
+          "statement": "expand_board_channels compares each board cell with turn and -turn to produce my_* and opp_* features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "A tractable board-encoding exercise with narrow game-specific transfer.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 80.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 4
+          },
+          "rationale": "Useful player-relative feature experiment; test channel invariance and compare validation results.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 45.0,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Mainly useful in adversarial games with symmetric player roles; arbitrary enterprise categories do not share this symmetry.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-24fd615488bc7db5",
+          "locator": "research/lesson-extraction/snapshots/4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563.txt#L194-L208",
+          "quote": "def expand_board_channels(df):\n\n    df_out = df.copy()\n    p_cols = [f'p{i}' for i in range(1, 43)]\n    \n    player_ids = df['turn'].values.reshape(-1, 1)\n    board_values = df[p_cols].values\n    \n    my_board = (board_values == player_ids).astype(int)\n    opp_board = (board_values == (-1 * player_ids)).astype(int)\n    \n    df_my = pd.DataFrame(my_board, columns=[f'my_{c}' for c in p_cols], index=df.index)\n    df_opp = pd.DataFrame(opp_board, columns=[f'opp_{c}' for c in p_cols], index=df.index)\n    \n    return pd.concat([df_out.drop(columns=p_cols), df_my, df_opp], axis=1)",
+          "competition_id": "competition:csc462-connect-4",
+          "url": "https://raw.githubusercontent.com/ghaidahiz/connect4ai/HEAD/model.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563.txt",
+          "snapshot_sha256": "4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563",
+          "line_start": 194,
+          "line_end": 208
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-2eb6614afe667db1c4f1",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read complete Connect4 model and prepare-input call: active/opponent occupancy channels compare pieces to turn and -turn. Absolute turn remains a feature in the returned frame, so only the occupancy encoding has sign-swap invariance, not necessarily the whole model.",
+          "candidate_sha256": "e79fedef954e77de3168762e93c9e112c12be9d091e726dbe3db9aa04aaf6aab"
+        },
+        {
+          "candidate_id": "C-2eb6614afe667db1c4f1",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete board model confirms my/opp occupancy channels compare cells with turn and negative turn while retaining absolute turn in other features. The lesson confines sign-swap invariance to relative channels and flags board orientation/legality. Proposed symmetry checks and narrow game-domain grades are appropriate.",
+          "candidate_sha256": "e79fedef954e77de3168762e93c9e112c12be9d091e726dbe3db9aa04aaf6aab"
+        }
+      ],
+      "book_location": {
+        "chapter": 56,
+        "path": "manuscript/chapters/56-reinforcement-learning-games.md",
+        "sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
+        "line_start": 155,
+        "line_end": 165,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-7e219c12ea7995dbfa42",
+      "canonical_key": "count three-piece threats only when their empty cell equals the next open row in its column | gravity-constrained board games have empty cells that are not immediately playable | rule_based_features",
+      "title": "Distinguish geometric threats from legal immediate threats",
+      "statement": "When gravity-constrained board games have empty cells that are not immediately playable, count three-piece threats only when their empty cell equals the next open row in its column. Verify threat counts on hand-constructed legal boards and compare geometric versus playable threat features. The source row convention must match board encoding. Threat parity is domain-specific; effectiveness is unmeasured.",
+      "trigger_conditions": [
+        "gravity-constrained board games have empty cells that are not immediately playable"
+      ],
+      "action_steps": [
+        "Proposed: count three-piece threats only when their empty cell equals the next open row in its column."
+      ],
+      "verification_steps": [
+        "Proposed: verify threat counts on hand-constructed legal boards and compare geometric versus playable threat features."
+      ],
+      "limitations": [
+        "The source row convention must match board encoding. Threat parity is domain-specific; effectiveness is unmeasured."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "move_classification"
+        ],
+        "application_domains": [
+          "board_games"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "rule_based_features"
+        ],
+        "risk_tags": [
+          "metric_mismatch"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Feature Engineering"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for csc462-connect-4: count_threats optionally checks the empty position against get_next_open_row, then counts legal threats separately by row parity.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: test legal immediate-threat features against geometric threat counts on hand-checked gravity-game boards.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-019a3ec1fff600083686"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 1,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 1,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 1,
+          "actionability": 3,
+          "transferability": 1,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Concrete rule-based features can be tested on small boards but have little general ML reach.",
+        "competitor": "Useful for Connect4-specific feature ablations with moderate domain-code work.",
+        "practitioner": "Narrow game logic; general constraint-aware features require a different domain-specific legality model."
+      },
+      "review": {
+        "candidate_id": "C-7e219c12ea7995dbfa42",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read threat counter, next-open-row and feature calls: playable_only counts empty threat cells only at the next available gravity row, with parity separated. Row convention must match data; this heuristic does not establish legal optimal moves or measured predictive gain.",
+        "candidate_sha256": "2fa912b86c565b78ce046d000f2841922ef783f3768af1d1aa0b4d71afa2df20"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000216",
+      "slug": "lesson-000216",
+      "merged_candidate_ids": [
+        "C-7e219c12ea7995dbfa42"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-4ac76979f39f1c877a25",
+          "competition_id": "competition:csc462-connect-4",
+          "source_id": "source:lesson-source-24fd615488bc7db5",
+          "snapshot_path": "research/lesson-extraction/snapshots/4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563.txt",
+          "snapshot_sha256": "4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563",
+          "source_url": "https://raw.githubusercontent.com/ghaidahiz/connect4ai/HEAD/model.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-019a3ec1fff600083686",
+          "line_start": 72,
+          "line_end": 101,
+          "evidence_text": "def count_threats(board, piece, playable_only=False):\n\n    threat_count = 0\n    odd_playable_threats = 0\n    even_playable_threats = 0\n    directions = [(0, 1), (1, 0), (1, 1), (1, -1)]\n    \n    for r in range(BOARD_ROWS):\n        for c in range(BOARD_COLS):\n            for dr, dc in directions:\n                if not (0 <= r + 3*dr < BOARD_ROWS and 0 <= c + 3*dc < BOARD_COLS):\n                    continue\n                window = [board[r + i*dr][c + i*dc] for i in range(4)]\n                if window.count(piece) == 3 and window.count(0) == 1:\n                    if not playable_only:\n                        threat_count += 1\n                        continue\n                    empty_slot_index = window.index(0)\n                    empty_r = r + empty_slot_index * dr\n                    empty_c = c + empty_slot_index * dc\n                    playable_row_in_col = get_next_open_row(board, empty_c)\n                    if playable_row_in_col == empty_r:\n                        if empty_r % 2 == 1:\n                            odd_playable_threats += 1\n                        else:\n                            even_playable_threats += 1\n    if not playable_only:\n        return threat_count\n    else:\n        return odd_playable_threats, even_playable_threats",
+          "kind": "used",
+          "statement": "count_threats optionally checks the empty position against get_next_open_row, then counts legal threats separately by row parity.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 70.0,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Concrete rule-based features can be tested on small boards but have little general ML reach.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 61.25,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 1,
+            "feasibility": 3
+          },
+          "rationale": "Useful for Connect4-specific feature ablations with moderate domain-code work.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 41.25,
+          "grade": "D",
+          "subscores": {
+            "impact": 1,
+            "actionability": 3,
+            "transferability": 1,
+            "feasibility": 2
+          },
+          "rationale": "Narrow game logic; general constraint-aware features require a different domain-specific legality model.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-24fd615488bc7db5",
+          "locator": "research/lesson-extraction/snapshots/4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563.txt#L72-L101",
+          "quote": "def count_threats(board, piece, playable_only=False):\n\n    threat_count = 0\n    odd_playable_threats = 0\n    even_playable_threats = 0\n    directions = [(0, 1), (1, 0), (1, 1), (1, -1)]\n    \n    for r in range(BOARD_ROWS):\n        for c in range(BOARD_COLS):\n            for dr, dc in directions:\n                if not (0 <= r + 3*dr < BOARD_ROWS and 0 <= c + 3*dc < BOARD_COLS):\n                    continue\n                window = [board[r + i*dr][c + i*dc] for i in range(4)]\n                if window.count(piece) == 3 and window.count(0) == 1:\n                    if not playable_only:\n                        threat_count += 1\n                        continue\n                    empty_slot_index = window.index(0)\n                    empty_r = r + empty_slot_index * dr\n                    empty_c = c + empty_slot_index * dc\n                    playable_row_in_col = get_next_open_row(board, empty_c)\n                    if playable_row_in_col == empty_r:\n                        if empty_r % 2 == 1:\n                            odd_playable_threats += 1\n                        else:\n                            even_playable_threats += 1\n    if not playable_only:\n        return threat_count\n    else:\n        return odd_playable_threats, even_playable_threats",
+          "competition_id": "competition:csc462-connect-4",
+          "url": "https://raw.githubusercontent.com/ghaidahiz/connect4ai/HEAD/model.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563.txt",
+          "snapshot_sha256": "4e24e70bbcd7788c248f3acd6ac95d8811d94dedbe9f2095441c9277133af563",
+          "line_start": 72,
+          "line_end": 101
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-7e219c12ea7995dbfa42",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read threat counter, next-open-row and feature calls: playable_only counts empty threat cells only at the next available gravity row, with parity separated. Row convention must match data; this heuristic does not establish legal optimal moves or measured predictive gain.",
+          "candidate_sha256": "2fa912b86c565b78ce046d000f2841922ef783f3768af1d1aa0b4d71afa2df20"
+        },
+        {
+          "candidate_id": "C-7e219c12ea7995dbfa42",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete shared board packet confirms geometric 3-piece windows count as playable only if the empty square equals the first open row scanned by get_next_open_row, then are partitioned by row parity. Row convention and legal-board assumptions are explicit; no effectiveness measurement is inferred. Domain-specific low practitioner utility is reasonable.",
+          "candidate_sha256": "2fa912b86c565b78ce046d000f2841922ef783f3768af1d1aa0b4d71afa2df20"
+        }
+      ],
+      "book_location": {
+        "chapter": 56,
+        "path": "manuscript/chapters/56-reinforcement-learning-games.md",
+        "sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
+        "line_start": 167,
+        "line_end": 177,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-55ba6869a465db99",
+      "canonical_key": "assign feature construction and modelling responsibilities explicitly and agree on a stable feature exchange format. | a team has complementary feature and modelling strengths | iteration_speed",
+      "title": "Divide feature engineering and ensemble work by complementary expertise",
+      "statement": "When a team has complementary feature and modelling strengths, consider this source-backed action: Assign feature construction and modelling responsibilities explicitly and agree on a stable feature exchange format. Proposed check: Maintain a common validation split and check feature schema compatibility before merging. Limit: The efficiency benefit is the authors\u2019 assessment; the packet does not provide a controlled teamwork comparison.",
+      "trigger_conditions": [
+        "a team has complementary feature and modelling strengths"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Assign feature construction and modelling responsibilities explicitly and agree on a stable feature exchange format."
+      ],
+      "verification_steps": [
+        "Proposed verification: Maintain a common validation split and check feature schema compatibility before merging."
+      ],
+      "limitations": [
+        "The efficiency benefit is the authors\u2019 assessment; the packet does not provide a controlled teamwork comparison."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "collaboration"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "health"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "iteration_speed"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Collaboration"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Giulio spent close to 90% of his time on feature engineering while Michael handled modelling; Michael reports separate time for one-hot features, feature merging and ensemble tuning.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-55ba6869a465db99"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Complementary delegation requires an available teammate.",
+        "competitor": "Stable exchange format useful for feature/model collaboration.",
+        "practitioner": "Broad team workflow applicability with explicit handoffs."
+      },
+      "review": {
+        "candidate_id": "C-a-55ba6869a465db99",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked90%feature allocation and partner modeling; schema safeguard proposed.",
+        "candidate_sha256": "086eea4e560059ad76ef8d7b140f5ed285e53328365710eb91a90c3cbee06a99"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000021",
+      "slug": "lesson-000021",
+      "merged_candidate_ids": [
+        "C-a-55ba6869a465db99"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-96a5d1e2ea86f52a9e96",
+          "competition_id": "competition:cervical-cancer-screening",
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "source_url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-55ba6869a465db99",
+          "line_start": 47,
+          "line_end": 50,
+          "evidence_text": "How did you spend your time on this competition?\n\nGiulio: I spent close to 90% of my time on feature engineering. I knew Michael was one of the best modellers on Kaggle and he was willing to undertake most of the modelling. That worked very well for the team. I didn\u2019t have to worry about tuning models and Michael didn\u2019t have to worry about generating features.\nMichael: I spend 30% to build the one-hot features, 10% to merge our features and 60% to build and tune the ensemble.",
+          "kind": "used",
+          "statement": "Giulio spent close to 90% of his time on feature engineering while Michael handled modelling; Michael reports separate time for one-hot features, feature merging and ensemble tuning.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Complementary delegation requires an available teammate.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Stable exchange format useful for feature/model collaboration.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Broad team workflow applicability with explicit handoffs.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a1b579e4b4b53533",
+          "locator": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt#L47-L50",
+          "quote": "How did you spend your time on this competition?\n\nGiulio: I spent close to 90% of my time on feature engineering. I knew Michael was one of the best modellers on Kaggle and he was willing to undertake most of the modelling. That worked very well for the team. I didn\u2019t have to worry about tuning models and Michael didn\u2019t have to worry about generating features.\nMichael: I spend 30% to build the one-hot features, 10% to merge our features and 60% to build and tune the ensemble.",
+          "competition_id": "competition:cervical-cancer-screening",
+          "url": "http://blog.kaggle.com/2016/02/26/genentech-cervical-cancer-screening-winners-interview-1st-place-michael-giulio/",
+          "snapshot_path": "research/lesson-extraction/snapshots/6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390.txt",
+          "snapshot_sha256": "6ef49fc9de84b8fffba3b4b62efb0f4b87fa9736d2fcc83b001d20c4e65c8390",
+          "line_start": 47,
+          "line_end": 50
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-55ba6869a465db99",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked90%feature allocation and partner modeling; schema safeguard proposed.",
+          "candidate_sha256": "086eea4e560059ad76ef8d7b140f5ed285e53328365710eb91a90c3cbee06a99"
+        },
+        {
+          "candidate_id": "C-a-55ba6869a465db99",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Cervical source explicitly Giulio90%features and Michael30%onehot/10%merge/60%ensemble,complementary responsibilities. Stable schema/common split are proposed. No controlled collaboration gain; reasonable teamwork grades.",
+          "candidate_sha256": "086eea4e560059ad76ef8d7b140f5ed285e53328365710eb91a90c3cbee06a99"
+        }
+      ],
+      "book_location": {
+        "chapter": 24,
+        "path": "manuscript/chapters/24-building-a-portfolio.md",
+        "sha256": "de79813811e8224381fece0c33580c691bc8de3014a5a66a6eed6f082ec9cec3",
+        "line_start": 45,
+        "line_end": 49,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-49957ade179598c9",
+      "canonical_key": "persist identified, labeled oof artifacts before ensemble optimization and use code/model repositories and issue tracking. | independent collaborators produce ensemble inputs | reproducibility",
+      "title": "Save OOF predictions with sample identifiers and headers",
+      "statement": "When independent collaborators produce ensemble inputs, consider this source-backed action: Persist identified, labeled OOF artifacts before ensemble optimization and use code/model repositories and issue tracking. Proposed check: Verify one-to-one sample joins, fold provenance and class-column alignment. Limit: This is practical author advice without a quantified gain.",
+      "trigger_conditions": [
+        "independent collaborators produce ensemble inputs"
+      ],
+      "action_steps": [
+        "Proposed adaptation of author advice: Persist identified, labeled OOF artifacts before ensemble optimization and use code/model repositories and issue tracking."
+      ],
+      "verification_steps": [
+        "Proposed verification: Verify one-to-one sample joins, fold provenance and class-column alignment."
+      ],
+      "limitations": [
+        "This is practical author advice without a quantified gain."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "collaboration"
+        ],
+        "modalities": [
+          "unknown"
+        ],
+        "task_types": [
+          "unknown"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "reproducibility"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Collaboration"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The authors advise avoiding premature ensemble optimization and always storing OOF predictions with headers and sample IDs.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-49957ade179598c9"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple identified files prevent silent row/class mixups.",
+        "competitor": "High practical value for reliable cross-team OOF joins.",
+        "practitioner": "Broadly useful artifact correctness with routine resources."
+      },
+      "review": {
+        "candidate_id": "C-a-49957ade179598c9",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Read complete Dato advice packet: authors directly advise OOF headers/sample IDs and repositories; prescribed artifact labeling and ordering before ensemble optimization are our adaptation of that advice.",
+        "candidate_sha256": "668705bce16233cf81c20ecb3fc5db6e7408ffdc16bc5459269ef38b492d565d"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000373",
+      "slug": "lesson-000373",
+      "merged_candidate_ids": [
+        "C-a-49957ade179598c9"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-2cff187187b16511a898",
+          "competition_id": "competition:dato-native",
+          "source_id": "source:lesson-source-8744689f2a854d2d",
+          "snapshot_path": "research/lesson-extraction/snapshots/0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f.txt",
+          "snapshot_sha256": "0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f",
+          "source_url": "http://blog.kaggle.com/2015/12/03/dato-winners-interview-1st-place-mad-professors/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-49957ade179598c9",
+          "line_start": 154,
+          "line_end": 158,
+          "evidence_text": "Patience. Don't get lost in premature optimization with ensembles.\n\nUse solid development tools: code/model repositories, issue tracker, communication.\n\nYou should always store out of fold predictions with headers and sample ID's.",
+          "kind": "author_advice",
+          "statement": "The authors advise avoiding premature ensemble optimization and always storing OOF predictions with headers and sample IDs.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Simple identified files prevent silent row/class mixups.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High practical value for reliable cross-team OOF joins.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broadly useful artifact correctness with routine resources.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8744689f2a854d2d",
+          "locator": "research/lesson-extraction/snapshots/0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f.txt#L154-L158",
+          "quote": "Patience. Don't get lost in premature optimization with ensembles.\n\nUse solid development tools: code/model repositories, issue tracker, communication.\n\nYou should always store out of fold predictions with headers and sample ID's.",
+          "competition_id": "competition:dato-native",
+          "url": "http://blog.kaggle.com/2015/12/03/dato-winners-interview-1st-place-mad-professors/",
+          "snapshot_path": "research/lesson-extraction/snapshots/0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f.txt",
+          "snapshot_sha256": "0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f",
+          "line_start": 154,
+          "line_end": 158
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-49957ade179598c9",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Read complete Dato advice packet: authors directly advise OOF headers/sample IDs and repositories; prescribed artifact labeling and ordering before ensemble optimization are our adaptation of that advice.",
+          "candidate_sha256": "668705bce16233cf81c20ecb3fc5db6e7408ffdc16bc5459269ef38b492d565d"
+        },
+        {
+          "candidate_id": "C-a-49957ade179598c9",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Full packet previously read; final resolved prefix reread. Author OOFheaders/sampleIDs and delayedensemble advice literal; expanded repository/issue/artifactcheck proposed. One-to-one/fold/class audit not claimedobserved; grades reasonable.",
+          "candidate_sha256": "668705bce16233cf81c20ecb3fc5db6e7408ffdc16bc5459269ef38b492d565d"
+        }
+      ],
+      "book_location": {
+        "chapter": 24,
+        "path": "manuscript/chapters/24-building-a-portfolio.md",
+        "sha256": "de79813811e8224381fece0c33580c691bc8de3014a5a66a6eed6f082ec9cec3",
+        "line_start": 51,
+        "line_end": 55,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-e2f1afb040fcd3996093",
+      "canonical_key": "use one agreed storage convention with headers and sample ids. | teammates exchange out-of-fold predictions | collaboration",
+      "title": "Agree on a prediction-artifact contract before team stacking",
+      "statement": "When teammates exchange out-of-fold predictions, proposed reuse: Proposed conditional application: Use one agreed storage convention with headers and sample IDs. Proposed check: Validate unique IDs, fold membership, schema and join cardinality before stacking teammate artifacts. Limitation: Headers alone do not guarantee OOF provenance or class-order consistency.",
+      "trigger_conditions": [
+        "teammates exchange out-of-fold predictions"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Use one agreed storage convention with headers and sample IDs."
+      ],
+      "verification_steps": [
+        "Proposed check: Validate unique IDs, fold membership, schema and join cardinality before stacking teammate artifacts."
+      ],
+      "limitations": [
+        "Headers alone do not guarantee OOF provenance or class-order consistency."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "collaboration"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "collaboration"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Collaboration"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The stacking team recommends exchanging out-of-fold files with headers and sample IDs.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-9949b75af92bed1420ab"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple contract prevents costly row mismatches.",
+        "competitor": "High-value collaboration safeguard with routine checks.",
+        "practitioner": "Broad reusable prediction-artifact discipline."
+      },
+      "review": {
+        "candidate_id": "C-e2f1afb040fcd3996093",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Dato full source explicitly recommends headers and sample IDs after storage disagreement.",
+        "candidate_sha256": "74a44582dde586cf62a54017ccaed3d9c25c68dc10ff033613df39d18c5d135c"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000541",
+      "slug": "lesson-000541",
+      "merged_candidate_ids": [
+        "C-e2f1afb040fcd3996093"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-eb984c298b434df9b440",
+          "competition_id": "competition:dato-native",
+          "source_id": "source:lesson-source-8744689f2a854d2d",
+          "snapshot_path": "research/lesson-extraction/snapshots/0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f.txt",
+          "snapshot_sha256": "0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f",
+          "source_url": "http://blog.kaggle.com/2015/12/03/dato-winners-interview-1st-place-mad-professors/",
+          "source_quality": "primary_text",
+          "observation_id": "O-9949b75af92bed1420ab",
+          "line_start": 158,
+          "line_end": 158,
+          "evidence_text": "You should always store out of fold predictions with headers and sample ID's.",
+          "kind": "author_advice",
+          "statement": "The stacking team recommends exchanging out-of-fold files with headers and sample IDs.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Simple contract prevents costly row mismatches.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High-value collaboration safeguard with routine checks.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad reusable prediction-artifact discipline.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-8744689f2a854d2d",
+          "locator": "research/lesson-extraction/snapshots/0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f.txt#L158-L158",
+          "quote": "You should always store out of fold predictions with headers and sample ID's.",
+          "competition_id": "competition:dato-native",
+          "url": "http://blog.kaggle.com/2015/12/03/dato-winners-interview-1st-place-mad-professors/",
+          "snapshot_path": "research/lesson-extraction/snapshots/0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f.txt",
+          "snapshot_sha256": "0e1b81f2b321c041a7f586d826348fb20d52468db5c3acff5db2d4049a2e4c8f",
+          "line_start": 158,
+          "line_end": 158
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-e2f1afb040fcd3996093",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Dato full source explicitly recommends headers and sample IDs after storage disagreement.",
+          "candidate_sha256": "74a44582dde586cf62a54017ccaed3d9c25c68dc10ff033613df39d18c5d135c"
+        },
+        {
+          "candidate_id": "C-e2f1afb040fcd3996093",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Dato winners describe conflicting OOF file conventions and ultimately recommend headers and sample IDs. Proposed uniqueness/fold/schema joins add useful safeguards while acknowledging headers cannot prove OOF/class provenance. All12 utility4 ratings are reasonable for routine prevention of severe row mismatch.",
+          "candidate_sha256": "74a44582dde586cf62a54017ccaed3d9c25c68dc10ff033613df39d18c5d135c"
+        }
+      ],
+      "book_location": {
+        "chapter": 24,
+        "path": "manuscript/chapters/24-building-a-portfolio.md",
+        "sha256": "de79813811e8224381fece0c33580c691bc8de3014a5a66a6eed6f082ec9cec3",
+        "line_start": 27,
+        "line_end": 37,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

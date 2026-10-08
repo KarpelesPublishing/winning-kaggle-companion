@@ -1,0 +1,1353 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-04ad610980f028fa9f94",
+      "canonical_key": "average component probabilities before applying the binary decision threshold | binary classifiers produce aligned positive-class probabilities | ensemble_comparison",
+      "title": "Average probabilities before binary decisions",
+      "statement": "When binary classifiers produce aligned positive-class probabilities, average component probabilities before applying the binary decision threshold. Assert matching IDs and positive-class definitions in every file; compare average probabilities with hard-label voting on legitimate validation. The source assumes row ordering and fabricates sequential IDs rather than joining recorded IDs. The fixed threshold needs task-matched testing.",
+      "trigger_conditions": [
+        "binary classifiers produce aligned positive-class probabilities"
+      ],
+      "action_steps": [
+        "Proposed: average component probabilities before applying the binary decision threshold."
+      ],
+      "verification_steps": [
+        "Proposed: assert matching IDs and positive-class definitions in every file; compare average probabilities with hard-label voting on legitimate validation."
+      ],
+      "limitations": [
+        "The source assumes row ordering and fabricates sequential IDs rather than joining recorded IDs. The fixed threshold needs task-matched testing."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "sentiment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "low",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "ensemble_comparison"
+        ],
+        "risk_tags": [
+          "metric_mismatch",
+          "overfitting"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for cil-text-classification-2020: The script loads probability columns, takes their mean and thresholds at 0.5 to emit labels -1 or 1.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: compare averaged aligned probabilities with label voting on an untouched binary-classification holdout.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-361615710b735c1129f8"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple NumPy averaging teaches soft voting with little cost after checking the positive-class definition.",
+        "competitor": "A useful binary ensemble baseline; aligned OOF comparisons can test soft versus hard voting.",
+        "practitioner": "Applicable to binary model fusion, with calibration and decision-cost-dependent thresholds required locally."
+      },
+      "review": {
+        "candidate_id": "C-04ad610980f028fa9f94",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Read entire ensemble_probabilities script: aligned probability arrays are averaged, then >0.5 maps to +1 and otherwise -1; sequential IDs are invented. Probability/class/ID alignment and threshold validation are proposed, and no gain over hard voting is shown.",
+        "candidate_sha256": "55ce69d831e1f11f2a5b9b71924a6d94c982d07b0aa727824d21d74a53455163"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000028",
+      "slug": "lesson-000028",
+      "merged_candidate_ids": [
+        "C-04ad610980f028fa9f94"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-63724bf3dfee7d0c962e",
+          "competition_id": "competition:cil-text-classification-2020",
+          "source_id": "source:lesson-source-3dd39750a9ab6514",
+          "snapshot_path": "research/lesson-extraction/snapshots/0bc07e0d209001762e310a6ff4c69574616db2c4a7ed80ac9f283240be0a9590.txt",
+          "snapshot_sha256": "0bc07e0d209001762e310a6ff4c69574616db2c4a7ed80ac9f283240be0a9590",
+          "source_url": "https://raw.githubusercontent.com/ferraric/computational-intelligence-lab-2020/HEAD/ensemble/ensemble_probabilities.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-361615710b735c1129f8",
+          "line_start": 23,
+          "line_end": 54,
+          "evidence_text": "def get_probabilities(path: str) -> np.ndarray:\n    return np.loadtxt(path, delimiter=\",\", dtype=np.float64, skiprows=1, usecols=(1,))\n\ndef main() -> None:\n    argparser = argparse.ArgumentParser()\n    argparser.add_argument(\n        \"-i\",\n        \"--input_folder\",\n        required=True,\n        help=\"Contains the output prediction probabilities from models to ensemble\",\n    )\n    argparser.add_argument(\n        \"-o\",\n        \"--output_path\",\n        required=True,\n        help=\"Path, to which where ensemble prediciton is saved\",\n    )\n    args = argparser.parse_args()\n\n    model_probability_files = get_model_probability_files(args.input_folder)\n    model_probabilities = np.array(\n        [get_probabilities(f) for f in model_probability_files]\n    )\n\n    avg_model_probabilities = np.mean(model_probabilities, axis=0)\n    ensemble_predictions = 2 * (avg_model_probabilities > 0.5) - 1\n    ids = np.arange(1, ensemble_predictions.shape[0] + 1)\n\n    prediction_table = pd.DataFrame(\n        np.stack([ids, ensemble_predictions], axis=1),\n        columns=[\"Id\", \"Prediction\"],\n        dtype=np.int32,",
+          "kind": "used",
+          "statement": "The script loads probability columns, takes their mean and thresholds at 0.5 to emit labels -1 or 1.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Simple NumPy averaging teaches soft voting with little cost after checking the positive-class definition.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "A useful binary ensemble baseline; aligned OOF comparisons can test soft versus hard voting.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 4
+          },
+          "rationale": "Applicable to binary model fusion, with calibration and decision-cost-dependent thresholds required locally.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-3dd39750a9ab6514",
+          "locator": "research/lesson-extraction/snapshots/0bc07e0d209001762e310a6ff4c69574616db2c4a7ed80ac9f283240be0a9590.txt#L23-L54",
+          "quote": "def get_probabilities(path: str) -> np.ndarray:\n    return np.loadtxt(path, delimiter=\",\", dtype=np.float64, skiprows=1, usecols=(1,))\n\ndef main() -> None:\n    argparser = argparse.ArgumentParser()\n    argparser.add_argument(\n        \"-i\",\n        \"--input_folder\",\n        required=True,\n        help=\"Contains the output prediction probabilities from models to ensemble\",\n    )\n    argparser.add_argument(\n        \"-o\",\n        \"--output_path\",\n        required=True,\n        help=\"Path, to which where ensemble prediciton is saved\",\n    )\n    args = argparser.parse_args()\n\n    model_probability_files = get_model_probability_files(args.input_folder)\n    model_probabilities = np.array(\n        [get_probabilities(f) for f in model_probability_files]\n    )\n\n    avg_model_probabilities = np.mean(model_probabilities, axis=0)\n    ensemble_predictions = 2 * (avg_model_probabilities > 0.5) - 1\n    ids = np.arange(1, ensemble_predictions.shape[0] + 1)\n\n    prediction_table = pd.DataFrame(\n        np.stack([ids, ensemble_predictions], axis=1),\n        columns=[\"Id\", \"Prediction\"],\n        dtype=np.int32,",
+          "competition_id": "competition:cil-text-classification-2020",
+          "url": "https://raw.githubusercontent.com/ferraric/computational-intelligence-lab-2020/HEAD/ensemble/ensemble_probabilities.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/0bc07e0d209001762e310a6ff4c69574616db2c4a7ed80ac9f283240be0a9590.txt",
+          "snapshot_sha256": "0bc07e0d209001762e310a6ff4c69574616db2c4a7ed80ac9f283240be0a9590",
+          "line_start": 23,
+          "line_end": 54
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-04ad610980f028fa9f94",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Read entire ensemble_probabilities script: aligned probability arrays are averaged, then >0.5 maps to +1 and otherwise -1; sequential IDs are invented. Probability/class/ID alignment and threshold validation are proposed, and no gain over hard voting is shown.",
+          "candidate_sha256": "55ce69d831e1f11f2a5b9b71924a6d94c982d07b0aa727824d21d74a53455163"
+        },
+        {
+          "candidate_id": "C-04ad610980f028fa9f94",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete soft-voting script averages loaded positive-class columns before >0.5 classification, then invents sequential output IDs. The lesson explicitly flags row-order/ID and threshold assumptions and proposes aligned legitimate-validation comparisons. No gain is reported; broad conditional binary ensemble ratings are reasonable.",
+          "candidate_sha256": "55ce69d831e1f11f2a5b9b71924a6d94c982d07b0aa727824d21d74a53455163"
+        }
+      ],
+      "book_location": {
+        "chapter": 16,
+        "path": "manuscript/chapters/16-fourth-root-blend.md",
+        "sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
+        "line_start": 105,
+        "line_end": 115,
+        "section": "Simple Blends as Comparators"
+      }
+    },
+    {
+      "candidate_id": "C-a-95701130bbd0e83c",
+      "canonical_key": "compare ensemble membership and averaging order, then evaluate seen and unseen identities separately. | classification-based descriptors score millions of same-identity pairs | predictive_quality",
+      "title": "Average class probabilities before pair scoring and evaluate unseen classes",
+      "statement": "When classification-based descriptors score millions of same-identity pairs, consider this source-backed action: Compare ensemble membership and averaging order, then evaluate seen and unseen identities separately. Proposed check: Use identity-disjoint validation for transfer and compare probability-based scores with identity-independent embeddings. Limit: Unknown-artist weakness is explicit; averaging pair scores differs mathematically from averaging distributions first.",
+      "trigger_conditions": [
+        "classification-based descriptors score millions of same-identity pairs"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare ensemble membership and averaging order, then evaluate seen and unseen identities separately."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use identity-disjoint validation for transfer and compare probability-based scores with identity-independent embeddings."
+      ],
+      "limitations": [
+        "Unknown-artist weakness is explicit; averaging pair scores differs mathematically from averaging distributions first."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "retrieval"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The final approach averaged class distributions before inner products; eighteen models beat a single model, more weaker models hurt, and unknown-artist pair AUC was much lower than known artists.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-95701130bbd0e83c",
+        "O-a-f9315833e2f1fdf7",
+        "O-a-fd7759b1b5067791"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 2
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Averaging order is concrete, eighteen networks are costly.",
+        "competitor": "Explicit private-AUC comparison supports selective ensemble testing.",
+        "practitioner": "Useful ensemble geometry lesson with large inference and new-identity limitations."
+      },
+      "review": {
+        "candidate_id": "C-a-95701130bbd0e83c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Eighteen-model class-probability ensemble beats single model; unseen-class weakness constrains deployment.",
+        "candidate_sha256": "8d08807249a6df09c376ea05393beca730207f76a953c6a9bea50840b9bd5e17"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000116",
+      "slug": "lesson-000116",
+      "merged_candidate_ids": [
+        "C-a-95701130bbd0e83c",
+        "C-a-f9315833e2f1fdf7",
+        "C-a-fd7759b1b5067791"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-6fe47d3152400362cf28",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://github.com/inejc/painters",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-95701130bbd0e83c",
+          "line_start": 83,
+          "line_end": 93,
+          "evidence_text": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors.",
+          "kind": "reported_gain",
+          "statement": "The final approach averaged class distributions before inner products; eighteen models beat a single model, more weaker models hurt, and unknown-artist pair AUC was much lower than known artists.",
+          "reported_result": {
+            "metric": "Private leaderboard AUC",
+            "value": 0.9289,
+            "context": "Eighteen selected ConvNets versus single best ConvNet 0.90717 on private 30% pairs; additional weaker models hurt. Uncertainty unknown.",
+            "evidence_text": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors."
+          }
+        },
+        {
+          "packet_id": "P-0ead66fde96512d42313",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-f9315833e2f1fdf7",
+          "line_start": 83,
+          "line_end": 93,
+          "evidence_text": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors.",
+          "kind": "reported_gain",
+          "statement": "The final approach averaged class distributions before inner products; eighteen models beat a single model, more weaker models hurt, and unknown-artist pair AUC was much lower than known artists.",
+          "reported_result": {
+            "metric": "Private leaderboard AUC",
+            "value": 0.9289,
+            "context": "Eighteen selected ConvNets versus single best ConvNet 0.90717 on private 30% pairs; additional weaker models hurt. Uncertainty unknown.",
+            "evidence_text": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors."
+          }
+        },
+        {
+          "packet_id": "P-745d8d09b8671672436f",
+          "competition_id": "competition:painter-by-numbers",
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "source_url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-fd7759b1b5067791",
+          "line_start": 83,
+          "line_end": 93,
+          "evidence_text": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors.",
+          "kind": "reported_gain",
+          "statement": "The final approach averaged class distributions before inner products; eighteen models beat a single model, more weaker models hurt, and unknown-artist pair AUC was much lower than known artists.",
+          "reported_result": {
+            "metric": "Private leaderboard AUC",
+            "value": 0.9289,
+            "context": "Eighteen selected ConvNets versus single best ConvNet 0.90717 on private 30% pairs; additional weaker models hurt. Uncertainty unknown.",
+            "evidence_text": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Averaging order is concrete, eighteen networks are costly.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 87.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Explicit private-AUC comparison supports selective ensemble testing.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Useful ensemble geometry lesson with large inference and new-identity limitations.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 3,
+        "sources": 3,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-e4db0b57856907e6",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L83-L93",
+          "quote": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://github.com/inejc/painters",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 83,
+          "line_end": 93
+        },
+        {
+          "source_id": "source:lesson-source-93fe13e1f2dbc210",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L83-L93",
+          "quote": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/master/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 83,
+          "line_end": 93
+        },
+        {
+          "source_id": "source:lesson-source-3384e9cbccb36f90",
+          "locator": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt#L83-L93",
+          "quote": "### 3. Competition results\nThe public leaderboard score was calculated on 70% of the submission pairs and the private leaderboard score on the remaining 30%. The final submission was generated using the unsupervised approach for verifying the same class identity. The best single ConvNet scored `0.90717 AUC` on the private leaderboard and an ensemble of 18 best ConvNets trained during the hyper parameter search process scored `0.92890 AUC` on the private leaderboard. Adding more (worse) models to the ensemble started to hurt the overall performance. A single hypothesis was obtained from multiple models as a weighted average of their predictions for the painter recognition task and only then the inner product of the two averaged class distribution vectors was calculated.\n\nThe administrator of the competition [Kiri Nichol](https://www.kaggle.com/smallyellowduck) has posted some very useful insights into the performance of the algorithm on the private, test dataset. As stated on the competition [forum](https://www.kaggle.com/c/painter-by-numbers/forums/t/24970/wrapping-up), an ingenious Dutch forger Han van Meegeren was slipped into the test set in order to better understand how good the model is at extracting painters' unique styles. The forger has replicated some of the world's most famous artists' work, including the paintings of Johannes Vermeer. Below is a pairwise comparison table and a histogram of my best submission's predictions for van Meegeren and Vermeer examples from the test set. Based on the model's predictions it can be seen that Vermeer's paintings are indeed more similar to each other than van Meegeren's paintings are to Vermeer's paintings. It can also be seen that Vermeer's paintings are more similar to each other than van Meegeren's paintings are to each other, due to van Meegeren forging paintings in the style of several different artists.\n\n    Pairwise comparison for van Meegeren and Vermeer paintings from the test set\n\nAnother really valuable insight concerns the extrapolation of the model to artists that were not seen during training. The results are given in the form of AUC of my final submission for two different groups of instances from the test set. The first group consists of pairs of images whose painters were present in the training set: `0.94218 AUC` and the second one is composed of pairs whose artists haven't been seen by the model before: `0.82509 AUC`. The results indicate that the model is not so good at generalizing to unknown classes.\n\n### 4. Conclusion and further work\nBased on the results of the competition it can be concluded that convolutional neural networks are able to decompose artwork images' visual space based on their painters unique style. The bad news is that the described algorithm is not good at extrapolating to unfamiliar artists. This is largely due to the fact that same identity verification is calculated directly from the two class distribution vectors.",
+          "competition_id": "competition:painter-by-numbers",
+          "url": "https://raw.githubusercontent.com/inejc/painters/HEAD/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3.txt",
+          "snapshot_sha256": "6561786e864ac8074e6f1d84a709c7a9d0c541afad869de88e6916c28c3140e3",
+          "line_start": 83,
+          "line_end": 93
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-95701130bbd0e83c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Eighteen-model class-probability ensemble beats single model; unseen-class weakness constrains deployment.",
+          "candidate_sha256": "8d08807249a6df09c376ea05393beca730207f76a953c6a9bea50840b9bd5e17"
+        },
+        {
+          "candidate_id": "C-a-95701130bbd0e83c",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PainterGitHubresolvedcandidate/supportedoriginalread18versussingleprivateAUC0.92890vs0.90717,averageclassdistributionfirst,morebadmembershurt. Proposedunseenidentityheldout/orderchecksound;costgraded. Samefd775/f931decision.",
+          "candidate_sha256": "8d08807249a6df09c376ea05393beca730207f76a953c6a9bea50840b9bd5e17"
+        },
+        {
+          "candidate_id": "C-a-f9315833e2f1fdf7",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Eighteen-model class-probability ensemble beats single model; unseen-class weakness constrains deployment.",
+          "candidate_sha256": "eca0c04104071a1a3fe0e66e57197473d6e3c9874a59f85fcd08cc152ddae68e"
+        },
+        {
+          "candidate_id": "C-a-f9315833e2f1fdf7",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PaintermasterresolvedcandidateandsupportreadprivateAUC18models0.9289vssingle0.90717,classaveragefirst/unknownartistweakness. Unknownartist0.82509vsseen0.94218populationdiagnosticnotintervention. Ratingsreasonable,exactfd775/957duplicate.",
+          "candidate_sha256": "eca0c04104071a1a3fe0e66e57197473d6e3c9874a59f85fcd08cc152ddae68e"
+        },
+        {
+          "candidate_id": "C-a-fd7759b1b5067791",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Eighteen-model class-probability ensemble beats single model; unseen-class weakness constrains deployment.",
+          "candidate_sha256": "12211c422ec4fdbeabb49155017ed95ece1a946e97d94c6593fa59505fe2c9b0"
+        },
+        {
+          "candidate_id": "C-a-fd7759b1b5067791",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "PainterHEADprivate30%pairs single0.90717AUCvs18ensemble0.92890;classvectorsaveragebeforedot,weakmembershurt,known0.94218/unknown0.82509differentpopulation. Proposedidentityholdout/ordercomparison;notseen-unseenmethodgain.18modelcostgradesreasonable.",
+          "candidate_sha256": "12211c422ec4fdbeabb49155017ed95ece1a946e97d94c6593fa59505fe2c9b0"
+        }
+      ],
+      "book_location": {
+        "chapter": 16,
+        "path": "manuscript/chapters/16-fourth-root-blend.md",
+        "sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
+        "line_start": 117,
+        "line_end": 127,
+        "section": "Simple Blends as Comparators"
+      }
+    },
+    {
+      "candidate_id": "C-e959b193959dd64ee61a",
+      "canonical_key": "compare greedy equal-weight averaging with ridge-learned weights before adding meta-model complexity. | diverse models already provide usable predictions | predictive_quality",
+      "title": "Keep equal averaging as a benchmark for learned ensemble weights",
+      "statement": "When diverse models already provide usable predictions, proposed reuse: Proposed conditional application: Compare greedy equal-weight averaging with ridge-learned weights before adding meta-model complexity. Proposed check: Compare equal weights and regularized weights on nested out-of-fold predictions, including fit variance and inference cost. Limitation: One failed ridge comparison does not imply learned weights never help; validation predictions must remain untouched by base-model fitting.",
+      "trigger_conditions": [
+        "diverse models already provide usable predictions"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Compare greedy equal-weight averaging with ridge-learned weights before adding meta-model complexity."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare equal weights and regularized weights on nested out-of-fold predictions, including fit variance and inference cost."
+      ],
+      "limitations": [
+        "One failed ridge comparison does not imply learned weights never help; validation predictions must remain untouched by base-model fitting."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "chemistry"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The chemistry team reports no detectable benefit from ridge-regression ensemble weights over equal averaging.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-933b56616e9a2b4b0c12"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Equal averaging is cheap and makes a strong accessible benchmark.",
+        "competitor": "The explicit failure guards against fitting ensemble complexity without validation benefit.",
+        "practitioner": "A stable simple benchmark is valuable for both maintenance and generalization."
+      },
+      "review": {
+        "candidate_id": "C-e959b193959dd64ee61a",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Team explicitly found no detectable ridge-weighting improvement over equal averaging; the failure supports keeping a simple ensemble benchmark.",
+        "candidate_sha256": "0b1456b2b23469ce4adc990bb12cc1b3e576438fa243da0157d6fb14e79fa862"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000134",
+      "slug": "lesson-000134",
+      "merged_candidate_ids": [
+        "C-e959b193959dd64ee61a"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-dfd4f08225e6f3df6f38",
+          "competition_id": "competition:merckactivity",
+          "source_id": "source:lesson-source-fe483e11dfc231fe",
+          "snapshot_path": "research/lesson-extraction/snapshots/792a95cf44d6b97a8e8400cb503abeac9f7a14e2f8635826dccee6b3aa05d83a.txt",
+          "snapshot_sha256": "792a95cf44d6b97a8e8400cb503abeac9f7a14e2f8635826dccee6b3aa05d83a",
+          "source_url": "http://blog.kaggle.com/2012/11/01/deep-learning-how-i-did-it-merck-1st-place-interview/",
+          "source_quality": "primary_text",
+          "observation_id": "O-933b56616e9a2b4b0c12",
+          "line_start": 23,
+          "line_end": 23,
+          "evidence_text": "using ridge regression for model averaging did not provide any detectable improvement over simple equally-weighted averaging.",
+          "kind": "reported_failure",
+          "statement": "The chemistry team reports no detectable benefit from ridge-regression ensemble weights over equal averaging.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Equal averaging is cheap and makes a strong accessible benchmark.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "The explicit failure guards against fitting ensemble complexity without validation benefit.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A stable simple benchmark is valuable for both maintenance and generalization.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-fe483e11dfc231fe",
+          "locator": "research/lesson-extraction/snapshots/792a95cf44d6b97a8e8400cb503abeac9f7a14e2f8635826dccee6b3aa05d83a.txt#L23-L23",
+          "quote": "using ridge regression for model averaging did not provide any detectable improvement over simple equally-weighted averaging.",
+          "competition_id": "competition:merckactivity",
+          "url": "http://blog.kaggle.com/2012/11/01/deep-learning-how-i-did-it-merck-1st-place-interview/",
+          "snapshot_path": "research/lesson-extraction/snapshots/792a95cf44d6b97a8e8400cb503abeac9f7a14e2f8635826dccee6b3aa05d83a.txt",
+          "snapshot_sha256": "792a95cf44d6b97a8e8400cb503abeac9f7a14e2f8635826dccee6b3aa05d83a",
+          "line_start": 23,
+          "line_end": 23
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-e959b193959dd64ee61a",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Team explicitly found no detectable ridge-weighting improvement over equal averaging; the failure supports keeping a simple ensemble benchmark.",
+          "candidate_sha256": "0b1456b2b23469ce4adc990bb12cc1b3e576438fa243da0157d6fb14e79fa862"
+        },
+        {
+          "candidate_id": "C-e959b193959dd64ee61a",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Merck winners report no detectable ridge-weight gain over equal averaging. Candidate keeps nested OOF comparison and does not generalize ridge failure. All twelve scores fit a cheap simple benchmark with careful base-prediction provenance; qualitative result remains E2.",
+          "candidate_sha256": "0b1456b2b23469ce4adc990bb12cc1b3e576438fa243da0157d6fb14e79fa862"
+        }
+      ],
+      "book_location": {
+        "chapter": 16,
+        "path": "manuscript/chapters/16-fourth-root-blend.md",
+        "sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
+        "line_start": 129,
+        "line_end": 139,
+        "section": "Simple Blends as Comparators"
+      }
+    },
+    {
+      "candidate_id": "C-a-1314d7edacb76bca",
+      "canonical_key": "compare unweighted reciprocal rank fusion against tuned weights and extra weak rankers; retain simple configurations when improvements fail to transfer. | complementary rankers must be fused with limited validation data | predictive_quality",
+      "title": "Keep an equal-weight rank-fusion baseline",
+      "statement": "When complementary rankers must be fused with limited validation data, consider this source-backed action: Compare unweighted reciprocal rank fusion against tuned weights and extra weak rankers; retain simple configurations when improvements fail to transfer. Proposed check: Use an independent query split and report ranker subset, k, local score and external score. Limit: Overfitting is the authors\u2019 interpretation, not proven causal attribution; k=1 is not a universal default.",
+      "trigger_conditions": [
+        "complementary rankers must be fused with limited validation data"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare unweighted reciprocal rank fusion against tuned weights and extra weak rankers; retain simple configurations when improvements fail to transfer."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use an independent query split and report ranker subset, k, local score and external score."
+      ],
+      "limitations": [
+        "Overfitting is the authors\u2019 interpretation, not proven causal attribution; k=1 is not a universal default."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "ranking"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The final system used unweighted RRF of three rerankers with k=1; weighted fusion plus BM25 improved local MAP but had worse public MAP, which the authors attribute to weight overfitting.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-1314d7edacb76bca"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Equal-rank fusion is accessible after obtaining rank lists.",
+        "competitor": "Simple baseline guards unstable tuning across query samples.",
+        "practitioner": "Useful retrieval ensemble baseline; validate independent query distribution."
+      },
+      "review": {
+        "candidate_id": "C-a-1314d7edacb76bca",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked two fusion configurations; weights and BM25 both change, causal attribution unresolved.",
+        "candidate_sha256": "957203edec96476f092996d4510d24a804b51490ced0235aede7bdb828a45e2e"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000194",
+      "slug": "lesson-000194",
+      "merged_candidate_ids": [
+        "C-a-1314d7edacb76bca"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9b32b8f8f8cbf38d5c6a",
+          "competition_id": "competition:aiml-a-a-2025-26-end-of-year-hackathon",
+          "source_id": "source:lesson-source-036324abb99e5c67",
+          "snapshot_path": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt",
+          "snapshot_sha256": "b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce",
+          "source_url": "https://raw.githubusercontent.com/m4rch1n0/aiml-hackathon-2526-passage-ranking/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-1314d7edacb76bca",
+          "line_start": 72,
+          "line_end": 100,
+          "evidence_text": "| Model | Validation MAP@10 |\n|---|---:|\n| `jinaai/jina-reranker-v2-base-multilingual` | 0.696 |\n| `BAAI/bge-reranker-v2-m3` | 0.690 |\n| `cross-encoder/ms-marco-MiniLM-L-12-v2` | 0.680 |\n| ~~`castorini/monot5-base-msmarco-10k`~~ | 0.626 (excluded) |\n\nMonoT5 underperformed and was dropped. BM25 (lexical baseline, MAP \u2248 0.45) was also too weak to contribute.\n\n### Ensemble - Reciprocal Rank Fusion (RRF)\n\nWe fuse the three rerankers via RRF. For document *d* ranked at position *r\u1d62(d)* by model *i*:\n\n$$\\text{RRF}(d) = \\sum_{i=1}^{N} w_i \\cdot \\frac{1}{k + r_i(d)}$$\n\n**Final configuration:** unweighted (*w\u1d62* = 1) with smoothing **k = 1**.\n\n---\n\n## Key Finding: Simpler Generalizes Better\n\nOur most counterintuitive result. We performed a grid search over: model subsets, weighted vs. unweighted RRF, smoothing *k* \u2208 {0, 1, 2, 5, 10, \u2026, 100}, and BM25 inclusion.\n\n| Configuration | Models | Local Val MAP@10 | Public LB MAP@10 |\n|---|:---:|---:|---:|\n| Weighted (\u221d MAP) + BM25 | 4 | **0.7052** | 0.7219 |\n| **Unweighted Top-3 (final)** | 3 | 0.7032 | **0.7233** |\n\nThe weighted+BM25 configuration achieved a higher local validation score yet underperformed on the public leaderboard. The unweighted Top-3 configuration generalized better despite a slightly lower validation score. **Weight tuning on the validation set was overfitting**; equal votes across three strong, complementary rerankers preserved diversity and ultimately won.",
+          "kind": "reported_failure",
+          "statement": "The final system used unweighted RRF of three rerankers with k=1; weighted fusion plus BM25 improved local MAP but had worse public MAP, which the authors attribute to weight overfitting.",
+          "reported_result": {
+            "metric": "public MAP@10",
+            "value": 0.7233,
+            "context": "MSMARCO sampled competition: unweighted top3 versus weighted4 including BM25 public0.7219; local0.7032 versus0.7052. Both subset and weighting change; no isolated causal attribution.",
+            "evidence_text": "| Model | Validation MAP@10 |\n|---|---:|\n| `jinaai/jina-reranker-v2-base-multilingual` | 0.696 |\n| `BAAI/bge-reranker-v2-m3` | 0.690 |\n| `cross-encoder/ms-marco-MiniLM-L-12-v2` | 0.680 |\n| ~~`castorini/monot5-base-msmarco-10k`~~ | 0.626 (excluded) |\n\nMonoT5 underperformed and was dropped. BM25 (lexical baseline, MAP \u2248 0.45) was also too weak to contribute.\n\n### Ensemble - Reciprocal Rank Fusion (RRF)\n\nWe fuse the three rerankers via RRF. For document *d* ranked at position *r\u1d62(d)* by model *i*:\n\n$$\\text{RRF}(d) = \\sum_{i=1}^{N} w_i \\cdot \\frac{1}{k + r_i(d)}$$\n\n**Final configuration:** unweighted (*w\u1d62* = 1) with smoothing **k = 1**.\n\n---\n\n## Key Finding: Simpler Generalizes Better\n\nOur most counterintuitive result. We performed a grid search over: model subsets, weighted vs. unweighted RRF, smoothing *k* \u2208 {0, 1, 2, 5, 10, \u2026, 100}, and BM25 inclusion.\n\n| Configuration | Models | Local Val MAP@10 | Public LB MAP@10 |\n|---|:---:|---:|---:|\n| Weighted (\u221d MAP) + BM25 | 4 | **0.7052** | 0.7219 |\n| **Unweighted Top-3 (final)** | 3 | 0.7032 | **0.7233** |\n\nThe weighted+BM25 configuration achieved a higher local validation score yet underperformed on the public leaderboard. The unweighted Top-3 configuration generalized better despite a slightly lower validation score. **Weight tuning on the validation set was overfitting**; equal votes across three strong, complementary rerankers preserved diversity and ultimately won."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 82.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Equal-rank fusion is accessible after obtaining rank lists.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Simple baseline guards unstable tuning across query samples.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful retrieval ensemble baseline; validate independent query distribution.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-036324abb99e5c67",
+          "locator": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt#L72-L100",
+          "quote": "| Model | Validation MAP@10 |\n|---|---:|\n| `jinaai/jina-reranker-v2-base-multilingual` | 0.696 |\n| `BAAI/bge-reranker-v2-m3` | 0.690 |\n| `cross-encoder/ms-marco-MiniLM-L-12-v2` | 0.680 |\n| ~~`castorini/monot5-base-msmarco-10k`~~ | 0.626 (excluded) |\n\nMonoT5 underperformed and was dropped. BM25 (lexical baseline, MAP \u2248 0.45) was also too weak to contribute.\n\n### Ensemble - Reciprocal Rank Fusion (RRF)\n\nWe fuse the three rerankers via RRF. For document *d* ranked at position *r\u1d62(d)* by model *i*:\n\n$$\\text{RRF}(d) = \\sum_{i=1}^{N} w_i \\cdot \\frac{1}{k + r_i(d)}$$\n\n**Final configuration:** unweighted (*w\u1d62* = 1) with smoothing **k = 1**.\n\n---\n\n## Key Finding: Simpler Generalizes Better\n\nOur most counterintuitive result. We performed a grid search over: model subsets, weighted vs. unweighted RRF, smoothing *k* \u2208 {0, 1, 2, 5, 10, \u2026, 100}, and BM25 inclusion.\n\n| Configuration | Models | Local Val MAP@10 | Public LB MAP@10 |\n|---|:---:|---:|---:|\n| Weighted (\u221d MAP) + BM25 | 4 | **0.7052** | 0.7219 |\n| **Unweighted Top-3 (final)** | 3 | 0.7032 | **0.7233** |\n\nThe weighted+BM25 configuration achieved a higher local validation score yet underperformed on the public leaderboard. The unweighted Top-3 configuration generalized better despite a slightly lower validation score. **Weight tuning on the validation set was overfitting**; equal votes across three strong, complementary rerankers preserved diversity and ultimately won.",
+          "competition_id": "competition:aiml-a-a-2025-26-end-of-year-hackathon",
+          "url": "https://raw.githubusercontent.com/m4rch1n0/aiml-hackathon-2526-passage-ranking/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce.txt",
+          "snapshot_sha256": "b47b0884f73b74ba333396ed0dd686ebf64a0da54ac08683112b9346406d93ce",
+          "line_start": 72,
+          "line_end": 100
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-a-1314d7edacb76bca",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked two fusion configurations; weights and BM25 both change, causal attribution unresolved.",
+          "candidate_sha256": "957203edec96476f092996d4510d24a804b51490ced0235aede7bdb828a45e2e"
+        },
+        {
+          "candidate_id": "C-a-1314d7edacb76bca",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Verified Pareto RRF table: unweighted3 public0.7233/local0.7032 versus weighted4+BM25 public0.7219/local0.7052. Both subset and weighting change; overfitting is author interpretation. Independent-query check and nonuniversal k preserve causality limits; grades reasonable.",
+          "candidate_sha256": "957203edec96476f092996d4510d24a804b51490ced0235aede7bdb828a45e2e"
+        }
+      ],
+      "book_location": {
+        "chapter": 16,
+        "path": "manuscript/chapters/16-fourth-root-blend.md",
+        "sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
+        "line_start": 141,
+        "line_end": 151,
+        "section": "Simple Blends as Comparators"
+      }
+    },
+    {
+      "candidate_id": "C-b9d8c759d92bc5e3747d",
+      "canonical_key": "ensemble-versus-best-single | image classification | postmortem selection",
+      "title": "Check whether the final ensemble actually beats its strongest model",
+      "statement": "When an ensemble is being selected from several strong image models, proposed reuse: Proposed recipe: compare it with the strongest individual candidate rather than assuming model count guarantees improvement. Proposed check: Compare ensemble and best component using legitimate untouched preselection validation, measure uncertainty and inference cost, and preserve final-score timing. Limitation: Private scores became available after competition; the source does not establish predeadline superiority of B7.",
+      "trigger_conditions": [
+        "an ensemble is being selected from several strong image models"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare it with the strongest individual candidate rather than assuming model count guarantees improvement."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare ensemble and best component using legitimate untouched preselection validation, measure uncertainty and inference cost, and preserve final-score timing."
+      ],
+      "limitations": [
+        "Private scores became available after competition; the source does not establish predeadline superiority of B7."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports ensemble private score0.96058. Author reports a single B7 model private score0.96132, above the final score.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare ensemble and best component using legitimate untouched preselection validation, measure uncertainty and inference cost, and preserve final-score timing.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-4b0838ea947d2972d6a7",
+        "O-aecdf48119de52543b6a"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "More models need not beat the best single model is a clear low-cost lesson.",
+        "competitor": "The observed failed ensemble comparison makes component benchmarking essential.",
+        "practitioner": "A simpler strong model may be preferable when the ensemble adds cost without reliable benefit."
+      },
+      "review": {
+        "candidate_id": "C-b9d8c759d92bc5e3747d",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Source reports final private0.96058and strongest B7private0.96132; explicit method comparison supports checking an ensemble against its best component.",
+        "candidate_sha256": "530941ad249bc5f2aa5e6789b343602a7f0622673acda04c5a001a716de45ae9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000238",
+      "slug": "lesson-000238",
+      "merged_candidate_ids": [
+        "C-b9d8c759d92bc5e3747d"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-c63c0d4154fc357b3cce",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "source_url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "source_quality": "primary_text",
+          "observation_id": "O-4b0838ea947d2972d6a7",
+          "line_start": 61,
+          "line_end": 61,
+          "evidence_text": "\ucd5c\uc885 score \u201c Public : 0.96604, Private : 0.96058 \u201d",
+          "kind": "used",
+          "statement": "Author reports ensemble private score0.96058.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-c63c0d4154fc357b3cce",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "source_url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "source_quality": "primary_text",
+          "observation_id": "O-aecdf48119de52543b6a",
+          "line_start": 63,
+          "line_end": 63,
+          "evidence_text": "Privat score\uac00 \uac00\uc7a5 \uc88b\uc740 \ubaa8\ub378\uc740 Efficientnet-B7 model\uc774\ub124\uc694 0.96132\ub098\uc654\uc2b5\ub2c8\ub2e4.",
+          "kind": "postcompetition",
+          "statement": "Author reports a single B7 model private score0.96132, above the final score.",
+          "reported_result": {
+            "metric": "private competition score",
+            "value": 0.96132,
+            "context": "Strongest B7 model0.96132versus final soft-voting ensemble0.96058; postcompetition comparison, metric label unstated.",
+            "evidence_text": "Privat score\uac00 \uac00\uc7a5 \uc88b\uc740 \ubaa8\ub378\uc740 Efficientnet-B7 model\uc774\ub124\uc694 0.96132\ub098\uc654\uc2b5\ub2c8\ub2e4."
+          }
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "More models need not beat the best single model is a clear low-cost lesson.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "The observed failed ensemble comparison makes component benchmarking essential.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A simpler strong model may be preferable when the ensemble adds cost without reliable benefit.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "locator": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt#L61-L61",
+          "quote": "\ucd5c\uc885 score \u201c Public : 0.96604, Private : 0.96058 \u201d",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "line_start": 61,
+          "line_end": 61
+        },
+        {
+          "source_id": "source:lesson-source-a92d6c085891002f",
+          "locator": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt#L63-L63",
+          "quote": "Privat score\uac00 \uac00\uc7a5 \uc88b\uc740 \ubaa8\ub378\uc740 Efficientnet-B7 model\uc774\ub124\uc694 0.96132\ub098\uc654\uc2b5\ub2c8\ub2e4.",
+          "competition_id": "competition:2019-3rd-ml-month-with-kakr",
+          "url": "https://www.kaggle.com/competitions/2019-3rd-ml-month-with-kakr/writeups/1st-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4.txt",
+          "snapshot_sha256": "edc583f9e994f4c2c8b45bc21a88ffb62bf276166acc8d529c31b3bbaff94ce4",
+          "line_start": 63,
+          "line_end": 63
+        }
+      ],
+      "evidence_grade": "E1",
+      "review_records": [
+        {
+          "candidate_id": "C-b9d8c759d92bc5e3747d",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Source reports final private0.96058and strongest B7private0.96132; explicit method comparison supports checking an ensemble against its best component.",
+          "candidate_sha256": "530941ad249bc5f2aa5e6789b343602a7f0622673acda04c5a001a716de45ae9"
+        },
+        {
+          "candidate_id": "C-b9d8c759d92bc5e3747d",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "Original final ensemble private0.96058 is below B7 private0.96132. Candidate identifies postcompetition timing and proposes legitimate preselection assessment rather than retrospective private-score selection. Twelve high scores support the cheap best-component check. Distinct from implementing soft voting above.",
+          "candidate_sha256": "530941ad249bc5f2aa5e6789b343602a7f0622673acda04c5a001a716de45ae9"
+        }
+      ],
+      "book_location": {
+        "chapter": 16,
+        "path": "manuscript/chapters/16-fourth-root-blend.md",
+        "sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
+        "line_start": 153,
+        "line_end": 163,
+        "section": "Simple Blends as Comparators"
+      }
+    },
+    {
+      "candidate_id": "C-db93998ddb16efd2c6d8",
+      "canonical_key": "weighted-logit-blend | image multiclass models | ensemble comparison",
+      "title": "Keep logit blending distinct from probability averaging",
+      "statement": "When several image classifiers produce comparable logits, proposed reuse: Proposed recipe: compare a weighted logit sum followed by softmax with individual predictions. Proposed check: Compare logit and probability blending using identical out-of-fold scores, calibrate scales, and evaluate macroF1and serving cost. Limitation: Logit scales vary by backbone and calibration; weights can overfit reused validation.",
+      "trigger_conditions": [
+        "several image classifiers produce comparable logits"
+      ],
+      "action_steps": [
+        "Proposed recipe: compare a weighted logit sum followed by softmax with individual predictions."
+      ],
+      "verification_steps": [
+        "Proposed check: Compare logit and probability blending using identical out-of-fold scores, calibrate scales, and evaluate macroF1and serving cost."
+      ],
+      "limitations": [
+        "Logit scales vary by backbone and calibration; weights can overfit reused validation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "image"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "biology"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Reusable decision; historical configurations and resource access require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Author reports a weighted logit sum. Author applies softmax after combining logits.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed check: Compare logit and probability blending using identical out-of-fold scores, calibrate scales, and evaluate macroF1and serving cost.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-48896415248a97403506",
+        "O-a40d229c7cf656c74622"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "The order of softmax and averaging is a useful teachable distinction.",
+        "competitor": "A precise blending ablation helps assess scale and diversity.",
+        "practitioner": "Score fusion needs calibration and untouched assessment regardless of model family."
+      },
+      "review": {
+        "candidate_id": "C-db93998ddb16efd2c6d8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "Winner explicitly sums weighted logits before softmax; this differs from probability averaging and has no isolated controlled numerical gain.",
+        "candidate_sha256": "f914e91c9dc670d41cc68f0dea7e6725ec76413190e2b26ceed53017010dc8f9"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000559",
+      "slug": "lesson-000559",
+      "merged_candidate_ids": [
+        "C-db93998ddb16efd2c6d8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-18cf5e97cc9a15b89f61",
+          "competition_id": "competition:3-md-4040-2026-challenge",
+          "source_id": "source:lesson-source-756d4f0467e4df39",
+          "source_url": "https://raw.githubusercontent.com/giorgio-bono/ZooCAM_Challenge/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt",
+          "snapshot_sha256": "8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9",
+          "source_quality": "primary_text",
+          "observation_id": "O-48896415248a97403506",
+          "line_start": 128,
+          "line_end": 128,
+          "evidence_text": "The final class prediction is obtained after applying softmax to the aggregated logits.",
+          "kind": "used",
+          "statement": "Author applies softmax after combining logits.",
+          "reported_result": null
+        },
+        {
+          "packet_id": "P-18cf5e97cc9a15b89f61",
+          "competition_id": "competition:3-md-4040-2026-challenge",
+          "source_id": "source:lesson-source-756d4f0467e4df39",
+          "source_url": "https://raw.githubusercontent.com/giorgio-bono/ZooCAM_Challenge/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt",
+          "snapshot_sha256": "8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9",
+          "source_quality": "primary_text",
+          "observation_id": "O-a40d229c7cf656c74622",
+          "line_start": 122,
+          "line_end": 122,
+          "evidence_text": "**weighted sum of the logits**",
+          "kind": "used",
+          "statement": "Author reports a weighted logit sum.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "The order of softmax and averaging is a useful teachable distinction.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 90.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "A precise blending ablation helps assess scale and diversity.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 92.5,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Score fusion needs calibration and untouched assessment regardless of model family.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 2,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-756d4f0467e4df39",
+          "locator": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt#L128-L128",
+          "quote": "The final class prediction is obtained after applying softmax to the aggregated logits.",
+          "competition_id": "competition:3-md-4040-2026-challenge",
+          "url": "https://raw.githubusercontent.com/giorgio-bono/ZooCAM_Challenge/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt",
+          "snapshot_sha256": "8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9",
+          "line_start": 128,
+          "line_end": 128
+        },
+        {
+          "source_id": "source:lesson-source-756d4f0467e4df39",
+          "locator": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt#L122-L122",
+          "quote": "**weighted sum of the logits**",
+          "competition_id": "competition:3-md-4040-2026-challenge",
+          "url": "https://raw.githubusercontent.com/giorgio-bono/ZooCAM_Challenge/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9.txt",
+          "snapshot_sha256": "8b6977a8a5aa68251a72c3182a5a75b3af6343f3820a03d6a91b6bb1156759d9",
+          "line_start": 122,
+          "line_end": 122
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-db93998ddb16efd2c6d8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "Winner explicitly sums weighted logits before softmax; this differs from probability averaging and has no isolated controlled numerical gain.",
+          "candidate_sha256": "f914e91c9dc670d41cc68f0dea7e6725ec76413190e2b26ceed53017010dc8f9"
+        },
+        {
+          "candidate_id": "C-db93998ddb16efd2c6d8",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "ZooCAM source explicitly weights logits then applies softmax; candidate preserves this order and proposes calibrated logit versus probability fusion. Scale and reused-validation caveats are meaningful. Twelve moderate scores support the precise blending comparison; vocabulary overlap with probability-voting lessons is not equivalence.",
+          "candidate_sha256": "f914e91c9dc670d41cc68f0dea7e6725ec76413190e2b26ceed53017010dc8f9"
+        }
+      ],
+      "book_location": {
+        "chapter": 16,
+        "path": "manuscript/chapters/16-fourth-root-blend.md",
+        "sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
+        "line_start": 165,
+        "line_end": 175,
+        "section": "Simple Blends as Comparators"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+outputs/
+dist/
+.DS_Store
+*.csv
+*.parquet
+*.joblib
+scripts/build_companion.py
+
+!data/season-walkthrough/**/*.csv
+!data/season-walkthrough/**/*.joblib
+!site/assets/season-walkthrough/*.csv

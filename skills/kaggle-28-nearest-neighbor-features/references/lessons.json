@@ -1,0 +1,769 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-4efa8ffd48d1a2638bbd",
+      "canonical_key": "filter filled values and validity masks separately then divide to obtain multiscale local means and variances | raster neighborhoods include missing cells | missingness_aware_features",
+      "title": "Compute neighborhood statistics with nodata-aware normalization",
+      "statement": "When raster neighborhoods include missing cells, filter filled values and validity masks separately then divide to obtain multiscale local means and variances. Compare hand-computed windows near nodata and boundaries, validate coordinate reference systems and resolution, and assess scales on spatially held-out data. Boundary mode is nearest and coordinate conversion rounds pixel positions; slope is a pixel-gradient proxy, not a calibrated physical slope.",
+      "trigger_conditions": [
+        "raster neighborhoods include missing cells"
+      ],
+      "action_steps": [
+        "Proposed: filter filled values and validity masks separately then divide to obtain multiscale local means and variances."
+      ],
+      "verification_steps": [
+        "Proposed: compare hand-computed windows near nodata and boundaries, validate coordinate reference systems and resolution, and assess scales on spatially held-out data."
+      ],
+      "limitations": [
+        "Boundary mode is nearest and coordinate conversion rounds pixel positions; slope is a pixel-gradient proxy, not a calibrated physical slope."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "geospatial"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "seabed_habitat"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "missingness_aware_features"
+        ],
+        "risk_tags": [
+          "spatial_leakage",
+          "coordinate_consistency",
+          "missingness"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Feature Engineering"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for geohab-mlwg-competition-2026: The extractor box-filters zero-filled values, validity masks and squared values; it divides by valid fraction, clips variance nonnegative and derives local topographic-position features.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed: normalize filtered moments by valid-cell weights and hand-check nodata, boundaries, CRS and spatial scale selection.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-f50d8f2245dd26657d09"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner gets a useful missingness example but rasters, transforms and memory handling require specialized knowledge.",
+        "competitor": "Competitor can implement multiscale terrain features with concrete nodata tests and spatial validation.",
+        "practitioner": "Practitioner can reuse normalized neighborhood moments across geospatial rasters, with CRS and pixel-resolution audits."
+      },
+      "review": {
+        "candidate_id": "C-4efa8ffd48d1a2638bbd",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete raster extractor verifies separate box filtering of zero-filled values and validity weights, nonnegative variance and raw-minus-mean TPI. Nearest boundary replication, pixel rounding and unscaled gradients require local checks; no scale ablation.",
+        "candidate_sha256": "07b2c85ad793fd8f2c81b49d316238956c027fa2f4f6332d47ec4cc76542da41"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000263",
+      "slug": "lesson-000263",
+      "merged_candidate_ids": [
+        "C-4efa8ffd48d1a2638bbd"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-7087e5c5540bde9cc851",
+          "competition_id": "competition:geohab-mlwg-competition-2026",
+          "source_id": "source:lesson-source-b9062595167ac3cb",
+          "snapshot_path": "research/lesson-extraction/snapshots/c82e6321ae085130d27b3653de6cd9d4193ad0ac8a29d1c406630cdc407763e0.txt",
+          "snapshot_sha256": "c82e6321ae085130d27b3653de6cd9d4193ad0ac8a29d1c406630cdc407763e0",
+          "source_url": "https://raw.githubusercontent.com/asamasach/geohab-mlwg/HEAD/scripts/extract_features.py",
+          "source_quality": "primary_code",
+          "observation_id": "O-f50d8f2245dd26657d09",
+          "line_start": 45,
+          "line_end": 73,
+          "evidence_text": "        # Multiscale window stats (uniform mean + std via box filter)\n        a_nan = np.isnan(arr)\n        a_filled = np.where(a_nan, 0.0, arr)\n        mask = (~a_nan).astype(np.float32)\n\n        for r in scales:\n            k = 2 * r + 1\n            # mean\n            s = ndi.uniform_filter(a_filled, size=k, mode=\"nearest\")\n            c = ndi.uniform_filter(mask, size=k, mode=\"nearest\")\n            mean = np.where(c > 0, s / np.clip(c, 1e-6, None), np.nan)\n            # E[x^2]\n            s2 = ndi.uniform_filter(a_filled * a_filled, size=k, mode=\"nearest\")\n            ex2 = np.where(c > 0, s2 / np.clip(c, 1e-6, None), np.nan)\n            var = np.clip(ex2 - mean * mean, 0, None)\n            std = np.sqrt(var)\n\n            m_at = np.full(len(xs), np.nan, dtype=np.float32)\n            s_at = np.full(len(xs), np.nan, dtype=np.float32)\n            m_at[in_bounds] = mean[rows[in_bounds], cols[in_bounds]]\n            s_at[in_bounds] = std[rows[in_bounds], cols[in_bounds]]\n            feats[f\"{band_prefix}_mean_r{r}\"] = m_at\n            feats[f\"{band_prefix}_std_r{r}\"] = s_at\n\n            # TPI: raw - mean (for bathymetry this is topographic position)\n            tpi_full = arr - mean\n            tpi_at = np.full(len(xs), np.nan, dtype=np.float32)\n            tpi_at[in_bounds] = tpi_full[rows[in_bounds], cols[in_bounds]]\n            feats[f\"{band_prefix}_tpi_r{r}\"] = tpi_at",
+          "kind": "used",
+          "statement": "The extractor box-filters zero-filled values, validity masks and squared values; it divides by valid fraction, clips variance nonnegative and derives local topographic-position features.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Beginner gets a useful missingness example but rasters, transforms and memory handling require specialized knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Competitor can implement multiscale terrain features with concrete nodata tests and spatial validation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner can reuse normalized neighborhood moments across geospatial rasters, with CRS and pixel-resolution audits.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b9062595167ac3cb",
+          "locator": "research/lesson-extraction/snapshots/c82e6321ae085130d27b3653de6cd9d4193ad0ac8a29d1c406630cdc407763e0.txt#L45-L73",
+          "quote": "        # Multiscale window stats (uniform mean + std via box filter)\n        a_nan = np.isnan(arr)\n        a_filled = np.where(a_nan, 0.0, arr)\n        mask = (~a_nan).astype(np.float32)\n\n        for r in scales:\n            k = 2 * r + 1\n            # mean\n            s = ndi.uniform_filter(a_filled, size=k, mode=\"nearest\")\n            c = ndi.uniform_filter(mask, size=k, mode=\"nearest\")\n            mean = np.where(c > 0, s / np.clip(c, 1e-6, None), np.nan)\n            # E[x^2]\n            s2 = ndi.uniform_filter(a_filled * a_filled, size=k, mode=\"nearest\")\n            ex2 = np.where(c > 0, s2 / np.clip(c, 1e-6, None), np.nan)\n            var = np.clip(ex2 - mean * mean, 0, None)\n            std = np.sqrt(var)\n\n            m_at = np.full(len(xs), np.nan, dtype=np.float32)\n            s_at = np.full(len(xs), np.nan, dtype=np.float32)\n            m_at[in_bounds] = mean[rows[in_bounds], cols[in_bounds]]\n            s_at[in_bounds] = std[rows[in_bounds], cols[in_bounds]]\n            feats[f\"{band_prefix}_mean_r{r}\"] = m_at\n            feats[f\"{band_prefix}_std_r{r}\"] = s_at\n\n            # TPI: raw - mean (for bathymetry this is topographic position)\n            tpi_full = arr - mean\n            tpi_at = np.full(len(xs), np.nan, dtype=np.float32)\n            tpi_at[in_bounds] = tpi_full[rows[in_bounds], cols[in_bounds]]\n            feats[f\"{band_prefix}_tpi_r{r}\"] = tpi_at",
+          "competition_id": "competition:geohab-mlwg-competition-2026",
+          "url": "https://raw.githubusercontent.com/asamasach/geohab-mlwg/HEAD/scripts/extract_features.py",
+          "snapshot_path": "research/lesson-extraction/snapshots/c82e6321ae085130d27b3653de6cd9d4193ad0ac8a29d1c406630cdc407763e0.txt",
+          "snapshot_sha256": "c82e6321ae085130d27b3653de6cd9d4193ad0ac8a29d1c406630cdc407763e0",
+          "line_start": 45,
+          "line_end": 73
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-4efa8ffd48d1a2638bbd",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete raster extractor verifies separate box filtering of zero-filled values and validity weights, nonnegative variance and raw-minus-mean TPI. Nearest boundary replication, pixel rounding and unscaled gradients require local checks; no scale ablation.",
+          "candidate_sha256": "07b2c85ad793fd8f2c81b49d316238956c027fa2f4f6332d47ec4cc76542da41"
+        },
+        {
+          "candidate_id": "C-4efa8ffd48d1a2638bbd",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete raster extractor normalizes box-filtered filled values and squared values by box-filtered validity masks, clips variance and samples features. Lesson preserves nearest boundaries, rounded coordinate indexing and uncalibrated gradient slope, with spatial/CRS and hand-window checks proposed. Narrow geospatial transfer and effort grades are proportionate.",
+          "candidate_sha256": "07b2c85ad793fd8f2c81b49d316238956c027fa2f4f6332d47ec4cc76542da41"
+        }
+      ],
+      "book_location": {
+        "chapter": 28,
+        "path": "manuscript/chapters/28-nearest-neighbor-features.md",
+        "sha256": "6f1e8f639712d9432657a5786c3118c4e3a417ed5c13dec0ab7c19b557887d5d",
+        "line_start": 219,
+        "line_end": 229,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-3dc6225f2ea40b54",
+      "canonical_key": "fit spatial clusters on training locations and compute fold-safe cluster statistics with cyclic month representations. | housing prices vary by location and season | predictive_quality",
+      "title": "Fit spatial clusters and cyclic dates without target leakage",
+      "statement": "When housing prices vary by location and season, consider this source-backed action: Fit spatial clusters on training locations and compute fold-safe cluster statistics with cyclic month representations. Proposed check: Use spatial/time holdouts and compute any target-derived unit-price means only from training folds. Limit: Average unit prices can leak target information; five-hundred centers is not established as optimal.",
+      "trigger_conditions": [
+        "housing prices vary by location and season"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Fit spatial clusters on training locations and compute fold-safe cluster statistics with cyclic month representations."
+      ],
+      "verification_steps": [
+        "Proposed verification: Use spatial/time holdouts and compute any target-derived unit-price means only from training folds."
+      ],
+      "limitations": [
+        "Average unit prices can leak target information; five-hundred centers is not established as optimal."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "regression"
+        ],
+        "application_domains": [
+          "commerce"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used five-hundred spatial centers, distances to every center, cluster use/type/unit-price statistics and sine/cosine month coding.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-3dc6225f2ea40b54"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Spatial supervised summaries need careful leakage bookkeeping.",
+        "competitor": "Concrete location representation under spatial/time holdouts.",
+        "practitioner": "Applicable housing aggregates; future unitprices can invalidate deployment."
+      },
+      "review": {
+        "candidate_id": "C-a-3dc6225f2ea40b54",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked500centers/pricegroupstatistics; targetmean isolation proposed.",
+        "candidate_sha256": "1cc32f6d1ec4ef9337119c260c4cb511a3200ee12d2204eb51f4a0fc79928013"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000285",
+      "slug": "lesson-000285",
+      "merged_candidate_ids": [
+        "C-a-3dc6225f2ea40b54"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-15f33378db1a6fe30cae",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "source_url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-3dc6225f2ea40b54",
+          "line_start": 50,
+          "line_end": 72,
+          "evidence_text": "### 3. \u5efa\u9020\u7279\u5fb5\uff1a\u805a\u985e\n#### **KMeans \u7a7a\u9593\u805a\u985e**\n\u4f7f\u7528 KMeans \u6f14\u7b97\u6cd5\uff0c\u5c0d\u7d93\u7def\u5ea6\u9032\u884c\u7a7a\u9593\u805a\u985e\u5206\u6790\uff0c\u751f\u6210\u4e86 500 \u500b\u805a\u985e\u4e2d\u5fc3\uff0c\u4e26\u7522\u751f\u7269\u4ef6\u5230\u5404\u4e2d\u5fc3\u8ddd\u96e2\u7684\u7279\u5fb5\uff08k1 \u81f3 k500\uff09\u3002\n\n![KMeans \u805a\u985e](https://github.com/user-attachments/assets/cc5f1d4e-bdf5-47a5-8a8a-049c7712c5ce)\n\n#### **\u805a\u985e\u5167\u90e8\u7d71\u8a08**\n\u8a08\u7b97\u5404\u805a\u985e\u5167\uff1a\n- \u92b7\u552e\u6578\u91cf\n- \u76f8\u540c\u7528\u9014\u6bd4\u4f8b\n- \u5efa\u7269\u985e\u578b\u6bd4\u4f8b\n- \u5e73\u5747\u55ae\u50f9\n\n\u4ee5\u5f37\u5316\u5730\u6bb5\u8cc7\u8a0a\u7684\u5f71\u97ff\u529b\u3002\n\n---\n\n### 4. \u5efa\u9020\u7279\u5fb5\uff1a\u65e5\u671f\n#### **\u65e5\u671f\u6b04\u4f4d\u6a19\u6e96\u5316**\n\u5c07\u300c\u4ea4\u6613\u5e74\u6708\u65e5\u300d\u7684\u6c11\u570b\u5e74\u8f49\u70ba\u897f\u5143\u5e74\uff0c\u4e26\u63d0\u53d6\u4ea4\u6613\u7684\u5e74\u4efd\u3001\u6708\u4efd\u3001\u5b63\u5ea6\u7b49\u8cc7\u8a0a\u3002\n\n#### **\u6708\u4efd\u9031\u671f\u6027\u8655\u7406**\n\u5c0d\u6708\u4efd\u9032\u884c\u4e09\u89d2\u51fd\u6578\uff08sin\u3001cos\uff09\u7de8\u78bc\uff0c\u4ee5\u6355\u6349\u6708\u4efd\u7684\u9031\u671f\u6027\u95dc\u4fc2\u3002",
+          "kind": "used",
+          "statement": "The author used five-hundred spatial centers, distances to every center, cluster use/type/unit-price statistics and sine/cosine month coding.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Spatial supervised summaries need careful leakage bookkeeping.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Concrete location representation under spatial/time holdouts.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Applicable housing aggregates; future unitprices can invalidate deployment.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b44b7d2ab7c66a14",
+          "locator": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt#L50-L72",
+          "quote": "### 3. \u5efa\u9020\u7279\u5fb5\uff1a\u805a\u985e\n#### **KMeans \u7a7a\u9593\u805a\u985e**\n\u4f7f\u7528 KMeans \u6f14\u7b97\u6cd5\uff0c\u5c0d\u7d93\u7def\u5ea6\u9032\u884c\u7a7a\u9593\u805a\u985e\u5206\u6790\uff0c\u751f\u6210\u4e86 500 \u500b\u805a\u985e\u4e2d\u5fc3\uff0c\u4e26\u7522\u751f\u7269\u4ef6\u5230\u5404\u4e2d\u5fc3\u8ddd\u96e2\u7684\u7279\u5fb5\uff08k1 \u81f3 k500\uff09\u3002\n\n![KMeans \u805a\u985e](https://github.com/user-attachments/assets/cc5f1d4e-bdf5-47a5-8a8a-049c7712c5ce)\n\n#### **\u805a\u985e\u5167\u90e8\u7d71\u8a08**\n\u8a08\u7b97\u5404\u805a\u985e\u5167\uff1a\n- \u92b7\u552e\u6578\u91cf\n- \u76f8\u540c\u7528\u9014\u6bd4\u4f8b\n- \u5efa\u7269\u985e\u578b\u6bd4\u4f8b\n- \u5e73\u5747\u55ae\u50f9\n\n\u4ee5\u5f37\u5316\u5730\u6bb5\u8cc7\u8a0a\u7684\u5f71\u97ff\u529b\u3002\n\n---\n\n### 4. \u5efa\u9020\u7279\u5fb5\uff1a\u65e5\u671f\n#### **\u65e5\u671f\u6b04\u4f4d\u6a19\u6e96\u5316**\n\u5c07\u300c\u4ea4\u6613\u5e74\u6708\u65e5\u300d\u7684\u6c11\u570b\u5e74\u8f49\u70ba\u897f\u5143\u5e74\uff0c\u4e26\u63d0\u53d6\u4ea4\u6613\u7684\u5e74\u4efd\u3001\u6708\u4efd\u3001\u5b63\u5ea6\u7b49\u8cc7\u8a0a\u3002\n\n#### **\u6708\u4efd\u9031\u671f\u6027\u8655\u7406**\n\u5c0d\u6708\u4efd\u9032\u884c\u4e09\u89d2\u51fd\u6578\uff08sin\u3001cos\uff09\u7de8\u78bc\uff0c\u4ee5\u6355\u6349\u6708\u4efd\u7684\u9031\u671f\u6027\u95dc\u4fc2\u3002",
+          "competition_id": "competition:machine-learning-2024-iaii-regression",
+          "url": "https://raw.githubusercontent.com/yshtw/Taiwan-Housing-Price-Prediction/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e.txt",
+          "snapshot_sha256": "284d32db939a4446a53c6a7eac9bcca1b6789b50ef67b0967f29ac847a403f8e",
+          "line_start": 50,
+          "line_end": 72
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-3dc6225f2ea40b54",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked500centers/pricegroupstatistics; targetmean isolation proposed.",
+          "candidate_sha256": "1cc32f6d1ec4ef9337119c260c4cb511a3200ee12d2204eb51f4a0fc79928013"
+        }
+      ],
+      "book_location": {
+        "chapter": 28,
+        "path": "manuscript/chapters/28-nearest-neighbor-features.md",
+        "sha256": "6f1e8f639712d9432657a5786c3118c4e3a417ed5c13dec0ab7c19b557887d5d",
+        "line_start": 249,
+        "line_end": 253,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-fb42920b6621f3fe",
+      "canonical_key": "proposed safe adaptation: compute neighbor-label summaries using only training-fold labels and exclude the row itself. | nearby applicants in a meaningful numeric subspace may share outcome patterns | predictive_quality",
+      "title": "Fit neighbor target summaries without validation-label access",
+      "statement": "When nearby applicants in a meaningful numeric subspace may share outcome patterns, consider this source-backed action: Proposed safe adaptation: compute neighbor-label summaries using only training-fold labels and exclude the row itself. Proposed check: Audit label provenance and compare against unsupervised neighbor features and ratios. Limit: The source does not document leakage prevention for this supervised feature; 500 neighbors is not a default.",
+      "trigger_conditions": [
+        "nearby applicants in a meaningful numeric subspace may share outcome patterns"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed safe adaptation: compute neighbor-label summaries using only training-fold labels and exclude the row itself."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit label provenance and compare against unsupervised neighbor features and ratios."
+      ],
+      "limitations": [
+        "The source does not document leakage prevention for this supervised feature; 500 neighbors is not a default."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "feature_engineering"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Features"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The team used the target mean of five-hundred nearest rows defined by external-source scores and credit/annuity ratio, alongside debt and credit ratios.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-fb42920b6621f3fe"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 2,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 2,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Neighbor label provenance requires substantial caution.",
+        "competitor": "Useful supervised neighborhood experiment with rigorous isolation.",
+        "practitioner": "Applies to similar borrowers; target encoding leakage material."
+      },
+      "review": {
+        "candidate_id": "C-a-fb42920b6621f3fe",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked supervised500neighbor means; self/fold exclusion proposed not established.",
+        "candidate_sha256": "60332a67910c0ca08b61f99ca2d1a194c9ab402758900e341292a893c29c7e00"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000394",
+      "slug": "lesson-000394",
+      "merged_candidate_ids": [
+        "C-a-fb42920b6621f3fe"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-fddacf3cce399681b8cb",
+          "competition_id": "competition:home-credit-default-risk",
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "source_url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-fb42920b6621f3fe",
+          "line_start": 35,
+          "line_end": 59,
+          "evidence_text": "The most important features that I engineered, in descending order of importance (measured by gain in the LGBM model), were the following:\n\nneighbors_target_mean_500: The mean TARGET value of the 500 closest neighbors of each row, where each neighborhood was defined by the three external sources and the credit/annuity ratio.\n\nregion_id: The REGION_ID_POPULATION field treated as a categorical rather than as a numeric feature.\n\ndebt_credit_ratio_None: grouped by SK_ID_CURR, the sum of all credit debt (AMT_CREDIT_SUM_DEBT) over the sum of all credit (AM_CREDIT_SUM).\n\ncredit_annuity_ratio: AMT_CREDIT / AMT_ANNUITY\n\nprev_PRODUCT_COMBINATION: PRODUCT_COMBINATION value form most recent previous application.\n\nDAYS_CREDIT_mean: grouped by SK_ID_CURR, the mean CREDIT_DAYS value from the bureau table.\n\ncredit_goods_price_ratio: AMT_CREDIT / AMT_GOODS_PRICE\n\nlast_active_DAYS_CREDIT: From the active loans in bureau, the most recent DAYS CREDIT value, grouped by SK_ID_CURR.\n\ncredit_downpayment: AMT_GOOD_PRICE - AMT_CREDIT\n\nAGE_INT: int(DAYS_BIRTH / -365)\n\ninstallment_payment_ratio_1000_mean_mean: Looking only at installment payments where DAYS_INSTALLMENT>-1000, take the mean of AMT_PAYMENT - AMT_INSTALMENT, grouped first by SK_ID_PREV and then by SK_ID_CURR.\n\nannuity_to_max_installment_ratio: AMT_ANNUITY / (maximum installment from the installments_payments table, grouped by SK_ID_CURR).",
+          "kind": "used",
+          "statement": "The team used the target mean of five-hundred nearest rows defined by external-source scores and credit/annuity ratio, alongside debt and credit ratios.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 57.5,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 2,
+            "feasibility": 2
+          },
+          "rationale": "Neighbor label provenance requires substantial caution.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 76.25,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Useful supervised neighborhood experiment with rigorous isolation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 73.75,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 2,
+            "feasibility": 3
+          },
+          "rationale": "Applies to similar borrowers; target encoding leakage material.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-98c4015065472f29",
+          "locator": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt#L35-L59",
+          "quote": "The most important features that I engineered, in descending order of importance (measured by gain in the LGBM model), were the following:\n\nneighbors_target_mean_500: The mean TARGET value of the 500 closest neighbors of each row, where each neighborhood was defined by the three external sources and the credit/annuity ratio.\n\nregion_id: The REGION_ID_POPULATION field treated as a categorical rather than as a numeric feature.\n\ndebt_credit_ratio_None: grouped by SK_ID_CURR, the sum of all credit debt (AMT_CREDIT_SUM_DEBT) over the sum of all credit (AM_CREDIT_SUM).\n\ncredit_annuity_ratio: AMT_CREDIT / AMT_ANNUITY\n\nprev_PRODUCT_COMBINATION: PRODUCT_COMBINATION value form most recent previous application.\n\nDAYS_CREDIT_mean: grouped by SK_ID_CURR, the mean CREDIT_DAYS value from the bureau table.\n\ncredit_goods_price_ratio: AMT_CREDIT / AMT_GOODS_PRICE\n\nlast_active_DAYS_CREDIT: From the active loans in bureau, the most recent DAYS CREDIT value, grouped by SK_ID_CURR.\n\ncredit_downpayment: AMT_GOOD_PRICE - AMT_CREDIT\n\nAGE_INT: int(DAYS_BIRTH / -365)\n\ninstallment_payment_ratio_1000_mean_mean: Looking only at installment payments where DAYS_INSTALLMENT>-1000, take the mean of AMT_PAYMENT - AMT_INSTALMENT, grouped first by SK_ID_PREV and then by SK_ID_CURR.\n\nannuity_to_max_installment_ratio: AMT_ANNUITY / (maximum installment from the installments_payments table, grouped by SK_ID_CURR).",
+          "competition_id": "competition:home-credit-default-risk",
+          "url": "https://www.kaggle.com/competitions/home-credit-default-risk/writeups/home-aloan-1st-place-solution",
+          "snapshot_path": "research/lesson-extraction/snapshots/6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2.txt",
+          "snapshot_sha256": "6872e96da6275ec23b8e5c851d56298ccb57ebc038ba156d8f9efaf927f9c6d2",
+          "line_start": 35,
+          "line_end": 59
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-fb42920b6621f3fe",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked supervised500neighbor means; self/fold exclusion proposed not established.",
+          "candidate_sha256": "60332a67910c0ca08b61f99ca2d1a194c9ab402758900e341292a893c29c7e00"
+        }
+      ],
+      "book_location": {
+        "chapter": 28,
+        "path": "manuscript/chapters/28-nearest-neighbor-features.md",
+        "sha256": "6f1e8f639712d9432657a5786c3118c4e3a417ed5c13dec0ab7c19b557887d5d",
+        "line_start": 255,
+        "line_end": 259,
+        "section": "Applied Lessons from Winning-Solution Accounts"
+      }
+    },
+    {
+      "candidate_id": "C-a-f5ff6bd54b5d9f84",
+      "canonical_key": "use spatially grouped folds to compare simple terrain statistics, texture and patch context before increasing derivative complexity. | sonar habitat samples share spatial context | validation_reliability",
+      "title": "Compare spatial feature complexity on spatially grouped validation",
+      "statement": "When sonar habitat samples share spatial context, consider this source-backed action: Use spatially grouped folds to compare simple terrain statistics, texture and patch context before increasing derivative complexity. Proposed check: Measure macro F1 across held-out spatial regions and audit raster patch overlap. Limit: Repository comments are primary observations but supply no numeric derivative ablation or grouping distance.",
+      "trigger_conditions": [
+        "sonar habitat samples share spatial context"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Use spatially grouped folds to compare simple terrain statistics, texture and patch context before increasing derivative complexity."
+      ],
+      "verification_steps": [
+        "Proposed verification: Measure macro F1 across held-out spatial regions and audit raster patch overlap."
+      ],
+      "limitations": [
+        "Repository comments are primary observations but supply no numeric derivative ablation or grouping distance."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "multimodal"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "environment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The repository labels richer terrain derivatives as leaderboard overfitting and describes spatial KMeans/GroupKFold, GLCM features and dual-scale patches.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-f5ff6bd54b5d9f84"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Spatial patch overlap audit needs geospatial knowledge.",
+        "competitor": "Strong spatial validation safeguard before feature expansion.",
+        "practitioner": "Direct habitat-model reliability value without inferred ecology benefit."
+      },
+      "review": {
+        "candidate_id": "C-a-f5ff6bd54b5d9f84",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked terrain-overfit label/spatial grouping; grouping distance absent.",
+        "candidate_sha256": "ce0ccfc0a1e029fe07fa0b9438c8e4aa35ec9eb6ce3bf9bd24b2fa157099e50f"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000547",
+      "slug": "lesson-000547",
+      "merged_candidate_ids": [
+        "C-a-f5ff6bd54b5d9f84"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-45e33ad5dbf8d0017a2c",
+          "competition_id": "competition:geohab-mlwg-competition-2026",
+          "source_id": "source:lesson-source-b1b2d734c5182cc7",
+          "snapshot_path": "research/lesson-extraction/snapshots/bfd44b096e64b05bf31dabfe57a59fac9fca205088f48fcb29f9b081a97ab5f8.txt",
+          "snapshot_sha256": "bfd44b096e64b05bf31dabfe57a59fac9fca205088f48fcb29f9b081a97ab5f8",
+          "source_url": "https://raw.githubusercontent.com/Asamasach/geohab-mlwg/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-f5ff6bd54b5d9f84",
+          "line_start": 15,
+          "line_end": 35,
+          "evidence_text": "\u2502   \u251c\u2500\u2500 extract_features.py     # multi-scale terrain stats (v1)\n\u2502   \u251c\u2500\u2500 extract_features_v2.py  # richer terrain derivatives (v2 \u2014 overfit on LB)\n\u2502   \u251c\u2500\u2500 extract_glcm.py         # GLCM texture features on bathy + backscatter\n\u2502   \u251c\u2500\u2500 extract_patches.py      # 64\u00d764 raster patches around each point\n\u2502   \u251c\u2500\u2500 extract_patches_128.py  # 128\u00d7128 patches (wider context)\n\u2502   \u251c\u2500\u2500 train_baseline.py       # LightGBM baseline\n\u2502   \u251c\u2500\u2500 train_v1_ensemble.py    # LGB + XGB + CatBoost + ExtraTrees on v1 features\n\u2502   \u251c\u2500\u2500 train_v1_glcm.py        # LGB on v1 + GLCM\n\u2502   \u251c\u2500\u2500 train_v2.py             # LGB on v2 features\n\u2502   \u251c\u2500\u2500 train_ensemble.py       # multi-model v2 ensemble\n\u2502   \u251c\u2500\u2500 train_robust.py         # spatial-CV-regularised models\n\u2502   \u251c\u2500\u2500 train_cnn.py            # 2-channel CNN on 64\u00d764 patches (CPU)\n\u2502   \u251c\u2500\u2500 train_cnn_v2.py         # wider CNN variant (CPU)\n\u2502   \u251c\u2500\u2500 train_cnn_gpu.py        # GPU CNN with mixup + 16-way TTA\n\u2502   \u251c\u2500\u2500 train_cnn_big.py        # ResNet-style CNN (GPU)\n\u2502   \u251c\u2500\u2500 train_cnn_128.py        # CNN on 128\u00d7128 patches (GPU)\n\u2502   \u251c\u2500\u2500 train_dual_scale.py     # dual-scale (64 + 128) CNN\n\u2502   \u251c\u2500\u2500 spatial_cv.py           # spatial KMeans \u2192 GroupKFold validation\n\u2502   \u251c\u2500\u2500 spatial_knn.py          # spatial k-NN consensus voter\n\u2502   \u251c\u2500\u2500 stack_final.py          # GBDT + CNN blend (CPU CNNs)\n\u2502   \u2514\u2500\u2500 stack_gpu.py            # GBDT + CNN blend (GPU CNNs)",
+          "kind": "reported_failure",
+          "statement": "The repository labels richer terrain derivatives as leaderboard overfitting and describes spatial KMeans/GroupKFold, GLCM features and dual-scale patches.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Spatial patch overlap audit needs geospatial knowledge.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 91.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong spatial validation safeguard before feature expansion.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Direct habitat-model reliability value without inferred ecology benefit.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b1b2d734c5182cc7",
+          "locator": "research/lesson-extraction/snapshots/bfd44b096e64b05bf31dabfe57a59fac9fca205088f48fcb29f9b081a97ab5f8.txt#L15-L35",
+          "quote": "\u2502   \u251c\u2500\u2500 extract_features.py     # multi-scale terrain stats (v1)\n\u2502   \u251c\u2500\u2500 extract_features_v2.py  # richer terrain derivatives (v2 \u2014 overfit on LB)\n\u2502   \u251c\u2500\u2500 extract_glcm.py         # GLCM texture features on bathy + backscatter\n\u2502   \u251c\u2500\u2500 extract_patches.py      # 64\u00d764 raster patches around each point\n\u2502   \u251c\u2500\u2500 extract_patches_128.py  # 128\u00d7128 patches (wider context)\n\u2502   \u251c\u2500\u2500 train_baseline.py       # LightGBM baseline\n\u2502   \u251c\u2500\u2500 train_v1_ensemble.py    # LGB + XGB + CatBoost + ExtraTrees on v1 features\n\u2502   \u251c\u2500\u2500 train_v1_glcm.py        # LGB on v1 + GLCM\n\u2502   \u251c\u2500\u2500 train_v2.py             # LGB on v2 features\n\u2502   \u251c\u2500\u2500 train_ensemble.py       # multi-model v2 ensemble\n\u2502   \u251c\u2500\u2500 train_robust.py         # spatial-CV-regularised models\n\u2502   \u251c\u2500\u2500 train_cnn.py            # 2-channel CNN on 64\u00d764 patches (CPU)\n\u2502   \u251c\u2500\u2500 train_cnn_v2.py         # wider CNN variant (CPU)\n\u2502   \u251c\u2500\u2500 train_cnn_gpu.py        # GPU CNN with mixup + 16-way TTA\n\u2502   \u251c\u2500\u2500 train_cnn_big.py        # ResNet-style CNN (GPU)\n\u2502   \u251c\u2500\u2500 train_cnn_128.py        # CNN on 128\u00d7128 patches (GPU)\n\u2502   \u251c\u2500\u2500 train_dual_scale.py     # dual-scale (64 + 128) CNN\n\u2502   \u251c\u2500\u2500 spatial_cv.py           # spatial KMeans \u2192 GroupKFold validation\n\u2502   \u251c\u2500\u2500 spatial_knn.py          # spatial k-NN consensus voter\n\u2502   \u251c\u2500\u2500 stack_final.py          # GBDT + CNN blend (CPU CNNs)\n\u2502   \u2514\u2500\u2500 stack_gpu.py            # GBDT + CNN blend (GPU CNNs)",
+          "competition_id": "competition:geohab-mlwg-competition-2026",
+          "url": "https://raw.githubusercontent.com/Asamasach/geohab-mlwg/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/bfd44b096e64b05bf31dabfe57a59fac9fca205088f48fcb29f9b081a97ab5f8.txt",
+          "snapshot_sha256": "bfd44b096e64b05bf31dabfe57a59fac9fca205088f48fcb29f9b081a97ab5f8",
+          "line_start": 15,
+          "line_end": 35
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-f5ff6bd54b5d9f84",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked terrain-overfit label/spatial grouping; grouping distance absent.",
+          "candidate_sha256": "ce0ccfc0a1e029fe07fa0b9438c8e4aa35ec9eb6ce3bf9bd24b2fa157099e50f"
+        },
+        {
+          "candidate_id": "C-a-f5ff6bd54b5d9f84",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "GeoHab README explicitlyv2richderivativesoverfitLB,spatialKMeansGroupKFold,GLCM/64and128patches. Spatial-regionmacroF1/overlap checks proposed; numeric derivativegain/groupdistance unknown. Grades prioritize spatialvalidation without ecological-outcome inference.",
+          "candidate_sha256": "ce0ccfc0a1e029fe07fa0b9438c8e4aa35ec9eb6ce3bf9bd24b2fa157099e50f"
+        }
+      ],
+      "book_location": {
+        "chapter": 28,
+        "path": "manuscript/chapters/28-nearest-neighbor-features.md",
+        "sha256": "6f1e8f639712d9432657a5786c3118c4e3a417ed5c13dec0ab7c19b557887d5d",
+        "line_start": 231,
+        "line_end": 241,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

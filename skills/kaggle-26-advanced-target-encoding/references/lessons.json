@@ -1,0 +1,198 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-50d2f020a89e58f8",
+      "canonical_key": "proposed safe adaptation: fit encoders, imputation and selection within each fold and train the logistic stack on oof base probabilities. | bank churn data mixes categorical and numerical predictors | validation_reliability",
+      "title": "Fit supervised encodings and stacking within stratified folds",
+      "statement": "When bank churn data mixes categorical and numerical predictors, consider this source-backed action: Proposed safe adaptation: fit encoders, imputation and selection within each fold and train the logistic stack on OOF base probabilities. Proposed check: Audit each training transform for target access and compare stack against individual bases. Limit: The source lists components but not fold-isolation implementation; this is not evidence that its code avoids leakage.",
+      "trigger_conditions": [
+        "bank churn data mixes categorical and numerical predictors"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Proposed safe adaptation: fit encoders, imputation and selection within each fold and train the logistic stack on OOF base probabilities."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit each training transform for target access and compare stack against individual bases."
+      ],
+      "limitations": [
+        "The source lists components but not fold-isolation implementation; this is not evidence that its code avoids leakage."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "finance"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The repository describes target/WOE/bin encodings, KNN imputation, mutual-information selection and ten-fold stratified stacking with logistic meta-learning.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-50d2f020a89e58f8"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Encoding/stacking audit requires careful fold bookkeeping.",
+        "competitor": "Useful leakage-safe adaptation of listed supervised transformations.",
+        "practitioner": "Strong validation utility for target-dependent financial feature pipelines."
+      },
+      "review": {
+        "candidate_id": "C-a-50d2f020a89e58f8",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Checked Chinese component list; OOF/fold isolation proposed rather than established.",
+        "candidate_sha256": "92d2e5288db6117c2aeba41a41f1057023fd88a959cf3e6bc415a921763b8a4a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000395",
+      "slug": "lesson-000395",
+      "merged_candidate_ids": [
+        "C-a-50d2f020a89e58f8"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-16d4c95f726fe0b1667b",
+          "competition_id": "competition:binary-battle-ml-bank-customer-churn-challenge",
+          "source_id": "source:lesson-source-ea4e343130eb6290",
+          "snapshot_path": "research/lesson-extraction/snapshots/280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244.txt",
+          "snapshot_sha256": "280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244",
+          "source_url": "https://raw.githubusercontent.com/Mrli-dev0/Kaggle-Binary-Battle-Bank-Customer-Churn/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-50d2f020a89e58f8",
+          "line_start": 66,
+          "line_end": 86,
+          "evidence_text": "- \u4ea4\u53c9\u7279\u5f81\u3001\u6bd4\u4f8b\u7279\u5f81\u3001\u5bf9\u6570\u7279\u5f81\u6784\u5efa\n\n- TargetEncoder\u3001WOE \u7f16\u7801\u3001\u5206\u7bb1\u7f16\u7801\n\n- \u4e1a\u52a1\u9a71\u52a8\u5f3a\u533a\u5206\u7279\u5f81\n\n### 3\\. \u6570\u636e\u9884\u5904\u7406\n\n- KNN \u586b\u5145\u7f3a\u5931\u503c\n\n- \u7279\u5f81\u6807\u51c6\u5316\n\n- \u4e92\u4fe1\u606f\u6cd5\u7279\u5f81\u9009\u62e9\n\n### 4\\. \u591a\u6a21\u578b\u878d\u5408\u6846\u67b6\n\n- 10 \u6298\u5206\u5c42\u4ea4\u53c9\u9a8c\u8bc1\n\n- LightGBM \\+ XGBoost \\+ CatBoost \\+ MLP\n\n- Stacking \u878d\u5408\uff08\u903b\u8f91\u56de\u5f52\u4f5c\u4e3a\u5143\u5b66\u4e60\u5668\uff09",
+          "kind": "used",
+          "statement": "The repository describes target/WOE/bin encodings, KNN imputation, mutual-information selection and ten-fold stratified stacking with logistic meta-learning.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 67.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 3,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Encoding/stacking audit requires careful fold bookkeeping.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Useful leakage-safe adaptation of listed supervised transformations.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 88.75,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Strong validation utility for target-dependent financial feature pipelines.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-ea4e343130eb6290",
+          "locator": "research/lesson-extraction/snapshots/280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244.txt#L66-L86",
+          "quote": "- \u4ea4\u53c9\u7279\u5f81\u3001\u6bd4\u4f8b\u7279\u5f81\u3001\u5bf9\u6570\u7279\u5f81\u6784\u5efa\n\n- TargetEncoder\u3001WOE \u7f16\u7801\u3001\u5206\u7bb1\u7f16\u7801\n\n- \u4e1a\u52a1\u9a71\u52a8\u5f3a\u533a\u5206\u7279\u5f81\n\n### 3\\. \u6570\u636e\u9884\u5904\u7406\n\n- KNN \u586b\u5145\u7f3a\u5931\u503c\n\n- \u7279\u5f81\u6807\u51c6\u5316\n\n- \u4e92\u4fe1\u606f\u6cd5\u7279\u5f81\u9009\u62e9\n\n### 4\\. \u591a\u6a21\u578b\u878d\u5408\u6846\u67b6\n\n- 10 \u6298\u5206\u5c42\u4ea4\u53c9\u9a8c\u8bc1\n\n- LightGBM \\+ XGBoost \\+ CatBoost \\+ MLP\n\n- Stacking \u878d\u5408\uff08\u903b\u8f91\u56de\u5f52\u4f5c\u4e3a\u5143\u5b66\u4e60\u5668\uff09",
+          "competition_id": "competition:binary-battle-ml-bank-customer-churn-challenge",
+          "url": "https://raw.githubusercontent.com/Mrli-dev0/Kaggle-Binary-Battle-Bank-Customer-Churn/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244.txt",
+          "snapshot_sha256": "280840f57708dab899415014987f9ad0cc907ff5673f809c116817b84d864244",
+          "line_start": 66,
+          "line_end": 86
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-50d2f020a89e58f8",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Checked Chinese component list; OOF/fold isolation proposed rather than established.",
+          "candidate_sha256": "92d2e5288db6117c2aeba41a41f1057023fd88a959cf3e6bc415a921763b8a4a"
+        },
+        {
+          "candidate_id": "C-a-50d2f020a89e58f8",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Read Chinese churn README: target/WOE/bin encoding,KNN,MI,10fold stratified4base logistic stack explicitly described. Fold-local transforms and OOF stack are visibly proposed,not code-verified. Final0.89122 is not component gain; ratings fit supervised-transform audit.",
+          "candidate_sha256": "92d2e5288db6117c2aeba41a41f1057023fd88a959cf3e6bc415a921763b8a4a"
+        }
+      ],
+      "book_location": {
+        "chapter": 26,
+        "path": "manuscript/chapters/26-advanced-target-encoding.md",
+        "sha256": "2ce28de2b0363e19ef69eb6bbe14e55b23c01f4b663f41c59ede4bbc611b70ec",
+        "line_start": 96,
+        "line_end": 106,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}

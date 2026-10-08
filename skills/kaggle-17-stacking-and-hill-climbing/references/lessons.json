@@ -1,0 +1,788 @@
+{
+  "scope": "Public conditional lesson records and chapter locators. Full book text is excluded. Utility grades are not predicted gains.",
+  "lessons": [
+    {
+      "candidate_id": "C-a-987b16b5777041b4",
+      "canonical_key": "compare manually constrained or held-out blend weights with unconstrained training-loss optimization. | blend weights are tuned from in-sample fit statistics | validation_reliability",
+      "title": "Treat training-loss-optimized blend weights as a separate overfitting risk",
+      "statement": "When blend weights are tuned from in-sample fit statistics, consider this source-backed action: Compare manually constrained or held-out blend weights with unconstrained training-loss optimization. Proposed check: Evaluate weights on distinct forecast origins and measure whether R-squared predicts out-of-sample reliability. Limit: The sentence about lower leaderboard MASE is internally ambiguous; only the discarded optimizer and possible overfitting are clear.",
+      "trigger_conditions": [
+        "blend weights are tuned from in-sample fit statistics"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Compare manually constrained or held-out blend weights with unconstrained training-loss optimization."
+      ],
+      "verification_steps": [
+        "Proposed verification: Evaluate weights on distinct forecast origins and measure whether R-squared predicts out-of-sample reliability."
+      ],
+      "limitations": [
+        "The sentence about lower leaderboard MASE is internally ambiguous; only the discarded optimizer and possible overfitting are clear."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "time_series"
+        ],
+        "task_types": [
+          "forecasting"
+        ],
+        "application_domains": [
+          "travel"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Regression blend weights depended on fit R-squared through a logistic function; the author discarded numeric training-MASE optimization despite lower training MASE, mentioning possible overfitting.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-987b16b5777041b4"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Blend-fitting versus held-out reliability needs intermediate understanding.",
+        "competitor": "Critical caution against tuning mixture weights on fitted data.",
+        "practitioner": "Broad ensemble calibration principle with separate forecast-origin checks."
+      },
+      "review": {
+        "candidate_id": "C-a-987b16b5777041b4",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Training-MASE optimizer was discarded; leaderboard direction wording is ambiguous, and overfitting is speculation.",
+        "candidate_sha256": "8df7e2614345a9276b480e784044eb22f22f382351fd96c5766900e8bc9c4d6a"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000148",
+      "slug": "lesson-000148",
+      "merged_candidate_ids": [
+        "C-a-987b16b5777041b4"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-5ca713e322c9113bf75b",
+          "competition_id": "competition:tourism1",
+          "source_id": "source:lesson-source-041ebfcb575f5f14",
+          "snapshot_path": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt",
+          "snapshot_sha256": "82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee",
+          "source_url": "http://blog.kaggle.com/2010/09/27/how-i-did-it-lee-baker-on-winning-tourism-forecasting-part-one/",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-987b16b5777041b4",
+          "line_start": 18,
+          "line_end": 22,
+          "evidence_text": "I started with a basic weighted blend of predictors. I used a constant weight factor for the modified naive predictor, while blending weights for the unweighted and weighted regression lines depending on the r**2 values found in fitting the time series. I selected the logistic function as a way of gradually increasing the weight with increasing r**2 value:\n\nweight = a * logistic( b * (r**2 - c))\n\nValues for a, b, and c were determined by trial and error. I also examined using some numeric optimization functions included in Python to minimize a training set MASE. While this succeeded in lower the training set MASE, I discarded this method when I received a lower leaderboard MASE (possibly from overfitting).",
+          "kind": "reported_failure",
+          "statement": "Regression blend weights depended on fit R-squared through a logistic function; the author discarded numeric training-MASE optimization despite lower training MASE, mentioning possible overfitting.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 77.5,
+          "grade": "B",
+          "subscores": {
+            "impact": 2,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Blend-fitting versus held-out reliability needs intermediate understanding.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Critical caution against tuning mixture weights on fitted data.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad ensemble calibration principle with separate forecast-origin checks.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-041ebfcb575f5f14",
+          "locator": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt#L18-L22",
+          "quote": "I started with a basic weighted blend of predictors. I used a constant weight factor for the modified naive predictor, while blending weights for the unweighted and weighted regression lines depending on the r**2 values found in fitting the time series. I selected the logistic function as a way of gradually increasing the weight with increasing r**2 value:\n\nweight = a * logistic( b * (r**2 - c))\n\nValues for a, b, and c were determined by trial and error. I also examined using some numeric optimization functions included in Python to minimize a training set MASE. While this succeeded in lower the training set MASE, I discarded this method when I received a lower leaderboard MASE (possibly from overfitting).",
+          "competition_id": "competition:tourism1",
+          "url": "http://blog.kaggle.com/2010/09/27/how-i-did-it-lee-baker-on-winning-tourism-forecasting-part-one/",
+          "snapshot_path": "research/lesson-extraction/snapshots/82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee.txt",
+          "snapshot_sha256": "82d52a800517050811f0fac20631752f395518558cc0c6ae3a4a646315279aee",
+          "line_start": 18,
+          "line_end": 22
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-987b16b5777041b4",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Training-MASE optimizer was discarded; leaderboard direction wording is ambiguous, and overfitting is speculation.",
+          "candidate_sha256": "8df7e2614345a9276b480e784044eb22f22f382351fd96c5766900e8bc9c4d6a"
+        },
+        {
+          "candidate_id": "C-a-987b16b5777041b4",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "Complete tourism source read. LogisticR\u00b2 weights and trainingMASE optimizer discarded literal; lowerleaderboardMASE wording ambiguous, no invented failure direction. Distinctorigin fitreliability check proposed. Grades appropriate.",
+          "candidate_sha256": "8df7e2614345a9276b480e784044eb22f22f382351fd96c5766900e8bc9c4d6a"
+        }
+      ],
+      "book_location": {
+        "chapter": 17,
+        "path": "manuscript/chapters/17-stacking-and-hill-climbing.md",
+        "sha256": "899b68687a5237d1cffd37f5415b9fcbab30b83ee8477fa75e8b21adf3179127",
+        "line_start": 77,
+        "line_end": 87,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-7783cb97ae10c2dd7508",
+      "canonical_key": "evaluate the fitted stack on independent rows or nested folds | a meta-classifier fits base predictions on a held-out set | stacking_validation",
+      "title": "Keep stack fitting separate from stack evaluation",
+      "statement": "When a meta-classifier fits base predictions on a held-out set, evaluate the fitted stack on independent rows or nested folds. Create independent meta-validation or nested OOF predictions; separate base checkpoint selection, weight search and final assessment. Independent evaluation is proposed correction. Base models also selected checkpoints on the same valid_df, and weighted-average trials optimize this same holdout.",
+      "trigger_conditions": [
+        "a meta-classifier fits base predictions on a held-out set"
+      ],
+      "action_steps": [
+        "Proposed: evaluate the fitted stack on independent rows or nested folds."
+      ],
+      "verification_steps": [
+        "Proposed: create independent meta-validation or nested OOF predictions; separate base checkpoint selection, weight search and final assessment."
+      ],
+      "limitations": [
+        "Independent evaluation is proposed correction. Base models also selected checkpoints on the same valid_df, and weighted-average trials optimize this same holdout."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "validation"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "sentiment"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "stacking_validation"
+        ],
+        "risk_tags": [
+          "stacking_leakage",
+          "validation_overfitting"
+        ],
+        "current_relevance": "Conditional technique; verify current tooling and data assumptions.",
+        "book_fit": [
+          "Validation"
+        ]
+      },
+      "applications": [
+        {
+          "description": "Published implementation for nn-26-review-sentiment-classification: The logistic meta-classifier is fit on X_meta/y_meta and then predicts X_meta to report Validation Accuracy Meta.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed correction: fit the stack on fold-safe base predictions and evaluate it on independent rows, separating checkpoint and blend selection.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-f2afb544bd787a7d6e3a"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Beginner can recognize fit-and-score reuse clearly; designing a third split or nested folds takes more work.",
+        "competitor": "Competitor avoids inflated stack selection metrics and has exact boundaries to separate.",
+        "practitioner": "Practitioner gets high-value independent assessment for stacked models and repeated model-selection decisions."
+      },
+      "review": {
+        "candidate_id": "C-7783cb97ae10c2dd7508",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_c",
+        "reason": "Complete sentiment notebook fits logistic meta-model on X_meta and scores that same X_meta. Base checkpoints and random blend weights also selected against valid_df, so this is stack training accuracy, not independent validation. Nested or independent repair is proposed; no score improvement established.",
+        "candidate_sha256": "4c93ee812b2eb4ff449177e95688524e367fc25f1f266bc1d84fc2fd027d78be"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000253",
+      "slug": "lesson-000253",
+      "merged_candidate_ids": [
+        "C-7783cb97ae10c2dd7508"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-d1df7a5fdc63aa367bff",
+          "competition_id": "competition:nn-26-review-sentiment-classification",
+          "source_id": "source:lesson-source-056493c2f33c584e",
+          "snapshot_path": "research/lesson-extraction/snapshots/f61334344d86a74f9be80769797f94378b6673ca2ce3eee351ad421c7d502ec5.txt",
+          "snapshot_sha256": "f61334344d86a74f9be80769797f94378b6673ca2ce3eee351ad421c7d502ec5",
+          "source_url": "https://raw.githubusercontent.com/rasha-abd-el-khalik/neural-network-2026/HEAD/final-nn _Transformermodels.ipynb",
+          "source_quality": "primary_code",
+          "observation_id": "O-f2afb544bd787a7d6e3a",
+          "line_start": 535,
+          "line_end": 544,
+          "evidence_text": "X_meta = np.concatenate([roberta_val, bert_val, distil_val], axis=1)\ny_meta = valid_df[\"review\"].values\n\nmeta_clf = LogisticRegression(max_iter=500, class_weight=\"balanced\")\nmeta_clf.fit(X_meta, y_meta)\n\nmeta_preds = meta_clf.predict(X_meta)\naccuracy = (meta_preds == y_meta).mean()\n\nprint(\"Validation Accuracy Meta =\", accuracy)",
+          "kind": "used",
+          "statement": "The logistic meta-classifier is fit on X_meta/y_meta and then predicts X_meta to report Validation Accuracy Meta.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 85.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Beginner can recognize fit-and-score reuse clearly; designing a third split or nested folds takes more work.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Competitor avoids inflated stack selection metrics and has exact boundaries to separate.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 96.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 3
+          },
+          "rationale": "Practitioner gets high-value independent assessment for stacked models and repeated model-selection decisions.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-056493c2f33c584e",
+          "locator": "research/lesson-extraction/snapshots/f61334344d86a74f9be80769797f94378b6673ca2ce3eee351ad421c7d502ec5.txt#L535-L544",
+          "quote": "X_meta = np.concatenate([roberta_val, bert_val, distil_val], axis=1)\ny_meta = valid_df[\"review\"].values\n\nmeta_clf = LogisticRegression(max_iter=500, class_weight=\"balanced\")\nmeta_clf.fit(X_meta, y_meta)\n\nmeta_preds = meta_clf.predict(X_meta)\naccuracy = (meta_preds == y_meta).mean()\n\nprint(\"Validation Accuracy Meta =\", accuracy)",
+          "competition_id": "competition:nn-26-review-sentiment-classification",
+          "url": "https://raw.githubusercontent.com/rasha-abd-el-khalik/neural-network-2026/HEAD/final-nn _Transformermodels.ipynb",
+          "snapshot_path": "research/lesson-extraction/snapshots/f61334344d86a74f9be80769797f94378b6673ca2ce3eee351ad421c7d502ec5.txt",
+          "snapshot_sha256": "f61334344d86a74f9be80769797f94378b6673ca2ce3eee351ad421c7d502ec5",
+          "line_start": 535,
+          "line_end": 544
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-7783cb97ae10c2dd7508",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_c",
+          "reason": "Complete sentiment notebook fits logistic meta-model on X_meta and scores that same X_meta. Base checkpoints and random blend weights also selected against valid_df, so this is stack training accuracy, not independent validation. Nested or independent repair is proposed; no score improvement established.",
+          "candidate_sha256": "4c93ee812b2eb4ff449177e95688524e367fc25f1f266bc1d84fc2fd027d78be"
+        },
+        {
+          "candidate_id": "C-7783cb97ae10c2dd7508",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_c",
+          "reason": "Complete sentiment packet fits logistic stack on held-out base predictions and reports accuracy on those identical meta-fitting rows; the same holdout selects base checkpoints and blend weights. Candidate accurately proposes independent or nested assessment without corrected score, and preserves all selection reuse. High validation value with additional split work supports individual grades.",
+          "candidate_sha256": "4c93ee812b2eb4ff449177e95688524e367fc25f1f266bc1d84fc2fd027d78be"
+        }
+      ],
+      "book_location": {
+        "chapter": 17,
+        "path": "manuscript/chapters/17-stacking-and-hill-climbing.md",
+        "sha256": "899b68687a5237d1cffd37f5415b9fcbab30b83ee8477fa75e8b21adf3179127",
+        "line_start": 89,
+        "line_end": 99,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-5d2885386245ea52db2c",
+      "canonical_key": "freeze the same fold assignment for every backbone so oof matrices are aligned before ensemble comparisons. | language-specialist models share a classification task | validation_reliability",
+      "title": "Align folds across backbone families before soft voting",
+      "statement": "When language-specialist models share a classification task, proposed reuse: Proposed conditional application: Freeze the same fold assignment for every backbone so OOF matrices are aligned before ensemble comparisons. Proposed check: Save fold IDs and assert row/class order and held-out provenance match across OOF matrices. Limitation: Aligned folds alone do not guarantee leakage-free preprocessing or meta-validation.",
+      "trigger_conditions": [
+        "language-specialist models share a classification task"
+      ],
+      "action_steps": [
+        "Proposed conditional application: Freeze the same fold assignment for every backbone so OOF matrices are aligned before ensemble comparisons."
+      ],
+      "verification_steps": [
+        "Proposed check: Save fold IDs and assert row/class order and held-out provenance match across OOF matrices."
+      ],
+      "limitations": [
+        "Aligned folds alone do not guarantee leakage-free preprocessing or meta-validation."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "text"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "validation_reliability"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Conditional principle; historical models and configurations require current local verification.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The bilingual toxicity source uses identical fold membership across backbones to align out-of-fold matrices.",
+          "basis": "observed"
+        },
+        {
+          "description": "Proposed application under the stated conditions; controlled evaluation and resource measurement remain necessary.",
+          "basis": "proposed"
+        }
+      ],
+      "observation_ids": [
+        "O-3d636829a763246c2b63"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "competitor": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        },
+        "practitioner": {
+          "impact": 4,
+          "actionability": 4,
+          "transferability": 4,
+          "feasibility": 4
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Simple artifact discipline prevents invalid comparisons.",
+        "competitor": "High-value reproducible ensemble evaluation.",
+        "practitioner": "Broad reliable multi-model comparison practice."
+      },
+      "review": {
+        "candidate_id": "C-5d2885386245ea52db2c",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_b_root",
+        "reason": "README explicitly freezes shared stratified fold membership across six backbones.",
+        "candidate_sha256": "839889882a5153581337fb2700e22f6ea05e29e95ee3105a47c3de95ab870391"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000294",
+      "slug": "lesson-000294",
+      "merged_candidate_ids": [
+        "C-5d2885386245ea52db2c"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-9986076c5bee53a8f306",
+          "competition_id": "competition:herwill-safe-social-media-datathon-2026",
+          "source_id": "source:lesson-source-b8405ac5676e1644",
+          "snapshot_path": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt",
+          "snapshot_sha256": "98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f",
+          "source_url": "https://raw.githubusercontent.com/tousiftanzeeeem/Herwill-X-UAP-Safe-Social-media-Datathon-2026-Champion-Codes/main/README.md",
+          "source_quality": "primary_text",
+          "observation_id": "O-3d636829a763246c2b63",
+          "line_start": 120,
+          "line_end": 121,
+          "evidence_text": "One `StratifiedKFold(5, seed=42)` split is the alignment contract across\n  every backbone",
+          "kind": "used",
+          "statement": "The bilingual toxicity source uses identical fold membership across backbones to align out-of-fold matrices.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Simple artifact discipline prevents invalid comparisons.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "High-value reproducible ensemble evaluation.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 100.0,
+          "grade": "A",
+          "subscores": {
+            "impact": 4,
+            "actionability": 4,
+            "transferability": 4,
+            "feasibility": 4
+          },
+          "rationale": "Broad reliable multi-model comparison practice.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-b8405ac5676e1644",
+          "locator": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt#L120-L121",
+          "quote": "One `StratifiedKFold(5, seed=42)` split is the alignment contract across\n  every backbone",
+          "competition_id": "competition:herwill-safe-social-media-datathon-2026",
+          "url": "https://raw.githubusercontent.com/tousiftanzeeeem/Herwill-X-UAP-Safe-Social-media-Datathon-2026-Champion-Codes/main/README.md",
+          "snapshot_path": "research/lesson-extraction/snapshots/98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f.txt",
+          "snapshot_sha256": "98eb07a43f06feb2739fd630b78cf7154bf9f8a33a47a751ef70965fdd67436f",
+          "line_start": 120,
+          "line_end": 121
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-5d2885386245ea52db2c",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_b_root",
+          "reason": "README explicitly freezes shared stratified fold membership across six backbones.",
+          "candidate_sha256": "839889882a5153581337fb2700e22f6ea05e29e95ee3105a47c3de95ab870391"
+        },
+        {
+          "candidate_id": "C-5d2885386245ea52db2c",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_b_root",
+          "reason": "HerWILL methodology explicitly freezes same StratifiedKFold assignment across backbones. Candidate adds row/class/fold provenance checks and explicitly says alignment alone does not guarantee leakage-free preprocessing/meta-validation. Routine alignment discipline supports twelve utility4 ratings without adopting README blanket no-leakage assertion.",
+          "candidate_sha256": "839889882a5153581337fb2700e22f6ea05e29e95ee3105a47c3de95ab870391"
+        }
+      ],
+      "book_location": {
+        "chapter": 17,
+        "path": "manuscript/chapters/17-stacking-and-hill-climbing.md",
+        "sha256": "899b68687a5237d1cffd37f5415b9fcbab30b83ee8477fa75e8b21adf3179127",
+        "line_start": 113,
+        "line_end": 123,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    },
+    {
+      "candidate_id": "C-a-d3677cc2fd773935",
+      "canonical_key": "generate class-specific oof probabilities and compare a second-stage classifier against simple averaging. | multiclass astronomical objects have compact photometric predictors | predictive_quality",
+      "title": "Stack per-class astronomical probabilities using OOF inputs",
+      "statement": "When multiclass astronomical objects have compact photometric predictors, consider this source-backed action: Generate class-specific OOF probabilities and compare a second-stage classifier against simple averaging. Proposed check: Audit fold provenance and jointly normalize or calibrate class outputs as a proposed check. Limit: The packet does not document split design or final class decision rule.",
+      "trigger_conditions": [
+        "multiclass astronomical objects have compact photometric predictors"
+      ],
+      "action_steps": [
+        "Proposed adaptation of source observation: Generate class-specific OOF probabilities and compare a second-stage classifier against simple averaging."
+      ],
+      "verification_steps": [
+        "Proposed verification: Audit fold provenance and jointly normalize or calibrate class outputs as a proposed check."
+      ],
+      "limitations": [
+        "The packet does not document split design or final class decision rule."
+      ],
+      "mechanism": null,
+      "dimensions": {
+        "workflow_stages": [
+          "ensembling"
+        ],
+        "modalities": [
+          "tabular"
+        ],
+        "task_types": [
+          "classification"
+        ],
+        "application_domains": [
+          "general"
+        ],
+        "applicability": "condition-specific",
+        "implementation_effort": "medium",
+        "compute_cost": "unknown",
+        "benefit_types": [
+          "predictive_quality"
+        ],
+        "risk_tags": [],
+        "current_relevance": "Transferable decision; verify suitability and current tooling in the target setting.",
+        "book_fit": [
+          "Ensembling"
+        ]
+      },
+      "applications": [
+        {
+          "description": "The author used photometric bands/redshift, trained class-specific base models and fed their OOF predictions into class-specific CatBoost models.",
+          "basis": "observed"
+        }
+      ],
+      "observation_ids": [
+        "O-a-d3677cc2fd773935"
+      ],
+      "value_subscores": {
+        "beginner": {
+          "impact": 2,
+          "actionability": 3,
+          "transferability": 3,
+          "feasibility": 2
+        },
+        "competitor": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        },
+        "practitioner": {
+          "impact": 3,
+          "actionability": 4,
+          "transferability": 3,
+          "feasibility": 3
+        }
+      },
+      "grading_rationales": {
+        "beginner": "Stacking and multiclass calibration require prior modeling experience.",
+        "competitor": "Actionable OOF stacking pattern with missing split details acknowledged.",
+        "practitioner": "Reusable ensemble structure when class probabilities are reconciled consistently."
+      },
+      "review": {
+        "candidate_id": "C-a-d3677cc2fd773935",
+        "stage": "fresh-context",
+        "status": "accepted",
+        "reviewer": "fresh_review_a",
+        "reason": "Per-class base OOF probabilities feed class-specific CatBoost; final probability combination and split remain undocumented.",
+        "candidate_sha256": "524aabcef4745dbddba078816cc17040488250840eb9abfe99f211709fb76633"
+      },
+      "related_node_ids": [],
+      "lesson_id": "lesson:lesson-000298",
+      "slug": "lesson-000298",
+      "merged_candidate_ids": [
+        "C-a-d3677cc2fd773935"
+      ],
+      "evidence_occurrences": [
+        {
+          "packet_id": "P-8d6ad8322917c7be8ceb",
+          "competition_id": "competition:nytfug",
+          "source_id": "source:lesson-source-aee116918323f6c0",
+          "snapshot_path": "research/lesson-extraction/snapshots/1bfaa7b3dfd76811c7fb6654da589a62ca31a6ed17a887d1f2513ac8bd425e98.txt",
+          "snapshot_sha256": "1bfaa7b3dfd76811c7fb6654da589a62ca31a6ed17a887d1f2513ac8bd425e98",
+          "source_url": "https://www.kaggle.com/competitions/nytfug/writeups/thierry-neusius-some-indications-on-the-winning-so",
+          "source_quality": "primary_text",
+          "observation_id": "O-a-d3677cc2fd773935",
+          "line_start": 14,
+          "line_end": 22,
+          "evidence_text": "I used only the u, g, r, I, z, and redshift features.\n\nI did the training in 2 steps.\n\nIn the first step, I trained several models with and without hyper parameter tuning. The training each time was done by type of object. So firstly I got the probability that the object is a star, then a galaxy and then a quasar.\n\nI kept only the oof for the models of type: lightGbm, Xgb, Catboost, and FandomForest.\n\nOn a second step, I made a final training with this oof with Catboost. As in the first step, I used a training per type of object.",
+          "kind": "used",
+          "statement": "The author used photometric bands/redshift, trained class-specific base models and fed their OOF predictions into class-specific CatBoost models.",
+          "reported_result": null
+        }
+      ],
+      "scores": {
+        "beginner": {
+          "score": 60.0,
+          "grade": "C",
+          "subscores": {
+            "impact": 2,
+            "actionability": 3,
+            "transferability": 3,
+            "feasibility": 2
+          },
+          "rationale": "Stacking and multiclass calibration require prior modeling experience.",
+          "unknown_subscores": []
+        },
+        "competitor": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Actionable OOF stacking pattern with missing split details acknowledged.",
+          "unknown_subscores": []
+        },
+        "practitioner": {
+          "score": 81.25,
+          "grade": "A",
+          "subscores": {
+            "impact": 3,
+            "actionability": 4,
+            "transferability": 3,
+            "feasibility": 3
+          },
+          "rationale": "Reusable ensemble structure when class probabilities are reconciled consistently.",
+          "unknown_subscores": []
+        }
+      },
+      "support_counts": {
+        "observations": 1,
+        "sources": 1,
+        "competitions": 1
+      },
+      "source_refs": [
+        {
+          "source_id": "source:lesson-source-aee116918323f6c0",
+          "locator": "research/lesson-extraction/snapshots/1bfaa7b3dfd76811c7fb6654da589a62ca31a6ed17a887d1f2513ac8bd425e98.txt#L14-L22",
+          "quote": "I used only the u, g, r, I, z, and redshift features.\n\nI did the training in 2 steps.\n\nIn the first step, I trained several models with and without hyper parameter tuning. The training each time was done by type of object. So firstly I got the probability that the object is a star, then a galaxy and then a quasar.\n\nI kept only the oof for the models of type: lightGbm, Xgb, Catboost, and FandomForest.\n\nOn a second step, I made a final training with this oof with Catboost. As in the first step, I used a training per type of object.",
+          "competition_id": "competition:nytfug",
+          "url": "https://www.kaggle.com/competitions/nytfug/writeups/thierry-neusius-some-indications-on-the-winning-so",
+          "snapshot_path": "research/lesson-extraction/snapshots/1bfaa7b3dfd76811c7fb6654da589a62ca31a6ed17a887d1f2513ac8bd425e98.txt",
+          "snapshot_sha256": "1bfaa7b3dfd76811c7fb6654da589a62ca31a6ed17a887d1f2513ac8bd425e98",
+          "line_start": 14,
+          "line_end": 22
+        }
+      ],
+      "evidence_grade": "E2",
+      "review_records": [
+        {
+          "candidate_id": "C-a-d3677cc2fd773935",
+          "stage": "fresh-context",
+          "status": "accepted",
+          "reviewer": "fresh_review_a",
+          "reason": "Per-class base OOF probabilities feed class-specific CatBoost; final probability combination and split remain undocumented.",
+          "candidate_sha256": "524aabcef4745dbddba078816cc17040488250840eb9abfe99f211709fb76633"
+        },
+        {
+          "candidate_id": "C-a-d3677cc2fd773935",
+          "stage": "independent",
+          "status": "accepted",
+          "reviewer": "independent_review_a",
+          "reason": "NYTFUGThierry originalclass-specificLightGBM/XGB/CatBoost/RF OOF thenclass-specificCatBoostphotometryredshift. Averagingbaseline/jointprobcalibration/foldauditproposed,finaldecision/splitunknown. Moderate stackinggradesreasonable.",
+          "candidate_sha256": "524aabcef4745dbddba078816cc17040488250840eb9abfe99f211709fb76633"
+        }
+      ],
+      "book_location": {
+        "chapter": 17,
+        "path": "manuscript/chapters/17-stacking-and-hill-climbing.md",
+        "sha256": "899b68687a5237d1cffd37f5415b9fcbab30b83ee8477fa75e8b21adf3179127",
+        "line_start": 101,
+        "line_end": 111,
+        "section": "Conditional Practice Checks from Additional Solutions"
+      }
+    }
+  ]
+}
