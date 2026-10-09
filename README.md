@@ -10,7 +10,7 @@ Companion notebooks, browser workbooks and modeling skills for Jason Karpeles' b
 - 66 companion skills: a master router plus one per chapter. These teach the companion methods and lesson applications; they do not contain the full chapter text.
 - Modeling helpers and a complete synthetic season-forecast example.
 
-Open [the workbook](site/workbook/index.html), [interactive chapter library](site/index.html), or [lesson atlas](site/lessons.html). The prepared website is intended for https://karpeles.com/companions/winning-kaggle-the-reproducible-way/; publication there is recorded separately.
+Open the live [interactive workbook](https://karpelespublishing.github.io/winning-kaggle-companion/workbook/), [chapter library](https://karpelespublishing.github.io/winning-kaggle-companion/) or [lesson atlas](https://karpelespublishing.github.io/winning-kaggle-companion/lessons.html). The karpeles.com deployment is prepared but pending website repository access.
 
 About the book: https://karpeles.com/publishing/winning-kaggle-the-reproducible-way
 
