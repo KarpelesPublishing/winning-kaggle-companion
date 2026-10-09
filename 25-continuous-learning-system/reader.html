@@ -1,17 +1,475 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Continuous Learning System</title><link rel="stylesheet" href="../companion.css"></head>
-<body><header class="cmp-header"><nav class="cmp-nav"><a href="../index.html">All chapters</a><a href="https://karpeles.com/publishing/winning-kaggle-the-reproducible-way">About the book</a><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion">GitHub</a><a href="../corrections.html">Technical corrections</a><a href="../lessons.html">Lesson atlas</a><a href="../routes.html">Reading routes</a><a href="../workbook/index.html">Workbook</a></nav></header>
-<main class="cmp-wrap"><p><a href="../workbook/25-continuous-learning-system.html">Open the chapter workbook</a></p><p class="cmp-eyebrow">Chapter 25</p><h1>The Continuous Learning System</h1><p>A reusable note should tell future you when to act, what observation supports the action, when it may fail, and what to test next. This worksheet compares three constructed notes about validation. Note zero says only to use a time split. Note one names a future-period holdout, records the observed comparison, includes a stationary-data counterexample, and proposes a fresh holdout test. Note two has evidence and a next test but omits the counterexample. Select each note and inspect the missing fields. Then take one note from your own notebook and rewrite its weakest field. The goal is a retrievable hypothesis that remains useful when the next dataset differs. Select a competition note and inspect whether it records the deployment condition, supporting observation, failure case and next experiment. Completeness makes a note actionable; only evidence from the next task can test whether its principle transfers. A useful counterexample narrows the rule without making it useless. Add the case where your advice would change and the observation that would convince you to revise it during the next competition.</p>
-<p><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/25-continuous-learning-system.ipynb">Notebook on GitHub</a></p>
-<section class="activity" aria-labelledby="activity-heading"><h2 id="activity-heading">Is this note ready to reuse as a conditional modeling rule?</h2>
-<p>This is a constructed teaching example. Its results describe these supplied inputs, not a measured competition gain.</p><label for="activity-input">note choice</label><select id="activity-input"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option></select><button id="reset" type="button">Reset</button>
-<div class="result" id="result" aria-live="polite"></div><h3>Assumptions</h3><p>[&#x27;The worksheet checks evidence fields, not whether a technique is true. Three constructed notes have different completeness.&#x27;]</p><h3>What the result means</h3><p>Completeness makes a note actionable; only evidence from the next task can test whether its principle transfers.</p></section>
-<details><summary>Apply this to your model</summary><p>Inspect experiment logs and choose one recurring failure or modeling decision. Read a small relevant set of solution write-ups fully, preserving their original links and distinguishing observed results from inferred principles. Create a concept note with applicability, required inputs, code version, supporting evidence and a counterexample. Link one mistake note and one post-mortem to it. Retrieve the note during a new task and run its suggested diagnostic on the existing validation split. Compare retrieval usefulness and the proposed technique against the baseline. Reject or narrow a principle when assumptions differ, sources cannot be traced or new evidence contradicts its recommendation.</p></details><nav class="chapter-pager" aria-label="Chapter navigation"><a href="../24-building-a-portfolio/reader.html">Previous chapter</a><a href="../26-advanced-target-encoding/reader.html">Next chapter</a></nav>
-<script id="activity-data" type="application/json">[{"parameter": 0, "result": {"note_code": 0, "condition_present": 1, "evidence_present": 0, "counterexample_present": 0, "next_test_present": 0, "missing_field_count": 3}}, {"parameter": 1, "result": {"note_code": 1, "condition_present": 1, "evidence_present": 1, "counterexample_present": 1, "next_test_present": 1, "missing_field_count": 0}}, {"parameter": 2, "result": {"note_code": 2, "condition_present": 1, "evidence_present": 1, "counterexample_present": 0, "next_test_present": 1, "missing_field_count": 1}}]</script>
-<script>
-const states=JSON.parse(document.getElementById('activity-data').textContent);
-const choice=document.getElementById('activity-input'), result=document.getElementById('result');
-const initial=choice.value;
-function rows(value,path=''){let out=[];if(value!==null&&typeof value==='object'){for(const [key,item] of Object.entries(value))out.push(...rows(item,path?path+' / '+key:key));}else out.push([path.replaceAll('_',' '),value]);return out;}
-function show(){const table=document.createElement('table');const head=document.createElement('tr');for(const value of ['Quantity or decision','Result']){const th=document.createElement('th');th.scope='col';th.textContent=value;head.append(th);}table.append(head);for(const [key,value] of rows(states[Number(choice.value)].result)){const tr=document.createElement('tr');for(const item of [key,value]){const td=document.createElement('td');td.textContent=typeof item==='number'?Number(item.toPrecision(8)).toString():String(item);tr.append(td);}table.append(tr);}const wrap=document.createElement('div');wrap.className='table-scroll';wrap.append(table);result.replaceChildren(wrap);}
-choice.addEventListener('change',show);document.getElementById('reset').addEventListener('click',()=>{choice.value=initial;show();});show();
-</script></main><footer class="cmp-footer"><div class="cmp-footer-inner"><p class="cmp-footer-title">Winning Kaggle the Reproducible Way · Jason Karpeles</p><div class="cmp-footer-links"><a href="https://karpeles.com/publishing/winning-kaggle-the-reproducible-way">About the book</a><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion">GitHub</a></div></div></footer></body></html>
+<!doctype html>
+<html lang="en" class="no-js cmp-page">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Check whether a note carries the evidence a conditional rule needs. Winning Kaggle the Reproducible Way, interactive companion.">
+<title>Chapter 25: The Continuous Learning System. Winning Kaggle the Reproducible Way, interactive companion</title>
+<style>:root{color-scheme:light;--ink:#172a3b;--muted:#4a565e;--paper:#f7f5ef;--line:#d6d5cc;--teal:#0f6268;--gold:#7d520d;--white:#fff;--soft:#e8f0ef;font-family:Georgia,'Times New Roman',serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-size:18px;line-height:1.65;overflow-wrap:break-word}
+a{color:var(--teal);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+header,main,footer{max-width:1040px;margin:0 auto;padding:28px 40px}
+header{padding-top:36px;padding-bottom:12px}
+.eyebrow,.nav,.control label,button,select,.small,.metric dt,.metric dd,.demo-number,.chapter-number,figcaption,.source,.notice,summary,.note h3{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;color:var(--teal);margin:0 0 14px}
+.nav{font-size:14px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-bottom:28px}
+.nav a{text-decoration:none;font-weight:600}
+h1,h2,h3{font-weight:normal;line-height:1.2;letter-spacing:-.01em}
+h1{font-size:clamp(32px,6vw,54px);margin:4px 0 16px}
+h2{font-size:clamp(26px,4.5vw,32px);margin:0 0 16px}
+h3{font-size:20px;margin:0 0 8px}
+p{margin:0 0 16px}
+.lead{font-size:22px;line-height:1.45;color:var(--muted);max-width:820px}
+.small{font-size:14px;line-height:1.55;color:var(--muted)}
+.notice{font-size:14px;line-height:1.55;background:var(--white);border-left:3px solid var(--gold);padding:12px 16px;max-width:820px}
+.chapter-nav{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 8px}
+.chapter-nav a{font:14px/1.4 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:var(--white);border:1px solid var(--line);padding:9px 12px;border-radius:5px;text-decoration:none}
+.demo{border-top:1px solid var(--line);padding-top:34px;margin-top:30px;scroll-margin-top:16px}
+.demo-number{color:var(--gold);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.question{font-size:21px;max-width:880px}
+.formula{background:var(--white);padding:16px 20px;border-left:3px solid var(--teal);margin:18px 0;max-width:100%}
+.equation{margin:6px 0 10px;max-width:100%;overflow-x:auto;overflow-y:hidden}
+.equation img{display:block;max-width:100%;height:auto;margin:0 auto}
+.equation.text{text-align:center;font-size:1.05em;line-height:1.5;overflow-wrap:normal}
+.equation mjx-container svg{max-width:100%;height:auto}
+.symbols{font-size:16px;color:var(--muted);margin:10px 0 0}
+.prediction{border-left:2px solid var(--gold);padding:1px 0 1px 16px;margin:22px 0}
+.controls{background:var(--soft);padding:18px;display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-top:20px;border-radius:5px}
+.control{flex:1 1 200px;min-width:0}
+.control label{font-size:14px;font-weight:650;display:block;margin-bottom:6px}
+select{font-size:16px;color:var(--ink);width:100%;min-height:44px;padding:8px 10px;background:#fff;border:1px solid #6f9592;border-radius:4px}
+select:disabled{color:var(--ink);opacity:1;background:#f3f3f0}
+button{font-size:14px;color:var(--ink);background:#fff;border:1px solid #6f9592;border-radius:4px;padding:10px 16px;cursor:pointer;min-height:44px}
+button:hover{background:#f2f8f7}
+.plot{margin:16px 0 8px;background:#fff;border:1px solid #e1e2de}
+.figure-frame{overflow-x:auto;overscroll-behavior-x:contain}.figure-frame:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}.plot img{display:block;width:100%;height:auto}
+.scroll-hint{display:none;margin:0;font:600 13px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--teal)}
+.plot .scroll-hint{padding:6px 14px;background:var(--soft);border-bottom:1px solid var(--line)}
+.formula .scroll-hint{margin:0 0 6px}
+.js .scroll-hint.is-needed{display:block}
+.plot figcaption{padding:10px 16px;border-top:1px solid var(--line);font-size:13px;line-height:1.6;color:var(--muted)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 22px;background:#fff;padding:16px 20px;margin:14px 0 16px;border-bottom:1px solid var(--line)}
+.metric dt{font-size:13px;color:var(--muted);margin-bottom:4px}
+.metric dd{margin:0;font-size:17px;line-height:1.4;overflow-wrap:anywhere}
+.interpretation{font-size:17px;min-height:28px;max-width:900px}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px}
+.note{font-size:16px}
+.note h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+details{margin:16px 0;font-size:16px}
+summary{cursor:pointer;color:var(--teal);font-size:15px;padding:6px 0}
+details .answer{padding:12px 16px;background:#fff;border-left:2px solid var(--teal)}
+.source{font-size:13px;color:var(--muted);border-top:1px dotted #b3b6b0;padding-top:12px;margin-top:18px}
+.ask-skill{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--teal);padding:14px 18px;margin:18px 0 8px;max-width:820px}
+.ask-skill h2{font:700 13px/1.4 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin:0 0 8px}
+.ask-skill-name{font-size:15px;margin-bottom:8px}.ask-skill .skill-name{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;font-weight:600}
+.ask-prompt{font-size:17px;margin:0;padding:10px 14px;background:var(--soft);border-radius:4px}
+.predict-options{border:1px solid var(--line);background:var(--white);border-radius:5px;margin:0 0 10px;padding:10px 16px 12px;font-size:16px}
+.predict-options legend{font:700 13px/1.4 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);padding:0 6px}
+.predict-option{display:flex;gap:10px;align-items:flex-start;padding:8px 0;min-height:44px;cursor:pointer;line-height:1.45}
+.predict-option input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--teal)}
+.prediction-feedback{font-size:16px;margin:0 0 18px;min-height:0}
+.prediction-feedback.is-correct,.prediction-feedback.is-incorrect{padding:10px 14px;background:var(--white);border-left:3px solid var(--teal)}
+.prediction-feedback.is-incorrect{border-left-color:var(--gold)}
+.stepper{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.stepper button:disabled{color:#6b757b;background:#f3f3f0;border-color:#c9cbc4;cursor:default}
+.step-status{font:14px/1.4 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--ink)}
+.steps-panel{background:var(--white);border-left:3px solid var(--gold);padding:12px 18px 6px;margin:6px 0 16px;max-width:900px}
+.steps-panel h3{font:700 12px/1.4 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em;margin:0 0 6px}
+.steps{margin:0 0 8px;padding-left:24px;font-size:16px}.steps li{margin:0 0 6px;overflow-wrap:anywhere}
+details.misconception .answer{border-left-color:var(--gold)}
+.scope-source{font-size:13px;color:var(--muted);margin:8px 0 0;font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+details .answer p:last-child{margin-bottom:0}
+.noscript{background:#fff3dc;padding:16px;margin:16px 0;font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;font-size:15px}
+.catalog{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
+.chapter-card{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px;min-height:120px}
+.chapter-card a,.chapter-card .title{font-size:20px;line-height:1.3}
+.chapter-card.pending{background:transparent}
+.chapter-card.pending .title{color:var(--muted)}
+.chapter-card .small{margin-top:auto}
+.chapter-number{color:var(--gold);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+footer{border-top:1px solid var(--line);font:13px/1.65 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--muted);padding-top:22px;padding-bottom:36px}
+footer p{margin-bottom:8px}
+.skip{position:absolute;left:12px;top:-80px;background:#fff;color:var(--teal);padding:10px 14px;z-index:10;font-family:system-ui,Arial,sans-serif}
+.skip:focus{top:10px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.chapter-pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:20px;border-top:1px solid var(--line)}
+.chapter-pager a{display:block;max-width:48%;text-decoration:none}
+.chapter-pager span{display:block;font:700 12px/1.4 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.chapter-pager b{font-weight:normal;font-size:19px;line-height:1.3}
+.chapter-pager .next{margin-left:auto;text-align:right}
+[hidden]{display:none!important}
+@media(max-width:760px){.no-js .scroll-hint.figure-hint{display:block}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .equation{background:#fff;color:#14202b;border-radius:8px;padding:8px 12px}}
+:root[data-theme="dark"] .equation{background:#fff;color:#14202b;border-radius:8px;padding:8px 12px}
+@media(max-width:760px){header,main,footer{padding-left:16px;padding-right:16px}.catalog{grid-template-columns:1fr 1fr}.columns{grid-template-columns:1fr;gap:10px}.lead{font-size:19px}.question{font-size:19px}.formula{padding:12px}.metrics{grid-template-columns:1fr 1fr;padding:12px;gap:12px}.controls{padding:14px;gap:12px}.control{flex-basis:100%}}
+@media(max-width:460px){body{font-size:17px}.formula{padding:12px 10px}.chapter-pager a{max-width:100%}.chapter-pager .next{margin-left:0;text-align:left}.catalog{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.metric dd{font-size:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:#fff;font-size:11pt}.controls,.nav,.chapter-nav,.skip,button,.predict-options,.prediction-feedback,.scroll-hint,.chapter-pager{display:none!important}.plot img,.equation img{min-width:0!important}header,main,footer{padding:12px}.demo{break-before:page}.plot,.formula,.metrics{break-inside:avoid}.columns{display:block}details .answer{display:block}}
+</style>
+<style id="book-theme">/* Book theme for the laboratory readers (engine setting theme_css).
+   Inlined after the engine's neutral base stylesheet, so it only restyles; it never changes content.
+   Card layout, serif headings, teal and gold, pill navigation, light and dark.
+   The first part follows the look of the reference companion theme; the part headed
+   "Engine features" extends the same style to the stepper, worked steps, prediction choices,
+   panels, the chapter-skill callout, scroll hints, equation plates and narrow screens. */
+:root{--paper:#f6f4ee;--card:#fffefb;--ink:#14212d;--muted:#56636e;--line:#e2ddd1;--teal:#136f75;--soft:#e4efee;--gold:#9a6418;--white:#fffefb;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,Charter,Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;font-family:var(--sans)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--paper:#11171d;--card:#18212a;--white:#18212a;--ink:#e9e6df;--muted:#a3adb5;--line:#2a3540;--teal:#5fb6ba;--soft:#1d3134;--gold:#d9a35a}}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#11171d;--card:#18212a;--white:#18212a;--ink:#e9e6df;--muted:#a3adb5;--line:#2a3540;--teal:#5fb6ba;--soft:#1d3134;--gold:#d9a35a}
+body{background:var(--paper);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+a:hover{color:var(--ink)}
+header,main,footer{max-width:960px;padding-left:28px;padding-right:28px}
+
+/* Header */
+header{padding-top:28px;padding-bottom:8px}
+.nav{gap:8px 10px;margin-bottom:44px}
+.nav a{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--sans);color:var(--ink);text-decoration:none;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.nav a:first-child:before{content:"\2190";font-weight:400}
+.nav a:hover{border-color:var(--teal);color:var(--teal)}
+.eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.16em;color:var(--teal);margin-bottom:18px}
+h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.015em}
+h1{font-size:clamp(36px,5.2vw,56px);line-height:1.06;margin:0 0 16px}
+.lead{font:italic 400 22px/1.45 var(--serif);color:var(--muted);margin-bottom:18px}
+header>p:not([class]){max-width:720px;color:var(--ink)}
+.notice{font:14px/1.6 var(--sans);color:var(--muted);background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:14px 18px}
+.chapter-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:30px 0 8px}
+.chapter-nav a{display:block;font:600 14px/1.35 var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;transition:border-color .15s,transform .15s}
+.chapter-nav a:hover{border-color:var(--teal);transform:translateY(-1px)}
+
+/* Each demonstration is one card */
+.demo{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:40px 44px 32px;margin-top:40px;box-shadow:0 18px 40px -34px rgba(20,33,45,.45)}
+.demo-number{font:600 12px/1 var(--sans);letter-spacing:.14em;color:var(--gold);margin-bottom:12px}
+.demo h2{font-size:clamp(28px,3.6vw,36px);line-height:1.15;margin:0 0 14px}
+.question{font:400 21px/1.45 var(--serif);color:var(--ink);margin-bottom:14px}
+.formula{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:12px;padding:18px 22px;margin:22px 0}
+.symbols{font-size:15px}
+.prediction{background:color-mix(in srgb,var(--gold) 9%,var(--card));border:0;border-radius:12px;padding:16px 20px;margin:22px 0}
+.prediction strong{font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+
+/* Controls */
+.controls{background:var(--soft);border-radius:14px;padding:20px 22px;gap:18px}
+.control label{font:600 13px/1.3 var(--sans);color:var(--ink);margin-bottom:8px}
+select{font:15px/1.3 var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;min-height:46px;padding:10px 12px}
+select:focus{border-color:var(--teal)}
+select:disabled{background:var(--card);color:var(--ink)}
+button{font:600 14px/1 var(--sans);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:13px 20px}
+button:hover{border-color:var(--teal);color:var(--teal);background:var(--card)}
+
+/* Figure, numbers, interpretation */
+.plot{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:22px 0 12px}
+.plot figcaption{font:13px/1.6 var(--sans);color:var(--muted);background:var(--paper);border-top:1px solid var(--line);padding:12px 18px}
+.metrics{background:transparent;border:0;padding:0;gap:12px;margin:16px 0 18px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.metric{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.metric dt{font:600 12px/1.3 var(--sans);letter-spacing:.04em;color:var(--muted);margin-bottom:6px}
+.metric dd{font:400 18px/1.35 var(--serif);color:var(--ink)}
+.interpretation{font-size:17px;line-height:1.7;border-left:3px solid var(--teal);padding-left:18px}
+.columns{gap:16px;margin-top:26px}
+.note{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:15px}
+.note h3{font:700 11px/1.4 var(--sans);letter-spacing:.12em;color:var(--teal);margin-bottom:8px}
+.note p{margin:0}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin:18px 0 0;font-size:16px}
+summary{font:600 15px/1.45 var(--sans);color:var(--ink);padding:14px 18px;list-style:none;display:flex;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"+";color:var(--teal);font-weight:700;width:12px;flex:none}
+details[open] summary:before{content:"\2212"}
+details .answer{background:var(--paper);border:0;border-top:1px solid var(--line);border-radius:0 0 12px 12px;padding:14px 18px 14px 40px}
+.source{font:12px/1.5 var(--sans);border-top:0;padding-top:0;color:var(--muted);margin:18px 0 0}
+
+/* Previous / next chapter */
+.chapter-pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:56px 0 0;padding-top:0;border-top:0}
+.chapter-pager a{display:block;max-width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;text-decoration:none;color:var(--ink)}
+.chapter-pager a:hover{border-color:var(--teal);color:var(--ink)}
+.chapter-pager span{display:block;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.chapter-pager b{font:400 20px/1.25 var(--serif)}
+.chapter-pager .next{text-align:right;grid-column:2;margin-left:0}
+
+footer{margin-top:72px;font:13px/1.65 var(--sans);color:var(--muted);border-top:1px solid var(--line)}
+
+/* Engine features, in the same style */
+/* Ask the chapter skill: a card in the header, like the notice but teal */
+.ask-skill{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:14px 18px;margin:16px 0 0;max-width:820px}
+.ask-skill h2{font:700 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:0 0 6px}
+.ask-skill-name{font:14px/1.6 var(--sans);color:var(--muted);margin-bottom:8px}
+.ask-skill .skill-name{font-weight:600;color:var(--ink)}
+.ask-prompt{font:italic 400 17px/1.5 var(--serif);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:0}
+
+/* Prediction choices and feedback */
+.predict-options{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:-8px 0 12px;font-size:16px}
+.predict-options legend{font:700 12px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:0 6px}
+.predict-option{border-radius:8px;padding:9px 6px;margin:0 -6px}
+.predict-option:hover{background:color-mix(in srgb,var(--gold) 7%,var(--card))}
+.predict-option input{accent-color:var(--teal)}
+.prediction-feedback{font-size:16px;margin:0 0 18px}
+.prediction-feedback.is-correct,.prediction-feedback.is-incorrect{background:var(--soft);border:0;border-left:3px solid var(--teal);border-radius:10px;padding:12px 16px}
+.prediction-feedback.is-incorrect{background:color-mix(in srgb,var(--gold) 10%,var(--card));border-left-color:var(--gold)}
+
+/* Back / Next stepper inside the controls */
+.stepper{gap:10px;padding-top:4px}
+.stepper button{min-width:96px}
+.stepper button:disabled,.stepper button:disabled:hover{opacity:.45;color:var(--ink);background:var(--card);border-color:var(--line);cursor:default}
+.step-status{font:600 14px/1.4 var(--sans);color:var(--ink)}
+
+/* Worked steps for the chosen example */
+.steps-panel{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:14px 18px 6px;margin:6px 0 18px;max-width:100%}
+.steps-panel h3{font:700 11px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+.steps{font-size:15.5px;line-height:1.6}
+.steps li::marker{color:var(--gold);font-weight:700}
+
+/* Misconception and scope panels */
+details.misconception summary:before{color:var(--gold)}
+details.scope-note summary{color:var(--muted)}
+.scope-source{font:12px/1.5 var(--sans);color:var(--muted)}
+
+/* Sideways-scroll hints for wide figures and equations */
+.scroll-hint{font:600 13px/1.5 var(--sans);color:var(--teal)}
+.plot .scroll-hint{background:var(--soft);border-bottom:1px solid var(--line);padding:8px 18px}
+
+/* Equations are dark-ink images: keep a white plate behind them in dark mode */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .equation{background:#fff;color:#14212d;border-radius:8px;padding:10px 14px;margin:6px 0 12px}}
+:root[data-theme="dark"] .equation{background:#fff;color:#14212d;border-radius:8px;padding:10px 14px;margin:6px 0 12px}
+
+.noscript{background:color-mix(in srgb,var(--gold) 10%,var(--card));color:var(--ink);border-radius:12px;font-family:var(--sans)}
+.skip{background:var(--card);color:var(--teal);border-radius:8px}
+
+/* Chapter list page */
+.catalog{gap:16px}
+.chapter-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;transition:border-color .15s}
+.chapter-card:hover{border-color:var(--teal)}
+.chapter-card a{font:400 21px/1.3 var(--serif);color:var(--ink);text-decoration:none}
+.chapter-card a:hover{color:var(--teal)}
+.chapter-card.pending{background:transparent}
+.chapter-number{font:600 12px/1.4 var(--sans);letter-spacing:.12em;color:var(--gold)}
+#library-title{font-size:32px;margin-top:24px}
+
+@media (max-width:760px){header,main,footer{padding-left:16px;padding-right:16px}.nav{margin-bottom:28px}.chapter-nav{grid-template-columns:1fr 1fr}.demo{padding:26px 18px 22px;border-radius:14px}.chapter-pager{grid-template-columns:1fr}.chapter-pager .next{grid-column:1}.controls{padding:16px}.predict-options{padding:8px 14px 10px}}
+@media (max-width:460px){body{font-size:16px}.lead{font-size:19px}.chapter-nav{grid-template-columns:1fr;gap:8px}.chapter-nav a{padding:11px 14px}.formula{padding:14px 12px}.demo h2{font-size:26px}.question{font-size:19px}.plot .scroll-hint{padding:7px 12px}details .answer{padding:12px 14px 12px 22px}.stepper button{flex:1 1 0}}
+@media print{.demo{box-shadow:none;border:0;padding:0}.chapter-pager{display:none}.equation{background:none!important}}
+</style>
+<link rel="stylesheet" href="../companion.css">
+<link rel="canonical" href="https://karpeles.com/companions/winning-kaggle-the-reproducible-way/25-continuous-learning-system/reader.html">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the demonstrations</a>
+<header class="cmp-header"><div class="cmp-topbar"><a class="cmp-book" href="../index.html">Winning Kaggle the Reproducible Way</a><nav class="cmp-nav" aria-label="Chapter navigation"><a href="../index.html">All chapters</a><a href="../workbook/25-continuous-learning-system.html">Workbook</a><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion/blob/main/notebooks/25-continuous-learning-system.ipynb" target="_blank" rel="noopener">Notebook on GitHub</a><a href="../24-building-a-portfolio/reader.html" rel="prev">&larr; Previous chapter</a><a href="../26-advanced-target-encoding/reader.html" rel="next">Next chapter &rarr;</a></nav></div><div class="cmp-title"><p class="cmp-eyebrow">Chapter 25</p><h1>The Continuous Learning System</h1><p class="cmp-lead">Check whether a note carries the evidence a conditional rule needs.</p><p class="cmp-summary">A learning record should keep its condition, supporting observation, limits and next check. One demonstration audits three constructed notes for those four fields.</p><p class="notice">Every example is a constructed teaching example. Its results describe the declared inputs of the chapter activity, not a measured competition gain.</p></div></header>
+<main id="main">
+<nav class="chapter-nav" aria-label="Demonstrations in this chapter"><a href="#C25-D01">1. Is this note ready to reuse as a conditional rule?</a></nav>
+<noscript><p class="noscript">Each demonstration below shows its default example with its figure, numbers and interpretation. Turn on JavaScript in your browser to try the other examples.</p></noscript>
+<section class="demo" id="C25-D01" aria-labelledby="title-C25-D01">
+<p class="demo-number">Demonstration 1 of 1</p>
+<h2 id="title-C25-D01">Is this note ready to reuse as a conditional rule?</h2>
+<p class="question">Does a competition note record the condition, evidence, failure case and next test that make it reusable?</p>
+<p>A reusable note should say when to act, what observation supports the action, when it may fail and what to test next. The worksheet checks three constructed validation notes for those four fields. It checks completeness, not whether the technique is true.</p>
+<div class="formula" role="group" aria-label="Equations from the chapter">
+<p class="equation"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIzMy40NHB0IiBoZWlnaHQ9IjQ4LjE2cHQiIHZpZXdCb3g9IjAgMCAyMzMuNDQgNDguMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImZpZ3VyZV8xIj48ZyBpZD0icGF0Y2hfMSI+PHBhdGggZD0iTSAwIDQ4LjE2IEwgMjMzLjQ0IDQ4LjE2IEwgMjMzLjQ0IDAgTCAwIDAgTCAwIDQ4LjE2IHogIiBzdHlsZT0iZmlsbDogbm9uZSIvPjwvZz48ZyBpZD0idGV4dF8xIj48ZyBzdHlsZT0iZmlsbDogIzE0MjAyYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMi4xNiAyOS4yKSBzY2FsZSgwLjE2IC0wLjE2KSI+PGRlZnM+PHBhdGggaWQ9IkNtbWkxMC03YSIgZD0iTSA0OTQgMTA5IFEgNDk0IDE0NyA1MDAgMTY2IEwgOTc4IDIwNzUgUSAxMDI1IDIyNTMgMTAyNSAyMzg4IFEgMTAyNSAyNjYzIDgzOCAyNjYzIFEgNjM4IDI2NjMgNTQxIDI0MjMgUSA0NDQgMjE4NCAzNTMgMTgxOSBRIDM1MyAxODAwIDMzNCAxNzg5IFEgMzE2IDE3NzggMzAwIDE3NzggTCAyMjUgMTc3OCBRIDIwMyAxNzc4IDE4NyAxODAxIFEgMTcyIDE4MjUgMTcyIDE4NDQgUSAyNDEgMjEyMiAzMDUgMjMxNSBRIDM2OSAyNTA5IDUwNSAyNjY4IFEgNjQxIDI4MjggODQ0IDI4MjggUSAxMDg0IDI4MjggMTI2OCAyNjc2IFEgMTQ1MyAyNTI1IDE0NTMgMjI5MSBRIDE2NDQgMjU0MSAxOTAwIDI2ODQgUSAyMTU2IDI4MjggMjQ0NCAyODI4IFEgMjY3MiAyODI4IDI4MzcgMjc1MCBRIDMwMDMgMjY3MiAzMDk1IDI1MTQgUSAzMTg4IDIzNTYgMzE4OCAyMTM4IFEgMzE4OCAxODc1IDMwNzAgMTUwMyBRIDI5NTMgMTEzMSAyNzc4IDY3MiBRIDI2ODggNDYzIDI2ODggMjg4IFEgMjY4OCA5NyAyODM0IDk3IFEgMzA4NCA5NyAzMjUxIDM2NSBRIDM0MTkgNjM0IDM0ODggOTQxIFEgMzUwMCA5NzggMzU0MSA5NzggTCAzNjE2IDk3OCBRIDM2NDEgOTc4IDM2NTggOTYyIFEgMzY3NSA5NDcgMzY3NSA5MjIgUSAzNjc1IDkxNiAzNjY5IDkwMyBRIDM1ODEgNTQxIDMzNjQgMjM0IFEgMzE0NyAtNzIgMjgyMiAtNzIgUSAyNTk3IC03MiAyNDM3IDgzIFEgMjI3OCAyMzggMjI3OCA0NTkgUSAyMjc4IDU3OCAyMzI4IDcwOSBRIDI0MDkgOTE5IDI1MTQgMTIwOSBRIDI2MTkgMTUwMCAyNjg2IDE3NjUgUSAyNzUzIDIwMzEgMjc1MyAyMjM0IFEgMjc1MyAyNDEzIDI2NzkgMjUzOCBRIDI2MDYgMjY2MyAyNDMxIDI2NjMgUSAyMTk3IDI2NjMgMjAwMCAyNTU5IFEgMTgwMyAyNDU2IDE2NTYgMjI4NiBRIDE1MDkgMjExNiAxMzg4IDE4ODEgTCA5NTMgMTQxIFEgOTMxIDUzIDg1NCAtOSBRIDc3OCAtNzIgNjg0IC03MiBRIDYwNiAtNzIgNTUwIC0yMiBRIDQ5NCAyOCA0OTQgMTA5IHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbXIxMC0zOCIgZD0iTSAxOTEgMCBMIDE5MSAyMjUgUSA0MDkgMjI1IDU1MCAyNTkgUSA2OTEgMjk0IDY5MSA0MjggTCA2OTEgMjE3NSBRIDY5MSAyMzQ3IDYzOSAyNDIzIFEgNTg4IDI1MDAgNDkxIDI1MTcgUSAzOTQgMjUzNCAxOTEgMjUzNCBMIDE5MSAyNzU5IEwgMTExOSAyODI4IEwgMTExOSAyMjAzIFEgMTI0NyAyNDc4IDE0OTggMjY1MyBRIDE3NTAgMjgyOCAyMDQ3IDI4MjggUSAyNzg0IDI4MjggMjkxMyAyMjI4IFEgMzA0MSAyNDk3IDMyODcgMjY2MiBRIDM1MzQgMjgyOCAzODI4IDI4MjggUSA0MTE5IDI4MjggNDMxNyAyNzM0IFEgNDUxNiAyNjQxIDQ2MTYgMjQ0OCBRIDQ3MTYgMjI1NiA0NzE2IDE5NjYgTCA0NzE2IDQyOCBRIDQ3MTYgMjk0IDQ4NTggMjU5IFEgNTAwMCAyMjUgNTIxNiAyMjUgTCA1MjE2IDAgTCAzNzUwIDAgTCAzNzUwIDIyNSBRIDM5NjkgMjI1IDQxMDkgMjU5IFEgNDI1MCAyOTQgNDI1MCA0MjggTCA0MjUwIDE5NDcgUSA0MjUwIDIyNjkgNDE1OSAyNDY2IFEgNDA2OSAyNjYzIDM3ODggMjY2MyBRIDM0MTkgMjY2MyAzMTc4IDIzNjYgUSAyOTM4IDIwNjkgMjkzOCAxNjkxIEwgMjkzOCA0MjggUSAyOTM4IDI5NCAzMDc4IDI1OSBRIDMyMTkgMjI1IDM0MzggMjI1IEwgMzQzOCAwIEwgMTk3MiAwIEwgMTk3MiAyMjUgUSAyMTkxIDIyNSAyMzMxIDI1OSBRIDI0NzIgMjk0IDI0NzIgNDI4IEwgMjQ3MiAxOTQ3IFEgMjQ3MiAyMjU5IDIzODEgMjQ2MSBRIDIyOTEgMjY2MyAyMDA5IDI2NjMgUSAxNjM4IDI2NjMgMTM5OCAyMzY2IFEgMTE1OSAyMDY5IDExNTkgMTY5MSBMIDExNTkgNDI4IFEgMTE1OSAyOTQgMTMwMCAyNTkgUSAxNDQxIDIyNSAxNjU2IDIyNSBMIDE2NTYgMCBMIDE5MSAwIHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbXIxMC0yNCIgZD0iTSAxOTcgMCBMIDE5NyAyMjUgUSA0MTYgMjI1IDU1NiAyNTkgUSA2OTcgMjk0IDY5NyA0MjggTCA2OTcgMjE3NSBRIDY5NyAyNDIyIDYwMSAyNDc4IFEgNTA2IDI1MzQgMjI1IDI1MzQgTCAyMjUgMjc1OSBMIDExNDcgMjgyOCBMIDExNDcgNDI4IFEgMTE0NyAyOTQgMTI2OSAyNTkgUSAxMzkxIDIyNSAxNTk0IDIyNSBMIDE1OTQgMCBMIDE5NyAwIHogTSA0NjkgMzkyOCBRIDQ2OSA0MDY5IDU3NSA0MTc1IFEgNjgxIDQyODEgODE5IDQyODEgUSA5MDkgNDI4MSA5OTMgNDIzNCBRIDEwNzggNDE4OCAxMTI1IDQxMDMgUSAxMTcyIDQwMTkgMTE3MiAzOTI4IFEgMTE3MiAzNzkxIDEwNjUgMzY4NCBRIDk1OSAzNTc4IDgxOSAzNTc4IFEgNjgxIDM1NzggNTc1IDM2ODQgUSA0NjkgMzc5MSA0NjkgMzkyOCB6ICIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz48cGF0aCBpZD0iQ21yMTAtNTIiIGQ9Ik0gMjEzIC0xOSBMIDIxMyAxMDI1IFEgMjEzIDEwNzUgMjY5IDEwNzUgTCAzNDcgMTA3NSBRIDM4NCAxMDc1IDM5NyAxMDI1IFEgNTc1IDk3IDEyNTkgOTcgUSAxNTYzIDk3IDE3NjcgMjM0IFEgMTk3MiAzNzIgMTk3MiA2NTkgUSAxOTcyIDg2NiAxODEyIDEwMTEgUSAxNjUzIDExNTYgMTQzNCAxMjA5IEwgMTAwNiAxMjk0IFEgNzkxIDEzNDEgNjE0IDE0MzcgUSA0MzggMTUzNCAzMjUgMTY5NSBRIDIxMyAxODU2IDIxMyAyMDY5IFEgMjEzIDIzNTAgMzYxIDI1MjkgUSA1MDkgMjcwOSA3NDYgMjc4OSBRIDk4NCAyODY5IDEyNTkgMjg2OSBRIDE1ODggMjg2OSAxODMxIDI2OTQgTCAyMDE2IDI4NTMgUSAyMDE2IDI4NjkgMjA0NyAyODY5IEwgMjA5NCAyODY5IFEgMjExMyAyODY5IDIxMjggMjg1MSBRIDIxNDQgMjgzNCAyMTQ0IDI4MTYgTCAyMTQ0IDE5NzggUSAyMTQ0IDE5MTkgMjA5NCAxOTE5IEwgMjAxNiAxOTE5IFEgMTk1OSAxOTE5IDE5NTkgMTk3OCBRIDE5NTkgMjMxMyAxNzczIDI1MTYgUSAxNTg4IDI3MTkgMTI1MyAyNzE5IFEgOTY2IDI3MTkgNzU1IDI2MTIgUSA1NDQgMjUwNiA1NDQgMjI0NyBRIDU0NCAyMDY5IDY5NSAxOTU1IFEgODQ3IDE4NDEgMTA1MCAxNzkxIEwgMTQ4NCAxNzA5IFEgMTcwMyAxNjU5IDE4OTIgMTU0MCBRIDIwODEgMTQyMiAyMTkyIDEyNDAgUSAyMzAzIDEwNTkgMjMwMyA4MzEgUSAyMzAzIDYwMCAyMjIzIDQyOSBRIDIxNDQgMjU5IDIwMDEgMTQ2IFEgMTg1OSAzNCAxNjY1IC0xOSBRIDE0NzIgLTcyIDEyNTkgLTcyIFEgODU5IC03MiA1NzUgMTk3IEwgMzQxIC01NiBRIDM0MSAtNzIgMzA2IC03MiBMIDI2OSAtNzIgUSAyMTMgLTcyIDIxMyAtMTkgeiAiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+PHBhdGggaWQ9IkNtcjEwLTc0IiBkPSJNIDE5MSAwIEwgMTkxIDIyNSBRIDQwOSAyMjUgNTUwIDI1OSBRIDY5MSAyOTQgNjkxIDQyOCBMIDY5MSAyMTc1IFEgNjkxIDIzNDcgNjM5IDI0MjMgUSA1ODggMjUwMCA0OTEgMjUxNyBRIDM5NCAyNTM0IDE5MSAyNTM0IEwgMTkxIDI3NTkgTCAxMTE5IDI4MjggTCAxMTE5IDIyMDMgUSAxMjQ3IDI0NzggMTQ5OCAyNjUzIFEgMTc1MCAyODI4IDIwNDcgMjgyOCBRIDI0OTEgMjgyOCAyNzE0IDI2MTUgUSAyOTM4IDI0MDMgMjkzOCAxOTY2IEwgMjkzOCA0MjggUSAyOTM4IDI5NCAzMDc4IDI1OSBRIDMyMTkgMjI1IDM0MzggMjI1IEwgMzQzOCAwIEwgMTk3MiAwIEwgMTk3MiAyMjUgUSAyMTkxIDIyNSAyMzMxIDI1OSBRIDI0NzIgMjk0IDI0NzIgNDI4IEwgMjQ3MiAxOTQ3IFEgMjQ3MiAyMjU5IDIzODEgMjQ2MSBRIDIyOTEgMjY2MyAyMDA5IDI2NjMgUSAxNjM4IDI2NjMgMTM5OCAyMzY2IFEgMTE1OSAyMDY5IDExNTkgMTY5MSBMIDExNTkgNDI4IFEgMTE1OSAyOTQgMTMwMCAyNTkgUSAxNDQxIDIyNSAxNjU2IDIyNSBMIDE2NTYgMCBMIDE5MSAwIHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbXIxMC0xYiIgZD0iTSAxNzggLTUwMCBRIDE3OCAtMjcyIDM0MyAtMTAxIFEgNTA5IDY5IDczOCAxNDEgUSA2MDkgMjM4IDU0MiAzODQgUSA0NzUgNTMxIDQ3NSA2OTcgUSA0NzUgOTk3IDY2NiAxMjI4IFEgMzcyIDE1MTYgMzcyIDE4ODggUSAzNzIgMjA4OCA0NTggMjI2MyBRIDU0NCAyNDM4IDY5NyAyNTY2IFEgODUwIDI2OTQgMTAzNyAyNzYxIFEgMTIyNSAyODI4IDE0MjIgMjgyOCBRIDE4MDMgMjgyOCAyMTA2IDI2MDYgUSAyMjM4IDI3NDcgMjQxNyAyODIzIFEgMjU5NyAyOTAwIDI3OTEgMjkwMCBRIDI5MjggMjkwMCAzMDE1IDI4MDEgUSAzMTAzIDI3MDMgMzEwMyAyNTY2IFEgMzEwMyAyNDg4IDMwNDMgMjQyOCBRIDI5ODQgMjM2OSAyOTA2IDIzNjkgUSAyODI1IDIzNjkgMjc2NSAyNDI4IFEgMjcwNiAyNDg4IDI3MDYgMjU2NiBRIDI3MDYgMjY4NCAyNzg0IDI3MzEgUSAyNDUzIDI3MzEgMjIxNiAyNTAzIFEgMjMzMSAyMzg4IDI0MDEgMjIyMCBRIDI0NzIgMjA1MyAyNDcyIDE4ODggUSAyNDcyIDE2MTYgMjMyMiAxMzk4IFEgMjE3MiAxMTgxIDE5MjYgMTA2MSBRIDE2ODEgOTQxIDE0MjIgOTQxIFEgMTA3MiA5NDEgNzgxIDExMzEgUSA2OTEgMTAwNiA2OTEgODUwIFEgNjkxIDY4MSA4MDIgNTU0IFEgOTEzIDQyOCAxMDgxIDQyOCBMIDE2MDYgNDI4IFEgMTk4OCA0MjggMjI5NCAzNTkgUSAyNjAwIDI5MSAyODA4IDg0IFEgMzAxNiAtMTIyIDMwMTYgLTUwMCBRIDMwMTYgLTc4MSAyNzc4IC05NjcgUSAyNTQxIC0xMTUzIDIyMTEgLTEyMzYgUSAxODgxIC0xMzE5IDE2MDAgLTEzMTkgUSAxMzE2IC0xMzE5IDk4NCAtMTIzNiBRIDY1MyAtMTE1MyA0MTUgLTk2NyBRIDE3OCAtNzgxIDE3OCAtNTAwIHogTSA1MzggLTUwMCBRIDUzOCAtNzE2IDcxMyAtODYxIFEgODg4IC0xMDA2IDExMzQgLTEwNzYgUSAxMzgxIC0xMTQ3IDE2MDAgLTExNDcgUSAxODE2IC0xMTQ3IDIwNjIgLTEwNzYgUSAyMzA5IC0xMDA2IDI0ODIgLTg2MSBRIDI2NTYgLTcxNiAyNjU2IC01MDAgUSAyNjU2IC0xNjYgMjM1MCAtNjcgUSAyMDQ0IDMxIDE2MDYgMzEgTCAxMDgxIDMxIFEgOTM0IDMxIDgxMSAtMzkgUSA2ODggLTEwOSA2MTMgLTIzNiBRIDUzOCAtMzYzIDUzOCAtNTAwIHogTSAxNDIyIDExMTMgUSAxOTY2IDExMTMgMTk2NiAxODg4IFEgMTk2NiAyMjIyIDE4NTAgMjQzOSBRIDE3MzQgMjY1NiAxNDIyIDI2NTYgUSAxMTA5IDI2NTYgOTkzIDI0MzkgUSA4NzggMjIyMiA4NzggMTg4OCBRIDg3OCAxNjc1IDkyMiAxNTAzIFEgOTY2IDEzMzEgMTA4NCAxMjIyIFEgMTIwMyAxMTEzIDE0MjIgMTExMyB6ICIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz48cGF0aCBpZD0iQ21yMTAtMjkiIGQ9Ik0gNDgxIDg1MCBRIDQyOCA4NTAgMzkzIDg5MCBRIDM1OSA5MzEgMzU5IDk3OCBRIDM1OSAxMDMxIDM5MyAxMDY4IFEgNDI4IDExMDYgNDgxIDExMDYgTCA0NTAwIDExMDYgUSA0NTQ3IDExMDYgNDU4MSAxMDY4IFEgNDYxNiAxMDMxIDQ2MTYgOTc4IFEgNDYxNiA5MzEgNDU4MSA4OTAgUSA0NTQ3IDg1MCA0NTAwIDg1MCBMIDQ4MSA4NTAgeiBNIDQ4MSAyMDk0IFEgNDI4IDIwOTQgMzkzIDIxMzEgUSAzNTkgMjE2OSAzNTkgMjIyMiBRIDM1OSAyMjY5IDM5MyAyMzA5IFEgNDI4IDIzNTAgNDgxIDIzNTAgTCA0NTAwIDIzNTAgUSA0NTQ3IDIzNTAgNDU4MSAyMzA5IFEgNDYxNiAyMjY5IDQ2MTYgMjIyMiBRIDQ2MTYgMjE2OSA0NTgxIDIxMzEgUSA0NTQ3IDIwOTQgNDUwMCAyMDk0IEwgNDgxIDIwOTQgeiAiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+PHBhdGggaWQ9IkNtcjEwLTNiIiBkPSJNIDE3OCAxMDU2IEwgMTc4IDEyODEgTCAyMTU2IDQyMzEgUSAyMTc4IDQyNjMgMjIyMiA0MjYzIEwgMjMxNiA0MjYzIFEgMjM4OCA0MjYzIDIzODggNDE5MSBMIDIzODggMTI4MSBMIDMwMTYgMTI4MSBMIDMwMTYgMTA1NiBMIDIzODggMTA1NiBMIDIzODggNDI4IFEgMjM4OCAyOTcgMjU3NSAyNjEgUSAyNzYzIDIyNSAzMDA5IDIyNSBMIDMwMDkgMCBMIDEyNDcgMCBMIDEyNDcgMjI1IFEgMTQ5NCAyMjUgMTY4MSAyNjEgUSAxODY5IDI5NyAxODY5IDQyOCBMIDE4NjkgMTA1NiBMIDE3OCAxMDU2IHogTSAzOTEgMTI4MSBMIDE5MDYgMTI4MSBMIDE5MDYgMzU0NyBMIDM5MSAxMjgxIHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbXN5MTAtMTEiIGQ9Ik0gNjUzIDE0NzIgUSA2MDAgMTQ3MiA1NjUgMTUxMiBRIDUzMSAxNTUzIDUzMSAxNjAwIFEgNTMxIDE2NDcgNTY1IDE2ODcgUSA2MDAgMTcyOCA2NTMgMTcyOCBMIDQzMjUgMTcyOCBRIDQzNzUgMTcyOCA0NDA4IDE2ODcgUSA0NDQxIDE2NDcgNDQ0MSAxNjAwIFEgNDQ0MSAxNTUzIDQ0MDggMTUxMiBRIDQzNzUgMTQ3MiA0MzI1IDE0NzIgTCA2NTMgMTQ3MiB6ICIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz48cGF0aCBpZD0iQ21leDEwLTMzIiBkPSJNIDQyMiAtODk1OSBRIDM1OSAtODk1OSAzNTkgLTg4OTEgUSAzNTkgLTg4NjMgMzc4IC04ODQ0IEwgMzc1NiAtNDkwOSBMIDM3OCAtMjgxIFEgMzU5IC0yNjMgMzU5IC0yNTAgTCAzNTkgLTU2IFEgMzU5IC0zNCAzNzkgLTE3IFEgNDAwIDAgNDIyIDAgTCA4MTAzIDAgTCA4ODc4IC0xNzk3IEwgODY5MSAtMTc5NyBRIDgzOTQgLTExMTYgNzY5NyAtNzg3IFEgNzAwMCAtNDU5IDYyNDIgLTM4MiBRIDU0ODQgLTMwNiA0NDgxIC0zMDYgTCAxNTIyIC0zMDYgTCA0NTQ0IC00NDM0IFEgNDU1NiAtNDQ1OSA0NTU2IC00NDgxIFEgNDU1NiAtNDUwMCA0NTQ0IC00NTI1IEwgMTIyMiAtODM5MSBMIDQ1NDQgLTgzOTEgUSA1NTI4IC04MzkxIDYyODkgLTgzMTQgUSA3MDUwIC04MjM4IDc3MzkgLTc5MDggUSA4NDI4IC03NTc4IDg2OTEgLTY5MDAgTCA4ODc4IC02OTAwIEwgODEwMyAtODk1OSBMIDQyMiAtODk1OSB6ICIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz48cGF0aCBpZD0iQ21taTEwLTNlIiBkPSJNIDM0MSAxMTYgUSAzNDEgMTUzIDM0NyAxNzIgTCAxMjc1IDM4NzIgUSAxMzAwIDM5ODEgMTMwNiA0MDQ0IFEgMTMwNiA0MTQ3IDg5MSA0MTQ3IFEgODI1IDQxNDcgODI1IDQyMzEgUSA4MjggNDI0NyA4MzkgNDI4NyBRIDg1MCA0MzI4IDg2NyA0MzUwIFEgODg0IDQzNzIgOTE2IDQzNzIgTCAxNzc4IDQ0NDEgTCAxNzk3IDQ0NDEgUSAxNzk3IDQ0MzQgMTgxOSA0NDIzIFEgMTg0MSA0NDEzIDE4NDQgNDQwOSBRIDE4NTYgNDM3OCAxODU2IDQzNTkgTCAxMTg0IDE2ODQgUSAxNDE2IDE3ODEgMTc2NyAyMTQ1IFEgMjExOSAyNTA5IDIzMTcgMjY2OCBRIDI1MTYgMjgyOCAyODE2IDI4MjggUSAyOTk0IDI4MjggMzExOSAyNzA2IFEgMzI0NCAyNTg0IDMyNDQgMjQwNiBRIDMyNDQgMjI5NCAzMTk3IDIxOTggUSAzMTUwIDIxMDMgMzA2NSAyMDQzIFEgMjk4MSAxOTg0IDI4NjkgMTk4NCBRIDI3NjYgMTk4NCAyNjk1IDIwNDggUSAyNjI1IDIxMTMgMjYyNSAyMjE2IFEgMjYyNSAyMzY5IDI3MzMgMjQ3MyBRIDI4NDEgMjU3OCAyOTk0IDI1NzggUSAyOTMxIDI2NjMgMjgwMyAyNjYzIFEgMjYxMyAyNjYzIDI0MzYgMjU1MyBRIDIyNTkgMjQ0NCAyMDU0IDIyMzkgUSAxODUwIDIwMzQgMTY4MSAxODY0IFEgMTUxMyAxNjk0IDEzNjkgMTYwNiBRIDE3NDcgMTU2MyAyMDI1IDE0MDggUSAyMzAzIDEyNTMgMjMwMyA5MzQgUSAyMzAzIDg2OSAyMjc4IDc2OSBRIDIyMjIgNTI4IDIyMjIgMzg0IFEgMjIyMiA5NyAyNDE5IDk3IFEgMjY1MCA5NyAyNzcwIDM1MCBRIDI4OTEgNjAzIDI5NjkgOTQxIFEgMjk4MSA5NzggMzAyMiA5NzggTCAzMDk3IDk3OCBRIDMxMjIgOTc4IDMxMzkgOTYyIFEgMzE1NiA5NDcgMzE1NiA5MjIgUSAzMTU2IDkxNiAzMTUwIDkwMyBRIDI5MDkgLTcyIDI0MDYgLTcyIFEgMjIyNSAtNzIgMjA4NiAxMiBRIDE5NDcgOTcgMTg3MiAyNDIgUSAxNzk3IDM4OCAxNzk3IDU2OSBRIDE3OTcgNjcyIDE4MjUgNzgxIFEgMTg0NCA4NTYgMTg0NCA5MjIgUSAxODQ0IDExNjkgMTYyNSAxMjk3IFEgMTQwNiAxNDI1IDExMjUgMTQ1MyBMIDgwMCAxNDcgUSA3NzUgNTAgNzAzIC0xMSBRIDYzMSAtNzIgNTM4IC03MiBRIDQ1NiAtNzIgMzk4IC0xNyBRIDM0MSAzOCAzNDEgMTE2IHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbXIxMC02NCIgZD0iTSA1OTQgMCBMIDU5NCAyMjUgUSAxMzk0IDIyNSAxMzk0IDQyOCBMIDEzOTQgMzc4OCBRIDEwNjMgMzYyOCA1NTYgMzYyOCBMIDU1NiAzODUzIFEgMTM0MSAzODUzIDE3NDEgNDI2MyBMIDE4MzEgNDI2MyBRIDE4NTMgNDI2MyAxODczIDQyNDUgUSAxODk0IDQyMjggMTg5NCA0MjA2IEwgMTg5NCA0MjggUSAxODk0IDIyNSAyNjk0IDIyNSBMIDI2OTQgMCBMIDU5NCAwIHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbW1pMTAtNTciIGQ9Ik0gNjIyIC0xMDU2IFEgNzQxIC0xMTQ3IDkwOSAtMTE0NyBRIDExMzggLTExNDcgMTI4MSAtNjQxIFEgMTM0MSAtMzk3IDE2MDYgOTY2IEwgMTkwMCAyNTM0IEwgMTM1MCAyNTM0IFEgMTI4OCAyNTM0IDEyODggMjYxOSBRIDEzMTMgMjc1OSAxMzY5IDI3NTkgTCAxOTQxIDI3NTkgTCAyMDE2IDMxNzUgUSAyMDUzIDMzNjkgMjA4NCAzNTA4IFEgMjExNiAzNjQ3IDIxNTIgMzc2NSBRIDIxODggMzg4NCAyMjU5IDQwMzEgUSAyMzY5IDQyNDEgMjU1NSA0Mzc3IFEgMjc0MSA0NTEzIDI5NTYgNDUxMyBRIDMwOTcgNDUxMyAzMjMwIDQ0NjEgUSAzMzYzIDQ0MDkgMzQ0NyA0MzA2IFEgMzUzMSA0MjAzIDM1MzEgNDA2MyBRIDM1MzEgMzkwMCAzNDIzIDM3NzkgUSAzMzE2IDM2NTkgMzE2MyAzNjU5IFEgMzA1OSAzNjU5IDI5ODYgMzcyMyBRIDI5MTMgMzc4OCAyOTEzIDM4OTEgUSAyOTEzIDQwMzEgMzAwOCA0MTM2IFEgMzEwMyA0MjQxIDMyNDQgNDI1NiBRIDMxMjUgNDM0NyAyOTUwIDQzNDcgUSAyODUzIDQzNDcgMjc2NyA0MjU2IFEgMjY4MSA0MTY2IDI2NTYgNDA2MyBRIDI2MTYgMzkwMCAyNDc4IDMxODEgTCAyNDAwIDI3NTkgTCAzMDU5IDI3NTkgUSAzMTIyIDI3NTkgMzEyMiAyNjc1IFEgMzExOSAyNjU5IDMxMDkgMjYyMCBRIDMxMDAgMjU4MSAzMDgzIDI1NTcgUSAzMDY2IDI1MzQgMzA0MSAyNTM0IEwgMjM1NiAyNTM0IEwgMjA1OSA5NzIgUSAyMDAzIDYzMSAxOTI5IDI3OSBRIDE4NTYgLTcyIDE3MjMgLTQ0MiBRIDE1OTEgLTgxMyAxMzg0IC0xMDYzIFEgMTE3OCAtMTMxMyA4OTcgLTEzMTMgUSA2ODEgLTEzMTMgNTExIC0xMTg5IFEgMzQxIC0xMDY2IDM0MSAtODYzIFEgMzQxIC03MDAgNDQ1IC01NzkgUSA1NTAgLTQ1OSA3MDkgLTQ1OSBRIDgxNiAtNDU5IDg4NyAtNTIzIFEgOTU5IC01ODggOTU5IC02OTEgUSA5NTkgLTgyOCA4NTcgLTk0MiBRIDc1NiAtMTA1NiA2MjIgLTEwNTYgeiAiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+PHBhdGggaWQ9IkNtbWkxMC0yYyIgZD0iTSA2MzQgLTExNTMgUSA2MzQgLTExMjUgNjU5IC0xMTAwIFEgODkxIC04NzggMTAxOSAtNTg3IFEgMTE0NyAtMjk3IDExNDcgMjUgTCAxMTQ3IDEwMyBRIDEwNDQgMCA4OTEgMCBRIDc0NCAwIDY0MSAxMDMgUSA1MzggMjA2IDUzOCAzNTMgUSA1MzggNTAzIDY0MSA2MDMgUSA3NDQgNzAzIDg5MSA3MDMgUSAxMTE5IDcwMyAxMjE2IDQ5MiBRIDEzMTMgMjgxIDEzMTMgMjUgUSAxMzEzIC0zMzEgMTE3MCAtNjUxIFEgMTAyOCAtOTcyIDc2OSAtMTIyOCBRIDc0NCAtMTI0MSA3MjggLTEyNDEgUSA2OTcgLTEyNDEgNjY1IC0xMjEyIFEgNjM0IC0xMTg0IDYzNCAtMTE1MyB6ICIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz48cGF0aCBpZD0iQ21zeTEwLTNiIiBkPSJNIDEzNTYgNDAzIFEgMTgzOCAwIDI0OTcgMCBMIDM2MTYgMCBRIDM2NjYgMCAzNjk4IC0zNyBRIDM3MzEgLTc1IDM3MzEgLTEyOCBRIDM3MzEgLTE3NSAzNjk4IC0yMTUgUSAzNjY2IC0yNTYgMzYxNiAtMjU2IEwgMjQ3OCAtMjU2IFEgMTk2OSAtMjU2IDE1MTkgLTEyIFEgMTA2OSAyMzEgODAwIDY1NyBRIDUzMSAxMDg0IDUzMSAxNjAwIFEgNTMxIDIxMTYgODAwIDI1NDIgUSAxMDY5IDI5NjkgMTUxOSAzMjEyIFEgMTk2OSAzNDU2IDI0NzggMzQ1NiBMIDM2MTYgMzQ1NiBRIDM2NjYgMzQ1NiAzNjk4IDM0MTUgUSAzNzMxIDMzNzUgMzczMSAzMzI4IFEgMzczMSAzMjc1IDM2OTggMzIzNyBRIDM2NjYgMzIwMCAzNjE2IDMyMDAgTCAyNDk3IDMyMDAgUSAyMTg0IDMyMDAgMTg4OSAzMDk3IFEgMTU5NCAyOTk0IDEzNTYgMjc5NyBRIDExMjIgMjYwMCA5NTggMjMwNCBRIDc5NCAyMDA5IDc5NCAxNzI4IEwgMzYxNiAxNzI4IFEgMzY2NiAxNzI4IDM2OTggMTY4NyBRIDM3MzEgMTY0NyAzNzMxIDE2MDAgUSAzNzMxIDE1NTMgMzY5OCAxNTEyIFEgMzY2NiAxNDcyIDM2MTYgMTQ3MiBMIDc5NCAxNDcyIFEgNzk0IDExOTQgOTU4IDg5NyBRIDExMjIgNjAwIDEzNTYgNDAzIHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjxwYXRoIGlkPSJDbWV4MTAtNWMiIGQ9Ik0gMTYzMSAtNjQyNSBMIDE2MzEgLTQ1NTYgUSAxNjMxIC00MzM4IDE1MDMgLTQxNTkgUSAxMzc1IC0zOTgxIDExODQgLTM4NjcgUSA5OTQgLTM3NTMgNzU2IC0zNjc1IFEgNzA5IC0zNjUwIDcwOSAtMzYyMiBMIDcwOSAtMzU0NyBRIDcwOSAtMzUwMyA3NTYgLTM0OTQgUSAxMTI4IC0zMzY2IDEzNzkgLTMxNTAgUSAxNjMxIC0yOTM0IDE2MzEgLTI2MDYgTCAxNjMxIC03MzggUSAxNjMxIC0zMjUgMjAwNCAtOTUgUSAyMzc4IDEzNCAyODg4IDI1NiBMIDI5NjMgMjU2IFEgMjk4MSAyNTYgMjk5OCAyNDIgUSAzMDE2IDIyOCAzMDE2IDIwNiBMIDMwMTYgMTI4IFEgMzAxNiA5MSAyOTc1IDc4IFEgMjYxOSAtMzEgMjM1OSAtMjMyIFEgMjEwMCAtNDM0IDIxMDAgLTc1MCBMIDIxMDAgLTI2MTkgUSAyMTAwIC0yOTk0IDE4MDQgLTMyMTQgUSAxNTA5IC0zNDM0IDEwNTYgLTM1ODQgUSAxNDk3IC0zNzE2IDE3OTggLTM5MzkgUSAyMTAwIC00MTYzIDIxMDAgLTQ1NDQgTCAyMTAwIC02NDEzIFEgMjEwMCAtNjYyOCAyMjMxIC02NzkwIFEgMjM2MyAtNjk1MyAyNTU2IC03MDU5IFEgMjc1MCAtNzE2NiAyOTc1IC03MjM4IFEgMzAxNiAtNzI1MCAzMDE2IC03MjkxIEwgMzAxNiAtNzM2NiBRIDMwMTYgLTczODQgMjk5OCAtNzQwMSBRIDI5ODEgLTc0MTkgMjk2MyAtNzQxOSBMIDI4ODggLTc0MTkgUSAyNTU5IC03MzM4IDIyOTIgLTcyMjcgUSAyMDI1IC03MTE2IDE4MjggLTY5MTQgUSAxNjMxIC02NzEzIDE2MzEgLTY0MjUgeiAiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+PHBhdGggaWQ9IkNtcjEwLTI4IiBkPSJNIDE2MDAgLTE0MSBRIDgxNiAtMTQxIDUzMyA1MDQgUSAyNTAgMTE1MCAyNTAgMjA0MSBRIDI1MCAyNTk3IDM1MSAzMDg3IFEgNDUzIDM1NzggNzU0IDM5MjAgUSAxMDU2IDQyNjMgMTYwMCA0MjYzIFEgMjAyMiA0MjYzIDIyOTAgNDA1NiBRIDI1NTkgMzg1MCAyNzAwIDM1MjMgUSAyODQxIDMxOTcgMjg5MiAyODIzIFEgMjk0NCAyNDUwIDI5NDQgMjA0MSBRIDI5NDQgMTQ5MSAyODQyIDEwMTEgUSAyNzQxIDUzMSAyNDQ0IDE5NSBRIDIxNDcgLTE0MSAxNjAwIC0xNDEgeiBNIDE2MDAgMjUgUSAxOTU2IDI1IDIxMzEgMzkwIFEgMjMwNiA3NTYgMjM0NyAxMjAwIFEgMjM4OCAxNjQ0IDIzODggMjE0NCBRIDIzODggMjYyNSAyMzQ3IDMwMzEgUSAyMzA2IDM0MzggMjEzMiAzNzY3IFEgMTk1OSA0MDk3IDE2MDAgNDA5NyBRIDEyMzggNDA5NyAxMDYzIDM3NjUgUSA4ODggMzQzNCA4NDcgMzAyOSBRIDgwNiAyNjI1IDgwNiAyMTQ0IFEgODA2IDE3ODggODIzIDE0NzIgUSA4NDEgMTE1NiA5MTYgODIwIFEgOTkxIDQ4NCAxMTU4IDI1NCBRIDEzMjUgMjUgMTYwMCAyNSB6ICIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz48cGF0aCBpZD0iQ21leDEwLTgyIiBkPSJNIDcwOSAtNzM2NiBMIDcwOSAtNzI5MSBRIDcwOSAtNzI0NyA3NTYgLTcyMzggUSAxNjMxIC02OTUzIDE2MzEgLTY0MTMgTCAxNjMxIC00NTQ0IFEgMTYzMSAtMzkwOSAyNjY5IC0zNTg0IFEgMjIxOSAtMzQzMSAxOTI1IC0zMjA5IFEgMTYzMSAtMjk4OCAxNjMxIC0yNjE5IEwgMTYzMSAtNzUwIFEgMTYzMSAtMjA2IDc1NiA3OCBRIDcwOSA4OCA3MDkgMTI4IEwgNzA5IDIwNiBRIDcwOSAyNTYgNzY5IDI1NiBMIDg0NCAyNTYgUSAxMzU5IDEzMSAxNzI5IC05NyBRIDIxMDAgLTMyNSAyMTAwIC03MzggTCAyMTAwIC0yNjA2IFEgMjEwMCAtMjkyNSAyMzU0IC0zMTQyIFEgMjYwOSAtMzM1OSAyOTc1IC0zNDk0IFEgMzAxNiAtMzUwNiAzMDE2IC0zNTQ3IEwgMzAxNiAtMzYyMiBRIDMwMTYgLTM2NDEgMjk3NSAtMzY3NSBRIDI3NjkgLTM3NDQgMjU2NiAtMzg2NCBRIDIzNjMgLTM5ODQgMjIzMSAtNDE2MSBRIDIxMDAgLTQzMzggMjEwMCAtNDU1NiBMIDIxMDAgLTY0MjUgUSAyMTAwIC02NzEzIDE5MDEgLTY5MTQgUSAxNzAzIC03MTE2IDE0MzcgLTcyMjcgUSAxMTcyIC03MzM4IDg0NCAtNzQxOSBMIDc2OSAtNzQxOSBRIDc0NCAtNzQxOSA3MjYgLTc0MDEgUSA3MDkgLTczODQgNzA5IC03MzY2IHogIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPjwvZGVmcz48dXNlIHhsaW5rOmhyZWY9IiNDbW1pMTAtN2EiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC4yOTc5MTcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtMzgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYwLjAwOTc2NiAtMTQuNzAyMDQ1KSBzY2FsZSgwLjcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtMjQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExOC4zMjAzMTIgLTE0LjcwMjA0NSkgc2NhbGUoMC43KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtcjEwLTUyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzcuNzAwMTk1IC0xNC43MDIwNDUpIHNjYWxlKDAuNykiLz48dXNlIHhsaW5rOmhyZWY9IiNDbXIxMC01MiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY1LjI4MzIwMyAtMTQuNzAyMDQ1KSBzY2FsZSgwLjcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtMjQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5Mi44NjYyMTEgLTE0LjcwMjA0NSkgc2NhbGUoMC43KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtcjEwLTc0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMTIuMjQ2MDk0IC0xNC43MDIwNDUpIHNjYWxlKDAuNykiLz48dXNlIHhsaW5rOmhyZWY9IiNDbXIxMC0xYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjUxLjEwODM5OCAtMTQuNzAyMDQ1KSBzY2FsZSgwLjcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxMS44Mjg4NzEgMC4yOTc5MTcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtM2IiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwOS41MTQ0NzUgMC4yOTc5MTcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21zeTEwLTExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NzkuNTE0NTMyIDAuMjk3OTE3KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtcjEwLTNiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MzYuMjAwMTM3IDEyMi4zNzM0MzcpIHNjYWxlKDAuNykiLz48dXNlIHhsaW5rOmhyZWY9IiNDbWV4MTAtMzMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU4Ny4yMDAxMzcgMTAzLjYyMzQzNykiLz48dXNlIHhsaW5rOmhyZWY9IiNDbW1pMTAtM2UiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU3Ny4yMDAxMzcgLTEwMy42ODQzNzUpIHNjYWxlKDAuNykiLz48dXNlIHhsaW5rOmhyZWY9IiNDbXIxMC0yOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjI3LjYwMTU0NCAtMTAzLjY4NDM3NSkgc2NhbGUoMC43KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtcjEwLTY0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2OTUuOTgxNDY3IC0xMDMuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21taTEwLTU3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MzAuOTgxNDY3IDAuMjk3OTE3KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtbWkxMC0zZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzc5Ljg1ODQyIC0xNC43MDIwNDUpIHNjYWxlKDAuNykiLz48dXNlIHhsaW5rOmhyZWY9IiNDbW1pMTAtMmMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgyMS45ODAyMDIgMC4yOTc5MTcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21taTEwLTU3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NjkuNjY2MDkzIDAuMjk3OTE3KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtbWkxMC0zZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAxOC41NDMwNDYgLTE0LjcwMjA0NSkgc2NhbGUoMC43KSIvPjx1c2UgeGxpbms6aHJlZj0iI0Ntc3kxMC0zYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA4MC42NjQ4ODYgMC4yOTc5MTcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21leDEwLTVjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTY3LjI2NjUwNSA5My41OTIxODcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtMjgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyMjUuNTY3Mjg3IDAuMjk3OTE3KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtbWkxMC0yYyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTI3NS41NjcyODcgMC4yOTc5MTcpIi8+PHVzZSB4bGluazpocmVmPSIjQ21yMTAtNjQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMjMuMjUyODkxIDAuMjk3OTE3KSIvPjx1c2UgeGxpbms6aHJlZj0iI0NtZXgxMC04MiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM3My4yNTI4OTEgOTMuNTkyMTg3KSIvPjwvZz48L2c+PC9nPjwvc3ZnPg==" alt="Equation: n missing equals 4 minus the sum of four field indicators f k, each equal to 1 when the field is present and 0 when it is not" data-typeset-tex="n_{\mathrm{missing}} = 4 - \sum_{k=1}^{4} f_k, \quad f_k \in \{0, 1\}" style="width:14.59em;min-width:8.75em"></p><p class="scroll-hint equation-hint">Scroll sideways for the whole equation <span aria-hidden="true">&rarr;</span></p>
+<p class="symbols">f_k is 1 when field k is present and 0 otherwise, for the four fields: deployment condition, supporting observation, counterexample and next test. n_missing counts the absent fields.</p>
+</div>
+<p class="prediction"><strong>Predict first.</strong> Note 2 has a condition, evidence and a next test, but no counterexample. Is it ready to reuse as a conditional rule?</p>
+<fieldset class="predict-options"><legend>Your prediction</legend><label class="predict-option"><input type="radio" name="C25-D01-prediction" value="0" autocomplete="off" disabled> Yes, three of four fields is enough</label><label class="predict-option"><input type="radio" name="C25-D01-prediction" value="1" autocomplete="off" disabled> No, without a counterexample its limits are unrecorded</label><label class="predict-option"><input type="radio" name="C25-D01-prediction" value="2" autocomplete="off" disabled> No, because it has no supporting evidence</label></fieldset>
+<p class="prediction-feedback" aria-live="polite" aria-atomic="true"></p>
+<h3 class="sr-only" id="controls-C25-D01">Choose an example</h3>
+<div class="controls" role="group" aria-labelledby="controls-C25-D01">
+<div class="control"><label for="C25-D01-note_choice">Competition note</label><select id="C25-D01-note_choice" data-control="note_choice" autocomplete="off" disabled><option value="0">Note 0: time split only</option><option value="1" selected>Note 1: all four fields</option><option value="2">Note 2: no counterexample</option></select></div>
+<button type="button" class="reset" hidden>Reset to the default example</button>
+</div>
+<figure class="plot">
+<p class="scroll-hint figure-hint">Scroll sideways for the whole figure <span aria-hidden="true">&rarr;</span></p>
+<div class="figure-frame" tabindex="0" role="region" aria-label="Figure for Is this note ready to reuse as a conditional rule?; on a narrow screen it scrolls sideways"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjQ4Ni40OHB0IiBoZWlnaHQ9IjI3MC40OHB0IiB2aWV3Qm94PSIwIDAgNDg2LjQ4IDI3MC40OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+KntzdHJva2UtbGluZWpvaW46IHJvdW5kOyBzdHJva2UtbGluZWNhcDogYnV0dH08L3N0eWxlPjwvZGVmcz48ZyBpZD0iZmlndXJlXzEiPjxnIGlkPSJwYXRjaF8xIj48cGF0aCBkPSJNIDAgMjcwLjQ4IEwgNDg2LjQ4IDI3MC40OCBMIDQ4Ni40OCAwIEwgMCAwIHogIiBzdHlsZT0iZmlsbDogI2ZmZmZmZiIvPjwvZz48ZyBpZD0iYXhlc18xIj48ZyBpZD0icGF0Y2hfMiI+PHBhdGggZD0iTSAxNTQuMzIgMjQ2LjM0IEwgNDc3Ljg0IDI0Ni4zNCBMIDQ3Ny44NCA4LjY0IEwgMTU0LjMyIDguNjQgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjxnIGlkPSJwYXRjaF8zIj48cGF0aCBkPSJNIDE1NC4zMiAxOS40NCBMIDQ3Ny44NCAxOS40NCBMIDQ3Ny44NCA1Ni40NSBMIDE1NC4zMiA1Ni40NSB6ICIgY2xpcC1wYXRoPSJ1cmwoI3A4YzA2YjY0NGQ1KSIgc3R5bGU9ImZpbGw6ICMxMzZmNzU7IHN0cm9rZTogIzEzNmY3NTsgc3Ryb2tlLXdpZHRoOiAxLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXIiLz48L2c+PGcgaWQ9InBhdGNoXzQiPjxwYXRoIGQ9Ik0gMTU0LjMyIDc5LjE0IEwgNDc3Ljg0IDc5LjE0IEwgNDc3Ljg0IDExNi4xNSBMIDE1NC4zMiAxMTYuMTUgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJwYXRjaF81Ij48cGF0aCBkPSJNIDE1NC4zMiAxMzguODMgTCA0NzcuODQgMTM4LjgzIEwgNDc3Ljg0IDE3NS44NCBMIDE1NC4zMiAxNzUuODQgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJwYXRjaF82Ij48cGF0aCBkPSJNIDE1NC4zMiAxOTguNTIgTCA0NzcuODQgMTk4LjUyIEwgNDc3Ljg0IDIzNS41MyBMIDE1NC4zMiAyMzUuNTMgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJtYXRwbG90bGliLmF4aXNfMSI+PGcgaWQ9InRleHRfMSI+PHRleHQgc3R5bGU9ImZvbnQtc2l6ZTogMTEuNXB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjMTcyYTNiIiB4PSIzMTYuMDgiIHk9IjI1OS4wOCIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDI1OS4wOCkiPkZpZWxkIHJlY29yZGVkIChmaWxsZWQpIG9yIG1pc3NpbmcgKGhhdGNoZWQpPC90ZXh0PjwvZz48L2c+PGcgaWQ9Im1hdHBsb3RsaWIuYXhpc18yIj48ZyBpZD0ieXRpY2tfMSI+PGcgaWQ9ImxpbmUyZF8xIj48ZGVmcz48cGF0aCBpZD0ibTRkOTU3YTY1MmYiIGQ9Ik0gMCAwIEwgLTMuNSAwICIgc3R5bGU9InN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2RlZnM+PGc+PHVzZSB4bGluazpocmVmPSIjbTRkOTU3YTY1MmYiIHg9IjE1NC4zMiIgeT0iMzcuOTUiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF8yIj48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iNDEuOTQiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiA0MS45NCkiPkRlcGxveW1lbnQgY29uZGl0aW9uPC90ZXh0PjwvZz48L2c+PGcgaWQ9Inl0aWNrXzIiPjxnIGlkPSJsaW5lMmRfMiI+PGc+PHVzZSB4bGluazpocmVmPSIjbTRkOTU3YTY1MmYiIHg9IjE1NC4zMiIgeT0iOTcuNjQiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF8zIj48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iMTAxLjYzIiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAxNDcuMzIgMTAxLjYzKSI+U3VwcG9ydGluZyBvYnNlcnZhdGlvbjwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja18zIj48ZyBpZD0ibGluZTJkXzMiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjE1Ny4zNCIgc3R5bGU9ImZpbGw6ICM0YTU2NWU7IHN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2c+PC9nPjxnIGlkPSJ0ZXh0XzQiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDEwLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IGVuZDsgZmlsbDogIzRhNTY1ZSIgeD0iMTQ3LjMyIiB5PSIxNjEuMzMiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiAxNjEuMzMpIj5Db3VudGVyZXhhbXBsZTwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja180Ij48ZyBpZD0ibGluZTJkXzQiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjIxNy4wMyIgc3R5bGU9ImZpbGw6ICM0YTU2NWU7IHN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2c+PC9nPjxnIGlkPSJ0ZXh0XzUiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDEwLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IGVuZDsgZmlsbDogIzRhNTY1ZSIgeD0iMTQ3LjMyIiB5PSIyMjEuMDIiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiAyMjEuMDIpIj5OZXh0IHRlc3Q8L3RleHQ+PC9nPjwvZz48ZyBpZD0idGV4dF82Ij48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMS41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICMxNzJhM2IiIHg9IjE3LjM4IiB5PSIxMjcuNDkiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxNy4zOCAxMjcuNDkpIj5FdmlkZW5jZSBmaWVsZDwvdGV4dD48L2c+PC9nPjxnIGlkPSJwYXRjaF83Ij48cGF0aCBkPSJNIDE1NC4zMiAyNDYuMzQgTCAxNTQuMzIgOC42NCAiIHN0eWxlPSJmaWxsOiBub25lOyBzdHJva2U6ICM2Yjc1N2I7IHN0cm9rZS13aWR0aDogMC44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyOyBzdHJva2UtbGluZWNhcDogc3F1YXJlIi8+PC9nPjxnIGlkPSJwYXRjaF84Ij48cGF0aCBkPSJNIDE1NC4zMiAyNDYuMzQgTCA0NzcuODQgMjQ2LjM0ICIgc3R5bGU9ImZpbGw6IG5vbmU7IHN0cm9rZTogIzZiNzU3Yjsgc3Ryb2tlLXdpZHRoOiAwLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXI7IHN0cm9rZS1saW5lY2FwOiBzcXVhcmUiLz48L2c+PGcgaWQ9InRleHRfNyI+PHRleHQgc3R5bGU9ImZvbnQtd2VpZ2h0OiA3MDA7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgZmlsbDogI2ZmZmZmZiIgeD0iMzE2LjA4IiB5PSI0MS4wNyIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDQxLjA3KSI+cHJlc2VudDwvdGV4dD48L2c+PGcgaWQ9InRleHRfOCI+PHRleHQgc3R5bGU9ImZvbnQtd2VpZ2h0OiA3MDA7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgZmlsbDogI2ZmZmZmZiIgeD0iMzE2LjA4IiB5PSIxMDAuNzYiIHRyYW5zZm9ybT0icm90YXRlKC0wIDMxNi4wOCAxMDAuNzYpIj5wcmVzZW50PC90ZXh0PjwvZz48ZyBpZD0idGV4dF85Ij48dGV4dCBzdHlsZT0iZm9udC13ZWlnaHQ6IDcwMDsgZm9udC1zaXplOiAxMnB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjZmZmZmZmIiB4PSIzMTYuMDgiIHk9IjE2MC40NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDE2MC40NSkiPnByZXNlbnQ8L3RleHQ+PC9nPjxnIGlkPSJ0ZXh0XzEwIj48dGV4dCBzdHlsZT0iZm9udC13ZWlnaHQ6IDcwMDsgZm9udC1zaXplOiAxMnB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjZmZmZmZmIiB4PSIzMTYuMDgiIHk9IjIyMC4xNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDIyMC4xNSkiPnByZXNlbnQ8L3RleHQ+PC9nPjwvZz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJwOGMwNmI2NDRkNSI+PHJlY3QgeD0iMTU0LjMyIiB5PSI4LjY0IiB3aWR0aD0iMzIzLjUyIiBoZWlnaHQ9IjIzNy43Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+" alt="Figure: Is this note ready to reuse as a conditional rule? Checklist of four fields for note 1. Deployment condition is present; Supporting observation is present; Counterexample is present; Next test is present." style="min-width:417px"></div>
+<figcaption><span class="selected-parameters">Competition note: Note 1: all four fields</span><br>Constructed example: three notes with four evidence fields from the chapter activity, with no real notebook or results.</figcaption>
+</figure>
+<h3 class="sr-only">Calculated values</h3>
+<dl class="metrics"><div class="metric"><dt>Note</dt><dd>Note 1: all four fields</dd></div><div class="metric"><dt>Fields present</dt><dd>4 of 4</dd></div><div class="metric"><dt>Fields missing</dt><dd>0</dd></div></dl>
+<p class="interpretation" aria-live="polite" aria-atomic="true">Note 1 records all 4 fields, so 4 - 4 = 0 are missing. A complete note is actionable; only the next task can show whether its rule transfers.</p>
+<div class="steps-panel"><h3>Worked steps</h3><ol class="steps"><li>Note 1 selected.</li><li>Present: deployment condition, supporting observation, counterexample, next test.</li><li>Missing: none.</li><li>Missing count: 4 - 4 = 0.</li></ol></div>
+<div class="columns">
+<div class="note"><h3>Use the idea</h3><p>Pick one note from your own notebook, find its weakest field and rewrite it. Add the case where your advice would change and the observation that would make you revise the rule in the next competition.</p></div>
+<div class="note"><h3>Where the conclusion applies</h3><p>Three constructed notes with different completeness. The worksheet checks evidence fields, not whether a technique is true. Only evidence from the next task can test whether a principle transfers, and a useful counterexample narrows the rule without making it useless.</p></div>
+</div>
+<details><summary>Check your understanding: Note 0 says only to use a time split. Which fields is it missing, and how many?</summary><div class="answer">Three: the supporting observation, the counterexample and the next test. Only the deployment condition is present, so 4 - 1 = 3.</div></details>
+<p class="source">Chapter 25 source: section "Preserve Failures and Reproduction Conditions".</p>
+</section>
+<nav class="chapter-pager" aria-label="Previous and next chapter"><a class="prev" href="../24-building-a-portfolio/reader.html"><span>&#8592; Chapter 24</span><b>Building a Kaggle Portfolio</b></a><a class="next" href="../26-advanced-target-encoding/reader.html"><span>Chapter 26 &#8594;</span><b>Advanced Target Encoding</b></a></nav>
+</main>
+<footer class="cmp-footer"><div class="cmp-footer-inner"><p class="cmp-footer-title"><em>Winning Kaggle the Reproducible Way</em> by Jason Karpeles</p><p class="cmp-footer-note">Every example is a constructed teaching example. Its results describe the declared inputs of the chapter activity, not a measured competition gain.</p><p class="cmp-footer-links"><a href="../index.html">All chapters</a><a href="https://karpeles.com/publishing/winning-kaggle-the-reproducible-way" target="_blank" rel="noopener">About the book</a><a href="https://github.com/KarpelesPublishing/winning-kaggle-companion" target="_blank" rel="noopener">GitHub</a></p></div></footer>
+<script id="reader-data" type="application/json">{"chapter":25,"demos":[{"controls":[{"default":1,"key":"note_choice","label":"Competition note","values":["Note 0: time split only","Note 1: all four fields","Note 2: no counterexample"]}],"id":"C25-D01","predict":{"answer":1,"correct":"Note 2 is missing exactly one field, the counterexample (4 - 3 = 1). Without it you cannot tell when the rule should stop applying.","incorrect":"Note 2 does record evidence. The one missing field is the counterexample (4 - 3 = 1), so the note does not say when the rule may fail."},"states":{"0":{"alt":"Figure: Is this note ready to reuse as a conditional rule? Checklist of four fields for note 0. Deployment condition is present; Supporting observation is missing; Counterexample is missing; Next test is missing.","image":"data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjQ4Ni40OHB0IiBoZWlnaHQ9IjI3MC40OHB0IiB2aWV3Qm94PSIwIDAgNDg2LjQ4IDI3MC40OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+KntzdHJva2UtbGluZWpvaW46IHJvdW5kOyBzdHJva2UtbGluZWNhcDogYnV0dH08L3N0eWxlPjwvZGVmcz48ZyBpZD0iZmlndXJlXzEiPjxnIGlkPSJwYXRjaF8xIj48cGF0aCBkPSJNIDAgMjcwLjQ4IEwgNDg2LjQ4IDI3MC40OCBMIDQ4Ni40OCAwIEwgMCAwIHogIiBzdHlsZT0iZmlsbDogI2ZmZmZmZiIvPjwvZz48ZyBpZD0iYXhlc18xIj48ZyBpZD0icGF0Y2hfMiI+PHBhdGggZD0iTSAxNTQuMzIgMjQ2LjM0IEwgNDc3Ljg0IDI0Ni4zNCBMIDQ3Ny44NCA4LjY0IEwgMTU0LjMyIDguNjQgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjxnIGlkPSJwYXRjaF8zIj48cGF0aCBkPSJNIDE1NC4zMiAxOS40NCBMIDQ3Ny44NCAxOS40NCBMIDQ3Ny44NCA1Ni40NSBMIDE1NC4zMiA1Ni40NSB6ICIgY2xpcC1wYXRoPSJ1cmwoI3A4YzA2YjY0NGQ1KSIgc3R5bGU9ImZpbGw6ICMxMzZmNzU7IHN0cm9rZTogIzEzNmY3NTsgc3Ryb2tlLXdpZHRoOiAxLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXIiLz48L2c+PGcgaWQ9InBhdGNoXzQiPjxwYXRoIGQ9Ik0gMTU0LjMyIDc5LjE0IEwgNDc3Ljg0IDc5LjE0IEwgNDc3Ljg0IDExNi4xNSBMIDE1NC4zMiAxMTYuMTUgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiB1cmwoI2g3MTRjYWM0NWQwKTsgc3Ryb2tlOiAjYTI0YTMzOyBzdHJva2Utd2lkdGg6IDEuODsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlciIvPjwvZz48ZyBpZD0icGF0Y2hfNSI+PHBhdGggZD0iTSAxNTQuMzIgMTM4LjgzIEwgNDc3Ljg0IDEzOC44MyBMIDQ3Ny44NCAxNzUuODQgTCAxNTQuMzIgMTc1Ljg0IHogIiBjbGlwLXBhdGg9InVybCgjcDhjMDZiNjQ0ZDUpIiBzdHlsZT0iZmlsbDogdXJsKCNoNzE0Y2FjNDVkMCk7IHN0cm9rZTogI2EyNGEzMzsgc3Ryb2tlLXdpZHRoOiAxLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXIiLz48L2c+PGcgaWQ9InBhdGNoXzYiPjxwYXRoIGQ9Ik0gMTU0LjMyIDE5OC41MiBMIDQ3Ny44NCAxOTguNTIgTCA0NzcuODQgMjM1LjUzIEwgMTU0LjMyIDIzNS41MyB6ICIgY2xpcC1wYXRoPSJ1cmwoI3A4YzA2YjY0NGQ1KSIgc3R5bGU9ImZpbGw6IHVybCgjaDcxNGNhYzQ1ZDApOyBzdHJva2U6ICNhMjRhMzM7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJtYXRwbG90bGliLmF4aXNfMSI+PGcgaWQ9InRleHRfMSI+PHRleHQgc3R5bGU9ImZvbnQtc2l6ZTogMTEuNXB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjMTcyYTNiIiB4PSIzMTYuMDgiIHk9IjI1OS4wOCIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDI1OS4wOCkiPkZpZWxkIHJlY29yZGVkIChmaWxsZWQpIG9yIG1pc3NpbmcgKGhhdGNoZWQpPC90ZXh0PjwvZz48L2c+PGcgaWQ9Im1hdHBsb3RsaWIuYXhpc18yIj48ZyBpZD0ieXRpY2tfMSI+PGcgaWQ9ImxpbmUyZF8xIj48ZGVmcz48cGF0aCBpZD0ibTRkOTU3YTY1MmYiIGQ9Ik0gMCAwIEwgLTMuNSAwICIgc3R5bGU9InN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2RlZnM+PGc+PHVzZSB4bGluazpocmVmPSIjbTRkOTU3YTY1MmYiIHg9IjE1NC4zMiIgeT0iMzcuOTUiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF8yIj48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iNDEuOTQiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiA0MS45NCkiPkRlcGxveW1lbnQgY29uZGl0aW9uPC90ZXh0PjwvZz48L2c+PGcgaWQ9Inl0aWNrXzIiPjxnIGlkPSJsaW5lMmRfMiI+PGc+PHVzZSB4bGluazpocmVmPSIjbTRkOTU3YTY1MmYiIHg9IjE1NC4zMiIgeT0iOTcuNjQiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF8zIj48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iMTAxLjYzIiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAxNDcuMzIgMTAxLjYzKSI+U3VwcG9ydGluZyBvYnNlcnZhdGlvbjwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja18zIj48ZyBpZD0ibGluZTJkXzMiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjE1Ny4zNCIgc3R5bGU9ImZpbGw6ICM0YTU2NWU7IHN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2c+PC9nPjxnIGlkPSJ0ZXh0XzQiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDEwLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IGVuZDsgZmlsbDogIzRhNTY1ZSIgeD0iMTQ3LjMyIiB5PSIxNjEuMzMiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiAxNjEuMzMpIj5Db3VudGVyZXhhbXBsZTwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja180Ij48ZyBpZD0ibGluZTJkXzQiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjIxNy4wMyIgc3R5bGU9ImZpbGw6ICM0YTU2NWU7IHN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2c+PC9nPjxnIGlkPSJ0ZXh0XzUiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDEwLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IGVuZDsgZmlsbDogIzRhNTY1ZSIgeD0iMTQ3LjMyIiB5PSIyMjEuMDIiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiAyMjEuMDIpIj5OZXh0IHRlc3Q8L3RleHQ+PC9nPjwvZz48ZyBpZD0idGV4dF82Ij48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMS41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICMxNzJhM2IiIHg9IjE3LjM4IiB5PSIxMjcuNDkiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxNy4zOCAxMjcuNDkpIj5FdmlkZW5jZSBmaWVsZDwvdGV4dD48L2c+PC9nPjxnIGlkPSJwYXRjaF83Ij48cGF0aCBkPSJNIDE1NC4zMiAyNDYuMzQgTCAxNTQuMzIgOC42NCAiIHN0eWxlPSJmaWxsOiBub25lOyBzdHJva2U6ICM2Yjc1N2I7IHN0cm9rZS13aWR0aDogMC44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyOyBzdHJva2UtbGluZWNhcDogc3F1YXJlIi8+PC9nPjxnIGlkPSJwYXRjaF84Ij48cGF0aCBkPSJNIDE1NC4zMiAyNDYuMzQgTCA0NzcuODQgMjQ2LjM0ICIgc3R5bGU9ImZpbGw6IG5vbmU7IHN0cm9rZTogIzZiNzU3Yjsgc3Ryb2tlLXdpZHRoOiAwLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXI7IHN0cm9rZS1saW5lY2FwOiBzcXVhcmUiLz48L2c+PGcgaWQ9InRleHRfNyI+PHRleHQgc3R5bGU9ImZvbnQtd2VpZ2h0OiA3MDA7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgZmlsbDogI2ZmZmZmZiIgeD0iMzE2LjA4IiB5PSI0MS4wNyIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDQxLjA3KSI+cHJlc2VudDwvdGV4dD48L2c+PGcgaWQ9InRleHRfOCI+PGcgaWQ9InBhdGNoXzkiPjxwYXRoIGQ9Ik0gMjkwLjAxIDEwNi42NCBMIDM0Mi4xNiAxMDYuNjQgUSAzNDUuMTYgMTA2LjY0IDM0NS4xNiAxMDMuNjQgTCAzNDUuMTYgOTEuNjQgUSAzNDUuMTYgODguNjQgMzQyLjE2IDg4LjY0IEwgMjkwLjAxIDg4LjY0IFEgMjg3LjAxIDg4LjY0IDI4Ny4wMSA5MS42NCBMIDI4Ny4wMSAxMDMuNjQgUSAyODcuMDEgMTA2LjY0IDI5MC4wMSAxMDYuNjQgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjx0ZXh0IHN0eWxlPSJmb250LXdlaWdodDogNzAwOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICNhMjRhMzMiIHg9IjMxNi4wOCIgeT0iMTAwLjc2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAzMTYuMDggMTAwLjc2KSI+bWlzc2luZzwvdGV4dD48L2c+PGcgaWQ9InRleHRfOSI+PGcgaWQ9InBhdGNoXzEwIj48cGF0aCBkPSJNIDI5MC4wMSAxNjYuMzQgTCAzNDIuMTYgMTY2LjM0IFEgMzQ1LjE2IDE2Ni4zNCAzNDUuMTYgMTYzLjM0IEwgMzQ1LjE2IDE1MS4zNCBRIDM0NS4xNiAxNDguMzQgMzQyLjE2IDE0OC4zNCBMIDI5MC4wMSAxNDguMzQgUSAyODcuMDEgMTQ4LjM0IDI4Ny4wMSAxNTEuMzQgTCAyODcuMDEgMTYzLjM0IFEgMjg3LjAxIDE2Ni4zNCAyOTAuMDEgMTY2LjM0IHogIiBzdHlsZT0iZmlsbDogI2ZmZmZmZiIvPjwvZz48dGV4dCBzdHlsZT0iZm9udC13ZWlnaHQ6IDcwMDsgZm9udC1zaXplOiAxMnB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjYTI0YTMzIiB4PSIzMTYuMDgiIHk9IjE2MC40NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDE2MC40NSkiPm1pc3Npbmc8L3RleHQ+PC9nPjxnIGlkPSJ0ZXh0XzEwIj48ZyBpZD0icGF0Y2hfMTEiPjxwYXRoIGQ9Ik0gMjkwLjAxIDIyNi4wMyBMIDM0Mi4xNiAyMjYuMDMgUSAzNDUuMTYgMjI2LjAzIDM0NS4xNiAyMjMuMDMgTCAzNDUuMTYgMjExLjAzIFEgMzQ1LjE2IDIwOC4wMyAzNDIuMTYgMjA4LjAzIEwgMjkwLjAxIDIwOC4wMyBRIDI4Ny4wMSAyMDguMDMgMjg3LjAxIDIxMS4wMyBMIDI4Ny4wMSAyMjMuMDMgUSAyODcuMDEgMjI2LjAzIDI5MC4wMSAyMjYuMDMgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjx0ZXh0IHN0eWxlPSJmb250LXdlaWdodDogNzAwOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICNhMjRhMzMiIHg9IjMxNi4wOCIgeT0iMjIwLjE1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAzMTYuMDggMjIwLjE1KSI+bWlzc2luZzwvdGV4dD48L2c+PC9nPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9InA4YzA2YjY0NGQ1Ij48cmVjdCB4PSIxNTQuMzIiIHk9IjguNjQiIHdpZHRoPSIzMjMuNTIiIGhlaWdodD0iMjM3LjciLz48L2NsaXBQYXRoPjwvZGVmcz48ZGVmcz48cGF0dGVybiBpZD0iaDcxNGNhYzQ1ZDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjczIiBoZWlnaHQ9IjczIiBmaWxsPSIjZmZmZmZmIi8+PHBhdGggZD0iTSAtMzYgMzYgTCAzNiAtMzYgTSAtMzAgNDIgTCA0MiAtMzAgTSAtMjQgNDggTCA0OCAtMjQgTSAtMTggNTQgTCA1NCAtMTggTSAtMTIgNjAgTCA2MCAtMTIgTSAtNiA2NiBMIDY2IC02IE0gMCA3MiBMIDcyIDAgTSA2IDc4IEwgNzggNiBNIDEyIDg0IEwgODQgMTIgTSAxOCA5MCBMIDkwIDE4IE0gMjQgOTYgTCA5NiAyNCBNIDMwIDEwMiBMIDEwMiAzMCBNIDM2IDEwOCBMIDEwOCAzNiAiIHN0eWxlPSJmaWxsOiAjYTI0YTMzOyBzdHJva2U6ICNhMjRhMzM7IHN0cm9rZS13aWR0aDogMS4wOyBzdHJva2UtbGluZWNhcDogYnV0dDsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlciIvPjwvcGF0dGVybj48L2RlZnM+PC9zdmc+","interpretation":"Note 0 records 1 of the 4 fields, so 4 - 1 = 3 are missing: supporting observation, counterexample, next test. A complete note is actionable; only the next task can show whether its rule transfers.","metrics":[["Note","Note 0: time split only"],["Fields present","1 of 4"],["Fields missing","3"]],"min_width":417,"selected":"Competition note: Note 0: time split only","steps":["Note 0 selected.","Present: deployment condition.","Missing: supporting observation, counterexample, next test.","Missing count: 4 - 1 = 3."]},"1":{"alt":"Figure: Is this note ready to reuse as a conditional rule? Checklist of four fields for note 1. Deployment condition is present; Supporting observation is present; Counterexample is present; Next test is present.","image":"data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjQ4Ni40OHB0IiBoZWlnaHQ9IjI3MC40OHB0IiB2aWV3Qm94PSIwIDAgNDg2LjQ4IDI3MC40OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+KntzdHJva2UtbGluZWpvaW46IHJvdW5kOyBzdHJva2UtbGluZWNhcDogYnV0dH08L3N0eWxlPjwvZGVmcz48ZyBpZD0iZmlndXJlXzEiPjxnIGlkPSJwYXRjaF8xIj48cGF0aCBkPSJNIDAgMjcwLjQ4IEwgNDg2LjQ4IDI3MC40OCBMIDQ4Ni40OCAwIEwgMCAwIHogIiBzdHlsZT0iZmlsbDogI2ZmZmZmZiIvPjwvZz48ZyBpZD0iYXhlc18xIj48ZyBpZD0icGF0Y2hfMiI+PHBhdGggZD0iTSAxNTQuMzIgMjQ2LjM0IEwgNDc3Ljg0IDI0Ni4zNCBMIDQ3Ny44NCA4LjY0IEwgMTU0LjMyIDguNjQgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjxnIGlkPSJwYXRjaF8zIj48cGF0aCBkPSJNIDE1NC4zMiAxOS40NCBMIDQ3Ny44NCAxOS40NCBMIDQ3Ny44NCA1Ni40NSBMIDE1NC4zMiA1Ni40NSB6ICIgY2xpcC1wYXRoPSJ1cmwoI3A4YzA2YjY0NGQ1KSIgc3R5bGU9ImZpbGw6ICMxMzZmNzU7IHN0cm9rZTogIzEzNmY3NTsgc3Ryb2tlLXdpZHRoOiAxLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXIiLz48L2c+PGcgaWQ9InBhdGNoXzQiPjxwYXRoIGQ9Ik0gMTU0LjMyIDc5LjE0IEwgNDc3Ljg0IDc5LjE0IEwgNDc3Ljg0IDExNi4xNSBMIDE1NC4zMiAxMTYuMTUgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJwYXRjaF81Ij48cGF0aCBkPSJNIDE1NC4zMiAxMzguODMgTCA0NzcuODQgMTM4LjgzIEwgNDc3Ljg0IDE3NS44NCBMIDE1NC4zMiAxNzUuODQgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJwYXRjaF82Ij48cGF0aCBkPSJNIDE1NC4zMiAxOTguNTIgTCA0NzcuODQgMTk4LjUyIEwgNDc3Ljg0IDIzNS41MyBMIDE1NC4zMiAyMzUuNTMgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJtYXRwbG90bGliLmF4aXNfMSI+PGcgaWQ9InRleHRfMSI+PHRleHQgc3R5bGU9ImZvbnQtc2l6ZTogMTEuNXB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjMTcyYTNiIiB4PSIzMTYuMDgiIHk9IjI1OS4wOCIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDI1OS4wOCkiPkZpZWxkIHJlY29yZGVkIChmaWxsZWQpIG9yIG1pc3NpbmcgKGhhdGNoZWQpPC90ZXh0PjwvZz48L2c+PGcgaWQ9Im1hdHBsb3RsaWIuYXhpc18yIj48ZyBpZD0ieXRpY2tfMSI+PGcgaWQ9ImxpbmUyZF8xIj48ZGVmcz48cGF0aCBpZD0ibTRkOTU3YTY1MmYiIGQ9Ik0gMCAwIEwgLTMuNSAwICIgc3R5bGU9InN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2RlZnM+PGc+PHVzZSB4bGluazpocmVmPSIjbTRkOTU3YTY1MmYiIHg9IjE1NC4zMiIgeT0iMzcuOTUiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF8yIj48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iNDEuOTQiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiA0MS45NCkiPkRlcGxveW1lbnQgY29uZGl0aW9uPC90ZXh0PjwvZz48L2c+PGcgaWQ9Inl0aWNrXzIiPjxnIGlkPSJsaW5lMmRfMiI+PGc+PHVzZSB4bGluazpocmVmPSIjbTRkOTU3YTY1MmYiIHg9IjE1NC4zMiIgeT0iOTcuNjQiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF8zIj48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iMTAxLjYzIiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAxNDcuMzIgMTAxLjYzKSI+U3VwcG9ydGluZyBvYnNlcnZhdGlvbjwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja18zIj48ZyBpZD0ibGluZTJkXzMiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjE1Ny4zNCIgc3R5bGU9ImZpbGw6ICM0YTU2NWU7IHN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2c+PC9nPjxnIGlkPSJ0ZXh0XzQiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDEwLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IGVuZDsgZmlsbDogIzRhNTY1ZSIgeD0iMTQ3LjMyIiB5PSIxNjEuMzMiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiAxNjEuMzMpIj5Db3VudGVyZXhhbXBsZTwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja180Ij48ZyBpZD0ibGluZTJkXzQiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjIxNy4wMyIgc3R5bGU9ImZpbGw6ICM0YTU2NWU7IHN0cm9rZTogIzRhNTY1ZTsgc3Ryb2tlLXdpZHRoOiAwLjgiLz48L2c+PC9nPjxnIGlkPSJ0ZXh0XzUiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDEwLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IGVuZDsgZmlsbDogIzRhNTY1ZSIgeD0iMTQ3LjMyIiB5PSIyMjEuMDIiIHRyYW5zZm9ybT0icm90YXRlKC0wIDE0Ny4zMiAyMjEuMDIpIj5OZXh0IHRlc3Q8L3RleHQ+PC9nPjwvZz48ZyBpZD0idGV4dF82Ij48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMS41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICMxNzJhM2IiIHg9IjE3LjM4IiB5PSIxMjcuNDkiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxNy4zOCAxMjcuNDkpIj5FdmlkZW5jZSBmaWVsZDwvdGV4dD48L2c+PC9nPjxnIGlkPSJwYXRjaF83Ij48cGF0aCBkPSJNIDE1NC4zMiAyNDYuMzQgTCAxNTQuMzIgOC42NCAiIHN0eWxlPSJmaWxsOiBub25lOyBzdHJva2U6ICM2Yjc1N2I7IHN0cm9rZS13aWR0aDogMC44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyOyBzdHJva2UtbGluZWNhcDogc3F1YXJlIi8+PC9nPjxnIGlkPSJwYXRjaF84Ij48cGF0aCBkPSJNIDE1NC4zMiAyNDYuMzQgTCA0NzcuODQgMjQ2LjM0ICIgc3R5bGU9ImZpbGw6IG5vbmU7IHN0cm9rZTogIzZiNzU3Yjsgc3Ryb2tlLXdpZHRoOiAwLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXI7IHN0cm9rZS1saW5lY2FwOiBzcXVhcmUiLz48L2c+PGcgaWQ9InRleHRfNyI+PHRleHQgc3R5bGU9ImZvbnQtd2VpZ2h0OiA3MDA7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgZmlsbDogI2ZmZmZmZiIgeD0iMzE2LjA4IiB5PSI0MS4wNyIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDQxLjA3KSI+cHJlc2VudDwvdGV4dD48L2c+PGcgaWQ9InRleHRfOCI+PHRleHQgc3R5bGU9ImZvbnQtd2VpZ2h0OiA3MDA7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgZmlsbDogI2ZmZmZmZiIgeD0iMzE2LjA4IiB5PSIxMDAuNzYiIHRyYW5zZm9ybT0icm90YXRlKC0wIDMxNi4wOCAxMDAuNzYpIj5wcmVzZW50PC90ZXh0PjwvZz48ZyBpZD0idGV4dF85Ij48dGV4dCBzdHlsZT0iZm9udC13ZWlnaHQ6IDcwMDsgZm9udC1zaXplOiAxMnB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjZmZmZmZmIiB4PSIzMTYuMDgiIHk9IjE2MC40NSIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDE2MC40NSkiPnByZXNlbnQ8L3RleHQ+PC9nPjxnIGlkPSJ0ZXh0XzEwIj48dGV4dCBzdHlsZT0iZm9udC13ZWlnaHQ6IDcwMDsgZm9udC1zaXplOiAxMnB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjZmZmZmZmIiB4PSIzMTYuMDgiIHk9IjIyMC4xNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMzE2LjA4IDIyMC4xNSkiPnByZXNlbnQ8L3RleHQ+PC9nPjwvZz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJwOGMwNmI2NDRkNSI+PHJlY3QgeD0iMTU0LjMyIiB5PSI4LjY0IiB3aWR0aD0iMzIzLjUyIiBoZWlnaHQ9IjIzNy43Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+","interpretation":"Note 1 records all 4 fields, so 4 - 4 = 0 are missing. A complete note is actionable; only the next task can show whether its rule transfers.","metrics":[["Note","Note 1: all four fields"],["Fields present","4 of 4"],["Fields missing","0"]],"min_width":417,"selected":"Competition note: Note 1: all four fields","steps":["Note 1 selected.","Present: deployment condition, supporting observation, counterexample, next test.","Missing: none.","Missing count: 4 - 4 = 0."]},"2":{"alt":"Figure: Is this note ready to reuse as a conditional rule? Checklist of four fields for note 2. Deployment condition is present; Supporting observation is present; Counterexample is missing; Next test is present.","image":"data:image/svg+xml;base64,PHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjQ4Ni40OHB0IiBoZWlnaHQ9IjI3MC40OHB0IiB2aWV3Qm94PSIwIDAgNDg2LjQ4IDI3MC40OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+KntzdHJva2UtbGluZWpvaW46IHJvdW5kOyBzdHJva2UtbGluZWNhcDogYnV0dH08L3N0eWxlPjwvZGVmcz48ZyBpZD0iZmlndXJlXzEiPjxnIGlkPSJwYXRjaF8xIj48cGF0aCBkPSJNIDAgMjcwLjQ4IEwgNDg2LjQ4IDI3MC40OCBMIDQ4Ni40OCAwIEwgMCAwIHogIiBzdHlsZT0iZmlsbDogI2ZmZmZmZiIvPjwvZz48ZyBpZD0iYXhlc18xIj48ZyBpZD0icGF0Y2hfMiI+PHBhdGggZD0iTSAxNTQuMzIgMjQ2LjM0IEwgNDc3Ljg0IDI0Ni4zNCBMIDQ3Ny44NCA4LjY0IEwgMTU0LjMyIDguNjQgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjxnIGlkPSJwYXRjaF8zIj48cGF0aCBkPSJNIDE1NC4zMiAxOS40NCBMIDQ3Ny44NCAxOS40NCBMIDQ3Ny44NCA1Ni40NSBMIDE1NC4zMiA1Ni40NSB6ICIgY2xpcC1wYXRoPSJ1cmwoI3A4YzA2YjY0NGQ1KSIgc3R5bGU9ImZpbGw6ICMxMzZmNzU7IHN0cm9rZTogIzEzNmY3NTsgc3Ryb2tlLXdpZHRoOiAxLjg7IHN0cm9rZS1saW5lam9pbjogbWl0ZXIiLz48L2c+PGcgaWQ9InBhdGNoXzQiPjxwYXRoIGQ9Ik0gMTU0LjMyIDc5LjE0IEwgNDc3Ljg0IDc5LjE0IEwgNDc3Ljg0IDExNi4xNSBMIDE1NC4zMiAxMTYuMTUgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiAjMTM2Zjc1OyBzdHJva2U6ICMxMzZmNzU7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyIi8+PC9nPjxnIGlkPSJwYXRjaF81Ij48cGF0aCBkPSJNIDE1NC4zMiAxMzguODMgTCA0NzcuODQgMTM4LjgzIEwgNDc3Ljg0IDE3NS44NCBMIDE1NC4zMiAxNzUuODQgeiAiIGNsaXAtcGF0aD0idXJsKCNwOGMwNmI2NDRkNSkiIHN0eWxlPSJmaWxsOiB1cmwoI2g3MTRjYWM0NWQwKTsgc3Ryb2tlOiAjYTI0YTMzOyBzdHJva2Utd2lkdGg6IDEuODsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlciIvPjwvZz48ZyBpZD0icGF0Y2hfNiI+PHBhdGggZD0iTSAxNTQuMzIgMTk4LjUyIEwgNDc3Ljg0IDE5OC41MiBMIDQ3Ny44NCAyMzUuNTMgTCAxNTQuMzIgMjM1LjUzIHogIiBjbGlwLXBhdGg9InVybCgjcDhjMDZiNjQ0ZDUpIiBzdHlsZT0iZmlsbDogIzEzNmY3NTsgc3Ryb2tlOiAjMTM2Zjc1OyBzdHJva2Utd2lkdGg6IDEuODsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlciIvPjwvZz48ZyBpZD0ibWF0cGxvdGxpYi5heGlzXzEiPjxnIGlkPSJ0ZXh0XzEiPjx0ZXh0IHN0eWxlPSJmb250LXNpemU6IDExLjVweDsgZm9udC1mYW1pbHk6ICdEZWphVnUgU2FucycsICdIZWx2ZXRpY2EnLCAnQXJpYWwnLCAnTGliZXJhdGlvbiBTYW5zJywgc2Fucy1zZXJpZjsgdGV4dC1hbmNob3I6IG1pZGRsZTsgZmlsbDogIzE3MmEzYiIgeD0iMzE2LjA4IiB5PSIyNTkuMDgiIHRyYW5zZm9ybT0icm90YXRlKC0wIDMxNi4wOCAyNTkuMDgpIj5GaWVsZCByZWNvcmRlZCAoZmlsbGVkKSBvciBtaXNzaW5nIChoYXRjaGVkKTwvdGV4dD48L2c+PC9nPjxnIGlkPSJtYXRwbG90bGliLmF4aXNfMiI+PGcgaWQ9Inl0aWNrXzEiPjxnIGlkPSJsaW5lMmRfMSI+PGRlZnM+PHBhdGggaWQ9Im00ZDk1N2E2NTJmIiBkPSJNIDAgMCBMIC0zLjUgMCAiIHN0eWxlPSJzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9kZWZzPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9IjM3Ljk1IiBzdHlsZT0iZmlsbDogIzRhNTY1ZTsgc3Ryb2tlOiAjNGE1NjVlOyBzdHJva2Utd2lkdGg6IDAuOCIvPjwvZz48L2c+PGcgaWQ9InRleHRfMiI+PHRleHQgc3R5bGU9ImZvbnQtc2l6ZTogMTAuNXB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogZW5kOyBmaWxsOiAjNGE1NjVlIiB4PSIxNDcuMzIiIHk9IjQxLjk0IiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAxNDcuMzIgNDEuOTQpIj5EZXBsb3ltZW50IGNvbmRpdGlvbjwvdGV4dD48L2c+PC9nPjxnIGlkPSJ5dGlja18yIj48ZyBpZD0ibGluZTJkXzIiPjxnPjx1c2UgeGxpbms6aHJlZj0iI200ZDk1N2E2NTJmIiB4PSIxNTQuMzIiIHk9Ijk3LjY0IiBzdHlsZT0iZmlsbDogIzRhNTY1ZTsgc3Ryb2tlOiAjNGE1NjVlOyBzdHJva2Utd2lkdGg6IDAuOCIvPjwvZz48L2c+PGcgaWQ9InRleHRfMyI+PHRleHQgc3R5bGU9ImZvbnQtc2l6ZTogMTAuNXB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogZW5kOyBmaWxsOiAjNGE1NjVlIiB4PSIxNDcuMzIiIHk9IjEwMS42MyIgdHJhbnNmb3JtPSJyb3RhdGUoLTAgMTQ3LjMyIDEwMS42MykiPlN1cHBvcnRpbmcgb2JzZXJ2YXRpb248L3RleHQ+PC9nPjwvZz48ZyBpZD0ieXRpY2tfMyI+PGcgaWQ9ImxpbmUyZF8zIj48Zz48dXNlIHhsaW5rOmhyZWY9IiNtNGQ5NTdhNjUyZiIgeD0iMTU0LjMyIiB5PSIxNTcuMzQiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF80Ij48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iMTYxLjMzIiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAxNDcuMzIgMTYxLjMzKSI+Q291bnRlcmV4YW1wbGU8L3RleHQ+PC9nPjwvZz48ZyBpZD0ieXRpY2tfNCI+PGcgaWQ9ImxpbmUyZF80Ij48Zz48dXNlIHhsaW5rOmhyZWY9IiNtNGQ5NTdhNjUyZiIgeD0iMTU0LjMyIiB5PSIyMTcuMDMiIHN0eWxlPSJmaWxsOiAjNGE1NjVlOyBzdHJva2U6ICM0YTU2NWU7IHN0cm9rZS13aWR0aDogMC44Ii8+PC9nPjwvZz48ZyBpZD0idGV4dF81Ij48dGV4dCBzdHlsZT0iZm9udC1zaXplOiAxMC41cHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBlbmQ7IGZpbGw6ICM0YTU2NWUiIHg9IjE0Ny4zMiIgeT0iMjIxLjAyIiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAxNDcuMzIgMjIxLjAyKSI+TmV4dCB0ZXN0PC90ZXh0PjwvZz48L2c+PGcgaWQ9InRleHRfNiI+PHRleHQgc3R5bGU9ImZvbnQtc2l6ZTogMTEuNXB4OyBmb250LWZhbWlseTogJ0RlamFWdSBTYW5zJywgJ0hlbHZldGljYScsICdBcmlhbCcsICdMaWJlcmF0aW9uIFNhbnMnLCBzYW5zLXNlcmlmOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyBmaWxsOiAjMTcyYTNiIiB4PSIxNy4zOCIgeT0iMTI3LjQ5IiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMTcuMzggMTI3LjQ5KSI+RXZpZGVuY2UgZmllbGQ8L3RleHQ+PC9nPjwvZz48ZyBpZD0icGF0Y2hfNyI+PHBhdGggZD0iTSAxNTQuMzIgMjQ2LjM0IEwgMTU0LjMyIDguNjQgIiBzdHlsZT0iZmlsbDogbm9uZTsgc3Ryb2tlOiAjNmI3NTdiOyBzdHJva2Utd2lkdGg6IDAuODsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlcjsgc3Ryb2tlLWxpbmVjYXA6IHNxdWFyZSIvPjwvZz48ZyBpZD0icGF0Y2hfOCI+PHBhdGggZD0iTSAxNTQuMzIgMjQ2LjM0IEwgNDc3Ljg0IDI0Ni4zNCAiIHN0eWxlPSJmaWxsOiBub25lOyBzdHJva2U6ICM2Yjc1N2I7IHN0cm9rZS13aWR0aDogMC44OyBzdHJva2UtbGluZWpvaW46IG1pdGVyOyBzdHJva2UtbGluZWNhcDogc3F1YXJlIi8+PC9nPjxnIGlkPSJ0ZXh0XzciPjx0ZXh0IHN0eWxlPSJmb250LXdlaWdodDogNzAwOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICNmZmZmZmYiIHg9IjMxNi4wOCIgeT0iNDEuMDciIHRyYW5zZm9ybT0icm90YXRlKC0wIDMxNi4wOCA0MS4wNykiPnByZXNlbnQ8L3RleHQ+PC9nPjxnIGlkPSJ0ZXh0XzgiPjx0ZXh0IHN0eWxlPSJmb250LXdlaWdodDogNzAwOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICNmZmZmZmYiIHg9IjMxNi4wOCIgeT0iMTAwLjc2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAzMTYuMDggMTAwLjc2KSI+cHJlc2VudDwvdGV4dD48L2c+PGcgaWQ9InRleHRfOSI+PGcgaWQ9InBhdGNoXzkiPjxwYXRoIGQ9Ik0gMjkwLjAxIDE2Ni4zNCBMIDM0Mi4xNiAxNjYuMzQgUSAzNDUuMTYgMTY2LjM0IDM0NS4xNiAxNjMuMzQgTCAzNDUuMTYgMTUxLjM0IFEgMzQ1LjE2IDE0OC4zNCAzNDIuMTYgMTQ4LjM0IEwgMjkwLjAxIDE0OC4zNCBRIDI4Ny4wMSAxNDguMzQgMjg3LjAxIDE1MS4zNCBMIDI4Ny4wMSAxNjMuMzQgUSAyODcuMDEgMTY2LjM0IDI5MC4wMSAxNjYuMzQgeiAiIHN0eWxlPSJmaWxsOiAjZmZmZmZmIi8+PC9nPjx0ZXh0IHN0eWxlPSJmb250LXdlaWdodDogNzAwOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICNhMjRhMzMiIHg9IjMxNi4wOCIgeT0iMTYwLjQ1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAzMTYuMDggMTYwLjQ1KSI+bWlzc2luZzwvdGV4dD48L2c+PGcgaWQ9InRleHRfMTAiPjx0ZXh0IHN0eWxlPSJmb250LXdlaWdodDogNzAwOyBmb250LXNpemU6IDEycHg7IGZvbnQtZmFtaWx5OiAnRGVqYVZ1IFNhbnMnLCAnSGVsdmV0aWNhJywgJ0FyaWFsJywgJ0xpYmVyYXRpb24gU2FucycsIHNhbnMtc2VyaWY7IHRleHQtYW5jaG9yOiBtaWRkbGU7IGZpbGw6ICNmZmZmZmYiIHg9IjMxNi4wOCIgeT0iMjIwLjE1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMCAzMTYuMDggMjIwLjE1KSI+cHJlc2VudDwvdGV4dD48L2c+PC9nPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9InA4YzA2YjY0NGQ1Ij48cmVjdCB4PSIxNTQuMzIiIHk9IjguNjQiIHdpZHRoPSIzMjMuNTIiIGhlaWdodD0iMjM3LjciLz48L2NsaXBQYXRoPjwvZGVmcz48ZGVmcz48cGF0dGVybiBpZD0iaDcxNGNhYzQ1ZDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjczIiBoZWlnaHQ9IjczIiBmaWxsPSIjZmZmZmZmIi8+PHBhdGggZD0iTSAtMzYgMzYgTCAzNiAtMzYgTSAtMzAgNDIgTCA0MiAtMzAgTSAtMjQgNDggTCA0OCAtMjQgTSAtMTggNTQgTCA1NCAtMTggTSAtMTIgNjAgTCA2MCAtMTIgTSAtNiA2NiBMIDY2IC02IE0gMCA3MiBMIDcyIDAgTSA2IDc4IEwgNzggNiBNIDEyIDg0IEwgODQgMTIgTSAxOCA5MCBMIDkwIDE4IE0gMjQgOTYgTCA5NiAyNCBNIDMwIDEwMiBMIDEwMiAzMCBNIDM2IDEwOCBMIDEwOCAzNiAiIHN0eWxlPSJmaWxsOiAjYTI0YTMzOyBzdHJva2U6ICNhMjRhMzM7IHN0cm9rZS13aWR0aDogMS4wOyBzdHJva2UtbGluZWNhcDogYnV0dDsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlciIvPjwvcGF0dGVybj48L2RlZnM+PC9zdmc+","interpretation":"Note 2 records 3 of the 4 fields, so 4 - 3 = 1 is missing: counterexample. A complete note is actionable; only the next task can show whether its rule transfers.","metrics":[["Note","Note 2: no counterexample"],["Fields present","3 of 4"],["Fields missing","1"]],"min_width":417,"selected":"Competition note: Note 2: no counterexample","steps":["Note 2 selected.","Present: deployment condition, supporting observation, next test.","Missing: counterexample.","Missing count: 4 - 3 = 1."]}},"title":"Is this note ready to reuse as a conditional rule?"}]}</script>
+<script>(function () {
+  'use strict';
+  var dataNode = document.getElementById('reader-data');
+  if (!dataNode) { return; }
+  var payload = JSON.parse(dataNode.textContent);
+
+  function selectFor(section, control) {
+    return section.querySelector('select[data-control="' + control.key + '"]');
+  }
+
+  function clear(node) {
+    while (node.firstChild) { node.removeChild(node.firstChild); }
+  }
+
+  function each(list, fn) {
+    Array.prototype.forEach.call(list, fn);
+  }
+
+  function setClass(node, name, on) {
+    var list = String(node.className || '').split(/\s+/).filter(function (c) { return c && c !== name; });
+    if (on) { list.push(name); }
+    node.className = list.join(' ');
+  }
+
+  // A figure or equation wider than its column scrolls sideways; show the hint only then.
+  function overflows(node) {
+    return Number(node.scrollWidth) > Number(node.clientWidth) + 1;
+  }
+
+  function updateHints(section) {
+    var frame = section.querySelector('.figure-frame');
+    var hint = section.querySelector('.figure-hint');
+    if (frame && hint) { setClass(hint, 'is-needed', overflows(frame)); }
+    var equationHint = section.querySelector('.equation-hint');
+    if (equationHint) {
+      var wide = false;
+      each(section.querySelectorAll('.equation'), function (node) { if (overflows(node)) { wide = true; } });
+      setClass(equationHint, 'is-needed', wide);
+    }
+  }
+
+  function stepperControl(demo) {
+    var found = null;
+    demo.controls.forEach(function (control) { if (control.key === demo.stepper) { found = control; } });
+    return found;
+  }
+
+  function renderSteps(section, state) {
+    var list = section.querySelector('ol.steps');
+    if (!list || !state.steps) { return; }
+    clear(list);
+    state.steps.forEach(function (text) {
+      var item = document.createElement('li');
+      item.textContent = text;
+      list.appendChild(item);
+    });
+  }
+
+  function renderStepper(section, demo) {
+    var control = demo.stepper ? stepperControl(demo) : null;
+    var box = section.querySelector('div.stepper');
+    if (!control || !box) { return; }
+    var index = Number(selectFor(section, control).value);
+    var last = control.values.length - 1;
+    var back = box.querySelector('button.step-back');
+    var next = box.querySelector('button.step-next');
+    back.disabled = index <= 0;
+    next.disabled = index >= last;
+    // Keep keyboard focus on a usable button when the other end is reached.
+    if (next.disabled && document.activeElement === next && typeof back.focus === 'function') { back.focus(); }
+    if (back.disabled && document.activeElement === back && typeof next.focus === 'function') { next.focus(); }
+    var status = box.querySelector('.step-status');
+    var text = 'Step ' + (index + 1) + ' of ' + (last + 1) + ': ' + control.label + ': ' + control.values[index];
+    // Write only on a change, so loading the page announces nothing.
+    if (status.textContent !== text) { status.textContent = text; }
+  }
+
+  function render(section, demo) {
+    var key = demo.controls.map(function (control) { return selectFor(section, control).value; }).join(',');
+    var state = demo.states[key];
+    var interpretation = section.querySelector('.interpretation');
+    renderStepper(section, demo);
+    if (!state) {
+      interpretation.textContent = 'This combination of values is not available.';
+      return;
+    }
+    var image = section.querySelector('.plot img');
+    image.setAttribute('src', state.image);
+    image.setAttribute('alt', state.alt);
+    // The smallest width at which the figure's text stays legible; narrower frames scroll.
+    if (state.min_width) { image.setAttribute('style', 'min-width:' + state.min_width + 'px'); } else { image.removeAttribute('style'); }
+    var metrics = section.querySelector('.metrics');
+    clear(metrics);
+    state.metrics.forEach(function (pair) {
+      var group = document.createElement('div');
+      group.className = 'metric';
+      var term = document.createElement('dt');
+      term.textContent = pair[0];
+      var value = document.createElement('dd');
+      value.textContent = pair[1];
+      group.appendChild(term);
+      group.appendChild(value);
+      metrics.appendChild(group);
+    });
+    interpretation.textContent = state.interpretation;
+    section.querySelector('.selected-parameters').textContent = state.selected;
+    renderSteps(section, state);
+    updateHints(section);
+  }
+
+  function setupStepper(section, demo) {
+    var control = demo.stepper ? stepperControl(demo) : null;
+    var box = section.querySelector('div.stepper');
+    if (!control || !box) { return; }
+    var select = selectFor(section, control);
+    function move(delta) {
+      var index = Number(select.value) + delta;
+      if (index < 0 || index > control.values.length - 1) { return; }
+      select.value = String(index);
+      render(section, demo);
+    }
+    var back = box.querySelector('button.step-back');
+    var next = box.querySelector('button.step-next');
+    back.hidden = false;
+    next.hidden = false;
+    box.querySelector('.step-status').hidden = false;
+    back.addEventListener('click', function () { move(-1); });
+    next.addEventListener('click', function () { move(1); });
+  }
+
+  function setupPrediction(section, demo) {
+    var feedback = section.querySelector('.prediction-feedback');
+    if (!demo.predict || !feedback) { return; }
+    each(section.querySelectorAll('fieldset.predict-options input'), function (radio) {
+      radio.disabled = false;
+      radio.addEventListener('change', function () {
+        var right = Number(radio.value) === demo.predict.answer;
+        feedback.textContent = right ? 'Correct. ' + demo.predict.correct : 'Not quite. ' + demo.predict.incorrect;
+        feedback.className = 'prediction-feedback ' + (right ? 'is-correct' : 'is-incorrect');
+      });
+    });
+  }
+
+  var sections = [];
+  payload.demos.forEach(function (demo) {
+    var section = document.getElementById(demo.id);
+    if (!section) { return; }
+    demo.controls.forEach(function (control) {
+      var select = selectFor(section, control);
+      select.disabled = false;
+      select.addEventListener('change', function () { render(section, demo); });
+    });
+    var reset = section.querySelector('button.reset');
+    if (reset) {
+      reset.hidden = false;
+      reset.addEventListener('click', function () {
+        demo.controls.forEach(function (control) { selectFor(section, control).value = String(control.default); });
+        render(section, demo);
+      });
+    }
+    setupStepper(section, demo);
+    setupPrediction(section, demo);
+    each(section.querySelectorAll('img'), function (img) { img.addEventListener('load', function () { updateHints(section); }); });
+    render(section, demo);
+    sections.push(section);
+  });
+  function updateAll() { sections.forEach(updateHints); }
+  if (typeof window.addEventListener === 'function') {
+    window.addEventListener('resize', updateAll);
+    window.addEventListener('load', updateAll);
+  }
+  document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  document.documentElement.setAttribute('data-ready', 'true');
+}());
+</script>
+</body>
+</html>
