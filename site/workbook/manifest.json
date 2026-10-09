@@ -4,7 +4,7 @@
     {
       "chapter": 1,
       "notebook": "01-what-actually-wins.ipynb",
-      "notebook_sha256": "b8fc46756169f37f035b5ccc043e653d55f14ff08b0cb2236de70b47100b548c",
+      "notebook_sha256": "b0a6666bdead805fbee55b6d6fa3818a43387944530f98952168ad540d514dc4",
       "source_sha256": "6ae02c9b38d59ae29acd045cc94824dbb0c8112f159f6a50d857eb60d6fa87ec",
       "page": "01-what-actually-wins.html",
       "lessons": 0,
@@ -13,7 +13,7 @@
     {
       "chapter": 2,
       "notebook": "02-the-process-mindset.ipynb",
-      "notebook_sha256": "4e9a11a0e28ca7ccdecfefcb1ff5e14ed4aae7be5013bbb50760509463b020d4",
+      "notebook_sha256": "20a9b3a6fc5800ebaa299fe1d46682cd8f0ce64097211a4980735c0f24eac4bf",
       "source_sha256": "109a584c5c11cdf52e3cccb38dcb4262168a988a87b39c389b7e23ea8015f0e9",
       "page": "02-the-process-mindset.html",
       "lessons": 0,
@@ -22,7 +22,7 @@
     {
       "chapter": 3,
       "notebook": "03-building-cv-that-matches.ipynb",
-      "notebook_sha256": "1e232709f009abdf840a071c2c804b57783a9a1858612a2975d1ac3734126de5",
+      "notebook_sha256": "6f19198641df78fee7bfa8a1ae010def28555e2856b7ad30e8015a6cc970e7cf",
       "source_sha256": "c2aff9eb71f02c26df8413b83af52133e8bc6042614899b6413c45ad5229628d",
       "page": "03-building-cv-that-matches.html",
       "lessons": 20,
@@ -31,7 +31,7 @@
     {
       "chapter": 4,
       "notebook": "04-tracking-cv-lb-gap.ipynb",
-      "notebook_sha256": "2ced596d34157591cecbdd7d8277103550b47503395e3800739d3f0b2dc2ecfd",
+      "notebook_sha256": "f49b82d18fcb81c460896b3bcfaaf3e729491beffeeb02d9923b233964dd8f43",
       "source_sha256": "4215c93b6788297bc5a5be972197d9d71019645fed5041eaf6bb9ca558dc1350",
       "page": "04-tracking-cv-lb-gap.html",
       "lessons": 3,
@@ -40,7 +40,7 @@
     {
       "chapter": 5,
       "notebook": "05-adversarial-validation.ipynb",
-      "notebook_sha256": "e7a404d86a4ac50736c6d61ca3478e77ed17a15ade07cacff3230486bb06bea1",
+      "notebook_sha256": "f3ca7a9ac836069d33eff5c347f6602731c8d973585a9c1b0db925e7f0c11aa2",
       "source_sha256": "7cde281f0f538f3d75f6a9d4f278b80f428a93bcc91cf701848ce0387076d2e0",
       "page": "05-adversarial-validation.html",
       "lessons": 0,
@@ -49,7 +49,7 @@
     {
       "chapter": 6,
       "notebook": "06-march-mania-case-study.ipynb",
-      "notebook_sha256": "0914325345765dded2d42e2ebe68b0341d5e3ec0b7f9d2c3dc2fc03bac94532b",
+      "notebook_sha256": "5402e79d7b9a82a6e566db836079c06593cf471c184dbebe0822539ee14f6550",
       "source_sha256": "f8c7e8b9a0201d484fa314af3a14d31aca80d74a0b551ec90f722b26a40fb315",
       "page": "06-march-mania-case-study.html",
       "lessons": 1,
@@ -58,7 +58,7 @@
     {
       "chapter": 7,
       "notebook": "07-domain-features-win.ipynb",
-      "notebook_sha256": "e9de22d7284a8a750ee20ce510fd0b1bfcbca3c27086ad3be326b20272a95294",
+      "notebook_sha256": "2379343c73f564a6099e9abbd3f68d709662fa47fbd926ed02fb894b96d0cd99",
       "source_sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
       "page": "07-domain-features-win.html",
       "lessons": 15,
@@ -67,7 +67,7 @@
     {
       "chapter": 8,
       "notebook": "08-five-stage-process.ipynb",
-      "notebook_sha256": "40e6bb859c19e55bc7c94e3e245f6a9ea6126ec64c670b94e1611de86ed6f036",
+      "notebook_sha256": "ca5399e07949079b3f9c8bfe4a45b5a5c3abdfaeeed9e7009bcc4871d11b8992",
       "source_sha256": "9a7159d2d8758fe9d460079ef4acf276d2c32d9ab7e58ed91778ee2a1fafbc4e",
       "page": "08-five-stage-process.html",
       "lessons": 22,
@@ -76,7 +76,7 @@
     {
       "chapter": 9,
       "notebook": "09-target-encoding-without-leakage.ipynb",
-      "notebook_sha256": "74fc9a7ebe76a3f692365eb69b31d088c323d27d0e590b2b9f4dcd3212cdf30f",
+      "notebook_sha256": "503d02e000750e72a1471cdb467464b5cb01c2b3838dfe780466d6e847da4bc5",
       "source_sha256": "3ff761625617b1b62dddb55a3d8398de92f6d630799c6ae52854ecfd7d33e5f7",
       "page": "09-target-encoding-without-leakage.html",
       "lessons": 0,
@@ -85,7 +85,7 @@
     {
       "chapter": 10,
       "notebook": "10-interactions-groups-text.ipynb",
-      "notebook_sha256": "c6834b3c9b17b6c8454f21ee39302ff209c8bbef0c9c0e6551742ca986727466",
+      "notebook_sha256": "7c92a29794831cf6b2e916239b57a7672633b0a94d15844b361c45579a5eb72d",
       "source_sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
       "page": "10-interactions-groups-text.html",
       "lessons": 6,
@@ -94,7 +94,7 @@
     {
       "chapter": 11,
       "notebook": "11-when-fe-fails.ipynb",
-      "notebook_sha256": "e966d696e5a60b827faa6e84dd6a50437aa49aa635f32fea8a853b18c8f26aa1",
+      "notebook_sha256": "ff57a87ba1e78f65931197e2429c80eed5dee66496ae1987f2c776e45d89faa3",
       "source_sha256": "b4250e16053875a866eebd54500284fddaf8bd1808aad2e344fcf403eb43b59b",
       "page": "11-when-fe-fails.html",
       "lessons": 2,
@@ -103,7 +103,7 @@
     {
       "chapter": 12,
       "notebook": "12-the-gbm-trio.ipynb",
-      "notebook_sha256": "8ff411d3b826cb3f41812834dec1f41e6b1d8261a06663e1fa2edf79e0682b24",
+      "notebook_sha256": "7988467673e82db1619125b8fe38a3daf3be2749718ace3ce1bafc128aa5ccf9",
       "source_sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
       "page": "12-the-gbm-trio.html",
       "lessons": 9,
@@ -112,7 +112,7 @@
     {
       "chapter": 13,
       "notebook": "13-optuna-and-hyperparameter-tuning.ipynb",
-      "notebook_sha256": "3b1b86b8e289ec0f8a1ec1b3a3f0521bd32fce4f2a24282a70b7ac64e9f4e55a",
+      "notebook_sha256": "e5df5ddcc04bb84f80f585938d5789cd06d78f757c5b29b1c94cda06a41e1a73",
       "source_sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
       "page": "13-optuna-and-hyperparameter-tuning.html",
       "lessons": 7,
@@ -121,7 +121,7 @@
     {
       "chapter": 14,
       "notebook": "14-what-doesnt-work.ipynb",
-      "notebook_sha256": "0e75e6c63c717748493a651ff6abf05a51fb8f3bd8cc820cfa7e2271638b7807",
+      "notebook_sha256": "7d4354229ec0f99dacd8fbf84e64223a901e5ecc2b837a421a8dba8f62ab60e5",
       "source_sha256": "f7a76ffc248a8149d4f17658e7e0c4e895a0fa829825c8a1efaabe69195d5839",
       "page": "14-what-doesnt-work.html",
       "lessons": 2,
@@ -130,7 +130,7 @@
     {
       "chapter": 15,
       "notebook": "15-when-the-problem-isnt-tabular.ipynb",
-      "notebook_sha256": "3205a644693ceb681dbe73e3528f1ab9e789cfc8044a58729e57db2e0a2f414e",
+      "notebook_sha256": "5911b164fb8a4cb2706981ff0004dcf75cda55322d297649a1e3bc27f9598f35",
       "source_sha256": "425d4dc3879b729954495a8a77861d32d595b7f1914f7a3b5bb574bfbca2212c",
       "page": "15-when-the-problem-isnt-tabular.html",
       "lessons": 0,
@@ -139,7 +139,7 @@
     {
       "chapter": 16,
       "notebook": "16-fourth-root-blend.ipynb",
-      "notebook_sha256": "eca767aa43cadf1665d0ded8827770cfadd29b5d70c57d23bb136dffb80766a3",
+      "notebook_sha256": "57773a2332e9219d41fd40d581ba27d7822bd8457823c585feb26f27764a40d8",
       "source_sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
       "page": "16-fourth-root-blend.html",
       "lessons": 6,
@@ -148,7 +148,7 @@
     {
       "chapter": 17,
       "notebook": "17-stacking-and-hill-climbing.ipynb",
-      "notebook_sha256": "5f50ef2ec2d355dee641d99e212c697f383e0f257a547932580450379eac7de6",
+      "notebook_sha256": "051a186f66e71b6922d37fcb1e6f08cf38e2dd7831008d982d824dce1222f29b",
       "source_sha256": "899b68687a5237d1cffd37f5415b9fcbab30b83ee8477fa75e8b21adf3179127",
       "page": "17-stacking-and-hill-climbing.html",
       "lessons": 4,
@@ -157,7 +157,7 @@
     {
       "chapter": 18,
       "notebook": "18-final-submission-selection.ipynb",
-      "notebook_sha256": "56ab0583d57a124605d62611235beb814e39aa3b2e61a52cc200480b42b0b4cf",
+      "notebook_sha256": "ae7ded7560c597a80fe362c6b0783268990856e234bc0877814bc00c21d77ff3",
       "source_sha256": "34a37ca18810412a5556e06a894d51be0429e574526077ba96b6a2a1e266373b",
       "page": "18-final-submission-selection.html",
       "lessons": 25,
@@ -166,7 +166,7 @@
     {
       "chapter": 19,
       "notebook": "19-march-mania-full-walkthrough.ipynb",
-      "notebook_sha256": "add09dd42fe429741bf025e9e83c117aa9d3f16b6eab6bb19717d5ece627a529",
+      "notebook_sha256": "1855b70100a126208f728a7bb7e09b408af6bbfa197558bc78ba929b253bfb84",
       "source_sha256": "81c745b11b90697283ca22d57ac480fb26b04a9e321ea96b26f0a52fae6dacd7",
       "page": "19-march-mania-full-walkthrough.html",
       "lessons": 0,
@@ -175,7 +175,7 @@
     {
       "chapter": 20,
       "notebook": "20-horse-health-small-data.ipynb",
-      "notebook_sha256": "d168093a7a7b30c673176fa8e811a14426c23f3dbeb49121ee644e2502e04684",
+      "notebook_sha256": "178299b2dca37f4ac7b6a3b9698a65d69f3fcfa0ffca2f9727dddc80f3577aa0",
       "source_sha256": "ccfb49d2563e87823aadc4f89eb9dd8e30f9e8f37a3396163897a61370703217",
       "page": "20-horse-health-small-data.html",
       "lessons": 0,
@@ -184,7 +184,7 @@
     {
       "chapter": 21,
       "notebook": "21-financial-competitions.ipynb",
-      "notebook_sha256": "bce559346d425db3d808b78483a721e36f8cf04ce2f8b1beac5fb3176ae95605",
+      "notebook_sha256": "bc5d4c1507b27588eb1f1a52737806e70cfb4ae27251234b2c8b44445c7b9339",
       "source_sha256": "b8e7b87186769ce4e412060098d44cfb73930b749ffe7416943f93fa09358a5e",
       "page": "21-financial-competitions.html",
       "lessons": 0,
@@ -193,7 +193,7 @@
     {
       "chapter": 22,
       "notebook": "22-vision-and-multimodal.ipynb",
-      "notebook_sha256": "6ba0768a8a748a9f5bb283b973a5bf0b53a88b6a87462d2967f03d15c368a31b",
+      "notebook_sha256": "4a87a8944bbbe9ee6f5c674169804921d2fafa9e5ea93c79bbca50da6e9db607",
       "source_sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
       "page": "22-vision-and-multimodal.html",
       "lessons": 13,
@@ -202,7 +202,7 @@
     {
       "chapter": 23,
       "notebook": "23-sensor-and-har.ipynb",
-      "notebook_sha256": "83776659ebc6a4000d16294c646c683773cefc341227e9c538c13b7a2d4bf3e2",
+      "notebook_sha256": "43353ecd08245efa2b8715245c0dd2ae9e85367120c04a23f01174ced332bb5a",
       "source_sha256": "dcd6023c93a1d2550d22ce07729b31f4c155df8c209245d367602f53e81c5134",
       "page": "23-sensor-and-har.html",
       "lessons": 3,
@@ -211,7 +211,7 @@
     {
       "chapter": 24,
       "notebook": "24-building-a-portfolio.ipynb",
-      "notebook_sha256": "248f8ea556d6876d67a217825ce16bd359a6a7a4a0a614c706ed0338dbeb2b53",
+      "notebook_sha256": "c895dadaa95cd519cc68b2764b7069ce6cd16efb99bc94e25747293c219b2bef",
       "source_sha256": "de79813811e8224381fece0c33580c691bc8de3014a5a66a6eed6f082ec9cec3",
       "page": "24-building-a-portfolio.html",
       "lessons": 3,
@@ -220,7 +220,7 @@
     {
       "chapter": 25,
       "notebook": "25-continuous-learning-system.ipynb",
-      "notebook_sha256": "0202846e7fd90a723d3a2a7acfe49b53d3da1b669c837d0f0d3d5ff21e9575ca",
+      "notebook_sha256": "da9c456a1bc9be4ff3acfec95b886151149e25b5c9c4cdb0b09f8484742af871",
       "source_sha256": "af02b8eba097531943137e74c9b34ad752fcd974210d99bdabbdc85d7b55479b",
       "page": "25-continuous-learning-system.html",
       "lessons": 20,
@@ -229,7 +229,7 @@
     {
       "chapter": 26,
       "notebook": "26-advanced-target-encoding.ipynb",
-      "notebook_sha256": "77df7cb3ff3242c98c8dffa13aec9262f0f0e2e8c116c20b7985eb598490f7cd",
+      "notebook_sha256": "219ce27283ab6b36e485d00bdeadf8fe25971a679644f8dd38ee0d4fa08d1eab",
       "source_sha256": "2ce28de2b0363e19ef69eb6bbe14e55b23c01f4b663f41c59ede4bbc611b70ec",
       "page": "26-advanced-target-encoding.html",
       "lessons": 1,
@@ -238,7 +238,7 @@
     {
       "chapter": 27,
       "notebook": "27-shap-for-feature-engineering.ipynb",
-      "notebook_sha256": "3ae5820eed5604edcf3fa495857683a9fc12c31244d1c291bb379883187df814",
+      "notebook_sha256": "b9adede387ced9bd2a02d1f02d15434a23f8629e3573ca5faa63a9944b416614",
       "source_sha256": "40565d62339c2f20b2a5f18fd3d0319ce9e8440a7b3ade2d552429ff312747e8",
       "page": "27-shap-for-feature-engineering.html",
       "lessons": 1,
@@ -247,7 +247,7 @@
     {
       "chapter": 28,
       "notebook": "28-nearest-neighbor-features.ipynb",
-      "notebook_sha256": "1407303b7158b6f01c5755d05f3ce66df07f572bd9043da2c4f26be57e47cc03",
+      "notebook_sha256": "0a09b66b67b806878be13b08922766f77b80152cd52d13111eb4e5db4c4cfe52",
       "source_sha256": "6f1e8f639712d9432657a5786c3118c4e3a417ed5c13dec0ab7c19b557887d5d",
       "page": "28-nearest-neighbor-features.html",
       "lessons": 4,
@@ -256,7 +256,7 @@
     {
       "chapter": 29,
       "notebook": "29-advanced-feature-selection.ipynb",
-      "notebook_sha256": "227505629c8a9d91dc7cc0960d0968d772bf8fe7971b292785f39bf6e3ea6574",
+      "notebook_sha256": "3554022ec193804f1770fdc377bc805166ce314d72e53adac01416f3a100116a",
       "source_sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
       "page": "29-advanced-feature-selection.html",
       "lessons": 7,
@@ -265,7 +265,7 @@
     {
       "chapter": 30,
       "notebook": "30-external-data-and-leakage.ipynb",
-      "notebook_sha256": "9419c3dd7a595ab1846319c70af2e29fc22e79ce8989e99be32ef6b8f478082d",
+      "notebook_sha256": "c70fc6508eb850cc2de000624f030940ebdb5c4c0f41e6e0dde7b09c5e3a5e0d",
       "source_sha256": "179f0614eb06d96e13014788833d87f46ef7deacc29ee7db3f9665a08eb5eb1f",
       "page": "30-external-data-and-leakage.html",
       "lessons": 27,
@@ -274,7 +274,7 @@
     {
       "chapter": 31,
       "notebook": "31-deep-learning-for-tabular.ipynb",
-      "notebook_sha256": "3379ccfea5921613547c0569bd023e963d87d813e0c52794f07fdf3ea7e55692",
+      "notebook_sha256": "f5f5665122c4cfe1941555411f088e8bf53b321568a4cf0b88973ccb8679f23b",
       "source_sha256": "5095a1d0f1080490c052577fb01dc12f64682ee778ecf02cce3686983cb91f0f",
       "page": "31-deep-learning-for-tabular.html",
       "lessons": 5,
@@ -283,7 +283,7 @@
     {
       "chapter": 32,
       "notebook": "32-denoising-autoencoders.ipynb",
-      "notebook_sha256": "1c52b769228b7e12d24c5afda296671d450b6ac119258fa24de338f700e0e14d",
+      "notebook_sha256": "1b25e400d44a848b1bbdfc212689756a5f0a5ad38742c39590aa9c9f48e18563",
       "source_sha256": "6acf54df381d6789be822f93079896e561af29e41ff3e14e7a9dc48dd9f577f6",
       "page": "32-denoising-autoencoders.html",
       "lessons": 3,
@@ -292,7 +292,7 @@
     {
       "chapter": 33,
       "notebook": "33-tabular-augmentation.ipynb",
-      "notebook_sha256": "20ec44a31201fdc427d59d898beef369dae40becfde666e6c649f46454f2f0d8",
+      "notebook_sha256": "db0249552b26e3949b51ba84804446ef10370b1a295b0bacebaacffab15bfd40",
       "source_sha256": "d50b87923246c8044584faf958e000d3770cb54c0357bc9b8960661b79044da8",
       "page": "33-tabular-augmentation.html",
       "lessons": 1,
@@ -301,7 +301,7 @@
     {
       "chapter": 34,
       "notebook": "34-pseudo-labeling.ipynb",
-      "notebook_sha256": "fddc3334ae7bfb5e06d36ea844e3fc7fa7fc00dbf3ef0db55165f2362e851d10",
+      "notebook_sha256": "d4d80c059dfd18749882f9d71c07a5ba703924fa06372cb2f72ed74edb1e8c7d",
       "source_sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
       "page": "34-pseudo-labeling.html",
       "lessons": 8,
@@ -310,7 +310,7 @@
     {
       "chapter": 35,
       "notebook": "35-memory-optimization.ipynb",
-      "notebook_sha256": "56d4f62b5949bd1f26466a6844f987b515c07cf735718779437e764482b83458",
+      "notebook_sha256": "a02d6c1cc38c4b11571e40a3de0b1eb2e946e7debd5585bc2efde79a63ed7d2a",
       "source_sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
       "page": "35-memory-optimization.html",
       "lessons": 15,
@@ -319,7 +319,7 @@
     {
       "chapter": 36,
       "notebook": "36-categorical-embeddings.ipynb",
-      "notebook_sha256": "9413a0cd34f46cd5829bec0d43190743e1dd6d8dc23b121c77ecf9cecda3cdc5",
+      "notebook_sha256": "5b0227e9ac1969c1d6ad6128dfc076cf250cdb94b52f2554fc0e4dd248aebde5",
       "source_sha256": "308dc8b702e9d81e905ce6c626e4af2df999a70d8a034585d5580b603f2910ca",
       "page": "36-categorical-embeddings.html",
       "lessons": 4,
@@ -328,7 +328,7 @@
     {
       "chapter": 37,
       "notebook": "37-stacking-deep.ipynb",
-      "notebook_sha256": "b269e01c12cf363fb388e4ef517ff7e14a9031de1b24e64d8895c2b4c7c84011",
+      "notebook_sha256": "22d559d0581f36d66818897d0fa8a73826de71bdaf403fccf5e1ed718caf793d",
       "source_sha256": "ac88740947ba75b33c5a285f1a35eaab0cdd78b877724e583ee991611b2bafde",
       "page": "37-stacking-deep.html",
       "lessons": 43,
@@ -337,7 +337,7 @@
     {
       "chapter": 38,
       "notebook": "38-calibration-and-post-processing.ipynb",
-      "notebook_sha256": "63bcbd6b3ed30c0ccaf31dbe53e3cf65a533ae051671b1d6471416382c5d493a",
+      "notebook_sha256": "644f6e12f613fd25d4d50af800543805c39c39163d0a21a93741233fd7307bef",
       "source_sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
       "page": "38-calibration-and-post-processing.html",
       "lessons": 6,
@@ -346,7 +346,7 @@
     {
       "chapter": 39,
       "notebook": "39-imbalanced-data.ipynb",
-      "notebook_sha256": "ca1704bec1dd30bd5547be4d320f147995874549a35cd0c2cf8ad0f15426e69a",
+      "notebook_sha256": "00bfe4c8b86b2945fd96d67ef8924ec2a7997fc7220fa5de3abc4893ed9bc4dd",
       "source_sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
       "page": "39-imbalanced-data.html",
       "lessons": 8,
@@ -355,7 +355,7 @@
     {
       "chapter": 40,
       "notebook": "40-knowledge-distillation.ipynb",
-      "notebook_sha256": "c0ef74993370f71c47d771f6474a874b1409d5a67e3a394a7dc04ec5944f3d1f",
+      "notebook_sha256": "75dca6b3d1ba1b54634bfc74af9f05533fb2f22a8ab0b1c0388a7371966af7f1",
       "source_sha256": "d2e610a7b28893ff96033667308b79a70b1322a4f63017adb45ea815e7063c64",
       "page": "40-knowledge-distillation.html",
       "lessons": 0,
@@ -364,7 +364,7 @@
     {
       "chapter": 41,
       "notebook": "41-online-learning.ipynb",
-      "notebook_sha256": "38b4406e8d6e8dcb05cfaeeba90c6197b67da6d420f8dc3d84b8d1a724f14782",
+      "notebook_sha256": "743aadd80af69bb06c096f055ac366212b94f8d777ef367551f83e083525bfe4",
       "source_sha256": "888c200b0f16e4ae8db18168bfb5563b2d3bc7953709c1ea88410de494dfd735",
       "page": "41-online-learning.html",
       "lessons": 1,
@@ -373,7 +373,7 @@
     {
       "chapter": 42,
       "notebook": "42-image-augmentation.ipynb",
-      "notebook_sha256": "c729bfa9cf65c8b35da867524feb300c20af8dea823f5bb8f8984fe84ca4e942",
+      "notebook_sha256": "d387235523ff18341a3c1b8f9d198416c9b6bcb4f7c7bfa83edbfc85419ec954",
       "source_sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
       "page": "42-image-augmentation.html",
       "lessons": 13,
@@ -382,7 +382,7 @@
     {
       "chapter": 43,
       "notebook": "43-image-classification-tricks.ipynb",
-      "notebook_sha256": "432dc5253578ce1754b5168a996c5b1db283500e0444a116e1686d940ff04158",
+      "notebook_sha256": "9baf0d8de9ca1a32d14bd21b6886a6fdd10202f27bd4c2feac2194757d86cf15",
       "source_sha256": "e5577af3d0a53d7f4de38f8281fdb67dd435c618aa12995e1c99b2841d3cadb2",
       "page": "43-image-classification-tricks.html",
       "lessons": 30,
@@ -391,7 +391,7 @@
     {
       "chapter": 44,
       "notebook": "44-loss-functions-for-cv.ipynb",
-      "notebook_sha256": "171721469bbb2c3a8d0ccc4bd8921c1a1b34568299f744fa0a1ee7350b023c9a",
+      "notebook_sha256": "4fe700a764001a5066aa7a75fdce41af3014f6efb9204add4a5fa1bb9476c26f",
       "source_sha256": "9d2ff17a8ad30a0e40be658825380d40a461f27d84332c36e40047f187a22dbf",
       "page": "44-loss-functions-for-cv.html",
       "lessons": 3,
@@ -400,7 +400,7 @@
     {
       "chapter": 45,
       "notebook": "45-metric-learning-arcface.ipynb",
-      "notebook_sha256": "52ecf135566d7abb8a9b8c43818ea5212763795c9901074853d79584695ebfba",
+      "notebook_sha256": "e559e04d6001f7788659759c3ffdf5baff54b1a9267faf1e79976c9847e11f13",
       "source_sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
       "page": "45-metric-learning-arcface.html",
       "lessons": 15,
@@ -409,7 +409,7 @@
     {
       "chapter": 46,
       "notebook": "46-segmentation-architectures.ipynb",
-      "notebook_sha256": "1226dcda6cc4af1708ef877b7a6e1ec1758a2346d47ae575682b30a10af60275",
+      "notebook_sha256": "b0a2f19784c3cb5becda7abeb6042b49f19b5b882ffac6e1e44993a3e9c35b74",
       "source_sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
       "page": "46-segmentation-architectures.html",
       "lessons": 15,
@@ -418,7 +418,7 @@
     {
       "chapter": 47,
       "notebook": "47-medical-imaging-patterns.ipynb",
-      "notebook_sha256": "b94283da53be2c57b11e7c69ad52f9fc98973fdbc9229ee61beeeea7f2d9b20c",
+      "notebook_sha256": "f39ccff21d25c04b673e5812b24d4c94a9d3a42267248c6b0f63b5473d973708",
       "source_sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
       "page": "47-medical-imaging-patterns.html",
       "lessons": 17,
@@ -427,7 +427,7 @@
     {
       "chapter": 48,
       "notebook": "48-pseudo-labeling-for-cv.ipynb",
-      "notebook_sha256": "0a2d9f24f632e63869ae4d675cbe4481227832c4f7dcde5ac129954293c2596f",
+      "notebook_sha256": "8bdf0faa030f63778e8b19369a219ba322bfed1d529bdf2550201910254ae935",
       "source_sha256": "8ebda5603551b49e165fd1f308cf169a6e4ec2b4d7c908963f1faee76c1eba39",
       "page": "48-pseudo-labeling-for-cv.html",
       "lessons": 2,
@@ -436,7 +436,7 @@
     {
       "chapter": 49,
       "notebook": "49-text-feature-engineering.ipynb",
-      "notebook_sha256": "cc581caabf742495e3b00c07708ba64b484fa5736ff9ec1962d755677d82de49",
+      "notebook_sha256": "d5e553a7ea5e872c967f4399c854423a1bae9ad008dad37cac088af3541bf47d",
       "source_sha256": "fbf8dff39477578d39eeeb5ce6de56a391043f48a5eee935916d5eade7ba18ba",
       "page": "49-text-feature-engineering.html",
       "lessons": 22,
@@ -445,7 +445,7 @@
     {
       "chapter": 50,
       "notebook": "50-llm-fine-tuning-for-kaggle.ipynb",
-      "notebook_sha256": "ca6c2c9b02481052ffc616004ce6002baf7ea6ebea52176b4c7712a026466cfa",
+      "notebook_sha256": "d2129f0308415029258e0dec8b8a865088a5bab33becba90b886bcedc27d816e",
       "source_sha256": "a6e0f771278d2c0435cf9369fbd522364a3cc9ed0bd8a713bb04ec1d297d041d",
       "page": "50-llm-fine-tuning-for-kaggle.html",
       "lessons": 24,
@@ -454,7 +454,7 @@
     {
       "chapter": 51,
       "notebook": "51-time-series-cv.ipynb",
-      "notebook_sha256": "8278de5fb2629e04373fc5c8fea30b3b890486a9a49f85f7f1cea6e4d3590b74",
+      "notebook_sha256": "9fc09f4465b56f71ac953c1714843263a45b2980dc35b8cf9dc93913563ede0f",
       "source_sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
       "page": "51-time-series-cv.html",
       "lessons": 14,
@@ -463,7 +463,7 @@
     {
       "chapter": 52,
       "notebook": "52-time-series-features.ipynb",
-      "notebook_sha256": "b78d49bad72ddef2ea4b71e774420d771962b9330dcf891053753553ec63bad8",
+      "notebook_sha256": "8ca357055d821f914480eff1a024e52ae6318f96764d19d4ba8df98db688317e",
       "source_sha256": "0735657374047f661efe019d8d83d35aa8cfde7b8cfc30b2ae8ea5adf3b4dd18",
       "page": "52-time-series-features.html",
       "lessons": 36,
@@ -472,7 +472,7 @@
     {
       "chapter": 53,
       "notebook": "53-financial-competition-patterns.ipynb",
-      "notebook_sha256": "fb6179e81f43115ed12cd3e4b98080d6da6195ecefdf8cf0fef6fed68c9eef38",
+      "notebook_sha256": "8a1d66ae1533974e7338c3055a71911ccf15b7470605e78abc65c333b6d9c9a6",
       "source_sha256": "a8ee91b5666dedbad37b114de611b4aa650968d16b61f370b42370e30a5add8b",
       "page": "53-financial-competition-patterns.html",
       "lessons": 1,
@@ -481,7 +481,7 @@
     {
       "chapter": 54,
       "notebook": "54-combinatorial-optimization.ipynb",
-      "notebook_sha256": "6c9bb7a3c3742aa1a65eb411d688159f75cc545253389709812857202be3cd5e",
+      "notebook_sha256": "697b82397acf8e330891536bff8cea51b665755b9320472e59025e801cdab25d",
       "source_sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
       "page": "54-combinatorial-optimization.html",
       "lessons": 6,
@@ -490,7 +490,7 @@
     {
       "chapter": 55,
       "notebook": "55-santa-2024-deep-dive.ipynb",
-      "notebook_sha256": "191b9880f678f7dee202fa3b05676c03c47970da4a957258aa419af80090c9df",
+      "notebook_sha256": "64478583b3fd6b5980effdf2dae09dc90b0473926a086dc05419ff61da874d26",
       "source_sha256": "f597665083ef30cca984febf0f863f3244b016066885c442fe4c8c1e19e1c9cd",
       "page": "55-santa-2024-deep-dive.html",
       "lessons": 0,
@@ -499,7 +499,7 @@
     {
       "chapter": 56,
       "notebook": "56-reinforcement-learning-games.ipynb",
-      "notebook_sha256": "f22e508193f8cf2d20a1319226c96d89f19cfc1cf8a1dca5ca02a36b75d97f25",
+      "notebook_sha256": "e941aa30888a8248b11e578ce22aad1191de4c250bf861417f5b9daec1ae8074",
       "source_sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
       "page": "56-reinforcement-learning-games.html",
       "lessons": 4,
@@ -508,7 +508,7 @@
     {
       "chapter": 57,
       "notebook": "57-patchtst-for-time-series.ipynb",
-      "notebook_sha256": "a9708cc21cab559e6d508a81f4c8754e28a9e9889af9b5b072a21d897906fdc5",
+      "notebook_sha256": "8792e2b7eb83b073988d3d85e6da7c9ccb8fa37d54ff7d70ef7c926c1ed257b3",
       "source_sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
       "page": "57-patchtst-for-time-series.html",
       "lessons": 6,
@@ -517,7 +517,7 @@
     {
       "chapter": 58,
       "notebook": "58-sensor-embeddings-and-augmentation.ipynb",
-      "notebook_sha256": "4483c2f8443b86bc88efdfa27b12a47e520b5ffd070488b1e07fe1cfd8d3ac9f",
+      "notebook_sha256": "9134bc1d670134c82dd89c0ed3ed606fdd565b15b4465bd37f03f6583dac9870",
       "source_sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
       "page": "58-sensor-embeddings-and-augmentation.html",
       "lessons": 11,
@@ -526,7 +526,7 @@
     {
       "chapter": 59,
       "notebook": "59-threshold-optimization.ipynb",
-      "notebook_sha256": "c96bd3a9b5a4340265ca17a32fb7c39b8a1c677da6179c265f2495908ff3a0e0",
+      "notebook_sha256": "2985b5aca4b81b7cd282f1df6c5e6bd57034ab6f5d15e2d77327e19a96d97208",
       "source_sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
       "page": "59-threshold-optimization.html",
       "lessons": 5,
@@ -535,7 +535,7 @@
     {
       "chapter": 60,
       "notebook": "60-multi-target-learning.ipynb",
-      "notebook_sha256": "608b74eaf48dde3e2c40bed9f29b4ceef78838486343a107977434799cc107f6",
+      "notebook_sha256": "7ce2ddbcfd7e4a93150fa8d10b2f35903e2ac9372e08d54db754b9b7ccdb195c",
       "source_sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
       "page": "60-multi-target-learning.html",
       "lessons": 4,
@@ -544,7 +544,7 @@
     {
       "chapter": 61,
       "notebook": "61-playground-series-strategy.ipynb",
-      "notebook_sha256": "9d1ae344c31b375396575df605d03315cbcabbff1046e0ac443f9a8845548919",
+      "notebook_sha256": "8961d8dd6b4c56d659927ee8e40fc7169f61f5440f0c40575ae17d187b77b6ee",
       "source_sha256": "1136e713f9def4b414b84465435def010cca22959bbe863d1a48b040ebf29bc8",
       "page": "61-playground-series-strategy.html",
       "lessons": 2,
@@ -553,7 +553,7 @@
     {
       "chapter": 62,
       "notebook": "62-kaggle-landscape-2024-2026.ipynb",
-      "notebook_sha256": "f6da8a1a9e3f99bb8d671bfc5251118a140589ef4bcfbbf0cee49cd328c723ad",
+      "notebook_sha256": "4aa90d86817bc6061570309e059a42490f6439ce248d28efa419a3f67133c676",
       "source_sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
       "page": "62-kaggle-landscape-2024-2026.html",
       "lessons": 5,
@@ -562,7 +562,7 @@
     {
       "chapter": 63,
       "notebook": "63-patterns-from-226-solutions.ipynb",
-      "notebook_sha256": "3e18ad90220a325406b144b2eef51d81ea7cd69674d71cec535bf58f4b8aefd4",
+      "notebook_sha256": "f229e34691459638b58d8c31b0b4da9c53ff09e656dda5fc8d3f218b2e1b8302",
       "source_sha256": "a45d7a64fe9c7da034f51efb4e182166eba06fd99ca09e81b6314d38603407c1",
       "page": "63-patterns-from-226-solutions.html",
       "lessons": 0,
@@ -571,7 +571,7 @@
     {
       "chapter": 64,
       "notebook": "64-audio-and-signal.ipynb",
-      "notebook_sha256": "023a3840c34ac21188a7fde140994af4c57179889e94b12d2a6f83425e25dead",
+      "notebook_sha256": "08b9727e81a268e5e7f227fed182f90e22fcbdf6567c775694c22dd01254aaba",
       "source_sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
       "page": "64-audio-and-signal.html",
       "lessons": 18,
@@ -580,7 +580,7 @@
     {
       "chapter": 65,
       "notebook": "65-recommendation-systems.ipynb",
-      "notebook_sha256": "4714ea507af00134ab3f21de4681dae9f92a7bd7aeb03e9fc8c125a7de4dbdfe",
+      "notebook_sha256": "7ff8ba720f39045594506ba5f4c922544de7a26ebad4de785b7198d046927373",
       "source_sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
       "page": "65-recommendation-systems.html",
       "lessons": 13,
