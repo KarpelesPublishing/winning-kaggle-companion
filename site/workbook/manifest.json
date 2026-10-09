@@ -400,7 +400,7 @@
     {
       "chapter": 45,
       "notebook": "45-metric-learning-arcface.ipynb",
-      "notebook_sha256": "e559e04d6001f7788659759c3ffdf5baff54b1a9267faf1e79976c9847e11f13",
+      "notebook_sha256": "2b0644fa80e0aa7b632e9624364d30278646b4ed6019146a2ebd7674922ba10a",
       "source_sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
       "page": "45-metric-learning-arcface.html",
       "lessons": 15,
@@ -409,7 +409,7 @@
     {
       "chapter": 46,
       "notebook": "46-segmentation-architectures.ipynb",
-      "notebook_sha256": "b0a2f19784c3cb5becda7abeb6042b49f19b5b882ffac6e1e44993a3e9c35b74",
+      "notebook_sha256": "85632a4a18d5f86a67bf8f70be916416b61c9103dbd291681ebe307e28013ed8",
       "source_sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
       "page": "46-segmentation-architectures.html",
       "lessons": 15,
@@ -418,7 +418,7 @@
     {
       "chapter": 47,
       "notebook": "47-medical-imaging-patterns.ipynb",
-      "notebook_sha256": "f39ccff21d25c04b673e5812b24d4c94a9d3a42267248c6b0f63b5473d973708",
+      "notebook_sha256": "ad770e18d611320a81d1954871a5127533d42fc43bec06b81f778ad4557ecb49",
       "source_sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
       "page": "47-medical-imaging-patterns.html",
       "lessons": 17,
@@ -427,7 +427,7 @@
     {
       "chapter": 48,
       "notebook": "48-pseudo-labeling-for-cv.ipynb",
-      "notebook_sha256": "8bdf0faa030f63778e8b19369a219ba322bfed1d529bdf2550201910254ae935",
+      "notebook_sha256": "03b127118d6736b9c169a190d636f8ea2af8c0f89467cbf4702dc9597699491f",
       "source_sha256": "8ebda5603551b49e165fd1f308cf169a6e4ec2b4d7c908963f1faee76c1eba39",
       "page": "48-pseudo-labeling-for-cv.html",
       "lessons": 2,
@@ -436,7 +436,7 @@
     {
       "chapter": 49,
       "notebook": "49-text-feature-engineering.ipynb",
-      "notebook_sha256": "d5e553a7ea5e872c967f4399c854423a1bae9ad008dad37cac088af3541bf47d",
+      "notebook_sha256": "fe3debc94cf4c5815f4fac5bd0a9ffc09b3640708eda48769d4dc1bf33135ebf",
       "source_sha256": "fbf8dff39477578d39eeeb5ce6de56a391043f48a5eee935916d5eade7ba18ba",
       "page": "49-text-feature-engineering.html",
       "lessons": 22,
@@ -445,7 +445,7 @@
     {
       "chapter": 50,
       "notebook": "50-llm-fine-tuning-for-kaggle.ipynb",
-      "notebook_sha256": "d2129f0308415029258e0dec8b8a865088a5bab33becba90b886bcedc27d816e",
+      "notebook_sha256": "6c75f0e5ef8afb5fc0eda5579612813a5084b5c0c8f84134cb8596e18aa11b41",
       "source_sha256": "a6e0f771278d2c0435cf9369fbd522364a3cc9ed0bd8a713bb04ec1d297d041d",
       "page": "50-llm-fine-tuning-for-kaggle.html",
       "lessons": 24,
@@ -454,7 +454,7 @@
     {
       "chapter": 51,
       "notebook": "51-time-series-cv.ipynb",
-      "notebook_sha256": "9fc09f4465b56f71ac953c1714843263a45b2980dc35b8cf9dc93913563ede0f",
+      "notebook_sha256": "31fc93e8a55ad516dc58d0e171eec650ee24f1a6459b18e413eff2a469ab5741",
       "source_sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
       "page": "51-time-series-cv.html",
       "lessons": 14,
@@ -463,7 +463,7 @@
     {
       "chapter": 52,
       "notebook": "52-time-series-features.ipynb",
-      "notebook_sha256": "8ca357055d821f914480eff1a024e52ae6318f96764d19d4ba8df98db688317e",
+      "notebook_sha256": "d334ac34eebba05c345dd91c4882fb16b2bb9243529f94854b33f8995e9343f7",
       "source_sha256": "0735657374047f661efe019d8d83d35aa8cfde7b8cfc30b2ae8ea5adf3b4dd18",
       "page": "52-time-series-features.html",
       "lessons": 36,
@@ -472,7 +472,7 @@
     {
       "chapter": 53,
       "notebook": "53-financial-competition-patterns.ipynb",
-      "notebook_sha256": "8a1d66ae1533974e7338c3055a71911ccf15b7470605e78abc65c333b6d9c9a6",
+      "notebook_sha256": "aea6b7c095410b364c91e117b721119be17ca303992fe9051ba37a20ccbba1b8",
       "source_sha256": "a8ee91b5666dedbad37b114de611b4aa650968d16b61f370b42370e30a5add8b",
       "page": "53-financial-competition-patterns.html",
       "lessons": 1,
@@ -481,7 +481,7 @@
     {
       "chapter": 54,
       "notebook": "54-combinatorial-optimization.ipynb",
-      "notebook_sha256": "697b82397acf8e330891536bff8cea51b665755b9320472e59025e801cdab25d",
+      "notebook_sha256": "92d6591f99c985cb02d478af54b65b9413bec4bfa8202f6b9a8b03be25405e38",
       "source_sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
       "page": "54-combinatorial-optimization.html",
       "lessons": 6,
@@ -490,7 +490,7 @@
     {
       "chapter": 55,
       "notebook": "55-santa-2024-deep-dive.ipynb",
-      "notebook_sha256": "64478583b3fd6b5980effdf2dae09dc90b0473926a086dc05419ff61da874d26",
+      "notebook_sha256": "8dab3443800ba323b3291499b70972072fa69ce474a264d1e0e64f70a9ed0e11",
       "source_sha256": "f597665083ef30cca984febf0f863f3244b016066885c442fe4c8c1e19e1c9cd",
       "page": "55-santa-2024-deep-dive.html",
       "lessons": 0,
@@ -499,7 +499,7 @@
     {
       "chapter": 56,
       "notebook": "56-reinforcement-learning-games.ipynb",
-      "notebook_sha256": "e941aa30888a8248b11e578ce22aad1191de4c250bf861417f5b9daec1ae8074",
+      "notebook_sha256": "2dd6b33c53c4586be55a85ef4cd1088b5cdea68c9091260f8d7f657bf7eceba7",
       "source_sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
       "page": "56-reinforcement-learning-games.html",
       "lessons": 4,
@@ -508,7 +508,7 @@
     {
       "chapter": 57,
       "notebook": "57-patchtst-for-time-series.ipynb",
-      "notebook_sha256": "8792e2b7eb83b073988d3d85e6da7c9ccb8fa37d54ff7d70ef7c926c1ed257b3",
+      "notebook_sha256": "9cc1ab5ca07426eb2b2725d5af3ed9e2ebeee337083e9327b1df2418fccfe1da",
       "source_sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
       "page": "57-patchtst-for-time-series.html",
       "lessons": 6,
@@ -517,7 +517,7 @@
     {
       "chapter": 58,
       "notebook": "58-sensor-embeddings-and-augmentation.ipynb",
-      "notebook_sha256": "9134bc1d670134c82dd89c0ed3ed606fdd565b15b4465bd37f03f6583dac9870",
+      "notebook_sha256": "14114f94e78c1020d598d113be0df60882ce857ec8fe033707059f2ce5658649",
       "source_sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
       "page": "58-sensor-embeddings-and-augmentation.html",
       "lessons": 11,
@@ -526,7 +526,7 @@
     {
       "chapter": 59,
       "notebook": "59-threshold-optimization.ipynb",
-      "notebook_sha256": "2985b5aca4b81b7cd282f1df6c5e6bd57034ab6f5d15e2d77327e19a96d97208",
+      "notebook_sha256": "90d78b37f461fd72aec84e271d196ce6b4659746a199f930a49a5352accbfb34",
       "source_sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
       "page": "59-threshold-optimization.html",
       "lessons": 5,
@@ -535,7 +535,7 @@
     {
       "chapter": 60,
       "notebook": "60-multi-target-learning.ipynb",
-      "notebook_sha256": "7ce2ddbcfd7e4a93150fa8d10b2f35903e2ac9372e08d54db754b9b7ccdb195c",
+      "notebook_sha256": "e652414f2c4438c6286295d170c62abbce9de578e3e17faea916ae268483d7ff",
       "source_sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
       "page": "60-multi-target-learning.html",
       "lessons": 4,
@@ -544,7 +544,7 @@
     {
       "chapter": 61,
       "notebook": "61-playground-series-strategy.ipynb",
-      "notebook_sha256": "8961d8dd6b4c56d659927ee8e40fc7169f61f5440f0c40575ae17d187b77b6ee",
+      "notebook_sha256": "0a5d87e8b715daf21da53be0681150913d607d95b915fd12b34f0a3016fb048f",
       "source_sha256": "1136e713f9def4b414b84465435def010cca22959bbe863d1a48b040ebf29bc8",
       "page": "61-playground-series-strategy.html",
       "lessons": 2,
@@ -553,7 +553,7 @@
     {
       "chapter": 62,
       "notebook": "62-kaggle-landscape-2024-2026.ipynb",
-      "notebook_sha256": "4aa90d86817bc6061570309e059a42490f6439ce248d28efa419a3f67133c676",
+      "notebook_sha256": "bdd88122a919d71b13edaeb3cd8a4173f28716c4c5be929bd58db80476b90558",
       "source_sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
       "page": "62-kaggle-landscape-2024-2026.html",
       "lessons": 5,
@@ -562,7 +562,7 @@
     {
       "chapter": 63,
       "notebook": "63-patterns-from-226-solutions.ipynb",
-      "notebook_sha256": "f229e34691459638b58d8c31b0b4da9c53ff09e656dda5fc8d3f218b2e1b8302",
+      "notebook_sha256": "573695df89360fbbde88c7878de2cc3f1cbda43fbe992441d9dd00eca65de53e",
       "source_sha256": "a45d7a64fe9c7da034f51efb4e182166eba06fd99ca09e81b6314d38603407c1",
       "page": "63-patterns-from-226-solutions.html",
       "lessons": 0,
@@ -571,7 +571,7 @@
     {
       "chapter": 64,
       "notebook": "64-audio-and-signal.ipynb",
-      "notebook_sha256": "08b9727e81a268e5e7f227fed182f90e22fcbdf6567c775694c22dd01254aaba",
+      "notebook_sha256": "314df16f86802fd4981d295936be237d486eeab09d3384afa1087870763d0133",
       "source_sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
       "page": "64-audio-and-signal.html",
       "lessons": 18,
@@ -580,7 +580,7 @@
     {
       "chapter": 65,
       "notebook": "65-recommendation-systems.ipynb",
-      "notebook_sha256": "7ff8ba720f39045594506ba5f4c922544de7a26ebad4de785b7198d046927373",
+      "notebook_sha256": "47130c0e9494ebf98e97179e26f3b02a82098efb31d5ce99799be902198e1ec4",
       "source_sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
       "page": "65-recommendation-systems.html",
       "lessons": 13,
