@@ -1,5 +1,7 @@
 # Winning Kaggle the Reproducible Way: public companion
 
+*Validation, Feature Engineering, Ensembling and Leaderboard Strategy for Data Science Competitions*
+
 Companion notebooks, browser workbooks and modeling skills for Jason Karpeles' book. This public repository excludes the manuscript, complete chapters and book editions. The author maintains the full book references in a separate private repository.
 
 ## What is here
@@ -42,3 +44,5 @@ The GitHub Actions template is provided in `docs/github-actions-template.yml`; i
 ## Copyright
 
 Copyright Jason Karpeles. All rights reserved. This is a companion distribution, not the book. Third-party solution archives and private data are excluded.
+
+Kaggle is a trademark of Google LLC. This book and companion are independent and are not affiliated with, sponsored by or endorsed by Kaggle or Google.
