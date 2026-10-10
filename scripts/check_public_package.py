@@ -23,4 +23,4 @@ if (ROOT/'.git').exists():
   if '/references/book/' in name or name.endswith('/references/book.md') or name.startswith('manuscript/') or name.endswith(('.epub','.pdf','.bundle')):fail.append('history '+name+': excluded book path')
 L=json.loads((ROOT/'skills/winning-kaggle-the-reproducible-way/references/lessons.json').read_text())['lessons']
 if len(L)!=561 or len({r['lesson_id'] for r in L})!=561:fail.append('lesson coverage')
-print(json.dumps({'status':'PASS' if not fail else 'FAIL','scope':'Book/archive paths, all 70 protected canonical file hashes and reachable Git blob history. Companion examples and reviewed conditional lessons are intentionally included.','files':count,'lessons':len(L),'failures':fail},indent=2));raise SystemExit(bool(fail))
+print(json.dumps({'status':'PASS' if not fail else 'FAIL','scope':'Book/archive paths, every protected canonical file hash (current and earlier editions) and reachable Git blob history. Companion examples and reviewed conditional lessons are intentionally included.','files':count,'lessons':len(L),'failures':fail},indent=2));raise SystemExit(bool(fail))
