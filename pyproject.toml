@@ -7,7 +7,7 @@ name = "winning-kaggle-companion"
 version = "0.1.0"
 description = "Reproducible modeling tools for Winning Kaggle the Reproducible Way"
 requires-python = ">=3.13"
-dependencies = ["numpy>=1.26", "pandas>=2.2", "scikit-learn>=1.6", "joblib>=1.4"]
+dependencies = ["numpy>=1.26", "pandas>=2.2", "scikit-learn>=1.6", "scipy>=1.11", "matplotlib>=3.8", "joblib>=1.4"]
 
 [project.scripts]
 kaggle-companion = "kaggle_companion.modeling:main"

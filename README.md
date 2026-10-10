@@ -6,7 +6,7 @@ Companion notebooks, browser workbooks and modeling skills for Jason Karpeles' b
 
 ## What is here
 
-- 65 executed chapter notebooks with saved outputs.
+- 65 executed chapter notebooks. Each runs a measured experiment on seeded generated data (two use scikit-learn's bundled digit images) and measures an effect the chapter teaches, with a figure and the result across a control. The experiments live in `src/kaggle_companion/activities/`; `activities/ACTIVITIES.md` is the contract they meet.
 - A browser workbook for every chapter, with prediction prompts, worked results and downloadable answers.
 - 561 conditional lessons with source references, application dimensions, audience value grades and limitations.
 - 66 companion skills: a master router plus one per chapter. These teach the companion methods and lesson applications; they do not contain the full chapter text.

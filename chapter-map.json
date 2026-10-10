@@ -5,7 +5,7 @@
     "slug": "01-what-actually-wins",
     "skill": "kaggle-01-what-actually-wins",
     "source_sha256": "6ae02c9b38d59ae29acd045cc94824dbb0c8112f159f6a50d857eb60d6fa87ec",
-    "question": "Choose a justified first action."
+    "question": "When the model gets more capacity on the same columns, which assessment rewards the upgrade, and which one tracks the score on subjects the model never saw?"
   },
   {
     "number": 2,
@@ -13,7 +13,7 @@
     "slug": "02-the-process-mindset",
     "skill": "kaggle-02-the-process-mindset",
     "source_sha256": "109a584c5c11cdf52e3cccb38dcb4262168a988a87b39c389b7e23ea8015f0e9",
-    "question": "Recompute the logged CV-LB gap."
+    "question": "How much of the winning version's public gain is still there on rows the choice never used, as the number of logged versions grows?"
   },
   {
     "number": 3,
@@ -21,7 +21,7 @@
     "slug": "03-building-cv-that-matches",
     "skill": "kaggle-03-building-cv-that-matches",
     "source_sha256": "c2aff9eb71f02c26df8413b83af52133e8bc6042614899b6413c45ad5229628d",
-    "question": "Separate held-out seasons from future prediction."
+    "question": "When the relationship between features and outcomes changes from season to season, how far does each validation scheme's Brier score sit from the score on the next season?"
   },
   {
     "number": 4,
@@ -29,7 +29,7 @@
     "slug": "04-tracking-cv-lb-gap",
     "skill": "kaggle-04-tracking-cv-lb-gap",
     "source_sha256": "4215c93b6788297bc5a5be972197d9d71019645fed5041eaf6bb9ca558dc1350",
-    "question": "Can identical gaps imply different mechanisms?"
+    "question": "With no shift and no leak, how far does the CV-LB gap move from sampling alone, and can a public sample of a given size reveal a candidate that is truly better by a small amount?"
   },
   {
     "number": 5,
@@ -37,7 +37,7 @@
     "slug": "05-adversarial-validation",
     "skill": "kaggle-05-adversarial-validation",
     "source_sha256": "7cde281f0f538f3d75f6a9d4f278b80f428a93bcc91cf701848ce0387076d2e0",
-    "question": "Turn domain probabilities into qualified weights."
+    "question": "When train and test differ, does the domain AUC tell you whether the target model's score has changed?"
   },
   {
     "number": 6,
@@ -45,7 +45,7 @@
     "slug": "06-march-mania-case-study",
     "skill": "kaggle-06-march-mania-case-study",
     "source_sha256": "f8c7e8b9a0201d484fa314af3a14d31aca80d74a0b551ec90f722b26a40fb315",
-    "question": "Apply an offseason Elo boundary."
+    "question": "Does an Elo decay chosen on past seasons find how much team strength truly carries over, and does it beat the chapter's 0.65?"
   },
   {
     "number": 7,
@@ -53,7 +53,7 @@
     "slug": "07-domain-features-win",
     "skill": "kaggle-07-domain-features-win",
     "source_sha256": "d242a79c3b4dbb6e7cc2e4d8a07176c20216d951c9825cc88528bfcb5d691b79",
-    "question": "Compare a current amount to past entity history."
+    "question": "How much does an entity-history feature add over the raw amount when the key merges several customers, and how much of its apparent value comes from rows the prediction could not see?"
   },
   {
     "number": 8,
@@ -61,7 +61,7 @@
     "slug": "08-five-stage-process",
     "skill": "kaggle-08-five-stage-process",
     "source_sha256": "9a7159d2d8758fe9d460079ef4acf276d2c32d9ab7e58ed91778ee2a1fafbc4e",
-    "question": "Compare raw and log target functionals."
+    "question": "When the target is multiplicative and skewed, does fitting log1p(y) help, and does the answer depend on the metric and on how the prediction is brought back to the raw scale?"
   },
   {
     "number": 9,
@@ -69,7 +69,7 @@
     "slug": "09-target-encoding-without-leakage",
     "skill": "kaggle-09-target-encoding-without-leakage",
     "source_sha256": "3ff761625617b1b62dddb55a3d8398de92f6d630799c6ae52854ecfd7d33e5f7",
-    "question": "Trace outer-validation label contamination."
+    "question": "How far does each target-encoding pipeline's cross-validation estimate drift from its score on new rows?"
   },
   {
     "number": 10,
@@ -77,7 +77,7 @@
     "slug": "10-interactions-groups-text",
     "skill": "kaggle-10-interactions-groups-text",
     "source_sha256": "37d22606e8d16f043e0e65fce276c595fd0bb545b46f96f55af4ef8a2eb3247f",
-    "question": "Respect the metric direction in feature search."
+    "question": "As more candidate pairs are screened, does the search score keep describing what the selected features earn on new rows?"
   },
   {
     "number": 11,
@@ -85,7 +85,7 @@
     "slug": "11-when-fe-fails",
     "skill": "kaggle-11-when-fe-fails",
     "source_sha256": "b4250e16053875a866eebd54500284fddaf8bd1808aad2e344fcf403eb43b59b",
-    "question": "Separate variance from label information."
+    "question": "How many principal components does a reduction need before it keeps the label, and what does the variance kept say about that?"
   },
   {
     "number": 12,
@@ -93,7 +93,7 @@
     "slug": "12-the-gbm-trio",
     "skill": "kaggle-12-the-gbm-trio",
     "source_sha256": "9f37d4295c0025519c16b52a815cdc578a44fda2f6b7a92c285dbe377973bbe2",
-    "question": "Inspect the effect of a Huber transition."
+    "question": "How much does it matter whether a category is fed as ordered integer codes, as native categorical splits or as one-hot columns?"
   },
   {
     "number": 13,
@@ -101,7 +101,7 @@
     "slug": "13-optuna-and-hyperparameter-tuning",
     "skill": "kaggle-13-optuna-and-hyperparameter-tuning",
     "source_sha256": "d600a831aa8dadc7ec02bd9cd4c42158e0fa0cca8bcdcf5fefb735db276ee720",
-    "question": "Separate search best from independent assessment."
+    "question": "As the trial budget grows, how much of the search's reported improvement shows up on rows the search never used?"
   },
   {
     "number": 14,
@@ -109,7 +109,7 @@
     "slug": "14-what-doesnt-work",
     "skill": "kaggle-14-what-doesnt-work",
     "source_sha256": "f7a76ffc248a8149d4f17658e7e0c4e895a0fa829825c8a1efaabe69195d5839",
-    "question": "Check pseudo-label teacher dependencies."
+    "question": "When the hidden grouping matters to the label, how much of that value does a K-means column recover for a boosted-tree model?"
   },
   {
     "number": 15,
@@ -117,7 +117,7 @@
     "slug": "15-when-the-problem-isnt-tabular",
     "skill": "kaggle-15-when-the-problem-isnt-tabular",
     "source_sha256": "425d4dc3879b729954495a8a77861d32d595b7f1914f7a3b5bb574bfbca2212c",
-    "question": "Return a legal goal-reaching prefix-flip path."
+    "question": "How good must a reviewer be before reviewing every answer beats the base model, and does routing change that?"
   },
   {
     "number": 16,
@@ -125,7 +125,7 @@
     "slug": "16-fourth-root-blend",
     "skill": "kaggle-16-fourth-root-blend",
     "source_sha256": "1b2ac24276b60be5da50a852ff04e97f1f1dbdaf1ebd06bc16589d77e5eb6595",
-    "question": "Compare margin weighting exponents."
+    "question": "How alike can three models' predictions be before a blend stops beating the best single model, and do the weights matter?"
   },
   {
     "number": 17,
@@ -133,7 +133,7 @@
     "slug": "17-stacking-and-hill-climbing",
     "skill": "kaggle-17-stacking-and-hill-climbing",
     "source_sha256": "899b68687a5237d1cffd37f5415b9fcbab30b83ee8477fa75e8b21adf3179127",
-    "question": "Fit a regularized meta coefficient."
+    "question": "As the candidate library fills with near-duplicate models, how much of the hill-climbing improvement shows up on assessment rows?"
   },
   {
     "number": 18,
@@ -141,7 +141,7 @@
     "slug": "18-final-submission-selection",
     "skill": "kaggle-18-final-submission-selection",
     "source_sha256": "34a37ca18810412a5556e06a894d51be0429e574526077ba96b6a2a1e266373b",
-    "question": "Choose a backup within an explicit score tolerance."
+    "question": "How much public evidence does it take before the public leaderboard picks as well as a local validation set?"
   },
   {
     "number": 19,
@@ -149,7 +149,7 @@
     "slug": "19-march-mania-full-walkthrough",
     "skill": "kaggle-19-march-mania-full-walkthrough",
     "source_sha256": "81c745b11b90697283ca22d57ac480fb26b04a9e321ea96b26f0a52fae6dacd7",
-    "question": "Run a complete season forecast and distinguish development from assessment."
+    "question": "If the team history quietly includes later seasons, would the development score tell you, and would the label-flip test?"
   },
   {
     "number": 20,
@@ -157,7 +157,7 @@
     "slug": "20-horse-health-small-data",
     "skill": "kaggle-20-horse-health-small-data",
     "source_sha256": "ccfb49d2563e87823aadc4f89eb9dd8e30f9e8f37a3396163897a61370703217",
-    "question": "Check multiclass micro-F1 and accuracy together."
+    "question": "How much of the accuracy a tuned class factor adds on its own OOF rows survives on new rows?"
   },
   {
     "number": 21,
@@ -165,7 +165,7 @@
     "slug": "21-financial-competitions",
     "skill": "kaggle-21-financial-competitions",
     "source_sha256": "b8e7b87186769ce4e412060098d44cfb73930b749ffe7416943f93fa09358a5e",
-    "question": "Purge overlapping forward-label intervals."
+    "question": "How far does each validation scheme's estimate drift from the model's score on the future as the label horizon grows?"
   },
   {
     "number": 22,
@@ -173,7 +173,7 @@
     "slug": "22-vision-and-multimodal",
     "skill": "kaggle-22-vision-and-multimodal",
     "source_sha256": "16be35b3a56ffd40d746fe2a5706aa4b758e90cec68ecca19bae38ffbddd9c6f",
-    "question": "Budget VLM weights and runtime headroom."
+    "question": "If the label signal sits low in the embedding's variance ranking, what does a PCA that keeps 90% of the variance leave for the second stage?"
   },
   {
     "number": 23,
@@ -181,7 +181,7 @@
     "slug": "23-sensor-and-har",
     "skill": "kaggle-23-sensor-and-har",
     "source_sha256": "dcd6023c93a1d2550d22ce07729b31f4c155df8c209245d367602f53e81c5134",
-    "question": "How many subjects cross your train/validation boundary?"
+    "question": "How far above the score on new people does a random stratified split sit, and does leave-one-subject-out close the gap?"
   },
   {
     "number": 24,
@@ -189,7 +189,7 @@
     "slug": "24-building-a-portfolio",
     "skill": "kaggle-24-building-a-portfolio",
     "source_sha256": "de79813811e8224381fece0c33580c691bc8de3014a5a66a6eed6f082ec9cec3",
-    "question": "Which portfolio artifact best demonstrates the role you want?"
+    "question": "How much of a blend's gain is lost, and what does it look like, when a teammate's OOF file is joined by position but is partly out of order?"
   },
   {
     "number": 25,
@@ -197,7 +197,7 @@
     "slug": "25-continuous-learning-system",
     "skill": "kaggle-25-continuous-learning-system",
     "source_sha256": "af02b8eba097531943137e74c9b34ad752fcd974210d99bdabbdc85d7b55479b",
-    "question": "Is this note ready to reuse as a conditional modeling rule?"
+    "question": "How much of the noise behind a logged gain does averaging more fold seeds remove, and what does a seed-based threshold then keep?"
   },
   {
     "number": 26,
@@ -205,7 +205,7 @@
     "slug": "26-advanced-target-encoding",
     "skill": "kaggle-26-advanced-target-encoding",
     "source_sha256": "2ce28de2b0363e19ef69eb6bbe14e55b23c01f4b663f41c59ede4bbc611b70ec",
-    "question": "How does estimated category noise change shrinkage toward the prior?"
+    "question": "How much smoothing does a target encoding need, and does the answer change with how strongly categories really differ?"
   },
   {
     "number": 27,
@@ -213,7 +213,7 @@
     "slug": "27-shap-for-feature-engineering",
     "skill": "kaggle-27-shap-for-feature-engineering",
     "source_sha256": "40565d62339c2f20b2a5f18fd3d0319ce9e8440a7b3ade2d552429ff312747e8",
-    "question": "Can you reconcile an additive explanation in log-odds and probability units?"
+    "question": "When two columns carry the same information, does the one with low attribution deserve to be dropped, and what does dropping both cost?"
   },
   {
     "number": 28,
@@ -221,7 +221,7 @@
     "slug": "28-nearest-neighbor-features",
     "skill": "kaggle-28-nearest-neighbor-features",
     "source_sha256": "6f1e8f639712d9432657a5786c3118c4e3a417ed5c13dec0ab7c19b557887d5d",
-    "question": "How does neighborhood size change a local target summary without self-inclusion?"
+    "question": "How many neighbours does it take before including the row itself stops distorting the estimate, and what does the legitimate feature gain?"
   },
   {
     "number": 29,
@@ -229,7 +229,7 @@
     "slug": "29-advanced-feature-selection",
     "skill": "kaggle-29-advanced-feature-selection",
     "source_sha256": "0e89575743ed6ffefc5a70300ac65a204af81a99ee96d9b254f31954b62e60ac",
-    "question": "Which features survive a heuristic null-importance cutoff?"
+    "question": "Which columns does each screen keep, and at what null percentile does a strict screen start discarding real signal?"
   },
   {
     "number": 30,
@@ -237,7 +237,7 @@
     "slug": "30-external-data-and-leakage",
     "skill": "kaggle-30-external-data-and-leakage",
     "source_sha256": "179f0614eb06d96e13014788833d87f46ef7deacc29ee7db3f9665a08eb5eb1f",
-    "question": "Which external value was actually available when this prediction was made?"
+    "question": "How far does a validation score built on revised data drift from deployment, and when does the training join start to cost accuracy too?"
   },
   {
     "number": 31,
@@ -245,7 +245,7 @@
     "slug": "31-deep-learning-for-tabular",
     "skill": "kaggle-31-deep-learning-for-tabular",
     "source_sha256": "5095a1d0f1080490c052577fb01dc12f64682ee778ecf02cce3686983cb91f0f",
-    "question": "Can a weaker individual model improve a blend through complementary errors?"
+    "question": "Does a neural model that is worse on its own lower the blend's error, and does that survive as the tree model gets more data?"
   },
   {
     "number": 32,
@@ -253,7 +253,7 @@
     "slug": "32-denoising-autoencoders",
     "skill": "kaggle-32-denoising-autoencoders",
     "source_sha256": "6acf54df381d6789be822f93079896e561af29e41ff3e14e7a9dc48dd9f577f6",
-    "question": "What happens to cross-feature relationships when valid cells are swapped?"
+    "question": "Does a lower reconstruction error mean the pretrained features help a small labeled model more than an untrained encoder would?"
   },
   {
     "number": 33,
@@ -261,7 +261,7 @@
     "slug": "33-tabular-augmentation",
     "skill": "kaggle-33-tabular-augmentation",
     "source_sha256": "d50b87923246c8044584faf958e000d3770cb54c0357bc9b8960661b79044da8",
-    "question": "What does Mixup preserve, and which joint constraints can it violate?"
+    "question": "How much does resampling before the split inflate cross-validation, and does resampling inside the fold beat weighting or doing nothing?"
   },
   {
     "number": 34,
@@ -269,7 +269,7 @@
     "slug": "34-pseudo-labeling",
     "skill": "kaggle-34-pseudo-labeling",
     "source_sha256": "0a5b5141dce520127a30a6494097ccbfadabd8722c4576b76b84ba8c0e5d5c87",
-    "question": "Which teacher excludes every validation label for the current fold?"
+    "question": "How much does the shortcut teacher inflate the student's cross-validation score, and what does honest pseudo-labeling add?"
   },
   {
     "number": 35,
@@ -277,7 +277,7 @@
     "slug": "35-memory-optimization",
     "skill": "kaggle-35-memory-optimization",
     "source_sha256": "1c96854db147c75328afbbf0a27c31e1de128217eab2dc6bfd35f8c12fa74061",
-    "question": "How much memory do you save, and which values stop being distinguishable?"
+    "question": "At what ID size does a blanket float32 downcast start merging customers, and how much memory does it save compared with a checked downcast?"
   },
   {
     "number": 36,
@@ -285,7 +285,7 @@
     "slug": "36-categorical-embeddings",
     "skill": "kaggle-36-categorical-embeddings",
     "source_sha256": "308dc8b702e9d81e905ce6c626e4af2df999a70d8a034585d5580b603f2910ca",
-    "question": "Does a held-out target influence an encoding through its global prior?"
+    "question": "How large can the share of unseen categories get before an integer label code is worse than dropping the column, and what does the unknown rule cost a target encoding?"
   },
   {
     "number": 37,
@@ -293,7 +293,7 @@
     "slug": "37-stacking-deep",
     "skill": "kaggle-37-stacking-deep",
     "source_sha256": "ac88740947ba75b33c5a285f1a35eaab0cdd78b877724e583ee991611b2bafde",
-    "question": "How does residual covariance explain the error of a two-model blend?"
+    "question": "How far does a meta-model's score on its own OOF rows drift from an honest assessment as the library of base models grows, and when does a regularized meta-model overtake the unregularized one?"
   },
   {
     "number": 38,
@@ -301,7 +301,7 @@
     "slug": "38-calibration-and-post-processing",
     "skill": "kaggle-38-calibration-and-post-processing",
     "source_sha256": "07fb0ec65a19d9ad6338f247bcaf67fd8c3daf3dc2043888ad3506133645e25c",
-    "question": "Can temperature scaling improve log loss while leaving ranking unchanged?"
+    "question": "How large must the development set be before isotonic calibration beats the simpler Platt calibrator on new rows?"
   },
   {
     "number": 39,
@@ -309,7 +309,7 @@
     "slug": "39-imbalanced-data",
     "skill": "kaggle-39-imbalanced-data",
     "source_sha256": "0aa0558b814f34a5fd17e8e3dff9b8bc9228b4198282fb2870691e1c29cbb01c",
-    "question": "How does negative retention change a sampled model probability?"
+    "question": "How much log loss does negative downsampling cost, and at what keep rate does the analytic correction stop being as good as calibrating on development rows?"
   },
   {
     "number": 40,
@@ -317,7 +317,7 @@
     "slug": "40-knowledge-distillation",
     "skill": "kaggle-40-knowledge-distillation",
     "source_sha256": "d2e610a7b28893ff96033667308b79a70b1322a4f63017adb45ea815e7063c64",
-    "question": "What information remains when a teacher probability is softened?"
+    "question": "Do soft teacher targets beat hard labels for a small neural student, or does that depend on how well the hard-label baseline is tuned?"
   },
   {
     "number": 41,
@@ -325,7 +325,7 @@
     "slug": "41-online-learning",
     "skill": "kaggle-41-online-learning",
     "source_sha256": "888c200b0f16e4ae8db18168bfb5563b2d3bc7953709c1ea88410de494dfd735",
-    "question": "Which labels are available before the next prediction?"
+    "question": "How much of an adaptive model's advantage over a frozen model survives as labels arrive later, and how wrong is a replay that ignores the delay?"
   },
   {
     "number": 42,
@@ -333,7 +333,7 @@
     "slug": "42-image-augmentation",
     "skill": "kaggle-42-image-augmentation",
     "source_sha256": "7c5fc0ab39f65d254a9fba1704bcda1568807a7b85866bbccef07fac87054336",
-    "question": "Why must segmentation predictions be returned to the original coordinate frame?"
+    "question": "When does adding transformed copies of the training images raise held-out accuracy, and when does it lower it?"
   },
   {
     "number": 43,
@@ -341,7 +341,7 @@
     "slug": "43-image-classification-tricks",
     "skill": "kaggle-43-image-classification-tricks",
     "source_sha256": "e5577af3d0a53d7f4de38f8281fdb67dd435c618aa12995e1c99b2841d3cadb2",
-    "question": "Do two label-smoothing conventions produce the same target?"
+    "question": "How much does a random split of crops overstate accuracy compared with splitting by source image, and how does that grow with crops per image?"
   },
   {
     "number": 44,
@@ -349,7 +349,7 @@
     "slug": "44-loss-functions-for-cv",
     "skill": "kaggle-44-loss-functions-for-cv",
     "source_sha256": "9d2ff17a8ad30a0e40be658825380d40a461f27d84332c36e40047f187a22dbf",
-    "question": "How does focal gamma change the relative weight of easy and hard examples?"
+    "question": "Does focal loss beat cross-entropy on the metric that is scored, and what does it cost elsewhere?"
   },
   {
     "number": 45,
@@ -357,7 +357,7 @@
     "slug": "45-metric-learning-arcface",
     "skill": "kaggle-45-metric-learning-arcface",
     "source_sha256": "a99850a3804a565ffcb63702110696c89463c84930e8fd3875cbb1ecba94bd5f",
-    "question": "How does an angular margin change the target logit without changing inference cosine similarity?"
+    "question": "How much does the angular margin improve retrieval of unseen identities over a cross-entropy descriptor, and where does a larger margin stop helping?"
   },
   {
     "number": 46,
@@ -365,7 +365,7 @@
     "slug": "46-segmentation-architectures",
     "skill": "kaggle-46-segmentation-architectures",
     "source_sha256": "c494d7b53991e5532ae6b175996f4a67d5983c091dc7b4b0f16b9c6adc95d838",
-    "question": "When do pooled Dice and mean per-image Dice disagree after probability-map thresholding?"
+    "question": "Which threshold and post-processing rule is best depends on how Dice is averaged: how large is that effect, and when does it appear?"
   },
   {
     "number": 47,
@@ -373,7 +373,7 @@
     "slug": "47-medical-imaging-patterns",
     "skill": "kaggle-47-medical-imaging-patterns",
     "source_sha256": "1acc4b8b6cf20baa3ffd65fbfd72e154e10217be2c12c8d0808d97f77bd8e866",
-    "question": "What tissue contrast is retained or clipped by a chosen CT window width?"
+    "question": "How far does image-level cross-validation overstate the score on new patients, and does grouping by patient remove the error?"
   },
   {
     "number": 48,
@@ -381,7 +381,7 @@
     "slug": "48-pseudo-labeling-for-cv",
     "skill": "kaggle-48-pseudo-labeling-for-cv",
     "source_sha256": "8ebda5603551b49e165fd1f308cf169a6e4ec2b4d7c908963f1faee76c1eba39",
-    "question": "Can stricter pseudo-label confidence reduce coverage without removing systematic errors?"
+    "question": "Does a stricter confidence threshold make pseudo-labeling pay, and does it remove the leak from a teacher that saw the validation labels?"
   },
   {
     "number": 49,
@@ -389,7 +389,7 @@
     "slug": "49-text-feature-engineering",
     "skill": "kaggle-49-text-feature-engineering",
     "source_sha256": "fbf8dff39477578d39eeeb5ce6de56a391043f48a5eee935916d5eade7ba18ba",
-    "question": "How can character n-grams preserve coverage when word vocabulary misses a typo?"
+    "question": "At what typo rate, and at what term coverage, does a character TF-IDF model overtake a word model?"
   },
   {
     "number": 50,
@@ -397,7 +397,7 @@
     "slug": "50-llm-fine-tuning-for-kaggle",
     "skill": "kaggle-50-llm-fine-tuning-for-kaggle",
     "source_sha256": "a6e0f771278d2c0435cf9369fbd522364a3cc9ed0bd8a713bb04ec1d297d041d",
-    "question": "How does changing LoRA rank change adapter parameter count and the constructed matrix update?"
+    "question": "How does the rank of a LoRA-style update change held-out error against the original checkpoint and a full update when target data is small?"
   },
   {
     "number": 51,
@@ -405,7 +405,7 @@
     "slug": "51-time-series-cv",
     "skill": "kaggle-51-time-series-cv",
     "source_sha256": "6bd2e326522949315c782a46dad85eafc56d70469d34c0b462e2f26d3d3664ce",
-    "question": "Which training labels are still unavailable at a forecast origin after choosing a row gap?"
+    "question": "How much does a backtest that ignores label availability flatter each recipe, and does it still rank the recipes correctly?"
   },
   {
     "number": 52,
@@ -413,7 +413,7 @@
     "slug": "52-time-series-features",
     "skill": "kaggle-52-time-series-features",
     "source_sha256": "0735657374047f661efe019d8d83d35aa8cfde7b8cfc30b2ae8ea5adf3b4dd18",
-    "question": "Which lagged target values are actually available for a multi-step forecast at a fixed origin?"
+    "question": "How much does a backtest flatter a model whose lag features read days that would not yet exist at the forecast origin?"
   },
   {
     "number": 53,
@@ -421,7 +421,7 @@
     "slug": "53-financial-competition-patterns",
     "skill": "kaggle-53-financial-competition-patterns",
     "source_sha256": "a8ee91b5666dedbad37b114de611b4aa650968d16b61f370b42370e30a5add8b",
-    "question": "What does partial factor neutralization remove, and when can it remove predictive signal?"
+    "question": "When does removing factor exposure from the features help the score, and when does it cost correlation?"
   },
   {
     "number": 54,
@@ -429,7 +429,7 @@
     "slug": "54-combinatorial-optimization",
     "skill": "kaggle-54-combinatorial-optimization",
     "source_sha256": "f15d579f9ed9d5ac7fc4db7df0b53ab5577dda2d9d92e56c698db7524c00f690",
-    "question": "How does annealing temperature affect exploration while preserving the best feasible tour?"
+    "question": "With a fixed number of evaluated moves, does a hotter starting temperature or a better starting tour give the shorter final tour?"
   },
   {
     "number": 55,
@@ -437,7 +437,7 @@
     "slug": "55-santa-2024-deep-dive",
     "skill": "kaggle-55-santa-2024-deep-dive",
     "source_sha256": "f597665083ef30cca984febf0f863f3244b016066885c442fe4c8c1e19e1c9cd",
-    "question": "How does beam width affect whether a legal pancake-flip path reaches the goal within a fixed budget?"
+    "question": "Under the same beam width, how many instances does each ranking actually solve, and how far from optimal are its solutions?"
   },
   {
     "number": 56,
@@ -445,7 +445,7 @@
     "slug": "56-reinforcement-learning-games",
     "skill": "kaggle-56-reinforcement-learning-games",
     "source_sha256": "973f5a94c11235b079ab026c861759312d92a3fa512bb56f3054223065f4f19d",
-    "question": "When can an intermediate reward make a losing policy look better than a winning one?"
+    "question": "At what size of intermediate reward does a learner stop trying to win, and does the shaped return reveal it?"
   },
   {
     "number": 57,
@@ -453,7 +453,7 @@
     "slug": "57-patchtst-for-time-series",
     "skill": "kaggle-57-patchtst-for-time-series",
     "source_sha256": "dadb1a8c34981a793674ae871c2046fe0ece8139c277011dc88fc52976611316",
-    "question": "How do patch length and overlapping stride change tokens, coverage, and attention-pair count?"
+    "question": "Does patching beat a feature baseline at the same forward origins, and how does the patch length change the answer and the token count?"
   },
   {
     "number": 58,
@@ -461,7 +461,7 @@
     "slug": "58-sensor-embeddings-and-augmentation",
     "skill": "kaggle-58-sensor-embeddings-and-augmentation",
     "source_sha256": "e18e98cd7871a65ee955e45d99a544de94c18f7aa195f558dfac23e8112bbe40",
-    "question": "Does a sensor reflection preserve a coherent channel/location contract and undo itself when applied twice?"
+    "question": "When does a left-right swap help a wearable activity classifier, and what does it cost when the label is not updated with the swap?"
   },
   {
     "number": 59,
@@ -469,7 +469,7 @@
     "slug": "59-threshold-optimization",
     "skill": "kaggle-59-threshold-optimization",
     "source_sha256": "8b506c10595d23c95eb6b58a3d7fce642b1b29a7fb88636733e04106512d6006",
-    "question": "How does a threshold selected on one labeled subset behave on a separate audit subset?"
+    "question": "How far does the development F1 of a tuned threshold overstate its F1 on fresh labels, and how does that depend on the size of the development set?"
   },
   {
     "number": 60,
@@ -477,7 +477,7 @@
     "slug": "60-multi-target-learning",
     "skill": "kaggle-60-multi-target-learning",
     "source_sha256": "d9f25cb239330724466e072486db694d961cdb6daddb888b3ae193dce19843f9",
-    "question": "How does auxiliary-loss weight change a shared parameter when tasks agree or conflict?"
+    "question": "When does a dense auxiliary target improve a scarce main target on new rows, and how much does the loss weight matter?"
   },
   {
     "number": 61,
@@ -485,7 +485,7 @@
     "slug": "61-playground-series-strategy",
     "skill": "kaggle-61-playground-series-strategy",
     "source_sha256": "1136e713f9def4b414b84465435def010cca22959bbe863d1a48b040ebf29bc8",
-    "question": "Which independent experiments fit a limited time budget when validation checks are required first?"
+    "question": "How much of the public leader's visible advantage is still there on private rows as more near-equal candidates are screened?"
   },
   {
     "number": 62,
@@ -493,7 +493,7 @@
     "slug": "62-kaggle-landscape-2024-2026",
     "skill": "kaggle-62-kaggle-landscape-2024-2026",
     "source_sha256": "c344969a190e8decb76ffbaab623c85c0511692f140a3230c6f0e197ef66907d",
-    "question": "Which inference pipeline fits a runtime cap once model loading and throughput are accounted for?"
+    "question": "At what deadline does a stronger model stop being the better pipeline, and what does a retained feasible reference recover?"
   },
   {
     "number": 63,
@@ -501,7 +501,7 @@
     "slug": "63-patterns-from-226-solutions",
     "skill": "kaggle-63-patterns-from-226-solutions",
     "source_sha256": "a45d7a64fe9c7da034f51efb4e182166eba06fd99ca09e81b6314d38603407c1",
-    "question": "What can an observed write-up mention rate support, and how uncertain is it in a small selected sample?"
+    "question": "When winners use a technique more often than the field does, how much does that say about the technique's effect?"
   },
   {
     "number": 64,
@@ -509,7 +509,7 @@
     "slug": "64-audio-and-signal",
     "skill": "kaggle-64-audio-and-signal",
     "source_sha256": "e0f15070442df76df7f1b2917bb459c63003426e780d94b0f7c8cbc16d524b91",
-    "question": "Does the requested signal-to-noise ratio match the power of the noise actually mixed into a signal?"
+    "question": "How far does chunk-level cross-validation overstate accuracy on new recordings, and does it distort the comparison between models?"
   },
   {
     "number": 65,
@@ -517,6 +517,6 @@
     "slug": "65-recommendation-systems",
     "skill": "kaggle-65-recommendation-systems",
     "source_sha256": "01ced0bb5625f49ae7399cd8a90d17af3723f340174b99c3a683f45c44d00e6f",
-    "question": "How does a capped union of candidate sources change recall, and what is the correct metric-specific ranking ceiling?"
+    "question": "As the candidate cap grows, how much of the rising oracle score does a trained reranker actually capture?"
   }
 ]
