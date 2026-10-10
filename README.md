@@ -1,6 +1,6 @@
 # Winning Kaggle the Reproducible Way: public companion
 
-*Validation, Feature Engineering, Ensembling and Leaderboard Strategy for Data Science Competitions*
+*Validation, Feature Engineering and Ensembling for Data Science Competitions*
 
 Companion notebooks, browser workbooks and modeling skills for Jason Karpeles' book. This public repository excludes the manuscript, complete chapters and book editions. The author maintains the full book references in a separate private repository.
 
